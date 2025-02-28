@@ -10,6 +10,7 @@
  * If the return value is >= 0, update_effigy_savefile() will be called later.
  */
 /datum/preferences/proc/effigy_savefile_needs_update(list/save_data)
+	#ifndef UNIT_TESTS
 	var/savefile_version = save_data["effigy_ext_version"]
 
 	if(isnull(savefile_version)) // We must be a legacy Effigy save, or from another modular codebase
@@ -26,5 +27,6 @@
 	logger.Log(LOG_CATEGORY_DEBUG, "Loading preferences for [parent]. Current Effigy version: [savefile_version]")
 	if(savefile_version < EFFIGY_SAVEFILE_VERSION_CURRENT)
 		return savefile_version
+	#endif
 
 	return NO_UPDATE_REQUIRED

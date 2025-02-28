@@ -6835,6 +6835,7 @@
 #include "local\code\modules\character_prefs\species\_species.dm"
 #include "local\code\modules\character_prefs\species\anthro.dm"
 #include "local\code\modules\character_prefs\species\aquatic.dm"
+#include "local\code\modules\character_prefs\species\monkey.dm"
 #include "local\code\modules\character_prefs\species\slugcat.dm"
 #include "local\code\modules\character_prefs\species\synth.dm"
 #include "local\code\modules\character_prefs\species\tajaran.dm"
