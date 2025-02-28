@@ -106,6 +106,15 @@
 ///The limb is snouted.
 #define BODYSHAPE_SNOUTED (1<<3)
 
+// EffigyEdit Add - Character Preferences
+// This is where our custom bodyshapes are going to go.  Keeping these in one place is critical for readability.
+// Numeric -> text for use in defines
+#define BODYSHAPE_HUMANOID_T "1"
+#define BODYSHAPE_MONKEY_T "2"
+#define BODYSHAPE_DIGITIGRADE_T "4"
+#define BODYSHAPE_SNOUTED_T "8"
+// EffigyEdit Add End
+
 #define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG)
 #define BODYTYPE_CAN_BE_BIOSCRAMBLED(bodytype) (!(bodytype & BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE))
 
