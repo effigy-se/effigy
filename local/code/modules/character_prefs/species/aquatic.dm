@@ -90,7 +90,7 @@
 			As a direct result; when doused in water you're super slippery!",
 		),
 		list(
-			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
 			SPECIES_PERK_ICON = FA_ICON_BOLT,
 			SPECIES_PERK_NAME = "Fibre Optic Friday",
 			SPECIES_PERK_DESC = "One day a week, these majestic, toothy creatures can gnaw \
