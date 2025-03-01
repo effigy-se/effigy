@@ -166,7 +166,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		tainted_character_profiles = FALSE
 
 	// EffigyEdit Add - Character Preferences
-	data["preview_selection"] = preview_style
+	data["character_preview_selection"] = preview_style
 	// EffigyEdit Add End
 
 	data["character_preferences"] = compile_character_preferences(user)
