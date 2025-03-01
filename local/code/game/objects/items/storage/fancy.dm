@@ -1,4 +1,3 @@
-/* EffigyEdit TODO - Examine++
 /obj/item/storage/fancy/cigarettes/cigpack_syndicate/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/unique_examine, \
@@ -6,4 +5,3 @@
 		to heal up without any long-term side-effects.", \
 		desc_requirement = EXAMINE_CHECK_ANTAG, \
 		requirements = GLOB.examine_syndicate_antag_list)
-*/

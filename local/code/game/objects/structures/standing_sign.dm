@@ -21,12 +21,11 @@
 /obj/structure/standing_sign/rimpoint/sinner_trail/Initialize(mapload)
 	. = ..()
 	var/static/list/woo_yeah_cult_yeah = list(FACTION_CULT)
-/*
 	AddElement(/datum/element/unique_examine, \
 		desc = "Sounds like your kind of party.", \
 		desc_requirement = EXAMINE_CHECK_FACTION, \
 		requirements = woo_yeah_cult_yeah)
-*/ // EFFIGY TODO: Examine++
+
 /obj/structure/standing_sign/rimpoint/extended_warranty
 	name = "VERY IMPORTANT"
 	desc = "It's a sign. It reads; \"Thank you for approaching our conveinent signpost! We've been trying to reach you about your \

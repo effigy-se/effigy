@@ -8,12 +8,10 @@
 	. = ..()
 	var/static/list/the_chief_engineer = list(/datum/job/chief_engineer)
 
-	/* EffigyEdit TODO - Examine++ this probably changed upstream
 	AddElement(/datum/element/unique_examine, \
 		desc = "...Aren't they going to update the name?", \
 		desc_requirement = EXAMINE_CHECK_JOB, \
 		requirements = the_chief_engineer)
-	*/
 
 // Rimpoint: added September 19th, 2023 (#428)
 /obj/structure/plaque/static_plaque/golden/commission/rimpoint

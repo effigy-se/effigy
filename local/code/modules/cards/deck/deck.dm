@@ -1,4 +1,3 @@
-/* EffigyEdit TODO - Examine++
 /obj/item/toy/cards/deck/syndicate/Initialize(mapload)
 	. = ..()
 
@@ -8,4 +7,3 @@
 		because [span_bold("nothing ever happens,")] and they're all in.", \
 		desc_requirement = EXAMINE_CHECK_ANTAG, \
 		requirements = GLOB.examine_syndicate_antag_list) // reference to one of my favorite stupid images
-*/
