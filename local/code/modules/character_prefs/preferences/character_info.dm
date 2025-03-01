@@ -7,6 +7,9 @@
 /datum/preference/text/flavor_text/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	target.dna.features["flavor_text"] = value
 
+/datum/preference/text/flavor_text/create_default_value()
+	return ""
+
 /datum/preference/text/silicon_flavor_text
 	category = PREFERENCE_CATEGORY_PROFILE
 	savefile_identifier = PREFERENCE_CHARACTER

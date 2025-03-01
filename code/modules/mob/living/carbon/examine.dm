@@ -298,6 +298,23 @@
 		ADD_NEWLINE_IF_NECESSARY(.)
 		. += "<b>Quirks:</b> [get_quirk_string(FALSE, CAT_QUIRK_ALL)]"
 
+	// EffigyEdit Add - Character Preferences
+	var/flavor_text_link
+	var/preview_text = copytext_char((dna.features["flavor_text"]), 1, FLAVOR_TEXT_PREVIEW_LIMIT)
+	var/face_obscured = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
+	if(!(face_obscured))
+		flavor_text_link = span_notice("[preview_text]... <a href='byond://?src=[REF(src)];lookup_info=open_examine_panel'>\[Examine\]</a>")
+	else
+		flavor_text_link = span_notice("<a href='byond://?src=[REF(src)];lookup_info=open_examine_panel'>\[Examine\]</a>")
+	if(!isnull(flavor_text_link))
+		. += flavor_text_link
+	if(client)
+		var/erp_status_pref = client.prefs.read_preference(/datum/preference/choiced/erp_status)
+		if(erp_status_pref)
+			ADD_NEWLINE_IF_NECESSARY(.)
+			. += span_info("ERP Status: [span_purple(EXAMINE_HINT(erp_status_pref))]")
+	// EffigyEdit Add End
+
 	SEND_SIGNAL(src, COMSIG_ATOM_EXAMINE, user, .)
 	if(length(.))
 		.[1] = "<span class='info'>" + .[1]
