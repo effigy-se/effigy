@@ -739,6 +739,7 @@ export function MainPage(props: MainPageProps) {
                 width="100%"
                 selected={data.character_preview_selection}
                 options={data.character_preview_styles}
+                placeholder="Character Preview Style"
                 onSelected={(value) =>
                   act('update_preview', {
                     updated_preview: value,
