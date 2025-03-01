@@ -903,8 +903,6 @@ generate/load female uniform sprites matching all previously decided variables
 
 	var/mutable_appearance/standing // this is the actual resulting MA
 	var/icon/building_icon // used to construct an icon across multiple procs before converting it to MA
-	// EffigyEdit Remove - Character Preferences
-	/*
 	if(female_uniform)
 		building_icon = wear_female_version(
 			icon_state = t_state,
@@ -912,8 +910,6 @@ generate/load female uniform sprites matching all previously decided variables
 			type = female_uniform,
 			greyscale_colors = greyscale_colors,
 		)
-	*/
-	// EffigyEdit Remove End
 	if(!isinhands && is_digi && (supports_variations_flags & CLOTHING_DIGITIGRADE_MASK))
 		building_icon = wear_digi_version(
 			base_icon = building_icon || icon(file2use, t_state),
@@ -921,16 +917,6 @@ generate/load female uniform sprites matching all previously decided variables
 			key = "[t_state]-[file2use]-[female_uniform]",
 			greyscale_colors = greyscale_colors,
 		)
-	// EffigyEdit Add - Character Preferences
-	// Use building_icon to allow for auto-generated digi sprites
-	if(female_uniform)
-		building_icon = wear_female_version(
-			icon_state = t_state,
-			icon = istype(building_icon) ? building_icon : file2use,
-			type = female_uniform,
-			greyscale_colors = greyscale_colors,
-		)
-	// EffigyEdit Add End
 	if(building_icon)
 		standing = mutable_appearance(building_icon, layer = -layer2use)
 
