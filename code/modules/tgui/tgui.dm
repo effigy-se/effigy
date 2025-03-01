@@ -250,14 +250,17 @@
 		"status" = status,
 		"interface" = list(
 			"name" = interface,
-			"layout" = user.client.prefs.read_preference(/datum/preference/choiced/tgui_layout),
+			//"layout" = user.client.prefs.read_preference(/datum/preference/choiced/tgui_layout),
+			"layout" = TGUI_LAYOUT_DEFAULT, // EffigyEdit Change - Stop TGUI White Box
 		),
 		"refreshing" = refreshing,
 		"window" = list(
 			"key" = window_key,
 			"size" = window_size,
-			"fancy" = user.client.prefs.read_preference(/datum/preference/toggle/tgui_fancy),
-			"locked" = user.client.prefs.read_preference(/datum/preference/toggle/tgui_lock),
+			//"fancy" = user.client.prefs.read_preference(/datum/preference/toggle/tgui_fancy),
+			"fancy" = TRUE, // EffigyEdit Change - Stop TGUI White Box
+			//"locked" = user.client.prefs.read_preference(/datum/preference/toggle/tgui_lock),
+			"locked" = FALSE, // EffigyEdit Change - Stop TGUI White Box
 		),
 		"client" = list(
 			"ckey" = user.client.ckey,
