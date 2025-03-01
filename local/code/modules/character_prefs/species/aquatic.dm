@@ -94,7 +94,7 @@
 			SPECIES_PERK_ICON = FA_ICON_BOLT,
 			SPECIES_PERK_NAME = "Fibre Optic Friday",
 			SPECIES_PERK_DESC = "One day a week, these majestic, toothy creatures can gnaw \
-			through the station’s critical infrastructure with zero consequences... for them.",
+			through the station’s critical infrastructure. Mind the shock!",
 		)
 	)
 

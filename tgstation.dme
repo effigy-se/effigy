@@ -557,6 +557,7 @@
 #include "code\__HELPERS\sorts\helpers.dm"
 #include "code\__HELPERS\sorts\sort_instance.dm"
 #include "code\__HELPERS\~effigy\emotes.dm"
+#include "code\__HELPERS\~effigy\is_helpers.dm"
 #include "code\__HELPERS\~effigy\logging.dm"
 #include "code\__HELPERS\~effigy\mobs.dm"
 #include "code\__HELPERS\~effigy\text.dm"

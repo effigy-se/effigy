@@ -1,7 +1,6 @@
-/* EffigyEdit TODO: Fibre Optic Friday once we have sharks
 /obj/structure/cable/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
-	if(isakula(user) || isaquatic(user))
+	if(isaquatic(user))
 		var/mob/living/hungry_shark = user
 		if(hungry_shark.combat_mode && time2text(world.timeofday, "DDD", TIMEZONE_PST) == FRIDAY)
 			if(shock(user, 30)) // While you don't need wirecutters... come on.
@@ -11,7 +10,6 @@
 			investigate_log("was cut by [key_name(usr)] in [AREACOORD(src)]", INVESTIGATE_WIRES)
 			deconstruct()
 			return
-*/
 
 /obj/item/stack/cable_coil
 	/// How long it takes to apply cable to your own robotic limbs to heal their burns.
