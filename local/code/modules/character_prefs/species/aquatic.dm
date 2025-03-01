@@ -88,6 +88,13 @@
 			SPECIES_PERK_NAME = "Slippery When Wet",
 			SPECIES_PERK_DESC = "Your fishy nature attracts comical hijinx. \
 			As a direct result; when doused in water you're super slippery!",
+		),
+		list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = FA_ICON_BOLT,
+			SPECIES_PERK_NAME = "Fibre Optic Friday",
+			SPECIES_PERK_DESC = "You are a majestic, toothy creature, and one day a week \
+			you can gnaw through the station’s critical infrastructure without consequences... for you.",
 		)
 	)
 
