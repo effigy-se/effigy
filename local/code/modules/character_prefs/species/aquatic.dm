@@ -7,6 +7,7 @@
 	id = SPECIES_AQUATIC
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
+		TRAIT_SLIPPERY_WHEN_WET,
 		TRAIT_WATER_BREATHING,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
@@ -80,6 +81,13 @@
 			SPECIES_PERK_NAME = "Water Breathing",
 			SPECIES_PERK_DESC = "Gills or not - you have the innate ability to \
 				breathe while submerged in water - or any other liquid!",
+		),
+		list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = FA_ICON_PERSON_FALLING,
+			SPECIES_PERK_NAME = "Slippery When Wet",
+			SPECIES_PERK_DESC = "Your fishy nature attracts comical hijinx. \
+			As a direct result; when doused in water you're super slippery!",
 		)
 	)
 
