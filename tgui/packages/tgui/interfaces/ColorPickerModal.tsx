@@ -32,11 +32,11 @@ import { clamp } from 'tgui-core/math';
 import { classes } from 'tgui-core/react';
 
 import { useBackend } from '../backend';
-import { Pointer } from '../effigy/Pointer';
 import { Window } from '../layouts';
 import { Interaction, Interactive } from './common/effigy/Interactive';
 import { InputButtons } from './common/InputButtons';
 import { Loader } from './common/Loader';
+import { Pointer } from './common/Pointer';
 
 interface ColorPickerData {
   autofocus: boolean;

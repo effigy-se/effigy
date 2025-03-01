@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useBackend } from 'tgui/backend';
-import { Dropdown, Stack } from 'tgui-core/components';
+import { Stack } from 'tgui-core/components';
 import { exhaustiveCheck } from 'tgui-core/exhaustive';
 
+import { SideDropdown } from '../../../effigy/SideDropdown';
 import { PageButton } from '../components/PageButton';
 import { PreferencesMenuData } from '../types';
 import { AntagsPage } from './AntagsPage';
@@ -33,7 +34,7 @@ function CharacterProfiles(props: ProfileProps) {
   return (
     <Stack align="center" justify="left">
       <Stack.Item width="336px">
-        <Dropdown
+        <SideDropdown
           width="100%"
           selected={profiles[activeSlot]}
           options={profiles.map((profile, slot) => ({

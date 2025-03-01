@@ -11,12 +11,13 @@ import {
   Popper,
   Stack,
 } from 'tgui-core/components';
-import { exhaustiveCheck } from 'tgui-core/exhaustive'; // EffigyEdit Add - Character Preferences
+import { exhaustiveCheck } from 'tgui-core/exhaustive';
 import { classes } from 'tgui-core/react';
 import { createSearch } from 'tgui-core/string';
 
+import { SideDropdown } from '../../../effigy/SideDropdown';
 import { CharacterPreview } from '../../common/CharacterPreview';
-import { PageButton } from '../components/PageButton'; // EffigyEdit Add - Character Preferences
+import { PageButton } from '../components/PageButton';
 import { RandomizationButton } from '../components/RandomizationButton';
 import { features } from '../preferences/features';
 import {
@@ -729,6 +730,19 @@ export function MainPage(props: MainPageProps) {
                 setGender={createSetPreference(act, 'gender')}
                 showGender={
                   currentSpeciesData ? !!currentSpeciesData.sexes : true
+                }
+              />
+            </Stack.Item>
+
+            <Stack.Item mt="10px">
+              <SideDropdown
+                width="100%"
+                selected={data.character_preview_selection}
+                options={data.character_preview_styles}
+                onSelected={(value) =>
+                  act('update_preview', {
+                    updated_preview: value,
+                  })
                 }
               />
             </Stack.Item>

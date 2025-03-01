@@ -5,8 +5,8 @@
 	// Set up the dummy for its photoshoot
 	apply_prefs_to(mannequin, TRUE)
 
-	switch(preview_pref)
-		if(PREVIEW_PREF_JOB)
+	switch(preview_style)
+		if(PREVIEW_STYLE_JOB)
 			mannequin.underwear_visibility = NONE
 			// Silicons only need a very basic preview since there is no customization for them.
 			if (istype(preview_job, /datum/job/ai))
@@ -22,15 +22,15 @@
 				consistent = TRUE,
 			)
 
-		if(PREVIEW_PREF_LOADOUT)
+		if(PREVIEW_STYLE_LOADOUT)
 			mannequin.underwear_visibility = NONE
 			var/default_outfit = new /datum/outfit()
 			mannequin.equip_outfit_and_loadout(default_outfit, src, TRUE)
 
-		if(PREVIEW_PREF_UNDERWEAR)
+		if(PREVIEW_STYLE_UNDERWEAR)
 			mannequin.underwear_visibility = NONE
 
-		if(PREVIEW_PREF_NAKED)
+		if(PREVIEW_STYLE_NAKED)
 			mannequin.underwear_visibility = UNDERWEAR_HIDE_UNDIES | UNDERWEAR_HIDE_SHIRT | UNDERWEAR_HIDE_SOCKS | UNDERWEAR_HIDE_BRA
 
 	// Apply visual quirks

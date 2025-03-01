@@ -141,6 +141,9 @@ export type PreferencesMenuData = {
   character_preview_view: string;
   character_profiles: (string | null)[];
 
+  character_preview_styles: string[]; // EffigyEdit Add - Character Preferences
+  character_preview_selection: string; // EffigyEdit Add - Character Preferences
+
   character_preferences: {
     clothing: Record<string, string>;
     features: Record<string, string>;

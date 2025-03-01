@@ -165,6 +165,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		data["character_profiles"] = create_character_profiles()
 		tainted_character_profiles = FALSE
 
+	// EffigyEdit Add - Character Preferences
+	data["preview_selection"] = preview_style
+	// EffigyEdit Add End
+
 	data["character_preferences"] = compile_character_preferences(user)
 
 	data["active_slot"] = default_slot
@@ -178,6 +182,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/data = list()
 
 	data["character_profiles"] = create_character_profiles()
+
+	// EffigyEdit Add - Character Preferences
+	data["character_preview_styles"] = list(PREVIEW_STYLE_JOB, PREVIEW_STYLE_LOADOUT, PREVIEW_STYLE_UNDERWEAR, PREVIEW_STYLE_NAKED)
+	// EffigyEdit Add End
 
 	data["character_preview_view"] = character_preview_view.assigned_map
 	data["overflow_role"] = SSjob.get_job_type(SSjob.overflow_role).title
@@ -304,7 +312,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			return TRUE
 
 		if("update_preview")
-			preview_pref = params["updated_preview"]
+			preview_style = params["updated_preview"]
 			character_preview_view.update_body()
 			return TRUE
 		// EffigyEdit Add End

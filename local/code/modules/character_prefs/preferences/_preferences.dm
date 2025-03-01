@@ -1,6 +1,6 @@
 /datum/preferences
 	/// Preference of how the preview should show the character.
-	var/preview_pref = PREVIEW_PREF_JOB
+	var/preview_style = PREVIEW_STYLE_JOB
 
 // Updates the mob's chat color in the global cache
 /datum/preferences/safe_transfer_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, is_antag = FALSE)
