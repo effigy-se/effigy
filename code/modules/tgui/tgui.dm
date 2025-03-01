@@ -245,27 +245,22 @@
  */
 /datum/tgui/proc/get_payload(custom_data, with_data, with_static_data)
 	var/list/json_data = list()
-	// EffigyEdit Add - Stop TGUI White Box
-	var/layout_pref = get_cached_tgui_layout_pref(user.client.ckey)
-	var/fancy_pref = get_cached_tgui_fancy_pref(user.client.ckey)
-	var/locked_pref = get_cached_tgui_locked_pref(user.client.ckey)
-	// EffigyEdit Add End
 	json_data["config"] = list(
 		"title" = title,
 		"status" = status,
 		"interface" = list(
 			"name" = interface,
 			//"layout" = user.client.prefs.read_preference(/datum/preference/choiced/tgui_layout),
-			"layout" = layout_pref, // EffigyEdit Change - Stop TGUI White Box
+			"layout" = get_cached_tgui_layout_pref(user.client.ckey), // EffigyEdit Change - Stop TGUI White Box
 		),
 		"refreshing" = refreshing,
 		"window" = list(
 			"key" = window_key,
 			"size" = window_size,
 			//"fancy" = user.client.prefs.read_preference(/datum/preference/toggle/tgui_fancy),
-			"fancy" = fancy_pref, // EffigyEdit Change - Stop TGUI White Box
+			"fancy" = get_cached_tgui_fancy_pref(user.client.ckey), // EffigyEdit Change - Stop TGUI White Box
 			//"locked" = user.client.prefs.read_preference(/datum/preference/toggle/tgui_lock),
-			"locked" = locked_pref, // EffigyEdit Change - Stop TGUI White Box
+			"locked" = get_cached_tgui_locked_pref(user.client.ckey), // EffigyEdit Change - Stop TGUI White Box
 		),
 		"client" = list(
 			"ckey" = user.client.ckey,
