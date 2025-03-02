@@ -73,6 +73,8 @@ export const getRoutedComponent = () => {
   const interfacePathBuilders = [
     (name: string) => `./${name}.tsx`,
     (name: string) => `./${name}.jsx`,
+    (name: string) => `./effigy/${name}.tsx`, // EffigyEdit Add
+    (name: string) => `./effigy/${name}.jsx`, // EffigyEdit Add
     (name: string) => `./${name}/index.tsx`,
     (name: string) => `./${name}/index.jsx`,
   ];

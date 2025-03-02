@@ -23,6 +23,6 @@ export const display_gender: FeatureChoiced = {
 };
 
 export const erp_status_pref: FeatureChoiced = {
-  name: 'ERP Status',
+  name: 'Character ERP Status',
   component: FeatureDropdownInput,
 };
