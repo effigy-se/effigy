@@ -61,7 +61,7 @@ export const custom_species: Feature<string> = {
 export const custom_species_silicon: Feature<string> = {
   name: 'Custom Silicon Model',
   description:
-    'The name of the module for your Silicon company, such as "Armadyne Pleasure Model."',
+    'The name of the module for your Silicon company, such as "NTHI-E1 Construct"',
   component: FeatureShortTextInput,
 };
 
@@ -89,7 +89,7 @@ export const general_record: Feature<string> = {
 export const security_record: Feature<string> = {
   name: 'Records - Security',
   description:
-    'Your security records! These are records for criminal records, arrest history, things like that. Sec officers can view these.',
+    'Your security records! These are records for criminal records, arrest history, things like that. Security officers can view these.',
   component: FeatureTextAreaInput,
 };
 
@@ -109,7 +109,8 @@ export const exploitable_info: Feature<string> = {
 
 export const background_info: Feature<string> = {
   name: 'Records - Background',
-  description: 'nobody uses this lmao',
+  description:
+    "Your background! These are generally for past information that won't otherwise fit cleanly into the other categories.",
   component: FeatureTextAreaInput,
 };
 
