@@ -8,14 +8,8 @@
 		BODYSHAPE_SNOUTED_T = 'local/icons/mob/clothing/mask_snout.dmi',
 	)
 
-/obj/item/clothing/mask/animal/horsehead
-	supported_bodyshapes = null
-	bodyshape_icon_files = null
+NO_DIGI_OR_SNOUT_VARIANT_HELPER(/obj/item/clothing/mask/animal/horsehead)
 
-/obj/item/clothing/mask/animal/cowmask
-	supported_bodyshapes = null
-	bodyshape_icon_files = null
+NO_DIGI_OR_SNOUT_VARIANT_HELPER(/obj/item/clothing/mask/animal/cowhead)
 
-/obj/item/clothing/mask/animal/pig
-	supported_bodyshapes = null
-	bodyshape_icon_files = null
+NO_DIGI_OR_SNOUT_VARIANT_HELPER(/obj/item/clothing/mask/animal/pig)

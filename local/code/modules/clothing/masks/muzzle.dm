@@ -8,7 +8,5 @@
 		BODYSHAPE_SNOUTED_T = 'local/icons/mob/clothing/mask_snout.dmi',
 	)
 
-/// EffigyEdit TODO - greyscale handling for this?? also the icon state for it
-/obj/item/clothing/mask/muzzle/tape
-	supported_bodyshapes = null
-	bodyshape_icon_files = null
+/// EffigyEdit TODO - Greyscale handling for this and ALL OTHER gags icons w/ snout and digi variants
+NO_DIGI_OR_SNOUT_VARIANT_HELPER(/obj/item/clothing/mask/muzzle/tape)

@@ -8,6 +8,4 @@
 		BODYSHAPE_SNOUTED_T = 'local/icons/mob/clothing/mask_snout.dmi',
 	)
 
-/obj/item/cigarette/dart
-	supported_bodyshapes = null
-	bodyshape_icon_files = null
+NO_DIGI_OR_SNOUT_VARIANT_HELPER(/obj/item/cigarette/dart)
