@@ -140,3 +140,13 @@
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/costume.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'local/icons/mob/clothing/suits/costume_digi.dmi',
 	)
+
+/obj/item/clothing/head/hooded/bee_hood
+	supported_bodyshapes = list(
+		BODYSHAPE_HUMANOID,
+		BODYSHAPE_SNOUTED
+		)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/costume.dmi',
+		BODYSHAPE_SNOUTED_T = 'local/icons/mob/clothing/head/costume_snout.dmi',
+	)
