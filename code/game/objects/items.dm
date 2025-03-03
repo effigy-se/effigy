@@ -445,6 +445,7 @@
 	if(greyscale_config_inhand_right)
 		righthand_file = SSgreyscale.GetColoredIconByType(greyscale_config_inhand_right, greyscale_colors)
 	*/
+	/// EffigyEdit TODO: make this functional
 	if(greyscale_config_worn_bodyshapes && greyscale_config_last_bodyshape)
 		if(greyscale_config_worn_bodyshapes[greyscale_config_last_bodyshape])
 			greyscale_config_worn = greyscale_config_worn_bodyshapes[greyscale_config_last_bodyshape]
