@@ -125,8 +125,8 @@
 	robot_for_preview.dna.ear_type = CYBERNETIC_TYPE
 	robot_for_preview.dna.features["ears"] = "No Ears"
 	robot_for_preview.dna.features["ears_color_1"] = "#333333"
-	human_for_preview.dna.tail_type = CYBERNETIC_TYPE
-	human_for_preview.dna.features["tail_other"] = /datum/sprite_accessory/tails/lizard/none::name
+	robot_for_preview.dna.tail_type = CYBERNETIC_TYPE
+	robot_for_preview.dna.features["tail_other"] = /datum/sprite_accessory/tails/lizard/none::name
 	robot_for_preview.dna.features["frame_list"] = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/robot/android/sgm,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/robot/android/sgm,
