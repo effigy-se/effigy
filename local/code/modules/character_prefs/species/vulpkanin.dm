@@ -35,7 +35,8 @@
 	human_for_preview.dna.features["ears"] = /datum/sprite_accessory/ears_anthro/fox/default::name
 	human_for_preview.dna.features["ears_color_1"] = "#995a1e"
 	human_for_preview.dna.features["ears_color_2"] = "#ad9c88"
-	human_for_preview.dna.tail_type = NO_VARIATION
+	human_for_preview.dna.tail_type = MAMMAL_TYPE
+	human_for_preview.dna.features["tail_other"] = /datum/sprite_accessory/tails/lizard/none::name
 	human_for_preview.set_haircolor("#904b2b", update = FALSE)
 	human_for_preview.set_hairstyle(/datum/sprite_accessory/hair/antenna::name, update = TRUE)
 	human_for_preview.eye_color_left = "#8b8d2a"

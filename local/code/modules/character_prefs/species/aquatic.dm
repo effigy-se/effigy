@@ -37,6 +37,8 @@
 	human_for_preview.dna.features["ears"] = "Sergal"
 	human_for_preview.dna.features["ears_color_1"] = "#3a4552"
 	human_for_preview.dna.features["ears_color_2"] = "#ddddec"
+	human_for_preview.dna.tail_type = MAMMAL_TYPE
+	human_for_preview.dna.features["tail_other"] = /datum/sprite_accessory/tails/lizard/none::name
 	human_for_preview.dna.features["horns"] = "Ram"
 	human_for_preview.dna.features["horns_color_1"] = "#3a4552"
 	human_for_preview.dna.features["horns_color_2"] = "#3a4552"

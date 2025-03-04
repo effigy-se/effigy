@@ -34,7 +34,8 @@
 	human_for_preview.dna.features["ears"] = "Big"
 	human_for_preview.dna.features["ears_color_1"] = "#776155"
 	human_for_preview.dna.features["ears_color_2"] = "#ffffff"
-	human_for_preview.dna.tail_type = NO_VARIATION
+	human_for_preview.dna.tail_type = MAMMAL_TYPE
+	human_for_preview.dna.features["tail_other"] = /datum/sprite_accessory/tails/lizard/none::name
 	human_for_preview.set_haircolor("#574036", update = FALSE)
 	human_for_preview.set_hairstyle("Emo Long", update = TRUE)
 	human_for_preview.eye_color_left = "#C4F87A"
