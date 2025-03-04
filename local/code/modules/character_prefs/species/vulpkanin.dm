@@ -26,22 +26,19 @@
 
 /datum/species/vulpkanin/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.dna.features["lizard_markings"] = "No Markings"
-	human_for_preview.dna.features["body_markings_color_1"] = "#ddddec"
-	human_for_preview.dna.features["mcolor"] = "#3a4552"
-	human_for_preview.dna.features["snout"] = "Akula"
-	human_for_preview.dna.features["snout_color_1"] = "#3a4552"
-	human_for_preview.dna.features["snout_color_2"] = "#ddddec"
-	human_for_preview.dna.ear_type = MAMMAL_TYPE
-	human_for_preview.dna.features["ears"] = "Sergal"
-	human_for_preview.dna.features["ears_color_1"] = "#3a4552"
-	human_for_preview.dna.features["ears_color_2"] = "#ddddec"
-	human_for_preview.dna.features["horns"] = "Ram"
-	human_for_preview.dna.features["horns_color_1"] = "#3a4552"
-	human_for_preview.dna.features["horns_color_2"] = "#3a4552"
-	human_for_preview.set_haircolor("#2b6690", update = FALSE)
-	human_for_preview.set_hairstyle("Ponytail (Side) 3", update = TRUE)
-	human_for_preview.eye_color_left = "#2a6418"
-	human_for_preview.eye_color_right = "#2a6418"
+	human_for_preview.dna.features["body_markings_color_1"] = "#ad9c88"
+	human_for_preview.dna.features["mcolor"] = "#995a1e"
+	human_for_preview.dna.features["snout"] = /datum/sprite_accessory/snouts/mammal_short::name
+	human_for_preview.dna.features["snout_color_1"] = "#995a1e"
+	human_for_preview.dna.features["snout_color_2"] = "#ad9c88"
+	human_for_preview.dna.ear_type = FOX_TYPE
+	human_for_preview.dna.features["ears"] = /datum/sprite_accessory/ears_anthro/fox/default::name
+	human_for_preview.dna.features["ears_color_1"] = "#995a1e"
+	human_for_preview.dna.features["ears_color_2"] = "#ad9c88"
+	human_for_preview.set_haircolor("#904b2b", update = FALSE)
+	human_for_preview.set_hairstyle(/datum/sprite_accessory/hair/antenna::name, update = TRUE)
+	human_for_preview.eye_color_left = "#8b8d2a"
+	human_for_preview.eye_color_right = "#8b8d2a"
 	regenerate_organs(human_for_preview)
 	human_for_preview.update_body(is_creating = TRUE)
 
