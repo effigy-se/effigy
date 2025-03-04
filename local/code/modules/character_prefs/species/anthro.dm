@@ -34,6 +34,7 @@
 	human_for_preview.dna.features["ears"] = "Big"
 	human_for_preview.dna.features["ears_color_1"] = "#776155"
 	human_for_preview.dna.features["ears_color_2"] = "#ffffff"
+	human_for_preview.dna.tail_type = NO_VARIATION
 	human_for_preview.set_haircolor("#574036", update = FALSE)
 	human_for_preview.set_hairstyle("Emo Long", update = TRUE)
 	human_for_preview.eye_color_left = "#C4F87A"
@@ -54,7 +55,7 @@
 /datum/species/anthro/get_species_lore()
 	return list(
 		"While there is no unified history that connects the tale of all existant anthromorphs; due to the \
-			vastly varying methods for contact with human space; if not being part of it - it's yet still\
+			vastly varying methods for contact with human space; if not being part of it - it's yet still \
 			easy enough to point fingers to a specific event for their widespread variety and proliferation.",
 
 		"Humanity's first contact with Bluespace in 2026; following Voyager II's mysterious reappearance on Earth, \
