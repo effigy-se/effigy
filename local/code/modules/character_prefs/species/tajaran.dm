@@ -36,7 +36,7 @@
 	human_for_preview.dna.features["ears_color_1"] = "#303030"
 	human_for_preview.dna.features["ears_color_2"] = "#242424"
 	human_for_preview.dna.tail_type = CAT_TYPE
-	human_for_preview.dna.features["tail_cat"] = /datum/sprite_accessory/tails/felinid
+	human_for_preview.dna.features["tail_cat"] = /datum/sprite_accessory/tails/felinid/cat/cat_big::name
 	human_for_preview.set_haircolor("#cab7a7", update = FALSE)
 	human_for_preview.set_hairstyle(/datum/sprite_accessory/hair/modular/bonnie::name, update = TRUE)
 	human_for_preview.eye_color_left = "#ffd000"
