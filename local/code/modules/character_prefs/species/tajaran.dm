@@ -45,9 +45,9 @@
 	human_for_preview.update_body(is_creating = TRUE)
 
 /datum/species/tajaran/get_species_description()
-	return "Your description here!"
+	return "The Tajara are a cat-like humanoid species."
 
 /datum/species/tajaran/get_species_lore()
 	return list(
-		"Your lore here!",
+		"This species' history has yet to be written.",
 	)

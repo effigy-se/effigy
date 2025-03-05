@@ -45,9 +45,9 @@
 	human_for_preview.update_body(is_creating = TRUE)
 
 /datum/species/slugcat/get_species_description()
-	return "Your description here!"
+	return "Slugcats are a slimy cat-like humanoid species."
 
 /datum/species/slugcat/get_species_lore()
 	return list(
-		"Your lore here!",
+		"This species' history has yet to be written.",
 	)

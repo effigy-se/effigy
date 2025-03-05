@@ -3,7 +3,7 @@
 
 /datum/species/vulpkanin
 	name = "Vulpkanin"
-	plural_form = "Vulpkanin"
+	plural_form = "Vulpkane"
 	id = SPECIES_VULP
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
@@ -45,9 +45,9 @@
 	human_for_preview.update_body(is_creating = TRUE)
 
 /datum/species/vulpkanin/get_species_description()
-	return "Your description here!"
+	return "The vulpkane are a fox-like humanoid species."
 
 /datum/species/vulpkanin/get_species_lore()
 	return list(
-		"Your lore here!",
+		"This species' history has yet to be written.",
 	)
