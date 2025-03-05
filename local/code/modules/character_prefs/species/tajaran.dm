@@ -7,6 +7,10 @@
 	id = SPECIES_TAJARAN
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
+		TRAIT_CATLIKE_GRACE,
+		TRAIT_HATED_BY_DOGS,
+		TRAIT_WATER_HATER,
+		TRAIT_MINOR_NIGHT_VISION,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
@@ -43,6 +47,9 @@
 	human_for_preview.eye_color_right = "#ffd000"
 	regenerate_organs(human_for_preview)
 	human_for_preview.update_body(is_creating = TRUE)
+
+/datum/species/tajaran/get_hiss_sound(mob/living/carbon/human/felinid)
+	return 'sound/mobs/humanoids/felinid/felinid_hiss.ogg'
 
 /datum/species/tajaran/get_species_description()
 	return "The Tajara are a cat-like humanoid species."
