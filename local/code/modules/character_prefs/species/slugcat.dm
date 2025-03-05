@@ -47,6 +47,10 @@
 	regenerate_organs(human_for_preview)
 	human_for_preview.update_body(is_creating = TRUE)
 
+/datum/species/slugcat/get_physical_attributes()
+	return "Slugcats are naturally moist and retain extinguisher sprays and other sources of \"wetness\" \
+		for longer." // Species needs more going on imo
+
 /datum/species/slugcat/get_species_description()
 	return "Slugcats are a slimy cat-like humanoid species."
 

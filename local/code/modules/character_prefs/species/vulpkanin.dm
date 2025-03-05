@@ -44,6 +44,9 @@
 	regenerate_organs(human_for_preview)
 	human_for_preview.update_body(is_creating = TRUE)
 
+/datum/species/vulpkanin/get_physical_attributes()
+	return "Vulpkane have no special attributes." // Species needs unique traits to themselves
+
 /datum/species/vulpkanin/get_species_description()
 	return "The vulpkane are a fox-like humanoid species."
 

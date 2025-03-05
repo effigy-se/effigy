@@ -51,9 +51,9 @@
 	human_for_preview.update_body(is_creating = TRUE)
 
 /datum/species/aquatic/get_physical_attributes()
-	return "Aquatics, while coming in all shapes and sizes akin to anthromorphs - are more typically, \
-	if nebulously from pop-culture influence, seen as athletic swimmers with some fishlike heritage. To \
-	that end, they have the innate ability to breathe trace amounts of oxygen in any pool of liquid."
+	return "Aquatics have their fishy nature to thank for their waterbreathing and ability to slip \
+		others while wet. They are additionally able to snip wires - with their teeth - on fridays only. The \
+		usual insulation restrictions still apply."
 
 /datum/species/aquatic/get_species_description()
 	return "Just like the anthromorph, aquatic history is frayed, split down from multiple origins and, now, mingling \
