@@ -34,3 +34,8 @@
 
 			//if("open_character_ad")
 			//	usr.client?.show_character_directory(specific_ad = real_name)
+
+/mob/living/carbon/human/Move(NewLoc, direct)
+	. = ..()
+	if(wear_neck && body_position == STANDING_UP && loc == NewLoc && has_gravity(loc))
+		SEND_SIGNAL(wear_neck, COMSIG_NECK_STEP_ACTION)
