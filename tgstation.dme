@@ -6999,6 +6999,7 @@
 #include "local\code\modules\liquids\reagents\chemistry\holder.dm"
 #include "local\code\modules\liquids\reagents\chemistry\reagents.dm"
 #include "local\code\modules\loadout\categories\neck.dm"
+#include "local\code\modules\loadout\categories\pocket.dm"
 #include "local\code\modules\logging\categories\log_category_effigy.dm"
 #include "local\code\modules\mapfluff\interlink\event_venue.dm"
 #include "local\code\modules\mapfluff\ruins\jungle_ruin_code.dm"
