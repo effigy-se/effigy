@@ -1,0 +1,10 @@
+/obj/item/clothing/shoes/magboots
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supported_bodyshapes = list(
+		BODYSHAPE_HUMANOID,
+		BODYSHAPE_DIGITIGRADE
+	)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/obj/clothing/shoes.dmi',
+		BODYSHAPE_DIGITIGRADE_T = 'local/icons/mob/clothing/feet_digi.dmi',
+	)
