@@ -7,4 +7,3 @@
 	AddElement(/datum/element/unique_examine, \
 		desc = "There's a bit of extra heft to this die.", \
 		desc_requirement = EXAMINE_CHECK_NONE)
-/// EffigyEdit TODO - add to loadout
