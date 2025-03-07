@@ -11439,11 +11439,11 @@
 /turf/open/floor/iron/herringbone,
 /area/station/service/cafeteria)
 "ebD" = (
-/obj/machinery/holopad,
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
 /obj/structure/extinguisher_cabinet/directional/east,
+/obj/machinery/jukebox,
 /turf/open/floor/wood/large,
 /area/station/service/bar)
 "ebG" = (
@@ -18191,6 +18191,14 @@
 /obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/iron/white,
 /area/station/science/ordnance/storage)
+"gvl" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/holopad,
+/turf/open/floor/wood/parquet,
+/area/station/service/bar)
 "gvy" = (
 /obj/machinery/door/airlock/atmos/glass,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
@@ -113349,7 +113357,7 @@ rqs
 kEk
 gnN
 uvO
-lOi
+gvl
 gpM
 sEZ
 hAE
