@@ -107,9 +107,16 @@
 			new_track.song_beat = text2num(track_data[3])
 			config_songs[new_track.song_name] = new_track
 
+		/* // EFFIGY REMOVAL - ADDITIONAL DEFAULT JUKEBOX SONGS //
 		if(!length(config_songs))
 			var/datum/track/default/default_track = new()
 			config_songs[default_track.song_name] = default_track
+		*/ // EFFIGY REMOVAL END
+		// EFFIGY ADD BEGIN
+		var/list/all_default_tracks = typesof(/datum/track/default)
+		for(var/datum/track/default/found_track as anything in all_default_tracks)
+			config_songs[found_track.song_name] = new found_track()
+		// EFFIGY ADD END
 
 	// returns a copy so it can mutate if desired.
 	return config_songs.Copy()

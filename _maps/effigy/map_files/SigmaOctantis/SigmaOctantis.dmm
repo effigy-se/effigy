@@ -911,7 +911,7 @@
 /turf/open/floor/iron,
 /area/station/cargo/office)
 "ajc" = (
-/obj/structure/aquarium,
+/obj/machinery/jukebox,
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/wood/parquet,
 /area/station/service/bar)

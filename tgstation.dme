@@ -6603,6 +6603,7 @@
 #include "local\code\datums\components\damage_tracker.dm"
 #include "local\code\datums\components\pixel_shift_component.dm"
 #include "local\code\datums\components\crafting\structures.dm"
+#include "local\code\datums\components\jukebox\tracks.dm"
 #include "local\code\datums\effigy\effigy_registration.dm"
 #include "local\code\datums\effigy\effigy_services.dm"
 #include "local\code\datums\greyscale\config_types\greyscale_configs\greyscale_airlocks.dm"
