@@ -13,7 +13,6 @@
 // END_PREFERENCES
 
 // BEGIN_INCLUDE
-#include "__odlint.dm"
 #include "_maps\_basemap.dm"
 #include "code\__byond_version_compat.dm"
 #include "code\_compile_options.dm"
@@ -6903,7 +6902,8 @@
 #include "local\code\modules\clothing\masks\mousetache.dm"
 #include "local\code\modules\clothing\masks\muzzle.dm"
 #include "local\code\modules\clothing\masks\surgical.dm"
-#include "local\code\modules\clothing\shoes\_shoes.dm"
+#include "local\code\modules\clothing\shoes\sandals.dm"
+#include "local\code\modules\clothing\shoes\sneakers.dm"
 #include "local\code\modules\clothing\spacesuits\_spacesuits.dm"
 #include "local\code\modules\clothing\storage\backpacks.dm"
 #include "local\code\modules\clothing\suits\armor.dm"
