@@ -12,7 +12,7 @@
 
 	product_categories = list(
 		list(
-			"name" = "Wearables",
+			"name" = "Fashion",
 			"icon" = FA_ICON_SHIRT,
 			"products" = list(
 				/// Collars
@@ -43,6 +43,9 @@
 			"icon" = FA_ICON_HANDCUFFS,
 			"products" = list(
 				/obj/item/restraints/handcuffs/fake = 2,
+				/obj/item/clothing/glasses/blindfold = 4,
+				/obj/item/clothing/glasses/blindfold/dorms = 4,
+				/obj/item/clothing/mask/muzzle = 4,
 			),
 		),
 		list(
@@ -50,6 +53,7 @@
 			"icon" = FA_ICON_TOOLBOX,
 			"products" = list(
 				/obj/item/clothing/erp_leash = 8,
+				/obj/item/clothing/glasses/hypno = 4,
 			),
 		),
 	)
