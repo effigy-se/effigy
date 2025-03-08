@@ -1,11 +1,35 @@
 /// ADDITIONAL DEFAULT JUKEBOX MUSIC TRACKS ///
 
 /*
-	Why do it this way? Long and short of it is this music was produced for Effigy specifically as-was.
+	Why do it this way? Long and short of it is this music was (mostly) produced for Effigy specifically as-was.
 	It would work fine in-config; but these tracks are largely part of the codebase and deserve a seat.
 	For that reason; sounds shouldn't be added this way solely for the purpose of being played over the
 	jukebox & should still follow the codebase's standards for sounds.
 */
+
+/// SS13 TITLE MUSIC
+/datum/track/default
+	name = "Cuboos - TinTin On The Moon"
+
+/datum/track/default/title_zero
+	song_path = 'sound/music/lobby_music/title0.ogg'
+	song_name = "SolusLunes - Endless Space"
+	song_length = 3 MINUTES + 25 SECONDS
+	song_beat = 1 SECONDS
+
+/datum/track/default/title_one
+	song_path = 'sound/music/lobby_music/title1.mod'
+	song_name = "XCEED - Flip Flap"
+	song_length = 2 MINUTES + 28 SECONDS
+	song_beat = 1 SECONDS
+
+/datum/track/default/title_two
+	song_path = 'sound/music/lobby_music/title2.ogg'
+	song_name = "Chef Boyardee - robocop"
+	song_length = 1 MINUTES + 57 SECONDS
+	song_beat = 1 SECONDS
+
+/// EFFIGY-SPECIFIC
 
 /// [ RE: POWER RECOVERY ]
 
