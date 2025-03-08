@@ -10,8 +10,6 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	/// The hypnotic codephrase. Default always required otherwise things break.
 	var/codephrase = "Obey."
-	/// Interval to repeat the relevant hypnophrase, in seconds.
-	var/phrase_interval = 30
 
 /obj/item/clothing/glasses/hypno/Initialize(mapload)
 	. = ..()
