@@ -9,7 +9,7 @@
 
 /// SS13 TITLE MUSIC
 /datum/track/default
-	name = "Cuboos - TinTin On The Moon"
+	song_name = "Cuboos - TinTin On The Moon"
 
 /datum/track/default/title_zero
 	song_path = 'sound/music/lobby_music/title0.ogg'
