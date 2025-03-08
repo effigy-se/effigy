@@ -4,7 +4,7 @@
 		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/digitigrade/sneakers/worn,
 	)
 	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'icons/obj/clothing/shoes.dmi',
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/feet.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'local/icons/mob/clothing/feet_digi.dmi',
 	)
 
