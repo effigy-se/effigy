@@ -14,6 +14,8 @@
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED
 	sound_environment = SOUND_AREA_TAELOTH
 	ambience_index = AMBIENCE_HOLY
+	min_ambience_cooldown = 4 MINUTES
+	max_ambience_cooldown = 8 MINUTES
 	outdoors = TRUE
 	ambient_buzz = 'local/sound/ambience/buzz/jungleloop.ogg'
 

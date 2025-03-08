@@ -2695,11 +2695,6 @@
 /obj/machinery/meter,
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
-"Yx" = (
-/obj/structure/cable,
-/obj/effect/landmark/start/chemist,
-/turf/open/floor/iron,
-/area/station/medical/chemistry)
 "Yy" = (
 /obj/machinery/light/directional/north,
 /obj/machinery/rnd/production/circuit_imprinter/department,
@@ -7773,7 +7768,7 @@ bg
 bq
 ak
 bR
-Yx
+cj
 mb
 cj
 qH
