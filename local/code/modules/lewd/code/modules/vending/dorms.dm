@@ -34,6 +34,22 @@
 				/obj/item/clothing/neck/collar/leather/cowbell = 4,
 				/obj/item/clothing/neck/collar/leather/cross = 4,
 				/obj/item/clothing/neck/collar/leather/tagged = 4,
+				/// Belts
+				/obj/item/storage/belt/thigh_satchel = 4,
+			),
+		),
+		list(
+			"name" = "Restraints",
+			"icon" = FA_ICON_HANDCUFFS,
+			"products" = list(
+				/obj/item/restraints/handcuffs/fake = 2,
+			),
+		),
+		list(
+			"name" = "Tools",
+			"icon" = FA_ICON_TOOLBOX,
+			"products" = list(
+				/obj/item/clothing/erp_leash = 8,
 			),
 		),
 	)
