@@ -46,7 +46,7 @@
 	song_beat = 2 SECONDS + 4 DECISECONDS // BPM of 100
 
 /datum/track/default/repr_st_lilyben_sunrise // cover of tintin on the moon (reprise of your job is simple)
-	song_path = 'local/sound/music/re_power_recovery/lobby.ogg'
+	song_path = 'local/sound/music/re_power_recovery/credits.ogg'
 	song_name = "Blue Rose Red Heart - St. Lilyben Sunrise (Your Job Is Simple: Reprise)"
 	song_length = 3 MINUTES
 	song_beat = 1 SECONDS // BPM of 40
