@@ -15,6 +15,8 @@
 
 /obj/item/storage/belt/thigh_satchel/Initialize(mapload)
 	. = ..()
+	if(CONFIG_GET(flag/disable_lewd_items))
+		return INITIALIZE_HINT_QDEL
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 	atom_storage.max_total_storage = 21
 	atom_storage.set_holdable(list(
