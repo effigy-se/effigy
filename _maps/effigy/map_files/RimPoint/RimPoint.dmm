@@ -339,7 +339,7 @@
 /turf/open/floor/iron,
 /area/station/security/office)
 "agC" = (
-/obj/structure/chair/sofa/right/brown{
+/obj/structure/chair/sofa/corp/right{
 	dir = 1
 	},
 /obj/machinery/computer/security/telescreen/entertainment/directional/east,
@@ -359,7 +359,7 @@
 /turf/closed/wall/r_wall,
 /area/station/engineering/lobby)
 "ahc" = (
-/obj/structure/chair/sofa/right/brown{
+/obj/structure/chair/sofa/corp/right{
 	dir = 1
 	},
 /turf/open/floor/wood,
@@ -2203,7 +2203,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 10
 	},
-/turf/open/floor/carpet/purple,
+/turf/open/floor/carpet/black,
 /area/station/commons/dorms/room4)
 "aQv" = (
 /obj/machinery/porta_turret/ai,
@@ -3920,7 +3920,7 @@
 /obj/structure/bed/double,
 /obj/effect/spawner/random/bedsheet/double,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
-/turf/open/floor/carpet/purple,
+/turf/open/floor/carpet/black,
 /area/station/commons/dorms/room4)
 "brH" = (
 /obj/structure/cable,
@@ -10339,7 +10339,7 @@
 /obj/machinery/camera/directional/east{
 	c_tag = "Service - Locker Room, Southeast"
 	},
-/obj/effect/spawner/random/vending/colavend,
+/obj/machinery/vending/dorms,
 /turf/open/floor/iron,
 /area/station/commons/locker)
 "dHn" = (
@@ -16112,7 +16112,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 9
 	},
-/turf/open/floor/wood,
+/turf/open/floor/carpet/red,
 /area/station/commons/dorms/room4)
 "fIK" = (
 /obj/structure/cable,
@@ -20791,7 +20791,7 @@
 /turf/open/floor/iron,
 /area/station/commons/toilet/restrooms)
 "hsh" = (
-/obj/structure/chair/sofa/left/brown{
+/obj/structure/chair/sofa/corp/left{
 	dir = 1
 	},
 /turf/open/floor/wood,
@@ -25757,7 +25757,7 @@
 /obj/effect/turf_decal/tile/dark_purple{
 	dir = 4
 	},
-/obj/machinery/vending/coffee,
+/obj/machinery/vending/dorms,
 /turf/open/floor/iron/dark,
 /area/station/commons)
 "jdm" = (
@@ -34036,7 +34036,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/turf/open/floor/carpet/purple,
+/turf/open/floor/carpet/black,
 /area/station/commons/dorms/room4)
 "mdf" = (
 /obj/structure/railing{
@@ -46586,9 +46586,8 @@
 /area/station/maintenance/radshelter/medical)
 "qGc" = (
 /obj/structure/chair/sofa/right/maroon,
-/obj/effect/turf_decal/siding/wood,
 /obj/machinery/airalarm/directional/north,
-/turf/open/floor/wood/large,
+/turf/open/floor/carpet/red,
 /area/station/commons/dorms/room4)
 "qGf" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -53143,10 +53142,9 @@
 /area/station/medical/storage)
 "sOl" = (
 /obj/structure/chair/sofa/left/maroon,
-/obj/effect/turf_decal/siding/wood,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/structure/extinguisher_cabinet/directional/north,
-/turf/open/floor/wood/large,
+/turf/open/floor/carpet/red,
 /area/station/commons/dorms/room4)
 "sOo" = (
 /obj/structure/railing{
@@ -59295,7 +59293,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 10
 	},
-/turf/open/floor/wood,
+/turf/open/floor/carpet/red,
 /area/station/commons/dorms/room4)
 "uYw" = (
 /obj/structure/railing{
@@ -61436,7 +61434,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/service/chapel)
 "vJy" = (
-/obj/structure/chair/sofa/left/brown{
+/obj/structure/chair/sofa/corp/left{
 	dir = 1
 	},
 /obj/machinery/computer/security/telescreen/entertainment/directional/west,
@@ -61446,7 +61444,7 @@
 /turf/open/floor/wood,
 /area/station/commons/dorms/room3)
 "vJB" = (
-/obj/structure/chair/sofa/right/brown{
+/obj/structure/chair/sofa/corp/right{
 	dir = 8
 	},
 /obj/machinery/computer/security/telescreen/entertainment/directional/north,
@@ -67103,7 +67101,7 @@
 /turf/open/floor/iron/herringbone,
 /area/station/service/hydroponics)
 "xGQ" = (
-/obj/structure/chair/sofa/left/brown{
+/obj/structure/chair/sofa/corp/left{
 	dir = 8
 	},
 /turf/open/floor/wood,
@@ -68402,7 +68400,7 @@
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
 "yeZ" = (
-/turf/open/floor/carpet/purple,
+/turf/open/floor/carpet/black,
 /area/station/commons/dorms/room4)
 "yfb" = (
 /obj/machinery/status_display/ai/directional/east,

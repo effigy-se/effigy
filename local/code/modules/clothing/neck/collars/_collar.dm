@@ -25,6 +25,9 @@
 
 /obj/item/clothing/neck/collar/Initialize(mapload)
 	. = ..()
+	// If we disabled lewd items btfo
+	if(CONFIG_GET(flag/disable_lewd_items))
+		return INITIALIZE_HINT_QDEL
 	// First; create our internal matching key
 	create_storage(storage_type = /datum/storage/pockets/small)
 	atom_storage.set_holdable(list(
