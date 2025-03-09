@@ -26,7 +26,7 @@
 	pressure_affected = TRUE,
 	falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE,
 	use_reverb = TRUE,
-	pref_to_check = /datum/preference/toggle/erp/erp_item_use/sounds,
+	pref_to_check = /datum/preference/toggle/erp_item_use/sounds,
 )
 	if(isarea(source))
 		CRASH("playsound(): source is an area")
