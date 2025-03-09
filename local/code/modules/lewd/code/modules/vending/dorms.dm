@@ -15,25 +15,6 @@
 			"name" = "Fashion",
 			"icon" = FA_ICON_SHIRT,
 			"products" = list(
-				/// Collars
-				// Thin
-				/obj/item/clothing/neck/collar = 4,
-				/obj/item/clothing/neck/collar/bell = 4,
-				/obj/item/clothing/neck/collar/cowbell = 4,
-				/obj/item/clothing/neck/collar/cross = 4,
-				/obj/item/clothing/neck/collar/tagged = 4,
-				// Thick
-				/obj/item/clothing/neck/collar/thick = 4,
-				/obj/item/clothing/neck/collar/thick/bell = 4,
-				/obj/item/clothing/neck/collar/thick/cowbell = 4,
-				/obj/item/clothing/neck/collar/thick/cross = 4,
-				/obj/item/clothing/neck/collar/thick/tagged = 4,
-				// Leather
-				/obj/item/clothing/neck/collar/leather = 4,
-				/obj/item/clothing/neck/collar/leather/bell = 4,
-				/obj/item/clothing/neck/collar/leather/cowbell = 4,
-				/obj/item/clothing/neck/collar/leather/cross = 4,
-				/obj/item/clothing/neck/collar/leather/tagged = 4,
 				/// Belts
 				/obj/item/storage/belt/thigh_satchel = 4,
 				/// Gloves
@@ -48,6 +29,10 @@
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 5,
 				/obj/item/clothing/under/rank/prisoner/customizable = 4,
 				/obj/item/clothing/under/rank/prisoner/skirt/customizable = 4,
+				/// Shoes & Legwear
+				/obj/item/clothing/shoes/ballet_heels = 3,
+				/obj/item/clothing/shoes/latex_socks = 3,
+				/// Eyewear
 				/obj/item/clothing/glasses/regular/thin = 1, // i opted not to port the 'nice goggles'; but this is close enough tribute
 			),
 		),
@@ -81,6 +66,30 @@
 				/obj/item/clothing/glasses/hypno = 4,
 			),
 		),
+		list(
+			"name" = "Collars",
+			"icon" = FA_ICON_TOOLBOX,
+			"products" = list(
+				// Thin
+				/obj/item/clothing/neck/collar = 4,
+				/obj/item/clothing/neck/collar/bell = 4,
+				/obj/item/clothing/neck/collar/cowbell = 4,
+				/obj/item/clothing/neck/collar/cross = 4,
+				/obj/item/clothing/neck/collar/tagged = 4,
+				// Thick
+				/obj/item/clothing/neck/collar/thick = 4,
+				/obj/item/clothing/neck/collar/thick/bell = 4,
+				/obj/item/clothing/neck/collar/thick/cowbell = 4,
+				/obj/item/clothing/neck/collar/thick/cross = 4,
+				/obj/item/clothing/neck/collar/thick/tagged = 4,
+				// Leather
+				/obj/item/clothing/neck/collar/leather = 4,
+				/obj/item/clothing/neck/collar/leather/bell = 4,
+				/obj/item/clothing/neck/collar/leather/cowbell = 4,
+				/obj/item/clothing/neck/collar/leather/cross = 4,
+				/obj/item/clothing/neck/collar/leather/tagged = 4,
+			),
+		), // Keep collars last to keep them a little more congruent with premium; if you please.
 	)
 
 	premium = list(
