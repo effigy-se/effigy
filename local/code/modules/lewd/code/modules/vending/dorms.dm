@@ -38,6 +38,10 @@
 				/obj/item/storage/belt/thigh_satchel = 4,
 				/// Gloves
 				/obj/item/clothing/gloves/long_gloves = 4,
+				/// Hats
+				/obj/item/clothing/head/domina_cap = 4,
+				/// Uniforms
+				/obj/item/clothing/under/costume/jabroni = 4,
 			),
 		),
 		list(
@@ -56,6 +60,8 @@
 				/obj/item/clothing/mask/muzzle = 4,
 				// Earwear
 				/obj/item/clothing/ears/dorms_headphones = 2,
+				// Headwear
+				/obj/item/clothing/head/deprivation_helmet = 3,
 			),
 		),
 		list(
