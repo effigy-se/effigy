@@ -39,3 +39,17 @@
 	. = ..()
 	if(wear_neck && body_position == STANDING_UP && loc == NewLoc && has_gravity(loc))
 		SEND_SIGNAL(wear_neck, COMSIG_NECK_STEP_ACTION)
+
+/// From oldbase; the suit portion was flagged as being needed for the "latex straight jacket to behave". In practice commit history tells the story that it's, uh.
+/// Closer to a load-bearing coconut?? Someone else can look at this later; right?
+/mob/living/carbon/human/resist_restraints()
+	if(wear_suit?.breakouttime)
+		changeNext_move(wear_suit.resist_cooldown)
+		last_special = world.time + wear_suit.resist_cooldown
+		cuff_resist(wear_suit)
+	if(gloves?.breakouttime)
+		changeNext_move(gloves.resist_cooldown)
+		last_special = world.time + gloves.resist_cooldown
+		cuff_resist(gloves)
+	else
+		return ..()

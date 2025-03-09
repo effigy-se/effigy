@@ -166,6 +166,12 @@
 			if(gloves)
 				return
 			gloves = equipping
+			/// EFFIGY ADD - Gloves can restrain, too, as a treat
+			if(gloves.breakouttime)
+				ADD_TRAIT(src, TRAIT_RESTRAINED, REF(gloves))
+				stop_pulling()
+				update_mob_action_buttons()
+			/// EFFIGY ADD END
 			update_worn_gloves()
 		if(ITEM_SLOT_FEET)
 			if(shoes)
@@ -250,6 +256,12 @@
 			if(belt && !can_equip(belt, ITEM_SLOT_BELT, TRUE, ignore_equipped = TRUE))
 				dropItemToGround(belt)
 	else if(I == gloves)
+		/// EFFIGY ADD - Gloves can restrain
+		if(gloves.breakouttime) //when unequipping a straightjacket
+			REMOVE_TRAIT(src, TRAIT_RESTRAINED, REF(gloves))
+			drop_all_held_items() //suit is restraining
+			update_mob_action_buttons() //certain action buttons may be usable again.
+		/// EFFIGY ADD END
 		gloves = null
 		if(!QDELETED(src))
 			update_worn_gloves()

@@ -36,6 +36,8 @@
 				/obj/item/clothing/neck/collar/leather/tagged = 4,
 				/// Belts
 				/obj/item/storage/belt/thigh_satchel = 4,
+				/// Gloves
+				/obj/item/clothing/gloves/long_gloves = 4,
 			),
 		),
 		list(
@@ -44,6 +46,9 @@
 			"products" = list(
 				// Handcuffs Slot Stuff
 				/obj/item/restraints/handcuffs/fake = 2,
+				// Hands Slot Stuff
+				/obj/item/clothing/gloves/ball_mittens = 4,
+				/obj/item/clothing/gloves/ball_mittens/paw_mittens = 4,
 				// Blindfolds, Eyewear
 				/obj/item/clothing/glasses/blindfold = 2,
 				/obj/item/clothing/glasses/blindfold/dorms = 4,
