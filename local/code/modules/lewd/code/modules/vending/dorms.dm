@@ -42,10 +42,15 @@
 			"name" = "Restraints",
 			"icon" = FA_ICON_HANDCUFFS,
 			"products" = list(
+				// Handcuffs Slot Stuff
 				/obj/item/restraints/handcuffs/fake = 2,
-				/obj/item/clothing/glasses/blindfold = 4,
+				// Blindfolds, Eyewear
+				/obj/item/clothing/glasses/blindfold = 2,
 				/obj/item/clothing/glasses/blindfold/dorms = 4,
+				// Gags, Mouthwear
 				/obj/item/clothing/mask/muzzle = 4,
+				// Earwear
+				/obj/item/clothing/ears/dorms_headphones = 2,
 			),
 		),
 		list(
