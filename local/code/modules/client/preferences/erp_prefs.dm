@@ -47,5 +47,5 @@
 	. = ..()
 
 /// Controls whether or not you can hear ERP item SFX.
-/datum/preference/toggle/erp/erp_item_use/sounds
-	savefile_key = "erpitem_sounds_pref"
+/datum/preference/toggle/erp_item_use/sounds
+	savefile_key = "sextoy_sounds_pref"
