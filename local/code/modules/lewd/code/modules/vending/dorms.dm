@@ -40,8 +40,15 @@
 				/obj/item/clothing/gloves/long_gloves = 4,
 				/// Hats
 				/obj/item/clothing/head/domina_cap = 4,
+				/obj/item/clothing/head/costume/rabbitears = 4,
+				/obj/item/clothing/head/costume/kitty = 4,
 				/// Uniforms
-				/obj/item/clothing/under/costume/jabroni = 4,
+				/obj/item/clothing/under/costume/jabroni = 3,
+				/obj/item/clothing/under/costume/maid = 5,
+				/obj/item/clothing/under/rank/civilian/janitor/maid = 5,
+				/obj/item/clothing/under/rank/prisoner/customizable = 4,
+				/obj/item/clothing/under/rank/prisoner/skirt/customizable = 4,
+				/obj/item/clothing/glasses/regular/thin = 1, // i opted not to port the 'nice goggles'; but this is close enough tribute
 			),
 		),
 		list(

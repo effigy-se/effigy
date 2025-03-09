@@ -50,19 +50,19 @@
 	greyscale_colors = "#992300"
 	supports_variations_flags = NONE
 
-/obj/item/clothing/under/rank/prisoner/lustwish
-	desc = "A customizable prisoner-style jumpsuit for the truly debaucherous. It has LustWish's signature logo stitched into the tag."
+/obj/item/clothing/under/rank/prisoner/customizable
+	desc = "A customizable prisoner-style jumpsuit for the truly debaucherous. The markings denote it as costumewear."
 	greyscale_colors = "#4B4669"
 	has_sensor = /obj/item/clothing/under::has_sensor
 	sensor_mode = /obj/item/clothing/under::sensor_mode
 	random_sensor = /obj/item/clothing/under::random_sensor
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/under/rank/prisoner/skirt/lustwish
-	desc = "A customizable prisoner-style jumpskirt for the truly debaucherous. It has LustWish's signature logo stitched into the tag."
+/obj/item/clothing/under/rank/prisoner/skirt/customizable
+	desc = "A customizable prisoner-style jumpskirt for the truly debaucherous. The markings denote it as costumewear."
 	greyscale_colors = "#4B4669"
 	has_sensor = /obj/item/clothing/under::has_sensor
 	sensor_mode = /obj/item/clothing/under::sensor_mode
 	random_sensor = /obj/item/clothing/under::random_sensor
-	flags_1 = /obj/item/clothing/under/rank/prisoner/lustwish::flags_1
+	flags_1 = /obj/item/clothing/under/rank/prisoner/customizable::flags_1
 	supports_variations_flags = NONE
