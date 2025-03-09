@@ -58,6 +58,8 @@
 				/obj/item/clothing/glasses/blindfold/dorms = 4,
 				// Gags, Mouthwear
 				/obj/item/clothing/mask/muzzle = 4,
+				/obj/item/clothing/mask/ballgag = 4,
+				/obj/item/clothing/mask/gas/dorms_mask = 4,
 				// Earwear
 				/obj/item/clothing/ears/dorms_headphones = 2,
 				// Headwear
