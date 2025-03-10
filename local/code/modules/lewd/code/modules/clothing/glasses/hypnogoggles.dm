@@ -22,7 +22,7 @@
 	. = ..()
 	STOP_PROCESSING(SSobj, src)
 
-/obj/item/clothing/glasses/hypno/attack_self(mob/user)//Setting up hypnotising phrase
+/obj/item/clothing/glasses/hypno/attack_self(mob/user)
 	. = ..()
 	codephrase = tgui_input_text(user, "Change The Hypnotic Phrase.", max_length = MAX_MESSAGE_LEN)
 

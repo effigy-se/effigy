@@ -45,6 +45,8 @@
 				// Hands Slot Stuff
 				/obj/item/clothing/gloves/ball_mittens = 4,
 				/obj/item/clothing/gloves/ball_mittens/paw_mittens = 4,
+				// Suits
+				/obj/item/clothing/suit/straight_jacket/shackles = 4,
 				// Blindfolds, Eyewear
 				/obj/item/clothing/glasses/blindfold = 2,
 				/obj/item/clothing/glasses/blindfold/dorms = 4,
@@ -98,7 +100,9 @@
 		/obj/item/clothing/neck/collar/leather/holocollar = 3,
 		)
 
-	contraband = list(/obj/item/toy/plush/shark = 1) // temp
+	contraband = list(
+		/obj/item/handcuffs = 2,
+		)
 
 	refill_canister = /obj/item/vending_refill/dorms
 	payment_department = ACCOUNT_SRV

@@ -18,3 +18,8 @@
 		BODYSHAPE_HUMANOID_T = 'local/icons/lewd/mob/clothing/shoes.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'local/icons/lewd/mob/clothing/shoes_digi.dmi',
 	)
+
+/obj/item/clothing/shoes/latex_socks/Initialize(mapload)
+	. = ..()
+	if(CONFIG_GET(flag/disable_lewd_items))
+		return INITIALIZE_HINT_QDEL
