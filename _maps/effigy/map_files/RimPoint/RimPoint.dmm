@@ -53050,8 +53050,8 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/door/airlock/public/glass,
-/obj/effect/landmark/event_spawn,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/autoname,
 /turf/open/floor/iron,
 /area/station/commons/storage/tools)
 "sNx" = (
@@ -55951,6 +55951,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /obj/machinery/door/airlock/public/glass,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/autoname,
 /turf/open/floor/iron,
 /area/station/commons/storage/tools)
 "tSa" = (
@@ -62331,6 +62332,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/commons/locker)
 "vYV" = (
+/obj/effect/landmark/event_spawn,
 /turf/open/floor/iron,
 /area/station/commons/storage/tools)
 "vZh" = (

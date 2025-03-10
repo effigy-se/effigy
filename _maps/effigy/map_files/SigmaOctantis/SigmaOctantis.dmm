@@ -19612,7 +19612,7 @@
 "eyb" = (
 /obj/structure/table/wood,
 /obj/item/book/random,
-/turf/open/floor/carpet/neon/simple/red,
+/turf/open/floor/carpet/red,
 /area/station/service/library)
 "eyi" = (
 /obj/structure/closet/wardrobe/pjs,
@@ -23176,7 +23176,7 @@
 "fog" = (
 /obj/structure/bookcase/random/nonfiction,
 /obj/machinery/duct/waste,
-/turf/open/floor/carpet/neon/simple/purple,
+/turf/open/floor/carpet/black,
 /area/station/service/library)
 "fon" = (
 /obj/structure/cable,
@@ -25255,7 +25255,7 @@
 /area/station/hallway/floor2/aft)
 "fMk" = (
 /obj/effect/landmark/start/assistant,
-/turf/open/floor/carpet/neon/simple/red,
+/turf/open/floor/carpet/red,
 /area/station/service/library)
 "fMp" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
@@ -29360,7 +29360,7 @@
 /area/station/commons/storage/primary)
 "gGO" = (
 /obj/structure/bookcase/random/religion,
-/turf/open/floor/carpet/neon/simple/purple,
+/turf/open/floor/carpet/black,
 /area/station/service/library)
 "gGP" = (
 /obj/effect/turf_decal/siding/wood/end{
@@ -34117,7 +34117,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start/assistant,
-/turf/open/floor/carpet/neon/simple/red,
+/turf/open/floor/carpet/red,
 /area/station/service/library)
 "hNc" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -35193,7 +35193,7 @@
 /area/station/medical/virology)
 "icM" = (
 /obj/structure/bookcase/random/adult,
-/turf/open/floor/carpet/neon/simple/purple,
+/turf/open/floor/carpet/black,
 /area/station/service/library)
 "icY" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
@@ -40904,7 +40904,7 @@
 /area/station/medical/medbay/central)
 "jun" = (
 /obj/machinery/duct/waste,
-/turf/open/floor/carpet/neon/simple/purple,
+/turf/open/floor/carpet/black,
 /area/station/service/library)
 "juu" = (
 /obj/structure/cable,
@@ -42466,7 +42466,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/greater)
 "jNB" = (
-/turf/open/floor/carpet/neon/simple/red,
+/turf/open/floor/carpet/red,
 /area/station/service/library)
 "jNH" = (
 /obj/effect/turf_decal/tile/dark_purple/half/contrasted{
@@ -51062,7 +51062,7 @@
 /turf/open/misc/ocean/rock/heavy,
 /area/ocean/trench)
 "lNm" = (
-/turf/open/floor/carpet/neon/simple/purple,
+/turf/open/floor/carpet/black,
 /area/station/service/library)
 "lNs" = (
 /turf/open/floor/iron/chapel{
@@ -77290,7 +77290,7 @@
 	name = "couch"
 	},
 /obj/effect/landmark/start/assistant,
-/turf/open/floor/carpet/neon/simple/red,
+/turf/open/floor/carpet/red,
 /area/station/service/library)
 "rQJ" = (
 /obj/structure/railing{
@@ -79254,7 +79254,7 @@
 /area/station/cargo/warehouse)
 "smZ" = (
 /obj/structure/bookcase/random/fiction,
-/turf/open/floor/carpet/neon/simple/purple,
+/turf/open/floor/carpet/black,
 /area/station/service/library)
 "snd" = (
 /obj/effect/turf_decal/trimline/yellow/line,
@@ -82166,7 +82166,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start/assistant,
-/turf/open/floor/carpet/neon/simple/red,
+/turf/open/floor/carpet/red,
 /area/station/service/library)
 "sYv" = (
 /obj/effect/turf_decal/tile/dark_red{
@@ -98056,7 +98056,7 @@
 /area/station/engineering/hallway)
 "wKv" = (
 /obj/structure/bookcase/random/reference,
-/turf/open/floor/carpet/neon/simple/purple,
+/turf/open/floor/carpet/black,
 /area/station/service/library)
 "wKz" = (
 /obj/structure/door_assembly/door_assembly_com,
