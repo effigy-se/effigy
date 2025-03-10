@@ -101,7 +101,11 @@
 		)
 
 	contraband = list(
-		/obj/item/handcuffs = 2,
+		/obj/item/restraints/handcuffs = 2,
+		/obj/item/clothing/under/rank/civilian/mime/sexy = 1,
+		/obj/item/clothing/mask/gas/sexymime = 1,
+		/obj/item/clothing/under/rank/civilian/clown/sexy = 1,
+		/obj/item/clothing/mask/gas/sexyclown = 1,
 		)
 
 	refill_canister = /obj/item/vending_refill/dorms
