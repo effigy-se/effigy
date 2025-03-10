@@ -8,7 +8,7 @@ export const erpitem_pref: FeatureToggle = {
   component: CheckboxInput,
 };
 
-export const erpitem_sounds_pref: FeatureToggle = {
+export const sextoy_sounds_pref: FeatureToggle = {
   name: 'ERP Item Sounds',
   category: 'ERP',
   description:

@@ -5,7 +5,8 @@
 	flags_inv = NONE
 	icon = 'local/icons/lewd/obj/clothing/suits.dmi'
 	worn_icon = 'local/icons/lewd/mob/clothing/suits.dmi'
-	greyscale_colors = "#383840"
+	icon_state = "shackles"
+	greyscale_colors = "#dc7ef4#383840"
 	greyscale_config = /datum/greyscale_config/dorms_shackles
 	greyscale_config_worn = /datum/greyscale_config/dorms_shackles/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
@@ -25,6 +26,7 @@
 	pickup_sound = 'sound/items/handling/handcuffs/handcuffs_pick_up.ogg'
 	drop_sound = 'sound/items/handling/handcuffs/handcuffs_drop.ogg'
 	sound_vary = TRUE
+	gender = PLURAL // "That's some shackles."
 
 /obj/item/clothing/suit/straight_jacket/shackles/Initialize(mapload)
 	. = ..()
