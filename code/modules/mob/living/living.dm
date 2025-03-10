@@ -1272,6 +1272,13 @@
 		// see defines/combat.dm, this should be baseline 60%
 		// Resist chance divided by the value imparted by your grab state. It isn't until you reach neckgrab that you gain a penalty to escaping a grab.
 		var/resist_chance = clamp(BASE_GRAB_RESIST_CHANCE / effective_grab_state, 0, 100)
+		/// EFFIGY EDIT ADD ///
+		// Oversized grab resist
+		if(HAS_TRAIT(src, TRAIT_OVERSIZED))
+			resist_chance += OVERSIZED_GRAB_RESIST_BONUS
+		if(HAS_TRAIT(pulledby, TRAIT_OVERSIZED))
+			resist_chance -= OVERSIZED_GRAB_RESIST_BONUS
+		/// EFFIGY EDIT END
 		if(prob(resist_chance))
 			visible_message(span_danger("[src] breaks free of [pulledby]'s grip!"), \
 							span_danger("You break free of [pulledby]'s grip!"), null, null, pulledby)

@@ -67,3 +67,6 @@ GLOBAL_LIST_INIT(monitor_lizard_displays, list(
 	"Question" = "liz_question",
 	"Exclaim" = "liz_exclaim",
 	))
+
+/// Slowdowns
+#define PULL_OVERSIZED_SLOWDOWN 2

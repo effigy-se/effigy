@@ -748,6 +748,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 	/obj/item/card/id/advanced = list(
 		"TRAIT_SYNTH_CHARGING" = TRAIT_SYNTH_CHARGING,
 		"TRAIT_WATER_BREATHING" = TRAIT_WATER_BREATHING,
+		"TRAIT_OVERSIZED" = TRAIT_OVERSIZED,
 	),
 	// EffigyEdit Add End
 ))

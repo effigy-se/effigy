@@ -360,7 +360,7 @@
 	boosted = was_boosted
 
 /datum/status_effect/crusher_mark/on_apply()
-	if(owner.mob_size < MOB_SIZE_LARGE)
+	if(owner.mob_size < MOB_SIZE_LARGE && !HAS_TRAIT(owner, TRAIT_OVERSIZED)) // EFFIGY EDIT CHANGE - Original: if(owner.mob_size >= MOB_SIZE_LARGE)
 		return FALSE
 
 	marked_underlay = new()

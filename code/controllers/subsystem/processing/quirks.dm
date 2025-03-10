@@ -29,6 +29,11 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/item_quirk/settler, /datum/quirk/freerunning),
 	list(/datum/quirk/numb, /datum/quirk/selfaware),
 	list(/datum/quirk/empath, /datum/quirk/evil),
+	/// EFFIGY EDIT BEGIN ///
+	list(/datum/quirk/spacer_born, /datum/quirk/oversized),
+	list(/datum/quirk/oversized, /datum/quirk/freerunning),
+	list(/datum/quirk/oversized, /datum/quirk/item_quirk/settler),
+	/// EFFIGY EDIT END ///
 ))
 
 GLOBAL_LIST_INIT(quirk_string_blacklist, generate_quirk_string_blacklist())
