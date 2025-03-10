@@ -34,4 +34,5 @@
 		/obj/item/clothing/shoes/ballet_heels,
 		/obj/item/clothing/shoes/latex_socks,
 		/obj/item/clothing/suit/straight_jacket/shackles,
+		/obj/item/stack/shibari_rope,
 	))

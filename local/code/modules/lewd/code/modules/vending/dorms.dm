@@ -40,8 +40,10 @@
 			"name" = "Restraints",
 			"icon" = FA_ICON_HANDCUFFS,
 			"products" = list(
-				// Handcuffs Slot Stuff
+				// Handcuffs / Snowflake Slot Stuff
 				/obj/item/restraints/handcuffs/fake = 2,
+				/obj/item/stack/shibari_rope/full = 5,
+				/obj/item/stack/shibari_rope/glow/full = 5,
 				// Hands Slot Stuff
 				/obj/item/clothing/gloves/ball_mittens = 4,
 				/obj/item/clothing/gloves/ball_mittens/paw_mittens = 4,
