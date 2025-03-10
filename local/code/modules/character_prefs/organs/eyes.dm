@@ -3,4 +3,3 @@
 
 /obj/item/organ/eyes/bug
 	blink_animation = FALSE
-	iris_overlays = FALSE

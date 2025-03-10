@@ -1,6 +1,3 @@
-/datum/asset/spritesheet/decals
-	preview_floor_icon = EFFIGY_TURFS_ICON_FILE
-
 /obj/item/airlock_painter/decal/cyborg
 	name = "cyborg decal painter"
 	desc = "A mechnically installed painter with molecular printer to supply any and all of a painter's needs!"
