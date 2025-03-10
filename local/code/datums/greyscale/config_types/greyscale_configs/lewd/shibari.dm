@@ -85,7 +85,7 @@
 	icon_file = 'local/icons/lewd/mob/clothing/shoes.dmi'
 	json_config = 'local/code/datums/greyscale/json_configs/lewd/clothing/shibari/legs.json'
 
-/datum/greyscale_config/shibari_worn_digi/legs
-	name = "Shibari Legs Digi"
+/datum/greyscale_config/shibari_worn_digi_legs
+	name = "Shibari Legs (Digi)"
 	icon_file = 'local/icons/lewd/mob/clothing/shoes_digi.dmi'
 	json_config = 'local/code/datums/greyscale/json_configs/lewd/clothing/shibari/legs.json'

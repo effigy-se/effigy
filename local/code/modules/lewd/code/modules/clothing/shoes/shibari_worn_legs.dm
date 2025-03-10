@@ -17,7 +17,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	greyscale_config_worn_bodyshapes = list(
 		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/shibari_worn/legs,
-		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/shibari_worn_digi/legs,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/shibari_worn_digi_legs,
 	)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'local/icons/lewd/mob/clothing/shoes.dmi',
