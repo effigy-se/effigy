@@ -63,11 +63,12 @@
 			),
 		),
 		list(
-			"name" = "Tools",
+			"name" = "Tools & Fixtures",
 			"icon" = FA_ICON_TOOLBOX,
 			"products" = list(
 				/obj/item/clothing/erp_leash = 8,
 				/obj/item/clothing/glasses/hypno = 4,
+				/obj/item/construction_kit/pole = 2,
 			),
 		),
 		list(
