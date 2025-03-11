@@ -418,7 +418,7 @@
 								step(C, dir)
 								if(prob(60) && C.body_position != LYING_DOWN)
 									to_chat(C, span_userdanger("The current knocks you down!"))
-									C.Paralyze(60)
+									C.Knockdown(1 SECONDS)
 						else
 							step(AM, dir)
 
@@ -428,8 +428,8 @@
 /obj/effect/abstract/liquid_turf/proc/movable_entered(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER
 	var/turf/T = source
-	if(isobserver(AM))
-		return //ghosts, camera eyes, etc. don't make water splashy splashy
+	if(isobserver(AM) || iscameramob(AM))
+		return //ghosts, camera eyes, etc. shouldn't make water splashy splashy
 	if(liquid_state >= LIQUID_STATE_ANKLES)
 		if(prob(30))
 			var/sound_to_play = pick(list(
@@ -445,7 +445,7 @@
 	else if (isliving(AM))
 		var/mob/living/L = AM
 		if(prob(7) && !(L.movement_type & FLYING))
-			L.slip(60, T, NO_SLIP_WHEN_WALKING, 20, TRUE)
+			L.slip(1 SECONDS, T, NO_SLIP_WHEN_WALKING, 20, TRUE)
 	if(fire_state)
 		AM.fire_act((T20C+50) + (50*fire_state), 125)
 
