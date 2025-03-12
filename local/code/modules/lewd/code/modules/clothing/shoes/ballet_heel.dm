@@ -23,4 +23,4 @@
 	. = ..()
 	if(CONFIG_GET(flag/disable_lewd_items))
 		return INITIALIZE_HINT_QDEL
-	AddComponent(/datum/component/squeak, list('local/sound/effects/highheel1.ogg' = 1, 'local/sound/effects/highheel2.ogg' = 1), 70)
+	AddComponent(/datum/component/squeak, list('local/sound/effects/highheel1.ogg' = 1, 'local/sound/effects/highheel2.ogg' = 1), 50)
