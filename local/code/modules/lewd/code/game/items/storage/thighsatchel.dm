@@ -35,4 +35,5 @@
 		/obj/item/clothing/shoes/latex_socks,
 		/obj/item/clothing/suit/straight_jacket/shackles,
 		/obj/item/stack/shibari_rope,
+		/obj/item/clothing/under/tearaway_garments,
 	))

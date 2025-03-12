@@ -15,6 +15,7 @@ GLOBAL_LIST_INIT(pref_checked_clothes, list(
 	/obj/item/clothing/shoes/shibari_legs,
 	/obj/item/clothing/suit/straight_jacket/shackles,
 	/obj/item/clothing/under/shibari,
+	/obj/item/clothing/under/tearaway_garments,
 ))
 
 /obj/item/clothing/mob_can_equip(mob/living/user, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action)

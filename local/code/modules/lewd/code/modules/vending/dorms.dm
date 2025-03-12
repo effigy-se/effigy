@@ -10,29 +10,40 @@
 	vend_reply = "Thank you for choosing Keepsake!"
 	panel_type = "dorms-panel"
 
+	/// KEEP THESE ALPHABETICAL
 	product_categories = list(
 		list(
 			"name" = "Fashion",
 			"icon" = FA_ICON_SHIRT,
 			"products" = list(
-				/// Belts
-				/obj/item/storage/belt/thigh_satchel = 4,
-				/// Gloves
-				/obj/item/clothing/gloves/long_gloves = 4,
-				/// Hats
+				// B
+				/obj/item/clothing/shoes/ballet_heels = 3,
+				/obj/item/clothing/under/costume/bunnylewd = 3,
+				// D
 				/obj/item/clothing/head/domina_cap = 4,
-				/obj/item/clothing/head/costume/rabbitears = 4,
-				/obj/item/clothing/head/costume/kitty = 4,
-				/// Uniforms
+				// J
 				/obj/item/clothing/under/costume/jabroni = 3,
+				// K
+				/obj/item/clothing/head/costume/kitty = 4,
+				// L
+				/obj/item/clothing/shoes/latex_socks = 3,
+				/obj/item/clothing/gloves/long_gloves = 4,
+				// M
+				/obj/item/clothing/accessory/maidapron = 5,
+				/obj/item/clothing/gloves/maid = 5,
+				/obj/item/clothing/accessory/maidcorset = 5,
 				/obj/item/clothing/under/costume/maid = 5,
+				/obj/item/clothing/head/costume/maidheadband = 5,
+				/obj/item/clothing/neck/maid = 5,
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 5,
+				// P
 				/obj/item/clothing/under/rank/prisoner/customizable = 4,
 				/obj/item/clothing/under/rank/prisoner/skirt/customizable = 4,
-				/// Shoes & Legwear
-				/obj/item/clothing/shoes/ballet_heels = 3,
-				/obj/item/clothing/shoes/latex_socks = 3,
-				/// Eyewear
+				// R
+				/obj/item/clothing/head/costume/rabbitears = 4,
+				// T
+				/obj/item/clothing/under/tearaway_garments = 4,
+				/obj/item/storage/belt/thigh_satchel = 4,
 				/obj/item/clothing/glasses/regular/thin = 1, // i opted not to port the 'nice goggles'; but this is close enough tribute
 			),
 		),
@@ -40,34 +51,38 @@
 			"name" = "Restraints",
 			"icon" = FA_ICON_HANDCUFFS,
 			"products" = list(
-				// Handcuffs / Snowflake Slot Stuff
-				/obj/item/restraints/handcuffs/fake = 2,
-				/obj/item/stack/shibari_rope/full = 5,
-				/obj/item/stack/shibari_rope/glow/full = 5,
-				// Hands Slot Stuff
-				/obj/item/clothing/gloves/ball_mittens = 4,
-				/obj/item/clothing/gloves/ball_mittens/paw_mittens = 4,
-				// Suits
-				/obj/item/clothing/suit/straight_jacket/shackles = 4,
-				// Blindfolds, Eyewear
-				/obj/item/clothing/glasses/blindfold = 2,
-				/obj/item/clothing/glasses/blindfold/dorms = 4,
-				// Gags, Mouthwear
-				/obj/item/clothing/mask/muzzle = 4,
+				// B
 				/obj/item/clothing/mask/ballgag = 4,
-				/obj/item/clothing/mask/gas/dorms_mask = 4,
-				// Earwear
-				/obj/item/clothing/ears/dorms_headphones = 2,
-				// Headwear
+				/obj/item/clothing/gloves/ball_mittens = 4,
+				/obj/item/clothing/glasses/blindfold = 2,
+				// D
 				/obj/item/clothing/head/deprivation_helmet = 3,
+				// F
+				/obj/item/restraints/handcuffs/fake = 2,
+				// G
+				/obj/item/clothing/mask/gas/dorms_mask = 4,
+				/obj/item/stack/shibari_rope/glow/full = 5,
+				// L
+				/obj/item/clothing/glasses/blindfold/dorms = 4,
+				// M
+				/obj/item/clothing/mask/muzzle = 4,
+				// P
+				/obj/item/clothing/ears/dorms_headphones = 2,
+				/obj/item/clothing/gloves/ball_mittens/paw_mittens = 4,
+				// S
+				/obj/item/clothing/suit/straight_jacket/shackles = 4,
+				/obj/item/stack/shibari_rope/full = 5,
 			),
 		),
 		list(
 			"name" = "Tools & Fixtures",
 			"icon" = FA_ICON_TOOLBOX,
 			"products" = list(
-				/obj/item/clothing/erp_leash = 8,
+				// H
 				/obj/item/clothing/glasses/hypno = 4,
+				// L
+				/obj/item/clothing/erp_leash = 8,
+				// S
 				/obj/item/construction_kit/pole = 2,
 			),
 		),
