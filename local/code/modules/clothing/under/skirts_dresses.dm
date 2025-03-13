@@ -32,6 +32,29 @@
 	alt_covers_chest = TRUE
 
 
+/obj/item/clothing/under/dress/skirt/jean
+	name = "jean skirt"
+	desc = "Technically, is there much difference between these and jorts? It's just one big hole instead of two. Does that make this a jirt?"
+	icon_state = "jean_skirt"
+	female_sprite_flags = NO_FEMALE_UNIFORM
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	greyscale_config = /datum/greyscale_config/jean_skirt
+	greyscale_config_worn = /datum/greyscale_config/jean_skirt/worn
+	greyscale_colors = "#787878#723E0E#4D7EAC"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+
+/obj/item/clothing/under/dress/skirt/lone_skirt
+	name = "skirt"
+	desc = "A skirt, all on it's lonesome."
+	icon_state = "lone_skirt"
+	body_parts_covered = GROIN
+	greyscale_config = /datum/greyscale_config/lone_skirt
+	greyscale_config_worn = /datum/greyscale_config/lone_skirt/worn
+	greyscale_colors = "#5f534a"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+
 /obj/item/clothing/under/dress/skirt/medium
 	name = "medium skirt"
 	desc = "An appealing medium-length skirt. Top not included."
@@ -46,7 +69,7 @@
 
 /obj/item/clothing/under/dress/skirt/long
 	name = "long skirt"
-	desc = "An appealing long skirt. At this point does it qualify as a dress?"
+	desc = "An appealing long skirt. At this point, does it qualify as a dress?"
 	icon_state = "long_skirt"
 	body_parts_covered = GROIN|LEGS
 	greyscale_config = /datum/greyscale_config/long_skirt

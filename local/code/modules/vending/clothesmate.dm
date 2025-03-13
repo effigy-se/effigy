@@ -20,8 +20,10 @@
 				/obj/item/clothing/under/dress/short_dress = 5,
 				/obj/item/clothing/under/dress/strapless = 5,
 				/obj/item/clothing/under/dress/skirt/turtleskirt_knit = 5,
+				/obj/item/clothing/under/dress/skirt/lone_skirt = 5,
 				/obj/item/clothing/under/dress/skirt/medium = 5,
 				/obj/item/clothing/under/dress/skirt/long = 5,
+				/obj/item/clothing/under/dress/skirt/jean = 5,
 			),
 		),
 		list(
