@@ -7,13 +7,6 @@
 	greyscale_colors = "#ff3636#363030"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/under/dress/short_dress/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/unique_examine, \
-		desc = span_warning("That very much isn't you."), \
-		desc_requirement = EXAMINE_CHECK_TRAIT, \
-		requirements = TRAIT_ANXIOUS)
-
 
 /obj/item/clothing/under/dress/strapless
 	name = "strapless dress"
