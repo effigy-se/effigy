@@ -2,7 +2,7 @@
 	"fancyheels": [
 		{
 			"type": "icon_state",
-			"icon_state": "fancyheels_mob_digi",
+			"icon_state": "fancyheels",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		}
