@@ -2239,6 +2239,18 @@
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/command/storage/eva)
+"ayw" = (
+/obj/effect/turf_decal/siding/wideplating_new{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new,
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
+/obj/effect/mapping_helpers/airlock/autoname,
+/obj/effect/mapping_helpers/airlock/abandoned,
+/obj/effect/mapping_helpers/airlock/unres,
+/turf/open/floor/iron/smooth_large,
+/area/station/maintenance/port/greater)
 "ayF" = (
 /obj/effect/turf_decal/siding/wideplating_new,
 /obj/effect/turf_decal/siding/wideplating_new{
@@ -2744,7 +2756,7 @@
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
 /obj/machinery/door/airlock/maintenance_hatch,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 1
@@ -3870,7 +3882,7 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
@@ -8338,7 +8350,7 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/abandoned,
 /obj/effect/mapping_helpers/airlock/unres{
@@ -9859,7 +9871,7 @@
 /obj/machinery/door/airlock/medical/glass{
 	name = "Pharmacy"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/unres,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
@@ -21012,7 +21024,7 @@
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/unres,
 /obj/structure/cable,
@@ -22026,7 +22038,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 8
 	},
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/unres{
@@ -22392,7 +22404,7 @@
 /obj/machinery/door/airlock/virology{
 	name = "Virology"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 1
 	},
@@ -27136,7 +27148,7 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/maintenance_hatch,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
@@ -28301,7 +28313,7 @@
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/unres,
 /obj/structure/cable,
@@ -47043,7 +47055,7 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
@@ -47215,6 +47227,11 @@
 	},
 /turf/open/floor/iron,
 /area/station/maintenance/floor1/starboard/aft)
+"kTM" = (
+/obj/item/stack/tile/iron/base,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/floor2/port/fore)
 "kTQ" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/heater/on{
 	dir = 1
@@ -49511,7 +49528,7 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 8
@@ -55704,7 +55721,7 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 8
@@ -58768,7 +58785,7 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/maintenance_hatch,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
@@ -63156,7 +63173,7 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/abandoned,
 /obj/effect/mapping_helpers/airlock/unres,
@@ -63515,7 +63532,7 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/maintenance_hatch,
-/obj/effect/mapping_helpers/airlock/access/any/security/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 1
@@ -78707,7 +78724,7 @@
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/unres,
 /obj/structure/cable,
@@ -82894,7 +82911,7 @@
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
 /obj/machinery/door/airlock/maintenance_hatch,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 1
@@ -96654,7 +96671,7 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
@@ -103378,10 +103395,19 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine)
 "xRD" = (
-/obj/item/stack/tile/iron/base,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/floor2/port/fore)
+/obj/effect/turf_decal/siding/wideplating_new{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new,
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
+/obj/effect/mapping_helpers/airlock/autoname,
+/obj/effect/mapping_helpers/airlock/abandoned,
+/obj/effect/mapping_helpers/airlock/unres{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_large,
+/area/station/maintenance/floor2/port)
 "xRR" = (
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible{
 	dir = 9
@@ -190837,7 +190863,7 @@ rvV
 uGu
 lqx
 qCO
-mAX
+ayw
 bUq
 naw
 iRK
@@ -202923,7 +202949,7 @@ tsZ
 dix
 skw
 bMf
-iOS
+xRD
 qof
 nsA
 fsu
@@ -222198,7 +222224,7 @@ rsh
 lvD
 lvD
 bMZ
-xRD
+kTM
 xVX
 cLr
 dSW
