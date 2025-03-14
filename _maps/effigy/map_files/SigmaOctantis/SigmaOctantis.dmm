@@ -2239,18 +2239,6 @@
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/command/storage/eva)
-"ayw" = (
-/obj/effect/turf_decal/siding/wideplating_new{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wideplating_new,
-/obj/machinery/atmospherics/components/unary/thermomachine/heater/on{
-	dir = 4
-	},
-/obj/structure/window/reinforced/spawner/directional/south,
-/obj/structure/window/reinforced/spawner/directional/north,
-/turf/open/floor/iron/smooth_large,
-/area/station/medical/coldroom)
 "ayF" = (
 /obj/effect/turf_decal/siding/wideplating_new,
 /obj/effect/turf_decal/siding/wideplating_new{
@@ -53751,6 +53739,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/engineering/tcoms,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/machinery/atmospherics/pipe/smart/simple/dark/hidden,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/smooth_large,
 /area/station/tcommsat/server)
 "mwj" = (
@@ -58072,20 +58061,13 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
-/obj/machinery/atmospherics/components/unary/passive_vent{
-	dir = 8
-	},
-/obj/machinery/door/window/brigdoor/right/directional/north{
-	name = "Medical Freezer Access";
-	req_access = list("surgery")
-	},
-/obj/machinery/door/window/brigdoor/right/directional/south{
-	name = "Medical Freezer Access";
-	req_access = list("surgery")
-	},
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
+/obj/structure/plasticflaps/kitchen,
+/obj/machinery/door/airlock/freezer,
+/obj/effect/mapping_helpers/airlock/access/any/medical/surgery,
+/obj/effect/mapping_helpers/airlock/autoname,
 /turf/open/floor/iron/smooth_large,
 /area/station/medical/coldroom)
 "nvc" = (
@@ -62069,7 +62051,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/rack,
-/obj/item/flatpack,
+/obj/item/flatpack/flatpacker,
 /obj/item/multitool{
 	pixel_x = 7
 	},
@@ -134366,7 +134348,7 @@ qZM
 ibZ
 gxr
 jaz
-ayw
+koO
 onX
 bhZ
 oRU

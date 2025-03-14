@@ -1078,10 +1078,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/dock)
-"auZ" = (
-/obj/effect/landmark/atmospheric_sanity/ignore_area,
-/turf/closed/wall,
-/area/station/medical/coldroom)
 "avf" = (
 /obj/structure/table,
 /obj/item/modular_computer/laptop/preset/civilian/closed,
@@ -1590,10 +1586,13 @@
 /area/station/tcommsat/computer)
 "aCC" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/passive_vent{
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
-/turf/open/floor/iron/freezer,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "aCD" = (
 /obj/structure/railing{
@@ -4167,7 +4166,10 @@
 	dir = 10
 	},
 /obj/machinery/camera/autoname/directional/east,
-/turf/open/floor/iron,
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
+	dir = 10
+	},
+/turf/open/floor/iron/kitchen_coldroom,
 /area/station/medical/coldroom)
 "bvM" = (
 /obj/structure/chair/sofa/corp/left,
@@ -15789,7 +15791,7 @@
 /obj/machinery/camera/directional/south{
 	c_tag = "Engineering - Hallway, Centre"
 	},
-/obj/item/flatpack,
+/obj/item/flatpack/flatpacker,
 /obj/structure/rack,
 /obj/item/multitool{
 	pixel_x = 7
@@ -18219,11 +18221,15 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 8
 	},
-/obj/machinery/door/airlock/medical,
+/obj/machinery/door/airlock/freezer,
 /obj/effect/mapping_helpers/airlock/access/any/medical/surgery,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
+/obj/structure/plasticflaps/kitchen,
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
 /turf/open/floor/iron/smooth_large,
@@ -18987,6 +18993,7 @@
 /area/station/cargo/storage)
 "gHd" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/tcommsat/server)
 "gHl" = (
@@ -20196,7 +20203,7 @@
 	dir = 1
 	},
 /obj/machinery/firealarm/directional/south,
-/turf/open/floor/iron,
+/turf/open/floor/iron/kitchen_coldroom,
 /area/station/medical/coldroom)
 "hct" = (
 /obj/effect/turf_decal/stripes/line{
@@ -24891,7 +24898,10 @@
 "iJN" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners,
 /obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/passive_vent{
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
 /turf/open/floor/iron/white/small,
@@ -25456,17 +25466,15 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 8
 	},
-/obj/machinery/door/airlock/multi_tile/public/glass{
-	id_tag = "TelecommsAirlock"
-	},
+/obj/machinery/door/airlock/multi_tile/public/glass,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/tcoms,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "telecomms"
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/pink/hidden,
-/obj/effect/mapping_helpers/airlock/locked,
 /obj/structure/cable,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/tcommsat/server)
 "iTp" = (
@@ -30255,6 +30263,12 @@
 "kFO" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
+	dir = 5
+	},
 /turf/open/floor/iron/white/small,
 /area/station/medical/storage)
 "kFS" = (
@@ -32955,7 +32969,7 @@
 "lFd" = (
 /obj/structure/cable,
 /obj/machinery/light/directional/west,
-/turf/open/floor/iron/freezer,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "lFl" = (
 /obj/machinery/camera/directional/south{
@@ -33145,6 +33159,8 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white/small,
 /area/station/medical/storage)
 "lIt" = (
@@ -34464,12 +34480,6 @@
 "meY" = (
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
-	},
-/obj/machinery/button/door/directional/north{
-	normaldoorcontrol = 1;
-	specialfunctions = 4;
-	id = "TelecommsAirlock";
-	name = "Bolt Control"
 	},
 /obj/machinery/power/smes/engineering,
 /obj/structure/cable,
@@ -39259,7 +39269,8 @@
 	dir = 1
 	},
 /obj/machinery/airalarm/directional/south,
-/turf/open/floor/iron,
+/obj/effect/mapping_helpers/airalarm/tlv_cold_room,
+/turf/open/floor/iron/kitchen_coldroom,
 /area/station/medical/coldroom)
 "nRA" = (
 /obj/machinery/air_sensor/incinerator_tank,
@@ -39901,7 +39912,7 @@
 /obj/structure/closet/crate/freezer/blood,
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted,
 /obj/effect/turf_decal/siding/white,
-/turf/open/floor/iron,
+/turf/open/floor/iron/kitchen_coldroom,
 /area/station/medical/coldroom)
 "ohD" = (
 /obj/effect/turf_decal/trimline/dark_blue/arrow_cw,
@@ -45198,8 +45209,8 @@
 /area/station/medical/medbay/central)
 "qbM" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
-	dir = 5
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer4{
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2{
 	dir = 8
@@ -58597,9 +58608,10 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
-	dir = 9
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2{
+	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /turf/open/floor/iron/white/smooth_half,
 /area/station/medical/storage)
 "uDE" = (
@@ -60727,7 +60739,10 @@
 "vnV" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east,
-/turf/open/floor/iron/freezer,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "vnY" = (
 /obj/structure/table/wood,
@@ -95166,7 +95181,7 @@ bVf
 vsu
 rfO
 rMa
-auZ
+pJp
 pJp
 pJp
 pJp

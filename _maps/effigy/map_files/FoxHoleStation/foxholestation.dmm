@@ -12822,7 +12822,7 @@
 "gVR" = (
 /obj/structure/closet/crate/freezer/blood,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
-/turf/open/floor/iron/freezer,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "gVX" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -14037,6 +14037,7 @@
 /obj/machinery/door/airlock/maintenance,
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /obj/effect/mapping_helpers/airlock/autoname,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
 "hFf" = (
@@ -15796,7 +15797,7 @@
 /area/station/science/xenobiology)
 "iAE" = (
 /obj/machinery/light/small/directional/north,
-/turf/open/floor/iron/freezer,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "iAF" = (
 /turf/closed/wall,
@@ -17179,7 +17180,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/airalarm/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/turf/open/floor/plating,
+/obj/effect/mapping_helpers/airalarm/tlv_cold_room,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "jmm" = (
 /obj/effect/decal/cleanable/cobweb,
@@ -17476,7 +17478,7 @@
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/freezer,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "jwy" = (
 /obj/structure/cable,
@@ -25361,7 +25363,7 @@
 "oab" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/canister/anesthetic_mix,
-/turf/open/floor/iron/freezer,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "oah" = (
 /obj/structure/cable,
@@ -28796,7 +28798,7 @@
 "pQX" = (
 /obj/structure/closet/crate/freezer/surplus_limbs,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/freezer,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "pRo" = (
 /obj/structure/cable,
@@ -33176,7 +33178,7 @@
 "sgr" = (
 /obj/machinery/iv_drip,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "sgM" = (
 /obj/structure/table,
@@ -34233,6 +34235,7 @@
 /area/station/security/warden)
 "sHn" = (
 /obj/structure/cable/multilayer/connected,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/catwalk_floor/iron,
 /area/station/tcommsat/computer)
 "sHD" = (
@@ -35954,7 +35957,7 @@
 /obj/item/stack/tile/iron/freezer,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "tAo" = (
 /obj/machinery/door/firedoor,
@@ -38732,6 +38735,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/freezer,
 /area/station/medical/coldroom)
 "uUL" = (
@@ -43640,7 +43644,7 @@
 	pixel_y = 3
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/freezer,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "xui" = (
 /obj/effect/turf_decal/sand/plating,
@@ -43896,7 +43900,7 @@
 "xCo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/tile/iron/freezer,
-/turf/open/floor/plating,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "xCr" = (
 /obj/structure/cable,
@@ -44214,7 +44218,7 @@
 	dir = 8
 	},
 /obj/machinery/firealarm/directional/east,
-/obj/item/flatpack,
+/obj/item/flatpack/flatpacker,
 /obj/item/multitool{
 	pixel_x = 7
 	},
@@ -44420,7 +44424,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/tile/iron/freezer,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "xMy" = (
 /obj/structure/cable/multilayer/multiz,
@@ -45186,7 +45190,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/turf/open/floor/iron/freezer,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "yho" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
