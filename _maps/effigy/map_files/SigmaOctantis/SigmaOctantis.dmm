@@ -11926,6 +11926,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/maintenance/floor2/port/fore)
 "cLv" = (
@@ -19797,7 +19798,7 @@
 /turf/open/floor/iron/diagonal,
 /area/station/commons/vacant_room)
 "eAy" = (
-/obj/effect/spawner/structure/electrified_grille,
+/obj/structure/grille,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
@@ -47214,10 +47215,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/maintenance/floor1/starboard/aft)
-"kTM" = (
-/obj/effect/spawner/structure/electrified_grille,
-/turf/open/floor/plating,
-/area/station/maintenance/department/medical)
 "kTQ" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/heater/on{
 	dir = 1
@@ -53627,7 +53624,7 @@
 /turf/open/floor/iron,
 /area/station/science/research)
 "muQ" = (
-/obj/effect/spawner/structure/electrified_grille,
+/obj/structure/grille,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/station/maintenance/port/central)
@@ -62120,18 +62117,6 @@
 /obj/effect/turf_decal/siding/wideplating_new/light,
 /turf/open/floor/iron/diagonal,
 /area/station/science/research)
-"orB" = (
-/obj/effect/turf_decal/siding/wideplating_new,
-/obj/effect/turf_decal/siding/wideplating_new{
-	dir = 1
-	},
-/obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/autoname,
-/obj/effect/mapping_helpers/airlock/unres,
-/obj/structure/cable,
-/turf/open/floor/iron/smooth_large,
-/area/station/maintenance/department/engine)
 "orX" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector/monitored/carbon_input{
 	dir = 1
@@ -100154,7 +100139,7 @@
 /turf/open/floor/plating/ocean_plating,
 /area/station/solars/port/aft)
 "xha" = (
-/obj/effect/spawner/structure/electrified_grille,
+/obj/structure/grille,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine)
 "xhe" = (
@@ -103393,9 +103378,10 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine)
 "xRD" = (
+/obj/item/stack/tile/iron/base,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/station/maintenance/department/engine)
+/area/station/maintenance/floor2/port/fore)
 "xRR" = (
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible{
 	dir = 9
@@ -124836,7 +124822,7 @@ jOj
 eDp
 kFP
 uPc
-kTM
+edc
 ovz
 bMx
 ppj
@@ -127427,7 +127413,7 @@ jyN
 eDp
 cXr
 iOB
-kTM
+edc
 eBG
 eBG
 hcg
@@ -129739,7 +129725,7 @@ wdQ
 bMx
 koV
 aMj
-kTM
+edc
 gTF
 pzN
 psC
@@ -132052,8 +132038,8 @@ hcg
 nQb
 nQb
 owR
-orB
-xRD
+ooR
+knW
 xha
 aEA
 nQb
@@ -222212,7 +222198,7 @@ rsh
 lvD
 lvD
 bMZ
-hSF
+xRD
 xVX
 cLr
 dSW
