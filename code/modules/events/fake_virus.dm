@@ -14,10 +14,6 @@
 			continue
 		if(!(victim.mind?.assigned_role.job_flags & JOB_CREW_MEMBER))
 			continue
-		// EffigyEdit Add - Event Station Filtering
-		if(engaged_role_play_check(victim, station = TRUE, dorms = TRUE))
-			continue
-		// EffigyEdit Add End
 		fake_virus_victims += victim
 
 	//first we do hard status effect victims
