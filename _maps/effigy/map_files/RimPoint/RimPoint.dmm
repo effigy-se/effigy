@@ -10402,7 +10402,6 @@
 /obj/machinery/camera/directional/east{
 	c_tag = "Service - Locker Room, Southeast"
 	},
-/obj/machinery/vending/dorms,
 /turf/open/floor/iron,
 /area/station/commons/locker)
 "dHn" = (
@@ -25984,7 +25983,7 @@
 /obj/effect/turf_decal/tile/dark_purple{
 	dir = 4
 	},
-/obj/machinery/vending/dorms,
+/obj/machinery/vending/coffee,
 /turf/open/floor/iron/dark,
 /area/station/commons)
 "jdm" = (

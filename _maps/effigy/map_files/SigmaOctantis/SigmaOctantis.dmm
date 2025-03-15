@@ -18370,14 +18370,6 @@
 	pixel_x = 3;
 	pixel_y = 7
 	},
-/obj/item/camera{
-	pixel_y = 6;
-	pixel_x = -6
-	},
-/obj/item/storage/crayons{
-	pixel_x = -4;
-	pixel_y = -1
-	},
 /turf/open/floor/iron,
 /area/station/commons/dorms/laundry)
 "ejC" = (
@@ -34889,7 +34881,7 @@
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 4
 	},
-/obj/machinery/vending/dorms,
+/obj/machinery/vending/cigarette,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
@@ -101617,7 +101609,15 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/south,
-/obj/machinery/vending/dorms,
+/obj/structure/table,
+/obj/item/camera{
+	pixel_y = 6;
+	pixel_x = -6
+	},
+/obj/item/storage/crayons{
+	pixel_x = -4;
+	pixel_y = -1
+	},
 /turf/open/floor/iron,
 /area/station/commons/dorms/laundry)
 "xyV" = (

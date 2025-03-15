@@ -22127,7 +22127,7 @@
 /obj/structure/railing{
 	dir = 4
 	},
-/obj/machinery/vending/dorms,
+/obj/machinery/vending/cigarette,
 /turf/open/floor/wood/large,
 /area/station/commons)
 "mcM" = (
@@ -42632,7 +42632,6 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 10
 	},
-/obj/machinery/vending/dorms,
 /turf/open/floor/iron,
 /area/station/commons/locker)
 "wQI" = (
