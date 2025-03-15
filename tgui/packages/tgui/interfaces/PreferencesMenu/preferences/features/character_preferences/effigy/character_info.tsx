@@ -1,10 +1,8 @@
 import {
   Feature,
-  FeatureChoiced,
   FeatureShortTextInput,
   FeatureTextAreaInput,
 } from '../../base';
-import { FeatureDropdownInput } from '../../dropdowns';
 
 export const flavor_text: Feature<string> = {
   name: 'Flavor Text',
@@ -16,27 +14,6 @@ export const silicon_flavor_text: Feature<string> = {
   name: 'Flavor Text (Silicon )',
   description: 'Describe your cyborg/AI shell!',
   component: FeatureTextAreaInput,
-};
-
-export const flavor_text_nsfw: Feature<string> = {
-  name: 'Flavor Text (NSFW)',
-  description:
-    'A portion of your flavor text that is censored in examine. Used to store visual sexual details.',
-  component: FeatureTextAreaInput,
-};
-
-export const silicon_flavor_text_nsfw: Feature<string> = {
-  name: 'Flavor Text (Silicon NSFW)',
-  description:
-    'A portion of your flavor text that is stored in examine, used for Silicons. Used to store visual sexual details.',
-  component: FeatureTextAreaInput,
-};
-
-export const show_flavor_text_nsfw: FeatureChoiced = {
-  name: 'Flavor Text NSFW Visibility',
-  description:
-    'How you would like your NSFW flavor text to be shown. Silicons always show NSFW flavor text, unless set to "never".',
-  component: FeatureDropdownInput,
 };
 
 export const ooc_notes: Feature<string> = {
@@ -148,29 +125,5 @@ export const headshot_silicon: Feature<string> = {
   Renders the image underneath your character preview in the examine more window. \
   Image larger than 250x250 will be resized to 250x250. \
   Aim for 250x250 whenever possible',
-  component: FeatureShortTextInput,
-};
-
-export const headshot_nsfw: Feature<string> = {
-  name: 'Headshot (NSFW)',
-  description:
-    'Headshot, but for NSFW references. \
-    Requires a link ending with .png, .jpeg, or .jpg, starting with \
-    https://, and hosted on Catbox, Imgbox, Gyazo, Lensdump, or F-List. \
-    Renders the image underneath your character preview in the examine more window. \
-    Image larger than 250x250 will be resized to 250x250. \
-    Aim for 250x250 whenever possible',
-  component: FeatureShortTextInput,
-};
-
-export const headshot_silicon_nsfw: Feature<string> = {
-  name: 'Headshot (Silicon NSFW)',
-  description:
-    'Headshot, but for NSFW references on Silicons. \
-    Requires a link ending with .png, .jpeg, or .jpg, starting with \
-    https://, and hosted on Catbox, Imgbox, Gyazo, Lensdump, or F-List. \
-    Renders the image underneath your character preview in the examine more window. \
-    Image larger than 250x250 will be resized to 250x250. \
-    Aim for 250x250 whenever possible',
   component: FeatureShortTextInput,
 };

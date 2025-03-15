@@ -107,12 +107,6 @@ export const ExaminePanel = (props) => {
                 <Section fitted title={'Flavor Text'} />
               </Tabs.Tab>
               <Tabs.Tab
-                selected={tabIndex === 2}
-                onClick={() => setTabIndex(2)}
-              >
-                <Section fitted title={'NSFW (Warning)'} />
-              </Tabs.Tab>
-              <Tabs.Tab
                 selected={tabIndex === 3}
                 onClick={() => setTabIndex(3)}
               >

@@ -139,15 +139,6 @@
 	var/others = preferences.read_preference(/datum/preference/choiced/directory_character_prefs/other_pref)
 	var/demihumans = preferences.read_preference(/datum/preference/choiced/directory_character_prefs/demihuman_pref)
 	var/humans = preferences.read_preference(/datum/preference/choiced/directory_character_prefs/human_pref)
-	var/show_nsfw_flavor_text = preferences.read_preference(/datum/preference/choiced/show_nsfw_flavor_text)
-	if(issilicon(holder) && !(show_nsfw_flavor_text == "Never"))
-		flavor_text_nsfw = preferences.read_preference(/datum/preference/text/flavor_text_nsfw/silicon)
-		headshot_nsfw = preferences.read_preference(/datum/preference/text/headshot/silicon/nsfw)
-	else if(ishuman(holder))
-		var/mob/living/carbon/human/holder_human = holder
-		if((show_nsfw_flavor_text == "Always On") || (show_nsfw_flavor_text == "Nude Only" && !(holder_human.w_uniform)))
-			flavor_text_nsfw = holder_human.dna.features["flavor_text_nsfw"]
-			headshot_nsfw = holder_human.dna.features["headshot_nsfw"]
 	character_ad += "Preferred Emote Length: [emote_length]\n"
 	character_ad += "How to Approach: [approach]\n"
 	character_ad += "Furries: [furries] | Scalies: [scalies] | Other: [others]\n"
