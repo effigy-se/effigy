@@ -64,10 +64,12 @@
 
 	//  Handle OOC notes first
 	if(preferences)
+		/*
 		if(preferences.read_preference(/datum/preference/toggle/master_erp_preferences))
 			var/e_prefs = preferences.read_preference(/datum/preference/choiced/erp_status)
 			ooc_notes += "ERP: [e_prefs]\n"
 			ooc_notes += "\n"
+		*/ // EffigyEdit to remove
 
 		// Now we handle silicon and/or human, order doesn't really matter
 		// If other variants of mob/living need to be handled at some point, put them here
