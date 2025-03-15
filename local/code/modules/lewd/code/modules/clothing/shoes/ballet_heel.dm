@@ -10,13 +10,13 @@
 	greyscale_config_worn = /datum/greyscale_config/ballet_heel/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supported_bodyshapes = list(
+		BODYSHAPE_HUMANOID,
+		BODYSHAPE_DIGITIGRADE
+	)
 	greyscale_config_worn_bodyshapes = list(
 		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/ballet_heel/worn,
 		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/ballet_heel/worn/digi,
-	)
-	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'local/icons/lewd/mob/clothing/shoes.dmi',
-		BODYSHAPE_DIGITIGRADE_T = 'local/icons/lewd/mob/clothing/shoes_digi.dmi',
 	)
 
 /obj/item/clothing/shoes/ballet_heels/Initialize(mapload)

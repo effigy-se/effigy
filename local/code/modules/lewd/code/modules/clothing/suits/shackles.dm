@@ -11,13 +11,13 @@
 	greyscale_config_worn = /datum/greyscale_config/dorms_shackles/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supported_bodyshapes = list(
+		BODYSHAPE_HUMANOID,
+		BODYSHAPE_DIGITIGRADE
+	)
 	greyscale_config_worn_bodyshapes = list(
 		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/dorms_shackles/worn,
 		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/dorms_shackles/worn/digi,
-	)
-	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'local/icons/lewd/mob/clothing/suits.dmi',
-		BODYSHAPE_DIGITIGRADE_T = 'local/icons/lewd/mob/clothing/suits_digi.dmi',
 	)
 	equip_delay_self = 1 SECONDS
 	strip_delay = 2 SECONDS

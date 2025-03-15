@@ -9,13 +9,13 @@
 	greyscale_config_worn = /datum/greyscale_config/fancyheels/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supported_bodyshapes = list(
+		BODYSHAPE_HUMANOID,
+		BODYSHAPE_DIGITIGRADE
+	)
 	greyscale_config_worn_bodyshapes = list(
 		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/fancyheels/worn,
 		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/fancyheels/worn/digi,
-	)
-	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'local/icons/mob/clothing/feet.dmi',
-		BODYSHAPE_DIGITIGRADE_T = 'local/icons/mob/clothing/feet_digi.dmi',
 	)
 
 /obj/item/clothing/shoes/fancy_heels/Initialize(mapload)
