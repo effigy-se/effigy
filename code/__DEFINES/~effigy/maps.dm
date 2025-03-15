@@ -6,4 +6,3 @@
 #define ZTRAIT_OCEAN_RUINS "Ocean Ruins"
 #define ZTRAIT_TRENCH_RUINS "Trench Ruins"
 
-#define CONDO_LIMIT 69420
