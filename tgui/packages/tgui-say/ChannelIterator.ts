@@ -1,4 +1,11 @@
-export type Channel = 'Say' | 'Radio' | 'Me' | 'Whis' | 'LOOC' | 'OOC' | 'aERP'; // EffigyEdit Change - LOOC
+export type Channel =
+  | 'Say'
+  | 'Radio'
+  | 'Me'
+  | 'Whis'
+  | 'LOOC'
+  | 'OOC'
+  | 'Admin'; // EffigyEdit Change - LOOC
 
 /**
  * ### ChannelIterator
@@ -15,11 +22,11 @@ export class ChannelIterator {
     'Whis',
     'LOOC',
     'OOC',
-    'aERP',
+    'Admin',
   ];
-  private readonly blacklist: Channel[] = ['aERP']; // EffigyEdit Change - LOOC
+  private readonly blacklist: Channel[] = ['Admin'];
   // private readonly quiet: Channel[] = ['OOC', 'Admin']; // EffigyEdit Change - LOOC
-  private readonly quiet: Channel[] = ['LOOC', 'OOC', 'aERP'];
+  private readonly quiet: Channel[] = ['LOOC', 'OOC', 'Admin'];
 
   public next(): Channel {
     if (this.blacklist.includes(this.channels[this.index])) {

@@ -43,7 +43,7 @@ describe('ChannelIterator', () => {
   });
 
   it('should not leak a message from a blacklisted channel', () => {
-    channelIterator.set('aERP'); // EffigyEdit Change - TGUI
-    expect(channelIterator.next()).toBe('aERP'); // EffigyEdit Change - TGUI
+    channelIterator.set('Admin');
+    expect(channelIterator.next()).toBe('Admin');
   });
 });

@@ -91,10 +91,9 @@
 /proc/is_banned_from_with_details(player_ckey, player_ip, player_cid, role)
 	if(!player_ckey && !player_ip && !player_cid)
 		return
-	// EffigyEdit Change - Effigy API - changed id to effigy_evid
 	var/datum/db_query/query_check_ban = SSdbcore.NewQuery({"
 		SELECT
-			effigy_evid,
+			id,
 			bantime,
 			round_id,
 			expiration_time,
@@ -117,8 +116,7 @@
 		return
 	. = list()
 	while(query_check_ban.NextRow())
-		//. += list(list("id" = query_check_ban.item[1], "bantime" = query_check_ban.item[2], "round_id" = query_check_ban.item[3], "expiration_time" = query_check_ban.item[4], "duration" = query_check_ban.item[5], "applies_to_admins" = query_check_ban.item[6], "reason" = query_check_ban.item[7], "key" = query_check_ban.item[8], "ip" = query_check_ban.item[9], "computerid" = query_check_ban.item[10], "admin_key" = query_check_ban.item[11])) // EffigyEdit Change - Effigy API
-		. += list(list("effigy_evid" = query_check_ban.item[1], "bantime" = query_check_ban.item[2], "round_id" = query_check_ban.item[3], "expiration_time" = query_check_ban.item[4], "duration" = query_check_ban.item[5], "applies_to_admins" = query_check_ban.item[6], "reason" = query_check_ban.item[7], "key" = query_check_ban.item[8], "ip" = query_check_ban.item[9], "computerid" = query_check_ban.item[10], "admin_key" = query_check_ban.item[11]))
+		. += list(list("id" = query_check_ban.item[1], "bantime" = query_check_ban.item[2], "round_id" = query_check_ban.item[3], "expiration_time" = query_check_ban.item[4], "duration" = query_check_ban.item[5], "applies_to_admins" = query_check_ban.item[6], "reason" = query_check_ban.item[7], "key" = query_check_ban.item[8], "ip" = query_check_ban.item[9], "computerid" = query_check_ban.item[10], "admin_key" = query_check_ban.item[11]))
 	qdel(query_check_ban)
 
 /// Gets the ban cache of the passed in client
@@ -376,7 +374,6 @@
 				ROLE_MIND_TRANSFER,
 				ROLE_POSIBRAIN,
 				ROLE_SENTIENCE,
-				ROLE_EVENTVENUE_GUEST, // Effigy Add - Interlink, Event Venue
 			),
 			"Antagonist Positions" = list(
 				ROLE_ABDUCTOR,
@@ -609,8 +606,7 @@
 		sql_ban += list(list(
 			"server_ip" = world.internet_address || 0,
 			"server_port" = world.port,
-			"round_id" = GLOB.round_hex,
-			"effigy_evid" = generate_evid(),
+			"round_id" = GLOB.round_id,
 			"role" = role,
 			"expiration_time" = duration,
 			"applies_to_admins" = applies_to_admins,
@@ -635,8 +631,8 @@
 	if(player_ckey)
 		create_message("note", player_ckey, admin_ckey, note_reason, null, null, 0, 0, null, 0, severity)
 
-	var/player_ban_notification = span_boldannounce("You have been [applies_to_admins ? "admin " : ""]banned by [usr.client.key] from [is_server_ban ? "the server" : " Roles: [roles_to_ban.Join(", ")]"].\nReason: [reason]</span><br>[span_danger("This ban is [isnull(duration) ? "permanent." : "temporary, it will be removed in [time_message]."] The round ID is [GLOB.round_hex].")]") // EffigyEdit Change - Logging
-	var/other_ban_notification = span_boldannounce("Another player sharing your IP or CID has been banned by [usr.client.key] from [is_server_ban ? "the server" : " Roles: [roles_to_ban.Join(", ")]"].\nReason: [reason]</span><br>[span_danger("This ban is [isnull(duration) ? "permanent." : "temporary, it will be removed in [time_message]."] The round ID is [GLOB.round_hex].")]") // EffigyEdit Change - Logging
+	var/player_ban_notification = span_boldannounce("You have been [applies_to_admins ? "admin " : ""]banned by [usr.client.key] from [is_server_ban ? "the server" : " Roles: [roles_to_ban.Join(", ")]"].\nReason: [reason]</span><br>[span_danger("This ban is [isnull(duration) ? "permanent." : "temporary, it will be removed in [time_message]."] The round ID is [GLOB.round_id].")]")
+	var/other_ban_notification = span_boldannounce("Another player sharing your IP or CID has been banned by [usr.client.key] from [is_server_ban ? "the server" : " Roles: [roles_to_ban.Join(", ")]"].\nReason: [reason]</span><br>[span_danger("This ban is [isnull(duration) ? "permanent." : "temporary, it will be removed in [time_message]."] The round ID is [GLOB.round_id].")]")
 
 	notify_all_banned_players(player_ckey, player_ip, player_cid, player_ban_notification, other_ban_notification, is_server_ban, applies_to_admins)
 
@@ -670,7 +666,7 @@
 		var/bansperpage = 10
 		page = text2num(page)
 		var/datum/db_query/query_unban_count_bans = SSdbcore.NewQuery({"
-			SELECT COUNT(effigy_evid)
+			SELECT COUNT(id)
 			FROM [format_table_name("ban")]
 			WHERE
 				(:player_key IS NULL OR ckey = :player_key) AND
@@ -700,7 +696,7 @@
 			output += pagelist.Join(" | ")
 		var/datum/db_query/query_unban_search_bans = SSdbcore.NewQuery({"
 			SELECT
-				effigy_evid,
+				id,
 				bantime,
 				round_id,
 				role,
@@ -735,7 +731,7 @@
 				(:admin_key IS NULL OR a_ckey = :admin_key) AND
 				(:player_ip IS NULL OR ip = INET_ATON(:player_ip)) AND
 				(:player_cid IS NULL OR computerid = :player_cid)
-			ORDER BY effigy_evid DESC
+			ORDER BY id DESC
 			LIMIT :skip, :take
 		"}, list(
 			"player_key" = ckey(player_key),
@@ -805,7 +801,7 @@
 		return
 	var/kn = key_name(usr)
 	var/kna = key_name_admin(usr)
-	var/change_message = "[usr.client.key] unbanned [target] from [role] on [ISOtime()] during round #[GLOB.round_hex]<hr>"
+	var/change_message = "[usr.client.key] unbanned [target] from [role] on [ISOtime()] during round #[GLOB.round_id]<hr>"
 	var/datum/db_query/query_unban = SSdbcore.NewQuery({"
 		UPDATE [format_table_name("ban")] SET
 			unbanned_datetime = NOW(),
@@ -814,8 +810,8 @@
 			unbanned_computerid = :admin_cid,
 			unbanned_round_id = :round_id,
 			edits = CONCAT(IFNULL(edits,''), :change_message)
-		WHERE effigy_evid = :ban_id
-	"}, list("ban_id" = ban_id, "admin_ckey" = usr.client.ckey, "admin_ip" = usr.client.address, "admin_cid" = usr.client.computer_id, "round_id" = GLOB.round_hex, "change_message" = change_message))
+		WHERE id = :ban_id
+	"}, list("ban_id" = ban_id, "admin_ckey" = usr.client.ckey, "admin_ip" = usr.client.address, "admin_cid" = usr.client.computer_id, "round_id" = GLOB.round_id, "change_message" = change_message))
 	if(!query_unban.warn_execute())
 		qdel(query_unban)
 		return
@@ -850,7 +846,7 @@
 
 	var/kn = key_name(usr)
 	var/kna = key_name_admin(usr)
-	var/change_message = "[usr.client.key] re-activated ban of [target] from [role] on [ISOtime()] during round #[GLOB.round_hex]<hr>"
+	var/change_message = "[usr.client.key] re-activated ban of [target] from [role] on [ISOtime()] during round #[GLOB.round_id]<hr>"
 	var/datum/db_query/query_reban = SSdbcore.NewQuery({"
 		UPDATE [format_table_name("ban")] SET
 			unbanned_datetime = NULL,
@@ -887,7 +883,7 @@
 		var/datum/db_query/query_edit_ban_get_player = SSdbcore.NewQuery({"
 			SELECT
 				byond_key,
-				(SELECT bantime FROM [format_table_name("ban")] WHERE effigy_evid = :ban_id),
+				(SELECT bantime FROM [format_table_name("ban")] WHERE id = :ban_id),
 				ip,
 				computerid
 			FROM [format_table_name("player")]

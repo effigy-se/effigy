@@ -124,7 +124,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 /datum/admin_help_tickets/proc/ClientLogout(client/C)
 	if(C.current_ticket)
 		var/datum/admin_help/T = C.current_ticket
-		INVOKE_ASYNC(T, TYPE_PROC_REF(/datum/admin_help, AddInteraction), "Client disconnected") // EffigyEdit Change - Effigy API - Original: T.AddInteraction("Client disconnected.")
+		T.AddInteraction("Client disconnected.")
 		//Gotta async this cause clients only logout on destroy, and sleeping in destroy is disgusting
 		INVOKE_ASYNC(SSblackbox, TYPE_PROC_REF(/datum/controller/subsystem/blackbox, LogAhelp), T.id, "Disconnected", "Client disconnected", C.ckey)
 		T.initiator = null
@@ -216,42 +216,13 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		qdel(src)
 		return
 
-	// id = ++ticket_counter // EffigyEdit Change - Effigy API
+	id = ++ticket_counter
 	opened_at = world.time
 
 	name = copytext_char(msg, 1, 100)
 
 	initiator = C
 	initiator_ckey = initiator.ckey
-
-	// EffigyEdit Add - Effigy API
-	id = generate_evid()
-	if(CONFIG_GET(flag/effigy_api_enabled))
-		RegisterSignal(SSeffigy, COMSIG_EFFIGY_API_RESPONSE, PROC_REF(set_effigy_ticket_id))
-		effigy_player_id = SSeffigy.ckey_to_effigy_id(initiator_ckey)
-		if(!effigy_player_id)
-			effigy_linked = LINK_FAIL
-			stack_trace("Unable to find an Effigy account link for ckey [initiator_ckey]")
-			effigy_player_id = EFFIGY_UNKNOWN_PLAYER
-		else
-			var/ef_type = EFFIGY_MESSAGE_NEW_TICKET
-			var/int_id = id
-			var/link_id = effigy_player_id
-			var/ticket_id = 0
-			var/box = SOCIAL_DISTRICT_AHELP
-			var/title = strip_html_full(copytext_char(msg, 1, 64))
-			var/message = strip_html_full(msg)
-			var/request = SSeffigy.create_message_request(ef_type, int_id, link_id, ticket_id, box, title, message)
-			effigy_linked = LINK_PENDING
-			log_effigy_api("Creating new ticket: [id] [effigy_player_id] [ticket_id] [box]")
-			INVOKE_ASYNC(SSeffigy, TYPE_PROC_REF(/datum/controller/subsystem/effigy, send_message_request), request, src)
-	else
-		effigy_linked = LINK_FAIL
-		effigy_player_id = EFFIGY_UNKNOWN_PLAYER
-
-	GLOB.ahelp_tickets.active_tickets += src
-	// EffigyEdit Add End
-
 	initiator_key_name = key_name(initiator, FALSE, TRUE)
 	if(initiator.current_ticket) //This is a bug
 		stack_trace("Multiple ahelp current_tickets")
@@ -306,13 +277,13 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		"CKEY" = initiator_ckey,
 		"PLAYERS" = player_count,
 		"ROUND STATE" = round_state,
-		"ROUND ID" = GLOB.round_hex, // EffigyEdit Change - Logging - round_hex
+		"ROUND ID" = GLOB.round_id,
 		"ROUND TIME" = ROUND_TIME(),
 		"MESSAGE" = message,
 		"ADMINS" = admin_text,
 	)
 	if(CONFIG_GET(string/adminhelp_ahelp_link))
-		var/ahelp_link = replacetext(CONFIG_GET(string/adminhelp_ahelp_link), "$RID", GLOB.round_hex) // EffigyEdit Change - Logging - round_hex
+		var/ahelp_link = replacetext(CONFIG_GET(string/adminhelp_ahelp_link), "$RID", GLOB.round_id)
 		ahelp_link = replacetext(ahelp_link, "$TID", id)
 		embed.url = ahelp_link
 	return embed
@@ -332,8 +303,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	var/admin_number_present = send2tgs_adminless_only(initiator_ckey, "Ticket #[id]: [message_to_send]")
 	log_admin_private("Ticket #[id]: [key_name(initiator)]: [name] - heard by [admin_number_present] non-AFK admins who have +BAN.")
 	if(admin_number_present <= 0)
-		//to_chat(initiator, span_notice("No active admins are online, your adminhelp was sent to admins who are available through IRC or Discord."), confidential = TRUE) // EffigyEdit Change - Effigy API
-		to_chat(initiator, span_notice("Your adminhelp was sent to admins who are available in game and through Discord."), confidential = TRUE)
+		to_chat(initiator, span_notice("No active admins are online, your adminhelp was sent to admins who are available through IRC or Discord."), confidential = TRUE)
 		heard_by_no_admins = TRUE
 		var/regular_webhook_url = CONFIG_GET(string/regular_adminhelp_webhook_url)
 		if(regular_webhook_url && (!urgent || regular_webhook_url != CONFIG_GET(string/urgent_adminhelp_webhook_url)))
@@ -379,9 +349,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	GLOB.ahelp_tickets.resolved_tickets -= src
 	return ..()
 
-// EffigyEdit Remove - Effigy API - Moved to local/code/modules/admin/verbs/adminhelp.dm
-/*
-/datum/admin_help/proc/AddInteraction(formatted_message, player_message, cattempt)
+/datum/admin_help/proc/AddInteraction(formatted_message, player_message)
 	if (!isnull(usr) && usr.ckey != initiator_ckey)
 		admins_involved |= usr.ckey
 		if(heard_by_no_admins)
@@ -391,7 +359,6 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	ticket_interactions += "[time_stamp()]: [formatted_message]"
 	if (!isnull(player_message))
 		player_interactions += "[time_stamp()]: [player_message]"
-*/
 
 //Removes the ahelp verb and returns it after 2 minutes
 /datum/admin_help/proc/TimeoutVerb()
@@ -659,7 +626,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		var/datum/discord_embed/embed = new()
 		embed.title = "Ticket #[id]"
 		if(CONFIG_GET(string/adminhelp_ahelp_link))
-			var/ahelp_link = replacetext(CONFIG_GET(string/adminhelp_ahelp_link), "$RID", GLOB.round_hex) // EffigyEdit Change - Logging
+			var/ahelp_link = replacetext(CONFIG_GET(string/adminhelp_ahelp_link), "$RID", GLOB.round_id)
 			ahelp_link = replacetext(ahelp_link, "$TID", id)
 			embed.url = ahelp_link
 		embed.description = "[key_name(usr)] has sent an action to this ticket. Action ID: [action]"

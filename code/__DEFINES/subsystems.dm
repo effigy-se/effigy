@@ -168,7 +168,6 @@
 #define INIT_ORDER_RESTAURANT 34
 #define INIT_ORDER_TTS 33
 #define INIT_ORDER_FLUIDS 32 // Needs to be above atoms, as some atoms may want to start fluids/gases on init
-#define INIT_ORDER_EFFIGY 31 // EffigyEdit Add
 #define INIT_ORDER_ATOMS 30
 #define INIT_ORDER_LANGUAGE 25
 #define INIT_ORDER_MACHINES 20
