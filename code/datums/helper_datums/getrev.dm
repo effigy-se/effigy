@@ -58,14 +58,8 @@
 
 	var/list/msg = list()
 	// Round ID
-	// EffigyEdit Change - Logging
-	/*
 	if(GLOB.round_id)
 		msg += "<b>Round ID:</b> [GLOB.round_id]"
-	*/
-	if(GLOB.round_hex)
-		msg += "<b>Round ID:</b> [GLOB.round_hex]"
-	// EffigyEdit Change End
 
 	msg += "<b>BYOND Version:</b> [world.byond_version].[world.byond_build]"
 	if(DM_VERSION != world.byond_version || DM_BUILD != world.byond_build)

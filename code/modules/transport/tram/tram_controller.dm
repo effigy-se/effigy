@@ -84,12 +84,10 @@
  * information plate inside the tram.
  */
 /datum/tram_mfg_info/New(specific_transport_id)
-	// EffigyEdit Change - Tram Customization
-	if(GLOB.round_hex && GLOB.round_hex != "0001000")
-		serial_number = "LT306EF[uppertext(GLOB.round_hex)]"
+	if(GLOB.round_id)
+		serial_number = "LT306TG[add_leading(GLOB.round_id, 6, "0")]"
 	else
-		serial_number = "LT306EF[rand(0000000, 9999999)]"
-	// EffigyEdit Change End
+		serial_number = "LT306TG[rand(000000, 999999)]"
 
 	mfg_date = "[CURRENT_STATION_YEAR]-[time2text(world.timeofday, "MM-DD")]"
 	install_location = specific_transport_id

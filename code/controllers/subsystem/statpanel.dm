@@ -40,7 +40,7 @@ SUBSYSTEM_DEF(statpanels)
 			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)"
 		)*/
 		global_data = list(
-			"Round ID: [GLOB.round_id == "1024" ? "Local" : GLOB.round_hex]",
+			"Round ID: [GLOB.round_id ? GLOB.round_id : "Local"]",
 			"Game Mode: [SSgamemode.storyteller ? SSgamemode.storyteller.name : "N/A"]",
 			"Map: [SSmapping.current_map?.map_name || "Loading..."]",
 			cached ? "Next Map: [cached.map_name]" : null,
