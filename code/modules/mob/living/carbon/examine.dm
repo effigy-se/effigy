@@ -293,15 +293,15 @@
 		. += "<b>Quirks:</b> [get_quirk_string(FALSE, CAT_QUIRK_ALL)]"
 
 	// EffigyEdit Add - Character Preferences
-	var/flavor_text_link
-	var/preview_text = copytext_char((dna.features["flavor_text"]), 1, FLAVOR_TEXT_PREVIEW_LIMIT)
+	var/flavour_text_link
+	var/preview_text = copytext_char((dna.features["flavour_text"]), 1, FLAVOUR_TEXT_PREVIEW_LIMIT)
 	var/face_obscured = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
 	if(!(face_obscured))
-		flavor_text_link = span_notice("[preview_text]... <a href='byond://?src=[REF(src)];lookup_info=open_examine_panel'>\[Examine\]</a>")
+		flavour_text_link = span_notice("[preview_text]... <a href='byond://?src=[REF(src)];lookup_info=open_examine_panel'>\[Examine\]</a>")
 	else
-		flavor_text_link = span_notice("<a href='byond://?src=[REF(src)];lookup_info=open_examine_panel'>\[Examine\]</a>")
-	if(!isnull(flavor_text_link))
-		. += flavor_text_link
+		flavour_text_link = span_notice("<a href='byond://?src=[REF(src)];lookup_info=open_examine_panel'>\[Examine\]</a>")
+	if(!isnull(flavour_text_link))
+		. += flavour_text_link
 
 	SEND_SIGNAL(src, COMSIG_ATOM_EXAMINE, user, .)
 	if(length(.))

@@ -53,7 +53,7 @@
 
 	var/datum/preferences/preferences = holder.client?.prefs
 
-	var/flavor_text
+	var/flavour_text
 	var/custom_species
 	var/custom_species_lore
 	var/obscured
@@ -66,7 +66,7 @@
 		// Now we handle silicon and/or human, order doesn't really matter
 		// If other variants of mob/living need to be handled at some point, put them here
 		if(issilicon(holder))
-			flavor_text = preferences.read_preference(/datum/preference/text/silicon_flavor_text)
+			flavour_text = preferences.read_preference(/datum/preference/text/silicon_flavour_text)
 			// Silicon prefs and headshot
 			custom_species = preferences.read_preference(/datum/preference/text/custom_species/silicon)
 			custom_species_lore = preferences.read_preference(/datum/preference/text/custom_species_lore/silicon)
@@ -84,11 +84,11 @@
 		if((obscured || !holder_human.dna) && !isobserver(user))
 			custom_species = "Obscured"
 			custom_species_lore = "Obscured"
-			flavor_text = "Obscured"
+			flavour_text = "Obscured"
 			name = "Unknown"
 		else
 			headshot = holder_human.dna.features["headshot"]
-			flavor_text = holder_human.dna.features["flavor_text"]
+			flavour_text = holder_human.dna.features["flavour_text"]
 			name = holder.name
 		//Custom species handling. Reports the normal custom species if there is not one set.
 			if(holder_human.dna.features["custom_species"] == "")
@@ -108,7 +108,7 @@
 	data["obscured"] = obscured ? TRUE : FALSE
 	data["character_name"] = name
 	data["assigned_map"] = examine_panel_screen.assigned_map
-	data["flavor_text"] = flavor_text
+	data["flavour_text"] = flavour_text
 	data["ooc_notes"] = ooc_notes
 	data["custom_species"] = custom_species
 	data["custom_species_lore"] = custom_species_lore

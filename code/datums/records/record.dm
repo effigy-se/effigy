@@ -87,6 +87,19 @@
 	///Photo used for records, which we store here so we don't have to constantly make more of.
 	var/list/obj/item/photo/record_photos
 
+	// EffigyEdit Add - Character Preferences
+	/// Contains their background information.
+	var/background_information
+	/// Contains their exploitable information.
+	var/exploitable_information
+	/// Contains their own custom past general records.
+	var/past_general_records
+	/// Contains their own custom past medical records.
+	var/past_medical_records
+	/// Contains their own custom past security records.
+	var/past_security_records
+	// EffigyEdit Add End
+
 /datum/record/crew/New(
 	age = 20, // EffigyEdit Change - Original: 18
 	blood_type = "?",
@@ -108,6 +121,12 @@
 	physical_status = PHYSICAL_ACTIVE,
 	mental_status = MENTAL_STABLE,
 	quirk_notes,
+	// EffigyEdit Add - Character Preferences
+	background_information = "",
+	past_general_records = "",
+	past_medical_records = "",
+	past_security_records = "",
+	// EffigyEdit Add End
 )
 	. = ..()
 	src.lock_ref = lock_ref
@@ -118,6 +137,12 @@
 	src.physical_status = physical_status
 	src.mental_status = mental_status
 	src.quirk_notes = quirk_notes
+	// EffigyEdit Add - Character Preferences
+	src.background_information = background_information
+	src.past_general_records = past_general_records
+	src.past_medical_records = past_medical_records
+	src.past_security_records = past_security_records
+	// EffigyEdit Add End
 
 	GLOB.manifest.general += src
 
@@ -255,7 +280,17 @@
 
 	final_paper_text += "Species: [species]<br>Fingerprint: [fingerprint]<br>Wanted Status: [wanted_status]<br><br>"
 
+	// EffigyEdit Add - Character Preferences
+	if(past_general_records != "")
+		final_paper_text += "\nGeneral Records:\n[past_general_records]\n"
+	// EffigyEdit Add End
+
 	final_paper_text += "<center><B>Security Data</B></center><br><br>"
+
+	// EffigyEdit Add - Character Preferences
+	if(past_security_records != "")
+		final_paper_text += "<br>Security Records:<br>[past_security_records]<br>"
+	// EffigyEdit Add End
 
 	final_paper_text += "Crimes:<br>"
 	final_paper_text += {"<table style="text-align:center;" border="1" cellspacing="0" width="100%">

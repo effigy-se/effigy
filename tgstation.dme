@@ -430,6 +430,7 @@
 #include "code\__DEFINES\~effigy\mobs.dm"
 #include "code\__DEFINES\~effigy\mutants.dm"
 #include "code\__DEFINES\~effigy\preferences.dm"
+#include "code\__DEFINES\~effigy\reagents.dm"
 #include "code\__DEFINES\~effigy\role_preferences.dm"
 #include "code\__DEFINES\~effigy\security_level.dm"
 #include "code\__DEFINES\~effigy\shuttles.dm"

@@ -204,7 +204,7 @@
 		if(any_damage || (mode == SCANNER_VERBOSE && (any_missing || any_wounded || any_embeds)))
 			render_list += "<hr>"
 			var/dmgreport = "<span class='info ml-1'>Body status:</span>\
-							<font face='Verdana'>\
+							<font face='Chakra Petch'>\
 							<table class='ml-2'>\
 							<tr>\
 							<td style='width:7em;'><font color='#ff0000'><b>Damage:</b></font></td>\
@@ -269,7 +269,7 @@
 		// Organ damage, missing organs
 		var/render = FALSE
 		var/toReport = "<span class='info ml-1'>Organ status:</span>\
-			<font face='Verdana'>\
+			<font face='Chakra Petch'>\
 			<table class='ml-2'>\
 			<tr>\
 			<td style='width:8em;'><font color='#ff0000'><b>Organ:</b></font></td>\

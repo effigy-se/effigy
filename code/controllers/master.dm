@@ -389,6 +389,8 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 		world.sleep_offline = FALSE
 	initializations_finished_with_no_players_logged_in = initialized_tod < REALTIMEOFDAY - 10
 
+	SSticker.timeLeft = (CONFIG_GET(number/lobby_countdown) * 10) // EffigyEdit Add - Custom Lobby
+
 /**
  * Initialize a given subsystem and handle the results.
  *
@@ -448,17 +450,17 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 			message_prefix = "Failed to initialize [subsystem.name] subsystem after"
 			chat_warning = TRUE
 		if(SS_INIT_SUCCESS, SS_INIT_NO_MESSAGE)
-			message_prefix = "Initialized [subsystem.name] subsystem within"
+			message_prefix = "Initialized [subsystem.name] subsystem." // EffigyEdit Change - Custom Lobby
 		if(SS_INIT_NO_NEED)
 			// This SS is disabled or is otherwise shy.
 			return
 		else
 			// SS_INIT_NONE or an invalid value.
-			message_prefix = "Initialized [subsystem.name] subsystem with errors within"
+			message_prefix = "Initialized [subsystem.name] subsystem with errors!" // EffigyEdit Change - Custom Lobby
 			chat_warning = TRUE
 
-	var/message = "[message_prefix] [seconds] second[seconds == 1 ? "" : "s"]!"
-	var/chat_message = chat_warning ? span_boldwarning(message) : span_boldannounce(message)
+	var/message = "[message_prefix] ([seconds] second[seconds == 1 ? "" : "s"])" // EffigyEdit Change - Custom Lobby
+	var/chat_message = chat_warning ? span_warning(message) : span_info(message) // EffigyEdit Change - Custom Lobby
 
 	if(result != SS_INIT_NO_MESSAGE)
 		to_chat(world, chat_message, MESSAGE_TYPE_DEBUG)

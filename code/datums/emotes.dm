@@ -103,6 +103,8 @@
 
 	user.log_message(msg, LOG_EMOTE)
 
+	//var/space = should_have_space_before_emote(html_decode(msg)[1]) ? " " : "" // EffigyEdit TODO - Emotes
+
 	var/tmp_sound = get_sound(user)
 	if(tmp_sound && should_play_sound(user, intentional) && TIMER_COOLDOWN_FINISHED(user, "general_emote_audio_cooldown") && TIMER_COOLDOWN_FINISHED(user, type))
 		TIMER_COOLDOWN_START(user, type, specific_emote_audio_cooldown)

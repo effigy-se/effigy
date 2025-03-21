@@ -244,7 +244,7 @@
 	if(new_theme)
 		device_theme = GLOB.pda_name_to_theme[new_theme]
 
-	// EffigyEdit Add - Customization
+	// EffigyEdit Add - Character Preferences
 	var/new_text = owner_client.prefs.read_preference(/datum/preference/text/pda_writing)
 	if(new_text)
 		for(var/datum/computer_file/program/notepad/notepad_app in src.stored_files)
@@ -337,6 +337,7 @@
 		/datum/computer_file/program/robotact,
 		/datum/computer_file/program/atmosscan,
 		/datum/computer_file/program/crew_manifest,
+		/datum/computer_file/program/messenger, // EffigyEdit Add
 	)
 
 /obj/item/modular_computer/pda/silicon/Initialize(mapload)

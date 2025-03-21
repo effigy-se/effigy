@@ -8,7 +8,7 @@
 		- By default; everyone will spawn in with their loadout. While I'd reccomend working AROUND this; you can disable it via the "loadout_enabled" variable. <br>
 		- Do not give the ghost spawner any CentCom or ERT-Adjacent Outfits. Anyone with the access flag "ACCESS_CENT_CAPTAIN" can jailbreak the venue. <br>
 		- To enable the spawner; set "uses" to the amount of participants allowed (-1 for infinity). <br>
-		- On the spawner; It's reccomended to edit "flavor_text" to explain the context of the event (wedding; bougie party; etc) and "important_text" to clarify if shitstirring (or worse) was/is allowed."}
+		- On the spawner; It's reccomended to edit "flavour_text" to explain the context of the event (wedding; bougie party; etc) and "important_text" to clarify if shitstirring (or worse) was/is allowed."}
 
 /obj/item/paper/fluff/interlink/pizza_party
 	name = "paper - 'pizza party howto'"

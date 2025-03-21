@@ -4,33 +4,33 @@
 	var/headshot_silicon = ""
 	var/headshot_silicon_nsfw = ""
 
-/datum/preference/text/flavor_text
+/datum/preference/text/flavour_text
 	category = PREFERENCE_CATEGORY_PROFILE
 	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "flavor_text"
-	maximum_value_length = MAX_FLAVOR_TEXT_LENGTH
+	savefile_key = "flavour_text"
+	maximum_value_length = MAX_FLAVOUR_TEXT_LENGTH
 
-/datum/preference/text/flavor_text/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	target.dna.features["flavor_text"] = value
+/datum/preference/text/flavour_text/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	target.dna.features["flavour_text"] = value
 
-/datum/preference/text/flavor_text/create_default_value()
+/datum/preference/text/flavour_text/create_default_value()
 	return ""
 
-/datum/preference/text/silicon_flavor_text
+/datum/preference/text/silicon_flavour_text
 	category = PREFERENCE_CATEGORY_PROFILE
 	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "silicon_flavor_text"
-	maximum_value_length = MAX_FLAVOR_TEXT_LENGTH
+	savefile_key = "silicon_flavour_text"
+	maximum_value_length = MAX_FLAVOUR_TEXT_LENGTH
 	// This does not get a apply_to_human proc, this is read directly in silicon/robot/examine.dm
 
-/datum/preference/text/silicon_flavor_text/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+/datum/preference/text/silicon_flavour_text/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE // To prevent the not-implemented runtime
 
 /datum/preference/text/ooc_notes
 	category = PREFERENCE_CATEGORY_PROFILE
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ooc_notes"
-	maximum_value_length = MAX_FLAVOR_TEXT_LENGTH
+	maximum_value_length = MAX_FLAVOUR_TEXT_LENGTH
 
 /datum/preference/text/ooc_notes/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	target.dna.features["ooc_notes"] = value
@@ -63,7 +63,7 @@
 	category = PREFERENCE_CATEGORY_PROFILE
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "custom_species_lore"
-	maximum_value_length = MAX_FLAVOR_TEXT_LENGTH
+	maximum_value_length = MAX_FLAVOUR_TEXT_LENGTH
 
 /datum/preference/text/custom_species_lore/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	target.dna.features["custom_species_lore"] = value
@@ -78,7 +78,7 @@
 	category = PREFERENCE_CATEGORY_PROFILE
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "general_record"
-	maximum_value_length = MAX_FLAVOR_TEXT_LENGTH
+	maximum_value_length = MAX_FLAVOUR_TEXT_LENGTH
 
 /datum/preference/text/general/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
@@ -87,7 +87,7 @@
 	category = PREFERENCE_CATEGORY_PROFILE
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "medical_record"
-	maximum_value_length = MAX_FLAVOR_TEXT_LENGTH
+	maximum_value_length = MAX_FLAVOUR_TEXT_LENGTH
 
 /datum/preference/text/medical/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
@@ -96,7 +96,7 @@
 	category = PREFERENCE_CATEGORY_PROFILE
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "security_record"
-	maximum_value_length = MAX_FLAVOR_TEXT_LENGTH
+	maximum_value_length = MAX_FLAVOUR_TEXT_LENGTH
 
 /datum/preference/text/security/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
@@ -105,7 +105,7 @@
 	category = PREFERENCE_CATEGORY_PROFILE
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "background_info"
-	maximum_value_length = MAX_FLAVOR_TEXT_LENGTH
+	maximum_value_length = MAX_FLAVOUR_TEXT_LENGTH
 
 /datum/preference/text/background/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
@@ -114,7 +114,7 @@
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "pda_writing"
-	maximum_value_length = MAX_FLAVOR_TEXT_LENGTH
+	maximum_value_length = MAX_FLAVOUR_TEXT_LENGTH
 
 /datum/preference/text/pda_writing/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE

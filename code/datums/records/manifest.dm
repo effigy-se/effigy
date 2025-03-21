@@ -98,7 +98,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 
 
 /// Injects a record into the manifest.
-/datum/manifest/proc/inject(mob/living/carbon/human/person)
+/datum/manifest/proc/inject(mob/living/carbon/human/person, client/player_client) // EffigyEdit Add - Character Preferences - add player_client
 	set waitfor = FALSE
 	if(!(person.mind?.assigned_role.job_flags & JOB_CREW_MANIFEST))
 		return
@@ -152,6 +152,12 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		minor_disabilities = person.get_quirk_string(FALSE, CAT_QUIRK_MINOR_DISABILITY, from_scan = TRUE),
 		minor_disabilities_desc = person.get_quirk_string(TRUE, CAT_QUIRK_MINOR_DISABILITY),
 		quirk_notes = person.get_quirk_string(TRUE, CAT_QUIRK_NOTES),
+		// EffigyEdit Add - Customization
+		background_information = player_client?.prefs.read_preference(/datum/preference/text/background) || "",
+		past_general_records = player_client?.prefs.read_preference(/datum/preference/text/general) || "",
+		past_medical_records = player_client?.prefs.read_preference(/datum/preference/text/medical) || "",
+		past_security_records = player_client?.prefs.read_preference(/datum/preference/text/security) || "",
+		// EffigyEdit Add End
 	)
 
 /// Edits the rank and trim of the found record.

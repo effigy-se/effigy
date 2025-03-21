@@ -44,6 +44,7 @@
 	. += create_table_notices(list(
 		"name",
 		"job",
+		"is_robot", // EffigyEdit Add - Character Preferences
 		"life_status",
 		"suffocation",
 		"toxin",
@@ -64,6 +65,7 @@
 		var/list/entry = list()
 		entry["name"] = player_record["name"]
 		entry["job"] = player_record["assignment"]
+		entry["is_robot"] = player_record["is_robot"] // EffigyEdit Add - Character Preferences
 		entry["life_status"] = player_record["life_status"]
 		entry["suffocation"] = player_record["oxydam"]
 		entry["toxin"] = player_record["toxdam"]
@@ -164,7 +166,8 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 /datum/crewmonitor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "CrewConsole")
+		//ui = new(user, src, "CrewConsole")
+		ui = new(user, src, "CrewConsoleEffigy") // EffigyEdit Change - Character Preferences
 		ui.open()
 
 /datum/crewmonitor/proc/show(mob/M, source)
@@ -257,6 +260,11 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			entry["can_track"] = tracked_living_mob.can_track()
 			results[++results.len] = entry
 			continue
+
+		// EffigyEdit Add - Character Preferences
+		if (isandroid(tracked_human))
+			entry["is_robot"] = TRUE
+		// EffigyEdit Add End
 
 		// Current status
 		if (sensor_mode >= SENSOR_LIVING)

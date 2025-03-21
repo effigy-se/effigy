@@ -67,6 +67,8 @@
 			rank = target.rank,
 			species = target.species,
 			trim = target.trim,
+			past_medical_records = target.past_medical_records, // EffigyEdit Add - Character Preferences
+			past_general_records = target.past_general_records, // EffigyEdit Add - Character Preferences
 		))
 
 	data["records"] = records

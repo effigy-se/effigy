@@ -81,6 +81,7 @@
 	playsound(loc, SFX_PORTAL_ENTER, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	use_energy(active_power_usage)
 	new /obj/effect/temp_visual/portal_animation(start_turf, src, M)
+	/* EffigyEdit Change - TODO: don't RR on teleporter fuckup
 	if(!calibrated && ishuman(M) && prob(30 - ((accuracy) * 10))) //oh dear a problem
 		var/mob/living/carbon/human/human = M
 		if(!(human.mob_biotypes & (MOB_ROBOTIC|MOB_MINERAL|MOB_UNDEAD|MOB_SPIRIT)))
@@ -91,6 +92,7 @@
 				to_chat(M, span_hear("You hear a buzzing in your ears."))
 				human.set_species(species_to_transform)
 				human.log_message("was turned into a [initial(species_to_transform.name)] through [src].", LOG_GAME)
+		*/ // EffigyEdit Change End
 	calibrated = FALSE
 
 /obj/machinery/teleport/hub/update_icon_state()

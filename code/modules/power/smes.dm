@@ -71,7 +71,7 @@
 	var/max_charge = 0
 	var/new_charge = 0
 	for(var/datum/stock_part/capacitor/capacitor in component_parts)
-		power_coefficient += 2 ** (capacitor.tier - 1)// EffigyEdit Change - Original: power_coefficient += capacitor.tier
+		power_coefficient += 2 ** (capacitor.tier - 1) // EffigyEdit Change - Original: power_coefficient += capacitor.tier
 	input_level_max = initial(input_level_max) * power_coefficient
 	output_level_max = initial(output_level_max) * power_coefficient
 	for(var/obj/item/stock_parts/power_store/power_cell in component_parts)

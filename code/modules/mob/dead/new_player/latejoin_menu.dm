@@ -153,6 +153,13 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 				tgui_alert(owner, "There is an administrative lock on entering the game for non-observers!", "Oh No!")
 				return TRUE
 
+			// EffigyEdit Add - Character Preferences
+			if(CONFIG_GET(flag/min_flavour_text))
+				if(length_char(owner.client.prefs.read_preference(/datum/preference/text/flavour_text)) < CONFIG_GET(number/flavour_text_character_requirement))
+					to_chat(owner, alert_boxed_message(RED, "You need at least [CONFIG_GET(number/flavour_text_character_requirement)] characters of flavor text to join the round. You have [length_char(owner.client.prefs.read_preference(/datum/preference/text/flavour_text))] characters."))
+					return
+			// EffigyEdit Add End
+
 			//Determines Relevent Population Cap
 			var/relevant_cap
 			var/hard_popcap = CONFIG_GET(number/hard_popcap)

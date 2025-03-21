@@ -14,7 +14,7 @@
 	harmful = TRUE
 	mech_flags = EXOSUIT_MODULE_RIPLEY
 	///Bool for whether we beat the hell out of things we punch (and tear off their arms)
-	var/killer_clamp = FALSE
+	var/killer_clamp = TRUE // EffigyEdit Change - Punch Shit - Original: FALSE
 	///How much base damage this clamp does
 	var/clamp_damage = 20
 	///Audio for using the hydraulic clamp

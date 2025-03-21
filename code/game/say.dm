@@ -59,6 +59,14 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		message = trim(copytext_char(sanitize(message), 1, MAX_MESSAGE_LEN))
 	if(!message || message == "")
 		return
+
+	// EffigyEdit Add - TODO Autopunctuation
+	/*
+	if(!(findtext(message, GLOB.eol_punctuation_list)) && !(message[1]=="*"))
+		message += "."
+	*/
+	// EffigyEdit Add End
+
 	spans |= speech_span
 	if(!language)
 		language = get_selected_language()

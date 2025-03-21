@@ -218,3 +218,13 @@
 	config_entry_value = GHOSTSET_POP_SCALE_PENALTY
 	integer = TRUE
 	min_val = 0
+
+// Flavour text requirements
+/// Config entry for enabling flavour text min character count, good to disable for debugging purposes
+/datum/config_entry/flag/min_flavour_text
+	default = FALSE // DISABLE THIS instead of setting flavour_text_character_requirement to 0
+
+/// Config entry for enabling flavortext min character count, good to disable for debugging purposes
+
+/datum/config_entry/number/flavour_text_character_requirement
+	default = 150 // You can't set this value to 0! YOU WILL REGRET THIS!!

@@ -4,13 +4,13 @@ import {
   FeatureTextAreaInput,
 } from '../../base';
 
-export const flavor_text: Feature<string> = {
+export const flavour_text: Feature<string> = {
   name: 'Flavor Text',
   description: 'Describe your character!',
   component: FeatureTextAreaInput,
 };
 
-export const silicon_flavor_text: Feature<string> = {
+export const silicon_flavour_text: Feature<string> = {
   name: 'Flavor Text (Silicon )',
   description: 'Describe your cyborg/AI shell!',
   component: FeatureTextAreaInput,

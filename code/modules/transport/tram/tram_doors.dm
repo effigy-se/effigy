@@ -187,7 +187,7 @@
 
 /obj/machinery/door/airlock/tram/post_machine_initialize()
 	. = ..()
-	//INVOKE_ASYNC(src, PROC_REF(open)) // EffigyEdit Remove
+	//INVOKE_ASYNC(src, PROC_REF(open)) // EffigyEdit Remove - Tram platform doors
 	SStransport.doors += src
 	find_tram()
 

@@ -178,6 +178,7 @@ GLOBAL_LIST_INIT(strippable_human_items, create_strippable_list(list(
 /datum/strippable_item/mob_item_slot/id
 	key = STRIPPABLE_ITEM_ID
 	item_slot = ITEM_SLOT_ID
+	//can_be_silent = TRUE // EffigyEdit TODO - Silent item stripping
 
 /datum/strippable_item/mob_item_slot/belt
 	key = STRIPPABLE_ITEM_BELT
@@ -195,6 +196,7 @@ GLOBAL_LIST_INIT(strippable_human_items, create_strippable_list(list(
 /datum/strippable_item/mob_item_slot/pocket
 	/// Which pocket we're referencing. Used for visible text.
 	var/pocket_side
+	//can_be_silent = TRUE // EffigyEdit TODO - Silent item stripping
 
 /datum/strippable_item/mob_item_slot/pocket/get_obscuring(atom/source)
 	return isnull(get_item(source)) \
@@ -222,7 +224,7 @@ GLOBAL_LIST_INIT(strippable_human_items, create_strippable_list(list(
 
 	var/result = start_unequip_mob(item, source, user, strip_delay = POCKET_STRIP_DELAY, hidden = TRUE)
 
-	if (!result)
+	if (!result) // EffigyEdit TODO: Add sticky fingers trait
 		warn_owner(source)
 
 	return result

@@ -200,7 +200,7 @@
 	// If we already have a captain, are they a "Captain" rank and are we allowing multiple of them to be assigned?
 	if(is_captain_job(job))
 		is_captain = IS_FULL_CAPTAIN
-		captain_sound = 'sound/announcer/announcement/announce.ogg'
+		captain_sound = 'sound/announcer/announcement/announce_dig.ogg' // EffigyEdit Change - Original: announce.ogg
 	// If we don't have an assigned cap yet, check if this person qualifies for some from of captaincy.
 	else if(!SSjob.assigned_captain && ishuman(character) && SSjob.chain_of_command[rank] && !is_banned_from(character.ckey, list(JOB_CAPTAIN)))
 		is_captain = IS_ACTING_CAPTAIN
@@ -245,7 +245,7 @@
 		SSquirks.AssignQuirks(humanc, humanc.client)
 
 	if(humanc) // Quirks may change manifest datapoints, so inject only after assigning quirks
-		GLOB.manifest.inject(humanc)
+		GLOB.manifest.inject(humanc, humanc.client) // EffigyEdit Change - Character Preferences - Original: GLOB.manifest.inject(humanc)
 		SEND_SIGNAL(humanc, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
 	var/area/station/arrivals = GLOB.areas_by_type[/area/station/hallway/secondary/entry]
 	if(humanc && arrivals && !arrivals.power_environ) //arrivals depowered

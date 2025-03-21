@@ -698,7 +698,7 @@ SUBSYSTEM_DEF(job)
 	job_debug("RJCT: Player rejected, Player: [player]")
 	unassigned -= player
 	if(!run_divide_occupation_pure)
-		to_chat(player, span_infoplain("<b>You have failed to qualify for any job you desired.</b>"))
+		to_chat(player, alert_boxed_message(RED, span_notice("You have failed to qualify for any job you desired."))) // EffigyEdit Change - Custom TGUI
 		player.ready = PLAYER_NOT_READY
 
 

@@ -702,8 +702,12 @@
 			if(!silent)
 				to_chat(src, span_notice("You will now stand up as soon as you are able to."))
 		else
+			// EffigyEdit Remove
+			/*
 			if(!silent)
 				to_chat(src, span_notice("You stand up."))
+			*/
+			// EffigyEdit Remove End
 			get_up(instant)
 
 	SEND_SIGNAL(src, COMSIG_LIVING_RESTING, new_resting, silent, instant)

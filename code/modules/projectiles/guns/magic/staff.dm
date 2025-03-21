@@ -137,7 +137,7 @@
 		/obj/projectile/magic/antimagic,
 		/obj/projectile/magic/arcane_barrage,
 		/obj/projectile/magic/bounty,
-		/obj/projectile/magic/change,
+		// /obj/projectile/magic/change, // EffigyEdit Remove
 		/obj/projectile/magic/death,
 		/obj/projectile/magic/door,
 		/obj/projectile/magic/fetch,
