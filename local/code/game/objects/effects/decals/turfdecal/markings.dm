@@ -121,7 +121,7 @@
 
 /obj/effect/turf_decal/siding/wood
 	icon = 'local/icons/turf/decals.dmi'
-	color = "#f7d7ad"
+	color = "#DBD3C9"
 
 /obj/effect/turf_decal/siding/thinplating
 	color = "#4b494d"
