@@ -101,8 +101,8 @@ export const ExaminePanel = (props) => {
                 <Section fitted title={'Flavor Text'} />
               </Tabs.Tab>
               <Tabs.Tab
-                selected={tabIndex === 3}
-                onClick={() => setTabIndex(3)}
+                selected={tabIndex === 2}
+                onClick={() => setTabIndex(2)}
               >
                 <Section
                   fitted
@@ -125,20 +125,6 @@ export const ExaminePanel = (props) => {
               </Section>
             )}
             {tabIndex === 2 && (
-              <Section
-                style={{ 'overflow-y': 'scroll' }}
-                fitted
-                preserveWhitespace
-                minHeight="50%"
-                maxHeight="50%"
-                fontSize="14px"
-                lineHeight="1.7"
-                textIndent="3em"
-              >
-                {formatURLs(flavour_text_nsfw)}
-              </Section>
-            )}
-            {tabIndex === 3 && (
               <Section
                 style={{ 'overflow-y': 'scroll' }}
                 fitted

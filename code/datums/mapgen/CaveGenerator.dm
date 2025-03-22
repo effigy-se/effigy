@@ -126,7 +126,7 @@
 			new_turf.turf_flags |= NO_RUINS
 
 	var/message = "[name] terrain generation finished in [(REALTIMEOFDAY - start_time)/10]s!"
-	to_chat(world, span_boldannounce("[message]"), MESSAGE_TYPE_DEBUG)
+	to_chat(world, span_info("[message]"), MESSAGE_TYPE_DEBUG) // EffigyEdit Change - Custom Lobby
 	log_world(message)
 
 
@@ -296,7 +296,7 @@
 		CHECK_TICK
 
 	var/message = "[name] terrain population finished in [(REALTIMEOFDAY - start_time)/10]s!"
-	to_chat(world, span_boldannounce("[message]"), MESSAGE_TYPE_DEBUG)
+	to_chat(world, span_info("[message]"), MESSAGE_TYPE_DEBUG) // EffigyEdit Change - Custom Lobby
 	log_world(message)
 
 

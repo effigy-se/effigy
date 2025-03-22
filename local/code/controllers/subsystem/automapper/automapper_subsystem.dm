@@ -75,8 +75,8 @@ SUBSYSTEM_DEF(automapper)
 		else if(!(iterating_template.required_map in map_names))
 			continue
 		if(iterating_template.load(iterating_template.load_turf, FALSE))
-			var/init_msg = "Loaded [iterating_template.name] at [iterating_template.load_turf.x], [iterating_template.load_turf.y], [iterating_template.load_turf.z]!"
-			to_chat(world, span_boldannounce("[init_msg]"), MESSAGE_TYPE_DEBUG); log_world(init_msg)
+			var/init_msg = "Loaded area [iterating_template.name] at [iterating_template.load_turf.x], [iterating_template.load_turf.y], [iterating_template.load_turf.z]!"
+			to_chat(world, span_notice("[init_msg]"), MESSAGE_TYPE_DEBUG); log_world(init_msg)
 
 /**
  * CentCom atoms aren't initialized but already exist, so must be properly initialized and then qdel'd.

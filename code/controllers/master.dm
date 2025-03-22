@@ -366,8 +366,8 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 
 
 
-	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
-	to_chat(world, span_boldannounce("[msg]"), MESSAGE_TYPE_DEBUG)
+	var/msg = "Initializations complete! ([time] second[time == 1 ? "" : "s"])" // EffigyEdit Change - Custom Lobby
+	to_chat(world, span_boldnotice("[msg]"), MESSAGE_TYPE_DEBUG) // EffigyEdit Change - Custom Lobby
 	log_world(msg)
 
 
