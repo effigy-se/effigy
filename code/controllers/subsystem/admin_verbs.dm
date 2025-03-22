@@ -125,7 +125,8 @@ SUBSYSTEM_DEF(admin_verbs)
 		return
 
 	if(!isnull(admins_pending_subsytem_init)) // if the list exists we are still initializing
-		to_chat(admin, span_big(span_green("Admin Verbs are still initializing. Please wait and you will be automatically assigned your verbs when it is complete.")))
+		// to_chat(admin, span_big(span_green("Admin Verbs are still initializing. Please wait and you will be automatically assigned your verbs when it is complete.")))
+		to_chat(admin, span_notice("Initializing Admin Verbs..."), MESSAGE_TYPE_DEBUG) // EffigyEdit Change - Custom Lobby
 		admins_pending_subsytem_init |= list(admin.ckey)
 		return
 

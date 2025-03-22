@@ -327,7 +327,7 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 	init_stage_completed = 0
 	var/mc_started = FALSE
 
-	to_chat(world, span_boldannounce("Initializing subsystems..."), MESSAGE_TYPE_DEBUG)
+	to_chat(world, span_notice("Initializing subsystems..."), MESSAGE_TYPE_DEBUG) // EffigyEdit Change - Custom Lobby
 
 	var/list/stage_sorted_subsystems = new(INITSTAGE_MAX)
 	for (var/i in 1 to INITSTAGE_MAX)
