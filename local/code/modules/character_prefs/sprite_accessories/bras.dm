@@ -144,29 +144,3 @@
 	name = "Fishnet Sleeveless Alt"
 	icon_state = "fishnet_body_alt"
 	use_static = FALSE
-
-// Lewd
-/datum/sprite_accessory/bra/bra_latex
-	name = "Latex"
-	icon_state = "bra_latex"
-	use_static = TRUE
-
-/datum/sprite_accessory/bra/chastbra
-	name = "Chastity"
-	icon_state = "chastbra"
-
-/datum/sprite_accessory/bra/pasties
-	name = "Pasties"
-	icon_state = "pasties"
-
-/datum/sprite_accessory/bra/pasties_alt
-	name = "Pasties Alt"
-	icon_state = "pasties_alt"
-
-/datum/sprite_accessory/bra/shibari
-	name = "Shibari"
-	icon_state = "shibari"
-
-/datum/sprite_accessory/bra/shibari_sleeves
-	name = "Shibari Sleeves"
-	icon_state = "shibari_sleeves"

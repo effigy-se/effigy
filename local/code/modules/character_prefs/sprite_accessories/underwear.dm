@@ -197,17 +197,3 @@
 /datum/sprite_accessory/underwear/fishnet_lower/alt
 	name = "Fishnet Alt"
 	icon_state = "fishnet_lower_alt"
-
-// Lewd
-/datum/sprite_accessory/underwear/latex
-	name = "Latex"
-	icon_state = "panties_latex"
-	use_static = TRUE
-
-/datum/sprite_accessory/underwear/chastbelt
-	name = "Chastity Belt"
-	icon_state = "chastbelt"
-
-/datum/sprite_accessory/underwear/chastcage
-	name = "Chastity Cage"
-	icon_state = "chastcage"

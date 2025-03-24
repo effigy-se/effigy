@@ -70,10 +70,6 @@
 	icon_state = "fishnet_greyscale"
 	use_static = FALSE
 
-/datum/sprite_accessory/socks/latex_short
-	name = "Short (Latex)"
-	icon_state = "socks_latex"
-
 /datum/sprite_accessory/socks/stirrup_thigh_rainbow
 	name = "Stirrup Thigh-high (Rainbow)"
 	icon_state = "rainbow_thigh-stir"
