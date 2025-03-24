@@ -6,8 +6,7 @@
 	/// If you're coming here years in the future and this has been re-implemented before you even found out what SS13 was: lol
 	persistence_id = "dorms_private"
 
-/obj/structure/sign/painting/interlink // Stuff that's exclusive from the library painting pool, but still public.
-	name = "\improper Interlink Painting mounting"
+/obj/structure/sign/painting/public_misc // Stuff that's exclusive from the library painting pool, but still public.
 	desc = "For art pieces that're only a canvas apart from just being subway graffiti."
 	desc_with_canvas = "A painting that somehow, someway, corporate has neglected to take down so far."
-	persistence_id = "interlink"
+	persistence_id = "interlink" // DON'T CHANGE - This has already been enshrined in our DB. Don't even bother.

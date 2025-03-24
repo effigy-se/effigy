@@ -112,8 +112,8 @@
 	name = "Dormitory Concourse"
 	icon_state = "dorms"
 
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach
-	name = "Interlink Dock - Beach"
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach
+	name = "Ferry Dock - Beach"
 	ambientsounds = /area/awaymission/beach::ambientsounds
 
 /area/taeloth/nearstation/dormitory_concourse/sinners_trail

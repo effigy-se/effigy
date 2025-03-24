@@ -503,8 +503,6 @@
 		var/mob/dead/new_player/potential_alt_spawner = our_joiner
 		var/their_latejoin_pref = potential_alt_spawner?.client.prefs.read_preference(/datum/preference/choiced/latejoin_location)
 		if(their_latejoin_pref)
-			if(their_latejoin_pref == JOB_LATEJOINPREF_INTERLINK && length(SSjob.latejoin_interlink_trackers))
-				return pick(SSjob.latejoin_interlink_trackers)
 			if(their_latejoin_pref == JOB_LATEJOINPREF_CRYO)
 				return pick(SSjob.latejoin_cryo_trackers)
 	// EffigyEdit Change End

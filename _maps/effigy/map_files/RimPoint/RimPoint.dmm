@@ -610,7 +610,7 @@
 	c_tag = "Exterior - Lake Dock, South"
 	},
 /turf/open/misc/beach/sand,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "amF" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
@@ -1909,7 +1909,7 @@
 	active_power_usage = 0
 	},
 /turf/open/floor/wood/large,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "aJR" = (
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
@@ -6193,7 +6193,7 @@
 "cjn" = (
 /obj/structure/flora/grass/jungle/b,
 /turf/open/misc/dirt/jungle,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "cjo" = (
 /obj/structure/sink/directional/south,
 /obj/structure/mirror/directional/north,
@@ -18934,7 +18934,7 @@
 /area/station/command/bridge)
 "gFZ" = (
 /turf/open/misc/dirt/jungle,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "gGb" = (
 /obj/machinery/computer/security{
 	dir = 1
@@ -19772,7 +19772,7 @@
 	dir = 5
 	},
 /turf/open/floor/wood/large,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "gUE" = (
 /obj/machinery/door/poddoor/incinerator_atmos_main,
 /obj/effect/turf_decal/stripes/line{
@@ -19896,7 +19896,7 @@
 /area/station/security/checkpoint/supply)
 "gWV" = (
 /turf/open/misc/rough_stone,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "gWZ" = (
 /obj/effect/turf_decal/plaque{
 	icon_state = "L8"
@@ -26269,7 +26269,7 @@
 	dir = 4
 	},
 /turf/open/floor/wood/large,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "jkF" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/effect/turf_decal/stripes/asteroid/line,
@@ -28074,7 +28074,7 @@
 	c_tag = "Exterior - Lake Dock, North"
 	},
 /turf/open/misc/beach/sand,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "jQK" = (
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
@@ -34005,7 +34005,7 @@
 "lWU" = (
 /obj/structure/flora/rock/pile/style_2,
 /turf/open/misc/dirt/jungle,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "lWV" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark/end,
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer4{
@@ -34202,7 +34202,7 @@
 /area/station/science/xenobiology)
 "may" = (
 /turf/closed/wall/mineral/wood/nonmetal,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "maM" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -38297,7 +38297,7 @@
 "nzn" = (
 /obj/structure/flora/bush/large/style_3,
 /turf/open/misc/dirt/jungle,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "nzx" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/material,
@@ -40267,7 +40267,7 @@
 "onS" = (
 /obj/effect/landmark/start/hangover,
 /turf/open/misc/beach/sand,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "onX" = (
 /obj/structure/flora/bush/ferny/style_3,
 /obj/structure/flora/bush/flowers_yw/style_3,
@@ -40719,7 +40719,7 @@
 	dir = 10
 	},
 /turf/open/floor/wood/large,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "owJ" = (
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
 	dir = 9
@@ -41778,7 +41778,7 @@
 /area/station/science/xenobiology)
 "oQO" = (
 /turf/open/misc/beach/sand,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "oQT" = (
 /obj/effect/turf_decal/siding/wideplating_new/light{
 	dir = 4
@@ -42775,7 +42775,7 @@
 	dir = 6
 	},
 /turf/open/floor/wood/large,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "pkl" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
@@ -51681,7 +51681,7 @@
 /area/station/medical/medbay/central)
 "sgR" = (
 /turf/open/floor/wood/large,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "shc" = (
 /obj/effect/spawner/random/structure/closet_maintenance,
 /turf/open/floor/engine/hull/reinforced/taeloth,
@@ -54552,7 +54552,7 @@
 	dir = 1
 	},
 /turf/open/floor/wood/large,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "tev" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner,
 /obj/effect/turf_decal/siding/wideplating_new{
@@ -56254,7 +56254,7 @@
 "tOB" = (
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood/large,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "tOR" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -57619,7 +57619,7 @@
 "ulK" = (
 /obj/structure/fluff/beach_umbrella/cap,
 /turf/open/misc/beach/sand,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "ulL" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/siding/white/corner,
@@ -64309,7 +64309,7 @@
 	location = "Interlink Dock"
 	},
 /turf/open/floor/wood/large,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "wAD" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -68570,7 +68570,7 @@
 	desc = "Hopefully there's none of those demon slashers around... or at the very least, they might prefer milk?"
 	},
 /turf/open/misc/beach/sand,
-/area/taeloth/nearstation/dormitory_concourse/interlink_dock_beach)
+/area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
 "xYg" = (
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
 /turf/closed/wall/r_wall,

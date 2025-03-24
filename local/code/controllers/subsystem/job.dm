@@ -1,5 +1,4 @@
 /datum/controller/subsystem/job
-	var/list/latejoin_interlink_trackers = list()
 	var/list/latejoin_cryo_trackers = list()
 
 /datum/controller/subsystem/job/proc/free_role(rank)

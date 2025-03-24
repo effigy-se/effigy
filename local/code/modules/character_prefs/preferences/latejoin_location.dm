@@ -4,7 +4,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 
 /datum/preference/choiced/latejoin_location/init_possible_values()
-	return list(JOB_LATEJOINPREF_ARRIVALS, JOB_LATEJOINPREF_CRYO, JOB_LATEJOINPREF_INTERLINK)
+	return list(JOB_LATEJOINPREF_ARRIVALS, JOB_LATEJOINPREF_CRYO)
 
 /datum/preference/choiced/latejoin_location/create_default_value()
 	return JOB_LATEJOINPREF_ARRIVALS
