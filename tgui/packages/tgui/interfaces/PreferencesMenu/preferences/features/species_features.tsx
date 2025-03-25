@@ -8,7 +8,7 @@ import {
 import { FeatureDropdownInput } from './dropdowns';
 
 export const eye_color: Feature<string> = {
-  name: 'Eye color',
+  name: 'Eye Colour', // EffigyEdit Change - TGUI
   component: FeatureColorInput,
 };
 
@@ -18,7 +18,7 @@ export const facial_hair_color: Feature<string> = {
 };
 
 export const facial_hair_gradient: FeatureChoiced = {
-  name: 'Facial hair gradient',
+  name: 'Hair Effect (Facial)', // EffigyEdit Change - TGUI
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -27,17 +27,17 @@ export const facial_hair_gradient: FeatureChoiced = {
 };
 
 export const facial_hair_gradient_color: Feature<string> = {
-  name: 'Facial hair gradient color',
+  name: 'Facial Hair Effect Colour', // EffigyEdit Change - TGUI
   component: FeatureColorInput,
 };
 
 export const hair_color: Feature<string> = {
-  name: 'Hair color',
+  name: 'Hair Colour', // EffigyEdit Change - TGUI
   component: FeatureColorInput,
 };
 
 export const hair_gradient: FeatureChoiced = {
-  name: 'Hair gradient',
+  name: 'Hair Effect', // EffigyEdit Change - TGUI
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -46,7 +46,7 @@ export const hair_gradient: FeatureChoiced = {
 };
 
 export const hair_gradient_color: Feature<string> = {
-  name: 'Hair gradient color',
+  name: 'Hair Effect Colour', // EffigyEdit Change - TGUI
   component: FeatureColorInput,
 };
 
@@ -78,7 +78,10 @@ export const feature_monkey_tail: FeatureChoiced = {
 };
 
 export const feature_lizard_legs: FeatureChoiced = {
-  name: 'Legs',
+  name: '+ Legs',
+  description: `
+    Choose leg type for your character.
+  `,
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -105,28 +108,28 @@ export const feature_lizard_tail: FeatureChoiced = {
 };
 
 export const feature_mcolor: Feature<string> = {
-  name: 'Mutant color',
+  name: 'Body Colour', // EffigyEdit Change - TGUI
   component: FeatureColorInput,
 };
 
 export const underwear_color: Feature<string> = {
-  name: 'Underwear color',
+  name: 'Underwear Colour', // EffigyEdit Change - TGUI
   component: FeatureColorInput,
 };
 
 // EffigyEdit Add - Character Preferences
 export const bra_color: Feature<string> = {
-  name: 'Bra color',
+  name: 'Bra Colour',
   component: FeatureColorInput,
 };
 
 export const undershirt_color: Feature<string> = {
-  name: 'Undershirt color',
+  name: 'Undershirt Colour',
   component: FeatureColorInput,
 };
 
 export const socks_color: Feature<string> = {
-  name: 'Socks color',
+  name: 'Socks Colour',
   component: FeatureColorInput,
 };
 // EffigyEdit Add End

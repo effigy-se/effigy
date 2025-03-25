@@ -6921,7 +6921,6 @@
 #include "local\code\modules\client\preferences\manifest_preview.dm"
 #include "local\code\modules\client\preferences\preferences_savefile.dm"
 #include "local\code\modules\client\preferences\sensitive_snout.dm"
-#include "local\code\modules\client\preferences\subtle.dm"
 #include "local\code\modules\clothing\hands\costume.dm"
 #include "local\code\modules\clothing\head\bows.dm"
 #include "local\code\modules\clothing\head\costume.dm"

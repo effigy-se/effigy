@@ -40,7 +40,7 @@
 
 ///The me emote verb
 /mob/verb/me_verb(message as text)
-	set name = "Me"
+	set name = "Emote Standard" // EffigyEdit Change - Emote
 	set category = "IC"
 	set desc = "Perform a custom emote. Leave blank to pick between an audible or a visible emote (Defaults to visible)."
 

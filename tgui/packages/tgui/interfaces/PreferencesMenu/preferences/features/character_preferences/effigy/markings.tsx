@@ -20,7 +20,7 @@ export const markings_head: FeatureChoiced = {
 };
 
 export const markings_head_color: Feature<string> = {
-  name: 'aa. Head Markings Color',
+  name: 'aa. Head Markings Colour',
   component: FeatureColorInput,
 };
 
@@ -37,7 +37,7 @@ export const markings_head2: FeatureChoiced = {
 };
 
 export const markings_head_color2: Feature<string> = {
-  name: 'bb. Head Markings Color 2',
+  name: 'bb. Head Markings Colour 2',
   component: FeatureColorInput,
 };
 
@@ -54,7 +54,7 @@ export const markings_head3: FeatureChoiced = {
 };
 
 export const markings_head_color3: Feature<string> = {
-  name: 'cc. Head Markings Color 3',
+  name: 'cc. Head Markings Colour 3',
   component: FeatureColorInput,
 };
 
@@ -71,7 +71,7 @@ export const markings_chest: FeatureChoiced = {
 };
 
 export const markings_chest_color: Feature<string> = {
-  name: 'dd. Chest Markings Color',
+  name: 'dd. Chest Markings Colour',
   component: FeatureColorInput,
 };
 
@@ -88,7 +88,7 @@ export const markings_chest2: FeatureChoiced = {
 };
 
 export const markings_chest_color2: Feature<string> = {
-  name: 'ee. Chest Markings Color 2',
+  name: 'ee. Chest Markings Colour 2',
   component: FeatureColorInput,
 };
 
@@ -105,7 +105,7 @@ export const markings_chest3: FeatureChoiced = {
 };
 
 export const markings_chest_color3: Feature<string> = {
-  name: 'ff. Chest Markings Color 3',
+  name: 'ff. Chest Markings Colour 3',
   component: FeatureColorInput,
 };
 
@@ -122,7 +122,7 @@ export const markings_r_arm: FeatureChoiced = {
 };
 
 export const markings_r_arm_color: Feature<string> = {
-  name: 'gg. Right Arm Markings Color',
+  name: 'gg. Right Arm Markings Colour',
   component: FeatureColorInput,
 };
 
@@ -139,7 +139,7 @@ export const markings_r_arm2: FeatureChoiced = {
 };
 
 export const markings_r_arm_color2: Feature<string> = {
-  name: 'hh. Rig Arm Markings Color 2',
+  name: 'hh. Rig Arm Markings Colour 2',
   component: FeatureColorInput,
 };
 
@@ -156,7 +156,7 @@ export const markings_r_arm3: FeatureChoiced = {
 };
 
 export const markings_r_arm_color3: Feature<string> = {
-  name: 'ii. Right Arm Markings Color 3',
+  name: 'ii. Right Arm Markings Colour 3',
   component: FeatureColorInput,
 };
 
@@ -173,7 +173,7 @@ export const markings_l_arm: FeatureChoiced = {
 };
 
 export const markings_l_arm_color: Feature<string> = {
-  name: 'jj. Left Arm Markings Color',
+  name: 'jj. Left Arm Markings Colour',
   component: FeatureColorInput,
 };
 
@@ -190,7 +190,7 @@ export const markings_l_arm2: FeatureChoiced = {
 };
 
 export const markings_l_arm_color2: Feature<string> = {
-  name: 'kk. Left Arm Markings Color 2',
+  name: 'kk. Left Arm Markings Colour 2',
   component: FeatureColorInput,
 };
 
@@ -207,7 +207,7 @@ export const markings_l_arm3: FeatureChoiced = {
 };
 
 export const markings_l_arm_color3: Feature<string> = {
-  name: 'll. Left Arm Markings Color 3',
+  name: 'll. Left Arm Markings Colour 3',
   component: FeatureColorInput,
 };
 
@@ -224,7 +224,7 @@ export const markings_l_hand: FeatureChoiced = {
 };
 
 export const markings_l_hand_color: Feature<string> = {
-  name: 'mm. Left Hand Markings Color',
+  name: 'mm. Left Hand Markings Colour',
   component: FeatureColorInput,
 };
 
@@ -241,7 +241,7 @@ export const markings_l_hand2: FeatureChoiced = {
 };
 
 export const markings_l_hand_color2: Feature<string> = {
-  name: 'nn. Left Hand Markings Color 2',
+  name: 'nn. Left Hand Markings Colour 2',
   component: FeatureColorInput,
 };
 
@@ -258,7 +258,7 @@ export const markings_l_hand3: FeatureChoiced = {
 };
 
 export const markings_l_hand_color3: Feature<string> = {
-  name: 'oo. Left Hand Markings Color 3',
+  name: 'oo. Left Hand Markings Colour 3',
   component: FeatureColorInput,
 };
 
@@ -275,7 +275,7 @@ export const markings_r_hand: FeatureChoiced = {
 };
 
 export const markings_r_hand_color: Feature<string> = {
-  name: 'pp. Right Hand Markings Color',
+  name: 'pp. Right Hand Markings Colour',
   component: FeatureColorInput,
 };
 
@@ -292,7 +292,7 @@ export const markings_r_hand2: FeatureChoiced = {
 };
 
 export const markings_r_hand_color2: Feature<string> = {
-  name: 'qq. Right Hand Markings Color 2',
+  name: 'qq. Right Hand Markings Colour 2',
   component: FeatureColorInput,
 };
 
@@ -309,7 +309,7 @@ export const markings_r_hand3: FeatureChoiced = {
 };
 
 export const markings_r_hand_color3: Feature<string> = {
-  name: 'rr. Right Hand Markings Color 3',
+  name: 'rr. Right Hand Markings Colour 3',
   component: FeatureColorInput,
 };
 
@@ -326,7 +326,7 @@ export const markings_l_leg: FeatureChoiced = {
 };
 
 export const markings_l_leg_color: Feature<string> = {
-  name: 'ss. Left Leg Markings Color',
+  name: 'ss. Left Leg Markings Colour',
   component: FeatureColorInput,
 };
 
@@ -343,7 +343,7 @@ export const markings_l_leg2: FeatureChoiced = {
 };
 
 export const markings_l_leg_color2: Feature<string> = {
-  name: 'tt. Left Leg Markings Color 2',
+  name: 'tt. Left Leg Markings Colour 2',
   component: FeatureColorInput,
 };
 
@@ -360,7 +360,7 @@ export const markings_l_leg3: FeatureChoiced = {
 };
 
 export const markings_l_leg_color3: Feature<string> = {
-  name: 'uu. Left Leg Markings Color 3',
+  name: 'uu. Left Leg Markings Colour 3',
   component: FeatureColorInput,
 };
 
@@ -377,7 +377,7 @@ export const markings_r_leg: FeatureChoiced = {
 };
 
 export const markings_r_leg_color: Feature<string> = {
-  name: 'vv. Right Leg Markings Color',
+  name: 'vv. Right Leg Markings Colour',
   component: FeatureColorInput,
 };
 
@@ -394,7 +394,7 @@ export const markings_r_leg2: FeatureChoiced = {
 };
 
 export const markings_r_leg_color2: Feature<string> = {
-  name: 'ww. Right Leg Markings Color 2',
+  name: 'ww. Right Leg Markings Colour 2',
   component: FeatureColorInput,
 };
 
@@ -411,6 +411,6 @@ export const markings_r_leg3: FeatureChoiced = {
 };
 
 export const markings_r_leg_color3: Feature<string> = {
-  name: 'xx. Right Leg Markings Color 3',
+  name: 'xx. Right Leg Markings Colour 3',
   component: FeatureColorInput,
 };

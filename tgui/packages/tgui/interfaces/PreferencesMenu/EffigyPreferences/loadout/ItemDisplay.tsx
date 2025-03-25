@@ -64,7 +64,7 @@ export function ItemDisplay(props: DisplayProps) {
     <Button
       height={boxSize}
       width={boxSize}
-      color={active ? 'green' : 'default'}
+      color={active ? 'good' : 'default'}
       style={{ textTransform: 'capitalize', zIndex: '1' }}
       tooltip={item.name}
       tooltipPosition={'bottom'}
@@ -76,19 +76,13 @@ export function ItemDisplay(props: DisplayProps) {
       }
     >
       <Flex vertical>
-        <Flex.Item>
+        <Flex.Item pt="10px" pl="5px">
           <ItemIcon item={item} scale={scale} />
         </Flex.Item>
         {item.information.length > 0 && (
-          <Flex.Item ml={-5.5} style={{ zIndex: '3' }}>
+          <Flex.Item ml={-5.7} style={{ zIndex: '3' }}>
             {item.information.map((info) => (
-              <Box
-                height="9px"
-                key={info}
-                fontSize="9px"
-                textColor={'darkgray'}
-                bold
-              >
+              <Box height="12px" key={info} fontSize="12px" textColor={'white'}>
                 {info}
               </Box>
             ))}
@@ -108,9 +102,9 @@ export function ItemListDisplay(props: ListProps) {
   const { loadout_list } = data.character_preferences.misc;
 
   return (
-    <Flex wrap>
+    <Flex wrap m="7px">
       {props.items.map((item) => (
-        <Flex.Item key={item.name} mr={2} mb={2}>
+        <Flex.Item key={item.name} mr="12px" mb="9px">
           <ItemDisplay
             item={item}
             active={loadout_list && loadout_list[item.path] !== undefined}

@@ -17,7 +17,7 @@
 /datum/keybinding/client/communication/radio
 	hotkey_keys = list(";") // EffigyEdit Change - Original: Y
 	name = RADIO_CHANNEL
-	full_name = "IC Radio (;)"
+	full_name = "IC Radio" // EffigyEdit Change
 	keybind_signal = COMSIG_KB_CLIENT_RADIO_DOWN
 
 /datum/keybinding/client/communication/radio/down(client/user)
@@ -42,8 +42,8 @@
 
 /datum/keybinding/client/communication/me
 	hotkey_keys = list("M")
-	name = ME_CHANNEL
-	full_name = "Custom Emote (/Me)"
+	name = "Emote Quick"
+	full_name = "Emote Quick (/Me)"
 	keybind_signal = COMSIG_KB_CLIENT_ME_DOWN
 
 /datum/keybinding/client/communication/me/down(client/user)

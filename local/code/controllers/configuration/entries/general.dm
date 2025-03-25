@@ -1,8 +1,3 @@
-/// log subtle/r emotes
-/datum/config_entry/flag/log_subtle
-	default = FALSE
-	default = CONFIG_ENTRY_LOCKED
-
 /// manifest preview in pre-lobby
 /datum/config_entry/flag/show_manifest_preview
 	default = TRUE

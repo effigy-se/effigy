@@ -1,10 +1,10 @@
 #define EFFIGY_SAVEFILE_VERSION_LEGACY 3
 #define EFFIGY_SAVEFILE_VERSION_CURRENT 4
 
-#define PREVIEW_STYLE_JOB "Character Preview: Job"
-#define PREVIEW_STYLE_LOADOUT "Character Preview: Loadout"
-#define PREVIEW_STYLE_UNDERWEAR "Character Preview: Underwear"
-#define PREVIEW_STYLE_NAKED "Character Preview: Naked"
+#define PREVIEW_STYLE_JOB "Preview: Job"
+#define PREVIEW_STYLE_LOADOUT "Preview: Loadout"
+#define PREVIEW_STYLE_UNDERWEAR "Preview: Underwear"
+#define PREVIEW_STYLE_NAKED "Preview: Naked"
 
 #define READ_PREFS(target, pref) (target.client?.prefs?.read_preference(/datum/preference/pref))
 

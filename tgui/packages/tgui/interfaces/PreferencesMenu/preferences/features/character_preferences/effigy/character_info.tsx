@@ -11,7 +11,7 @@ export const flavour_text: Feature<string> = {
 };
 
 export const silicon_flavour_text: Feature<string> = {
-  name: 'Flavor Text (Silicon )',
+  name: 'Flavor Text (Silicon)',
   description: 'Describe your cyborg/AI shell!',
   component: FeatureTextAreaInput,
 };
@@ -36,7 +36,7 @@ export const custom_species: Feature<string> = {
 };
 
 export const custom_species_silicon: Feature<string> = {
-  name: 'Custom Silicon Model',
+  name: 'Silicon Model',
   description:
     'The name of the module for your Silicon company, such as "NTHI-E1 Construct"',
   component: FeatureShortTextInput,
@@ -50,7 +50,7 @@ export const custom_species_lore: Feature<string> = {
 };
 
 export const custom_species_lore_silicon: Feature<string> = {
-  name: 'Custom Silicon Model Lore',
+  name: 'Silicon Model Lore',
   description:
     'Lore for your silicon, typically its company, make, model, and details regarding its creation.',
   component: FeatureTextAreaInput,
@@ -118,7 +118,7 @@ export const headshot: Feature<string> = {
 };
 
 export const headshot_silicon: Feature<string> = {
-  name: 'Headshot (Silicon )',
+  name: 'Headshot (Silicon)',
   description:
     'Requires a link ending with .png, .jpeg, or .jpg, starting with \
   https://, and hosted on Catbox, Imgbox, Gyazo, Lensdump, or F-List. \

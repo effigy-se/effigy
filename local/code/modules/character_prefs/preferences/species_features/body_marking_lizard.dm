@@ -17,6 +17,10 @@
 /datum/preference/toggle/markings/create_default_value()
 	return FALSE
 
+/datum/preference/toggle/markings/is_accessible(datum/preferences/preferences)
+	. = ..()
+	return FALSE
+
 /// Lizard body markings type
 /datum/preference/choiced/lizard_body_markings
 	category = PREFERENCE_CATEGORY_CLOTHING

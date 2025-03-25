@@ -9,16 +9,7 @@
 	to_chat(world, msg)
 	logger.Log(LOG_CATEGORY_DEBUG, message)
 
-/proc/log_effigy_api(text, list/data, notify_admins = FALSE, notify_span = "adminnotice")
-	logger.Log(LOG_CATEGORY_EFFIGY_API, text, data)
-	if(notify_admins)
-		message_admins("<span class='[notify_span]'>[text]</span>")
-
 /proc/log_events(text, list/data, notify_admins = FALSE, notify_span = "adminnotice")
 	logger.Log(LOG_CATEGORY_EVENTS, text, data)
 	if(notify_admins)
 		message_admins("<span class='[notify_span]'>[text]</span>")
-
-/// This logs subtle/r emotes if the conflig flag is enabled
-/proc/log_subtle(text, list/data)
-	logger.Log(LOG_CATEGORY_EMOTE_SUBTLE, text, data)

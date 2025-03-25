@@ -13,6 +13,7 @@ import {
   Tabs,
 } from 'tgui-core/components';
 
+import { SideDropdown } from '../../../../effigy/SideDropdown';
 import { useServerPrefs } from '../../useServerPrefs';
 import {
   LoadoutCategory,
@@ -40,7 +41,7 @@ export function LoadoutPage(props) {
   }
 
   return (
-    <Stack vertical fill>
+    <Stack vertical fill ml="-4px" mr="10px">
       <Stack.Item>
         {!!modifyItemDimmer && (
           <LoadoutModifyDimmer
@@ -48,39 +49,41 @@ export function LoadoutPage(props) {
             setModifyItemDimmer={setModifyItemDimmer}
           />
         )}
-        <Section
-          title="&nbsp;"
-          align="center"
-          buttons={
-            <Input
-              width="200px"
-              onInput={(_, value) => setSearchLoadout(value)}
-              placeholder="Search for an item..."
-              value={searchLoadout}
-            />
-          }
-        >
-          <Tabs fluid align="center">
-            {loadout_tabs.map((curTab) => (
-              <Tabs.Tab
-                key={curTab.name}
-                selected={
-                  searchLoadout.length <= 1 && curTab.name === selectedTabName
-                }
-                onClick={() => {
-                  setSelectedTab(curTab.name);
-                  setSearchLoadout('');
-                }}
-              >
-                <Box>
-                  {curTab.category_icon && (
-                    <Icon name={curTab.category_icon} mr={1} />
-                  )}
-                  {curTab.name}
-                </Box>
-              </Tabs.Tab>
-            ))}
-          </Tabs>
+        <Section title="&nbsp;" align="center">
+          <Stack>
+            <Stack.Item grow>
+              <Tabs fluid align="center" m={-1}>
+                {loadout_tabs.map((curTab) => (
+                  <Tabs.Tab
+                    key={curTab.name}
+                    selected={
+                      searchLoadout.length <= 1 &&
+                      curTab.name === selectedTabName
+                    }
+                    onClick={() => {
+                      setSelectedTab(curTab.name);
+                      setSearchLoadout('');
+                    }}
+                  >
+                    <Box>
+                      {curTab.category_icon && (
+                        <Icon name={curTab.category_icon} mr={1} />
+                      )}
+                      {curTab.name}
+                    </Box>
+                  </Tabs.Tab>
+                ))}
+              </Tabs>
+            </Stack.Item>
+            <Stack.Item align="center" pt="1px">
+              <Input
+                width="150px"
+                onInput={(_, value) => setSearchLoadout(value)}
+                placeholder="Search for an item..."
+                value={searchLoadout}
+              />
+            </Stack.Item>
+          </Stack>
         </Section>
       </Stack.Item>
       <Stack.Item>
@@ -118,7 +121,7 @@ function LoadoutTabs(props: LoadoutTabsProps) {
   const searching = currentSearch.length > 1;
 
   return (
-    <Stack fill height="550px">
+    <Stack fill height="432px">
       <Stack.Item align="center" width="250px" height="100%">
         <Stack vertical fill>
           <Stack.Item height="60%">
@@ -284,19 +287,7 @@ function LoadoutPreviewSection() {
   const { act, data } = useBackend<LoadoutManagerData>();
 
   return (
-    <Section
-      fill
-      title="&nbsp;"
-      buttons={
-        <Button.Checkbox
-          align="center"
-          checked={data.job_clothes}
-          onClick={() => act('toggle_job_clothes')}
-        >
-          Job Clothes
-        </Button.Checkbox>
-      }
-    >
+    <Section fill title="Character">
       <Stack vertical fill>
         <Stack.Item grow align="center">
           <CharacterPreview height="100%" id={data.character_preview_view} />
@@ -306,7 +297,17 @@ function LoadoutPreviewSection() {
           <Stack>
             <Stack.Item>
               <Button
-                icon="chevron-left"
+                icon="undo"
+                onClick={() =>
+                  act('rotate_dummy', {
+                    dir: 'right',
+                  })
+                }
+              />
+            </Stack.Item>
+            <Stack.Item>
+              <Button
+                icon="redo"
                 onClick={() =>
                   act('rotate_dummy', {
                     dir: 'left',
@@ -315,11 +316,13 @@ function LoadoutPreviewSection() {
               />
             </Stack.Item>
             <Stack.Item>
-              <Button
-                icon="chevron-right"
-                onClick={() =>
-                  act('rotate_dummy', {
-                    dir: 'right',
+              <SideDropdown
+                width="170px"
+                selected={data.character_preview_selection}
+                options={data.character_preview_styles}
+                onSelected={(value) =>
+                  act('update_preview', {
+                    updated_preview: value,
                   })
                 }
               />

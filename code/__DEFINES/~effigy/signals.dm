@@ -15,7 +15,8 @@
 #define COMSIG_KB_MOB_PIXEL_TILT_DOWN "keybinding_mob_pixeltilt_down"
 #define COMSIG_KB_MOB_PIXEL_TILT_UP "keybinding_mob_pixeltilt_up"
 #define COMSIG_KB_CLIENT_LOOC_DOWN "keybinding_client_looc_down"
-#define COMSIG_KB_CLIENT_SUBTLE_DOWN "keybinding_client_subtle_down"
+#define COMSIG_KB_CLIENT_EMOTE_STANDARD_DOWN "keybinding_client_emote_standard_down"
+#define COMSIG_KB_CLIENT_EMOTE_WHISPER_DOWN "keybinding_client_emote_whisper_down"
 #define COMSIG_KB_CLIENT_WHISPER_DOWN "keybinding_client_whisper_down"
 
 // Pixel Shifting

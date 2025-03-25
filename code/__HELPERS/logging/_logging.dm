@@ -145,12 +145,8 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 		if(LOG_SPEECH_INDICATORS)
 			log_speech_indicators(log_text, data)
 		// EffigyEdit Add - Logging
-		if(LOG_EFFIGY_API)
-			log_effigy_api(log_text, data)
 		if(LOG_EVENTS)
 			log_events(log_text, data)
-		if(LOG_SUBTLE)
-			log_subtle(log_text, data)
 		// EffigyEdit Add End
 		else
 			stack_trace("Invalid individual logging type: [message_type]. Defaulting to [LOG_GAME] (LOG_GAME).")

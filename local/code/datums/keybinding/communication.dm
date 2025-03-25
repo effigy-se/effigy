@@ -11,10 +11,22 @@
 	winset(user, null, "command=[user.tgui_say_create_open_command(LOOC_CHANNEL)]")
 	return TRUE
 
+/datum/keybinding/client/communication/emote_standard
+	hotkey_keys = list("I")
+	name = "Emote Standard"
+	full_name = "Emote Standard"
+	keybind_signal = COMSIG_KB_CLIENT_EMOTE_STANDARD_DOWN
+
+/datum/keybinding/client/communication/emote_standard/down(client/user)
+	. = ..()
+	if(.)
+		return
+	return user.mob.emote("me", intentional = TRUE)
+
 /datum/keybinding/client/communication/whisper
 	hotkey_keys = list("Y")
 	name = WHIS_CHANNEL
-	full_name = "IC Whisper"
+	full_name = "Whisper"
 	keybind_signal = COMSIG_KB_CLIENT_WHISPER_DOWN
 
 /datum/keybinding/client/communication/whisper/down(client/user)
@@ -24,14 +36,14 @@
 	winset(user, null, "command=[user.tgui_say_create_open_command(WHIS_CHANNEL)]")
 	return TRUE
 
-/datum/keybinding/client/communication/subtle
-	hotkey_keys = list("I")
-	name = "Subtle"
-	full_name = "Subtle"
-	keybind_signal = COMSIG_KB_CLIENT_SUBTLE_DOWN
+/datum/keybinding/client/communication/emote_whisper
+	hotkey_keys = list("CtrlI")
+	name = "Emote Whispe"
+	full_name = "Emote Whisper"
+	keybind_signal = COMSIG_KB_CLIENT_EMOTE_WHISPER_DOWN
 
-/datum/keybinding/client/communication/subtle/down(client/user)
+/datum/keybinding/client/communication/emote_whisper/down(client/user)
 	. = ..()
 	if(.)
 		return
-	return user.mob.emote("subtle", intentional = TRUE)
+	return user.mob.emote("emotew", intentional = TRUE)
