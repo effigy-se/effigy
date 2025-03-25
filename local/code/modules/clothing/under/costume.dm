@@ -14,6 +14,7 @@
 	desc = "Maid in China."
 	icon_state = "maid_costume"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	supports_variations_flags = CLOTHING_NO_VARIATION
 	greyscale_config = /datum/greyscale_config/maid_costume
 	greyscale_config_worn = /datum/greyscale_config/maid_costume/worn
 	greyscale_colors = "#7b9ab5#edf9ff"
