@@ -64303,7 +64303,7 @@
 	dir = 8
 	},
 /obj/effect/landmark/navigate_destination{
-	location = "Interlink Dock"
+	location = "Ferry Dock"
 	},
 /turf/open/floor/wood/large,
 /area/taeloth/nearstation/dormitory_concourse/ferry_dock_beach)
