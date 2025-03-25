@@ -2052,6 +2052,7 @@
 	},
 /obj/item/toy/figure/geneticist,
 /obj/item/radio/intercom/directional/south,
+/obj/item/flesh_shears,
 /turf/open/floor/iron/white,
 /area/station/science/genetics)
 "aMN" = (
@@ -60118,7 +60119,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start/assistant,
-/obj/machinery/newscaster/directional/north,
+/obj/structure/fish_mount/bar/directional/north,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/service/cafeteria)
 "vdR" = (

@@ -18148,6 +18148,7 @@
 /obj/item/storage/box/monkeycubes{
 	pixel_x = 4
 	},
+/obj/item/flesh_shears,
 /turf/open/floor/iron/dark,
 /area/station/science/genetics)
 "jMD" = (
@@ -23027,6 +23028,7 @@
 /obj/effect/turf_decal/tile/bar/diagonal_edge,
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/tile/dark_red/diagonal_centre,
+/obj/structure/fish_mount/bar/directional/north,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/service/cafeteria)
 "mBZ" = (

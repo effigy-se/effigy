@@ -43427,6 +43427,7 @@
 	req_access = list("genetics");
 	name = "Genetics Shutters"
 	},
+/obj/item/flesh_shears,
 /turf/open/floor/iron/dark,
 /area/station/science/genetics)
 "kaK" = (
@@ -58712,6 +58713,7 @@
 	dir = 1
 	},
 /obj/machinery/light/small/directional/south,
+/obj/structure/fish_mount/bar/directional/east,
 /turf/open/floor/iron/checker,
 /area/station/service/cafeteria)
 "nCp" = (
