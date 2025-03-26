@@ -287,6 +287,7 @@
 		return
 	new_character.PossessByPlayer(key) //Manually transfer the key to log them in,
 	new_character.stop_sound_channel(CHANNEL_LOBBYMUSIC)
+	new_character?.client.show_location_blurb(duration = 10 SECONDS, extended_info = TRUE, uppercase = TRUE, typewriter_esque = TRUE) // EffigyEdit Add - Location Blurbs
 	var/area/joined_area = get_area(new_character.loc)
 	if(joined_area)
 		joined_area.on_joining_game(new_character)

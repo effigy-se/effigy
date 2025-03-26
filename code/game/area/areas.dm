@@ -548,6 +548,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(ismob(arrived))
 		var/mob/mob = arrived
 		mob.update_ambience_area(src)
+		mob.client?.show_location_blurb() // EffigyEdit Add - Location Blurbs
 
 /**
  * Called when an atom exits an area

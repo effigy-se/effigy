@@ -6618,6 +6618,7 @@
 #include "local\code\_onclick\hud\alert.dm"
 #include "local\code\_onclick\hud\fullscreen.dm"
 #include "local\code\_onclick\hud\living.dm"
+#include "local\code\_onclick\hud\location_blurb.dm"
 #include "local\code\_onclick\hud\radial.dm"
 #include "local\code\_onclick\hud\revenanthud.dm"
 #include "local\code\_onclick\hud\screen_objects.dm"
