@@ -21,8 +21,5 @@
 /obj/machinery/field/containment
 	icon = 'local/icons/obj/engine/emitter.dmi'
 
-/obj/machinery/power/rad_collector
-	icon = 'local/icons/obj/engine/emitter.dmi'
-
 /obj/machinery/firealarm
 	icon = 'local/icons/obj/firealarm.dmi'
