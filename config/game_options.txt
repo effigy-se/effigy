@@ -362,7 +362,7 @@ SILICON_MAX_LAW_AMOUNT 12
 ROUNDSTART_RACES human
 
 ## Races that are strictly worse than humans that could probably be turned on without balance concerns
-ROUNDSTART_RACES felinid
+#ROUNDSTART_RACES felinid
 ROUNDSTART_RACES lizard
 #ROUNDSTART_RACES fly
 ROUNDSTART_RACES moth
@@ -381,8 +381,11 @@ ROUNDSTART_RACES ethereal
 #ROUNDSTART_RACES pod
 
 ## Races that are radical departures to what a species is, so while they technically can be roundstart - it's probably not wise
-#ROUNDSTART_RACES android
+ROUNDSTART_RACES android
 #ROUNDSTART_RACES golem
+
+## EFFIGY-SPECIFIC RACES
+ROUNDSTART_RACES anthromorph
 
 ##-------------------------------------------------------------------------------------------
 

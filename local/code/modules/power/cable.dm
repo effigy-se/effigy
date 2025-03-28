@@ -1,6 +1,9 @@
 /obj/structure/cable/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
-	if(isaquatic(user)) // EffigyEdit TODO - convert this to a tongue organ
+	if(!istype(user, /mob/living/carbon))
+		return
+	var/mob/living/carbon/carbon_user
+	if(carbon_user.get_organ_slot(ORGAN_SLOT_TONGUE) == /obj/item/organ/tongue/aquatic)
 		var/mob/living/hungry_shark = user
 		if(hungry_shark.combat_mode && time2text(world.timeofday, "DDD", TIMEZONE_PST) == FRIDAY)
 			if(shock(user, 30)) // While you don't need wirecutters... come on.

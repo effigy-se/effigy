@@ -18,17 +18,6 @@
 	inhand_icon_state = "tennis_rainbow"
 	actions_types = list(/datum/action/item_action/squeeze)		//Giving the masses easy access to unlimited honks would be annoying
 
-/obj/item/toy/tennis/rainbow/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/squeak)
-	var/static/list/doggish_species = list(/datum/species/vulpkanin)
-
-	AddElement(/datum/element/unique_examine, \
-		desc = "To want the ball; or to not want the ball. That is the question.", \
-		desc_requirement = EXAMINE_CHECK_SPECIES, \
-		requirements = doggish_species)
-
-
 /obj/item/toy/tennis/red	//da red wuns go fasta
 	name = "red tennis ball"
 	desc = "A red tennis ball. It goes three times faster!"
