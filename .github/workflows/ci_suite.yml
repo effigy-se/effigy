@@ -62,6 +62,12 @@ jobs:
       alternate_tests: ${{ needs.collect_data.outputs.alternate_tests }}
       default_max_required_byond_client: ${{ needs.collect_data.outputs.max_required_byond_client }}
 
+  compare_screenshots:
+    if: needs.collect_data.outputs.alternate_tests == '[]' || needs.run_alternate_tests.result == 'success'
+    needs: [ collect_data, run_all_tests, run_alternate_tests ]
+    name: Compare Screenshot Tests
+    uses: ./.github/workflows/compare_screenshots.yml
+
   test_windows:
     name: Windows Build
     needs: collect_data
