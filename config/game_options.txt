@@ -385,7 +385,7 @@ ROUNDSTART_RACES android
 #ROUNDSTART_RACES golem
 
 ## EFFIGY-SPECIFIC RACES
-ROUNDSTART_RACES anthromorph
+ROUNDSTART_RACES animalid
 
 ##-------------------------------------------------------------------------------------------
 
