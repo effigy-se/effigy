@@ -386,6 +386,7 @@ ROUNDSTART_RACES android
 
 ## EFFIGY-SPECIFIC RACES
 ROUNDSTART_RACES animalid
+ROUNDSTART_RACES insectoid
 
 ##-------------------------------------------------------------------------------------------
 
