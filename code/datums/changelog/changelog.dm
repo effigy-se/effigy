@@ -24,8 +24,12 @@
 /datum/changelog/ui_static_data()
 	var/list/data = list( "dates" = list() )
 	var/regex/ymlRegex = regex(@"\.yml", "g")
+	// EffigyEdit Add Start - Changelog 2
+	var/list/tg_files = flist("html/changelogs/archive/")
+	var/list/effigy_files = flist("html/changelogs/effigy_archive/")
+	// EffigyEdit Add End - Changelog 2
 
-	for(var/archive_file in sort_list(flist("html/changelogs/archive/")))
+	for(var/archive_file in sort_list(tg_files |= effigy_files)) // EffigyEdit Change - Changelog 2 - Original: for(var/archive_file in sort_list(flist("html/changelogs/archive/")))
 		var/archive_date = ymlRegex.Replace(archive_file, "")
 		data["dates"] = list(archive_date) + data["dates"]
 

@@ -121,32 +121,33 @@ const ChangelogList = (props) => {
     typeof effigyContents === 'object' ? effigyContents : {},
   );
 
-  return (
-    Object.keys(combinedDates).length > 0 &&
-    Object.keys(combinedDates)
-      .sort()
-      .reverse()
-      .map((date) => (
-        <Section key={date} title={dateformat(date, 'd mmmm yyyy', true)}>
-          <Box ml={3}>
-            {contents[date] && (
-              <Section title="TG">
-                {Object.entries(contents[date]).map(([name, changes]) => (
-                  <ChangelogEntry key={name} author={name} changes={changes} />
-                ))}
-              </Section>
-            )}
-            {effigyContents[date] && (
-              <Section title="Effigy">
-                {Object.entries(effigyContents[date]).map(([name, changes]) => (
-                  <ChangelogEntry key={name} author={name} changes={changes} />
-                ))}
-              </Section>
-            )}
-          </Box>
-        </Section>
-      ))
-  );
+  if (Object.keys(combinedDates).length < 1) {
+    return <p>{contents}</p>;
+  }
+
+  return Object.keys(combinedDates)
+    .sort()
+    .reverse()
+    .map((date) => (
+      <Section key={date} title={dateformat(date, 'd mmmm yyyy', true)}>
+        <Box ml={3}>
+          {contents[date] && (
+            <Section title="TG">
+              {Object.entries(contents[date]).map(([name, changes]) => (
+                <ChangelogEntry key={name} author={name} changes={changes} />
+              ))}
+            </Section>
+          )}
+          {effigyContents[date] && (
+            <Section title="Effigy">
+              {Object.entries(effigyContents[date]).map(([name, changes]) => (
+                <ChangelogEntry key={name} author={name} changes={changes} />
+              ))}
+            </Section>
+          )}
+        </Box>
+      </Section>
+    ));
 };
 
 const ChangelogEntry = (props) => {
@@ -223,7 +224,7 @@ export const EffigyChangelog = (props) => {
       const result = await links[0].text();
       const effigyResult = await links[1].text();
 
-      if (links[0].status !== 200) {
+      if (links[0].status !== 200 && links[1].status !== 200) {
         const timeout = 50 + attemptNumber * 50;
 
         setContents('Loading changelog data' + '.'.repeat(attemptNumber + 3));
@@ -234,7 +235,9 @@ export const EffigyChangelog = (props) => {
           getData(date, attemptNumber + 1);
         }, timeout);
       } else {
-        setContents(yaml.load(result, { schema: yaml.CORE_SCHEMA }));
+        if (links[0].status === 200) {
+          setContents(yaml.load(result, { schema: yaml.CORE_SCHEMA }));
+        }
         if (links[1].status === 200) {
           setEffigyContents(
             yaml.load(effigyResult, { schema: yaml.CORE_SCHEMA }),
@@ -367,7 +370,6 @@ export const EffigyChangelog = (props) => {
       <Window.Content scrollable>
         {header}
         <ChangelogList contents={contents} effigyContents={effigyContents} />
-        {typeof contents === 'string' && <p>{contents}</p>}
         {footer}
       </Window.Content>
     </Window>
