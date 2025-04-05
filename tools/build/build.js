@@ -236,6 +236,7 @@ export const DmTarget = new Juke.Target({
     'icons/**',
     'interface/**',
     'sound/**',
+    'tgui/public/tgui.html',
     'local/**', // EffigyEdit Add
     `${DME_NAME}.dme`,
     NamedVersionFile,

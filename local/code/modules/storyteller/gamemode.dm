@@ -1,6 +1,5 @@
 SUBSYSTEM_DEF(gamemode)
 	name = "Game Mode"
-	init_order = INIT_ORDER_GAMEMODE
 	runlevels = RUNLEVEL_GAME
 	flags = SS_BACKGROUND | SS_KEEP_TIMING
 	wait = 2 SECONDS
