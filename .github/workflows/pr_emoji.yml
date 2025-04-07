@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: Wayland-Smithy/emoji-stripper-action@de0c1d158edee50700583d6454aa5f5117337599
       with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        repo-token: ${{ secrets.SKYYNET_PAT || secrets.GITHUB_TOKEN }}
         title: true
         body: true
         body-after: ":cl:"
