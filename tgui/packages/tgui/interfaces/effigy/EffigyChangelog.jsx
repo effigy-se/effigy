@@ -132,13 +132,6 @@ const ChangelogList = (props) => {
     .map((date) => (
       <Section key={date} title={dateformat(date, 'd mmmm yyyy', true)}>
         <Box ml={3}>
-          {contents[date] && (
-            <Section>
-              {Object.entries(contents[date]).map(([name, changes]) => (
-                <ChangelogEntry key={name} author={name} changes={changes} />
-              ))}
-            </Section>
-          )}
           {effigyContents[date] && (
             <Section>
               {Object.entries(effigyContents[date]).map(([name, changes]) => (
@@ -147,6 +140,13 @@ const ChangelogList = (props) => {
                   author={name}
                   changes={changes}
                 />
+              ))}
+            </Section>
+          )}
+          {contents[date] && (
+            <Section mt="-20px">
+              {Object.entries(contents[date]).map(([name, changes]) => (
+                <ChangelogEntry key={name} author={name} changes={changes} />
               ))}
             </Section>
           )}
@@ -159,14 +159,14 @@ const ChangelogEntry = (props) => {
   const { author, changes } = props;
 
   return (
-    <Stack.Item mb={-1} key={author}>
+    <Stack.Item mb={-1} pb={1} key={author}>
       <Box>
         <h4>
-          <Image verticalAlign="middle" src={resolveAsset('tg_16.png')} />{' '}
+          <Image verticalAlign="bottom" src={resolveAsset('tg_16.png')} />{' '}
           {author} changed:
         </h4>
       </Box>
-      <Box ml={3}>
+      <Box ml={3} mt="-3px">
         <Table>
           {changes.map((change) => {
             const changeType = Object.keys(change)[0];
@@ -207,14 +207,14 @@ const EffigyChangelogEntry = (props) => {
   const { author, changes } = props;
 
   return (
-    <Stack.Item mb={-1} key={author}>
+    <Stack.Item mb={-1} pb={1} key={author}>
       <Box>
         <h4>
-          <Image verticalAlign="middle" src={resolveAsset('effigy_16.png')} />{' '}
+          <Image verticalAlign="bottom" src={resolveAsset('effigy_16.png')} />{' '}
           {author} changed:
         </h4>
       </Box>
-      <Box ml={3}>
+      <Box ml={3} mt="-3px">
         <Table>
           {changes.map((change) => {
             const changeType = Object.keys(change)[0];
