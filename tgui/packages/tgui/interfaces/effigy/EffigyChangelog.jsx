@@ -6,6 +6,7 @@ import {
   Button,
   Dropdown,
   Icon,
+  Image,
   Section,
   Stack,
   Table,
@@ -132,16 +133,20 @@ const ChangelogList = (props) => {
       <Section key={date} title={dateformat(date, 'd mmmm yyyy', true)}>
         <Box ml={3}>
           {contents[date] && (
-            <Section title="TG">
+            <Section>
               {Object.entries(contents[date]).map(([name, changes]) => (
                 <ChangelogEntry key={name} author={name} changes={changes} />
               ))}
             </Section>
           )}
           {effigyContents[date] && (
-            <Section title="Effigy">
+            <Section>
               {Object.entries(effigyContents[date]).map(([name, changes]) => (
-                <ChangelogEntry key={name} author={name} changes={changes} />
+                <EffigyChangelogEntry
+                  key={name}
+                  author={name}
+                  changes={changes}
+                />
               ))}
             </Section>
           )}
@@ -154,8 +159,61 @@ const ChangelogEntry = (props) => {
   const { author, changes } = props;
 
   return (
-    <Stack.Item key={author}>
-      <h4>{author} changed:</h4>
+    <Stack.Item mb={-1} key={author}>
+      <Box>
+        <h4>
+          <Image verticalAlign="middle" src={resolveAsset('tg_16.png')} />{' '}
+          {author} changed:
+        </h4>
+      </Box>
+      <Box ml={3}>
+        <Table>
+          {changes.map((change) => {
+            const changeType = Object.keys(change)[0];
+            return (
+              <Table.Row key={changeType + change[changeType]}>
+                <Table.Cell
+                  className={classes([
+                    'Changelog__Cell',
+                    'Changelog__Cell--Icon',
+                  ])}
+                >
+                  <Icon
+                    color={
+                      icons[changeType]
+                        ? icons[changeType].color
+                        : icons['unknown'].color
+                    }
+                    name={
+                      icons[changeType]
+                        ? icons[changeType].icon
+                        : icons['unknown'].icon
+                    }
+                  />
+                </Table.Cell>
+                <Table.Cell className="Changelog__Cell">
+                  {change[changeType]}
+                </Table.Cell>
+              </Table.Row>
+            );
+          })}
+        </Table>
+      </Box>
+    </Stack.Item>
+  );
+};
+
+const EffigyChangelogEntry = (props) => {
+  const { author, changes } = props;
+
+  return (
+    <Stack.Item mb={-1} key={author}>
+      <Box>
+        <h4>
+          <Image verticalAlign="middle" src={resolveAsset('effigy_16.png')} />{' '}
+          {author} changed:
+        </h4>
+      </Box>
       <Box ml={3}>
         <Table>
           {changes.map((change) => {
@@ -366,7 +424,7 @@ export const EffigyChangelog = (props) => {
   );
 
   return (
-    <Window title="Changelog" width={675} height={650}>
+    <Window title="Changelog" width={675} height={800}>
       <Window.Content scrollable>
         {header}
         <ChangelogList contents={contents} effigyContents={effigyContents} />

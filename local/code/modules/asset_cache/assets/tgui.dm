@@ -37,3 +37,9 @@
 		"UbuntuMono-Bold.ttf" = 'local/interface/fonts/UbuntuMono-Bold.ttf',
 		"UbuntuMono-BoldItalic.ttf" = 'local/interface/fonts/UbuntuMono-BoldItalic.ttf',
 	)
+
+/datum/asset/simple/changelog
+	assets = list(
+		"tg_16.png" = 'icons/ui/common/tg_16.png',
+		"effigy_16.png" = 'local/icons/ui/common/effigy_16.png',
+	)

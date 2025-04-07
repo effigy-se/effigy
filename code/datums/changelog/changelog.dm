@@ -10,6 +10,13 @@
 		ui = new(user, src, "EffigyChangelog") // EffigyEdit Change - Changelog 2 - Original: ui = new(user, src, "Changelog")
 		ui.open()
 
+// EffigyEdit Add - Changelog 2
+/datum/changelog/ui_assets(mob/user)
+	return list(
+		get_asset_datum(/datum/asset/simple/changelog),
+	)
+// EffigyEdit Add End
+
 /datum/changelog/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
