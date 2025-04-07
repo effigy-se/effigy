@@ -36,9 +36,9 @@
 		for(var/item_to_add in effigy_contraband)
 			contraband[item_to_add] = effigy_contraband[item_to_add]
 
-	QDEL_NULL(effigy_products)
-	QDEL_NULL(effigy_product_categories)
-	QDEL_NULL(effigy_premium)
-	QDEL_NULL(effigy_contraband)
+	QDEL_LIST_ASSOC_VAL(effigy_product_categories)
+	effigy_products = null
+	effigy_premium = null
+	effigy_contraband = null
 
 	return ..()

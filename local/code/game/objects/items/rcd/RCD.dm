@@ -34,6 +34,5 @@
 	custom_materials = list(/datum/material/plastic = 1000)
 
 /obj/item/storage/box/rcd_ammo/PopulateContents()
-	return flatten_quantified_list(list(
-		/obj/item/rcd_ammo/mkii = 4,
-	))
+	for(var/i in 1 to 4)
+		new/obj/item/rcd_ammo/mkii(src)

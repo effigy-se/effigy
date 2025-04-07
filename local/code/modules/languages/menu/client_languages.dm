@@ -10,7 +10,7 @@
 	var/list/to_insert = list()
 
 	if(!GLOB.all_languages.len)
-		stack_trace("Warning: Language spritesheets could not be created because language subsystem has not been loaded yet. This should not happen--adjust the init_order in master_files/code/controllers/subsystem/language.dm.")
+		stack_trace("Warning: Language spritesheets could not be created because language subsystem has not been loaded yet. This should not happen, adjust the init_stage!")
 		return
 
 	for (var/language_name in GLOB.all_languages)

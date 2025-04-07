@@ -1,0 +1,8 @@
+/obj/item/storage/belt/utility/full/powertools/rcd/PopulateContents()
+	new /obj/item/screwdriver/power(src)
+	new /obj/item/crowbar/power(src)
+	new /obj/item/weldingtool/experimental(src)
+	new /obj/item/construction/rcd/mkii(src)
+	new /obj/item/pipe_dispenser(src)
+	new /obj/item/multitool(src)
+	new /obj/item/analyzer/ranged(src)

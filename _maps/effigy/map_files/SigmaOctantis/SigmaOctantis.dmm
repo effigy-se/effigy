@@ -79979,8 +79979,9 @@
 /area/station/science/salvage)
 "svQ" = (
 /obj/structure/transport/linear/tram,
-/obj/structure/tram,
-/obj/structure/plaque/static_plaque/tram{
+/obj/structure/thermoplastic,
+/obj/structure/chair/sofa/bench/tram/solo,
+/obj/structure/sign/tram_plate/directional/north{
 	specific_transport_id = "sigma_1"
 	},
 /turf/open/floor/tram,
@@ -138510,7 +138511,7 @@ pyQ
 xAF
 ngq
 xAF
-svQ
+pyQ
 haO
 frP
 wDL
@@ -138763,7 +138764,7 @@ aLE
 uLI
 aLE
 pyQ
-fdd
+svQ
 fbF
 omH
 fbF

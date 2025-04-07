@@ -141,18 +141,17 @@
 	req_access = list(ACCESS_SCIENCE)
 
 /obj/structure/closet/secure_closet/salvage/PopulateContents()
-	return list(
-		/obj/item/salvaging_hammer,
-		/obj/item/salvaging_hammer/cm2,
-		/obj/item/salvaging_hammer/cm3,
-		/obj/item/salvaging_hammer/cm4,
-		/obj/item/salvaging_hammer/cm5,
-		/obj/item/salvaging_hammer/cm6,
-		/obj/item/salvaging_hammer/cm10,
-		/obj/item/salvaging_brush,
-		/obj/item/salvaging_tape_measure,
-		/obj/item/salvage_handheld_scanner,
-		/obj/item/storage/belt/utility/salvage,
-		/obj/item/storage/bag/ore,
-		/obj/item/clothing/glasses/science,
-	)
+	. = ..()
+	new /obj/item/salvaging_hammer(src)
+	new /obj/item/salvaging_hammer/cm2(src)
+	new /obj/item/salvaging_hammer/cm3(src)
+	new /obj/item/salvaging_hammer/cm4(src)
+	new /obj/item/salvaging_hammer/cm5(src)
+	new /obj/item/salvaging_hammer/cm6(src)
+	new /obj/item/salvaging_hammer/cm10(src)
+	new /obj/item/salvaging_brush(src)
+	new /obj/item/salvaging_tape_measure(src)
+	new /obj/item/salvage_handheld_scanner(src)
+	new /obj/item/storage/belt/utility/salvage(src)
+	new /obj/item/storage/bag/ore(src)
+	new /obj/item/clothing/glasses/science(src)

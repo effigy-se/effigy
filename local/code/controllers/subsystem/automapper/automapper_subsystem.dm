@@ -11,7 +11,7 @@
 SUBSYSTEM_DEF(automapper)
 	name = "Area Mapping"
 	flags = SS_NO_FIRE
-	init_order = INIT_ORDER_AUTOMAPPER
+	init_stage = INITSTAGE_EARLY
 	/// The path to our TOML file
 	var/config_file = "_maps/effigy/templates/automapper/automapper_config.toml"
 	/// Our loaded TOML file
