@@ -13,7 +13,7 @@
 // EffigyEdit Add - Changelog 2
 /datum/changelog/ui_assets(mob/user)
 	return list(
-		get_asset_datum(/datum/asset/simple/changelog),
+		get_asset_datum(/datum/asset/simple/server_logos),
 	)
 // EffigyEdit Add End
 
