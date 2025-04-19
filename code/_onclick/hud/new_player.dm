@@ -946,7 +946,7 @@
 	screen_loc = "BOTTOM,LEFT"
 	layer = PATH_ARROW_DEBUG_LAYER
 
-/atom/movable/screen/lobby/loading_screen/Initialize()
+/atom/movable/screen/lobby/loading_screen/Initialize(mapload)
 	. = ..()
 	if(SSticker?.current_state != GAME_STATE_STARTUP)
 		qdel(src)
@@ -965,7 +965,7 @@
 	screen_loc = "BOTTOM,LEFT:-608"
 	layer = PATH_ARROW_DEBUG_LAYER
 
-/atom/movable/screen/lobby/progress_bar/Initialize()
+/atom/movable/screen/lobby/progress_bar/Initialize(mapload)
 	. = ..()
 	if(SSticker?.current_state != GAME_STATE_STARTUP)
 		qdel(src)
@@ -990,7 +990,7 @@
 	screen_loc = "BOTTOM:+32,LEFT:+2"
 	layer = PATH_ARROW_DEBUG_LAYER
 
-/atom/movable/screen/lobby/fluff_text/Initialize()
+/atom/movable/screen/lobby/fluff_text/Initialize(mapload)
 	. = ..()
 	if(SSticker?.current_state != GAME_STATE_STARTUP)
 		qdel(src)
