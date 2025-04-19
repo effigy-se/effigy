@@ -101,7 +101,7 @@
 	layer = LOBBY_MENU_LAYER
 	screen_loc = "TOP,CENTER"
 	/// Whether this HUD element can be hidden from the client's "screen" (moved off-screen) or not
-	var/always_shown = FALSE
+	var/always_shown = TRUE // EffigyEdit Change - Custom Lobby - Original: FALSE
 	/// If true we will create this button every time the HUD is generated
 	var/always_available = TRUE
 	// EffigyEdit Add - Custom Lobby
@@ -784,6 +784,19 @@
 	always_available = FALSE
 	select_sound_play = FALSE
 
+// EffigyEdit Add - Custom Lobby
+/atom/movable/screen/lobby/button/start_now/Initialize(mapload, datum/hud/hud_owner)
+	. = ..()
+	if(SSticker?.current_state > GAME_STATE_PREGAME)
+		qdel(src)
+
+	RegisterSignal(SSticker, COMSIG_TICKER_ROUND_STARTING, PROC_REF(enter_pregame))
+
+/atom/movable/screen/lobby/button/start_now/proc/enter_pregame(source)
+	SIGNAL_HANDLER
+	qdel(src)
+// EffigyEdit Add End
+
 /atom/movable/screen/lobby/button/start_now/Click(location, control, params)
 	. = ..()
 	if(!. || !usr.client.is_localhost() || !check_rights_for(usr.client, R_SERVER))
@@ -946,7 +959,7 @@
 	screen_loc = "BOTTOM,LEFT"
 	layer = PATH_ARROW_DEBUG_LAYER
 
-/atom/movable/screen/lobby/loading_screen/Initialize(mapload)
+/atom/movable/screen/lobby/loading_screen/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
 	if(SSticker?.current_state != GAME_STATE_STARTUP)
 		qdel(src)
@@ -965,7 +978,7 @@
 	screen_loc = "BOTTOM,LEFT:-608"
 	layer = PATH_ARROW_DEBUG_LAYER
 
-/atom/movable/screen/lobby/progress_bar/Initialize(mapload)
+/atom/movable/screen/lobby/progress_bar/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
 	if(SSticker?.current_state != GAME_STATE_STARTUP)
 		qdel(src)
@@ -990,7 +1003,7 @@
 	screen_loc = "BOTTOM:+32,LEFT:+2"
 	layer = PATH_ARROW_DEBUG_LAYER
 
-/atom/movable/screen/lobby/fluff_text/Initialize(mapload)
+/atom/movable/screen/lobby/fluff_text/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
 	if(SSticker?.current_state != GAME_STATE_STARTUP)
 		qdel(src)
