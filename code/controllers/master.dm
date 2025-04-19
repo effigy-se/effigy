@@ -545,6 +545,11 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 
 	var/message = "[message_prefix] ([seconds] second[seconds == 1 ? "" : "s"])" // EffigyEdit Change - Custom Lobby
 	var/chat_message = chat_warning ? span_warning(message) : span_info(message) // EffigyEdit Change - Custom Lobby
+	// EffigyEdit Add - Custom Lobby
+	GLOB.init_progress++
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(send_init_fluff_message))
+	SEND_GLOBAL_SIGNAL(COMSIG_SUBSYSTEM_INCREMENT_PROGRESS, GLOB.init_progress)
+	// EffigyEdit Add End
 
 	if(result != SS_INIT_NO_MESSAGE)
 		to_chat(GLOB.init_message_clients, chat_message, MESSAGE_TYPE_DEBUG) // EffigyEdit Change - Custom Lobby

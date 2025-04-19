@@ -4,6 +4,7 @@
 
 /// File where fluff status messages are stored
 /datum/config_entry/string/fluff_status_file
+	default = "config/effigy_splash_fluff.txt"
 
 /// Lobby music track ID
 /datum/config_entry/string/pregame_lobby_track

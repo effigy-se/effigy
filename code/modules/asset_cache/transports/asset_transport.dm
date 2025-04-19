@@ -127,7 +127,7 @@
 
 	if (unreceived.len)
 		if (unreceived.len >= ASSET_CACHE_TELL_CLIENT_AMOUNT)
-			to_chat(client, alert_boxed_message(PURPLE, "Loading Effigy asset cache...")) // EffigyEdit Change - TGUI - Original: span_infoplain("Sending Resources...")
+			to_chat(client, alert_boxed_message(BLUE, "Streaming assets...")) // EffigyEdit Change - TGUI - Original: span_infoplain("Sending Resources...")
 
 		for (var/asset_name in unreceived)
 			var/new_asset_name = asset_name

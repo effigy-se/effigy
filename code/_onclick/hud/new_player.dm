@@ -5,7 +5,7 @@
 
 // EffigyEdit Add - Custom Lobby
 #define LOBBY_MAPTEXT_HEIGHT 56
-#define LOBBY_MAPTEXT_WIDTH 300
+#define LOBBY_MAPTEXT_WIDTH 512
 #define LOBBY_MAPTEXT_X 5
 #define LOBBY_MAPTEXT_Y -10
 // EffigyEdit Add End
@@ -104,6 +104,12 @@
 	var/always_shown = FALSE
 	/// If true we will create this button every time the HUD is generated
 	var/always_available = TRUE
+	// EffigyEdit Add - Custom Lobby
+	maptext_height = LOBBY_MAPTEXT_HEIGHT
+	maptext_width = LOBBY_MAPTEXT_WIDTH
+	maptext_x = LOBBY_MAPTEXT_X
+	maptext_y = LOBBY_MAPTEXT_Y
+	// EffigyEdit Add End
 
 ///Set the HUD in New, as lobby screens are made before Atoms are Initialized.
 /atom/movable/screen/lobby/New(loc, datum/hud/our_hud, ...)
@@ -146,10 +152,6 @@
 	var/select_sound_play = TRUE
 	// EffigyEdit Add - Custom Lobby
 	var/enabled_maptext
-	maptext_height = LOBBY_MAPTEXT_HEIGHT
-	maptext_width = LOBBY_MAPTEXT_WIDTH
-	maptext_x = LOBBY_MAPTEXT_X
-	maptext_y = LOBBY_MAPTEXT_Y
 	// EffigyEdit Add End
 
 /atom/movable/screen/lobby/button/Click(location, control, params)
@@ -936,6 +938,72 @@
 	set_button_status(TRUE)
 	UnregisterSignal(SSearly_assets, COMSIG_SUBSYSTEM_POST_INITIALIZE)
 	UnregisterSignal(SSatoms, COMSIG_SUBSYSTEM_POST_INITIALIZE)
+
+/atom/movable/screen/lobby/loading_screen
+	name = "Initializing game..."
+	icon = 'local/icons/runtime/default_title.dmi'
+	icon_state = "loading"
+	screen_loc = "BOTTOM,LEFT"
+	layer = PATH_ARROW_DEBUG_LAYER
+
+/atom/movable/screen/lobby/loading_screen/Initialize()
+	. = ..()
+	if(SSticker?.current_state != GAME_STATE_STARTUP)
+		qdel(src)
+
+	icon = SStitle.splash_turf.icon
+	icon_state = SStitle.splash_turf.icon_state
+	RegisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME, PROC_REF(enter_pregame))
+
+/atom/movable/screen/lobby/loading_screen/proc/enter_pregame(source)
+	SIGNAL_HANDLER
+	qdel(src)
+
+/atom/movable/screen/lobby/progress_bar
+	icon = 'local/icons/hud/lobby/loading.dmi'
+	icon_state = "loading"
+	screen_loc = "BOTTOM,LEFT:-608"
+	layer = PATH_ARROW_DEBUG_LAYER
+
+/atom/movable/screen/lobby/progress_bar/Initialize()
+	. = ..()
+	if(SSticker?.current_state != GAME_STATE_STARTUP)
+		qdel(src)
+
+	RegisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME, PROC_REF(enter_pregame))
+	RegisterSignal(SSdcs, COMSIG_SUBSYSTEM_INCREMENT_PROGRESS, PROC_REF(init_progress))
+	screen_loc = "BOTTOM,LEFT:-464"
+	animate(src, transform = transform.Translate(x = 183, y = 0), time = 24 SECONDS)
+
+/atom/movable/screen/lobby/progress_bar/proc/enter_pregame(source)
+	SIGNAL_HANDLER
+	qdel(src)
+
+/atom/movable/screen/lobby/progress_bar/proc/init_progress(source, new_progress)
+	SIGNAL_HANDLER
+	transform = matrix()
+	var/new_pos = floor(608 - 608 * (new_progress / 75))
+	screen_loc = "BOTTOM,LEFT:-[new_pos]"
+	maptext_width = 512
+
+/atom/movable/screen/lobby/fluff_text
+	screen_loc = "BOTTOM:+32,LEFT:+2"
+	layer = PATH_ARROW_DEBUG_LAYER
+
+/atom/movable/screen/lobby/fluff_text/Initialize()
+	. = ..()
+	if(SSticker?.current_state != GAME_STATE_STARTUP)
+		qdel(src)
+
+	RegisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME, PROC_REF(enter_pregame))
+
+/atom/movable/screen/lobby/fluff_text/proc/enter_pregame(source)
+	SIGNAL_HANDLER
+	qdel(src)
+
+/atom/movable/screen/lobby/fluff_text/proc/init_progress(fluff_message)
+	maptext = "<span style='font-family: \"Chakra Petch\"; font-size: 14pt; line-height: 0.90'>[fluff_message]</span>"
+
 // EffigyEdit Add End
 
 #undef OVERLAY_X_DIFF

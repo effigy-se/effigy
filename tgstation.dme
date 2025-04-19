@@ -6688,6 +6688,7 @@
 #include "local\code\controllers\subsystem\sprite_accessories.dm"
 #include "local\code\controllers\subsystem\statpanel.dm"
 #include "local\code\controllers\subsystem\ticker.dm"
+#include "local\code\controllers\subsystem\title.dm"
 #include "local\code\controllers\subsystem\transport.dm"
 #include "local\code\controllers\subsystem\vote.dm"
 #include "local\code\controllers\subsystem\automapper\area_spawn_subsystem.dm"
