@@ -24,6 +24,11 @@
 	if (owner.client.interviewee)
 		return
 
+	// EffigyEdit Add - Custom Lobby
+	if(SSticker.current_state == GAME_STATE_STARTUP)
+		winset(owner.client, "mapwindow.status_bar", "is-visible=false")
+	// EffigyEdit Add End
+
 	var/list/buttons = subtypesof(/atom/movable/screen/lobby)
 	for (var/atom/movable/screen/lobby/lobbyscreen as anything in buttons)
 		if (!initial(lobbyscreen.always_available))
@@ -989,6 +994,8 @@
 
 /atom/movable/screen/lobby/progress_bar/proc/enter_pregame(source)
 	SIGNAL_HANDLER
+	if(hud.mymob)
+		winset(hud.mymob, "mapwindow.status_bar", "is-visible=true")
 	qdel(src)
 
 /atom/movable/screen/lobby/progress_bar/proc/init_progress(source, new_progress)
