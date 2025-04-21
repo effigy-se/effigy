@@ -49,6 +49,8 @@ type CharacterControlsProps = {
   gender: Gender;
   setGender: (gender: Gender) => void;
   showGender: boolean;
+  canDeleteCharacter: boolean;
+  handleDeleteCharacter: () => void;
 };
 
 function CharacterControls(props: CharacterControlsProps) {
@@ -92,6 +94,18 @@ function CharacterControls(props: CharacterControlsProps) {
           />
         </Stack.Item>
       )}
+
+      <Stack.Item>
+        <Button
+          onClick={props.handleDeleteCharacter}
+          fontSize="22px"
+          icon="trash"
+          color="red"
+          tooltip="Delete Character"
+          tooltipPosition="top"
+          disabled={!props.canDeleteCharacter}
+        />
+      </Stack.Item>
     </Stack>
   );
 }
@@ -731,6 +745,12 @@ export function MainPage(props: MainPageProps) {
                 showGender={
                   currentSpeciesData ? !!currentSpeciesData.sexes : true
                 }
+                canDeleteCharacter={
+                  Object.values(data.character_profiles).filter(
+                    (name) => !!name,
+                  ).length > 1
+                }
+                handleDeleteCharacter={() => setDeleteCharacterPopupOpen(true)}
               />
             </Stack.Item>
 
