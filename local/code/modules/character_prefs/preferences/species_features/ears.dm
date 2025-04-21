@@ -73,7 +73,6 @@
 	main_feature_name = "Ears"
 
 /datum/preference/choiced/felinid_ears/apply_to_human(mob/living/carbon/human/target, value)
-	..()
 	if(target.dna.ear_type == CAT_TYPE)
 		target.dna.features["ears"] = value
 
