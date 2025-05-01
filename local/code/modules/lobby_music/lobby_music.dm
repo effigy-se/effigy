@@ -9,10 +9,6 @@
 		log_game("Youtube-dl was not configured, lobby music unavailable") //Check config.txt for the INVOKE_YOUTUBEDL value
 		return
 
-	if(S_TIMER_COOLDOWN_TIMELEFT(SStimer, COOLDOWN_INTERNET_SOUND))
-		log_game("An internet track is already playing. Skipping lobby music.")
-		return
-
 	if(length(selected_track))
 		selected_track = trim(selected_track)
 		selected_track = shell_url_scrub(selected_track)
@@ -26,7 +22,7 @@
 	if(!istext(selected_track))
 		return
 
-	var/list/output = world.shelleo("[ytdl] --geo-bypass --format \"bestaudio\[ext=mp3]/best\[ext=mp4]\[height <= 360]/bestaudio\[ext=m4a]/bestaudio\[ext=aac]\" --dump-single-json --no-playlist -- \"[selected_track]\"")
+	var/list/output = world.shelleo("[ytdl] --dump-single-json --no-playlist -- \"[selected_track]\"")
 	var/errorlevel = output[SHELLEO_ERRORLEVEL]
 	var/stdout = output[SHELLEO_STDOUT]
 	var/stderr = output[SHELLEO_STDERR]
@@ -37,7 +33,7 @@
 	try
 		data = json_decode(stdout)
 	catch(var/exception/e)
-		log_game("Youtube-dl JSON parsing FAILED:")
+		log_game("JSON parsing FAILED:")
 		log_game("[e]: [stdout]")
 		return
 	if(data["url"])
@@ -54,7 +50,7 @@
 	for(var/connection in GLOB.player_list)
 		var/mob/player_mob = connection
 		var/client/player_client = player_mob.client
-		if(player_client.prefs.read_preference(/datum/preference/toggle/sound_lobby))
+		if(player_client.prefs.read_preference(/datum/preference/numeric/sound_lobby))
 			player_client.tgui_panel?.play_music(web_sound_url, music_extra_data)
 
 //world/proc/shelleo
