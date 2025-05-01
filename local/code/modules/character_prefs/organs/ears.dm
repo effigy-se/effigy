@@ -26,8 +26,6 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/dog_ears
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
-	dna_block = DNA_EARS_BLOCK
-
 /datum/bodypart_overlay/mutant/ears/dog_ears/get_global_feature_list()
 	return SSaccessories.ears_list_dog
 
@@ -36,8 +34,6 @@
 	preference = "feature_flying_ears"
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/flying_ears
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
-
-	dna_block = DNA_EARS_BLOCK
 
 /datum/bodypart_overlay/mutant/ears/flying_ears/get_global_feature_list()
 	return SSaccessories.ears_list_flying
@@ -48,8 +44,6 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/mammal_ears
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
-	dna_block = DNA_EARS_BLOCK
-
 /datum/bodypart_overlay/mutant/ears/mammal_ears/get_global_feature_list()
 	return SSaccessories.ears_list_mammal
 
@@ -58,8 +52,6 @@
 	preference = "feature_monkey_ears"
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/monkey_ears
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
-
-	dna_block = DNA_EARS_BLOCK
 
 /datum/bodypart_overlay/mutant/ears/monkey_ears/get_global_feature_list()
 	return SSaccessories.ears_list_monkey
@@ -70,8 +62,6 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/fish_ears
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
-	dna_block = DNA_EARS_BLOCK
-
 /datum/bodypart_overlay/mutant/ears/fish_ears/get_global_feature_list()
 	return SSaccessories.ears_list_fish
 
@@ -80,8 +70,6 @@
 	preference = "feature_humanoid_ears"
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/humanoid_ears
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
-
-	dna_block = DNA_EARS_BLOCK
 
 /datum/bodypart_overlay/mutant/ears/humanoid_ears/get_global_feature_list()
 	return SSaccessories.ears_list_humanoid
