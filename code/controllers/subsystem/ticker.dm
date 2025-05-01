@@ -340,7 +340,7 @@ SUBSYSTEM_DEF(ticker)
 	Master.SetRunLevel(RUNLEVEL_GAME)
 
 	if(length(GLOB.holidays))
-		to_chat(world, span_notice("and..."))
+		//to_chat(world, span_notice("and...")) // EffigyEdit Remove - TGUI
 		for(var/holidayname in GLOB.holidays)
 			var/datum/holiday/holiday = GLOB.holidays[holidayname]
 			to_chat(world, alert_boxed_message(GREEN, holiday.greet())) // EffigyEdit Change - TGUI
