@@ -50,7 +50,7 @@
 	for(var/connection in GLOB.player_list)
 		var/mob/player_mob = connection
 		var/client/player_client = player_mob.client
-		if(player_client.prefs.read_preference(/datum/preference/numeric/sound_lobby))
+		if(player_client.prefs.read_preference(/datum/preference/numeric/volume/sound_lobby_volume))
 			player_client.tgui_panel?.play_music(web_sound_url, music_extra_data)
 
 //world/proc/shelleo
