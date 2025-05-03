@@ -38,12 +38,10 @@
 /obj/structure/standing_sign/rimpoint/extended_warranty/Initialize(mapload)
 	. = ..()
 	var/static/list/gamers = list(/datum/species/lizard/ashwalker)
-/*
 	AddElement(/datum/element/unique_examine, \
 		desc = "...What the fuck is a warranty?", \
 		desc_requirement = EXAMINE_CHECK_SPECIES, \
 		requirements = gamers)
-*/ // EFFIGY TODO: Examine++
 /obj/structure/standing_sign/rimpoint/have_you_seen_them
 	name = "Have you seen them?"
 	desc = "It's a sign. Affixed is a crude drawing of a Salmon Shark, along with the text; \"Have you seen them?\" - Followed up with, \"NOW U HAVE\""
