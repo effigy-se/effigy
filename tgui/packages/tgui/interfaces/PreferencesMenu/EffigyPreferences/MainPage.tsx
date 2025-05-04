@@ -842,7 +842,7 @@ export function MainPage(props: MainPageProps) {
         </Stack.Item>
 
         <Stack.Item width="235px" ml="3px">
-          <Stack height="512px" width="0px" vertical wrap>
+          <Stack height="520px" width="0px" vertical wrap>
             {mainFeatures.map(([clothingKey, clothing]) => {
               const catalog = serverData?.[
                 clothingKey

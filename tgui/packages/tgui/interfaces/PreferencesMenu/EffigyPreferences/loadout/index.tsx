@@ -129,7 +129,7 @@ function LoadoutTabs(props: LoadoutTabsProps) {
   const searching = currentSearch.length > 1;
 
   return (
-    <Stack fill height="432px">
+    <Stack fill height="470px">
       <Stack.Item align="center" width="250px" height="100%">
         <Stack vertical fill>
           <Stack.Item height="60%">

@@ -51,3 +51,7 @@
     min-height: 2em;
   }
 }
+
+.Tab--selected.Tab--color--green {
+  color: var(--color-text-fixed-black);
+}

@@ -2,6 +2,10 @@
   color: var(--button-color-transparent);
 }
 
+.Button--color--caution {
+  color: var(--color-text-fixed-black) !important;
+}
+
 .Button--color--good {
   color: var(--color-text-fixed-black) !important;
 }
