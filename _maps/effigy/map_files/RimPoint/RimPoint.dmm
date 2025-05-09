@@ -9346,7 +9346,7 @@
 /turf/open/floor/iron/edge,
 /area/station/science/xenobiology)
 "dmR" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
@@ -14630,7 +14630,7 @@
 /turf/open/floor/iron/dark/small,
 /area/station/science/robotics)
 "ffB" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 10
 	},
@@ -15118,7 +15118,7 @@
 /turf/open/floor/wood/tile,
 /area/station/service/lawoffice)
 "fnJ" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/turf_decal/box/white,
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 1
@@ -16398,7 +16398,7 @@
 	},
 /area/station/science)
 "fMm" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
 	dir = 1
 	},
@@ -19200,7 +19200,7 @@
 /area/station/command/heads_quarters/captain)
 "gLn" = (
 /obj/machinery/requests_console/auto_name/directional/west,
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/carpet/red,
 /area/station/security/detectives_office)
 "gLs" = (
@@ -25543,7 +25543,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/upper)
 "iUe" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/mineral/plastitanium/red,
@@ -25647,7 +25647,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/hallway)
 "iVB" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/wood/parquet,
 /area/station/service/library)
 "iVJ" = (
@@ -26800,7 +26800,7 @@
 "jsG" = (
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 8
 	},
@@ -27164,7 +27164,7 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "jyY" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/machinery/light/directional/north,
 /turf/open/floor/wood,
 /area/station/engineering/hallway)
@@ -32800,7 +32800,7 @@
 /turf/open/misc/beach/sand,
 /area/taeloth/nearstation/no_valids_to_hunt/bridge_lake)
 "lCr" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
@@ -43035,7 +43035,7 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/east,
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/mineral/plastitanium/red,
 /area/station/security/office)
 "pmN" = (

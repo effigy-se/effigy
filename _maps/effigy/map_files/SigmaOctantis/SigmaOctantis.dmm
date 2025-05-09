@@ -1410,7 +1410,7 @@
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
 "apq" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
@@ -7179,7 +7179,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/floor2/aft)
 "bDP" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/structure/railing,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/qm)
@@ -23606,7 +23606,7 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/hfr_room)
 "ftl" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/glass/reinforced,
 /area/station/hallway/secondary/service)
 "ftu" = (
@@ -34134,7 +34134,7 @@
 /area/station/maintenance/starboard/greater)
 "hNf" = (
 /obj/effect/turf_decal/siding/wood,
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/wood/large,
 /area/station/service/lawoffice)
 "hNz" = (
@@ -39846,7 +39846,7 @@
 /area/station/science/robotics/lab)
 "jgh" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/iron,
 /area/station/service/abandoned_gambling_den)
 "jgk" = (
@@ -50329,7 +50329,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/service/hydroponics)
 "lEk" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 9
 	},
@@ -57228,7 +57228,7 @@
 /turf/open/floor/iron/textured_large,
 /area/station/engineering/atmos/upper)
 "njW" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/turf_decal/trimline/brown/warning{
 	dir = 1
 	},
@@ -57545,7 +57545,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "nnr" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 8
 	},
@@ -77480,7 +77480,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/wood/parquet,
 /area/station/engineering/break_room)
 "rSU" = (
@@ -101732,7 +101732,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/chapel)
 "xzk" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/wood/tile,
 /area/station/security/detectives_office)
