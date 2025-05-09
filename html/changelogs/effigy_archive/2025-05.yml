@@ -6,3 +6,6 @@
   - bugfix: Attempting to latejoin via cryo while no cryopods exist will no longer
       destroy you with hammers.
   - bugfix: It is no longer comedically easy to tide the spare ID on Rimpoint.
+2025-05-09:
+  unit0016:
+  - balance: The RD's office now has windows on Sigma Octantis.
