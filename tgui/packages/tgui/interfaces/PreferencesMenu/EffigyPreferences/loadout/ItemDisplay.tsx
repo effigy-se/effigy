@@ -128,7 +128,10 @@ function sortByGroup(items: LoadoutItem[]): LoadoutGroup[] {
 
 export function ItemListDisplay(props: ListProps) {
   const { data } = useBackend<LoadoutManagerData>();
-  const { loadout_list } = data.character_preferences.misc;
+  const loadout_list =
+    data.character_preferences.misc.loadout_lists[
+      data.character_preferences.misc.loadout_index
+    ];
   const itemGroups = sortByGroup(props.items);
 
   return (

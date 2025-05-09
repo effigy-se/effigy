@@ -76,19 +76,17 @@ export function LoadoutPage(props) {
                 padding: '5px',
               }}
             >
-              <Stack.Item height="20px" width="100%">
-                <Stack>
-                  <Stack.Item fontSize="1.3rem">
-                    {managingPreset} Loadout Preset
-                  </Stack.Item>
+              <Stack.Item width="100%" backgroundColor="#454C5F">
+                <Stack ml="5px">
+                  <Stack.Item>{managingPreset} Loadout Preset</Stack.Item>
                   {managingPreset === 'Add' && (
-                    <Stack.Item ml="6px" mt="4px">
+                    <Stack.Item>
                       (
                       {
                         data.character_preferences.misc.loadout_lists.loadouts
                           .length
                       }{' '}
-                      of 12 total)
+                      of 7 total)
                     </Stack.Item>
                   )}
                   <Stack.Item ml="auto">
@@ -102,9 +100,9 @@ export function LoadoutPage(props) {
                   </Stack.Item>
                 </Stack>
               </Stack.Item>
-              <Stack.Item width="100%" height="20px">
+              <Stack.Item width="100%">
                 <Input
-                  placeholder="Maximum of 24 characters long"
+                  placeholder="Loadout name"
                   width="100%"
                   maxLength={24}
                   onChange={onType}
@@ -117,7 +115,7 @@ export function LoadoutPage(props) {
                   onEscape={() => setManagingPreset(null)}
                 />
               </Stack.Item>
-              <Stack.Item>
+              <Stack.Item mt={1}>
                 <Stack justify="center">
                   <Button
                     onClick={() => {
@@ -234,12 +232,11 @@ function LoadoutTabs(props: LoadoutTabsProps) {
           </Stack.Item>
           {/* Start Custom Loadouts */}
           <Stack.Item>
-            <Section>
-              <Stack vertical>
+            <Section title="Saved Loadouts" pl={1}>
+              <Stack>
                 <Stack.Item>
                   <Dropdown
-                    mb="2px"
-                    width="100%"
+                    width="150px"
                     options={
                       data.character_preferences.misc.loadout_lists.loadouts
                     }
@@ -251,6 +248,8 @@ function LoadoutTabs(props: LoadoutTabsProps) {
                 </Stack.Item>
                 <Stack.Item>
                   <Button.Confirm
+                    mr="5px"
+                    pt="2px"
                     icon="times"
                     color="red"
                     align="center"
@@ -262,17 +261,24 @@ function LoadoutTabs(props: LoadoutTabsProps) {
                       data.character_preferences.misc.loadout_index ===
                       'Default'
                         ? "Can't delete the default loadout entry."
-                        : 'Delete the current loadout entry.'
+                        : 'Delete loadout'
                     }
                     onClick={() => act('remove_loadout_preset')}
-                  >
-                    Delete
-                  </Button.Confirm>
-                  <Button onClick={() => setManagingPreset('Add')} icon="plus">
-                    Add Loadout
-                  </Button>
+                  />
                   <Button
+                    mr="5px"
+                    pt="2px"
+                    icon="plus"
+                    color="blue"
+                    align="center"
+                    tooltip="Add loadout"
+                    onClick={() => setManagingPreset('Add')}
+                  />
+                  <Button
+                    pt="2px"
                     icon="pen"
+                    align="center"
+                    tooltip="Rename loadout"
                     onClick={() => setManagingPreset('Rename')}
                     disabled={
                       data.character_preferences.misc.loadout_index ===
