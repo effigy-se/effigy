@@ -165,8 +165,9 @@ export type PreferencesMenuData = {
       gender: Gender;
       joblessrole: JoblessRole;
       species: string;
-      loadout_list: LoadoutList;
+      loadout_lists: LoadoutList; // EffigyEdit Change - Custom Loadouts - Original: loadout_list: LoadoutList;
       job_clothes: BooleanLike;
+      loadout_index: string; // EffigyEdit Add - Custom Loadouts
     };
 
     randomization: Record<string, RandomSetting>;

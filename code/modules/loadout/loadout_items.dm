@@ -62,6 +62,15 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	/// Reskin options of this item if it can be reskinned.
 	VAR_FINAL/list/cached_reskin_options
 
+	// EffigyEdit Add - Custom Loadouts
+	/// If set, is a list of job names of which can get the loadout item
+	var/list/restricted_roles
+	/// If set, is a list of job names of which can't get the loadout item
+	var/list/blacklisted_roles
+	/// If set, is a list of species which can get the loadout item
+	var/list/restricted_species
+	// EffigyEdit Add End
+
 /datum/loadout_item/New(category)
 	src.category = category
 
@@ -123,7 +132,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	if(manager.menu)
 		return FALSE
 
-	var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	var/list/loadout = manager.get_current_loadout() // EffigyEdit Change - Custom Loadouts - Original: manager.preferences.read_preference(/datum/preference/loadout)
 	var/list/allowed_configs = list()
 	if(initial(item_path.greyscale_config))
 		allowed_configs += "[initial(item_path.greyscale_config)]"
@@ -153,7 +162,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	if(!istype(open_menu))
 		CRASH("set_slot_greyscale called without a greyscale menu!")
 
-	var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	var/list/loadout = manager.get_current_loadout() // EffigyEdit Change - Custom Loadouts - Original: manager.preferences.read_preference(/datum/preference/loadout)
 	if(!loadout?[item_path])
 		return FALSE
 
@@ -162,7 +171,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		return FALSE
 
 	loadout[item_path][INFO_GREYSCALE] = colors.Join("")
-	manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
+	manager.save_current_loadout(loadout) // EffigyEdit Change - Custom Loadouts - Original: preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
 	return TRUE // update UI
 
 /// Sets the name of the item.
@@ -178,7 +187,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	if(QDELETED(src) || QDELETED(user) || QDELETED(manager) || QDELETED(manager.preferences))
 		return FALSE
 
-	loadout = manager.preferences.read_preference(/datum/preference/loadout) // Make sure no shenanigans happened
+	loadout = manager.get_current_loadout() // EffigyEdit Change - Custom Loadouts - Original: manager.preferences.read_preference(/datum/preference/loadout)
 	if(!loadout?[item_path])
 		return FALSE
 
@@ -187,7 +196,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	else if(input_name == "")
 		loadout[item_path] -= INFO_NAMED
 
-	manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
+	manager.save_current_loadout(loadout) // EffigyEdit Change - Custom Loadouts - Original: manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
 	return FALSE // no update needed
 
 /// Used for reskinning an item to an alt skin.
@@ -199,12 +208,12 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	if(!cached_reskin_options[reskin_to])
 		return FALSE
 
-	var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	var/list/loadout = manager.get_current_loadout() // EffigyEdit Change - Custom Loadouts - Original: manager.preferences.read_preference(/datum/preference/loadout)
 	if(!loadout?[item_path])
 		return FALSE
 
 	loadout[item_path][INFO_RESKIN] = reskin_to
-	manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
+	manager.save_current_loadout(loadout) // EffigyEdit Change - Custom Loadouts - Original: manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
 	return TRUE // always update UI
 
 /**

@@ -7104,6 +7104,8 @@
 #include "local\code\modules\liquids\reagents\reagent_containers.dm"
 #include "local\code\modules\liquids\reagents\chemistry\holder.dm"
 #include "local\code\modules\liquids\reagents\chemistry\reagents.dm"
+#include "local\code\modules\loadout\loadout_menu.dm"
+#include "local\code\modules\loadout\loadout_prefs.dm"
 #include "local\code\modules\loadout\categories\heads.dm"
 #include "local\code\modules\loadout\categories\neck.dm"
 #include "local\code\modules\loadout\categories\pocket.dm"

@@ -5,6 +5,8 @@
 #define NO_UPDATE_REQUIRED -1
 #define SAVEFILE_ERROR -2
 
+#define EXTENDED_SAVEFILE_VERSION_MAX 1
+
 /**
  * Checks if the version of the savefile is up to date.
  * If the return value is >= 0, update_effigy_savefile() will be called later.
