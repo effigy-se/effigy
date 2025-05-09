@@ -85,7 +85,7 @@ export function LoadoutPage(props) {
             <Stack.Item align="center" mt="-3px" mr="-6px">
               <Input
                 width="150px"
-                onInput={(_, value) => setSearchLoadout(value)}
+                onChange={setSearchLoadout}
                 placeholder="Search for an item..."
                 value={searchLoadout}
                 minHeight="21px"

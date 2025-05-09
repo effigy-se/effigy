@@ -21,78 +21,55 @@ SUBSYSTEM_DEF(statpanels)
 	if (!resumed)
 		num_fires++
 		var/datum/map_config/cached = SSmap_vote.next_map_config
-		// EffigyEdit Add - Logging
-		var/round_utc_time = REALTIMEOFDAY - SSticker.round_utc_start_time
-		GLOB.active_players = get_active_player_count(alive_check = FALSE, afk_check = TRUE, human_check = FALSE) // This is a list of all active players, including players who are dead
-		GLOB.observing_players = length(GLOB.current_observers_list) // This is a list of all players that started as an observer-- dead and lobby players are not included.
-		// EffigyEdit Add End
+
+		if(isnull(SSmapping.current_map))
+			global_data = list("Loading")
+		else if(SSmapping.current_map.feedback_link)
+			global_data = list(list("Map: [SSmapping.current_map.map_name]", " (Feedback)", "action=openLink&link=[SSmapping.current_map.feedback_link]"))
+		else
+			global_data = list("Map: [SSmapping.current_map?.map_name]")
+
+		if(SSmapping.current_map?.mapping_url)
+			global_data += list(list("same_line", " | (View in Browser)", "action=openWebMap"))
+
+		if(cached)
+			global_data += "Next Map: [cached.map_name]"
+
 		// EffigyEdit Change - Logging
 		/*
-		global_data = list(
-			"Map: [SSmapping.current_map?.map_name || "Loading..."]",
-			cached ? "Next Map: [cached.map_name]" : null,
+		global_data += list(
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss", world.timezone)]",
 			"Round Time: [ROUND_TIME()]",
 			"Station Time: [station_time_timestamp()]",
-			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)"
-		)*/
-		global_data = list(
+			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
+		)
+		*/
+		global_data += list(
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "Local"]",
-			"Game Mode: [SSgamemode.storyteller ? SSgamemode.storyteller.name : "N/A"]",
-			"Map: [SSmapping.current_map?.map_name || "Loading..."]",
-			cached ? "Next Map: [cached.map_name]" : null,
 			"Connected: [GLOB.clients.len] | Active: [GLOB.active_players] | Observing: [GLOB.observing_players]",
+			"Round Time: [ROUND_TIME()]",
+			"Station Time: [station_time_timestamp()]",
+			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss", world.timezone)]",
+			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
 		)
 
 		if(SSticker.current_state == GAME_STATE_PREGAME && CONFIG_GET(flag/show_manifest_preview))
 			global_data += get_manifest_preview()
 		// EffigyEdit Change End
 
-		if(SSticker.HasRoundStarted())
-			global_data += list(
-				" ",
-				"Round Time: [time2text(round_utc_time, "hh:mm:ss", 0)]",
-				"Station Time: [station_time_timestamp()]",
-			)
-
 		if(SSshuttle.emergency)
 			var/ETA = SSshuttle.emergency.getModeStr()
 			if(ETA)
-				global_data += list(
-					" ",
-					"Emergency Shuttle: [ETA] [SSshuttle.emergency.getTimerStr()]",
-				)
-
-		global_data += list(
-				" ",
-				"Time Dilation: [round(SStime_track.time_dilation_current,1)]% Average: [round(SStime_track.time_dilation_avg_fast,1)]% / [round(SStime_track.time_dilation_avg,1)]% / [round(SStime_track.time_dilation_avg_slow,1)]%",
-				"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
-			)
-
-		/*
-		if(SSshuttle.emergency)
-			var/ETA = SSshuttle.emergency.getModeStr()
-			if(ETA)
-				global_data += "[ETA] [SSshuttle.emergency.getTimerStr()]"
-		*/
+				global_data += "Emergency Shuttle: [ETA] [SSshuttle.emergency.getTimerStr()]"
 
 		if(SSticker.reboot_timer)
 			var/reboot_time = timeleft(SSticker.reboot_timer)
 			if(reboot_time)
-				//global_data += "Reboot: [DisplayTimeText(reboot_time, 1)]"
-				global_data += list(
-					" ",
-					"Reboot: [DisplayTimeText(reboot_time, 1)]",
-				)
+				global_data += "Reboot: [DisplayTimeText(reboot_time, 1)]"
 		// admin must have delayed round end
 		else if(SSticker.ready_for_reboot)
-			//global_data += "Reboot: DELAYED"
-			global_data += list(
-					" ",
-					"Reboot: DELAYED",
-				)
-		// EffigyEdit Change End
+			global_data += "Reboot: DELAYED"
 
 		src.currentrun = GLOB.clients.Copy()
 		mc_data = null
@@ -148,6 +125,15 @@ SUBSYSTEM_DEF(statpanels)
 		if(MC_TICK_CHECK)
 			return
 
+/*
+ * send_message for the stat panel can be sent 1 of 4 things:
+ * 1- A string entry, to show up as plain text.
+ * 2- An empty string (""), which will translate to a new line, to for a break between lines.
+ * 3- a list, in which the first entry is plain text, the second entry is highlighted text, and the third entry is a link
+ * that clicking the second entry will take you to.
+ * 4- a list with "same_line" as the first entry, which will automatically put it on the line above it,
+ * with the second/third entry matching #3 (text & url), allowing you to have 2 clickable links on one line.
+ */
 /datum/controller/subsystem/statpanels/proc/set_status_tab(client/target)
 	if(!global_data)//statbrowser hasnt fired yet and we were called from immediate_send_stat_data()
 		return

@@ -2,13 +2,13 @@ import { filter, map, sortBy } from 'common/collections';
 import { ReactNode, useState } from 'react';
 import { sendAct, useBackend } from 'tgui/backend';
 import {
-  Autofocus,
   Box,
   Button,
-  Flex,
+  Floating,
   Input,
   LabeledList,
   Popper,
+  Section,
   Stack,
 } from 'tgui-core/components';
 import { exhaustiveCheck } from 'tgui-core/exhaustive';
@@ -116,13 +116,12 @@ type ChoicedSelectionProps = {
   selected: string;
   supplementalFeature?: string;
   supplementalValue?: unknown;
-  onClose: () => void;
   onSelect: (value: string) => void;
 };
 
 function ChoicedSelection(props: ChoicedSelectionProps) {
   const { catalog, supplementalFeature, supplementalValue } = props;
-  const [getSearchText, searchTextSet] = useState('');
+  const [searchText, setSearchText] = useState('');
   const { act } = useBackend<PreferencesMenuData>();
 
   if (!catalog.icons) {
@@ -133,80 +132,53 @@ function ChoicedSelection(props: ChoicedSelectionProps) {
     <Box
       className="ChoicedSelection"
       style={{
-        padding: '5px',
-        background: 'hsl(224, 16%, 12%)',
         height: `${
           CLOTHING_SELECTION_CELL_SIZE * CLOTHING_SELECTION_MULTIPLIER
         }px`,
         width: `${CLOTHING_SELECTION_CELL_SIZE * CLOTHING_SELECTION_WIDTH}px`,
       }}
     >
-      <Stack vertical fill>
+      <Stack fill vertical g={0}>
         <Stack.Item>
-          <Stack fill>
-            {supplementalFeature && (
-              <Stack.Item ml={0.2} mt={0.5}>
+          <Section
+            fill
+            title={props.name}
+            buttons={
+              supplementalFeature && (
                 <FeatureValueInput
                   act={act}
+                  shrink
                   feature={features[supplementalFeature]}
                   featureId={supplementalFeature}
-                  shrink
                   value={supplementalValue}
                 />
-              </Stack.Item>
-            )}
-
-            <Stack.Item grow mr={6}>
-              <Box
-                style={{
-                  fontWeight: 'bold',
-                  fontSize: '18px',
-                  color: 'hsl(224, 16%, 92%)',
-                  textAlign: 'center',
-                }}
-              >
-                {props.name}
-              </Box>
-            </Stack.Item>
-
-            <Stack.Item>
-              <Button
-                style={{
-                  fontWeight: 'bold',
-                  fontSize: '14px',
-                  textAlign: 'center',
-                }}
-                color="#424651"
-                onClick={props.onClose}
-              >
-                x
-              </Button>
-            </Stack.Item>
-          </Stack>
-        </Stack.Item>
-
-        <Stack.Item overflowX="hidden" overflowY="scroll">
-          <Autofocus>
+              )
+            }
+          >
             <Input
-              placeholder=""
-              style={{
-                margin: '0px 5px',
-                width: '83.5%',
-              }}
-              onInput={(_, value) => searchTextSet(value)}
+              autoFocus
+              fluid
+              placeholder="Search..."
+              onChange={setSearchText}
+              expensive
             />
-            <Flex wrap>
-              {searchInCatalog(getSearchText, catalog.icons).map(
+          </Section>
+        </Stack.Item>
+        <Stack.Item grow>
+          <Section fill scrollable noTopPadding>
+            <Stack wrap>
+              {searchInCatalog(searchText, catalog.icons).map(
                 ([name, image], index) => {
                   return (
-                    <Flex.Item
+                    <Box
                       key={index}
-                      basis={`${CLOTHING_SELECTION_CELL_SIZE}px`}
+                      align="center"
                       style={{
-                        padding: '5px',
+                        width: `${CLOTHING_SELECTION_CELL_SIZE}px`,
                       }}
                     >
                       <Button
+                        key={index}
                         onClick={() => {
                           props.onSelect(name);
                         }}
@@ -214,6 +186,7 @@ function ChoicedSelection(props: ChoicedSelectionProps) {
                         tooltip={name}
                         tooltipPosition="right"
                         style={{
+                          padding: '5px',
                           height: `${CLOTHING_SELECTION_CELL_SIZE}px`,
                           width: `${CLOTHING_SELECTION_CELL_SIZE}px`,
                         }}
@@ -230,20 +203,14 @@ function ChoicedSelection(props: ChoicedSelectionProps) {
                           }}
                         />
                       </Button>
-                      <Box
-                        textAlign="center"
-                        fontSize="14"
-                        width="86%"
-                        color="hsl(224, 16%, 92%)"
-                      >
-                        {name}
-                      </Box>
-                    </Flex.Item>
+                      <br />
+                      {name}
+                    </Box>
                   );
                 },
               )}
-            </Flex>
-          </Autofocus>
+            </Stack>
+          </Section>
         </Stack.Item>
       </Stack>
     </Box>
@@ -319,9 +286,6 @@ type CatalogItem = {
 type MainFeatureProps = {
   catalog: FeatureChoicedServerData & CatalogItem;
   currentValue: string;
-  isOpen: boolean;
-  handleClose: () => void;
-  handleOpen: () => void;
   handleSelect: (newClothing: string) => void;
   randomization?: RandomSetting;
   setRandomization: (newSetting: RandomSetting) => void;
@@ -329,13 +293,9 @@ type MainFeatureProps = {
 
 function MainFeature(props: MainFeatureProps) {
   const { data } = useBackend<PreferencesMenuData>();
-
   const {
     catalog,
     currentValue,
-    isOpen,
-    handleOpen,
-    handleClose,
     handleSelect,
     randomization,
     setRandomization,
@@ -344,11 +304,9 @@ function MainFeature(props: MainFeatureProps) {
   const supplementalFeature = catalog.supplemental_feature;
 
   return (
-    <Popper
-      placement="bottom-start"
-      isOpen={isOpen}
-      onClickOutside={handleClose}
-      baseZIndex={1} // Below the default popper at z 2
+    <Floating
+      stopChildPropagation
+      placement="right-start"
       content={
         <ChoicedSelection
           name={catalog.name}
@@ -361,28 +319,17 @@ function MainFeature(props: MainFeatureProps) {
               supplementalFeature
             ]
           }
-          onClose={handleClose}
           onSelect={handleSelect}
         />
       }
     >
       <Button
-        onClick={(event) => {
-          event.stopPropagation();
-          if (isOpen) {
-            handleClose();
-          } else {
-            handleOpen();
-          }
-        }}
         style={{
           height: `${CLOTHING_CELL_SIZE}px`,
           width: `${CLOTHING_CELL_SIZE}px`,
         }}
-        color="blue"
         position="relative"
-        tooltip={catalog.name}
-        tooltipPosition="right"
+        color="blue"
       >
         <Box
           className={classes([
@@ -409,6 +356,7 @@ function MainFeature(props: MainFeatureProps) {
               onOpen: (event) => {
                 // We're a button inside a button.
                 // Did you know that's against the W3C standard? :)
+                // FIXME: Button unclickable!
                 event.cancelBubble = true;
                 event.stopPropagation();
               },
@@ -432,7 +380,7 @@ function MainFeature(props: MainFeatureProps) {
       >
         {catalog.name}
       </Box>
-    </Popper>
+    </Floating>
   );
 }
 
@@ -575,16 +523,8 @@ export function MainPage(props: MainPageProps) {
     data.character_preferences.secondary_features || [];
 
   const mainFeatures = [
-    ...Object.entries(data.character_preferences.clothing),
-    ...Object.entries(data.character_preferences.features).filter(
-      ([featureName]) => {
-        if (!currentSpeciesData) {
-          return false;
-        }
-
-        return currentSpeciesData.enabled_features.indexOf(featureName) !== -1;
-      },
-    ),
+    ...Object.entries(data.character_preferences.clothing ?? {}),
+    ...Object.entries(data.character_preferences.features ?? {}),
   ];
 
   const randomBodyEnabled =
@@ -859,13 +799,6 @@ export function MainPage(props: MainPageProps) {
                     <MainFeature
                       catalog={catalog}
                       currentValue={clothing}
-                      isOpen={currentClothingMenu === clothingKey}
-                      handleClose={() => {
-                        setCurrentClothingMenu(null);
-                      }}
-                      handleOpen={() => {
-                        setCurrentClothingMenu(clothingKey);
-                      }}
                       handleSelect={createSetPreference(act, clothingKey)}
                       randomization={randomizationOfMainFeatures[clothingKey]}
                       setRandomization={createSetRandomization(
