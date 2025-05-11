@@ -14,7 +14,7 @@
 	category = null
 
 // Curse of Madness. Gave everyone a lobotomy tier trauma that could basically fuck over your round for no reason.
-// Good for /tg/ wizard rounds that last 10 minutes, not so good for Bubberstation rounds that last 2 hours.
+// Good for /tg/ wizard rounds that last 10 minutes, not so good for rounds that last 2 hours.
 /datum/spellbook_entry/summon/curse_of_madness
 	category = null
 

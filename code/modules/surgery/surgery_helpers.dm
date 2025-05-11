@@ -4,15 +4,21 @@
 /proc/get_location_modifier(mob/located_mob)
 	// Technically this IS a typecache, just not the usual kind :3
 	var/static/list/modifiers = zebra_typecacheof(list(
-		/obj/structure/table = 0.8,
+		/obj/structure/table = 0.6, // EffigyEdit Change - Original: 0.8
 		/obj/structure/table/optable = 1,
 		/obj/structure/table/optable/abductor = 1.2,
-		/obj/machinery/stasis = 0.9,
-		/obj/structure/bed = 0.7,
+		/obj/machinery/stasis = 0.7, // EffigyEdit Change - Original: 0.9
+		/obj/structure/bed = 0.6, // EffigyEdit Change - Original: 0.7
 	))
 	. = 0.5
 	for(var/obj/thingy in get_turf(located_mob))
 		. = max(., modifiers[thingy.type])
+		// EffigyEdit Add - Enhanced Surgery
+		if(istype(thingy, /obj/structure/table/optable))
+			var/obj/structure/table/optable/operating_table = thingy
+			if(operating_table.computer?.is_operational)
+				. = . * OPERATING_COMPUTER_MODIFIER
+		// EffigyEdit Add End
 
 
 /proc/get_location_accessible(mob/located_mob, location)

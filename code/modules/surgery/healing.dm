@@ -86,10 +86,24 @@
 	var/brute_healed = brutehealing
 	var/burn_healed = burnhealing
 	var/dead_patient = FALSE
+	// EffigyEdit Add - Enhanced Surgery
+	var/status_msg = list()
+	feedback_value = null
+	// EffigyEdit Add End
+
 	if(target.stat == DEAD) //dead patients get way less additional heal from the damage they have.
-		brute_healed += round((target.getBruteLoss() * (brute_multiplier * 0.2)),0.1)
-		burn_healed += round((target.getFireLoss() * (burn_multiplier * 0.2)),0.1)
+		// EffigyEdit Change - Enhanced Surgery
+		//brute_healed += round((target.getBruteLoss() * (brute_multiplier * 0.2)),0.1)
+		//burn_healed += round((target.getFireLoss() * (burn_multiplier * 0.2)),0.1)
 		dead_patient = TRUE
+		if(HAS_TRAIT(target, TRAIT_HUSK))
+			brute_healed += round((target.getBruteLoss() * (brute_multiplier * 0.7)),0.1)
+			burn_healed += round((target.getFireLoss() * (burn_multiplier * 0.7)),0.1)
+			status_msg += "[target.p_are()] husked"
+		else
+			brute_healed += round((target.getBruteLoss() * brute_multiplier),0.1)
+			burn_healed += round((target.getFireLoss() * burn_multiplier),0.1)
+		// EffigyEdit Change End
 	else
 		brute_healed += round((target.getBruteLoss() * brute_multiplier),0.1)
 		burn_healed += round((target.getFireLoss() * burn_multiplier),0.1)
@@ -97,11 +111,20 @@
 	if(!get_location_accessible(target, target_zone))
 		brute_healed *= 0.55
 		burn_healed *= 0.55
-		user_msg += " as best as you can while [target.p_they()] [target.p_have()] clothing on"
-		target_msg += " as best as [user.p_they()] can while [target.p_they()] [target.p_have()] clothing on"
+	// EffigyEdit Change - Enhanced Surgery
+		//user_msg += " as best as you can while [target.p_they()] [target.p_have()] clothing on"
+		//target_msg += " as best as [user.p_they()] can while [target.p_they()] [target.p_have()] clothing on"
+		status_msg += "[target.p_have()] clothing on"
+	if(length(status_msg) > 0)
+		user_msg += " as best as you can while [target.p_they()] [english_list(status_msg)]"
+		target_msg += " as best as [user.p_they()] can while [target.p_they()] [english_list(status_msg)]"
+	feedback_value = brute_healed + burn_healed
+	// EffigyEdit Change End
+
 	target.heal_bodypart_damage(brute_healed,burn_healed)
 
-	user_msg += get_progress(user, target, brute_healed, burn_healed)
+	if(!get_feedback_message(user, target)) // EffigyEdit Add - Enhanced Surgery
+		user_msg += get_progress(user, target, brute_healed, burn_healed)
 
 	if(HAS_MIND_TRAIT(user, TRAIT_MORBID) && ishuman(user) && !dead_patient) //Morbid folk don't care about tending the dead as much as tending the living
 		var/mob/living/carbon/human/morbid_weirdo = user

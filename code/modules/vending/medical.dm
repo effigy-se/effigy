@@ -88,7 +88,7 @@
 		/obj/item/reagent_containers/syringe/antiviral = 6,
 		/obj/item/reagent_containers/medigel/libital = 2,
 		/obj/item/reagent_containers/medigel/aiuri = 2,
-		/obj/item/reagent_containers/medigel/sterilizine = 1,
+		/obj/item/reagent_containers/medigel/sterilizine = 6, // EffigyEdit Change - Enhanced Surgery - Original: 1
 		/obj/item/storage/hypospraykit = 6, // EffigyEdit Add - Hypospray
 	)
 	contraband = list(
