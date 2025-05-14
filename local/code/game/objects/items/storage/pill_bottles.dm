@@ -23,3 +23,12 @@
 	desc = "Contains pills used to detoxify synthetic bodies."
 	spawn_count = 7
 	spawn_type = /obj/item/reagent_containers/applicator/pill/system_cleaner
+
+/obj/item/storage/pill_bottle/lidocaine
+	name = "box of lidocaine pills"
+	desc = "A package of local anesthetic medication, used in surgery to numb patients."
+	icon = 'local/icons/obj/storage/medkit.dmi'
+	icon_state = "lidocaine_box"
+	custom_price = PAYCHECK_LOWER * 3
+	spawn_count = 7
+	spawn_type = /obj/item/reagent_containers/applicator/pill/lidocaine
