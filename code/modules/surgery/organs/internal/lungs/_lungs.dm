@@ -522,6 +522,7 @@
 		if(!HAS_TRAIT(breather, TRAIT_ANOSMIA))
 			breather.throw_alert(ALERT_TOO_MUCH_N2O, /atom/movable/screen/alert/too_much_n2o)
 	n2o_euphoria = EUPHORIA_ACTIVE
+	ADD_TRAIT(breather, TRAIT_ANALGESIA, OXYLOSS_TRAIT) // EffigyEdit Add - Enhanced Surgery
 
 	// give them one second of grace to wake up and run away a bit!
 	if(!HAS_TRAIT(breather, TRAIT_SLEEPIMMUNE))
@@ -534,6 +535,7 @@
 /obj/item/organ/lungs/proc/safe_n2o(mob/living/carbon/breather, datum/gas_mixture/breath, old_n2o_pp)
 	n2o_euphoria = EUPHORIA_INACTIVE
 	breather.clear_alert(ALERT_TOO_MUCH_N2O)
+	REMOVE_TRAIT(breather, TRAIT_ANALGESIA, OXYLOSS_TRAIT) // EffigyEdit Add - Enhanced Surgery
 
 // Breathe in nitrium. It's helpful, but has nasty side effects
 /obj/item/organ/lungs/proc/too_much_nitrium(mob/living/carbon/breather, datum/gas_mixture/breath, nitrium_pp, old_nitrium_pp)

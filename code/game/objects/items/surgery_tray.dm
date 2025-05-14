@@ -173,13 +173,15 @@
 		/obj/item/circular_saw,
 		/obj/item/clothing/mask/surgical,
 		/obj/item/hemostat,
-		/obj/item/razor/surgery,
+		///obj/item/razor/surgery, // EffigyEdit Remove
 		/obj/item/retractor,
 		/obj/item/scalpel,
 		/obj/item/stack/medical/bone_gel,
 		/obj/item/stack/sticky_tape/surgical,
 		/obj/item/surgical_drapes,
 		/obj/item/surgicaldrill,
+		/obj/item/storage/pill_bottle/lidocaine, // EffigyEdit Add
+		/obj/item/reagent_containers/medigel/sterilizine, // EffigyEdit Add
 	)
 
 /obj/item/surgery_tray/full/deployed

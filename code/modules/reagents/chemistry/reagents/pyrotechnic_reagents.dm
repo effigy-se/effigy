@@ -228,12 +228,12 @@
 
 /datum/reagent/cryostylane/on_mob_add(mob/living/affected_mob, amount)
 	. = ..()
-	affected_mob.mob_surgery_speed_mod = 1-((CRYO_SPEED_PREFACTOR * (1 - creation_purity))+CRYO_SPEED_CONSTANT) //10% - 30% slower
+	//affected_mob.mob_surgery_speed_mod = 1-((CRYO_SPEED_PREFACTOR * (1 - creation_purity))+CRYO_SPEED_CONSTANT) // EffigyEdit Remove - Enhanced Surgery
 	affected_mob.color = COLOR_CYAN
 
 /datum/reagent/cryostylane/on_mob_delete(mob/living/affected_mob)
 	. = ..()
-	affected_mob.mob_surgery_speed_mod = 1
+	//affected_mob.mob_surgery_speed_mod = 1 // EffigyEdit Remove - Enhanced Surgery
 	affected_mob.color = COLOR_WHITE
 
 //Pauses decay! Does do something, I promise.
