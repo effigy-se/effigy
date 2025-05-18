@@ -1,10 +1,12 @@
+// EffigyEdit Change - Alcohol Processing
 // Defines for the ballmer peak.
-#define BALLMER_PEAK_LOW_END 12.9
-#define BALLMER_PEAK_HIGH_END 13.8
-#define BALLMER_PEAK_WINDOWS_ME 26
+#define BALLMER_PEAK_LOW_END 25.8 // Original: 12.9
+#define BALLMER_PEAK_HIGH_END 27.6 // Original: 13.8
+#define BALLMER_PEAK_WINDOWS_ME 37 // Original: 26
 
 /// The threshld which determine if someone is tipsy vs drunk
-#define TIPSY_THRESHOLD 6
+#define TIPSY_THRESHOLD 23.4 // Original: 6
+// EffigyEdit Change End
 
 /**
  * The drunk status effect.
@@ -70,7 +72,7 @@
 	// Every tick, the drunk value decrases by
 	// 4% the current drunk_value + 0.01
 	// (until it reaches 0 and terminates)
-	set_drunk_value(drunk_value - (0.01 + drunk_value * 0.04))
+	set_drunk_value(drunk_value - (drunk_value * 0.0015)) // EffigyEdit Change - Alcohol Processing - Original: drunk_value - (0.01 + drunk_value * 0.04))
 	if(QDELETED(src))
 		return
 
@@ -164,6 +166,8 @@
 		if(drunk_value > BALLMER_PEAK_WINDOWS_ME) // by this point you're into windows ME territory
 			owner.say(pick_list_replacements(VISTA_FILE, "ballmer_windows_me_msg"), forced = "ballmer")
 
+	// EffigyEdit Change - Alcohol Processing - Original:
+	/*
 	// Drunk slurring scales in intensity based on how drunk we are -at 16 you will likely not even notice it,
 	// but when we start to scale up you definitely will
 	if(drunk_value >= 16)
@@ -194,6 +198,32 @@
 	// Over 71, we will constantly have blurry eyes
 	if(drunk_value >= 71)
 		owner.set_eye_blur_if_lower((drunk_value * 2 SECONDS) - 140 SECONDS)
+	*/
+	// And drunk people will always lose jitteriness
+	owner.adjust_jitter(-6 SECONDS)
+
+	// Over 41, we have a 10% chance to gain confusion and occasionally slur words, scaling with drunk_value
+	if(drunk_value >= 43.4)
+		if(prob(clamp(drunk_value - 8, 0, 100)))
+			owner.adjust_timed_status_effect(4 SECONDS, /datum/status_effect/speech/slurring/drunk, max_duration = 20 SECONDS)
+		if(prob(10))
+			owner.adjust_confusion(4 SECONDS)
+
+	// Over 61, we start to get blurred vision
+	if(drunk_value >= 63.4)
+		owner.set_dizzy_if_lower(45 SECONDS)
+		if(prob(15))
+			owner.adjust_eye_blur_up_to(4 SECONDS, 20 SECONDS)
+
+	// Over 71, we will constantly have blurry eyes, we might vomit
+	if(drunk_value >= 73.4)
+		owner.set_eye_blur_if_lower(20 SECONDS)
+		if(prob(3))
+			owner.adjust_confusion(15 SECONDS)
+			if(iscarbon(owner))
+				var/mob/living/carbon/carbon_owner = owner
+				carbon_owner.vomit() // Vomiting clears toxloss - consider this a blessing
+	// EffigyEdit Change End
 
 	// Over 81, we will gain constant toxloss
 	if(drunk_value >= 81)
@@ -213,6 +243,7 @@
 		owner.adjustToxLoss(2)
 
 /datum/status_effect/inebriated/drunk/proc/attempt_to_blackout()
+	/* // EffigyEdit Change Remove - Alcohol Processing
 	var/mob/living/carbon/drunkard = owner
 	if(drunkard.has_trauma_type(/datum/brain_trauma/severe/split_personality/blackout))// prevent ping spamming
 		if(prob(10))
@@ -222,6 +253,8 @@
 	if(drunkard.gain_trauma(/datum/brain_trauma/severe/split_personality/blackout, TRAUMA_LIMIT_ABSOLUTE))
 		drunk_value -= 70 //So that the drunk personality can spice things up without being killed by liver failure
 		return
+	*/
+	// EffigyEdit Remove End
 	if(SSshuttle.emergency.mode == SHUTTLE_DOCKED && is_station_level(owner.z))// Don't put us in a deep sleep if the shuttle's here. QoL, mainly.
 		to_chat(owner, span_warning("You're so tired... but you can't miss that shuttle..."))
 	else
@@ -231,7 +264,8 @@
 /atom/movable/screen/alert/status_effect/drunk
 	name = "Drunk"
 	desc = "All that alcohol you've been drinking is impairing your speech, \
-		motor skills, and mental cognition. Make sure to act like it."
+		motor skills, and mental cognition. Make sure to act like it. \
+		Check your current drunkenness level using your mood status." // EffigyEdit Change - Alcohol Processing
 	icon_state = "drunk"
 
 #undef BALLMER_PEAK_LOW_END

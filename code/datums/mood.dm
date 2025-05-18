@@ -348,6 +348,8 @@
 			if(0 to NUTRITION_LEVEL_STARVING)
 				msg += "[span_boldwarning("I'm starving!")]<br>"
 
+	// EffigyEdit Change - Alcohol Processing
+	/*
 	var/drunkness = mob_parent.get_drunk_amount()
 	if(drunkness >= 1)
 		msg += span_notice("My current drunkenness: ")
@@ -364,6 +366,33 @@
 				msg += "[span_warning("I'm feeling like a mess.")]<br>"
 			if(81 to INFINITY)
 				msg += "[span_boldwarning("I'm completely wasted.")]<br>"
+	*/
+	var/blood_alcohol_content = mob_parent.get_blood_alcohol_content()
+	if(blood_alcohol_content >= 0.01)
+		msg += span_notice("My current drunkenness: ")
+		switch(blood_alcohol_content)
+			if(0.01 to 0.05)
+				msg += span_info("Had a drink, time to relax!")
+			if(0.05 to 0.07)
+				msg += span_nicegreen("Now it's starting to hit me.")
+			if(0.07 to 0.11)
+				msg += span_nicegreen("A bit tipsy, this feels good!")
+			if(0.11 to 0.13)
+				msg += span_nicegreen("Those drinks are really starting to hit!")
+			if(0.13 to 0.17)
+				msg += span_nicegreen("I can't remember how many I've had, but I feel great!")
+			if(0.17 to 0.19)
+				msg += span_warning("I think I've had too much to drink... I should probably stop... drink some water...")
+			if(0.19 to 0.23)
+				msg += span_bolddanger("I'm not feeling so hot...")
+			if(0.23 to INFINITY)
+				msg += span_bolddanger("Is there a doctor around? I really don't feel good...")
+
+		if(get_alcohol_processing(mob_parent))
+			msg += "[span_info(" I feel my drunkenness still rising...")]<br>"
+		else
+			msg += "<br>"
+	// EffigyEdit Change End
 
 	msg += span_notice("My current sanity: ") //Long term
 	switch(sanity)
@@ -599,6 +628,14 @@
 		if (moodlet.category == category)
 			return TRUE
 	return FALSE
+
+// EffigyEdit Add - Alcohol Processing
+/// Adds a moodlet entry based on if the mob currently has alcohol processing in their system.
+/datum/mood/proc/get_alcohol_processing(mob/user)
+	if(user.reagents.reagent_list.len)
+		for(var/datum/reagent/consumable/ethanol/booze in user.reagents.reagent_list)
+			return TRUE
+// EffigyEdit Add End
 
 #undef MINOR_INSANITY_PEN
 #undef MAJOR_INSANITY_PEN
