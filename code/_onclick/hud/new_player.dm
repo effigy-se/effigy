@@ -143,6 +143,7 @@
 /atom/movable/screen/lobby/background
 	icon = 'icons/hud/lobby/background.dmi'
 	icon_state = "background"
+	layer = LOBBY_BACKGROUND_LAYER
 	screen_loc = "TOP,CENTER:-61"
 */
 // EffigyEdit Remove End

@@ -1500,6 +1500,7 @@
 	return TRUE
 
 /mob/living/proc/update_stamina()
+	SEND_SIGNAL(src, COMSIG_LIVING_STAMINA_UPDATE)
 	update_stamina_hud()
 
 /mob/living/carbon/alien/update_stamina()
