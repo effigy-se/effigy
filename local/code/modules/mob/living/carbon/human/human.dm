@@ -5,6 +5,7 @@
 
 /mob/living/carbon/human/Destroy()
 	QDEL_NULL(mob_examine_panel)
+	selected_scream = null
 	return ..()
 
 /mob/living/carbon/human/Topic(href, href_list)
