@@ -9,3 +9,5 @@
 	var/oversized_piggyknock = 3 SECONDS
 	/// Selected scream type
 	var/datum/scream_type/selected_scream
+	/// Selected laugh type
+	var/datum/laugh_type/selected_laugh

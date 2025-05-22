@@ -12,7 +12,7 @@ GLOBAL_LIST_INIT(scream_types, init_scream_types_list())
 
 /datum/scream_type/none //Why would you want this?
 	name = "No Scream"
-	scream_sounds = list()
+	scream_sounds = null
 
 /datum/scream_type/human_male
 	name = "Human Scream (Male)"
