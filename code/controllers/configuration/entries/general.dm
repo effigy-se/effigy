@@ -187,13 +187,13 @@
 
 /// minimum time between voting sessions (deciseconds, 10 minute default)
 /datum/config_entry/number/vote_delay
-	default = 10 MINUTES
+	default = 5 MINUTES
 	integer = FALSE
 	min_val = 0
 
 /// length of voting period (deciseconds, default 1 minute)
 /datum/config_entry/number/vote_period
-	default = 1 MINUTES
+	default = 2 MINUTES
 	integer = FALSE
 	min_val = 0
 
@@ -327,7 +327,7 @@
 	default = "http://tgstation13.org/wiki/Rules"
 
 /datum/config_entry/string/githuburl
-	default = "https://www.github.com/tgstation/tgstation"
+	default = "https://github.com/effigy-se/effigy"
 
 /datum/config_entry/string/discordbotcommandprefix
 	default = "?"
@@ -339,7 +339,7 @@
 /datum/config_entry/flag/guest_ban
 
 /datum/config_entry/number/id_console_jobslot_delay
-	default = 30
+	default = 15
 	integer = FALSE
 	min_val = 0
 
@@ -764,7 +764,7 @@
 
 /// The number of tallies that are carried over between rounds.
 /datum/config_entry/number/map_vote_tally_carryover_percentage
-	default = 100
+	default = 40
 	min_val = 0
 	max_val = 100
 

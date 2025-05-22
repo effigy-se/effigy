@@ -2294,7 +2294,7 @@
 /area/station/engineering/storage)
 "azd" = (
 /obj/effect/turf_decal/siding/wood,
-/obj/item/reagent_containers/cup/rag,
+/obj/item/rag,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood/large,
 /area/station/maintenance/floor2/starboard)
@@ -53054,7 +53054,7 @@
 /area/station/maintenance/floor2/port/aft)
 "mmt" = (
 /obj/structure/table,
-/obj/item/reagent_containers/cup/rag,
+/obj/item/rag,
 /obj/machinery/computer/security/telescreen/entertainment/directional/east,
 /obj/machinery/camera/autoname/directional/east,
 /turf/open/floor/iron/dark/corner{

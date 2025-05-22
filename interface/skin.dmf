@@ -205,7 +205,7 @@ window "infobuttons"
 		saved-params = "is-checked"
 		text = "Wiki"
 		command = "wiki"
-	elem "forum"
+	elem "discord"
 		type = BUTTON
 		pos = 277,5
 		size = 87x25
@@ -214,9 +214,9 @@ window "infobuttons"
 		is-flat = true
 		font-family = "Chakra Petch"
 		saved-params = "is-checked"
-		text = "Forum"
-		command = "forum"
-	elem "github"
+		text = "Discord"
+		command = "discord"
+	elem "report-issue"
 		type = BUTTON
 		pos = 369,5
 		size = 87x25
@@ -225,9 +225,9 @@ window "infobuttons"
 		is-flat = true
 		font-family = "Chakra Petch"
 		saved-params = "is-checked"
-		text = "GitHub"
-		command = "github"
-	elem "report-issue"
+		text = "Report Issue"
+		command = "report-issue"
+	elem "fullscreen-toggle"
 		type = BUTTON
 		pos = 461,5
 		size = 87x25
@@ -236,9 +236,9 @@ window "infobuttons"
 		is-flat = true
 		font-family = "Chakra Petch"
 		saved-params = "is-checked"
-		text = "Report Issue"
-		command = "report-issue"
-	elem "fullscreen-toggle"
+		text = "Fullscreen"
+		command = "fullscreen"
+	elem "adminhelp"
 		type = BUTTON
 		pos = 553,5
 		size = 89x25
@@ -247,8 +247,8 @@ window "infobuttons"
 		is-flat = true
 		font-family = "Chakra Petch"
 		saved-params = "is-checked"
-		text = "Fullscreen"
-		command = "fullscreen"
+		text = "Admin Help"
+		command = "adminhelp"
 
 window "infowindow"
 	elem "infowindow"

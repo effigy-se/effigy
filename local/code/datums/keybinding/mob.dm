@@ -1,10 +1,9 @@
-/* EffigyEdit TODO - Pixel Shift
 /datum/keybinding/mob/item_pixel_shift
 	hotkey_keys = list("V")
 	name = "item_pixel_shift"
-	full_name = "Item Pixel Shift"
-	description = "Shift a pulled item's offset."
-	category = CATEGORY_MISC
+	full_name = "Pixel Shift Item"
+	description = "Shift the offset of a pulled item"
+	category = CATEGORY_MOVEMENT
 	keybind_signal = COMSIG_KB_MOB_ITEM_PIXEL_SHIFT_DOWN
 
 /datum/keybinding/mob/item_pixel_shift/down(client/user)
@@ -22,7 +21,7 @@
 	hotkey_keys = list("B")
 	name = "pixel_shift"
 	full_name = "Pixel Shift"
-	description = "Shift your characters offset."
+	description = "Shift your character's offset"
 	category = CATEGORY_MOVEMENT
 	keybind_signal = COMSIG_KB_MOB_PIXEL_SHIFT_DOWN
 
@@ -41,7 +40,7 @@
 	hotkey_keys = list("N")
 	name = "Pixel Tilting"
 	full_name = "Pixel Tilt"
-	description = "Shift your mob's rotational value."
+	description = "Shift your character's rotation"
 	category = CATEGORY_MOVEMENT
 	keybind_signal = COMSIG_KB_MOB_PIXEL_TILT_DOWN
 
@@ -55,4 +54,3 @@
 /datum/keybinding/mob/pixel_tilting/up(client/user)
 	. = ..()
 	SEND_SIGNAL(user.mob, COMSIG_KB_MOB_PIXEL_TILT_UP)
-*/

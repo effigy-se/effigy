@@ -9,6 +9,7 @@
 		"whiteship": "whiteship_birdshot",
 		"emergency": "emergency_foxhole"
     },
+	"give_players_hooks": 1,
 	"traits": [
 		{
 			"Up": true,

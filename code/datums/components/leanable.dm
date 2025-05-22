@@ -106,7 +106,7 @@
 	), PROC_REF(stop_leaning))
 
 	RegisterSignal(src, COMSIG_MOVABLE_POST_TELEPORT, PROC_REF(teleported_away_while_leaning))
-	RegisterSignal(src, COMSIG_ATOM_POST_DIR_CHANGE, PROC_REF(lean_dir_changed))
+	// RegisterSignal(src, COMSIG_ATOM_POST_DIR_CHANGE, PROC_REF(lean_dir_changed)) // EffigyEdit Remove - Pixel Shift
 	update_fov()
 
 /// You fall on your face if you get teleported while leaning

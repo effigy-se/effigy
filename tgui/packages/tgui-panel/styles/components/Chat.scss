@@ -14,13 +14,15 @@
   min-width: 0.5em;
   font-size: 0.7em;
   padding: 0.2em 0.3em;
+  margin-left: 0.5em; // EffigyEdit Add - TGUI
+  margin-bottom: 0.2em; // EffigyEdit Add - TGUI
   line-height: 1;
-  color: hsl(0, 0%, 100%);
+  color: var(--color-black); // EffigyEdit Change - TGUI
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  background-color: hsl(348, 83%, 47%);
-  border-radius: 10px;
+  background-color: var(--color-yellow); // EffigyEdit Change - TGUI
+  border-radius: 0px; // EffigyEdit Change - TGUI
   transition: font-size 200ms ease-out;
 
   &:before {
