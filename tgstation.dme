@@ -6958,6 +6958,7 @@
 #include "local\code\modules\character_prefs\preferences\chat_color.dm"
 #include "local\code\modules\character_prefs\preferences\latejoin_location.dm"
 #include "local\code\modules\character_prefs\preferences\markings.dm"
+#include "local\code\modules\character_prefs\preferences\profile.dm"
 #include "local\code\modules\character_prefs\preferences\tri_color.dm"
 #include "local\code\modules\character_prefs\preferences\underwear.dm"
 #include "local\code\modules\character_prefs\preferences\underwear_color.dm"

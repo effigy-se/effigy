@@ -3,6 +3,8 @@ import {
   FeatureShortTextInput,
   FeatureTextAreaInput,
 } from '../../base';
+import { FeatureChoiced } from '../../base';
+import { FeatureDropdownInput } from '../../dropdowns';
 
 export const flavour_text: Feature<string> = {
   name: 'Flavor Text',
@@ -56,38 +58,10 @@ export const custom_species_lore_silicon: Feature<string> = {
   component: FeatureTextAreaInput,
 };
 
-export const general_record: Feature<string> = {
-  name: 'Records - General',
-  description:
-    'Your general records! These are records that are for general viewing-things like employment, qualifications, etc. By default, anyone with a HUD/records access can view these.',
-  component: FeatureTextAreaInput,
-};
-
-export const security_record: Feature<string> = {
-  name: 'Records - Security',
-  description:
-    'Your security records! These are records for criminal records, arrest history, things like that. Security officers can view these.',
-  component: FeatureTextAreaInput,
-};
-
-export const medical_record: Feature<string> = {
-  name: 'Records - Medical',
-  description:
-    'Your medical records! These are records for things like medical history, prescriptions, DNR orders, etc. Medical staff can view these.',
-  component: FeatureTextAreaInput,
-};
-
 export const exploitable_info: Feature<string> = {
   name: 'Records - Exploitable',
   description:
     "This section is for information antagonists can use, IN CHARACTER AND OUT. If you are willing to be disrupted by antagonists MORE than the average player (this is usually a very fun experience, if you're into that kind of roleplay), put it here! Also for things antagonists can use against your character.",
-  component: FeatureTextAreaInput,
-};
-
-export const background_info: Feature<string> = {
-  name: 'Records - Background',
-  description:
-    "Your background! These are generally for past information that won't otherwise fit cleanly into the other categories.",
   component: FeatureTextAreaInput,
 };
 
@@ -126,4 +100,55 @@ export const headshot_silicon: Feature<string> = {
   Image larger than 250x250 will be resized to 250x250. \
   Aim for 250x250 whenever possible',
   component: FeatureShortTextInput,
+};
+
+export const profile_planet: FeatureChoiced = {
+  name: 'Origin Planet',
+  component: FeatureDropdownInput,
+};
+
+export const profile_residence: FeatureChoiced = {
+  name: 'Current Residence',
+  component: FeatureDropdownInput,
+};
+
+export const profile_nationality: FeatureChoiced = {
+  name: 'Current Residence',
+  component: FeatureDropdownInput,
+};
+
+export const profile_education: FeatureChoiced = {
+  name: 'Current Residence',
+  component: FeatureDropdownInput,
+};
+
+export const profile_employment_history: FeatureChoiced = {
+  name: 'Current Residence',
+  component: FeatureDropdownInput,
+};
+
+export const profile_religion: FeatureChoiced = {
+  name: 'Current Residence',
+  component: FeatureDropdownInput,
+};
+
+export const profile_accomplishments: Feature<string> = {
+  name: 'Accomplishments',
+  description:
+    'Your general records! These are records that are for general viewing-things like employment, qualifications, etc. By default, anyone with a HUD/records access can view these.',
+  component: FeatureTextAreaInput,
+};
+
+export const profile_security: Feature<string> = {
+  name: 'Security Record',
+  description:
+    'Your security records! These are records for criminal records, arrest history, things like that. Security officers can view these.',
+  component: FeatureTextAreaInput,
+};
+
+export const profile_medical: Feature<string> = {
+  name: 'Medical Record',
+  description:
+    'Your medical records! These are records for things like medical history, prescriptions, DNR orders, etc. Medical staff can view these.',
+  component: FeatureTextAreaInput,
 };

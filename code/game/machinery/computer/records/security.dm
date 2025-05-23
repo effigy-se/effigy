@@ -130,7 +130,6 @@
 			species = target.species,
 			trim = target.trim,
 			wanted_status = target.wanted_status,
-			past_general_records = target.past_general_records, // EffigyEdit Add - Character Preferences
 			past_security_records = target.past_security_records, // EffigyEdit Add - Character Preferences
 		))
 

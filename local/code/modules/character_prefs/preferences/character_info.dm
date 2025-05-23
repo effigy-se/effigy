@@ -72,42 +72,6 @@
 /datum/preference/text/custom_species_lore/silicon/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
 
-/datum/preference/text/general
-	category = PREFERENCE_CATEGORY_PROFILE
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "general_record"
-	maximum_value_length = MAX_FLAVOUR_TEXT_LENGTH
-
-/datum/preference/text/general/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	return FALSE
-
-/datum/preference/text/medical
-	category = PREFERENCE_CATEGORY_PROFILE
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "medical_record"
-	maximum_value_length = MAX_FLAVOUR_TEXT_LENGTH
-
-/datum/preference/text/medical/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	return FALSE
-
-/datum/preference/text/security
-	category = PREFERENCE_CATEGORY_PROFILE
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "security_record"
-	maximum_value_length = MAX_FLAVOUR_TEXT_LENGTH
-
-/datum/preference/text/security/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	return FALSE
-
-/datum/preference/text/background
-	category = PREFERENCE_CATEGORY_PROFILE
-	savefile_identifier = PREFERENCE_CHARACTER
-	savefile_key = "background_info"
-	maximum_value_length = MAX_FLAVOUR_TEXT_LENGTH
-
-/datum/preference/text/background/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	return FALSE
-
 /datum/preference/text/pda_writing
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER
