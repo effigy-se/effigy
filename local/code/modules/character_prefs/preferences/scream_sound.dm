@@ -6,6 +6,9 @@
 /datum/preference/choiced/scream/init_possible_values()
 	return assoc_to_keys(GLOB.scream_types)
 
+/datum/preference/choiced/scream/create_default_value()
+	return /datum/scream_type/none::name
+
 /datum/preference/choiced/scream/apply_to_human(mob/living/carbon/human/target, value)
 	var/scream_instance = GLOB.scream_types[value]
 	if(!scream_instance)
