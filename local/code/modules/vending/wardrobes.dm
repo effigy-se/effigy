@@ -6,10 +6,15 @@
 
 /obj/machinery/vending/cart
 	effigy_products = list(
-		/obj/item/radio/headset/headset = 3,
+		/obj/item/radio/headset = 3,
 	)
 
 /obj/machinery/vending/wardrobe/engi_wardrobe
 	effigy_products = list(
 		/obj/item/radio/headset/headset_eng = 3,
+	)
+
+/obj/machinery/vending/wardrobe/cargo_wardrobe
+	effigy_premium = list(
+		/obj/item/flatpack/export_gate = 1,
 	)
