@@ -66,3 +66,21 @@
 		receiver.show_message(emote_content, alt_msg = emote_content)
 
 	return TRUE
+
+/datum/emote/living/bow
+	targets_person = TRUE
+
+/datum/emote/living/glare
+	targets_person = TRUE
+
+/datum/emote/living/look
+	targets_person = TRUE
+
+/datum/emote/living/nod
+	targets_person = TRUE
+
+/datum/emote/living/point
+	targets_person = TRUE
+
+/datum/emote/living/stare
+	targets_person = TRUE
