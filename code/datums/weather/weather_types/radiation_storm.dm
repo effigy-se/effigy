@@ -65,7 +65,7 @@
 	if(..())
 		return
 	// priority_announce("The radiation threat has passed. Please return to your workplaces.", "Anomaly Alert") // EffigyEdit Change - Maintenance opens for radstorms
-	priority_announce("The radiation threat has passed, please return to your workplaces. Emergency maintenance corridor access will be revoked shortly.", "Radiation Alert Cleared")
+	priority_announce("The radiation threat has passed, please return to your workplaces. Maintenance corridor emergency access will be revoked shortly.", "Radiation Alert Cleared")
 	status_alarm(FALSE)
 
 /datum/weather/rad_storm/proc/do_mutate(mob/living/carbon/human/mutant)
