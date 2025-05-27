@@ -31,15 +31,14 @@
 	reagent_flags = PROCESS_SYNTHETIC
 	body_markings = list(/datum/bodypart_overlay/simple/body_marking/lizard = "None")
 	mutantheart = /obj/item/organ/heart/cybernetic/tier2
-	mutantstomach = /obj/item/organ/stomach/cybernetic/tier2
+	mutantstomach = /obj/item/organ/stomach/fuel_generator
 	mutantliver = /obj/item/organ/liver/cybernetic/tier2
+	mutantbrain = /obj/item/organ/brain/cybernetic
 
 	bodytemp_heat_damage_limit = (BODYTEMP_NORMAL + 146) // 456 K / 183 C
 	bodytemp_cold_damage_limit = (BODYTEMP_NORMAL - 80) // 230 K / -43 C
 	/// Ability to recharge!
 	var/datum/action/innate/power_cord/power_cord
-	/// Hud element to display our energy level
-	var/atom/movable/screen/synth/energy/energy_tracker
 	/// How much energy we start with
 	var/internal_charge = SYNTH_CHARGE_MAX
 
@@ -75,10 +74,6 @@
 	. = ..()
 	if(power_cord)
 		power_cord.Remove(target)
-	if(target.hud_used)
-		var/datum/hud/hud_used = target.hud_used
-		hud_used.infodisplay -= energy_tracker
-		QDEL_NULL(energy_tracker)
 
 /datum/species/android/spec_revival(mob/living/carbon/human/target)
 	if(internal_charge < 0.750 MEGA JOULES)
@@ -88,7 +83,6 @@
 
 /datum/species/android/spec_life(mob/living/carbon/human/target, seconds_per_tick, times_fired)
 	. = ..()
-	handle_hud(target)
 
 	if(target.stat == SOFT_CRIT || target.stat == HARD_CRIT)
 		target.adjustFireLoss(1 * seconds_per_tick) //Still deal some damage in case a cold environment would be preventing us from the sweet release to robot heaven
@@ -108,18 +102,6 @@
 	else // EffigyEdit TODO: ARGH make this only run once!
 		//to_chat(target, span_warning("Alert: Internal charge critically low!"))
 		target.add_movespeed_modifier(/datum/movespeed_modifier/synth_nocharge)
-
-/datum/species/android/proc/handle_hud(mob/living/carbon/human/target)
-	// update it
-	if(energy_tracker)
-		energy_tracker.update_energy_hud(internal_charge)
-	// initialize it
-	else if(target.hud_used)
-		var/datum/hud/hud_used = target.hud_used
-		energy_tracker = new(null, hud_used)
-		hud_used.infodisplay += energy_tracker
-
-		target.hud_used.show_hud(target.hud_used.hud_version)
 
 /datum/species/android/prepare_human_for_preview(mob/living/carbon/human/robot_for_preview)
 	robot_for_preview.dna.ear_type = CYBERNETIC_TYPE
@@ -142,23 +124,5 @@
 	flags = IGNORE_NOSLOW
 
 #define SYNTH_HUD_TEXT(valuecolor, value) MAPTEXT("<div align='center' valign='middle'><font color='[valuecolor]'>[round((value/14000), 1)]%</font></div>")
-
-/atom/movable/screen/synth
-	icon = 'local/icons/hud/synth_hud.dmi'
-
-/atom/movable/screen/synth/energy
-	name = "internal charge"
-	icon_state = "energy_display"
-	screen_loc = "EAST-1:28,CENTER+1:21"
-
-/atom/movable/screen/synth/energy/proc/update_energy_hud(internal_charge)
-	maptext = SYNTH_HUD_TEXT(hud_text_color(internal_charge), internal_charge)
-	if(internal_charge <= 300 KILO JOULES)
-		icon_state = "energy_display_low"
-	else
-		icon_state = "energy_display"
-
-/atom/movable/screen/synth/energy/proc/hud_text_color(internal_charge)
-	return internal_charge > 300 KILO JOULES ? "#e7e9ee" : "#f0197d"
 
 #undef SYNTH_HUD_TEXT

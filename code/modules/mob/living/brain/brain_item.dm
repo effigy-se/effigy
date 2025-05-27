@@ -659,3 +659,8 @@
 	desc = "The brain of a pod person, it's a bit more plant-like than a human brain."
 	foodtype_flags = PODPERSON_ORGAN_FOODTYPES
 	color = COLOR_LIME
+
+/obj/item/organ/brain/robot
+	name = "circuitboard"
+	desc = "The central processing unit of a robot."
+	organ_flags = ORGAN_ROBOTIC

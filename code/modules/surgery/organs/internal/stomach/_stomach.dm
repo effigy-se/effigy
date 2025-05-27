@@ -24,6 +24,15 @@
 	//This is a reagent user and needs more then the 10u from edible component
 	reagent_vol = 1000
 
+	///Disables base stomach behavior; used by the liquid fuel generator
+	var/disable_base_stomach_behavior = FALSE
+
+	///Can this stomach process solids?
+	var/can_process_solids = TRUE
+
+	///What type of hunger bar should we use?
+	var/hunger_bar_type = /atom/movable/screen/hunger
+
 	///The rate that disgust decays
 	var/disgust_metabolism = 1
 
@@ -54,6 +63,8 @@
 
 /obj/item/organ/stomach/on_life(seconds_per_tick, times_fired)
 	. = ..()
+	if(disable_base_stomach_behavior)
+		return .
 
 	//Manage species digestion
 	if(ishuman(owner))
@@ -264,6 +275,9 @@
 
 /obj/item/organ/stomach/on_life(seconds_per_tick, times_fired)
 	. = ..()
+	if(disable_base_stomach_behavior)
+		return .
+
 	if (!owner || SSmobs.times_fired % 3 != 0)
 		return
 
@@ -384,17 +398,27 @@
 
 /obj/item/organ/stomach/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
+	if(receiver.hud_used?.hunger)
+		var/atom/movable/screen/hunger/our_hunger_bar = receiver.hud_used?.hunger
+		if(our_hunger_bar.type != hunger_bar_type) // Refresh the bar for the new type if needed.
+			receiver.hud_used.infodisplay -= our_hunger_bar
+			qdel(our_hunger_bar)
+			receiver.hud_used.hunger = new hunger_bar_type(null, receiver.hud_used)
+			receiver.hud_used.infodisplay += receiver.hud_used.hunger
 	receiver.hud_used?.hunger?.update_hunger_bar()
+	if(disable_base_stomach_behavior)
+		return .
 	RegisterSignal(receiver, COMSIG_CARBON_VOMITED, PROC_REF(on_vomit))
 	RegisterSignal(receiver, COMSIG_HUMAN_GOT_PUNCHED, PROC_REF(on_punched))
 
 /obj/item/organ/stomach/on_mob_remove(mob/living/carbon/stomach_owner, special, movement_flags)
-	if(ishuman(stomach_owner))
-		var/mob/living/carbon/human/human_owner = stomach_owner
-		human_owner.clear_alert(ALERT_DISGUST)
-		human_owner.clear_mood_event("disgust")
+	if(!disable_base_stomach_behavior)
+		if(ishuman(stomach_owner))
+			var/mob/living/carbon/human/human_owner = stomach_owner
+			human_owner.clear_alert(ALERT_DISGUST)
+			human_owner.clear_mood_event("disgust")
+		UnregisterSignal(stomach_owner, list(COMSIG_CARBON_VOMITED, COMSIG_HUMAN_GOT_PUNCHED))
 	stomach_owner.hud_used?.hunger?.update_hunger_bar()
-	UnregisterSignal(stomach_owner, list(COMSIG_CARBON_VOMITED, COMSIG_HUMAN_GOT_PUNCHED))
 	return ..()
 
 /obj/item/organ/stomach/feel_for_damage(self_aware)
