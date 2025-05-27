@@ -30,7 +30,7 @@ SUBSYSTEM_DEF(statpanels)
 			global_data = list("Map: [SSmapping.current_map?.map_name]")
 
 		if(SSmapping.current_map?.mapping_url)
-			global_data += list(list("same_line", " | (View in Browser)", "action=openWebMap"))
+			global_data += list(list("same_line", " (View in Browser)", "action=openWebMap"))
 
 		if(cached)
 			global_data += "Next Map: [cached.map_name]"
@@ -45,11 +45,12 @@ SUBSYSTEM_DEF(statpanels)
 			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
 		)
 		*/
+		var/current_date = "[time2text(world.realtime, "DDD Month DD")], [CURRENT_STATION_YEAR]"
 		global_data += list(
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "Local"]",
-			"Connected: [GLOB.clients.len] | Active: [GLOB.active_players] | Observing: [GLOB.observing_players]",
+			"Connected: [GLOB.clients.len] | Active: [SSmetrics.active_players] | Observing: [SSmetrics.observing_players]",
 			"Round Time: [ROUND_TIME()]",
-			"Station Time: [station_time_timestamp()]",
+			"Station Time: [station_time_timestamp(format = "hh:mm")], [current_date]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss", world.timezone)]",
 			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
 		)
