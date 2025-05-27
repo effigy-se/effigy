@@ -314,6 +314,8 @@
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(revoke_maint_all_access), FALSE), 45 SECONDS)
 	// EffigyEdit Add End
 
+// EffigyEdit Change - Weather Notifications
+/*
 // handles sending all alerts
 /datum/weather/proc/send_alert(alert_msg, alert_sfx, alert_sfx_vol = 100)
 	for(var/z_level in impacted_z_levels)
@@ -325,6 +327,26 @@
 			if(alert_sfx)
 				player.stop_sound_channel(CHANNEL_WEATHER)
 				SEND_SOUND(player, sound(alert_sfx, channel = CHANNEL_WEATHER, volume = alert_sfx_vol))
+*/
+/datum/weather/proc/send_alert(alert_msg, alert_sfx, alert_sfx_vol = 100)
+	for(var/area/impacted_area as anything in impacted_areas)
+		for(var/mob/living/player in impacted_area.contents)
+			if(!can_get_alert(player))
+				continue
+			if(alert_msg)
+				to_chat(player, alert_msg)
+
+	if(!alert_sfx)
+		return
+
+	for(var/z_level in impacted_z_levels)
+		for(var/mob/player as anything in SSmobs.clients_by_zlevel[z_level])
+			if(!can_get_alert(player))
+				continue
+			if(alert_sfx)
+				player.stop_sound_channel(CHANNEL_WEATHER)
+				SEND_SOUND(player, sound(alert_sfx, channel = CHANNEL_WEATHER, volume = alert_sfx_vol))
+// EffigyEdit Change End
 
 // the checks for if a mob should receive alerts, returns TRUE if can
 /datum/weather/proc/can_get_alert(mob/player)
