@@ -132,6 +132,12 @@
 	var/datum/reagent/weather_reagent
 	/// The actual atom that holds our reagents that is held in nullspace
 	var/obj/effect/abstract/weather_reagent_holder
+	// EffigyEdit Add - Emergency Maintenance Access
+	/// Do we provide emergency maintenance access for this weather event
+	var/provide_maintenance_access = FALSE
+	/// Is emergency maintenance access currently provided by this event
+	var/maint_access_active = FALSE
+	// EffigyEdit Add End
 
 /datum/weather/New(z_levels, list/weather_data)
 	..()
@@ -191,6 +197,10 @@
 	if(telegraph_duration)
 		send_alert(telegraph_message, telegraph_sound, telegraph_sound_vol)
 	addtimer(CALLBACK(src, PROC_REF(start)), telegraph_duration)
+	// EffigyEdit Add - Emergency Maintenance Access
+	if(provide_maintenance_access)
+		addtimer(CALLBACK(src, PROC_REF(temporary_maint_access)), 4 SECONDS)
+	// EffigyEdit Add End
 
 /datum/weather/proc/setup_weather_areas()
 	var/list/affectareas = list()
@@ -299,6 +309,10 @@
 	update_areas()
 	for(var/area/impacted_area as anything in impacted_areas)
 		SEND_SIGNAL(impacted_area, COMSIG_WEATHER_ENDED_IN_AREA(type), src)
+	// EffigyEdit Add - Emergency Maintenance Access
+	if(provide_maintenance_access && maint_access_active)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(revoke_maint_all_access), FALSE), 45 SECONDS)
+	// EffigyEdit Add End
 
 // handles sending all alerts
 /datum/weather/proc/send_alert(alert_msg, alert_sfx, alert_sfx_vol = 100)
