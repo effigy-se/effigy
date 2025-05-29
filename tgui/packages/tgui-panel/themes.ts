@@ -19,6 +19,7 @@ const COLORS = {
     BG_SECOND: '#FFFFFF',
     BUTTON: '#FFFFFF',
     TEXT: '#000000',
+    TEXT_DARK: '#000000', // EffigyEdit Add - TGUI
   },
 };
 
@@ -78,6 +79,12 @@ export const setClientTheme = (name) => {
     'report-issue.text-color': themeColor.TEXT,
     'fullscreen-toggle.background-color': themeColor.BUTTON,
     'fullscreen-toggle.text-color': themeColor.TEXT,
+    // EffigyEdit Add Start
+    'adminhelp.background-color': themeColor.BUTTON,
+    'adminhelp.text-color': themeColor.TEXT,
+    'discord.background-color': themeColor.BUTTON,
+    'discord.text-color': themeColor.TEXT,
+    // EffigyEdit Add End
     // Status and verb tabs
     'output.background-color': themeColor.BG_BASE,
     'output.text-color': themeColor.TEXT,

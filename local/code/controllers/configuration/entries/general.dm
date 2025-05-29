@@ -1,3 +1,6 @@
+/datum/config_entry/string/discordlink
+	default = "https://tgstation13.org/phpBB/viewforum.php?f=60"
+
 /// manifest preview in pre-lobby
 /datum/config_entry/flag/show_manifest_preview
 	default = TRUE

@@ -118,3 +118,18 @@
 		GLOB.hotkeys_tgui = new /datum/hotkeys_help()
 
 	GLOB.hotkeys_tgui.ui_interact(mob)
+
+// EffigyEdit Add - Discord
+/client/verb/discord()
+	set name = "discord"
+	set desc = "Visit the Discord."
+	set hidden = TRUE
+	var/forumurl = CONFIG_GET(string/discordlink)
+	if(forumurl)
+		if(tgui_alert(src, "This will open the server's associated Discord in your browser. Are you sure?",, list("Yes","No"))!="Yes")
+			return
+		src << link(forumurl)
+	else
+		to_chat(src, span_danger("The Discord URL is not set in the server configuration."))
+	return
+// EffigyEdit Add End

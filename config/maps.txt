@@ -17,21 +17,18 @@ endmap
 
 map tramstation
 	votable
-endmap
-
-map catwalkstation
-	minplayers 25
-	votable
+	webmap_url https://webmap.affectedarc07.co.uk/maps/effigy/tramstation
 endmap
 
 map metastation
 	votable
 	#feedbacklink https://www.youtube.com/watch?v=XG8b7WhANNA
-	#webmap_url https://webmap.affectedarc07.co.uk/maps/tgstation/metastation
+	webmap_url https://webmap.affectedarc07.co.uk/maps/effigy/metastation
 endmap
 
 map icebox
 	votable
+	webmap_url https://webmap.affectedarc07.co.uk/maps/effigy/foxholestation
 endmap
 
 map runtimestation
@@ -43,12 +40,15 @@ endmap
 ## Effigy Maps ##
 map foxholestation
 	votable
+	webmap_url https://webmap.affectedarc07.co.uk/maps/effigy/foxholestation
 endmap
 
 map rimpoint
 	votable
+	webmap_url https://webmap.affectedarc07.co.uk/maps/effigy/rimpoint
 endmap
 
 map sigma_octantis
 	votable
+	webmap_url https://webmap.affectedarc07.co.uk/maps/effigy/sigmaoctantis
 endmap

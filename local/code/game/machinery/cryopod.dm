@@ -180,6 +180,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		GLOB.valid_cryopods += src
 	if(latejoin_possible)
 		SSjob.latejoin_cryo_trackers += src
+	add_atom_colour(color_transition_filter("#6b00ff", SATURATION_MULTIPLY), FIXED_COLOUR_PRIORITY)
 	return INITIALIZE_HINT_LATELOAD //Gotta populate the cryopod computer GLOB first
 
 /obj/machinery/cryopod/post_machine_initialize()

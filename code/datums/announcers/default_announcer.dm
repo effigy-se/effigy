@@ -13,7 +13,7 @@
 		ANNOUNCER_OUTBREAK7 = 'sound/announcer/default/outbreak7.ogg',
 		ANNOUNCER_POWEROFF = 'sound/announcer/default/poweroff.ogg',
 		ANNOUNCER_POWERON = 'sound/announcer/default/poweron.ogg',
-		ANNOUNCER_RADIATION = 'sound/announcer/default/radiation.ogg',
+		ANNOUNCER_RADIATION = 'local/sound/announcer/default/radiation.ogg', // EffigyEdit Change
 		ANNOUNCER_SHUTTLECALLED = 'sound/announcer/default/shuttlecalled.ogg',
 		ANNOUNCER_SHUTTLEDOCK = 'sound/announcer/default/shuttledock.ogg',
 		ANNOUNCER_SHUTTLERECALLED = 'sound/announcer/default/shuttlerecalled.ogg',

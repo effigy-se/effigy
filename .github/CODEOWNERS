@@ -5,9 +5,10 @@
 # to the same file or dir, add them to the end of under Multiple Owners
 
 # MAINTAINERS
-/.github/ @lessthnthree
-/config/ @lessthnthree @unit0016
-/local/ @lessthnthree @unit0016
+/.github/ @lessthnthree @TealSeer
+/code/ @lessthnthree @TealSeer
+/config/ @lessthnthree @TealSeer
+/local/ @lessthnthree @TealSeer
 /tgui/ @lessthnthree
 
 /_maps/ @unit0016
