@@ -30,15 +30,14 @@
 	)
 	reagent_flags = PROCESS_SYNTHETIC
 	body_markings = list(/datum/bodypart_overlay/simple/body_marking/lizard = "None")
-	mutantheart = /obj/item/organ/heart/cybernetic/tier2
+	mutantheart = /obj/item/organ/heart/cybernetic
 	mutantstomach = /obj/item/organ/stomach/fuel_generator
 	mutantliver = /obj/item/organ/liver/cybernetic/tier2
 	mutantbrain = /obj/item/organ/brain/cybernetic
-
+	exotic_blood = /datum/reagent/fuel/oil
+	exotic_bloodtype = BLOOD_TYPE_OIL
 	bodytemp_heat_damage_limit = (BODYTEMP_NORMAL + 146) // 456 K / 183 C
 	bodytemp_cold_damage_limit = (BODYTEMP_NORMAL - 80) // 230 K / -43 C
-	/// Ability to recharge!
-	var/datum/action/innate/power_cord/power_cord
 	/// How much energy we start with
 	var/internal_charge = SYNTH_CHARGE_MAX
 
@@ -64,16 +63,6 @@
 	continual integration with subsections of the larger galactic community; wherein they aren't expressly built for purpose regardless."
 	)
 
-/datum/species/android/on_species_gain(mob/living/carbon/target, datum/species/old_species, pref_load, regenerate_icons)
-	. = ..()
-	if(ishuman(target))
-		power_cord = new
-		power_cord.Grant(target)
-
-/datum/species/android/on_species_loss(mob/living/carbon/target, datum/species/new_species, pref_load)
-	. = ..()
-	if(power_cord)
-		power_cord.Remove(target)
 
 /datum/species/android/spec_revival(mob/living/carbon/human/target)
 	if(internal_charge < 0.750 MEGA JOULES)
@@ -93,15 +82,6 @@
 
 	if(target.stat == DEAD)
 		return
-	if(HAS_TRAIT(target, TRAIT_SYNTH_CHARGING))
-		return
-	if(internal_charge > SYNTH_ENERGY_CONSUMPTION)
-		internal_charge -= SYNTH_ENERGY_CONSUMPTION
-		target.remove_movespeed_modifier(/datum/movespeed_modifier/synth_nocharge)
-	// Once out of power, you begin to move terribly slowly
-	else // EffigyEdit TODO: ARGH make this only run once!
-		//to_chat(target, span_warning("Alert: Internal charge critically low!"))
-		target.add_movespeed_modifier(/datum/movespeed_modifier/synth_nocharge)
 
 /datum/species/android/prepare_human_for_preview(mob/living/carbon/human/robot_for_preview)
 	robot_for_preview.dna.ear_type = CYBERNETIC_TYPE
@@ -118,11 +98,3 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/robot/android/sgm)
 	regenerate_organs(robot_for_preview)
 	robot_for_preview.update_body(is_creating = TRUE)
-
-/datum/movespeed_modifier/synth_nocharge
-	multiplicative_slowdown = CRAWLING_ADD_SLOWDOWN
-	flags = IGNORE_NOSLOW
-
-#define SYNTH_HUD_TEXT(valuecolor, value) MAPTEXT("<div align='center' valign='middle'><font color='[valuecolor]'>[round((value/14000), 1)]%</font></div>")
-
-#undef SYNTH_HUD_TEXT

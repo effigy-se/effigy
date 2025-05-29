@@ -41,17 +41,14 @@
 		if(!particle_effect)
 			to_chat(body, span_warning("The exhaust pipe on [src] emits smoke."))
 			balloon_alert(body, "generator smoking!")
-			particle_effect = new(body, /particles/smoke)
+			particle_effect = new(body, /particles/smoke/burning/small)
+		reagents.remove_reagent(/datum/reagent/carbon, 0.1) // Cook off Carbon at half the rate of addition
 	else
 		if(particle_effect)
 			QDEL_NULL(particle_effect)
+	reagents.set_temperature(1000)
+	reagents.handle_reactions()
 	for(var/datum/reagent/bit as anything in reagents?.reagent_list)
-		if(istype(bit, /datum/reagent/carbon))
-			continue // skip that mf
-		if(bit.metabolization_rate <= 0)
-			continue
-		reagents.set_temperature(1000)
-		reagents.handle_reactions()
 		if(istype(bit, /datum/reagent/consumable/ethanol)) // Burn ethanol for power!
 			var/datum/reagent/consumable/ethanol/liquid = bit
 			power_generated += max((liquid.boozepwr / 100) - (carbon_amount / 100), 0) * 2
@@ -62,7 +59,7 @@
 			reagents.remove_reagent(bit.type, 1)
 			break
 		else if(is_type_in_list(bit, bad_reagents)) // Expressly do not try to burn these
-			reagents.add_reagent(/datum/reagent/carbon, 1)
+			reagents.add_reagent(/datum/reagent/carbon, 0.2)
 			reagents.remove_reagent(bit.type, 1)
 			break
 		else // Everything else cooks off.
