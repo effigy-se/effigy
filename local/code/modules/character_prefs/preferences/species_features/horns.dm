@@ -78,9 +78,10 @@
 
 /datum/preference/toggle/horns/is_accessible(datum/preferences/preferences)
 	. = ..()
-	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_mutant)
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!(species.type in GLOB.bodypart_allowed_species[HORNS]))
 		return FALSE
+
 	return TRUE
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE)
@@ -113,11 +114,13 @@
 /datum/preference/choiced/lizard_horns/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!(species.type in GLOB.bodypart_allowed_species[HORNS]))
 		return FALSE
+
 	var/has_horns = preferences.read_preference(/datum/preference/toggle/horns)
 	if(has_horns == TRUE)
 		return TRUE
+
 	return FALSE
 
 /// Horn colors

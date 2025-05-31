@@ -27,9 +27,10 @@
 
 /datum/preference/toggle/fluff/is_accessible(datum/preferences/preferences)
 	. = ..()
-	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_mutant)
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!(species.type in GLOB.bodypart_allowed_species[FLUFF]))
 		return FALSE
+
 	return TRUE
 
 /// Fluff type
@@ -56,11 +57,13 @@
 /datum/preference/choiced/fluff/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!(species.type in GLOB.bodypart_allowed_species[FLUFF]))
 		return FALSE
+
 	var/has_fluff = preferences.read_preference(/datum/preference/toggle/fluff)
 	if(has_fluff)
 		return TRUE
+
 	return FALSE
 
 /datum/controller/subsystem/accessories
