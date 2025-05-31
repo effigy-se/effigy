@@ -29,9 +29,19 @@
 	. = ..()
 	soundloop = new(src, FALSE)
 
-/obj/item/organ/stomach/fuel_generator/on_life(seconds_per_tick, times_fired)
+/obj/item/organ/stomach/fuel_generator/Destroy()
+	qdel(soundloop)
 	. = ..()
 
+/obj/item/organ/stomach/fuel_generator/on_life(seconds_per_tick, times_fired)
+	. = ..()
+	process_fuel()
+
+/obj/item/organ/stomach/fuel_generator/on_death(seconds_per_tick, times_fired)
+	. = ..()
+	process_fuel()
+
+/obj/item/organ/stomach/fuel_generator/proc/process_fuel()
 	var/power_generated = 0
 	var/mob/living/carbon/body = owner
 	if(reagents.total_volume)
@@ -67,8 +77,11 @@
 		else // Everything else cooks off.
 			reagents.remove_reagent(bit.type, 1)
 			break
-
-	var/obj/item/organ/brain/cybernetic/robot_brain = owner.get_organ_slot(ORGAN_SLOT_BRAIN)
-	if(!robot_brain || !istype(robot_brain))
-		return
-	robot_brain.power = min(robot_brain.power + power_generated, robot_brain.max_power)
+	if(owner)
+		var/obj/item/organ/brain/cybernetic/robot_brain = owner.get_organ_slot(ORGAN_SLOT_BRAIN)
+		if(!robot_brain || !istype(robot_brain))
+			return
+		robot_brain.power = min(robot_brain.power + power_generated, robot_brain.max_power)
+		if(owner.stat == DEAD)
+			if(robot_brain.power > 0)
+				owner.revive() // RISE FROM YOUR GRAVE

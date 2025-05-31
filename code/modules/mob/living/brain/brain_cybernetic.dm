@@ -247,11 +247,12 @@
 	RegisterSignal(brain_owner, COMSIG_USER_ITEM_INTERACTION, PROC_REF(drain_oil_interact))
 	RegisterSignal(brain_owner, COMSIG_USER_ITEM_INTERACTION_SECONDARY, PROC_REF(drain_oil_interact))
 	RegisterSignal(brain_owner, COMSIG_LIVING_EARLY_UNARMED_ATTACK, PROC_REF(drain_oil_hand_interact))
-	RegisterSignal(brain_owner, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(drain_power_on_damage))
+	RegisterSignal(brain_owner, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(drain_power_on_damage))
 	RegisterSignal(brain_owner, COMSIG_CARBON_UPDATE_STAT, PROC_REF(block_stat_update))
 	RegisterSignal(brain_owner, COMSIG_HUMAN_HEALTH_PRE_UPDATE, PROC_REF(block_health_update))
 	RegisterSignal(brain_owner, COMSIG_LIVING_MED_HUD_SET_HEALTH, PROC_REF(medhud_health))
 	RegisterSignal(brain_owner, COMSIG_LIVING_MED_HUD_SET_STATUS, PROC_REF(medhud_status))
+	RegisterSignal(brain_owner, COMSIG_LIVING_CAN_REVIVE, PROC_REF(allow_revives))
 
 /obj/item/organ/brain/cybernetic/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	UnregisterSignal(organ_owner, COMSIG_HUMAN_ON_HANDLE_BLOOD)
@@ -260,11 +261,12 @@
 	UnregisterSignal(organ_owner, COMSIG_USER_ITEM_INTERACTION)
 	UnregisterSignal(organ_owner, COMSIG_USER_ITEM_INTERACTION_SECONDARY)
 	UnregisterSignal(organ_owner, COMSIG_LIVING_EARLY_UNARMED_ATTACK)
-	UnregisterSignal(organ_owner, COMSIG_MOB_AFTER_APPLY_DAMAGE)
+	UnregisterSignal(organ_owner, COMSIG_MOB_APPLY_DAMAGE)
 	UnregisterSignal(organ_owner, COMSIG_CARBON_UPDATE_STAT)
 	UnregisterSignal(organ_owner, COMSIG_HUMAN_HEALTH_PRE_UPDATE)
 	UnregisterSignal(organ_owner, COMSIG_LIVING_MED_HUD_SET_HEALTH)
 	UnregisterSignal(organ_owner, COMSIG_LIVING_MED_HUD_SET_STATUS)
+	UnregisterSignal(organ_owner, COMSIG_LIVING_CAN_REVIVE)
 	. = ..()
 
 /datum/movespeed_modifier/robot_low_oil
@@ -285,30 +287,30 @@
 	var/severity = 0
 	var/static_alpha = 0
 	switch(power_left)
-		if(0.81 to INFINITY)
+		if(0.8 to INFINITY)
 			severity = 0
 		if(0.7 to 0.8)
 			severity = 2
-		if(0.6 to 0.69) // nice
+		if(0.6 to 0.7) // nice
 			severity = 3
-		if(0.5 to 0.59)
+		if(0.5 to 0.6)
 			severity = 4
-		if(0.4 to 0.49)
+		if(0.4 to 0.5)
 			severity = 5
 			static_alpha = 20
-		if(0.3 to 0.39)
+		if(0.3 to 0.4)
 			severity = 6
 			static_alpha = 60
-		if(0.2 to 0.29)
+		if(0.2 to 0.3)
 			severity = 7
 			static_alpha = 60
-		if(0.15 to 0.19)
+		if(0.15 to 0.2)
 			severity = 8
 			static_alpha = 125
-		if(0.1 to 0.14)
+		if(0.1 to 0.15)
 			severity = 9
 			static_alpha = 200
-		if(0 to 0.09)
+		if(0 to 0.1)
 			severity = 10
 			static_alpha = 225
 	if(severity)
@@ -316,7 +318,7 @@
 	else
 		owner.clear_fullscreen("power_loss")
 	if(static_alpha)
-		owner.overlay_fullscreen("power_loss_static", /atom/movable/screen/fullscreen/static_vision/robot, screen_alpha = static_alpha)
+		owner.overlay_fullscreen("power_loss_static", /atom/movable/screen/fullscreen/static_vision/robot, screen_alpha = static_alpha, screen_alpha_animated = 0)
 	else
 		owner.clear_fullscreen("power_loss_static")
 	if(power == 0) // no power? dead
@@ -407,39 +409,39 @@
 	var/resulthealth = (power / max_power) * 100
 	switch(resulthealth)
 		if(100 to INFINITY)
-			return "health100"
+			resulthealth = "health100"
 		if(90.625 to 100)
-			return "health93.75"
+			resulthealth = "health93.75"
 		if(84.375 to 90.625)
-			return "health87.5"
+			resulthealth = "health87.5"
 		if(78.125 to 84.375)
-			return "health81.25"
+			resulthealth = "health81.25"
 		if(71.875 to 78.125)
-			return "health75"
+			resulthealth = "health75"
 		if(65.625 to 71.875)
-			return "health68.75"
+			resulthealth = "health68.75"
 		if(59.375 to 65.625)
-			return "health62.5"
+			resulthealth = "health62.5"
 		if(53.125 to 59.375)
-			return "health56.25"
+			resulthealth = "health56.25"
 		if(46.875 to 53.125)
-			return "health50"
+			resulthealth = "health50"
 		if(40.625 to 46.875)
-			return "health43.75"
+			resulthealth = "health43.75"
 		if(34.375 to 40.625)
-			return "health37.5"
+			resulthealth = "health37.5"
 		if(28.125 to 34.375)
-			return "health31.25"
+			resulthealth = "health31.25"
 		if(21.875 to 28.125)
-			return "health25"
+			resulthealth = "health25"
 		if(15.625 to 21.875)
-			return "health18.75"
+			resulthealth = "health18.75"
 		if(9.375 to 15.625)
-			return "health12.5"
+			resulthealth = "health12.5"
 		if(1 to 9.375)
-			return "health6.25"
+			resulthealth = "health6.25"
 		if(-INFINITY to 1)
-			return "health0"
+			resulthealth = "health0"
 	source.set_hud_image_state(HEALTH_HUD, "hud[resulthealth]")
 	return COMSIG_LIVING_MED_HUD_SET_HEALTH_OVERRIDE
 
@@ -447,6 +449,10 @@
 	SIGNAL_HANDLER
 	source.set_hud_image_state(STATUS_HUD, "hudrobot")
 	return COMSIG_LIVING_MED_HUD_SET_STATUS_OVERRIDE
+
+/obj/item/organ/brain/cybernetic/proc/allow_revives(mob/living/source)
+	SIGNAL_HANDLER
+	return COMSIG_LIVING_CAN_REVIVE_OVERRIDE
 
 /obj/item/organ/brain/cybernetic/proc/block_stat_update(mob/living/source)
 	SIGNAL_HANDLER
@@ -465,6 +471,13 @@
 
 /obj/item/organ/brain/cybernetic/proc/block_health_update(mob/living/source)
 	SIGNAL_HANDLER
+	var/power_deficiency = max_power - power
+	if(power_deficiency >= 40)
+		source.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown, TRUE, multiplicative_slowdown = power_deficiency / 75)
+		source.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown_flying, TRUE, multiplicative_slowdown = power_deficiency / 25)
+	else
+		source.remove_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown)
+		source.remove_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown_flying)
 	return COMSIG_HUMAN_HEALTH_PRE_UPDATE_DONT_UPDATE_MOVESPEED
 
 /obj/item/organ/brain/cybernetic/on_life(seconds_per_tick, times_fired)
@@ -494,7 +507,8 @@
 
 /obj/item/organ/brain/cybernetic/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	var/datum/hud/hud_used = organ_owner.hud_used
-	hud_used.infodisplay += hud_used.healths
+	if(hud_used?.healths)
+		hud_used.infodisplay += hud_used.healths
 	if(organ_owner.mob_mood)
 		organ_owner.mob_mood.show_hud()
 	. = ..()

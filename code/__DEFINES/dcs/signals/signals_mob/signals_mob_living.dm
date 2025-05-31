@@ -102,6 +102,10 @@
 /// from base of mob/living/med_hud_set_health()
 #define COMSIG_LIVING_MED_HUD_SET_HEALTH "living_med_hud_set_health"
 	#define COMSIG_LIVING_MED_HUD_SET_HEALTH_OVERRIDE (1<<0)
+/// from base of mob/living/revive()
+#define COMSIG_LIVING_CAN_REVIVE "living_can_revive"
+	#define COMSIG_LIVING_CAN_REVIVE_OVERRIDE (1<<0)
+
 /// from base of mob/living/updatestamina()
 #define COMSIG_LIVING_STAMINA_UPDATE "living_stamina_update"
 ///from base of mob/living/death(): (gibbed)

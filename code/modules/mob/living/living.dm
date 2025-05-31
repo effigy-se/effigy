@@ -885,8 +885,10 @@
 	grab_ghost(force_grab_ghost)
 	if(full_heal_flags)
 		fully_heal(full_heal_flags)
-
-	if(stat == DEAD && can_be_revived()) //in some cases you can't revive (e.g. no brain)
+	var/can_be_revived = can_be_revived()
+	if(SEND_SIGNAL(src, COMSIG_LIVING_CAN_REVIVE, src))
+		can_be_revived = TRUE
+	if(stat == DEAD && can_be_revived) //in some cases you can't revive (e.g. no brain)
 		set_suicide(FALSE)
 		set_stat(UNCONSCIOUS) //the mob starts unconscious,
 		updatehealth() //then we check if the mob should wake up.
@@ -941,7 +943,10 @@
 
 	// We've given them a decent heal.
 	// If they happen to be dead too, try to revive them - if possible.
-	if(stat == DEAD && can_be_revived())
+	var/can_be_revived = can_be_revived()
+	if(SEND_SIGNAL(src, COMSIG_LIVING_CAN_REVIVE, src))
+		can_be_revived = TRUE
+	if(stat == DEAD && can_be_revived)
 		// If the revive is successful, show our revival message (if present).
 		if(revive(excess_healing = 10) && revive_message)
 			visible_message(revive_message)

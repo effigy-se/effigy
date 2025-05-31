@@ -29,6 +29,9 @@
 		TRAIT_STABLELIVER,
 		TRAIT_NO_DAMAGE_OVERLAY,
 		TRAIT_NOCRITOVERLAY,
+		TRAIT_NOHARDCRIT,
+		TRAIT_NOSOFTCRIT,
+		TRAIT_NOSTAMCRIT,
 	)
 	reagent_flags = PROCESS_SYNTHETIC
 	body_markings = list(/datum/bodypart_overlay/simple/body_marking/lizard = "None")
