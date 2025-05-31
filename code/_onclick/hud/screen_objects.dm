@@ -949,6 +949,18 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/splash)
 	VAR_PRIVATE/image/food_image
 	/// The actual bar
 	VAR_PRIVATE/atom/movable/screen/hunger_bar/hunger_bar
+	/// The type to use for the bar.
+	var/type_of_bar = /atom/movable/screen/hunger_bar
+	/// Are we always visible?
+	var/always_visible = FALSE
+
+/atom/movable/screen/hunger/power
+	name = "power"
+	icon_state = "powerbar"
+	food_icon = 'icons/obj/drinks/soda.dmi'
+	food_icon_state = "space_beer"
+	type_of_bar = /atom/movable/screen/hunger_bar/power
+	always_visible = TRUE
 
 /atom/movable/screen/hunger/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
@@ -967,7 +979,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/splash)
 	underlays += food_image // To be below filters applied to src
 
 	// The actual bar
-	hunger_bar = new(src, null)
+	hunger_bar = new type_of_bar(src, null)
 	vis_contents += hunger_bar
 
 	update_hunger_bar(instant = TRUE)
@@ -1014,7 +1026,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/splash)
 	var/old_state = state
 	var/old_fullness = fullness
 	update_hunger_state()
-	if(old_state != state || old_fullness != fullness)
+	if(!always_visible && (old_state != state || old_fullness != fullness))
 		// Fades out if we ARE "fine" AND if our stomach has no food digesting
 		var/mob/living/hungry = hud?.mymob
 		if(alpha == 255 && (state == HUNGER_STATE_FINE && abs(fullness - hungry.nutrition) < 1))
@@ -1071,6 +1083,9 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/splash)
 	VAR_PRIVATE/bar_offset
 	/// Last "fullness" value (rounded) we used to update the bar
 	VAR_PRIVATE/last_fullness_band = -1
+
+/atom/movable/screen/hunger_bar/power
+	icon_state = "powerbar_bar"
 
 /atom/movable/screen/hunger_bar/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
