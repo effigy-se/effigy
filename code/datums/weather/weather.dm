@@ -463,6 +463,7 @@
 		to_chat(hit_mob, span_userdanger("You've been struck by lightning!"))
 		hit_mob.electrocute_act(50, "thunder", flags = SHOCK_TESLA|SHOCK_NOGLOVES)
 
+	/* /// EffigyEdit Removal - Rimpoint Tweaks - I'd prefer to only damage mobs out there so as to avoid the fish-pocalypse.
 	for(var/obj/hit_thing in weather_turf)
 		if(QDELETED(hit_thing)) // stop, it's already dead
 			continue
@@ -473,9 +474,10 @@
 		if(HAS_TRAIT(hit_thing, TRAIT_UNDERFLOOR))
 			continue
 		hit_thing.take_damage(20, BURN, ENERGY, FALSE)
+	*/ /// EffigyEdit Removal End - Rimpoint Tweaks
 	playsound(weather_turf, 'sound/effects/magic/lightningbolt.ogg', 100, extrarange = 10, falloff_distance = 10)
 	weather_turf.visible_message(span_danger("A thunderbolt strikes [weather_turf]!"))
-	explosion(weather_turf, light_impact_range = 1, flame_range = 1, silent = TRUE, adminlog = FALSE)
+	// explosion(weather_turf, light_impact_range = 1, flame_range = 1, silent = TRUE, adminlog = FALSE) /// EffigyEdit Removal - Rimpoint Tweaks - ditto
 
 /**
  * Updates the overlays on impacted areas
