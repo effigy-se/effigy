@@ -5,12 +5,14 @@
 	can_process_solids = FALSE
 	organ_flags = ORGAN_ROBOTIC
 	reagent_vol = 100
+	var/ethanol_modifier = 4
+	var/flammable_modifier = 2
 	var/list/flammable_reagents = list(
 		/datum/reagent/thermite = 70,
 		/datum/reagent/clf3 = 80,
 		/datum/reagent/stable_plasma = 10, // too stable to burn well, not a good source of fuel
 		/datum/reagent/fuel = 30, // Not great but works in a pinch
-		/datum/reagent/toxin/plasma = 200 // STRAIGHT PLASMA BABY LETS GO
+		/datum/reagent/toxin/plasma = 300 // STRAIGHT PLASMA BABY LETS GO
 	)
 	// Burns into carbon, which clogs up the fuel generator.
 	var/list/bad_reagents = list(
@@ -51,11 +53,11 @@
 	for(var/datum/reagent/bit as anything in reagents?.reagent_list)
 		if(istype(bit, /datum/reagent/consumable/ethanol)) // Burn ethanol for power!
 			var/datum/reagent/consumable/ethanol/liquid = bit
-			power_generated += max((liquid.boozepwr / 100) - (carbon_amount / 100), 0) * 2
+			power_generated += max((liquid.boozepwr / 100) - (carbon_amount / 100), 0) * ethanol_modifier
 			reagents.remove_reagent(liquid.type, 1)
 			break
 		else if(is_type_in_list(bit, flammable_reagents)) // Alternative burn options
-			power_generated += max((flammable_reagents[bit.type] / 100) - (carbon_amount / 100), 0)
+			power_generated += max((flammable_reagents[bit.type] / 100) - (carbon_amount / 100), 0) * flammable_modifier
 			reagents.remove_reagent(bit.type, 1)
 			break
 		else if(is_type_in_list(bit, bad_reagents)) // Expressly do not try to burn these

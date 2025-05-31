@@ -30,7 +30,7 @@
 /atom/movable/screen/power_meter
 	name = "power"
 	icon_state = "powerbar"
-	screen_loc = "EAST-1:28,CENTER+1:21"
+	screen_loc = ui_health
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/state
 	var/power_left
@@ -44,8 +44,9 @@
 /atom/movable/screen/power_meter/oil
 	name = "oil"
 	icon_state = "oilbar"
+	screen_loc = ui_mood
 	power_icon_state = "power_oil"
-	power_icon_offset = 3
+	power_icon_offset = 0
 	power_bar_type = /atom/movable/screen/robothud_bar/oil
 
 /atom/movable/screen/power_meter/oil/update_power_state()
@@ -62,9 +63,7 @@
 			state = POWER_STATE_CHARGED
 		if(0.41 to 0.6)
 			state = POWER_STATE_HALF_CHARGED
-		if(0.21 to 0.4)
-			state = POWER_STATE_PLUG_IT_IN
-		if(0 to 0.2)
+		if(-INFINITY to 0.4)
 			state = POWER_STATE_PLUG_IT_IN
 
 
@@ -112,8 +111,9 @@
 	update_power_bar()
 	return ..()
 
-/atom/movable/screen/power_meter/proc/update_power_bar()
+/atom/movable/screen/power_meter/proc/update_power_bar(instant = FALSE)
 	var/old_state = state
+	var/old_power_left = power_left
 	update_power_state()
 	if(old_state != state)
 		if(state == POWER_STATE_PLUG_IT_IN)
@@ -124,12 +124,14 @@
 
 		else if(old_state == POWER_STATE_PLUG_IT_IN)
 			remove_filter("hunger_outline")
-
-	power_meter_bar.update_fullness(power_left, FALSE)
+	if(old_power_left != power_left)
+		if(instant)
+			Shake(3, 0, 0.3 SECONDS)
+		power_meter_bar.update_fullness(power_left, instant)
 
 /atom/movable/screen/robothud_bar
 	icon_state = "powerbar_bar"
-	screen_loc = "EAST-1:28,CENTER+1:21"
+	screen_loc = ui_health
 	vis_flags = VIS_INHERIT_ID | VIS_INHERIT_PLANE
 	var/mask_icon_state = "powerbar_mask"
 	/// Gradient used to color the bar
@@ -175,6 +177,7 @@
 /atom/movable/screen/robothud_bar/oil
 	icon_state = "oilbar_bar"
 	mask_icon_state = "oilbar_mask"
+	screen_loc = ui_mood
 	power_gradient = list(
 		0.0, "#FF0000",
 		0.2, "#800000",
@@ -244,6 +247,11 @@
 	RegisterSignal(brain_owner, COMSIG_USER_ITEM_INTERACTION, PROC_REF(drain_oil_interact))
 	RegisterSignal(brain_owner, COMSIG_USER_ITEM_INTERACTION_SECONDARY, PROC_REF(drain_oil_interact))
 	RegisterSignal(brain_owner, COMSIG_LIVING_EARLY_UNARMED_ATTACK, PROC_REF(drain_oil_hand_interact))
+	RegisterSignal(brain_owner, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(drain_power_on_damage))
+	RegisterSignal(brain_owner, COMSIG_CARBON_UPDATE_STAT, PROC_REF(block_stat_update))
+	RegisterSignal(brain_owner, COMSIG_HUMAN_HEALTH_PRE_UPDATE, PROC_REF(block_health_update))
+	RegisterSignal(brain_owner, COMSIG_LIVING_MED_HUD_SET_HEALTH, PROC_REF(medhud_health))
+	RegisterSignal(brain_owner, COMSIG_LIVING_MED_HUD_SET_STATUS, PROC_REF(medhud_status))
 
 /obj/item/organ/brain/cybernetic/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	UnregisterSignal(organ_owner, COMSIG_HUMAN_ON_HANDLE_BLOOD)
@@ -251,7 +259,74 @@
 	UnregisterSignal(organ_owner, COMSIG_MOVABLE_MOVED)
 	UnregisterSignal(organ_owner, COMSIG_USER_ITEM_INTERACTION)
 	UnregisterSignal(organ_owner, COMSIG_USER_ITEM_INTERACTION_SECONDARY)
+	UnregisterSignal(organ_owner, COMSIG_LIVING_EARLY_UNARMED_ATTACK)
+	UnregisterSignal(organ_owner, COMSIG_MOB_AFTER_APPLY_DAMAGE)
+	UnregisterSignal(organ_owner, COMSIG_CARBON_UPDATE_STAT)
+	UnregisterSignal(organ_owner, COMSIG_HUMAN_HEALTH_PRE_UPDATE)
+	UnregisterSignal(organ_owner, COMSIG_LIVING_MED_HUD_SET_HEALTH)
+	UnregisterSignal(organ_owner, COMSIG_LIVING_MED_HUD_SET_STATUS)
 	. = ..()
+
+/datum/movespeed_modifier/robot_low_oil
+	multiplicative_slowdown = 0.4
+	blacklisted_movetypes = FLOATING|FLYING
+
+/atom/movable/screen/fullscreen/static_vision/robot
+	alpha = 0
+	color = "#FFFFFF"
+
+/obj/item/organ/brain/cybernetic/proc/run_updates(instant = FALSE)
+	if(power < 0)
+		power = 0
+	if(power > max_power)
+		power = max_power
+	handle_hud(owner, instant)
+	var/power_left = power / max_power
+	var/severity = 0
+	var/static_alpha = 0
+	switch(power_left)
+		if(0.81 to INFINITY)
+			severity = 0
+		if(0.7 to 0.8)
+			severity = 2
+		if(0.6 to 0.69) // nice
+			severity = 3
+		if(0.5 to 0.59)
+			severity = 4
+		if(0.4 to 0.49)
+			severity = 5
+			static_alpha = 20
+		if(0.3 to 0.39)
+			severity = 6
+			static_alpha = 60
+		if(0.2 to 0.29)
+			severity = 7
+			static_alpha = 60
+		if(0.15 to 0.19)
+			severity = 8
+			static_alpha = 125
+		if(0.1 to 0.14)
+			severity = 9
+			static_alpha = 200
+		if(0 to 0.09)
+			severity = 10
+			static_alpha = 225
+	if(severity)
+		owner.overlay_fullscreen("power_loss", /atom/movable/screen/fullscreen/oxy, severity)
+	else
+		owner.clear_fullscreen("power_loss")
+	if(static_alpha)
+		owner.overlay_fullscreen("power_loss_static", /atom/movable/screen/fullscreen/static_vision/robot, screen_alpha = static_alpha)
+	else
+		owner.clear_fullscreen("power_loss_static")
+	if(power == 0) // no power? dead
+		owner.death()
+
+
+/obj/item/organ/brain/cybernetic/proc/drain_power_on_damage(datum/source, damage, damage_type)
+	SIGNAL_HANDLER
+	power = max(power - (damage * 0.5), 0)
+	run_updates()
 
 /obj/item/organ/brain/cybernetic/proc/oil_handling(mob/living/carbon/human/robot, seconds_per_tick, times_fired)
 	SIGNAL_HANDLER
@@ -266,18 +341,22 @@
 		robot.blood_volume = BLOOD_VOLUME_NORMAL
 	switch(blood_ratio)
 		if(0.81 to INFINITY) // Give them a bonus for keeping up on their oil!
+			robot.remove_movespeed_modifier(/datum/movespeed_modifier/robot_low_oil)
 			robot.apply_status_effect(/datum/status_effect/oil_fast_click)
 			robot.remove_status_effect(/datum/status_effect/oil_slow_click)
 			robot.remove_status_effect(/datum/status_effect/no_oil)
 		if(0.41 to 0.8) // Take away any bonuses.
+			robot.remove_movespeed_modifier(/datum/movespeed_modifier/robot_low_oil)
 			robot.remove_status_effect(/datum/status_effect/oil_fast_click)
 			robot.remove_status_effect(/datum/status_effect/oil_slow_click)
 			robot.remove_status_effect(/datum/status_effect/no_oil)
 		if(0.001 to 0.4) // Start slowing their clicking down.
+			robot.add_movespeed_modifier(/datum/movespeed_modifier/robot_low_oil)
 			robot.apply_status_effect(/datum/status_effect/oil_slow_click)
 			robot.remove_status_effect(/datum/status_effect/oil_fast_click)
 			robot.remove_status_effect(/datum/status_effect/no_oil)
 		if(-INFINITY to 0)
+			robot.remove_movespeed_modifier(/datum/movespeed_modifier/robot_low_oil)
 			robot.apply_status_effect(/datum/status_effect/no_oil)
 			robot.apply_status_effect(/datum/status_effect/oil_slow_click)
 			robot.remove_status_effect(/datum/status_effect/oil_fast_click)
@@ -298,6 +377,7 @@
 			did_lubrication = TRUE
 	if(did_lubrication)
 		robot.balloon_alert(robot, "lubricated")
+	run_updates()
 
 /obj/item/organ/brain/cybernetic/proc/drain_oil_movement(atom/movable/mover, atom/oldloc, direction)
 	SIGNAL_HANDLER
@@ -307,31 +387,103 @@
 	if(CHECK_MOVE_LOOP_FLAGS(robot, MOVEMENT_LOOP_OUTSIDE_CONTROL))
 		return // NOT INTENTIONAL MOVEMENT, DON'T DRAIN OIL
 	robot.blood_volume -= ROBOT_OIL_LOSS_ON_STEP
+	run_updates()
 
 /obj/item/organ/brain/cybernetic/proc/drain_oil_hand_interact(mob/living/carbon/human/source, atom/target, proximity_flag, modifiers)
 	SIGNAL_HANDLER
 	if(proximity_flag)
 		source.blood_volume -= ROBOT_OIL_LOSS_ON_INTERACT
+	run_updates()
 	return NONE
 
 /obj/item/organ/brain/cybernetic/proc/drain_oil_interact(mob/living/source, atom/target, obj/item/weapon, list/modifiers)
 	SIGNAL_HANDLER
 	source.blood_volume -= ROBOT_OIL_LOSS_ON_INTERACT
+	run_updates()
 	return NONE
+
+/obj/item/organ/brain/cybernetic/proc/medhud_health(mob/living/source)
+	SIGNAL_HANDLER
+	var/resulthealth = (power / max_power) * 100
+	switch(resulthealth)
+		if(100 to INFINITY)
+			return "health100"
+		if(90.625 to 100)
+			return "health93.75"
+		if(84.375 to 90.625)
+			return "health87.5"
+		if(78.125 to 84.375)
+			return "health81.25"
+		if(71.875 to 78.125)
+			return "health75"
+		if(65.625 to 71.875)
+			return "health68.75"
+		if(59.375 to 65.625)
+			return "health62.5"
+		if(53.125 to 59.375)
+			return "health56.25"
+		if(46.875 to 53.125)
+			return "health50"
+		if(40.625 to 46.875)
+			return "health43.75"
+		if(34.375 to 40.625)
+			return "health37.5"
+		if(28.125 to 34.375)
+			return "health31.25"
+		if(21.875 to 28.125)
+			return "health25"
+		if(15.625 to 21.875)
+			return "health18.75"
+		if(9.375 to 15.625)
+			return "health12.5"
+		if(1 to 9.375)
+			return "health6.25"
+		if(-INFINITY to 1)
+			return "health0"
+	source.set_hud_image_state(HEALTH_HUD, "hud[resulthealth]")
+	return COMSIG_LIVING_MED_HUD_SET_HEALTH_OVERRIDE
+
+/obj/item/organ/brain/cybernetic/proc/medhud_status(mob/living/source)
+	SIGNAL_HANDLER
+	source.set_hud_image_state(STATUS_HUD, "hudrobot")
+	return COMSIG_LIVING_MED_HUD_SET_STATUS_OVERRIDE
+
+/obj/item/organ/brain/cybernetic/proc/block_stat_update(mob/living/source)
+	SIGNAL_HANDLER
+	if(source.stat != DEAD)
+		if(HAS_TRAIT_FROM(source, TRAIT_DISSECTED, AUTOPSY_TRAIT))
+			REMOVE_TRAIT(source, TRAIT_DISSECTED, AUTOPSY_TRAIT)
+		if(HAS_TRAIT(source, TRAIT_KNOCKEDOUT))
+			source.set_stat(UNCONSCIOUS)
+		else
+			source.set_stat(CONSCIOUS)
+	source.update_damage_hud()
+	source.update_health_hud()
+	source.update_stamina_hud()
+	source.med_hud_set_status()
+	return COMSIG_CARBON_UPDATE_STAT_NO_UPDATE // We only want to die via power loss or manual death causes, not via raw damage, so disable the whole crit system.
+
+/obj/item/organ/brain/cybernetic/proc/block_health_update(mob/living/source)
+	SIGNAL_HANDLER
+	return COMSIG_HUMAN_HEALTH_PRE_UPDATE_DONT_UPDATE_MOVESPEED
 
 /obj/item/organ/brain/cybernetic/on_life(seconds_per_tick, times_fired)
 	. = ..()
 	power -= 0.025 * seconds_per_tick
-	handle_hud(owner)
+	run_updates()
 
-/obj/item/organ/brain/cybernetic/proc/handle_hud(mob/living/carbon/target)
+/obj/item/organ/brain/cybernetic/proc/handle_hud(mob/living/carbon/target, instant = FALSE)
 	// update it
 	if(power_meter && oil_meter)
-		power_meter.update_power_bar()
+		power_meter.update_power_bar(instant)
 		oil_meter.update_power_bar()
 	// initialize it
 	else if(target.hud_used)
 		var/datum/hud/hud_used = target.hud_used
+		if(hud_used.infodisplay.Find(hud_used.healths))
+			hud_used.infodisplay -= hud_used.healths
+		if(target.mob_mood)
+			target.mob_mood.hide_hud()
 		power_meter = new(null, hud_used)
 		oil_meter = new(null, hud_used)
 		hud_used.infodisplay += power_meter
@@ -339,6 +491,13 @@
 		target.hud_used.show_hud(target.hud_used.hud_version)
 		power_meter.update_power_bar()
 		oil_meter.update_power_bar()
+
+/obj/item/organ/brain/cybernetic/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
+	var/datum/hud/hud_used = organ_owner.hud_used
+	hud_used.infodisplay += hud_used.healths
+	if(organ_owner.mob_mood)
+		organ_owner.mob_mood.show_hud()
+	. = ..()
 
 /obj/item/organ/brain/cybernetic/Destroy()
 	if(power_meter)

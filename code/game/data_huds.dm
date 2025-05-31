@@ -172,11 +172,16 @@ Medical HUD! Basic mode needs suit sensors on.
 
 //called when a living mob changes health
 /mob/living/proc/med_hud_set_health()
+	if(SEND_SIGNAL(src, COMSIG_LIVING_MED_HUD_SET_STATUS, src))
+		return
 	set_hud_image_state(HEALTH_HUD, "hud[RoundHealth(src)]")
 
 // Called when a carbon changes stat, virus or XENO_HOST
 // Returns TRUE if the mob is considered "perfectly healthy", FALSE otherwise
 /mob/living/proc/med_hud_set_status()
+	if(SEND_SIGNAL(src, COMSIG_LIVING_MED_HUD_SET_STATUS, src))
+		return
+
 	if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
 		set_hud_image_state(STATUS_HUD, "huddead")
 		return FALSE

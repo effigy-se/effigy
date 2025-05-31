@@ -96,6 +96,12 @@
 
 /// from base of mob/living/updatehealth()
 #define COMSIG_LIVING_HEALTH_UPDATE "living_health_update"
+/// from base of mob/living/med_hud_set_status()
+#define COMSIG_LIVING_MED_HUD_SET_STATUS "living_med_hud_set_status"
+	#define COMSIG_LIVING_MED_HUD_SET_STATUS_OVERRIDE (1<<0)
+/// from base of mob/living/med_hud_set_health()
+#define COMSIG_LIVING_MED_HUD_SET_HEALTH "living_med_hud_set_health"
+	#define COMSIG_LIVING_MED_HUD_SET_HEALTH_OVERRIDE (1<<0)
 /// from base of mob/living/updatestamina()
 #define COMSIG_LIVING_STAMINA_UPDATE "living_stamina_update"
 ///from base of mob/living/death(): (gibbed)

@@ -27,10 +27,12 @@
 		TRAIT_UNHUSKABLE,
 		TRAIT_STABLEHEART,
 		TRAIT_STABLELIVER,
+		TRAIT_NO_DAMAGE_OVERLAY,
+		TRAIT_NOCRITOVERLAY,
 	)
 	reagent_flags = PROCESS_SYNTHETIC
 	body_markings = list(/datum/bodypart_overlay/simple/body_marking/lizard = "None")
-	mutantheart = /obj/item/organ/heart/cybernetic
+	mutantheart = /obj/item/organ/heart/oil_pump
 	mutantstomach = /obj/item/organ/stomach/fuel_generator
 	mutantliver = /obj/item/organ/liver/cybernetic/tier2
 	mutantbrain = /obj/item/organ/brain/cybernetic
