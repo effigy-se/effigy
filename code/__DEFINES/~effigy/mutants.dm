@@ -32,6 +32,69 @@ GLOBAL_LIST_INIT(species_blacklist_no_humanoid, list(
 	/datum/species/golem,
 	))
 
+#define ANTENNAE "antennae"
+#define EARS "ears"
+#define FLUFF "fluff"
+#define FRILLS "frills"
+#define HORNS "horns"
+#define DIGI_LEGS "digi_legs"
+#define SNOUT "snout"
+#define LIZARD_MARKING "lizard_marking"
+#define MOTH_MARKING "moth_marking"
+#define MUSHROOM_CAP "mush_cap"
+#define SPINES "spines"
+#define TAIL "tail"
+#define WINGS "wings"
+
+GLOBAL_LIST_INIT(bodypart_allowed_species, list(
+	ANTENNAE = list(
+		/datum/species/android,
+		/datum/species/insectoid,
+		/datum/species/moth,
+	),
+	EARS = list(
+		/datum/species/android,
+		/datum/species/animalid,
+	),
+	FLUFF = list(
+		/datum/species/moth,
+	),
+	FRILLS = list(
+		/datum/species/android,
+		/datum/species/animalid,
+		/datum/species/lizard,
+	),
+	HORNS = list(
+		/datum/species/android,
+		/datum/species/animalid,
+		/datum/species/lizard,
+	),
+	DIGI_LEGS = list(
+		/datum/species/android,
+		/datum/species/animalid,
+		/datum/species/lizard,
+	),
+
+	SNOUT = list(
+		/datum/species/animalid,
+		/datum/species/android,
+		/datum/species/insectoid,
+	),
+	TAIL = list(
+		/datum/species/animalid,
+		/datum/species/android,
+		/datum/species/insectoid,
+		/datum/species/lizard,
+	),
+	WINGS = list(
+		/datum/species/android,
+		/datum/species/animalid,
+		/datum/species/insectoid,
+		/datum/species/lizard,
+		/datum/species/moth,
+	),
+))
+
 // length of the dna feature marking list
 #define MARKING_LIST_LEN 24
 

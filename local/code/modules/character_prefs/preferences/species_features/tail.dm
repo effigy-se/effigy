@@ -105,9 +105,10 @@
 
 /datum/preference/choiced/tail_variation/is_accessible(datum/preferences/preferences)
 	. = ..()
-	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_mutant)
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
 		return FALSE
+
 	return TRUE
 
 ///	Lizard tail type
@@ -135,8 +136,9 @@
 /datum/preference/choiced/lizard_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
 		return FALSE
+
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == LIZARD_TYPE)
 		return TRUE

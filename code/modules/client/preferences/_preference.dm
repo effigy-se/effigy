@@ -374,6 +374,8 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 
 	abstract_type = /datum/preference/choiced
 
+	var/list/allowed_species = null
+
 /// Returns a list of every possible value.
 /// The first time this is called, will run `init_values()`.
 /// Return value can be in the form of:

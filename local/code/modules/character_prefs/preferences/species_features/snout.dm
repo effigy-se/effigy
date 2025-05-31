@@ -26,8 +26,8 @@
 
 /datum/preference/toggle/snout/is_accessible(datum/preferences/preferences)
 	. = ..()
-	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_mutant)
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!(species.type in GLOB.bodypart_allowed_species[SNOUT]))
 		return FALSE
 	return TRUE
 
@@ -49,8 +49,9 @@
 /datum/preference/choiced/lizard_snout/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!(species.type in GLOB.bodypart_allowed_species[SNOUT]))
 		return FALSE
+
 	var/has_snout = preferences.read_preference(/datum/preference/toggle/snout)
 	if(has_snout == TRUE)
 		return TRUE

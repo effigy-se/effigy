@@ -36,9 +36,10 @@
 
 /datum/preference/toggle/frills/is_accessible(datum/preferences/preferences)
 	. = ..()
-	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_mutant)
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!(species.type in GLOB.bodypart_allowed_species[FRILLS]))
 		return FALSE
+
 	return TRUE
 
 /// Frills type
@@ -59,11 +60,13 @@
 /datum/preference/choiced/lizard_frills/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!(species.type in GLOB.bodypart_allowed_species[FRILLS]))
 		return FALSE
+
 	var/has_frills = preferences.read_preference(/datum/preference/toggle/frills)
 	if(has_frills == TRUE)
 		return TRUE
+
 	return FALSE
 
 /// Frill colors
