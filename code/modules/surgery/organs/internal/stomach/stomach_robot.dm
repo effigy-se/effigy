@@ -63,18 +63,18 @@
 	for(var/datum/reagent/bit as anything in reagents?.reagent_list)
 		if(istype(bit, /datum/reagent/consumable/ethanol)) // Burn ethanol for power!
 			var/datum/reagent/consumable/ethanol/liquid = bit
-			power_generated += max((liquid.boozepwr / 100) - (carbon_amount / 100), 0) * ethanol_modifier
+			power_generated += (max((liquid.boozepwr / 100) - (carbon_amount / 100), 0) * ethanol_modifier) * ((maxHealth - damage) / maxHealth)
 			reagents.remove_reagent(liquid.type, 1)
 			break
 		else if(is_type_in_list(bit, flammable_reagents)) // Alternative burn options
-			power_generated += max((flammable_reagents[bit.type] / 100) - (carbon_amount / 100), 0) * flammable_modifier
+			power_generated += (max((flammable_reagents[bit.type] / 100) - (carbon_amount / 100), 0) * flammable_modifier) * ((maxHealth - damage) / maxHealth)
 			reagents.remove_reagent(bit.type, 1)
 			break
 		else if(is_type_in_list(bit, bad_reagents)) // Expressly do not try to burn these
 			reagents.add_reagent(/datum/reagent/carbon, 0.2)
 			reagents.remove_reagent(bit.type, 1)
 			break
-		else // Everything else cooks off.
+		else if(!istype(bit, /datum/reagent/carbon))
 			reagents.remove_reagent(bit.type, 1)
 			break
 	if(owner)

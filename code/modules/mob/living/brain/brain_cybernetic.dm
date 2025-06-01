@@ -9,18 +9,11 @@
 	failing_desc = "seems to be broken, and will not work without repairs."
 	var/power = 100
 	var/max_power = 100
+	var/distress_beacon_active = FALSE
+	var/beacon_light_timer
 	var/atom/movable/screen/power_meter/power_meter
 	var/atom/movable/screen/power_meter/oil/oil_meter
-	var/list/lubricants = list( // What chemicals will satisfy the oil requirement to up the joints?
-		/datum/reagent/fuel/oil = 1,
-		/datum/reagent/lube = 2,
-		/datum/reagent/lube/superlube = 3,
-	)
-	var/list/lubricant_types = list(
-		/datum/reagent/fuel/oil,
-		/datum/reagent/lube,
-		/datum/reagent/lube/superlube,
-	)
+
 #define POWER_STATE_FULL_CHARGE 4
 #define POWER_STATE_CHARGED 3
 #define POWER_STATE_HALF_CHARGED 2
@@ -239,24 +232,39 @@
 	icon = 'local/icons/hud/screen_gen.dmi'
 	icon_state = "no_oil_alert"
 
+/obj/item/organ/brain/cybernetic/proc/activate_distress_beacon()
+	distress_beacon_active = TRUE
+	pulse_beacon_light()
+	beacon_light_timer = addtimer(CALLBACK(src, PROC_REF(pulse_beacon_light)), 2 SECONDS, TIMER_STOPPABLE | TIMER_LOOP | TIMER_DELETE_ME)
+
+/obj/item/organ/brain/cybernetic/proc/pulse_beacon_light()
+	owner.mob_light(range = 1.5, power = 2, color = LIGHT_COLOR_INTENSE_RED, duration = 1 SECONDS)
+
+/obj/item/organ/brain/cybernetic/proc/deactivate_distress_beacon()
+	distress_beacon_active = FALSE
+	deltimer(beacon_light_timer)
+
 /obj/item/organ/brain/cybernetic/on_mob_insert(mob/living/carbon/brain_owner, special, movement_flags)
 	. = ..()
 	RegisterSignal(brain_owner, COMSIG_HUMAN_ON_HANDLE_BLOOD, PROC_REF(oil_handling))
-	RegisterSignal(brain_owner, COMSIG_ATOM_EXPOSE_REAGENTS, PROC_REF(on_expose))
 	RegisterSignal(brain_owner, COMSIG_MOVABLE_MOVED, PROC_REF(drain_oil_movement))
 	RegisterSignal(brain_owner, COMSIG_USER_ITEM_INTERACTION, PROC_REF(drain_oil_interact))
 	RegisterSignal(brain_owner, COMSIG_USER_ITEM_INTERACTION_SECONDARY, PROC_REF(drain_oil_interact))
 	RegisterSignal(brain_owner, COMSIG_LIVING_EARLY_UNARMED_ATTACK, PROC_REF(drain_oil_hand_interact))
 	RegisterSignal(brain_owner, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(drain_power_on_damage))
 	RegisterSignal(brain_owner, COMSIG_CARBON_UPDATE_STAT, PROC_REF(block_stat_update))
-	RegisterSignal(brain_owner, COMSIG_HUMAN_HEALTH_PRE_UPDATE, PROC_REF(block_health_update))
 	RegisterSignal(brain_owner, COMSIG_LIVING_MED_HUD_SET_HEALTH, PROC_REF(medhud_health))
 	RegisterSignal(brain_owner, COMSIG_LIVING_MED_HUD_SET_STATUS, PROC_REF(medhud_status))
 	RegisterSignal(brain_owner, COMSIG_LIVING_CAN_REVIVE, PROC_REF(allow_revives))
+	RegisterSignal(brain_owner, COMSIG_LIVING_DEATH, PROC_REF(activate_distress_beacon_death))
+	RegisterSignal(brain_owner, COMSIG_ATOM_EMP_ACT, PROC_REF(emp_effect))
+	brain_owner.med_hud_set_health() // fix the health bar sprite
+	brain_owner.med_hud_set_status()
+	brain_owner.add_movespeed_mod_immunities("robot_brain", /datum/movespeed_modifier/damage_slowdown)
+	brain_owner.add_movespeed_mod_immunities("robot_brain", /datum/movespeed_modifier/damage_slowdown_flying)
 
 /obj/item/organ/brain/cybernetic/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	UnregisterSignal(organ_owner, COMSIG_HUMAN_ON_HANDLE_BLOOD)
-	UnregisterSignal(organ_owner, COMSIG_ATOM_EXPOSE_REAGENTS)
 	UnregisterSignal(organ_owner, COMSIG_MOVABLE_MOVED)
 	UnregisterSignal(organ_owner, COMSIG_USER_ITEM_INTERACTION)
 	UnregisterSignal(organ_owner, COMSIG_USER_ITEM_INTERACTION_SECONDARY)
@@ -267,7 +275,24 @@
 	UnregisterSignal(organ_owner, COMSIG_LIVING_MED_HUD_SET_HEALTH)
 	UnregisterSignal(organ_owner, COMSIG_LIVING_MED_HUD_SET_STATUS)
 	UnregisterSignal(organ_owner, COMSIG_LIVING_CAN_REVIVE)
+	UnregisterSignal(organ_owner, COMSIG_LIVING_DEATH)
+	UnregisterSignal(organ_owner, COMSIG_ATOM_EMP_ACT)
+	organ_owner.remove_movespeed_mod_immunities("robot_brain", /datum/movespeed_modifier/damage_slowdown)
+	organ_owner.remove_movespeed_mod_immunities("robot_brain", /datum/movespeed_modifier/damage_slowdown_flying)
+
 	. = ..()
+
+/obj/item/organ/brain/cybernetic/proc/activate_distress_beacon_death(mob/living/target, gibbed)
+	SIGNAL_HANDLER
+	if(!distress_beacon_active)
+		activate_distress_beacon()
+
+/obj/item/organ/brain/cybernetic/proc/emp_effect(datum/source, severity, protection)
+	SIGNAL_HANDLER
+	if(protection & EMP_PROTECT_SELF)
+		return
+	if(distress_beacon_active)
+		deactivate_distress_beacon()
 
 /datum/movespeed_modifier/robot_low_oil
 	multiplicative_slowdown = 0.4
@@ -290,45 +315,63 @@
 		if(0.8 to INFINITY)
 			severity = 0
 		if(0.7 to 0.8)
-			severity = 2
+			severity = 1
 		if(0.6 to 0.7) // nice
-			severity = 3
+			severity = 2
 		if(0.5 to 0.6)
-			severity = 4
+			severity = 3
 		if(0.4 to 0.5)
-			severity = 5
+			severity = 4
 			static_alpha = 20
 		if(0.3 to 0.4)
-			severity = 6
+			severity = 5
 			static_alpha = 60
 		if(0.2 to 0.3)
-			severity = 7
+			severity = 6
 			static_alpha = 60
 		if(0.15 to 0.2)
-			severity = 8
+			severity = 7
 			static_alpha = 125
 		if(0.1 to 0.15)
-			severity = 9
+			severity = 8
 			static_alpha = 200
-		if(0 to 0.1)
-			severity = 10
+		if(0.05 to 0.1)
+			severity = 9
 			static_alpha = 225
+		if(-INFINITY to 0.05)
+			severity = 10
+			static_alpha = 230
 	if(severity)
 		owner.overlay_fullscreen("power_loss", /atom/movable/screen/fullscreen/oxy, severity)
 	else
 		owner.clear_fullscreen("power_loss")
 	if(static_alpha)
-		owner.overlay_fullscreen("power_loss_static", /atom/movable/screen/fullscreen/static_vision/robot, screen_alpha = static_alpha, screen_alpha_animated = 0)
+		owner.overlay_fullscreen("power_loss_static", /atom/movable/screen/fullscreen/static_vision/robot, screen_alpha = static_alpha)
 	else
 		owner.clear_fullscreen("power_loss_static")
 	if(power == 0) // no power? dead
 		owner.death()
+		return
+	var/power_deficiency = max_power - power
+	if(power_deficiency >= 40)
+		owner.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/robot_power_slowdown, TRUE, multiplicative_slowdown = power_deficiency / 75)
+		owner.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/robot_power_slowdown_flying, TRUE, multiplicative_slowdown = power_deficiency / 25)
+	else
+		owner.remove_movespeed_modifier(/datum/movespeed_modifier/robot_power_slowdown)
+		owner.remove_movespeed_modifier(/datum/movespeed_modifier/robot_power_slowdown_flying)
 
+/datum/movespeed_modifier/robot_power_slowdown
+	blacklisted_movetypes = FLOATING|FLYING
+	variable = TRUE
+
+/datum/movespeed_modifier/robot_power_slowdown_flying
+	movetypes = FLYING
+	variable = TRUE
 
 /obj/item/organ/brain/cybernetic/proc/drain_power_on_damage(datum/source, damage, damage_type)
 	SIGNAL_HANDLER
 	power = max(power - (damage * 0.5), 0)
-	run_updates()
+	run_updates(TRUE)
 
 /obj/item/organ/brain/cybernetic/proc/oil_handling(mob/living/carbon/human/robot, seconds_per_tick, times_fired)
 	SIGNAL_HANDLER
@@ -342,22 +385,30 @@
 	if(robot.blood_volume > BLOOD_VOLUME_NORMAL)
 		robot.blood_volume = BLOOD_VOLUME_NORMAL
 	switch(blood_ratio)
-		if(0.81 to INFINITY) // Give them a bonus for keeping up on their oil!
+		if(0.8 to INFINITY) // Give them a bonus for keeping up on their oil!
+			if(robot.stat != DEAD && distress_beacon_active)
+				deactivate_distress_beacon()
 			robot.remove_movespeed_modifier(/datum/movespeed_modifier/robot_low_oil)
 			robot.apply_status_effect(/datum/status_effect/oil_fast_click)
 			robot.remove_status_effect(/datum/status_effect/oil_slow_click)
 			robot.remove_status_effect(/datum/status_effect/no_oil)
-		if(0.41 to 0.8) // Take away any bonuses.
+		if(0.4 to 0.8) // Take away any bonuses.
+			if(robot.stat != DEAD && distress_beacon_active)
+				deactivate_distress_beacon()
 			robot.remove_movespeed_modifier(/datum/movespeed_modifier/robot_low_oil)
 			robot.remove_status_effect(/datum/status_effect/oil_fast_click)
 			robot.remove_status_effect(/datum/status_effect/oil_slow_click)
 			robot.remove_status_effect(/datum/status_effect/no_oil)
-		if(0.001 to 0.4) // Start slowing their clicking down.
+		if(0 to 0.4) // Start slowing their clicking down.
+			if(robot.stat != DEAD && distress_beacon_active)
+				deactivate_distress_beacon()
 			robot.add_movespeed_modifier(/datum/movespeed_modifier/robot_low_oil)
 			robot.apply_status_effect(/datum/status_effect/oil_slow_click)
 			robot.remove_status_effect(/datum/status_effect/oil_fast_click)
 			robot.remove_status_effect(/datum/status_effect/no_oil)
 		if(-INFINITY to 0)
+			if(!distress_beacon_active)
+				activate_distress_beacon()
 			robot.remove_movespeed_modifier(/datum/movespeed_modifier/robot_low_oil)
 			robot.apply_status_effect(/datum/status_effect/no_oil)
 			robot.apply_status_effect(/datum/status_effect/oil_slow_click)
@@ -365,21 +416,11 @@
 
 	return HANDLE_BLOOD_HANDLED
 
-/obj/item/organ/brain/cybernetic/proc/on_expose(atom/target, list/applied_reagents, datum/reagents/source, methods)
-	SIGNAL_HANDLER
-	var/mob/living/carbon/human/robot = target
-	if(!istype(robot))
-		return
-	if(!(methods & (TOUCH|VAPOR)))
-		return
-	var/did_lubrication = FALSE
-	for(var/datum/reagent/bit as anything in applied_reagents)
-		if(is_type_in_list(bit, lubricant_types))
-			robot.blood_volume += lubricants[bit.type] * applied_reagents[bit]
-			did_lubrication = TRUE
-	if(did_lubrication)
-		robot.balloon_alert(robot, "lubricated")
-	run_updates()
+/obj/item/organ/brain/cybernetic/proc/calculate_oil_usage()
+	var/obj/item/organ/heart/oil_pump/oil_pump = owner.get_organ_slot(ORGAN_SLOT_HEART)
+	if(!oil_pump || !istype(oil_pump) || (oil_pump.organ_flags & ORGAN_DEPOWERED))
+		return 5 // no oil pump/depowered? waste the fuck outta oil
+	return 1 + (oil_pump.damage / (oil_pump.maxHealth * 2))
 
 /obj/item/organ/brain/cybernetic/proc/drain_oil_movement(atom/movable/mover, atom/oldloc, direction)
 	SIGNAL_HANDLER
@@ -388,26 +429,27 @@
 		return
 	if(CHECK_MOVE_LOOP_FLAGS(robot, MOVEMENT_LOOP_OUTSIDE_CONTROL))
 		return // NOT INTENTIONAL MOVEMENT, DON'T DRAIN OIL
-	robot.blood_volume -= ROBOT_OIL_LOSS_ON_STEP
+	robot.blood_volume -= ROBOT_OIL_LOSS_ON_STEP * calculate_oil_usage()
 	run_updates()
 
 /obj/item/organ/brain/cybernetic/proc/drain_oil_hand_interact(mob/living/carbon/human/source, atom/target, proximity_flag, modifiers)
 	SIGNAL_HANDLER
 	if(proximity_flag)
-		source.blood_volume -= ROBOT_OIL_LOSS_ON_INTERACT
+		source.blood_volume -= ROBOT_OIL_LOSS_ON_INTERACT * calculate_oil_usage()
 	run_updates()
 	return NONE
 
 /obj/item/organ/brain/cybernetic/proc/drain_oil_interact(mob/living/source, atom/target, obj/item/weapon, list/modifiers)
 	SIGNAL_HANDLER
-	source.blood_volume -= ROBOT_OIL_LOSS_ON_INTERACT
+	source.blood_volume -= ROBOT_OIL_LOSS_ON_INTERACT * calculate_oil_usage()
 	run_updates()
 	return NONE
 
 /obj/item/organ/brain/cybernetic/proc/medhud_health(mob/living/source)
 	SIGNAL_HANDLER
-	var/resulthealth = (power / max_power) * 100
-	switch(resulthealth)
+	var/health_calc = (power / max_power) * 100
+	var/resulthealth = "health0"
+	switch(health_calc)
 		if(100 to INFINITY)
 			resulthealth = "health100"
 		if(90.625 to 100)
@@ -442,7 +484,7 @@
 			resulthealth = "health6.25"
 		if(-INFINITY to 1)
 			resulthealth = "health0"
-	source.set_hud_image_state(HEALTH_HUD, "hud[resulthealth]")
+	source.set_hud_image_state(HEALTH_HUD, "hudrobot[resulthealth]")
 	return COMSIG_LIVING_MED_HUD_SET_HEALTH_OVERRIDE
 
 /obj/item/organ/brain/cybernetic/proc/medhud_status(mob/living/source)
@@ -469,17 +511,6 @@
 	source.med_hud_set_status()
 	return COMSIG_CARBON_UPDATE_STAT_NO_UPDATE // We only want to die via power loss or manual death causes, not via raw damage, so disable the whole crit system.
 
-/obj/item/organ/brain/cybernetic/proc/block_health_update(mob/living/source)
-	SIGNAL_HANDLER
-	var/power_deficiency = max_power - power
-	if(power_deficiency >= 40)
-		source.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown, TRUE, multiplicative_slowdown = power_deficiency / 75)
-		source.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown_flying, TRUE, multiplicative_slowdown = power_deficiency / 25)
-	else
-		source.remove_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown)
-		source.remove_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown_flying)
-	return COMSIG_HUMAN_HEALTH_PRE_UPDATE_DONT_UPDATE_MOVESPEED
-
 /obj/item/organ/brain/cybernetic/on_life(seconds_per_tick, times_fired)
 	. = ..()
 	power -= 0.025 * seconds_per_tick
@@ -489,7 +520,7 @@
 	// update it
 	if(power_meter && oil_meter)
 		power_meter.update_power_bar(instant)
-		oil_meter.update_power_bar()
+		oil_meter.update_power_bar() // we don't wanna shake the oil meter
 	// initialize it
 	else if(target.hud_used)
 		var/datum/hud/hud_used = target.hud_used
@@ -566,13 +597,3 @@
 
 		return TRUE
 	return FALSE
-
-/obj/item/organ/brain/cybernetic/emp_act(severity)
-	. = ..()
-	if(. & EMP_PROTECT_SELF)
-		return
-	switch(severity) // Hard cap on brain damage from EMP
-		if (EMP_HEAVY)
-			apply_organ_damage(20, BRAIN_DAMAGE_SEVERE)
-		if (EMP_LIGHT)
-			apply_organ_damage(10, BRAIN_DAMAGE_MILD)

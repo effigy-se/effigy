@@ -75,19 +75,6 @@
 	playsound(target.loc, 'sound/machines/chime.ogg', 50, TRUE)
 	target.visible_message(span_notice("[target]'s LEDs flicker to life!"), span_notice("All systems nominal. You're back online!"))
 
-/datum/species/android/spec_life(mob/living/carbon/human/target, seconds_per_tick, times_fired)
-	. = ..()
-
-	if(target.stat == SOFT_CRIT || target.stat == HARD_CRIT)
-		target.adjustFireLoss(1 * seconds_per_tick) //Still deal some damage in case a cold environment would be preventing us from the sweet release to robot heaven
-		target.adjust_bodytemperature(13 * seconds_per_tick) //We're overheating!!
-		if(prob(10))
-			to_chat(target, span_warning("Alert: Critical damage taken! Cooling systems failing!"))
-			do_sparks(3, FALSE, target)
-
-	if(target.stat == DEAD)
-		return
-
 /datum/species/android/prepare_human_for_preview(mob/living/carbon/human/robot_for_preview)
 	robot_for_preview.dna.ear_type = CYBERNETIC_TYPE
 	robot_for_preview.dna.features["ears"] = "No Ears"
