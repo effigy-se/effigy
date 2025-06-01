@@ -463,7 +463,7 @@
 		to_chat(hit_mob, span_userdanger("You've been struck by lightning!"))
 		hit_mob.electrocute_act(50, "thunder", flags = SHOCK_TESLA|SHOCK_NOGLOVES)
 
-	/* /// EffigyEdit Removal - Rimpoint Tweaks - I'd prefer to only damage mobs out there so as to avoid the fish-pocalypse.
+	/* EffigyEdit Remove - Rimpoint Tweaks - I'd prefer to only damage mobs out there so as to avoid the fish-pocalypse.
 	for(var/obj/hit_thing in weather_turf)
 		if(QDELETED(hit_thing)) // stop, it's already dead
 			continue
