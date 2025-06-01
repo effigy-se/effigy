@@ -103,6 +103,15 @@ SUBSYSTEM_DEF(gamemode)
 
 	var/list/holidays //List of all holidays occuring today or null if no holidays
 
+	/// Auto call the escape shuttle at the fixed time
+	var/auto_shuttle_call = TRUE
+	/// UTC time of round start
+	var/auto_shuttle_start_time = 0
+	/// Time for auto calling the escape shuttle
+	var/auto_shuttle_fire_time = 180 MINUTES
+	/// Have we sent the auto shuttle
+	var/auto_shuttle_dispatched = FALSE
+
 	/// Event frequency multiplier, it exists because wizard, eugh.
 	var/event_frequency_multiplier = 1
 
@@ -174,12 +183,21 @@ SUBSYSTEM_DEF(gamemode)
 
 	return SS_INIT_SUCCESS
 
+/datum/controller/subsystem/gamemode/Recover()
+	auto_shuttle_start_time = SSgamemode.auto_shuttle_start_time
 
 /datum/controller/subsystem/gamemode/fire(resumed = FALSE)
 	if(!resumed)
 		src.currentrun = running.Copy()
 
-	///Handle scheduled events
+	// Handle shuttle call
+	if(abs(REALTIMEOFDAY - auto_shuttle_start_time) > auto_shuttle_fire_time && auto_shuttle_call && !auto_shuttle_dispatched)
+		log_game("Escape shuttle automatically called by game mode setting.")
+		message_admins("Escape shuttle automatically called by game mode setting.")
+		SSshuttle.auto_end()
+		auto_shuttle_dispatched = TRUE
+
+	// Handle scheduled events
 	for(var/datum/scheduled_event/sch_event in scheduled_events)
 		if(world.time >= sch_event.start_time)
 			sch_event.try_fire()
