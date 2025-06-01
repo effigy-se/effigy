@@ -4,8 +4,6 @@
 	var/name = "Badly coded storyteller"
 	/// Description of our storyteller.
 	var/desc = "Report this to the coders."
-	/// Text that the players will be greeted with when this storyteller is chosen.
-	var/welcome_text = "The game mode has been selected. Get ready!"
 	/// This is the multiplier for repetition penalty in event weight. The lower the harsher it is
 	var/event_repetition_multiplier = 0.7
 	/// Multipliers for starting points. // TODO - Rewrite into some variation
@@ -46,10 +44,10 @@
 	/// Two tellers of the same intensity group can't run in 2 consecutive rounds
 	var/storyteller_type = STORYTELLER_TYPE_ALWAYS_AVAILABLE
 
-/datum/storyteller/process(delta_time)
+/datum/storyteller/process(seconds_per_tick)
 	if(disable_distribution)
 		return
-	add_points(delta_time)
+	add_points(seconds_per_tick)
 	handle_tracks()
 
 /datum/storyteller/vv_edit_var(var_name, var_value) // Appends any name changes with the original storyteller
@@ -58,10 +56,10 @@
 		name = "[var_value] ([initial(name)])"
 
 /// Add points to all tracks while respecting the multipliers.
-/datum/storyteller/proc/add_points(delta_time)
+/datum/storyteller/proc/add_points(seconds_per_tick)
 	var/datum/controller/subsystem/gamemode/mode = SSgamemode
 	for(var/track in mode.event_track_points)
-		var/point_gain = delta_time
+		var/point_gain = seconds_per_tick
 		mode.event_track_points[track] += point_gain
 		mode.last_point_gains[track] = point_gain
 

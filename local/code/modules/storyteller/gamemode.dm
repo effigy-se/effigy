@@ -2,7 +2,7 @@ SUBSYSTEM_DEF(gamemode)
 	name = "Game Mode"
 	runlevels = RUNLEVEL_GAME
 	flags = SS_BACKGROUND | SS_KEEP_TIMING
-	wait = 2 SECONDS
+	wait = STORYTELLER_WAIT_TIME
 
 	/// List of our event tracks for fast access during for loops.
 	var/list/event_tracks = EVENT_TRACKS
@@ -12,8 +12,6 @@ SUBSYSTEM_DEF(gamemode)
 	var/voted_storyteller = /datum/storyteller/default
 	/// List of all the storytellers. Populated at init. Associative from type
 	var/list/storytellers = list()
-	/// Next process for our storyteller. The wait time is STORYTELLER_WAIT_TIME
-	var/next_storyteller_process = 0
 	/// Associative list of even track points.
 	var/list/event_track_points = list(
 		EVENT_TRACK_MUNDANE = 0,
@@ -190,13 +188,10 @@ SUBSYSTEM_DEF(gamemode)
 			sch_event.alerted_admins = TRUE
 			message_admins("Scheduled Event: [sch_event.event] will run in [(sch_event.start_time - world.time) / 10] seconds. (<a href='?src=[REF(sch_event)];action=cancel'>CANCEL</a>) (<a href='?src=[REF(sch_event)];action=refund'>REFUND</a>)")
 
-	if(!storyteller_halted && next_storyteller_process <= world.time && storyteller)
+	if(!storyteller_halted)
 		// We update crew information here to adjust population scalling and event thresholds for the storyteller.
 		update_crew_infos()
-		next_storyteller_process = world.time + STORYTELLER_WAIT_TIME
 		storyteller.process(STORYTELLER_WAIT_TIME * 0.1)
-	// Reset the cache value to false
-	pop_data_cached = FALSE
 
 	//cache for sanic speed (lists are references anyways)
 	var/list/currentrun = src.currentrun
@@ -740,7 +735,7 @@ SUBSYSTEM_DEF(gamemode)
 	point_thresholds[EVENT_TRACK_CREW] = track_data.threshold_crewset * CONFIG_GET(number/crewset_point_threshold)
 	point_thresholds[EVENT_TRACK_GHOST] = track_data.threshold_ghostset * CONFIG_GET(number/ghostset_point_threshold)
 
-	to_chat(world, span_notice("<b>Game mode is [storyteller.name]!</b>"))
+	message_admins("Game mode is [storyteller.name]!")
 	if(forced)
 		var/log_message = "Game mode is [storyteller.name], forced by admin ckey [force_ckey]"
 		log_events(log_message, notify_admins = TRUE)
