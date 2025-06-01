@@ -108,7 +108,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// UTC time of round start
 	var/auto_shuttle_start_time = 0
 	/// Time for auto calling the escape shuttle
-	var/auto_shuttle_fire_time = 180 MINUTES
+	var/auto_shuttle_fire_time = 150 MINUTES
 	/// Have we sent the auto shuttle
 	var/auto_shuttle_dispatched = FALSE
 
