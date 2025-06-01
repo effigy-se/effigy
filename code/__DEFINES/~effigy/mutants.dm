@@ -26,7 +26,6 @@ GLOBAL_LIST_INIT(mutant_variations, list(
 
 #define ANTENNAE "antennae"
 #define CYBER_FRAME "cyber_frame"
-#define CYBER_LIMBS "cyber_limbs"
 #define CYBER_ORGANS "cyber_organs"
 #define EARS "ears"
 #define FLUFF "fluff"
@@ -49,18 +48,25 @@ GLOBAL_LIST_INIT(bodypart_allowed_species, list(
 	),
 	CYBER_FRAME = list(
 		/datum/species/android,
-	),
-	CYBER_LIMBS = list(
-		/datum/species/android,
 		/datum/species/animalid,
+		/datum/species/human,
+		/datum/species/insectoid,
+		/datum/species/lizard,
+		/datum/species/moth,
+		/datum/species/plasmaman,
 	),
 	CYBER_ORGANS = list(
 		/datum/species/animalid,
 		/datum/species/human,
+		/datum/species/insectoid,
+		/datum/species/lizard,
+		/datum/species/moth,
+		/datum/species/plasmaman,
 	),
 	EARS = list(
 		/datum/species/android,
 		/datum/species/animalid,
+		/datum/species/insectoid,
 	),
 	FLUFF = list(
 		/datum/species/moth,
@@ -78,13 +84,15 @@ GLOBAL_LIST_INIT(bodypart_allowed_species, list(
 	DIGI_LEGS = list(
 		/datum/species/android,
 		/datum/species/animalid,
+		/datum/species/insectoid,
 		/datum/species/lizard,
+		/datum/species/moth,
 	),
-
 	SNOUT = list(
 		/datum/species/animalid,
 		/datum/species/android,
 		/datum/species/insectoid,
+		/datum/species/lizard,
 	),
 	TAIL = list(
 		/datum/species/animalid,
@@ -96,7 +104,6 @@ GLOBAL_LIST_INIT(bodypart_allowed_species, list(
 		/datum/species/android,
 		/datum/species/animalid,
 		/datum/species/insectoid,
-		/datum/species/lizard,
 		/datum/species/moth,
 	),
 ))
