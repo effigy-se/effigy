@@ -582,24 +582,6 @@ SPY_HARD_REWARD_TC_THRESHOLD 15
 
 ## EFFIGY ADDITIONAL GAME OPTIONS ##
 
-## Enables autotransfer system
-AUTOTRANSFER
-
-## Enables starting transfer votes by the crew at large.
-#ALLOW_VOTE_TRANSFER
-
-## autovote initial delay (deciseconds in real time) before first automatic transfer vote call (default 135 minutes)
-## Set to 0 to disable the subsystem altogether.
-#VOTE_AUTOTRANSFER_INITIAL 81000
-
-## autovote delay (deciseconds in real time) before sequential automatic transfer votes are called (default 45 minutes)
-#VOTE_AUTOTRANSFER_INTERVAL 27000
-
-## autovote maximum votes until automatic transfer call. (default -1)
-## Set to 0 to force automatic crew transfer after the 'vote_autotransfer_initial' elapsed.
-## Set to -1 to disable the maximum votes cap.
-#VOTE_AUTOTRANSFER_MAXIMUM -1
-
 ## EFFIGY GAMEMODE CONFIGS
 
 ## Default Storyteller. Pick a default storyteller program or comment out to enable voting.

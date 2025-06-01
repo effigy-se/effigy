@@ -27,9 +27,10 @@
 
 /datum/preference/toggle/fluff/is_accessible(datum/preferences/preferences)
 	. = ..()
-	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_mutant)
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!(species.type in GLOB.bodypart_allowed_species[FLUFF]))
 		return FALSE
+
 	return TRUE
 
 /// Fluff type
@@ -56,11 +57,13 @@
 /datum/preference/choiced/fluff/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!(species.type in GLOB.bodypart_allowed_species[FLUFF]))
 		return FALSE
+
 	var/has_fluff = preferences.read_preference(/datum/preference/toggle/fluff)
 	if(has_fluff)
 		return TRUE
+
 	return FALSE
 
 /datum/controller/subsystem/accessories
@@ -72,7 +75,7 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE)
 	. = ..()
-	if(target.dna.features["fluff"] && !(type in GLOB.species_blacklist_no_mutant))
+	if(target.dna.features["fluff"] && (type in GLOB.bodypart_allowed_species[FLUFF]))
 		if(target.dna.features["fluff"] != /datum/sprite_accessory/fluff/none::name && target.dna.features["fluff"] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/fluff)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
