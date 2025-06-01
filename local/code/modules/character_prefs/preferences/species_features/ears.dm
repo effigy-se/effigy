@@ -27,7 +27,7 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE)
 	. = ..()
-	if(target.dna.features["ears"] && !(type in GLOB.species_blacklist_no_mutant))
+	if(target.dna.features["ears"] && (type in GLOB.bodypart_allowed_species[EARS]))
 		if(target.dna.ear_type == NO_VARIATION)
 			return .
 		else if(target.dna.features["ears"] != /datum/sprite_accessory/ears/none::name && target.dna.features["ears"] != /datum/sprite_accessory/blank::name)

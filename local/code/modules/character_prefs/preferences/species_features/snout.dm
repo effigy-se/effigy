@@ -1,6 +1,6 @@
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE)
 	. = ..()
-	if(target.dna.features["snout"] && !(type in GLOB.species_blacklist_no_mutant))
+	if(target.dna.features["snout"] && (type in GLOB.bodypart_allowed_species[SNOUT]))
 		if(target.dna.features["snout"] != /datum/sprite_accessory/snouts/none::name && target.dna.features["snout"] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/snout)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -29,6 +29,7 @@
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!(species.type in GLOB.bodypart_allowed_species[SNOUT]))
 		return FALSE
+
 	return TRUE
 
 /// Snout type

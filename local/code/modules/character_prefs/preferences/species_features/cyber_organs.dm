@@ -182,6 +182,10 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 
 /datum/preference/choiced/tongue_type/is_accessible(datum/preferences/preferences)
 	. = ..()
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!(species.type in GLOB.bodypart_allowed_species[CYBER_ORGANS]))
+		return FALSE
+
 	return TRUE
 
 /// Breathing Tube

@@ -86,7 +86,7 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE)
 	. = ..()
-	if(target.dna.features["horns"] && !(type in GLOB.species_blacklist_no_mutant))
+	if(target.dna.features["horns"] && (type in GLOB.bodypart_allowed_species[HORNS]))
 		if(target.dna.features["horns"] != /datum/sprite_accessory/horns/none::name && target.dna.features["horns"] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/horns)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)

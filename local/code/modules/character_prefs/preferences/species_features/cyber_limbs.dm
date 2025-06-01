@@ -101,9 +101,10 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 
 /datum/preference/choiced/chest_type/is_accessible(datum/preferences/preferences)
 	. = ..()
-	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_humanoid)
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!(species.type in GLOB.bodypart_allowed_species[CYBER_FRAME]))
 		return FALSE
+
 	return TRUE
 
 /// Right arm type
@@ -131,9 +132,10 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 
 /datum/preference/choiced/arm_r_type/is_accessible(datum/preferences/preferences)
 	. = ..()
-	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_humanoid)
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!(species.type in GLOB.bodypart_allowed_species[CYBER_FRAME]))
 		return FALSE
+
 	return TRUE
 
 /// Left arm type
@@ -161,9 +163,10 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 
 /datum/preference/choiced/arm_l_type/is_accessible(datum/preferences/preferences)
 	. = ..()
-	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_humanoid)
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!(species.type in GLOB.bodypart_allowed_species[CYBER_FRAME]))
 		return FALSE
+
 	return TRUE
 
 /// Right leg type
@@ -191,9 +194,10 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 
 /datum/preference/choiced/leg_r_type/is_accessible(datum/preferences/preferences)
 	. = ..()
-	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_humanoid)
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!(species.type in GLOB.bodypart_allowed_species[CYBER_FRAME]))
 		return FALSE
+
 	return TRUE
 
 /// Left leg type
@@ -224,14 +228,15 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 
 /datum/preference/choiced/leg_l_type/is_accessible(datum/preferences/preferences)
 	. = ..()
-	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_humanoid)
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!(species.type in GLOB.bodypart_allowed_species[CYBER_FRAME]))
 		return FALSE
+
 	return TRUE
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE)
 	. = ..()
-	if(target.dna.features["frame_list"] && !(type in GLOB.species_blacklist_no_humanoid))
+	if(target.dna.features["frame_list"] && (type in GLOB.bodypart_allowed_species[CYBER_FRAME]))
 		//head
 		if(target.dna.features["frame_list"][BODY_ZONE_HEAD] && type == /datum/species/android)
 			var/obj/item/bodypart/head/old_limb = target.get_bodypart(BODY_ZONE_HEAD)

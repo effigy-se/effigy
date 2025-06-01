@@ -24,15 +24,10 @@ GLOBAL_LIST_INIT(mutant_variations, list(
 	MAMMAL_TYPE,
 ))
 
-GLOBAL_LIST_INIT(species_blacklist_no_mutant, list(
-	/datum/species/human,
-	))
-
-GLOBAL_LIST_INIT(species_blacklist_no_humanoid, list(
-	/datum/species/golem,
-	))
-
 #define ANTENNAE "antennae"
+#define CYBER_FRAME "cyber_frame"
+#define CYBER_LIMBS "cyber_limbs"
+#define CYBER_ORGANS "cyber_organs"
 #define EARS "ears"
 #define FLUFF "fluff"
 #define FRILLS "frills"
@@ -51,6 +46,17 @@ GLOBAL_LIST_INIT(bodypart_allowed_species, list(
 		/datum/species/android,
 		/datum/species/insectoid,
 		/datum/species/moth,
+	),
+	CYBER_FRAME = list(
+		/datum/species/android,
+	),
+	CYBER_LIMBS = list(
+		/datum/species/android,
+		/datum/species/animalid,
+	),
+	CYBER_ORGANS = list(
+		/datum/species/animalid,
+		/datum/species/human,
 	),
 	EARS = list(
 		/datum/species/android,

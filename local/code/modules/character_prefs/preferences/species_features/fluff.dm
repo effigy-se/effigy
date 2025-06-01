@@ -75,7 +75,7 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE)
 	. = ..()
-	if(target.dna.features["fluff"] && !(type in GLOB.species_blacklist_no_mutant))
+	if(target.dna.features["fluff"] && (type in GLOB.bodypart_allowed_species[FLUFF]))
 		if(target.dna.features["fluff"] != /datum/sprite_accessory/fluff/none::name && target.dna.features["fluff"] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/fluff)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
