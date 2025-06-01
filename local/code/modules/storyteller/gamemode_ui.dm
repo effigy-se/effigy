@@ -34,7 +34,7 @@
 		var/last_points = last_point_gains[track]
 		var/lower = event_track_points[track]
 		var/upper = point_thresholds[track]
-		var/next = last_points ? round((upper - lower) / last_points / STORYTELLER_WAIT_TIME * 40 / 6) / 10 : 0
+		var/next = last_points ? round((upper - lower) / 60) : 0
 		var/datum/round_event_control/forced = forced_next_events[track]
 		track_data[track] = list(
 			"name" = "[track]",

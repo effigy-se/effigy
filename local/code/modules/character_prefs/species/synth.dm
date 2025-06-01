@@ -1,5 +1,5 @@
 /datum/species/android
-	name = "Synth"
+	name = "Synthetic Humanoid"
 	id = SPECIES_ANDROID
 	examine_limb_id = SPECIES_HUMAN
 	inherent_traits = list(
