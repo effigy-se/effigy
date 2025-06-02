@@ -6844,6 +6844,7 @@
 #include "local\code\game\objects\items\stacks\sheets\sheet_types.dm"
 #include "local\code\game\objects\items\stacks\tiles\tile_types.dm"
 #include "local\code\game\objects\items\storage\belt.dm"
+#include "local\code\game\objects\items\storage\briefcase.dm"
 #include "local\code\game\objects\items\storage\fancy.dm"
 #include "local\code\game\objects\items\storage\hypospray.dm"
 #include "local\code\game\objects\items\storage\pill_bottles.dm"

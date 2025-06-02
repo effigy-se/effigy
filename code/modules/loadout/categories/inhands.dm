@@ -8,11 +8,11 @@
 /datum/loadout_item/inhand
 	abstract_type = /datum/loadout_item/inhand
 
-/datum/loadout_item/inhand/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
+/datum/loadout_item/inhand/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE, loadout_preference = LOADOUT_OVERRIDE_BACKPACK)
 	if(outfit.l_hand && !outfit.r_hand)
 		outfit.r_hand = item_path
 	else
-		if(outfit.l_hand)
+		if(loadout_preference != LOADOUT_OVERRIDE_JOB && outfit.l_hand) // EffigyEdit Change - Loadout override preference - Original: if(outfit.l_hand)
 			LAZYADD(outfit.backpack_contents, outfit.l_hand)
 		outfit.l_hand = item_path
 

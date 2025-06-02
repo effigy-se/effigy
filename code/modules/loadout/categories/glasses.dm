@@ -8,8 +8,8 @@
 /datum/loadout_item/glasses
 	abstract_type = /datum/loadout_item/glasses
 
-/datum/loadout_item/glasses/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
-	if(outfit.glasses)
+/datum/loadout_item/glasses/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE, loadout_preference = LOADOUT_OVERRIDE_BACKPACK)
+	if(loadout_preference != LOADOUT_OVERRIDE_JOB && outfit.glasses) // EffigyEdit Change - Loadout override preference - Original: if(outfit.glasses)
 		LAZYADD(outfit.backpack_contents, outfit.glasses)
 	outfit.glasses = item_path
 
