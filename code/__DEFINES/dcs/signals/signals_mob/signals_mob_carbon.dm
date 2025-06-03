@@ -177,3 +177,7 @@
 /// Called at the very end of human character setup
 /// At this point all quirks are assigned and the mob has a mind / client
 #define COMSIG_HUMAN_CHARACTER_SETUP_FINISHED "human_character_setup_finished"
+
+///from base of /mob/living/carbon/update_stat(): (stat_mob) allows you to block normal stat processing
+#define COMSIG_CARBON_UPDATE_STAT "carbon_update_stat"
+	#define COMSIG_CARBON_UPDATE_STAT_NO_UPDATE (1<<0)
