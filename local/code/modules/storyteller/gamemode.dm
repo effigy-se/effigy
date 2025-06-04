@@ -191,7 +191,7 @@ SUBSYSTEM_DEF(gamemode)
 		src.currentrun = running.Copy()
 
 	// Handle shuttle call
-	if(abs(REALTIMEOFDAY - auto_shuttle_start_time) > auto_shuttle_fire_time && auto_shuttle_call && !auto_shuttle_dispatched)
+	if(world.realtime - auto_shuttle_start_time > auto_shuttle_fire_time && auto_shuttle_call && !auto_shuttle_dispatched)
 		log_game("Escape shuttle automatically called by game mode setting.")
 		message_admins("Escape shuttle automatically called by game mode setting.")
 		SSshuttle.auto_end()

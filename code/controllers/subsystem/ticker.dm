@@ -327,6 +327,12 @@ SUBSYSTEM_DEF(ticker)
 	LAZYCLEARLIST(round_start_events)
 
 	round_start_time = world.time //otherwise round_start_time would be 0 for the signals
+	// EffigyEdit Add - Automated Transfer Shuttle
+	SSgamemode.auto_shuttle_start_time = world.realtime
+	if(SSgamemode.auto_shuttle_call)
+		log_game("Escape shuttle auto-call enabled at [DisplayTimeText(SSgamemode.auto_shuttle_fire_time)].")
+		message_admins("Escape shuttle auto-call enabled at [DisplayTimeText(SSgamemode.auto_shuttle_fire_time)].")
+	// EffigyEdit Add End
 	SEND_SIGNAL(src, COMSIG_TICKER_ROUND_STARTING, world.time)
 
 	log_world("Game start took [(world.timeofday - init_start)/10]s")
@@ -358,12 +364,6 @@ SUBSYSTEM_DEF(ticker)
 	var/list/adm = get_admin_counts()
 	var/list/allmins = adm["present"]
 	send2adminchat("Server", "Round [GLOB.round_id ? "#[GLOB.round_id]" : ""] has started[allmins.len ? ".":" with no active admins online!"]")
-	// EffigyEdit Add - Automated Transfer Shuttle
-	SSgamemode.auto_shuttle_start_time = REALTIMEOFDAY
-	if(SSgamemode.auto_shuttle_call)
-		log_game("Escape shuttle auto-call enabled at [DisplayTimeText(SSgamemode.auto_shuttle_fire_time)].")
-		message_admins("Escape shuttle auto-call enabled at [DisplayTimeText(SSgamemode.auto_shuttle_fire_time)].")
-	// EffigyEdit Add End
 	setup_done = TRUE
 
 	for(var/i in GLOB.start_landmarks_list)
