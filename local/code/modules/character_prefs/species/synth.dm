@@ -38,8 +38,11 @@
 	mutantheart = /obj/item/organ/heart/oil_pump
 	mutantstomach = /obj/item/organ/stomach/fuel_generator
 	mutantlungs = /obj/item/organ/lungs/cooling_fans
-	mutantliver = /obj/item/organ/liver/cybernetic/tier2
-	mutantbrain = /obj/item/organ/brain/cybernetic
+	mutantears = /obj/item/organ/ears/microphone
+	mutanttongue = /obj/item/organ/tongue/speaker
+	mutantliver = /obj/item/organ/liver/cybernetic/tier2 // needs replaced
+	mutantappendix = /obj/item/organ/appendix // needs replaced
+	mutantbrain = /obj/item/organ/brain/cybernetic // needs repathed off of cybernetic brain
 	exotic_blood = /datum/reagent/fuel/oil
 	exotic_bloodtype = BLOOD_TYPE_OIL
 	bodytemp_heat_damage_limit = (BODYTEMP_NORMAL + 146) // 456 K / 183 C

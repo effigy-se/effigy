@@ -5,8 +5,8 @@
 	can_process_solids = FALSE
 	organ_flags = ORGAN_ROBOTIC
 	reagent_vol = 100
-	var/ethanol_modifier = 4
-	var/flammable_modifier = 2
+	var/ethanol_modifier = 6
+	var/flammable_modifier = 3
 	var/list/flammable_reagents = list(
 		/datum/reagent/thermite = 70,
 		/datum/reagent/clf3 = 80,
@@ -54,7 +54,7 @@
 			to_chat(body, span_warning("The exhaust pipe on [src] emits smoke."))
 			balloon_alert(body, "generator smoking!")
 			particle_effect = new(body, /particles/smoke/burning/small)
-		reagents.remove_reagent(/datum/reagent/carbon, 0.1) // Cook off Carbon at half the rate of addition
+		reagents.remove_reagent(/datum/reagent/carbon, 0.1) // Cook off Carbon at a quarter the rate of addition
 	else
 		if(particle_effect)
 			QDEL_NULL(particle_effect)
@@ -64,18 +64,18 @@
 		if(istype(bit, /datum/reagent/consumable/ethanol)) // Burn ethanol for power!
 			var/datum/reagent/consumable/ethanol/liquid = bit
 			power_generated += (max((liquid.boozepwr / 100) - (carbon_amount / 100), 0) * ethanol_modifier) * ((maxHealth - damage) / maxHealth)
-			reagents.remove_reagent(liquid.type, 1)
+			reagents.remove_reagent(liquid.type, 2)
 			break
 		else if(is_type_in_list(bit, flammable_reagents)) // Alternative burn options
 			power_generated += (max((flammable_reagents[bit.type] / 100) - (carbon_amount / 100), 0) * flammable_modifier) * ((maxHealth - damage) / maxHealth)
-			reagents.remove_reagent(bit.type, 1)
+			reagents.remove_reagent(bit.type, 2)
 			break
 		else if(is_type_in_list(bit, bad_reagents)) // Expressly do not try to burn these
-			reagents.add_reagent(/datum/reagent/carbon, 0.2)
-			reagents.remove_reagent(bit.type, 1)
+			reagents.add_reagent(/datum/reagent/carbon, 0.4)
+			reagents.remove_reagent(bit.type, 2)
 			break
 		else if(!istype(bit, /datum/reagent/carbon))
-			reagents.remove_reagent(bit.type, 1)
+			reagents.remove_reagent(bit.type, 2)
 			break
 	if(owner)
 		var/obj/item/organ/brain/cybernetic/robot_brain = owner.get_organ_slot(ORGAN_SLOT_BRAIN)

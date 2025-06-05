@@ -261,6 +261,7 @@
 	RegisterSignal(brain_owner, COMSIG_ATOM_EMP_ACT, PROC_REF(emp_effect))
 	RegisterSignal(brain_owner, COMSIG_MOB_CLIENT_LOGIN, PROC_REF(on_login))
 	RegisterSignal(brain_owner, COMSIG_SPECIES_HANDLE_TEMPERATURE, PROC_REF(temperature_overrides))
+	qdel(brain_owner.mob_mood)
 	brain_owner.med_hud_set_health() // fix the health bar sprite
 	brain_owner.med_hud_set_status()
 	brain_owner.add_movespeed_mod_immunities("robot_brain", /datum/movespeed_modifier/damage_slowdown)
@@ -282,6 +283,7 @@
 	UnregisterSignal(organ_owner, COMSIG_ATOM_EMP_ACT)
 	UnregisterSignal(organ_owner, COMSIG_MOB_CLIENT_LOGIN)
 	UnregisterSignal(organ_owner, COMSIG_SPECIES_HANDLE_TEMPERATURE)
+	organ_owner.mob_mood = new /datum/mood(organ_owner)
 	organ_owner.remove_movespeed_mod_immunities("robot_brain", /datum/movespeed_modifier/damage_slowdown)
 	organ_owner.remove_movespeed_mod_immunities("robot_brain", /datum/movespeed_modifier/damage_slowdown_flying)
 
@@ -583,7 +585,7 @@
 
 /obj/item/organ/brain/cybernetic/on_life(seconds_per_tick, times_fired)
 	. = ..()
-	power -= (0.025 * seconds_per_tick) * temperature_disparity
+	power -= (0.0125 * seconds_per_tick) * temperature_disparity
 	run_updates()
 
 /obj/item/organ/brain/cybernetic/proc/handle_hud(mob/living/carbon/target, instant = FALSE)

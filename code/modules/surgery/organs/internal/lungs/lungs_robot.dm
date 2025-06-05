@@ -31,7 +31,7 @@
 		organ_flags &= ~ORGAN_DEPOWERED
 	if(organ_flags & ORGAN_DEPOWERED)
 		return
-	robot_brain.power -= (0.025 * seconds_per_tick) * robot_brain.temperature_disparity
+	robot_brain.power -= (0.0125 * seconds_per_tick) * robot_brain.temperature_disparity
 	robot_brain.run_updates()
 	var/datum/gas_mixture/environment = breather.loc?.return_air()
 	if(!environment)
