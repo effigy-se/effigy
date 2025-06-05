@@ -329,10 +329,7 @@ GLOBAL_DATUM_INIT(crewmonitor_robot, /datum/crewmonitor/robot, new)
 
 /obj/machinery/computer/crew/robot/ui_interact(mob/user)
 	. = ..()
-	//EFFIGY EDIT START
-	if(!skip_existing_monitor)
-		GLOB.crewmonitor_robot.show(user,src)
-	//EFFIGY EDIT END
+	GLOB.crewmonitor_robot.show(user,src)
 
 /datum/crewmonitor/robot/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

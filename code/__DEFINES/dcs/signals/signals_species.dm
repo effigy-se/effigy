@@ -6,3 +6,6 @@
 ///from datum/species/handle_chemical(): (datum/reagent/chem, mob/living/carbon/human/affected, seconds_per_tick, times_fired)
 #define COMSIG_SPECIES_HANDLE_CHEMICAL "species_handle_chemicals"
 	// same return values as COMSIG_MOB_STOP_REAGENT_CHECK
+///from datum/species/handle_body_temperature(): (mob/living/carbon/human/affected, seconds_per_tick, times_fired)
+#define COMSIG_SPECIES_HANDLE_TEMPERATURE "species_handle_temperature"
+	#define COMSIG_SPECIES_OVERRIDE_TEMPERATURE (1<<0)

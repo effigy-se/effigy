@@ -6361,6 +6361,7 @@
 #include "code\modules\surgery\organs\internal\liver\liver_plasmaman.dm"
 #include "code\modules\surgery\organs\internal\liver\liver_skeleton.dm"
 #include "code\modules\surgery\organs\internal\lungs\_lungs.dm"
+#include "code\modules\surgery\organs\internal\lungs\lungs_robot.dm"
 #include "code\modules\surgery\organs\internal\stomach\_stomach.dm"
 #include "code\modules\surgery\organs\internal\stomach\stomach_ethereal.dm"
 #include "code\modules\surgery\organs\internal\stomach\stomach_golem.dm"

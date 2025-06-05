@@ -13,6 +13,7 @@
 	var/beacon_light_timer
 	var/atom/movable/screen/power_meter/power_meter
 	var/atom/movable/screen/power_meter/oil/oil_meter
+	var/temperature_disparity = 1
 
 #define POWER_STATE_FULL_CHARGE 4
 #define POWER_STATE_CHARGED 3
@@ -258,6 +259,8 @@
 	RegisterSignal(brain_owner, COMSIG_LIVING_CAN_REVIVE, PROC_REF(allow_revives))
 	RegisterSignal(brain_owner, COMSIG_LIVING_DEATH, PROC_REF(activate_distress_beacon_death))
 	RegisterSignal(brain_owner, COMSIG_ATOM_EMP_ACT, PROC_REF(emp_effect))
+	RegisterSignal(brain_owner, COMSIG_MOB_CLIENT_LOGIN, PROC_REF(on_login))
+	RegisterSignal(brain_owner, COMSIG_SPECIES_HANDLE_TEMPERATURE, PROC_REF(temperature_overrides))
 	brain_owner.med_hud_set_health() // fix the health bar sprite
 	brain_owner.med_hud_set_status()
 	brain_owner.add_movespeed_mod_immunities("robot_brain", /datum/movespeed_modifier/damage_slowdown)
@@ -277,6 +280,8 @@
 	UnregisterSignal(organ_owner, COMSIG_LIVING_CAN_REVIVE)
 	UnregisterSignal(organ_owner, COMSIG_LIVING_DEATH)
 	UnregisterSignal(organ_owner, COMSIG_ATOM_EMP_ACT)
+	UnregisterSignal(organ_owner, COMSIG_MOB_CLIENT_LOGIN)
+	UnregisterSignal(organ_owner, COMSIG_SPECIES_HANDLE_TEMPERATURE)
 	organ_owner.remove_movespeed_mod_immunities("robot_brain", /datum/movespeed_modifier/damage_slowdown)
 	organ_owner.remove_movespeed_mod_immunities("robot_brain", /datum/movespeed_modifier/damage_slowdown_flying)
 
@@ -301,6 +306,18 @@
 /atom/movable/screen/fullscreen/static_vision/robot
 	alpha = 0
 	color = "#FFFFFF"
+
+/atom/movable/screen/fullscreen/robot_hot
+	icon = 'local/icons/hud/screen_full.dmi'
+	icon_state = "heat_"
+
+/atom/movable/screen/fullscreen/robot_cold
+	icon = 'local/icons/hud/screen_full.dmi'
+	icon_state = "cold_"
+
+/obj/item/organ/brain/cybernetic/proc/on_login(mob/living/source)
+	SIGNAL_HANDLER
+	run_updates()
 
 /obj/item/organ/brain/cybernetic/proc/run_updates(instant = FALSE)
 	if(power < 0)
@@ -372,6 +389,59 @@
 	SIGNAL_HANDLER
 	power = max(power - (damage * 0.5), 0)
 	run_updates(TRUE)
+
+/datum/movespeed_modifier/robot_hot
+	blacklisted_movetypes = FLOATING
+	variable = TRUE
+
+/datum/movespeed_modifier/robot_cold
+	blacklisted_movetypes = FLOATING
+	variable = TRUE
+
+/obj/item/organ/brain/cybernetic/proc/temperature_overrides(mob/living/carbon/human/robot, datum/species/source, seconds_per_tick, times_fired)
+	SIGNAL_HANDLER
+	robot.adjust_bodytemperature(3)
+	robot.adjust_coretemperature(3)
+	var/old_bodytemp = robot.old_bodytemperature
+	var/bodytemp = robot.bodytemperature
+	if(bodytemp > source.bodytemp_heat_damage_limit)
+		temperature_disparity = bodytemp / BODYTEMP_NORMAL
+		robot.remove_movespeed_modifier(/datum/movespeed_modifier/robot_cold)
+		robot.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/robot_hot, multiplicative_slowdown = -(((robot.bodytemperature - source.bodytemp_heat_damage_limit) / COLD_SLOWDOWN_FACTOR)) * 0.25)
+		robot.overlay_fullscreen("robot_temp_hot", /atom/movable/screen/fullscreen/robot_hot, 1)
+		if(bodytemp in source.bodytemp_heat_damage_limit to BODYTEMP_HEAT_WARNING_2)
+			robot.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/hot, 1)
+		else if(bodytemp in BODYTEMP_HEAT_WARNING_2 to BODYTEMP_HEAT_WARNING_3)
+			robot.overlay_fullscreen("robot_temp_hot", /atom/movable/screen/fullscreen/robot_hot, 2)
+			robot.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/hot, 2)
+		else
+			robot.overlay_fullscreen("robot_temp_hot", /atom/movable/screen/fullscreen/robot_hot, 3)
+			robot.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/hot, 3)
+	else if(bodytemp < source.bodytemp_cold_damage_limit)
+		temperature_disparity = BODYTEMP_NORMAL / bodytemp
+		robot.remove_movespeed_modifier(/datum/movespeed_modifier/robot_hot)
+		robot.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/robot_cold, multiplicative_slowdown = ((source.bodytemp_cold_damage_limit - robot.bodytemperature) / COLD_SLOWDOWN_FACTOR) * 0.25)
+		robot.overlay_fullscreen("robot_temp_cold", /atom/movable/screen/fullscreen/robot_cold, 1)
+		if(bodytemp in BODYTEMP_COLD_WARNING_2 to source.bodytemp_cold_damage_limit)
+			robot.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/cold, 1)
+		else if(bodytemp in BODYTEMP_COLD_WARNING_3 to BODYTEMP_COLD_WARNING_2)
+			robot.overlay_fullscreen("robot_temp_cold", /atom/movable/screen/fullscreen/robot_cold, 2)
+			robot.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/cold, 2)
+		else
+			owner.overlay_fullscreen("robot_temp_cold", /atom/movable/screen/fullscreen/robot_cold, 3)
+			robot.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/cold, 3)
+
+	else if (old_bodytemp > source.bodytemp_heat_damage_limit || old_bodytemp < source.bodytemp_cold_damage_limit)
+		temperature_disparity = 1
+		robot.clear_fullscreen("robot_temp_hot")
+		robot.clear_fullscreen("robot_temp_cold")
+		robot.clear_alert(ALERT_TEMPERATURE)
+		robot.remove_movespeed_modifier(/datum/movespeed_modifier/robot_hot)
+		robot.remove_movespeed_modifier(/datum/movespeed_modifier/robot_cold)
+		robot.clear_mood_event("cold")
+		robot.clear_mood_event("hot")
+	robot.old_bodytemperature = bodytemp
+	return COMSIG_SPECIES_OVERRIDE_TEMPERATURE
 
 /obj/item/organ/brain/cybernetic/proc/oil_handling(mob/living/carbon/human/robot, seconds_per_tick, times_fired)
 	SIGNAL_HANDLER
@@ -513,7 +583,7 @@
 
 /obj/item/organ/brain/cybernetic/on_life(seconds_per_tick, times_fired)
 	. = ..()
-	power -= 0.025 * seconds_per_tick
+	power -= (0.025 * seconds_per_tick) * temperature_disparity
 	run_updates()
 
 /obj/item/organ/brain/cybernetic/proc/handle_hud(mob/living/carbon/target, instant = FALSE)

@@ -37,6 +37,7 @@
 	body_markings = list(/datum/bodypart_overlay/simple/body_marking/lizard = "None")
 	mutantheart = /obj/item/organ/heart/oil_pump
 	mutantstomach = /obj/item/organ/stomach/fuel_generator
+	mutantlungs = /obj/item/organ/lungs/cooling_fans
 	mutantliver = /obj/item/organ/liver/cybernetic/tier2
 	mutantbrain = /obj/item/organ/brain/cybernetic
 	exotic_blood = /datum/reagent/fuel/oil
