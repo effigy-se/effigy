@@ -536,7 +536,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/escape)
 "Ah" = (
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/directional/south,
 /turf/open/floor/mineral/titanium,
@@ -952,7 +952,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/escape)
 "Rr" = (
-/obj/effect/decal/cleanable/oil/streak,
+/obj/effect/decal/cleanable/blood/splatter/oil,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)

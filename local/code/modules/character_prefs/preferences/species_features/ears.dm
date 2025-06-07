@@ -27,7 +27,7 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE)
 	. = ..()
-	if(target.dna.features["ears"] && !(type in GLOB.species_blacklist_no_mutant))
+	if(target.dna.features["ears"] && (type in GLOB.bodypart_allowed_species[EARS]))
 		if(target.dna.ear_type == NO_VARIATION)
 			return .
 		else if(target.dna.features["ears"] != /datum/sprite_accessory/ears/none::name && target.dna.features["ears"] != /datum/sprite_accessory/blank::name)
@@ -60,9 +60,10 @@
 
 /datum/preference/choiced/ear_variation/is_accessible(datum/preferences/preferences)
 	. = ..()
-	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_mutant)
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!(species.type in GLOB.bodypart_allowed_species[EARS]))
 		return FALSE
+
 	return TRUE
 
 ///	Cat ears type
@@ -86,11 +87,13 @@
 /datum/preference/choiced/felinid_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!(species.type in GLOB.bodypart_allowed_species[EARS]))
 		return FALSE
+
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == CAT_TYPE)
 		return TRUE
+
 	return FALSE
 
 ///	Lizard ears type
@@ -119,11 +122,13 @@
 /datum/preference/choiced/lizard_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!(species.type in GLOB.bodypart_allowed_species[EARS]))
 		return FALSE
+
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == LIZARD_TYPE)
 		return TRUE
+
 	return FALSE
 
 ///	Fox ears type
@@ -152,11 +157,13 @@
 /datum/preference/choiced/fox_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!(species.type in GLOB.bodypart_allowed_species[EARS]))
 		return FALSE
+
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == FOX_TYPE)
 		return TRUE
+
 	return FALSE
 
 ///	Dog ears type
@@ -174,11 +181,13 @@
 /datum/preference/choiced/dog_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!(species.type in GLOB.bodypart_allowed_species[EARS]))
 		return FALSE
+
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == DOG_TYPE)
 		return TRUE
+
 	return FALSE
 
 /datum/preference/choiced/dog_ears/create_default_value()
@@ -218,11 +227,13 @@
 /datum/preference/choiced/flying_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!(species.type in GLOB.bodypart_allowed_species[EARS]))
 		return FALSE
+
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == FLYING_TYPE)
 		return TRUE
+
 	return FALSE
 
 ///	Monkey ears type
@@ -251,11 +262,13 @@
 /datum/preference/choiced/monkey_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!(species.type in GLOB.bodypart_allowed_species[EARS]))
 		return FALSE
+
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == MONKEY_TYPE)
 		return TRUE
+
 	return FALSE
 
 ///	Mammal ears type
@@ -284,11 +297,13 @@
 /datum/preference/choiced/mammal_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!(species.type in GLOB.bodypart_allowed_species[EARS]))
 		return FALSE
+
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == MAMMAL_TYPE)
 		return TRUE
+
 	return FALSE
 
 ///	Aquatic ears type
@@ -317,11 +332,13 @@
 /datum/preference/choiced/fish_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!(species.type in GLOB.bodypart_allowed_species[EARS]))
 		return FALSE
+
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == AQUATIC_TYPE)
 		return TRUE
+
 	return FALSE
 
 ///	Humanoid ears type
@@ -350,11 +367,13 @@
 /datum/preference/choiced/humanoid_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!(species.type in GLOB.bodypart_allowed_species[EARS]))
 		return FALSE
+
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == HUMANOID_TYPE)
 		return TRUE
+
 	return FALSE
 
 ///	Synth ears type
@@ -383,11 +402,13 @@
 /datum/preference/choiced/synthetic_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!(species.type in GLOB.bodypart_allowed_species[EARS]))
 		return FALSE
+
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == CYBERNETIC_TYPE)
 		return TRUE
+
 	return FALSE
 
 /// Generate selection preview

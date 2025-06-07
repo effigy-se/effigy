@@ -8,7 +8,9 @@
 /datum/loadout_item/shoes
 	abstract_type = /datum/loadout_item/shoes
 
-/datum/loadout_item/shoes/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
+/datum/loadout_item/shoes/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE, loadout_preference = LOADOUT_OVERRIDE_BACKPACK)
+	if(loadout_preference != LOADOUT_OVERRIDE_JOB && outfit.shoes) // EffigyEdit Add - Loadout override preference
+		LAZYADD(outfit.backpack_contents, outfit.shoes) // EffigyEdit Add - Loadout override preference
 	outfit.shoes = item_path
 
 /datum/loadout_item/shoes/sneakers

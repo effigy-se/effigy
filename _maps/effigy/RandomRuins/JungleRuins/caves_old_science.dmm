@@ -1756,7 +1756,7 @@
 "Me" = (
 /obj/structure/table/optable,
 /obj/item/organ/cyberimp/chest/nutriment/plus,
-/obj/item/organ/cyberimp/arm/flash,
+/obj/item/organ/cyberimp/arm/toolkit/flash,
 /turf/open/floor/material/meat,
 /area/ruin/unpowered/taeloth_coverup/robotics)
 "Mj" = (

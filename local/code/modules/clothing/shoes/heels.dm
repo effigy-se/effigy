@@ -1,8 +1,9 @@
 /obj/item/clothing/shoes/fancy_heels
 	name = "high heels"
 	desc = "A pair of fancy high heels that are much smaller on your feet."
-	icon_state = "fancyheels"
-	icon = 'local/icons/obj/clothing/shoes.dmi'
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/fancy_heels"
+	post_init_icon_state = "fancyheels"
 	worn_icon = 'local/icons/mob/clothing/feet.dmi'
 	greyscale_colors = "#FFFFFF"
 	greyscale_config = /datum/greyscale_config/fancyheels

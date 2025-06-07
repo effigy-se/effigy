@@ -223,7 +223,7 @@
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "iN" = (
-/obj/effect/decal/cleanable/oil/streak,
+/obj/effect/decal/cleanable/blood/splatter/oil,
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/shuttle/abandoned/cargo)
@@ -561,7 +561,7 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/abandoned/crew)
 "zc" = (
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/iron,
 /area/shuttle/abandoned/cargo)
 "zh" = (

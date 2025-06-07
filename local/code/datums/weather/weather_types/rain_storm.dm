@@ -7,6 +7,9 @@
 		/area/taeloth/nearstation/bridge_crossway/deck, \
 		) // outdoors = false also prevents you from using bluepirnts.. ough
 
+/datum/weather/rain_storm/wizard
+	turf_thunder_chance = THUNDER_CHANCE_AVERAGE // Wiz thunderstorms should keep their default /tg/ thunder chance.
+
 // This sucks HARD but not as any fault of it's own.
 /datum/weather/rain_storm/forever_storm
 	telegraph_duration = 0

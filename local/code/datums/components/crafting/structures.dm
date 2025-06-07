@@ -4,7 +4,7 @@
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/stack/tile/wood = 1,
-		/obj/item/paper,
+		/obj/item/paper = 1,
 	)
 	result = /obj/structure/standing_sign
 	result_amount = 1

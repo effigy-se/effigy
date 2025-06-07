@@ -1,7 +1,9 @@
 /obj/item/clothing/gloves/maid_arm_covers
 	name = "maid arm covers"
 	desc = "Maid in China."
-	icon_state = "maid_arm_covers"
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/gloves/maid_arm_covers"
+	post_init_icon_state = "maid_arm_covers"
 	greyscale_config = /datum/greyscale_config/maid_arm_covers
 	greyscale_config_worn = /datum/greyscale_config/maid_arm_covers/worn
 	greyscale_config_inhand_left = null

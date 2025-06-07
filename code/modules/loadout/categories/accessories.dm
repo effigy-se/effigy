@@ -50,8 +50,8 @@
 	manager.save_current_loadout(loadout) // EffigyEdit Change - Custom Loadouts - Original: manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
 	return TRUE // Update UI
 
-/datum/loadout_item/accessory/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
-	if(outfit.accessory)
+/datum/loadout_item/accessory/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE, loadout_preference = LOADOUT_OVERRIDE_BACKPACK)
+	if(loadout_preference != LOADOUT_OVERRIDE_JOB && outfit.accessory) // EffigyEdit Change - Loadout override preference - Original: if(outfit.accessory)
 		LAZYADD(outfit.backpack_contents, outfit.accessory)
 	outfit.accessory = item_path
 

@@ -33,11 +33,21 @@
 				//icons for solid airlocks have an added solid overlay on top of their glass icons
 				else if(ispath(path, /obj/machinery/door/airlock))
 					var/obj/machinery/door/airlock/airlock_path = path
-					var/airlock_icon = initial(airlock_path.icon)
+					// EffigyEdit Add - Greyscale airlocks
+					if(airlock_path::greyscale_config && airlock_path::greyscale_colors)
+						var/airlock_icon = airlock_path::icon
+						var/airlock_state = airlock_path::icon_state
+						var/datum/greyscale_config/greyscale_config = airlock_path::greyscale_config
+						sprite_icon = uni_icon(airlock_icon, airlock_state)
+						if(!initial(airlock_path.glass) && initial(airlock_path.can_be_glass))
+							sprite_icon.blend_icon(uni_icon(greyscale_config::icon_file, "fill_closed"), ICON_OVERLAY)
+					else
+					// EffigyEdit Add End
+						var/airlock_icon = initial(airlock_path.icon)
 
-					sprite_icon = uni_icon(airlock_icon, "closed")
-					if(!initial(airlock_path.glass) && initial(airlock_path.can_be_glass))
-						sprite_icon.blend_icon(uni_icon(airlock_icon, "fill_closed"), ICON_OVERLAY)
+						sprite_icon = uni_icon(airlock_icon, "closed")
+						if(!initial(airlock_path.glass) && initial(airlock_path.can_be_glass))
+							sprite_icon.blend_icon(uni_icon(airlock_icon, "fill_closed"), ICON_OVERLAY)
 
 				//for all other icons we load the paths default icon & icon state
 				else

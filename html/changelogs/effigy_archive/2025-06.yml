@@ -1,0 +1,6 @@
+2025-06-02:
+  TealSeer:
+  - rscadd: Added a preference to choose where your loadout items go
+  unit0016:
+  - balance: Rimpoint's lightning no longer damages objects or turfs.
+  - bugfix: Wizard rainstorms now are properly dangerous again

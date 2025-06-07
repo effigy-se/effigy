@@ -8,9 +8,9 @@ import { COLORS } from '../constants';
 import { Window } from '../layouts';
 
 const HEALTH_COLOR_BY_LEVEL = [
-  '#17d568',
+  '#2ecc71',
   '#c4cf2d',
-  '#e67e22',
+  '#ff7f50',
   '#ed5100',
   '#e74c3c',
   '#801308',
@@ -187,7 +187,6 @@ const CrewTable = () => {
           <Input
             placeholder="Search for name..."
             onChange={setSearchQuery}
-            expensive
             value={searchQuery}
           />
         </>

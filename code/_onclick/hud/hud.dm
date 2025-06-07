@@ -7,10 +7,6 @@
 // The default UI style is the first one in the list
 // EffigyEdit Change - Custom UI Styles
 GLOBAL_LIST_INIT(available_ui_styles, list(
-	"Effigy Cyan" = 'local/icons/hud/screen_efcyan.dmi',
-	"Effigy Magenta" = 'local/icons/hud/screen_efmagenta.dmi',
-	"Effigy Yellow" = 'local/icons/hud/screen_efyellow.dmi',
-	"Effigy Green" = 'local/icons/hud/screen_efgreen.dmi',
 	"Midnight" = 'icons/hud/screen_midnight.dmi',
 	"Retro" = 'icons/hud/screen_retro.dmi',
 	"Plasmafire" = 'icons/hud/screen_plasmafire.dmi',
@@ -20,6 +16,10 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	"Glass" = 'icons/hud/screen_glass.dmi',
 	"Trasen-Knox" = 'icons/hud/screen_trasenknox.dmi',
 	"Detective" = 'icons/hud/screen_detective.dmi',
+	"Effigy Cyan" = 'local/icons/hud/screen_efcyan.dmi',
+	"Effigy Magenta" = 'local/icons/hud/screen_efmagenta.dmi',
+	"Effigy Yellow" = 'local/icons/hud/screen_efyellow.dmi',
+	"Effigy Green" = 'local/icons/hud/screen_efgreen.dmi',
 ))
 // EffigyEdit Change End
 
@@ -41,9 +41,9 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/atom/movable/screen/zone_select
 	var/atom/movable/screen/pull_icon
 	var/atom/movable/screen/rest_icon
+	var/atom/movable/screen/sleep_icon
 	var/atom/movable/screen/throw_icon
 	var/atom/movable/screen/resist_icon
-	var/atom/movable/screen/module_store_icon
 	var/atom/movable/screen/floor_change
 
 	var/list/static_inventory = list() //the screen objects which are static
@@ -227,7 +227,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	QDEL_NULL(listed_actions)
 	QDEL_LIST(floating_actions)
 
-	QDEL_NULL(module_store_icon)
 	QDEL_LIST(static_inventory)
 
 	// all already deleted by static inventory clear
@@ -427,12 +426,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		return
 	var/mob/screenmob = viewmob || mymob
 	hidden_inventory_update(screenmob)
-
-/datum/hud/robot/show_hud(version = 0, mob/viewmob)
-	. = ..()
-	if(!.)
-		return
-	update_robot_modules_display()
 
 /datum/hud/new_player/show_hud(version = 0, mob/viewmob)
 	. = ..()

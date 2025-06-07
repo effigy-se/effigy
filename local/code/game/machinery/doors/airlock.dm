@@ -192,8 +192,10 @@
 			. += emissive_appearance(overlays_file, "unres_[heading]", src, alpha = src.alpha)
 
 /obj/machinery/door/airlock
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock"
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
+	post_init_icon_state = "closed"
 	greyscale_config = /datum/greyscale_config/airlock_effigy
 	greyscale_colors = "#757278#757278"
 
@@ -201,87 +203,103 @@
 	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
 
 /obj/machinery/door/airlock/atmos
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/atmos"
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
 	greyscale_config = /datum/greyscale_config/airlock_effigy/atmos
 	greyscale_colors = "#52b4e9#757278#7cb8dd"
 
 /obj/machinery/door/airlock/command
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/command"
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
 	greyscale_config = /datum/greyscale_config/airlock_effigy/command
 	greyscale_colors = "#1987c2#4d4d4d#ffd66e"
 
 /obj/machinery/door/airlock/engineering
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/engineering"
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
 	greyscale_config = /datum/greyscale_config/airlock_effigy/engineering
 	greyscale_colors = "#efb341#757278#e39825"
 
 /obj/machinery/door/airlock/hydroponics
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/hydroponics"
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
 	greyscale_config = /datum/greyscale_config/airlock_effigy
 	greyscale_colors = "#46c26d#52b4e9"
 
 /obj/machinery/door/airlock/maintenance
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/maintenance"
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
 	greyscale_config = /datum/greyscale_config/airlock_effigy
 	greyscale_colors = "#D1D0D2#757278"
 
 /obj/machinery/door/airlock/maintenance/external
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/maintenance/external"
 	greyscale_colors = "#d65e2f#757278"
 
 /obj/machinery/door/airlock/medical
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/medical"
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
 	greyscale_config = /datum/greyscale_config/airlock_effigy/medical
 	greyscale_colors = "#52b4e9#eeeeff#eeeeff"
 
 /obj/machinery/door/airlock/mining
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/mining"
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
 	greyscale_config = /datum/greyscale_config/airlock_effigy/cargo
 	greyscale_colors = "#915416#757278#915416"
 
 /obj/machinery/door/airlock/research
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/research"
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
 	greyscale_config = /datum/greyscale_config/airlock_effigy/science
 	greyscale_colors = "#be64ad#eeeeff#eeeeff"
 
 /obj/machinery/door/airlock/science
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/science"
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
 	greyscale_config = /datum/greyscale_config/airlock_effigy/science
 	greyscale_colors = "#aa3ec3#eeeeff#eeeeff"
 
 /obj/machinery/door/airlock/security
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/security"
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
 	greyscale_config = /datum/greyscale_config/airlock_effigy/security
 	greyscale_colors = "#cf3249#4d4d4d#ab293c"
 
 /obj/machinery/door/airlock/virology
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/virology"
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
 	greyscale_config = /datum/greyscale_config/airlock_effigy/viro
 	greyscale_colors = "#46c26d#eeeeff#eeeeff"
 
 /obj/machinery/door/airlock/silver
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/silver"
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
 	greyscale_config = /datum/greyscale_config/airlock_effigy
 	greyscale_colors = "#D1D0D2#D1D0D2"
 
 /obj/machinery/door/airlock/public
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/public"
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
 	greyscale_config = /datum/greyscale_config/airlock_effigy
 	greyscale_colors = "#D1D0D2#D1D0D2"
 
 /obj/machinery/door/airlock/public/glass/no_lights
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 	has_environment_lights = FALSE
 
 /**
@@ -290,6 +308,8 @@
 /obj/machinery/door/airlock/external
 	icon = 'local/icons/obj/doors/airlocks/external/external.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/external/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 
@@ -318,6 +338,8 @@
 /obj/machinery/door/airlock/vault
 	icon = 'icons/obj/doors/airlocks/vault/vault.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/vault/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -325,6 +347,8 @@
 /obj/machinery/door/airlock/survival_pod
 	icon = 'local/icons/obj/doors/airlocks/external/external.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/external/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 
@@ -358,6 +382,8 @@
 	icon = 'icons/obj/doors/airlocks/hatch/centcom.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/hatch/overlays.dmi'
 	note_overlay_file = 'icons/obj/doors/airlocks/hatch/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -365,6 +391,8 @@
 /obj/machinery/door/airlock/maintenance_hatch
 	icon = 'icons/obj/doors/airlocks/hatch/maintenance.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/hatch/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -372,6 +400,8 @@
 /obj/machinery/door/airlock/highsecurity
 	icon = 'icons/obj/doors/airlocks/highsec/highsec.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/highsec/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -379,6 +409,8 @@
 /obj/machinery/door/airlock/shuttle
 	icon = 'icons/obj/doors/airlocks/shuttle/shuttle.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/shuttle/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -387,6 +419,8 @@
 	icon = 'icons/obj/doors/airlocks/abductor/abductor_airlock.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/abductor/overlays.dmi'
 	note_overlay_file = 'icons/obj/doors/airlocks/external/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -395,6 +429,8 @@
 	name = "cult airlock"
 	icon = 'icons/obj/doors/airlocks/cult/runed/cult.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/cult/runed/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -406,6 +442,8 @@
 /obj/machinery/door/airlock/centcom
 	icon = 'icons/obj/doors/airlocks/centcom/centcom.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/centcom/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -413,6 +451,16 @@
 /obj/machinery/door/airlock/grunge
 	icon = 'icons/obj/doors/airlocks/centcom/centcom.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/centcom/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_colors = null
+	use_legacy_animations = TRUE
+
+/obj/machinery/door/airlock/freezer
+	icon = 'icons/obj/doors/airlocks/station/freezer.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -423,6 +471,8 @@
 
 /obj/machinery/door/airlock/multi_tile
 	overlays_file = 'local/icons/obj/doors/airlocks/multi_tile/public/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -434,6 +484,8 @@
 /obj/machinery/door/airlock/tram
 	icon = 'icons/obj/doors/airlocks/tram/tram.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/tram/tram-overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 
@@ -445,6 +497,8 @@
  */
 
 /obj/machinery/door/airlock/material
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/material"
 	greyscale_config = /datum/greyscale_config/airlock_effigy/material
 	greyscale_colors = "#757278"
 	assemblytype = /obj/structure/door_assembly/door_assembly_material
@@ -452,6 +506,8 @@
 /obj/machinery/door/airlock/gold
 	icon = 'icons/obj/doors/airlocks/station/gold.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -459,6 +515,8 @@
 /obj/machinery/door/airlock/diamond
 	icon = 'icons/obj/doors/airlocks/station/diamond.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -466,6 +524,8 @@
 /obj/machinery/door/airlock/uranium
 	icon = 'icons/obj/doors/airlocks/station/uranium.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -473,6 +533,8 @@
 /obj/machinery/door/airlock/plasma
 	icon = 'icons/obj/doors/airlocks/station/plasma.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -481,6 +543,8 @@
 	icon = 'icons/obj/doors/airlocks/station/bananium.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
 	doorOpen = 'sound/items/bikehorn.ogg'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -488,6 +552,8 @@
 /obj/machinery/door/airlock/sandstone
 	icon = 'icons/obj/doors/airlocks/station/sandstone.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -495,6 +561,8 @@
 /obj/machinery/door/airlock/wood
 	icon = 'local/icons/obj/doors/airlocks/station/wood.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -502,6 +570,8 @@
 /obj/machinery/door/airlock/titanium
 	icon = 'icons/obj/doors/airlocks/shuttle/shuttle.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/shuttle/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -509,6 +579,8 @@
 /obj/machinery/door/airlock/bronze
 	icon = 'icons/obj/doors/airlocks/clockwork/pinion_airlock.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/clockwork/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
 	use_legacy_animations = TRUE
@@ -518,36 +590,46 @@
  */
 
 /obj/machinery/door/airlock/service
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
+	icon_state = "/obj/machinery/door/airlock/service"
 	greyscale_config = /datum/greyscale_config/airlock_effigy/service
 	greyscale_colors = "#46c26d#4d4d4d#369655"
 
 /obj/machinery/door/airlock/service/glass
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 	opacity = FALSE
 	glass = TRUE
 
 /obj/structure/door_assembly/door_assembly_svc
 	name = "service airlock assembly"
-	icon =  /obj/machinery/door/airlock/service::icon
+	icon =  'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_svc"
+	post_init_icon_state = "construction"
+	greyscale_config = /obj/machinery/door/airlock/service::greyscale_config
+	greyscale_colors = /obj/machinery/door/airlock/service::greyscale_colors
 	base_name = "service airlock"
 	glass_type = /obj/machinery/door/airlock/service/glass
 	airlock_type = /obj/machinery/door/airlock/service
 
 /// Syndicate
 /obj/machinery/door/airlock/syndicate
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
+	icon_state = "/obj/machinery/door/airlock/syndicate"
 	greyscale_config = /datum/greyscale_config/airlock_effigy
 	greyscale_colors = "#950404#4d4d4d"
 
 /obj/machinery/door/airlock/syndicate/glass
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 	opacity = FALSE
 	glass = TRUE
 
 /obj/structure/door_assembly/door_assembly_syn
 	name = "syndicate airlock assembly"
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_syn"
+	post_init_icon_state = "construction"
 	greyscale_config = /obj/machinery/door/airlock/syndicate::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/syndicate::greyscale_colors
 	base_name = "syndicate airlock"
@@ -556,18 +638,22 @@
 
 /// Central Command
 /obj/machinery/door/airlock/central_command
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/airlocks.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/effigy/overlays.dmi'
+	icon_state = "/obj/machinery/door/airlock/central_command"
 	greyscale_config = /datum/greyscale_config/airlock_effigy
 	greyscale_colors = "#449455#39393F"
 
 /obj/machinery/door/airlock/central_command/glass
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 	opacity = FALSE
 	glass = TRUE
 
 /obj/structure/door_assembly/door_assembly_cce
 	name = "central command airlock assembly"
-	icon = 'local/icons/obj/doors/airlocks/effigy/effigy.dmi'
+	icon = 'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_cce"
+	post_init_icon_state = "construction"
 	greyscale_config = /obj/machinery/door/airlock/central_command::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/central_command::greyscale_colors
 	base_name = "central command airlock"
@@ -576,6 +662,7 @@
 
 // Variant that's indestructible and unhackable. Oorah.
 /obj/machinery/door/airlock/central_command/indestructible_and_unhackable_not_fun_for_players_do_not_map_off_a_centcom_z_level // I'm sensing a pattern with this PR
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	damage_deflection = INFINITY
 	integrity_failure = 0

@@ -8,7 +8,9 @@
 /datum/loadout_item/neck
 	abstract_type = /datum/loadout_item/neck
 
-/datum/loadout_item/neck/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
+/datum/loadout_item/neck/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE, loadout_preference = LOADOUT_OVERRIDE_BACKPACK)
+	if(loadout_preference != LOADOUT_OVERRIDE_JOB && outfit.neck) // EffigyEdit Add - Loadout override preference
+		LAZYADD(outfit.backpack_contents, outfit.neck) // EffigyEdit Add - Loadout override preference
 	outfit.neck = item_path
 
 /datum/loadout_item/neck/scarf_greyscale

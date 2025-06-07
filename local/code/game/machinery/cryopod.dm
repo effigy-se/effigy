@@ -180,6 +180,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		GLOB.valid_cryopods += src
 	if(latejoin_possible)
 		SSjob.latejoin_cryo_trackers += src
+	add_atom_colour(color_transition_filter("#6b00ff", SATURATION_MULTIPLY), FIXED_COLOUR_PRIORITY)
 	return INITIALIZE_HINT_LATELOAD //Gotta populate the cryopod computer GLOB first
 
 /obj/machinery/cryopod/post_machine_initialize()
@@ -420,7 +421,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	GLOB.prev_sect_type = GLOB.religious_sect.type
 
  // set the altar references to the old religious_sect to null
-	for(var/obj/structure/altar_of_gods/altar in GLOB.chaplain_altars)
+	for(var/obj/structure/altar/of_gods/altar in GLOB.chaplain_altars)
 		altar.GetComponent(/datum/component/religious_tool).easy_access_sect = null
 		altar.sect_to_altar = null
 

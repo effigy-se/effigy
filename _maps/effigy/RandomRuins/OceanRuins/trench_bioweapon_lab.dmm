@@ -528,7 +528,7 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 9
 	},
-/obj/effect/decal/cleanable/robot_debris,
+/obj/effect/decal/cleanable/blood/gibs/robot_debris,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
 /area/ruin/ocean/bioweapon_research)
@@ -1521,7 +1521,7 @@
 /turf/open/floor/pod,
 /area/ruin/ocean/bioweapon_research)
 "wE" = (
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/ocean/bioweapon_research)

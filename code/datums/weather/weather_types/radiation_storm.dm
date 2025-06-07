@@ -4,7 +4,8 @@
 	desc = "A cloud of intense radiation passes through the area dealing rad damage to those who are unprotected."
 
 	telegraph_duration = 40 SECONDS
-	telegraph_message = span_danger("The air begins to grow warm.")
+	telegraph_message = span_userdanger("The air begins to grow warm.") // EffigyEdit Change - Original: span_danger
+	provide_maintenance_access = TRUE // EffigyEdit Add - Emergency Maintenance Access
 
 	weather_message = span_userdanger("<i>You feel waves of heat wash over you! Find shelter!</i>")
 	weather_overlay = "ash_storm"
@@ -13,7 +14,7 @@
 	weather_color = "green"
 	weather_sound = 'sound/announcer/alarm/bloblarm.ogg'
 
-	end_duration = 10 SECONDS
+	end_duration = 4 SECONDS // EffigyEdit Change - Original: 10 SECONDS
 	end_message = span_notice("The air seems to be cooling off again.")
 
 	area_type = /area
@@ -63,7 +64,8 @@
 /datum/weather/rad_storm/end()
 	if(..())
 		return
-	priority_announce("The radiation threat has passed. Please return to your workplaces.", "Anomaly Alert")
+	// priority_announce("The radiation threat has passed. Please return to your workplaces.", "Anomaly Alert") // EffigyEdit Change - Maintenance opens for radstorms
+	priority_announce("The radiation threat has passed, please return to your workplaces. Maintenance corridor emergency access will be revoked shortly.", "Radiation Alert Cleared")
 	status_alarm(FALSE)
 
 /datum/weather/rad_storm/proc/do_mutate(mob/living/carbon/human/mutant)
