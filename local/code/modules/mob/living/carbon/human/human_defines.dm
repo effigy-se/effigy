@@ -7,3 +7,7 @@
 	var/oversized_piggydam = 25
 	/// Paralyze time for oversized piggyback riding in deciseconds. (10 deciseconds = 1 second)
 	var/oversized_piggyknock = 3 SECONDS
+	/// Selected scream type
+	var/datum/scream_type/selected_scream
+	/// Selected laugh type
+	var/datum/laugh_type/selected_laugh
