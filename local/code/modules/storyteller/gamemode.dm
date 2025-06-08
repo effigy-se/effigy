@@ -108,7 +108,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// UTC time of round start
 	var/auto_shuttle_start_time = 0
 	/// Time for auto calling the escape shuttle
-	var/auto_shuttle_fire_time = 150 MINUTES
+	var/auto_shuttle_fire_time = 135 MINUTES
 	/// Have we sent the auto shuttle
 	var/auto_shuttle_dispatched = FALSE
 
@@ -180,6 +180,11 @@ SUBSYSTEM_DEF(gamemode)
 			continue
 		else
 			event_pools[event.track] += event //Add it to the categorized event pools
+
+	// Auto-shuttle
+	auto_shuttle_fire_time = (CONFIG_GET(number/auto_shuttle_time) MINUTES)
+	if(CONFIG_GET(flag/disable_auto_shuttle))
+		auto_shuttle_call = FALSE
 
 	return SS_INIT_SUCCESS
 
