@@ -5235,7 +5235,7 @@
 /obj/machinery/cryopod,
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/dark,
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/effect/turf_decal/trimline/dark_purple/filled/line{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
@@ -10524,6 +10524,7 @@
 /obj/machinery/camera/directional/east{
 	c_tag = "Service - Locker Room, Southeast"
 	},
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/iron,
 /area/station/commons/locker)
 "dHn" = (
@@ -18984,7 +18985,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/turf_decal/trimline/dark_purple/filled/line,
 /turf/open/floor/iron/white,
 /area/station/commons/cryo)
 "gEu" = (
@@ -26964,7 +26965,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/effect/turf_decal/siding/dark,
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/effect/turf_decal/trimline/dark_purple/filled/line{
 	dir = 1
 	},
 /turf/open/floor/iron/white,
@@ -30848,7 +30849,7 @@
 /turf/open/floor/iron/dark/side,
 /area/station/medical/morgue)
 "kNJ" = (
-/obj/effect/turf_decal/tile/red/anticorner/contrasted,
+/obj/effect/turf_decal/tile/yellow/anticorner/contrasted,
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible{
 	dir = 4
 	},
@@ -43110,7 +43111,7 @@
 /obj/machinery/computer/atmos_control/nitrogen_tank{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/red/half/contrasted,
+/obj/effect/turf_decal/tile/yellow/half/contrasted,
 /obj/machinery/atmospherics/pipe/bridge_pipe/green/visible{
 	dir = 4
 	},
@@ -45563,7 +45564,7 @@
 /turf/closed/wall/mineral/wood/nonmetal,
 /area/station/commons/dorms/room2)
 "qbp" = (
-/obj/effect/turf_decal/tile/red/anticorner/contrasted{
+/obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
 	dir = 8
 	},
 /obj/machinery/atmospherics/components/trinary/filter/atmos/n2{
@@ -55277,7 +55278,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/turf_decal/trimline/dark_purple/filled/line,
 /obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron/white,
 /area/station/commons/cryo)
@@ -62059,7 +62060,7 @@
 "vCc" = (
 /obj/machinery/cryopod,
 /obj/effect/turf_decal/siding/dark,
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/effect/turf_decal/trimline/dark_purple/filled/line{
 	dir = 1
 	},
 /obj/machinery/newscaster/directional/north,
@@ -63028,7 +63029,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/turf_decal/trimline/dark_purple/filled/line,
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/white,
 /area/station/commons/cryo)

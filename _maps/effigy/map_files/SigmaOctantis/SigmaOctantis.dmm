@@ -1099,7 +1099,7 @@
 /obj/machinery/cryopod{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/blue/full,
+/obj/effect/turf_decal/tile/dark_purple/full,
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/commons/cryo)
@@ -14647,7 +14647,7 @@
 /obj/machinery/cryopod{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/blue/full,
+/obj/effect/turf_decal/tile/dark_purple/full,
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/commons/cryo)
@@ -24353,7 +24353,7 @@
 /turf/open/floor/plating,
 /area/station/service/lawoffice)
 "fBT" = (
-/obj/effect/turf_decal/tile/blue/full,
+/obj/effect/turf_decal/tile/dark_purple/full,
 /obj/structure/rack,
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 9
@@ -27549,13 +27549,13 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine)
 "gnl" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/effect/turf_decal/trimline/dark_purple/filled/line{
 	dir = 8
 	},
-/obj/effect/turf_decal/trimline/blue/filled/mid_joiner{
+/obj/effect/turf_decal/trimline/dark_purple/filled/mid_joiner{
 	dir = 8
 	},
-/obj/effect/turf_decal/trimline/blue/arrow_cw{
+/obj/effect/turf_decal/trimline/dark_purple/arrow_cw{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2{
@@ -31277,13 +31277,13 @@
 /turf/closed/wall/r_wall,
 /area/station/command/bridge)
 "hfm" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/effect/turf_decal/trimline/dark_purple/filled/line{
 	dir = 8
 	},
-/obj/effect/turf_decal/trimline/blue/filled/mid_joiner{
+/obj/effect/turf_decal/trimline/dark_purple/filled/mid_joiner{
 	dir = 8
 	},
-/obj/effect/turf_decal/trimline/blue/arrow_cw{
+/obj/effect/turf_decal/trimline/dark_purple/arrow_cw{
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/thinplating_new{
@@ -48963,13 +48963,13 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/security/warden)
 "lnd" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/effect/turf_decal/trimline/dark_purple/filled/line{
 	dir = 8
 	},
-/obj/effect/turf_decal/trimline/blue/filled/mid_joiner{
+/obj/effect/turf_decal/trimline/dark_purple/filled/mid_joiner{
 	dir = 8
 	},
-/obj/effect/turf_decal/trimline/blue/arrow_cw{
+/obj/effect/turf_decal/trimline/dark_purple/arrow_cw{
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/thinplating_new{
@@ -62623,13 +62623,13 @@
 /turf/open/floor/iron/diagonal,
 /area/station/hallway/floor2/fore)
 "oxT" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/effect/turf_decal/trimline/dark_purple/filled/line{
 	dir = 8
 	},
-/obj/effect/turf_decal/trimline/blue/filled/mid_joiner{
+/obj/effect/turf_decal/trimline/dark_purple/filled/mid_joiner{
 	dir = 8
 	},
-/obj/effect/turf_decal/trimline/blue/arrow_cw{
+/obj/effect/turf_decal/trimline/dark_purple/arrow_cw{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
@@ -64229,13 +64229,13 @@
 /turf/open/floor/carpet/orange,
 /area/station/command/heads_quarters/qm)
 "oRh" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/effect/turf_decal/trimline/dark_purple/filled/line{
 	dir = 4
 	},
-/obj/effect/turf_decal/trimline/blue/filled/mid_joiner{
+/obj/effect/turf_decal/trimline/dark_purple/filled/mid_joiner{
 	dir = 4
 	},
-/obj/effect/turf_decal/trimline/blue/arrow_ccw{
+/obj/effect/turf_decal/trimline/dark_purple/arrow_ccw{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -82246,7 +82246,7 @@
 /obj/machinery/cryopod/no_latejoin{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/blue/full,
+/obj/effect/turf_decal/tile/dark_purple/full,
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 10
 	},
@@ -83242,7 +83242,7 @@
 /obj/machinery/cryopod{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/blue/full,
+/obj/effect/turf_decal/tile/dark_purple/full,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/commons/cryo)
 "tlZ" = (
@@ -96351,7 +96351,7 @@
 /obj/machinery/cryopod{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/blue/full,
+/obj/effect/turf_decal/tile/dark_purple/full,
 /obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/commons/cryo)
@@ -97523,13 +97523,13 @@
 /turf/open/misc/dirt/station,
 /area/station/security/prison/garden)
 "wCo" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/effect/turf_decal/trimline/dark_purple/filled/line{
 	dir = 4
 	},
-/obj/effect/turf_decal/trimline/blue/filled/mid_joiner{
+/obj/effect/turf_decal/trimline/dark_purple/filled/mid_joiner{
 	dir = 4
 	},
-/obj/effect/turf_decal/trimline/blue/arrow_ccw{
+/obj/effect/turf_decal/trimline/dark_purple/arrow_ccw{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -101911,7 +101911,7 @@
 /obj/machinery/cryopod{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/blue/full,
+/obj/effect/turf_decal/tile/dark_purple/full,
 /obj/machinery/camera/autoname/directional/east,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/commons/cryo)
@@ -104968,7 +104968,7 @@
 /obj/machinery/cryopod{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/blue/full,
+/obj/effect/turf_decal/tile/dark_purple/full,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/commons/cryo)
 "ylO" = (
