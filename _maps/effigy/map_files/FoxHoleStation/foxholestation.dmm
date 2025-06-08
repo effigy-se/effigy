@@ -4715,8 +4715,8 @@
 /obj/machinery/cryopod{
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/effect/turf_decal/trimline/blue/filled/mid_joiner,
+/obj/effect/turf_decal/trimline/dark_purple/filled/line,
+/obj/effect/turf_decal/trimline/dark_purple/filled/mid_joiner,
 /obj/effect/turf_decal/trimline/white/warning,
 /obj/effect/turf_decal/trimline/white/mid_joiner,
 /obj/machinery/airalarm/directional/south,
@@ -13076,13 +13076,13 @@
 /obj/effect/turf_decal/trimline/white/corner{
 	dir = 4
 	},
-/obj/effect/turf_decal/trimline/blue/warning{
+/obj/effect/turf_decal/trimline/dark_purple/warning{
 	dir = 8
 	},
-/obj/effect/turf_decal/trimline/blue/mid_joiner{
+/obj/effect/turf_decal/trimline/dark_purple/mid_joiner{
 	dir = 8
 	},
-/obj/effect/turf_decal/siding/dark_blue{
+/obj/effect/turf_decal/siding/dark_purple{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -14221,8 +14221,8 @@
 /obj/machinery/cryopod{
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/effect/turf_decal/trimline/blue/filled/mid_joiner,
+/obj/effect/turf_decal/trimline/dark_purple/filled/line,
+/obj/effect/turf_decal/trimline/dark_purple/filled/mid_joiner,
 /obj/effect/turf_decal/trimline/white/warning,
 /obj/effect/turf_decal/trimline/white/mid_joiner,
 /turf/open/floor/iron/dark/smooth_large,
@@ -24804,10 +24804,10 @@
 /area/station/security/brig/upper)
 "nKf" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/effect/turf_decal/trimline/dark_purple/filled/line{
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/blue/filled/mid_joiner{
+/obj/effect/turf_decal/trimline/dark_purple/filled/mid_joiner{
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/white/warning{
@@ -26288,13 +26288,13 @@
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "ozS" = (
-/obj/effect/turf_decal/trimline/blue/warning{
+/obj/effect/turf_decal/trimline/dark_purple/warning{
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 4
 	},
-/obj/effect/turf_decal/trimline/blue/mid_joiner{
+/obj/effect/turf_decal/trimline/dark_purple/mid_joiner{
 	dir = 8
 	},
 /turf/open/floor/iron/dark/smooth_edge{
@@ -41575,10 +41575,10 @@
 /area/station/security/prison)
 "wpI" = (
 /obj/machinery/cryopod,
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/effect/turf_decal/trimline/dark_purple/filled/line{
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/blue/filled/mid_joiner{
+/obj/effect/turf_decal/trimline/dark_purple/filled/mid_joiner{
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/white/warning{
@@ -44111,8 +44111,8 @@
 /obj/structure/chair/sofa/bench/tram/solo{
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/effect/turf_decal/trimline/blue/filled/mid_joiner,
+/obj/effect/turf_decal/trimline/dark_purple/filled/line,
+/obj/effect/turf_decal/trimline/dark_purple/filled/mid_joiner,
 /obj/effect/turf_decal/trimline/white/warning,
 /obj/effect/turf_decal/trimline/white/mid_joiner,
 /obj/structure/extinguisher_cabinet/directional/east,
@@ -44253,13 +44253,13 @@
 /turf/open/floor/iron/dark/herringbone,
 /area/station/security/prison/mess)
 "xJP" = (
-/obj/effect/turf_decal/trimline/blue/warning{
+/obj/effect/turf_decal/trimline/dark_purple/warning{
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 4
 	},
-/obj/effect/turf_decal/trimline/blue/mid_joiner{
+/obj/effect/turf_decal/trimline/dark_purple/mid_joiner{
 	dir = 8
 	},
 /obj/machinery/computer/cryopod/directional/west,

@@ -5235,7 +5235,7 @@
 /obj/machinery/cryopod,
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/dark,
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/effect/turf_decal/trimline/dark_purple/filled/line{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
@@ -10524,6 +10524,7 @@
 /obj/machinery/camera/directional/east{
 	c_tag = "Service - Locker Room, Southeast"
 	},
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/iron,
 /area/station/commons/locker)
 "dHn" = (
@@ -18984,7 +18985,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/turf_decal/trimline/dark_purple/filled/line,
 /turf/open/floor/iron/white,
 /area/station/commons/cryo)
 "gEu" = (
@@ -26964,7 +26965,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/effect/turf_decal/siding/dark,
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/effect/turf_decal/trimline/dark_purple/filled/line{
 	dir = 1
 	},
 /turf/open/floor/iron/white,
@@ -55277,7 +55278,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/turf_decal/trimline/dark_purple/filled/line,
 /obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron/white,
 /area/station/commons/cryo)
@@ -62059,7 +62060,7 @@
 "vCc" = (
 /obj/machinery/cryopod,
 /obj/effect/turf_decal/siding/dark,
-/obj/effect/turf_decal/trimline/blue/filled/line{
+/obj/effect/turf_decal/trimline/dark_purple/filled/line{
 	dir = 1
 	},
 /obj/machinery/newscaster/directional/north,
@@ -63028,7 +63029,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/effect/turf_decal/trimline/dark_purple/filled/line,
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/white,
 /area/station/commons/cryo)
