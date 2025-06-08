@@ -30849,7 +30849,7 @@
 /turf/open/floor/iron/dark/side,
 /area/station/medical/morgue)
 "kNJ" = (
-/obj/effect/turf_decal/tile/red/anticorner/contrasted,
+/obj/effect/turf_decal/tile/yellow/anticorner/contrasted,
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible{
 	dir = 4
 	},
@@ -43111,7 +43111,7 @@
 /obj/machinery/computer/atmos_control/nitrogen_tank{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/red/half/contrasted,
+/obj/effect/turf_decal/tile/yellow/half/contrasted,
 /obj/machinery/atmospherics/pipe/bridge_pipe/green/visible{
 	dir = 4
 	},
@@ -45564,7 +45564,7 @@
 /turf/closed/wall/mineral/wood/nonmetal,
 /area/station/commons/dorms/room2)
 "qbp" = (
-/obj/effect/turf_decal/tile/red/anticorner/contrasted{
+/obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
 	dir = 8
 	},
 /obj/machinery/atmospherics/components/trinary/filter/atmos/n2{
