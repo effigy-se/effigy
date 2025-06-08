@@ -1,3 +1,14 @@
+// Automatic emergency shuttle
+/// Number (in minutes) for the automatic escape shuttle call
+/datum/config_entry/number/auto_shuttle_time
+	default = 135
+	integer = TRUE
+	min_val = 20
+
+/// Disable auto-calling of the emergency shuttle
+/datum/config_entry/flag/disable_auto_shuttle
+	default = FALSE
+
 // Security Levels
 /datum/config_entry/string/alert_green
 	default = "Standard security procedures.<br/>Security may not have weapons visible, privacy laws are in full effect."
