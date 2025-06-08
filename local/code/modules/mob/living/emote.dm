@@ -1,15 +1,3 @@
-/mob/living/proc/do_ass_slap_animation(atom/slapped)
-	do_attack_animation(slapped, no_effect=TRUE)
-	var/mutable_appearance/glove_appearance = mutable_appearance('icons/effects/effects.dmi', "slapglove")
-	glove_appearance.pixel_w = 0
-	glove_appearance.pixel_z = -5
-	var/atom/movable/flick_visual/glove = slapped.flick_overlay_view(glove_appearance, 1 SECONDS)
-
-	// And animate the attack!
-	animate(glove, alpha = 175, transform = matrix() * 0.75, pixel_x = 0, pixel_y = -5, pixel_z = 0, time = 3)
-	animate(time = 1)
-	animate(alpha = 0, time = 3, easing = CIRCULAR_EASING|EASE_OUT)
-
 /datum/emote/living/emote_whisper
 	key = "emotew"
 	key_third_person = "emotew"
