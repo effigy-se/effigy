@@ -26,12 +26,14 @@
   }
 
   &__statusIcon {
+    margin-top: 8px;
     text-align: center;
     font-size: base.rem(20px);
     transition: color var(--transition-time-slow);
   }
 
   &__title {
+    margin-top: 8px;
     pointer-events: none;
     display: inline-block;
     flex: 1;
