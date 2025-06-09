@@ -54,7 +54,7 @@ export function CircleButton(props: Props) {
   return (
     <Button
       icon="exclamation-circle"
-      color={thisIsCurrent && 'darkblue'}
+      color={thisIsCurrent && 'blue'}
       onClick={() => {
         if (thisIsCurrent) {
           return;
