@@ -120,7 +120,7 @@ export function AccessConfig(props: ConfigProps) {
               return (
                 <Tabs.Tab
                   key={access.name}
-                  color={color as string}
+                  // color={color as string} // EffigyEdit Remove
                   icon={icon}
                   selected={access.name === selectedAccessName}
                   onClick={() => setSelectedAccessName(access.name)}
