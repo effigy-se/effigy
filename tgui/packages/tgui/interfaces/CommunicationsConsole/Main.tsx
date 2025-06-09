@@ -164,7 +164,7 @@ export function PageMain(props) {
             <Button.Confirm
               icon="id-card-o"
               confirmIcon="id-card-o"
-              color={emergencyAccess ? 'bad' : undefined}
+              color={emergencyAccess ? 'average' : undefined}
               onClick={() => act('toggleEmergencyAccess')}
             >
               {emergencyAccess ? 'Disable' : 'Enable'} Emergency Maintenance
@@ -177,11 +177,11 @@ export function PageMain(props) {
             <Button.Confirm
               icon="wrench"
               confirmIcon="wrench"
-              color={engineeringOverride ? 'bad' : undefined}
+              color={engineeringOverride ? 'orange' : undefined}
               onClick={() => act('toggleEngOverride')}
             >
-              {emergencyAccess ? 'Disable' : 'Enable'} Emergency Maintenance
-              Access
+              {engineeringOverride ? 'Disable' : 'Enable'} Emergency Engineer
+              Airlock Override
             </Button.Confirm>
           )}
           {/* EffigyEdit Add End */}
