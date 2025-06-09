@@ -40,7 +40,7 @@ enum ACCESS {
 const DIFFMAP = [
   {
     icon: 'times-circle',
-    color: 'bad',
+    color: null, // EffigyEdit Change - Original: bad
   },
   {
     icon: 'stop-circle',
@@ -48,7 +48,7 @@ const DIFFMAP = [
   },
   {
     icon: 'check-circle',
-    color: 'good',
+    color: null, // EffigyEdit Change - Original: bad
   },
 ] as const;
 
