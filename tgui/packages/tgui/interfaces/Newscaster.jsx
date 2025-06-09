@@ -498,7 +498,8 @@ const NewscasterChannelSelector = (props) => {
             mr={1}
             key={activeWanted.index}
             icon={activeWanted.active ? 'skull-crossbones' : null}
-            textColor={activeWanted.active ? 'red' : 'grey'}
+            // EffigyEdit Change - Original: 'grey'
+            textColor={activeWanted.active ? 'red' : 'lightgrey'}
             onClick={() => act('toggleWanted')}
           >
             Wanted Issue
