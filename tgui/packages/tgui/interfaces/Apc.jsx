@@ -13,8 +13,7 @@ import { InterfaceLockNoticeBox } from './common/InterfaceLockNoticeBox';
 
 export const Apc = (props) => {
   return (
-    // EffigyEdit Change - TGUI - Original: width={450} height={445}
-    <Window width={450} height={500}>
+    <Window width={450} height={445}>
       <Window.Content scrollable>
         <ApcContent />
       </Window.Content>

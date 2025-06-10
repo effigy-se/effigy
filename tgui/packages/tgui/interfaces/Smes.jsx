@@ -37,8 +37,7 @@ export const Smes = (props) => {
   const outputState =
     (outputting && 'good') || (charge > 0 && 'average') || 'bad';
   return (
-    // EffigyEdit Change - TGUI - Original: width={340} height={350}>
-    <Window width={380} height={390}>
+    <Window width={340} height={350}>
       <Window.Content>
         <Section title="Stored Energy">
           <ProgressBar

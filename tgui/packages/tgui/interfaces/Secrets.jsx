@@ -637,8 +637,7 @@ export const Secrets = (props) => {
   const TabComponent = TAB2NAME[tabIndex - 1].component();
 
   return (
-    // EffigyEdit Change - TGUI - Original: width={500} height={488}
-    <Window title="Secrets Panel" width={590} height={565} theme="admin">
+    <Window title="Secrets Panel" width={500} height={488} theme="admin">
       <Window.Content>
         <Flex direction="column" height="100%">
           <Flex.Item mb={1}>

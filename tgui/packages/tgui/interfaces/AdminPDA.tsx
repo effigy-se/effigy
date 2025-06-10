@@ -32,8 +32,7 @@ export function AdminPDA(props) {
   const invisibleState = useState<BooleanLike>(0);
 
   return (
-    // EffigyEdit Change - TGUI - Original: width={300} height={575}
-    <Window title="Send PDA Message" width={300} height={650} theme="admin">
+    <Window title="Send PDA Message" width={300} height={575} theme="admin">
       <Window.Content>
         <ReceiverChoice
           invisibleState={invisibleState}

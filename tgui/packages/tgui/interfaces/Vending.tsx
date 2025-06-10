@@ -129,7 +129,6 @@ export const Vending = (props) => {
   );
 
   return (
-    // EffigyEdit Change - TGUI - Original: width={431} height={635}
     <Window width={445} height={635}>
       <Window.Content>
         <Stack fill vertical>

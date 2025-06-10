@@ -71,8 +71,7 @@ export const ChemMaster = (props) => {
   const [analyzedReagent, setAnalyzedReagent] = useState<AnalyzableReagent>();
 
   return (
-    // EffigyEdit Change - TGUI - Original: width={450} height={620}>
-    <Window width={455} height={620}>
+    <Window width={450} height={620}>
       <Window.Content scrollable>
         {analyzedReagent ? (
           <AnalysisResults

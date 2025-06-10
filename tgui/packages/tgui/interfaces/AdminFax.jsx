@@ -17,8 +17,7 @@ import { Window } from '../layouts';
 
 export const AdminFax = (props) => {
   return (
-    // EffigyEdit Change - TGUI - Original: width={400} height={675}
-    <Window title="Admin Fax Panel" width={400} height={760} theme="admin">
+    <Window title="Admin Fax Panel" width={400} height={675} theme="admin">
       <Window.Content>
         <FaxMainPanel />
       </Window.Content>
