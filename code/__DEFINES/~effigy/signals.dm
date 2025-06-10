@@ -27,7 +27,7 @@
 //from base of living/CanAllowThrough(): (atom/movable/mover, border_dir)
 #define COMSIG_LIVING_CAN_ALLOW_THROUGH "living_can_allow_through"
 
-//when a new character slot is selected
-#define COMSIG_CHARACTER_SLOT_CHANGED "character_slot_changed"
+//when a character name is changed
+#define COMSIG_PREFERENCES_NAME_APPLIED "preferences_name_applied"
 //increment init screen loading bar
 #define COMSIG_SUBSYSTEM_INCREMENT_PROGRESS "increment_progress"

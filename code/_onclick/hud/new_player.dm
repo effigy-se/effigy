@@ -249,7 +249,7 @@
 		if(!isnull(character_prefs))
 			var/character_name = character_prefs.read_preference(/datum/preference/name/real_name)
 			update_character_name(new_name = character_name)
-			RegisterSignal(character_prefs, COMSIG_CHARACTER_SLOT_CHANGED, PROC_REF(update_character_name))
+			RegisterSignal(character_prefs, COMSIG_PREFERENCES_NAME_APPLIED, PROC_REF(update_character_name))
 	// EffigyEdit Add End
 
 	// We need IconForge and the assets to be ready before allowing the menu to open

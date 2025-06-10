@@ -565,6 +565,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		character.update_body(is_creating = TRUE)
 
 	SEND_SIGNAL(character, COMSIG_HUMAN_PREFS_APPLIED)
+	SEND_SIGNAL(src, COMSIG_PREFERENCES_NAME_APPLIED, character.real_name) // EffigyEdit Add - Custom Lobby
 
 /// Returns whether the parent mob should have the random hardcore settings enabled. Assumes it has a mind.
 /datum/preferences/proc/should_be_random_hardcore(datum/job/job, datum/mind/mind)

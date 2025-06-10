@@ -412,11 +412,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	character_preview_view.update_body()
 
-	// EffigyEdit Add - Custom Lobby
-	var/new_character = read_preference(/datum/preference/name/real_name)
-	SEND_SIGNAL(src, COMSIG_CHARACTER_SLOT_CHANGED, new_character)
-	// EffigyEdit Add End
-
 /datum/preferences/proc/remove_current_slot()
 	PRIVATE_PROC(TRUE)
 
