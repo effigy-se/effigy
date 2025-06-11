@@ -11,8 +11,7 @@ export const SecurityRecords = (props) => {
   const { authenticated } = data;
 
   return (
-    // EffigyEdit Change - Original: width={750} height={550}
-    <Window title="Security Records" width={1024} height={550}>
+    <Window title="Security Records" width={750} height={550}>
       <Window.Content>
         <Stack fill>{!authenticated ? <RestrictedView /> : <AuthView />}</Stack>
       </Window.Content>
