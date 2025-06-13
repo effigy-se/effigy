@@ -53,8 +53,9 @@ export const TextInputModal = (props) => {
   const visualMultiline = multiline || input.length >= 30;
   // Dynamically changes the window height based on the message.
   const windowHeight =
-    155 + // EffigyEdit Change - Original: 135
-    (message.length > 30 ? Math.ceil(message.length / 4) : 0) +
+    175 + // EffigyEdit Change - Original: 135
+    // (message.length > 30 ? Math.ceil(message.length / 4) : 0) +
+    (message.length > 30 ? Math.ceil(message.length / 3.75) : 0) +
     (visualMultiline ? 75 : 0) +
     (message.length && large_buttons ? 5 : 0);
 

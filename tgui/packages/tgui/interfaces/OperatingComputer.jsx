@@ -35,8 +35,7 @@ export const OperatingComputer = (props) => {
   const [tab, setTab] = useSharedState('tab', 1);
 
   return (
-    // EffigyEdit Change - TGUI - Original: width={350} height={470}
-    <Window width={400} height={470}>
+    <Window width={350} height={470}>
       <Window.Content scrollable>
         <Tabs>
           <Tabs.Tab selected={tab === 1} onClick={() => setTab(1)}>

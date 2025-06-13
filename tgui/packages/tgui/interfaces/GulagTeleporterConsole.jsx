@@ -24,8 +24,7 @@ export const GulagTeleporterConsole = (props) => {
     prisoner = {},
   } = data;
   return (
-    // EffigyEdit Change - TGUI - Original: width={350} height={295}
-    <Window width={350} height={335}>
+    <Window width={350} height={295}>
       <Window.Content>
         <Section
           title="Teleporter Console"

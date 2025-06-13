@@ -43,8 +43,7 @@ export const AccountingConsole = (props) => {
   const [screenmode, setScreenmode] = useState(SCREENS.users);
 
   return (
-    // EffigyEdit Change - TGUI - Original: width={300} height={360}
-    <Window width={375} height={475}>
+    <Window width={300} height={360}>
       <Window.Content>
         <Stack fill vertical>
           <MarketCrashing />

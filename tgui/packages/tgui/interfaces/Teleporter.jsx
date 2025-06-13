@@ -14,8 +14,7 @@ export const Teleporter = (props) => {
     target,
   } = data;
   return (
-    // EffigyEdit Change - TGUI - Original: width={360} height={130}>
-    <Window width={360} height={150}>
+    <Window width={360} height={130}>
       <Window.Content>
         <Section>
           {(!power_station && (

@@ -18,6 +18,7 @@ import { BooleanLike, classes } from 'tgui-core/react';
 import { decodeHtmlEntities } from 'tgui-core/string';
 
 import { backendSuspendStart, globalStore, useBackend } from '../backend';
+import { EFFIGY_WINDOW_SIZES } from '../constants-effigy';
 import { useDebug } from '../debug';
 import {
   dragStartHandler,
@@ -75,10 +76,17 @@ export const Window = (props: Props) => {
           ...config.window,
           size: DEFAULT_SIZE,
         };
-
-        if (width && height) {
+        // EffigyEdit Change - Window Sizes
+        // Priority for setting window size:
+        // 1. Dimensions defined in EFFIGY_WINDOW_SIZES for the specific interface.
+        // 2. Width and height props passed to the Window component.
+        // 3. DEFAULT_SIZE as a fallback.
+        if (EFFIGY_WINDOW_SIZES[config.interface.name]) {
+          options.size = EFFIGY_WINDOW_SIZES[config.interface.name];
+        } else if (width && height) {
           options.size = [width, height];
         }
+        // EffigyEdit Change End
         if (config.window?.key) {
           setWindowKey(config.window.key);
         }
