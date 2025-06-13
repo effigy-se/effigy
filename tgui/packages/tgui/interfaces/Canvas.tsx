@@ -290,7 +290,7 @@ export const Canvas = (props) => {
       width={Math.max(scaled_width + 72, 280)}
       height={
         scaled_height +
-        94 +
+        125 + // EffigyEdit Change - Original: 94
         (data.show_plaque ? average_plaque_height : 0) +
         (data.editable && data.paint_tool_palette ? palette_height : 0)
       }
