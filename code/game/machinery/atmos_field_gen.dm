@@ -96,6 +96,7 @@
 	active_power_usage = initial(active_power_usage) / capacitor.tier // 0.25kw per tile at tier 4
 	var/datum/stock_part/micro_laser/laser = locate() in component_parts
 	max_range = laser.tier + 2
+	max_range *= 2 /// EffigyEdit Change - Mapping
 
 /obj/machinery/atmos_shield_gen/update_overlays()
 	. = ..()

@@ -10633,11 +10633,13 @@
 /area/taeloth/nearstation/cargo_roof)
 "dIN" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/stripes/line,
-/obj/structure/fans/tiny,
 /obj/machinery/door/poddoor/massdriver_ordnance,
+/obj/machinery/atmos_shield_gen/active{
+	dir = 4
+	},
+/obj/machinery/atmos_shield_gen/active{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/station/science/ordnance/testlab)
 "dIO" = (
@@ -15006,7 +15008,6 @@
 /obj/effect/turf_decal/stripes/asteroid/line{
 	dir = 4
 	},
-/obj/structure/fans/tiny/shield,
 /turf/open/floor/plating,
 /area/station/cargo/drone_bay)
 "fjN" = (
@@ -20551,6 +20552,17 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/toilet/restrooms)
+"hfV" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 4
+	},
+/obj/machinery/atmos_shield_gen/active,
+/turf/open/floor/plating,
+/area/station/cargo/drone_bay)
 "hgj" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
@@ -33837,7 +33849,6 @@
 /obj/effect/turf_decal/stripes/asteroid/line{
 	dir = 4
 	},
-/obj/structure/fans/tiny/shield,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/dock)
 "lPx" = (
@@ -34098,6 +34109,19 @@
 /obj/structure/flora/bush/fullgrass,
 /turf/open/misc/beach/sand,
 /area/taeloth/nearstation/medsec_crossway)
+"lTM" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 4
+	},
+/obj/machinery/atmos_shield_gen/active{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/station/hallway/secondary/dock)
 "lTV" = (
 /obj/effect/turf_decal/trimline/purple/warning,
 /obj/structure/cable,
@@ -35962,6 +35986,17 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/janitor)
+"mAj" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 4
+	},
+/obj/machinery/atmos_shield_gen/active,
+/turf/open/floor/plating,
+/area/station/hallway/secondary/dock)
 "mAB" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
@@ -63444,6 +63479,19 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/purple,
 /area/station/service/library)
+"vZi" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 4
+	},
+/obj/machinery/atmos_shield_gen/active{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/station/cargo/drone_bay)
 "vZo" = (
 /obj/machinery/door/airlock/research,
 /obj/effect/mapping_helpers/airlock/access/all/science/xenobio,
@@ -104055,11 +104103,11 @@ bLw
 bLw
 rWc
 bLw
+mAj
 lPk
 lPk
 lPk
-lPk
-lPk
+lTM
 sOd
 sOd
 hwf
@@ -106083,10 +106131,10 @@ dmH
 wvK
 sAb
 jPz
+hfV
 fjH
 fjH
-fjH
-fjH
+vZi
 jPz
 gyo
 tFK
@@ -168117,11 +168165,11 @@ wKe
 wKe
 wKe
 wKe
-mmN
-mmN
-ebI
-mmN
-mmN
+oqj
+oqj
+sSN
+oqj
+oqj
 mmN
 rCE
 rCE
@@ -168375,9 +168423,9 @@ wKe
 wKe
 oqj
 oqj
-sSN
-sSN
-oqj
+ebI
+ebI
+mmN
 oqj
 sSN
 sSN

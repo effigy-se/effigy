@@ -324,7 +324,7 @@
 /obj/item/kirbyplants/random,
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
-/turf/open/floor/black,
+/turf/open/floor/carpet/black,
 /area/station/medical/psychology)
 "akm" = (
 /obj/structure/railing/corner/end,
@@ -2985,7 +2985,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/black,
+/turf/open/floor/carpet/black,
 /area/station/medical/psychology)
 "bEl" = (
 /turf/closed/wall,
@@ -5184,7 +5184,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/atmos_shield_gen/active{
+/obj/machinery/atmos_shield_gen/active/tier_three{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -7030,7 +7030,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/holopad,
-/turf/open/floor/black,
+/turf/open/floor/carpet/black,
 /area/station/medical/psychology)
 "dJN" = (
 /obj/effect/turf_decal/siding/wood,
@@ -8183,7 +8183,7 @@
 /obj/structure/chair/comfy/brown,
 /obj/machinery/airalarm/directional/north,
 /obj/effect/landmark/start/psychologist,
-/turf/open/floor/black,
+/turf/open/floor/carpet/black,
 /area/station/medical/psychology)
 "eqk" = (
 /obj/effect/turf_decal/arrows/white{
@@ -13987,7 +13987,7 @@
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 8
 	},
-/obj/machinery/atmos_shield_gen/active,
+/obj/machinery/atmos_shield_gen/active/tier_three,
 /turf/open/floor/plating/elevatorshaft,
 /area/station/construction/mining/aux_base)
 "hAL" = (
@@ -14389,7 +14389,7 @@
 /area/station/hallway/secondary/entry)
 "hJL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/black,
+/turf/open/floor/carpet/black,
 /area/station/medical/psychology)
 "hJM" = (
 /turf/open/openspace,
@@ -16275,7 +16275,7 @@
 /area/station/engineering/engine_smes)
 "iIj" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/turf/open/floor/black,
+/turf/open/floor/carpet/black,
 /area/station/medical/psychology)
 "iIt" = (
 /obj/effect/turf_decal/trimline/dark_blue/filled/warning{
@@ -17557,7 +17557,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/autoname/directional/east,
-/turf/open/floor/black,
+/turf/open/floor/carpet/black,
 /area/station/medical/psychology)
 "jtj" = (
 /obj/effect/turf_decal/siding/wood,
@@ -18930,7 +18930,7 @@
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 8
 	},
-/obj/machinery/atmos_shield_gen/active{
+/obj/machinery/atmos_shield_gen/active/tier_three{
 	dir = 1
 	},
 /turf/open/floor/plating/elevatorshaft,
@@ -22101,7 +22101,7 @@
 "lUV" = (
 /obj/item/radio/intercom/directional/east,
 /obj/structure/filingcabinet/filingcabinet,
-/turf/open/floor/black,
+/turf/open/floor/carpet/black,
 /area/station/medical/psychology)
 "lVd" = (
 /obj/effect/turf_decal/trimline/dark_blue/warning{
@@ -30199,7 +30199,7 @@
 /area/station/medical/chemistry)
 "qvu" = (
 /obj/structure/closet/secure_closet/psychology,
-/turf/open/floor/black,
+/turf/open/floor/carpet/black,
 /area/station/medical/psychology)
 "qvG" = (
 /obj/effect/turf_decal/trimline/brown/warning,
@@ -33329,7 +33329,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/atmos_shield_gen/active{
+/obj/machinery/atmos_shield_gen/active/tier_three{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -37931,7 +37931,7 @@
 /area/station/service/theater)
 "uqj" = (
 /obj/structure/reagent_dispensers/water_cooler,
-/turf/open/floor/black,
+/turf/open/floor/carpet/black,
 /area/station/medical/psychology)
 "uqp" = (
 /obj/effect/turf_decal/stripes/line,
