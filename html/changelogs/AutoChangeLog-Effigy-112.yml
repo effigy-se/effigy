@@ -1,9 +1,0 @@
-author: "LT3"
-delete-after: True
-changes:
-  - bugfix: "Fixed mislabelled engineering override console button"
-  - bugfix: "Fixed incorrect font color for newscaster wanted channel"
-  - bugfix: "Fixed window height of text input dialogs"
-  - bugfix: "Fixed font color of RCD access selection"
-  - bugfix: "Fixed font color of candystriped list entries"
-  - bugfix: "Blue alert console button is now blue, not black"

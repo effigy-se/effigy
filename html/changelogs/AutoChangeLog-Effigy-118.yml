@@ -1,0 +1,5 @@
+author: "unit0016"
+delete-after: True
+changes:
+  - balance: "All the tiny fans on all of Effigy's maps have been replaced with atmos shields; including shuttle bay shields in arrivals on Foxhole and Sigma Octantis. Don't take too long setting up the Supermatter..."
+  - bugfix: "T5 Stock parts now properly eat up a lot of power."

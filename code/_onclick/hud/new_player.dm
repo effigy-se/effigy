@@ -18,10 +18,7 @@
 /datum/hud/new_player/New(mob/owner)
 	. = ..()
 
-	if (!owner || !owner.client)
-		return
-
-	if (owner.client.interviewee)
+	if (!owner?.client || owner.client.interviewee)
 		return
 
 	// EffigyEdit Add - Custom Lobby
@@ -249,7 +246,7 @@
 		if(!isnull(character_prefs))
 			var/character_name = character_prefs.read_preference(/datum/preference/name/real_name)
 			update_character_name(new_name = character_name)
-			RegisterSignal(character_prefs, COMSIG_CHARACTER_SLOT_CHANGED, PROC_REF(update_character_name))
+			RegisterSignal(character_prefs, COMSIG_PREFERENCES_NAME_APPLIED, PROC_REF(update_character_name))
 	// EffigyEdit Add End
 
 	// We need IconForge and the assets to be ready before allowing the menu to open
@@ -905,7 +902,7 @@
 		else
 			time_remaining = "SOON"
 
-		if(hud.mymob.client.holder)
+		if(hud.mymob.client?.holder)
 			new_maptext = "<span style='text-align: center; vertical-align: middle'>Starting in [time_remaining]<br /> \
 				[LAZYLEN(GLOB.clients)] player\s<br /> \
 				[SSticker.totalPlayersReady] players ready<br /> \
