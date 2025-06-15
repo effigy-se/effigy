@@ -7034,6 +7034,7 @@
 #include "local\code\modules\character_prefs\sprite_accessories\tails\tails_lizard.dm"
 #include "local\code\modules\character_prefs\sprite_accessories\tails\tails_mammal.dm"
 #include "local\code\modules\character_prefs\sprite_accessories\tails\tails_monkey.dm"
+#include "local\code\modules\client\client_procs.dm"
 #include "local\code\modules\client\effigy_registration.dm"
 #include "local\code\modules\client\preferences\_admin.dm"
 #include "local\code\modules\client\preferences\detailed_init.dm"

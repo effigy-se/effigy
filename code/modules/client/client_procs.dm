@@ -476,11 +476,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		add_admin_verbs()
 		display_admin_memos(src)
 		adminGreet()
-		// EffigyEdit Add - TGUI
-		if(CONFIG_GET(flag/enable_localhost_devtools) && src.is_localhost())
-			winset(src, null, list("browser-options" = "+devtools"))
-			to_chat(src, span_yellowteamradio("TGUI DevTools are enabled!"))
-		// EffigyEdit Add End
+		check_admin_devtools() // EffigyEdit Add - TGUI
 	if (mob && reconnecting)
 		var/stealth_admin = mob.client?.holder?.fakekey
 		var/announce_leave = mob.client?.prefs?.read_preference(/datum/preference/toggle/broadcast_login_logout)
