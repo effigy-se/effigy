@@ -64,6 +64,10 @@ GLOBAL_LIST_INIT(stock_part_datums, generate_stock_part_datums())
 			return 5
 		if (4)
 			return 10
+		/// EffigyEdit BEGIN - Tier 5
+		if (5)
+			return 25 // EXPENSIVE things
+		/// EffigyEdit END - Tier 5
 		else
 			CRASH("Invalid level given to energy_rating: [tier]")
 
