@@ -54,8 +54,7 @@ export const Fax = (props) => {
     ? data.special_faxes
     : data.special_faxes.filter((fax: FaxSpecial) => !fax.emag_needed);
   return (
-    // EffigyEdit Change - TGUI - Original: width={340} height={540}>
-    <Window width={420} height={645}>
+    <Window width={340} height={540}>
       <Window.Content scrollable>
         <Section title="About Fax">
           <LabeledList.Item label="Network name">

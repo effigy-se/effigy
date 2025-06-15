@@ -37,8 +37,7 @@ export const Jukebox = () => {
   );
 
   return (
-    // EffigyEdit Change - TGUI - Original: width={370} height={313}
-    <Window width={425} height={360}>
+    <Window width={370} height={313}>
       <Window.Content>
         <Section
           title="Song Player"

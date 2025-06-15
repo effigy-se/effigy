@@ -62,9 +62,10 @@ export function AlertModal(props) {
 
   // Dynamically sets window dimensions
   const windowHeight =
-    125 + // EffigyEdit Change - TGUI - Original: 120
+    130 + // EffigyEdit Change - Original: 120
     (isVerbose ? largeSpacing * buttons.length : 0) +
-    (message.length > 30 ? Math.ceil(message.length / 4) : 0) +
+    // (message.length > 30 ? Math.ceil(message.length / 4) : 0) + // EffigyEdit Change
+    (message.length > 30 ? Math.ceil(message.length / 2.75) : 0) +
     (message.length && large_buttons ? 5 : 0);
 
   /** Changes button selection, etc */
