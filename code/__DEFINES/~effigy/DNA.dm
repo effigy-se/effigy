@@ -19,3 +19,6 @@ DEFINE_BITFIELD(reagent_flags, list(
 	"PROCESS_ORGANIC" = PROCESS_ORGANIC,
 	"PROCESS_SYNTHETIC" = PROCESS_SYNTHETIC,
 ))
+
+///From an organ
+#define MUTATION_SOURCE_ORGAN "organ"

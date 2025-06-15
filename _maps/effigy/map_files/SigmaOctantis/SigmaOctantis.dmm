@@ -27998,7 +27998,7 @@
 /turf/open/floor/eighties,
 /area/station/maintenance/department/engine/atmos)
 "gte" = (
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted,
@@ -39200,7 +39200,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/storage)
 "iXw" = (
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
@@ -73913,7 +73913,7 @@
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/command/heads_quarters/hop)
 "rbg" = (
-/obj/machinery/computer/scan_consolenew,
+/obj/machinery/computer/dna_console,
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 1
 	},

@@ -3426,7 +3426,7 @@
 /turf/open/floor/engine/hull,
 /area/space/nearstation)
 "bQo" = (
-/obj/machinery/computer/scan_consolenew,
+/obj/machinery/computer/dna_console,
 /obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron/white/smooth_half,
 /area/station/science/genetics)
@@ -13832,7 +13832,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/medical/virology)
 "hzG" = (
-/obj/machinery/computer/scan_consolenew,
+/obj/machinery/computer/dna_console,
 /obj/effect/turf_decal/bot_red,
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/white/smooth_half,
@@ -25253,7 +25253,7 @@
 /turf/open/floor/iron/white/textured_half,
 /area/station/command/heads_quarters/rd)
 "nXr" = (
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 4
 	},
 /obj/effect/turf_decal/bot_red,

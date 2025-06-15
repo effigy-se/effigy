@@ -20960,7 +20960,7 @@
 /turf/open/floor/iron/dark/small,
 /area/station/medical/paramedic)
 "hop" = (
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/dark_blue/filled/line{
@@ -36342,7 +36342,7 @@
 /turf/open/floor/stone,
 /area/taeloth/nearstation/medsec_crossway)
 "mJv" = (
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 4
 	},
 /obj/effect/turf_decal/trimline/dark_blue/filled/line,
@@ -57670,7 +57670,7 @@
 /turf/open/floor/grass,
 /area/station/service/hydroponics/upper)
 "udE" = (
-/obj/machinery/computer/scan_consolenew{
+/obj/machinery/computer/dna_console{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/textured,

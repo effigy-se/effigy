@@ -18,10 +18,7 @@
 /datum/hud/new_player/New(mob/owner)
 	. = ..()
 
-	if (!owner || !owner.client)
-		return
-
-	if (owner.client.interviewee)
+	if (!owner?.client || owner.client.interviewee)
 		return
 
 	// EffigyEdit Add - Custom Lobby
@@ -905,7 +902,7 @@
 		else
 			time_remaining = "SOON"
 
-		if(hud.mymob.client.holder)
+		if(hud.mymob.client?.holder)
 			new_maptext = "<span style='text-align: center; vertical-align: middle'>Starting in [time_remaining]<br /> \
 				[LAZYLEN(GLOB.clients)] player\s<br /> \
 				[SSticker.totalPlayersReady] players ready<br /> \
