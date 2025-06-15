@@ -46259,8 +46259,14 @@
 /turf/open/floor/iron/large,
 /area/station/ai_monitored/command/nuke_storage)
 "kAe" = (
-/obj/machinery/suit_storage_unit/open,
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/duct/waste,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/station/maintenance/floor2/port/aft)
 "kAj" = (
@@ -94492,17 +94498,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/service/janitor/wetworks)
-"vFn" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/duct/waste,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/floor2/port/aft)
 "vFt" = (
 /obj/machinery/duct/waste,
 /obj/structure/cable,
@@ -182473,8 +182468,8 @@ lpQ
 haS
 lzi
 vwP
-kAe
-vFn
+vwP
+vuu
 vwP
 eLn
 eLn
@@ -182730,8 +182725,8 @@ euc
 jFD
 jFD
 vwP
-vwP
-vuu
+sgj
+npj
 vwP
 xRU
 vwP
@@ -182987,8 +182982,8 @@ vwP
 vwP
 vwP
 vwP
-sgj
-npj
+ceA
+kAe
 sbn
 pNI
 sbn
