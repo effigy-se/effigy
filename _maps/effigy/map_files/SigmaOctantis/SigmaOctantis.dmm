@@ -2133,6 +2133,9 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/structure/railing{
+	dir = 8
+	},
 /turf/open/floor/iron/white/small,
 /area/station/commons/cryo)
 "awu" = (
@@ -6614,6 +6617,9 @@
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /obj/effect/landmark/navigate_destination,
+/obj/structure/railing/corner{
+	dir = 8
+	},
 /turf/open/floor/iron/smooth_large,
 /area/station/commons/cryo)
 "bvf" = (
@@ -10678,6 +10684,11 @@
 /obj/machinery/duct/waste,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/engineering/atmos/upper)
+"cte" = (
+/obj/structure/rack,
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron/smooth_large,
+/area/station/commons/cryo)
 "ctg" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 4
@@ -11869,6 +11880,10 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/floor2/fore)
+"cIa" = (
+/obj/effect/spawner/structure/window,
+/turf/open/floor/plating,
+/area/station/commons/cryo)
 "cIl" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 1
@@ -24999,6 +25014,9 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/structure/railing{
+	dir = 4
+	},
 /turf/open/floor/iron/white/small,
 /area/station/commons/cryo)
 "fEY" = (
@@ -28013,6 +28031,10 @@
 "goN" = (
 /obj/effect/turf_decal/siding/thinplating_new/light/end,
 /obj/machinery/firealarm/directional/south,
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/machinery/duct/waste,
 /turf/open/floor/iron/white/small,
 /area/station/commons/cryo)
 "goS" = (
@@ -30955,6 +30977,10 @@
 /obj/structure/cable,
 /turf/open/floor/iron/diagonal,
 /area/station/security/range)
+"gXa" = (
+/obj/machinery/plumbing/floor_pump/input/on/waste/directional/east,
+/turf/open/floor/iron/lowered,
+/area/station/commons/cryo)
 "gXf" = (
 /obj/effect/spawner/random/trash/hobo_squat,
 /obj/effect/mapping_helpers/broken_floor,
@@ -39230,6 +39256,9 @@
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 8
 	},
+/obj/structure/railing{
+	dir = 8
+	},
 /turf/open/floor/iron/white/small,
 /area/station/commons/cryo)
 "iRU" = (
@@ -39982,6 +40011,7 @@
 /obj/effect/turf_decal/siding/wideplating_new,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
+/obj/machinery/duct/waste,
 /turf/open/floor/iron/smooth_large,
 /area/station/commons/cryo)
 "jaz" = (
@@ -43255,6 +43285,9 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
+	},
+/obj/structure/railing{
+	dir = 4
 	},
 /turf/open/floor/iron/white/small,
 /area/station/commons/cryo)
@@ -49433,6 +49466,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/duct/waste,
 /turf/open/floor/iron/herringbone,
 /area/station/hallway/secondary/entry)
 "ljH" = (
@@ -62098,6 +62132,7 @@
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
+/obj/structure/railing/corner,
 /turf/open/floor/iron/smooth_large,
 /area/station/commons/cryo)
 "ohA" = (
@@ -65122,6 +65157,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/duct/waste,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 4
 	},
@@ -67059,6 +67095,9 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/structure/railing{
+	dir = 8
+	},
 /turf/open/floor/iron/white/small,
 /area/station/commons/cryo)
 "pnL" = (
@@ -68639,6 +68678,9 @@
 "pGl" = (
 /obj/effect/turf_decal/siding/thinplating_new/light/end,
 /obj/machinery/airalarm/directional/south,
+/obj/structure/railing{
+	dir = 4
+	},
 /turf/open/floor/iron/white/small,
 /area/station/commons/cryo)
 "pGr" = (
@@ -77311,8 +77353,8 @@
 /turf/open/floor/iron/dark/small,
 /area/station/service/chapel)
 "rFT" = (
-/obj/structure/rack,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/kirbyplants/random/dead,
 /turf/open/floor/iron/smooth_edge,
 /area/station/commons/cryo)
 "rGh" = (
@@ -78911,9 +78953,7 @@
 /area/station/engineering/hallway)
 "rWH" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/kirbyplants/random/dead,
-/obj/machinery/light/directional/south,
-/obj/machinery/camera/autoname/directional/south,
+/obj/machinery/computer/cryopod/directional/south,
 /turf/open/floor/iron/smooth_edge,
 /area/station/commons/cryo)
 "rWJ" = (
@@ -81013,6 +81053,7 @@
 /obj/machinery/duct/supply,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
+/obj/machinery/duct/waste,
 /turf/open/floor/iron/herringbone,
 /area/station/hallway/secondary/entry)
 "suH" = (
@@ -83438,6 +83479,18 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/hfr_room)
+"sZR" = (
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/light{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/iron/white/small,
+/area/station/commons/cryo)
 "tad" = (
 /obj/effect/spawner/liquids_spawner,
 /turf/open/floor/iron/pool,
@@ -85631,14 +85684,7 @@
 /turf/open/floor/iron/kitchen/small,
 /area/station/maintenance/floor2/port/aft)
 "tBL" = (
-/obj/machinery/door/firedoor/water_sensor,
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/structure/railing{
-	dir = 8
-	},
-/turf/open/floor/catwalk_floor/iron_smooth,
+/turf/open/floor/iron/lowered,
 /area/station/commons/cryo)
 "tBN" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners{
@@ -94043,6 +94089,7 @@
 /area/station/security/execution/education)
 "vzY" = (
 /obj/structure/rack,
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron/smooth_large,
 /area/station/commons/cryo)
 "vzZ" = (
@@ -94127,6 +94174,16 @@
 	},
 /turf/open/misc/ocean/rock/heavy,
 /area/ocean/trench)
+"vBE" = (
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/effect/mapping_helpers/airlock/access/any/security/armory,
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
+/obj/effect/turf_decal/siding/wideplating_new,
+/obj/effect/turf_decal/siding/wideplating_new{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_large,
+/area/station/maintenance/floor1/port)
 "vBF" = (
 /obj/machinery/duct/supply,
 /obj/machinery/duct/waste,
@@ -96041,7 +96098,7 @@
 /turf/open/floor/iron,
 /area/station/maintenance/department/cargo)
 "vVI" = (
-/obj/structure/rack,
+/obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/iron/smooth_edge,
 /area/station/commons/cryo)
 "vVM" = (
@@ -98921,6 +98978,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
+/obj/machinery/duct/waste,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 4
 	},
@@ -101775,7 +101833,6 @@
 /turf/open/floor/iron/pool,
 /area/station/commons/dorms/room1)
 "xiI" = (
-/obj/machinery/computer/cryopod/directional/north,
 /turf/open/floor/iron/smooth_edge{
 	dir = 1
 	},
@@ -104914,6 +104971,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 5
 	},
+/obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/smooth_corner,
 /area/station/commons/cryo)
 "xRb" = (
@@ -141606,7 +141664,7 @@ ylN
 alV
 ylN
 pcf
-vzY
+cte
 vVW
 bWn
 qUG
@@ -142116,13 +142174,13 @@ dGr
 aiK
 ohr
 jPT
-iRT
+sZR
 fEU
 pGl
 pcf
 tow
 vVI
-vVW
+vBE
 cZG
 cqM
 vVW
@@ -142375,8 +142433,8 @@ pcf
 tBL
 tBL
 tBL
-tBL
-pcf
+gXa
+cIa
 xiI
 rWH
 vVW
