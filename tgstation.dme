@@ -416,7 +416,6 @@
 #include "code\__DEFINES\traits\macros.dm"
 #include "code\__DEFINES\traits\sources.dm"
 #include "code\__DEFINES\~effigy\admin.dm"
-#include "code\__DEFINES\~effigy\airlock.dm"
 #include "code\__DEFINES\~effigy\api.dm"
 #include "code\__DEFINES\~effigy\automapper.dm"
 #include "code\__DEFINES\~effigy\banning.dm"
