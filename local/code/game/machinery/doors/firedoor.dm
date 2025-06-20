@@ -13,13 +13,15 @@
 	if(operating)
 		. += mutable_appearance(icon, "firelock_[icon_state]")
 		. += emissive_appearance(icon, "firelock_[icon_state]", src, alpha = src.alpha, apply_bloom = FALSE)
+		. += emissive_appearance(icon, "firelock_operating", src, alpha = src.alpha)
 		return
 	if(!density)
+		. += emissive_appearance(icon, "firelock_solid", src, alpha = src.alpha)
 		return
-	. += emissive_appearance(icon, "em_firelock_decal", src, alpha = src.alpha, apply_bloom = FALSE)
+	. += emissive_appearance(icon, "firelock_decal", src, alpha = src.alpha, apply_bloom = FALSE)
 	if(powered() && !ignore_alarms)
-		. += mutable_appearance(icon, "firelock_alarm_solid")
-		. += emissive_appearance(icon, "firelock_alarm_solid", src, alpha = src.alpha)
+		. += mutable_appearance(icon, "firelock_solid")
+		. += emissive_appearance(icon, "firelock_solid", src, alpha = src.alpha)
 		if(obj_flags & EMAGGED)
 			. += mutable_appearance(icon, "em_firelock_alarm_type_emag")
 			. += emissive_appearance(icon, "em_firelock_alarm_type_emag", src, alpha = src.alpha)
