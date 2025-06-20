@@ -6929,7 +6929,6 @@
 #include "local\code\modules\antagonists\wizard\wizard_events.dm"
 #include "local\code\modules\antagonists\wizard\wizard_items.dm"
 #include "local\code\modules\antagonists\wizard\wizard_spells.dm"
-#include "local\code\modules\art\paintings.dm"
 #include "local\code\modules\asset_cache\assets\paper.dm"
 #include "local\code\modules\asset_cache\assets\tgui.dm"
 #include "local\code\modules\atmospherics\machinery\gas_miner_beacon.dm"
