@@ -7,30 +7,31 @@
 /obj/machinery/door/firedoor/update_overlays()
 	. = ..()
 	if(welded)
-		. += density ? "welded" : "welded_open"
+		. += mutable_appearance(icon, density ? "welded" : "welded_open")
 	if(istype(src, /obj/machinery/door/firedoor/border_only))
 		return
-	if(operating)
-		. += mutable_appearance(icon, "firelock_[icon_state]")
-		. += emissive_appearance(icon, "firelock_[icon_state]", src, alpha = src.alpha, apply_bloom = FALSE)
+	if(animation)
+		. += mutable_appearance(icon, "firelock_door_[animation]")
+		. += emissive_appearance(icon, "firelock_door_[animation]", src, alpha = src.alpha, apply_bloom = FALSE)
 		. += emissive_appearance(icon, "firelock_operating", src, alpha = src.alpha)
 		return
 	if(!density)
-		. += emissive_appearance(icon, "firelock_solid", src, alpha = src.alpha)
 		return
 	. += emissive_appearance(icon, "firelock_decal", src, alpha = src.alpha, apply_bloom = FALSE)
-	if(powered() && !ignore_alarms)
+	if(powered())
 		. += mutable_appearance(icon, "firelock_solid")
 		. += emissive_appearance(icon, "firelock_solid", src, alpha = src.alpha)
-		if(obj_flags & EMAGGED)
-			. += mutable_appearance(icon, "em_firelock_alarm_type_emag")
-			. += emissive_appearance(icon, "em_firelock_alarm_type_emag", src, alpha = src.alpha)
-		else if(isnull(alarm_type))
-			. += mutable_appearance(icon, "em_firelock_no_alarm")
-			. += emissive_appearance(icon, "em_firelock_no_alarm", src, alpha = src.alpha)
-		else
-			. += mutable_appearance(icon, "em_[alarm_type]")
-			. += emissive_appearance(icon, "em_[alarm_type]", src, alpha = src.alpha)
+	if(ignore_alarms)
+		return
+	if(obj_flags & EMAGGED)
+		. += mutable_appearance(icon, "em_firelock_alarm_type_emag")
+		. += emissive_appearance(icon, "em_firelock_alarm_type_emag", src, alpha = src.alpha)
+	else if(isnull(alarm_type))
+		. += mutable_appearance(icon, "em_firelock_no_alarm")
+		. += emissive_appearance(icon, "em_firelock_no_alarm", src, alpha = src.alpha)
+	else
+		. += mutable_appearance(icon, "em_[alarm_type]")
+		. += emissive_appearance(icon, "em_[alarm_type]", src, alpha = src.alpha)
 
 /obj/machinery/door/firedoor/proc/check_liquids(turf/checked_turf)
 	var/obj/effect/abstract/liquid_turf/liquids = checked_turf.liquids
