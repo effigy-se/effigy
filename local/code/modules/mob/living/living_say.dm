@@ -29,14 +29,7 @@
 
 	looc_message(msg)
 
-/client/verb/looc_wallpierce(msg as text)
-	set name = "LOOC (Wallpierce)"
-	set desc = "Local OOC, seen by anyone within 7 tiles of you."
-	set category = "OOC"
-
-	looc_message(msg, TRUE)
-
-/client/proc/looc_message(msg, wall_pierce)
+/client/proc/looc_message(msg)
 	if(GLOB.say_disabled)
 		to_chat(usr, span_danger("Speech is currently admin-disabled."))
 		return
@@ -74,19 +67,12 @@
 	msg = emoji_parse(msg)
 
 	mob.log_talk(msg,LOG_OOC, tag="LOOC")
-	var/list/heard
-	if(wall_pierce)
-		heard = get_hearers_in_range(LOOC_RANGE, mob.get_top_level_mob())
-	else
-		heard = get_hearers_in_view(LOOC_RANGE, mob.get_top_level_mob())
+	var/list/heard = get_hearers_in_view(LOOC_RANGE, mob.get_top_level_mob())
 
 	//so the ai can post looc text
 	if(istype(mob, /mob/living/silicon/ai))
 		var/mob/living/silicon/ai/ai = mob
-		if(wall_pierce)
-			heard = get_hearers_in_range(LOOC_RANGE, ai.eyeobj)
-		else
-			heard = get_hearers_in_view(LOOC_RANGE, ai.eyeobj)
+		heard = get_hearers_in_view(LOOC_RANGE, ai.eyeobj)
 	//so the ai can see looc text
 	for(var/mob/living/silicon/ai/ai as anything in GLOB.ai_list)
 		if(ai.client && !(ai in heard) && (ai.eyeobj in heard))
@@ -104,13 +90,13 @@
 		if (isobserver(hearing))
 			continue //Also handled later.
 
-		to_chat(hearing_client, span_looc(span_prefix("LOOC[wall_pierce ? " (WALL PIERCE)" : ""]:</span> <EM>[src.mob.name]:</EM> <span class='message'>[msg]")))
+		to_chat(hearing_client, span_looc(span_prefix("LOOC:</span> <EM>[src.mob.name]:</EM> <span class='message'>[msg]")))
 
 	for(var/cli in GLOB.admins)
 		var/client/cli_client = cli
 		if (admin_seen[cli_client])
-			to_chat(cli_client, span_looc("[ADMIN_FLW(usr)] <span class='prefix'>LOOC[wall_pierce ? " (WALL PIERCE)" : ""]:</span> <EM>[src.key]/[src.mob.name]:</EM> <span class='message'>[msg]</span>"))
+			to_chat(cli_client, span_looc("[ADMIN_FLW(usr)] <span class='prefix'>LOOC:</span> <EM>[src.key]/[src.mob.name]:</EM> <span class='message'>[msg]</span>"))
 		else if (cli_client.prefs.read_preference(/datum/preference/toggle/admin/see_looc))
-			to_chat(cli_client, span_rlooc("[ADMIN_FLW(usr)] <span class='prefix'>(R)LOOC[wall_pierce ? " (WALL PIERCE)" : ""]:</span> <EM>[src.key]/[src.mob.name]:</EM> <span class='message'>[msg]</span>"))
+			to_chat(cli_client, span_rlooc("[ADMIN_FLW(usr)] <span class='prefix'>(R)LOOC:</span> <EM>[src.key]/[src.mob.name]:</EM> <span class='message'>[msg]</span>"))
 
 #undef LOOC_RANGE

@@ -37,7 +37,7 @@
 	var/bra = "Nude"
 	/// Color of the bra.
 	var/bra_color = "#FFFFFF"
-	/// Flags for showing/hiding underwear, toggleabley by a verb
+	/// Flags for showing/hiding underwear
 	var/underwear_visibility = NONE
 
 ///copies over clothing preferences like underwear to another human

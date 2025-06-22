@@ -18007,9 +18007,6 @@
 	id = "dorm4_shutters";
 	name = "Shutters Toggle"
 	},
-/obj/structure/sign/painting/dorm_private{
-	pixel_y = 32
-	},
 /turf/open/floor/wood/parquet,
 /area/station/commons/dorms/room4)
 "glz" = (
@@ -30473,9 +30470,6 @@
 /area/station/science/xenobiology)
 "kEz" = (
 /obj/structure/table/wood,
-/obj/structure/sign/painting/dorm_private{
-	pixel_y = -32
-	},
 /turf/open/floor/wood,
 /area/station/commons/dorms/room3)
 "kEE" = (
@@ -52817,9 +52811,6 @@
 /area/station/hallway/secondary/recreation)
 "sqM" = (
 /obj/structure/table/wood,
-/obj/structure/sign/painting/dorm_private{
-	pixel_y = -32
-	},
 /turf/open/floor/wood,
 /area/station/commons/dorms/room2)
 "srb" = (
@@ -55865,9 +55856,6 @@
 /area/station/security/warden)
 "ttu" = (
 /obj/structure/table/wood,
-/obj/structure/sign/painting/dorm_private{
-	pixel_x = 32
-	},
 /turf/open/floor/wood,
 /area/station/commons/dorms/room1)
 "ttS" = (
