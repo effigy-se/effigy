@@ -133,7 +133,7 @@
 					continue
 
 				// "Your status as a secret agent" or "Your status as a traitor"
-				var/antag_title = special_affiliation || antag_datum.job_rank
+				var/antag_title = special_affiliation || antag_datum.jobban_flag || antag_datum.pref_flag
 				return "Your status as a [span_red(span_bold(antag_title))] has given you insight here:"
 
 		// Job checks by title
