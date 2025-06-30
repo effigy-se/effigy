@@ -2,6 +2,7 @@
 	name = "speaker"
 	desc = "A speaker. Used for emitting sounds."
 	organ_flags = ORGAN_ROBOTIC
+	modifies_speech = TRUE
 
 /obj/item/organ/tongue/speaker/on_life(seconds_per_tick, times_fired)
 	. = ..()
@@ -25,7 +26,9 @@
 /obj/item/organ/tongue/speaker/modify_speech(datum/source, list/speech_args)
 	var/chance_of_replacement = ((damage / maxHealth) * 100)
 	if(organ_flags & ORGAN_DEPOWERED)
-		chance_of_replacement = 100 // can't hear SHIT without power
+		chance_of_replacement = 100 // can't say SHIT without power
+	if(organ_flags & ORGAN_FAILING)
+		chance_of_replacement = 100 // can't say SHIT if broken
 	if(chance_of_replacement)
 		var/message = speech_args[SPEECH_MESSAGE]
 		var/list/possible_words_to_replace = splittext_char(message, " ")

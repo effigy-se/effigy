@@ -38,11 +38,14 @@
 		return
 	var/area_temp = breather.get_temperature(environment)
 	var/temperature_disparity = 1
+	var/damage_modifier = 1
+	if(damage > 0)
+		damage_modifier = 1 - (damage / maxHealth)
 	if(area_temp > breather.bodytemperature)
 		temperature_disparity = area_temp / breather.bodytemperature
-		breather.adjust_bodytemperature(3 * temperature_disparity)
-		breather.adjust_coretemperature(3 * temperature_disparity)
+		breather.adjust_bodytemperature((3 * damage_modifier) * temperature_disparity)
+		breather.adjust_coretemperature((3 * damage_modifier) * temperature_disparity)
 	else if(area_temp < breather.bodytemperature)
 		temperature_disparity = breather.bodytemperature / area_temp
-		breather.adjust_bodytemperature(-3 * temperature_disparity)
-		breather.adjust_coretemperature(-3 * temperature_disparity)
+		breather.adjust_bodytemperature((-3 * damage_modifier) * temperature_disparity)
+		breather.adjust_coretemperature((-3 * damage_modifier) * temperature_disparity)

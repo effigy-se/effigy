@@ -64,6 +64,8 @@
 		return FALSE
 	if(HAS_TRAIT(chest_owner, TRAIT_NODISMEMBER))
 		return FALSE
+	if(bodytype & BODYTYPE_ROBOTIC)
+		return FALSE
 
 	. = list()
 	if(wounding_type != WOUND_BURN && isturf(chest_owner.loc) && can_bleed())

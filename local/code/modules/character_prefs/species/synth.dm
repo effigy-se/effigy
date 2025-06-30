@@ -34,19 +34,17 @@
 		TRAIT_NOSTAMCRIT,
 	)
 	reagent_flags = PROCESS_SYNTHETIC
-	body_markings = list(/datum/bodypart_overlay/simple/body_marking/lizard = "None")
 	mutantheart = /obj/item/organ/heart/oil_pump
 	mutantstomach = /obj/item/organ/stomach/fuel_generator
 	mutantlungs = /obj/item/organ/lungs/cooling_fans
 	mutantears = /obj/item/organ/ears/microphone
 	mutanttongue = /obj/item/organ/tongue/speaker
-	mutantliver = /obj/item/organ/liver/cybernetic/tier2 // needs replaced
-	mutantappendix = /obj/item/organ/appendix // needs replaced
-	mutantbrain = /obj/item/organ/brain/cybernetic // needs repathed off of cybernetic brain
+	mutantliver = /obj/item/organ/liver/cleaning_filter
+	mutantappendix = /obj/item/organ/appendix/random_number_database
+	mutantbrain = /obj/item/organ/brain/cybernetic
+	mutanteyes = /obj/item/organ/eyes/camera
 	exotic_blood = /datum/reagent/fuel/oil
 	exotic_bloodtype = BLOOD_TYPE_OIL
-	bodytemp_heat_damage_limit = (BODYTEMP_NORMAL + 146) // 456 K / 183 C
-	bodytemp_cold_damage_limit = (BODYTEMP_NORMAL - 80) // 230 K / -43 C
 	/// How much energy we start with
 	var/internal_charge = SYNTH_CHARGE_MAX
 

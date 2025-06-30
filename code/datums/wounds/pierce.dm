@@ -5,19 +5,29 @@
 /datum/wound/pierce
 	undiagnosed_name = "Puncture"
 
+/datum/wound/pierce/proc/get_blood_noun()
+	var/noun_blood = "blood"
+	if(ishuman(victim))
+		var/mob/living/carbon/human/human_victim = victim
+		if(human_victim.dna.species.exotic_blood)
+			var/datum/reagent/blood_reagent = human_victim.dna.species.exotic_blood
+			noun_blood = initial(lowertext(blood_reagent.name))
+	return noun_blood
+
 /datum/wound/pierce/get_self_check_description(self_aware)
 	if(!limb.can_bleed())
 		return ..()
 
+	var/blood_noun = get_blood_noun()
 	switch(severity)
 		if(WOUND_SEVERITY_TRIVIAL)
-			return span_danger("It's leaking blood from a small [LOWER_TEXT(undiagnosed_name || name)].")
+			return span_danger("It's leaking [blood_noun] from a small [LOWER_TEXT(undiagnosed_name || name)].")
 		if(WOUND_SEVERITY_MODERATE)
-			return span_warning("It's leaking blood from a [LOWER_TEXT(undiagnosed_name || name)].")
+			return span_warning("It's leaking [blood_noun] from a [LOWER_TEXT(undiagnosed_name || name)].")
 		if(WOUND_SEVERITY_SEVERE)
-			return span_boldwarning("It's leaking blood from a serious [LOWER_TEXT(undiagnosed_name || name)]!")
+			return span_boldwarning("It's leaking [blood_noun] from a serious [LOWER_TEXT(undiagnosed_name || name)]!")
 		if(WOUND_SEVERITY_CRITICAL)
-			return span_boldwarning("It's leaking blood from a major [LOWER_TEXT(undiagnosed_name || name)]!!")
+			return span_boldwarning("It's leaking [blood_noun] from a major [LOWER_TEXT(undiagnosed_name || name)]!!")
 
 /datum/wound/pierce/bleed
 	name = "Piercing Wound"
@@ -52,6 +62,7 @@
 /datum/wound/pierce/bleed/receive_damage(wounding_type, wounding_dmg, wound_bonus)
 	if(victim.stat == DEAD || (wounding_dmg < 5) || !limb.can_bleed() || !victim.blood_volume || !prob(internal_bleeding_chance + wounding_dmg))
 		return
+	var/blood_noun = get_blood_noun()
 	if(limb.current_gauze?.splint_factor)
 		wounding_dmg *= (1 - limb.current_gauze.splint_factor)
 	var/blood_bled = rand(1, wounding_dmg * internal_bleeding_coefficient) // 12 brute toolbox can cause up to 15/18/21 bloodloss on mod/sev/crit
@@ -60,23 +71,23 @@
 			victim.bleed(blood_bled, TRUE)
 		if(7 to 13)
 			victim.visible_message(
-				span_smalldanger("Blood droplets fly from the hole in [victim]'s [limb.plaintext_zone]."),
-				span_danger("You cough up a bit of blood from the blow to your [limb.plaintext_zone]."),
+				span_smalldanger("[blood_noun] droplets fly from the hole in [victim]'s [limb.plaintext_zone]."),
+				span_danger("You cough up a bit of [blood_noun] from the blow to your [limb.plaintext_zone]."),
 				vision_distance = COMBAT_MESSAGE_RANGE,
 			)
 			victim.bleed(blood_bled, TRUE)
 		if(14 to 19)
 			victim.visible_message(
-				span_smalldanger("A small stream of blood spurts from the hole in [victim]'s [limb.plaintext_zone]!"),
-				span_danger("You spit out a string of blood from the blow to your [limb.plaintext_zone]!"),
+				span_smalldanger("A small stream of [blood_noun] spurts from the hole in [victim]'s [limb.plaintext_zone]!"),
+				span_danger("You spit out a string of [blood_noun] from the blow to your [limb.plaintext_zone]!"),
 				vision_distance = COMBAT_MESSAGE_RANGE,
 			)
 			victim.create_splatter(victim.dir)
 			victim.bleed(blood_bled)
 		if(20 to INFINITY)
 			victim.visible_message(
-				span_danger("A spray of blood streams from the gash in [victim]'s [limb.plaintext_zone]!"),
-				span_bolddanger("You choke up on a spray of blood from the blow to your [limb.plaintext_zone]!"),
+				span_danger("A spray of [blood_noun] streams from the gash in [victim]'s [limb.plaintext_zone]!"),
+				span_bolddanger("You choke up on a spray of [blood_noun] from the blow to your [limb.plaintext_zone]!"),
 				vision_distance = COMBAT_MESSAGE_RANGE,
 			)
 			victim.bleed(blood_bled)

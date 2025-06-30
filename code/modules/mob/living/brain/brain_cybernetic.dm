@@ -309,6 +309,10 @@
 	alpha = 0
 	color = "#FFFFFF"
 
+/atom/movable/screen/fullscreen/static_vision/robot_eyes
+	alpha = 0
+	color = "#FFFFFF"
+
 /atom/movable/screen/fullscreen/robot_hot
 	icon = 'local/icons/hud/screen_full.dmi'
 	icon_state = "heat_"
@@ -490,7 +494,7 @@
 
 /obj/item/organ/brain/cybernetic/proc/calculate_oil_usage()
 	var/obj/item/organ/heart/oil_pump/oil_pump = owner.get_organ_slot(ORGAN_SLOT_HEART)
-	if(!oil_pump || !istype(oil_pump) || (oil_pump.organ_flags & ORGAN_DEPOWERED))
+	if(!oil_pump || !istype(oil_pump) || (oil_pump.organ_flags & ORGAN_DEPOWERED) || (oil_pump.organ_flags & ORGAN_FAILING))
 		return 5 // no oil pump/depowered? waste the fuck outta oil
 	return 1 + (oil_pump.damage / (oil_pump.maxHealth * 2))
 
@@ -642,10 +646,6 @@
 
 /obj/item/organ/brain/cybernetic/check_for_repair(obj/item/item, mob/user)
 	if (item.tool_behaviour == TOOL_MULTITOOL) //attempt to repair the brain
-		if (brainmob?.health <= HEALTH_THRESHOLD_DEAD) //if the brain is fucked anyway, do nothing
-			to_chat(user, span_warning("[src] is far too damaged, there's nothing else we can do for it!"))
-			return TRUE
-
 		if (DOING_INTERACTION(user, src))
 			to_chat(user, span_warning("you're already repairing [src]!"))
 			return TRUE

@@ -38,6 +38,8 @@
 	var/chance_of_replacement = ((damage / maxHealth) * 100)
 	if(organ_flags & ORGAN_DEPOWERED)
 		chance_of_replacement = 100 // can't hear SHIT without power
+	if(organ_flags & ORGAN_FAILING)
+		chance_of_replacement = 100 // can't say SHIT if broken
 	if(chance_of_replacement)
 		var/message = hearing_args[HEARING_RAW_MESSAGE]
 		var/list/possible_words_to_replace = splittext_char(message, " ")

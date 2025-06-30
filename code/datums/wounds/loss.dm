@@ -2,7 +2,7 @@
 	abstract = FALSE
 
 	wound_path_to_generate = /datum/wound/loss
-	required_limb_biostate = NONE
+	required_limb_biostate = BIO_FLESH
 	require_any_biostate = TRUE
 
 	required_wounding_types = list(WOUND_ALL)
@@ -41,19 +41,20 @@
 		occur_text = dismembered_part.get_dismember_message(wounding_type, outright)
 
 	var/msg = span_bolddanger("[victim]'s [dismembered_part.plaintext_zone] [occur_text]")
+	if(dismembered_part.dismember(wounding_type == WOUND_BURN ? BURN : BRUTE, wounding_type = wounding_type))
+		victim.visible_message(msg, span_userdanger("Your [dismembered_part.plaintext_zone] [self_msg ? self_msg : occur_text]"))
 
-	victim.visible_message(msg, span_userdanger("Your [dismembered_part.plaintext_zone] [self_msg ? self_msg : occur_text]"))
-
-	loss_wounding_type = wounding_type
-
-	set_limb(dismembered_part)
-	second_wind()
-	log_wound(victim, src)
-	if(dismembered_part.can_bleed() && wounding_type != WOUND_BURN && victim.blood_volume)
-		victim.spray_blood(attack_direction, severity)
-	dismembered_part.dismember(wounding_type == WOUND_BURN ? BURN : BRUTE, wounding_type = wounding_type)
-	qdel(src)
-	return TRUE
+		loss_wounding_type = wounding_type
+		set_limb(dismembered_part)
+		second_wind()
+		log_wound(victim, src)
+		if(dismembered_part.can_bleed() && wounding_type != WOUND_BURN && victim.blood_volume)
+			victim.spray_blood(attack_direction, severity)
+		qdel(src)
+		return TRUE
+	else
+		qdel(src)
+		return
 
 /obj/item/bodypart/proc/get_dismember_message(wounding_type, outright)
 	var/occur_text

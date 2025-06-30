@@ -31,10 +31,15 @@
 		return
 	if(!(methods & (TOUCH|VAPOR)))
 		return
+	if(organ_flags & ORGAN_FAILING)
+		return
 	var/did_lubrication = FALSE
+	var/damage_modifier = 1
+	if(damage > 0)
+		damage_modifier = 1 - (damage / maxHealth)
 	for(var/datum/reagent/bit as anything in applied_reagents)
 		if(is_type_in_list(bit, lubricant_types))
-			robot.blood_volume += lubricants[bit.type] * applied_reagents[bit]
+			robot.blood_volume += (lubricants[bit.type] * applied_reagents[bit]) * damage_modifier
 			did_lubrication = TRUE
 	if(did_lubrication)
 		robot.balloon_alert(robot, "lubricated")
