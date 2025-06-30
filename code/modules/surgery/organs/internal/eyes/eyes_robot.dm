@@ -5,6 +5,10 @@
 	organ_flags = ORGAN_ROBOTIC
 	failing_desc = "seems to be broken."
 
+/obj/item/organ/eyes/camera/on_mob_remove(mob/living/carbon/eye_owner)
+	. = ..()
+	owner.clear_fullscreen("robot_eye_static")
+
 /obj/item/organ/eyes/camera/apply_damaged_eye_effects()
 	var/static_alpha = 0
 	static_alpha = 240 * (damage / maxHealth)
