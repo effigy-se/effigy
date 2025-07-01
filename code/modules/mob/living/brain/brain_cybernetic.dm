@@ -7,6 +7,25 @@
 	icon_state = "brain-c"
 	organ_flags = ORGAN_ROBOTIC | ORGAN_VITAL
 	failing_desc = "seems to be broken, and will not work without repairs."
+	organ_traits = list(
+		TRAIT_ADVANCEDTOOLUSER,
+		TRAIT_LITERATE,
+		TRAIT_CAN_STRIP,
+		TRAIT_LIMBATTACHMENT,
+		TRAIT_NOBREATH,
+		TRAIT_NOHUNGER,
+		TRAIT_NOCRITDAMAGE,
+		TRAIT_NO_DNA_COPY,
+		TRAIT_NO_PLASMA_TRANSFORM,
+		TRAIT_RADIMMUNE,
+		TRAIT_STABLEHEART,
+		TRAIT_STABLELIVER,
+		TRAIT_NO_DAMAGE_OVERLAY,
+		TRAIT_NOCRITOVERLAY,
+		TRAIT_NOHARDCRIT,
+		TRAIT_NOSOFTCRIT,
+		TRAIT_NOSTAMCRIT,
+	)
 	var/power = 100
 	var/max_power = 100
 	var/distress_beacon_active = FALSE
@@ -413,7 +432,7 @@
 	if(bodytemp > source.bodytemp_heat_damage_limit)
 		temperature_disparity = bodytemp / BODYTEMP_NORMAL
 		robot.remove_movespeed_modifier(/datum/movespeed_modifier/robot_cold)
-		robot.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/robot_hot, multiplicative_slowdown = -(((robot.bodytemperature - source.bodytemp_heat_damage_limit) / COLD_SLOWDOWN_FACTOR)) * 0.25)
+		robot.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/robot_hot, multiplicative_slowdown = -(((min(robot.bodytemperature, BODYTEMP_HEAT_WARNING_3) - source.bodytemp_heat_damage_limit) / (COLD_SLOWDOWN_FACTOR * 2)) * 0.1))
 		robot.overlay_fullscreen("robot_temp_hot", /atom/movable/screen/fullscreen/robot_hot, 1)
 		if(bodytemp in source.bodytemp_heat_damage_limit to BODYTEMP_HEAT_WARNING_2)
 			robot.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/hot, 1)
@@ -426,7 +445,7 @@
 	else if(bodytemp < source.bodytemp_cold_damage_limit)
 		temperature_disparity = BODYTEMP_NORMAL / bodytemp
 		robot.remove_movespeed_modifier(/datum/movespeed_modifier/robot_hot)
-		robot.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/robot_cold, multiplicative_slowdown = ((source.bodytemp_cold_damage_limit - robot.bodytemperature) / COLD_SLOWDOWN_FACTOR) * 0.25)
+		robot.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/robot_cold, multiplicative_slowdown = ((source.bodytemp_cold_damage_limit - max(BODYTEMP_COLD_WARNING_3, robot.bodytemperature)) / COLD_SLOWDOWN_FACTOR) * 0.25)
 		robot.overlay_fullscreen("robot_temp_cold", /atom/movable/screen/fullscreen/robot_cold, 1)
 		if(bodytemp in BODYTEMP_COLD_WARNING_2 to source.bodytemp_cold_damage_limit)
 			robot.throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/cold, 1)

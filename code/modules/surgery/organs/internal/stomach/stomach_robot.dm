@@ -5,6 +5,8 @@
 	can_process_solids = FALSE
 	organ_flags = ORGAN_ROBOTIC
 	reagent_vol = 100
+	icon = 'local/icons/obj/medical/organs/organs.dmi'
+	icon_state = "fuel_generator"
 	var/ethanol_modifier = 6
 	var/flammable_modifier = 3
 	var/list/flammable_reagents = list(

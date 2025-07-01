@@ -30,6 +30,7 @@
 		"pillbottle",
 		"xlarge_beaker",
 		"jerrycan",
+		"organ_fixer",
 	)
 	experiments_to_unlock = list(
 		/datum/experiment/autopsy/human,

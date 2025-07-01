@@ -362,9 +362,6 @@ GLOBAL_DATUM_INIT(crewmonitor_robot, /datum/crewmonitor/robot, new)
 			stack_trace("Non-human mob is in human_list: [tracked_living_mob] ([tracked_living_mob.type])")
 			continue
 
-		if(!isandroid(tracked_human))
-			continue
-
 		var/obj/item/organ/brain/cybernetic/robot_brain = tracked_human.get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(!robot_brain || !istype(robot_brain))
 			continue

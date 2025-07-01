@@ -1,6 +1,8 @@
 /obj/item/organ/ears/microphone
 	name = "stereo microphone"
 	desc = "A pair of microphones. Used for picking up sounds."
+	icon = 'local/icons/obj/medical/organs/organs.dmi'
+	icon_state = "microphone"
 	organ_flags = ORGAN_ROBOTIC
 
 /obj/item/organ/ears/microphone/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
@@ -21,6 +23,9 @@
 		return
 	var/obj/item/organ/brain/cybernetic/robot_brain = robot.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(!robot_brain || !istype(robot_brain))
+		if(!(organ_flags & ORGAN_DEPOWERED))
+			say("ERROR: No cybernetic brain to draw power from!")
+			organ_flags |= ORGAN_DEPOWERED
 		return
 	if(robot_brain.power <= 10)
 		if(!(organ_flags & ORGAN_DEPOWERED))
@@ -30,7 +35,7 @@
 		organ_flags &= ~ORGAN_DEPOWERED
 	if(organ_flags & ORGAN_DEPOWERED)
 		return
-	robot_brain.power -= (0.0125 * seconds_per_tick) * robot_brain.temperature_disparity
+	robot_brain.power -= (ROBOT_POWER_DRAIN * seconds_per_tick) * robot_brain.temperature_disparity
 	robot_brain.run_updates()
 
 /obj/item/organ/ears/microphone/proc/handle_hearing(datum/source, list/hearing_args)

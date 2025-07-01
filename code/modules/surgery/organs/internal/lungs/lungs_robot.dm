@@ -1,13 +1,14 @@
 /obj/item/organ/lungs/cooling_fans
 	name = "cooling fans"
 	desc = "Modulates the temperature of the robot via air intake. Be careful not to get it gummed up!"
-	icon_state = "lungs"
 	organ_flags = ORGAN_ROBOTIC
 	low_threshold_passed = span_warning("You feel short of breath.")
 	high_threshold_passed = span_warning("You feel some sort of constriction around your chest as your breathing becomes shallow and rapid.")
 	now_fixed = span_warning("Your lungs seem to once again be able to hold air.")
 	low_threshold_cleared = span_info("You can breathe normally again.")
 	high_threshold_cleared = span_info("The constriction around your chest loosens as your breathing calms down.")
+	icon = 'local/icons/obj/medical/organs/organs.dmi'
+	icon_state = "cooling_fans"
 
 /obj/item/organ/lungs/cooling_fans/setup_breathing()
 	return // we don't do that here
@@ -22,6 +23,9 @@
 		return
 	var/obj/item/organ/brain/cybernetic/robot_brain = breather.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(!robot_brain || !istype(robot_brain))
+		if(!(organ_flags & ORGAN_DEPOWERED))
+			say("ERROR: No cybernetic brain to draw power from!")
+			organ_flags |= ORGAN_DEPOWERED
 		return
 	if(robot_brain.power <= 20)
 		if(!(organ_flags & ORGAN_DEPOWERED))
@@ -31,7 +35,7 @@
 		organ_flags &= ~ORGAN_DEPOWERED
 	if(organ_flags & ORGAN_DEPOWERED)
 		return
-	robot_brain.power -= (0.0125 * seconds_per_tick) * robot_brain.temperature_disparity
+	robot_brain.power -= (ROBOT_POWER_DRAIN * seconds_per_tick) * robot_brain.temperature_disparity
 	robot_brain.run_updates()
 	var/datum/gas_mixture/environment = breather.loc?.return_air()
 	if(!environment)
