@@ -4,5 +4,5 @@
 
 /area/station/commons/cryo/on_joining_game(mob/living/boarder)
 	var/atom/movable/screen/splash/Spl = new(null, boarder.client, TRUE)
-	Spl.Fade(TRUE)
+	Spl.fade(TRUE)
 	boarder.playsound_local(get_turf(boarder), 'local/sound/jingles/LatejoinCryo.ogg', 75)

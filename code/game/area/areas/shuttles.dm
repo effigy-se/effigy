@@ -128,8 +128,8 @@
 
 /area/shuttle/arrival/on_joining_game(mob/living/boarder)
 	if(SSshuttle.arrivals?.mode == SHUTTLE_CALL)
-		var/atom/movable/screen/splash/Spl = new(null, boarder.client, TRUE)
-		Spl.Fade(TRUE)
+		var/atom/movable/screen/splash/Spl = new(null, null, boarder.client, TRUE)
+		Spl.fade(TRUE)
 		boarder.playsound_local(get_turf(boarder), 'local/sound/jingles/LatejoinShuttle.ogg', 75) // EffigyEdit Change - replaced `sound/voice/ApproachingTG.ogg`; upped volume from 25
 	boarder.update_parallax_teleport()
 
