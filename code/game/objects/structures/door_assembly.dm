@@ -305,6 +305,7 @@
 		door.req_one_access = electronics.accesses
 	else
 		door.req_access = electronics.accesses
+	door.set_animation_type() // EffigyEdit Add - Custom Airlocks
 	if(created_name)
 		door.name = created_name
 	else if(electronics.passed_name)
