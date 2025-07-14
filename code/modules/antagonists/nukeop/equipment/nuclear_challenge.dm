@@ -16,7 +16,6 @@ GLOBAL_LIST_EMPTY(jam_on_wardec)
 			Must be used within five minutes, or your benefactors will lose interest."
 	var/declaring_war = FALSE
 	var/uplink_type = /obj/item/uplink/nuclear
-	var/announcement_sound = 'sound/announcer/alarm/nuke_alarm.ogg'
 
 /obj/item/nuclear_challenge/attack_self(mob/living/user)
 	if(!check_allowed(user))
@@ -71,7 +70,7 @@ GLOBAL_LIST_EMPTY(jam_on_wardec)
 		return
 
 	for(var/obj/item/circuitboard/computer/syndicate_shuttle/board as anything in GLOB.syndicate_shuttle_boards)
-		if(board.challenge_start_time)
+		if(board.challenge)
 			tgui_alert(usr, "War has already been declared!", "War Was Declared")
 			return
 
@@ -81,7 +80,7 @@ GLOBAL_LIST_EMPTY(jam_on_wardec)
 	priority_announce(
 		text = memo,
 		title = "Declaration of War",
-		sound = announcement_sound,
+		sound = 'sound/announcer/alarm/nuke_alarm.ogg',
 		has_important_message = TRUE,
 		sender_override = "Nuclear Operative Outpost",
 		color_override = "red",
@@ -95,7 +94,7 @@ GLOBAL_LIST_EMPTY(jam_on_wardec)
 	SSblackbox.record_feedback("amount", "nuclear_challenge_mode", 1)
 
 	for(var/obj/item/circuitboard/computer/syndicate_shuttle/board as anything in GLOB.syndicate_shuttle_boards)
-		board.challenge_start_time = world.time
+		board.challenge = TRUE
 
 	for(var/obj/machinery/computer/camera_advanced/shuttle_docker/dock as anything in GLOB.jam_on_wardec)
 		dock.jammed = TRUE
@@ -160,14 +159,13 @@ GLOBAL_LIST_EMPTY(jam_on_wardec)
 		if(board.moved)
 			to_chat(user, span_boldwarning("The shuttle has already been moved! You have forfeit the right to declare war."))
 			return FALSE
-		if(board.challenge_start_time)
+		if(board.challenge)
 			to_chat(user, span_boldwarning("War has already been declared!"))
 			return FALSE
 	return TRUE
 
 /obj/item/nuclear_challenge/clownops
 	uplink_type = /obj/item/uplink/clownop
-	announcement_sound = 'sound/announcer/alarm/clownops.ogg'
 
 /// Subtype that does nothing but plays the war op message. Intended for debugging
 /obj/item/nuclear_challenge/literally_just_does_the_message
@@ -194,7 +192,7 @@ GLOBAL_LIST_EMPTY(jam_on_wardec)
 	priority_announce(
 		text = memo,
 		title = "Declaration of War",
-		sound = announcement_sound,
+		sound = 'sound/announcer/alarm/nuke_alarm.ogg',
 		has_important_message = TRUE,
 		sender_override = "Nuclear Operative Outpost",
 		color_override = "red",

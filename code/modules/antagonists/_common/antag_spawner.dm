@@ -91,6 +91,7 @@
 		master_wizard.wiz_team.add_member(app_mind)
 	app_mind.add_antag_datum(app)
 	app_mind.set_assigned_role(SSjob.get_job_type(/datum/job/wizard_apprentice))
+	app_mind.special_role = ROLE_WIZARD_APPRENTICE
 	SEND_SOUND(M, sound('sound/effects/magic.ogg'))
 
 ///////////BORGS AND OPERATIVES
@@ -105,7 +106,7 @@
 	icon = 'icons/obj/devices/voice.dmi'
 	icon_state = "nukietalkie"
 	/// The name of the special role given to the recruit
-	var/special_role_name = ROLE_OPERATIVE
+	var/special_role_name = ROLE_NUCLEAR_OPERATIVE
 	/// The applied outfit
 	var/datum/outfit/syndicate/outfit = /datum/outfit/syndicate/reinforcement
 	/// The antag datum applied
@@ -163,7 +164,7 @@
 
 	var/datum/antagonist/nukeop/creator_op = user.has_antag_datum(/datum/antagonist/nukeop, TRUE)
 	op_mind.add_antag_datum(new_datum, creator_op ? creator_op.get_team() : null)
-	LAZYADD(op_mind.special_roles, special_role_name)
+	op_mind.special_role = special_role_name
 
 	if(outfit)
 		var/datum/antagonist/nukeop/nukie_datum = op_mind.has_antag_datum(antag_datum)
@@ -249,7 +250,7 @@
 	borg.PossessByPlayer(C.key)
 
 	borg.mind.add_antag_datum(antag_datum, creator_op ? creator_op.get_team() : null)
-	LAZYADD(borg.mind.special_roles, special_role_name)
+	borg.mind.special_role = special_role_name
 	borg.forceMove(pod)
 	new /obj/effect/pod_landingzone(get_turf(src), pod)
 
@@ -393,7 +394,7 @@
 
 		human_mob.equipOutfit(outfit)
 
-	LAZYADD(op_mind.special_roles, role_to_play)
+	op_mind.special_role = role_to_play
 
 	do_special_things(spawned_mob, user)
 
@@ -465,3 +466,4 @@
 	internals_slot = NONE
 	belt = /obj/item/lighter/skull
 	r_hand = /obj/item/food/grown/banana
+

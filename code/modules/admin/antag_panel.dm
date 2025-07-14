@@ -74,9 +74,6 @@ GLOBAL_VAR(antag_prototypes)
 					break
 	return common_commands
 
-/**
- * Returns a list of "statuses" this mind has - like "Infected", "Mindshielded", etc
- */
 /datum/mind/proc/get_special_statuses()
 	var/list/result = LAZYCOPY(special_statuses)
 	if(!current)
@@ -85,18 +82,12 @@ GLOBAL_VAR(antag_prototypes)
 		result += span_good("Mindshielded")
 	if(current && HAS_MIND_TRAIT(current, TRAIT_UNCONVERTABLE))
 		result += span_good("Unconvertable")
-	return result
-
-/**
- * Returns a list of "roles" this mind has - like "Traitor", "Ex Head Rev", "Emagged", etc
- */
-/datum/mind/proc/get_special_roles()
-	var/list/roles = LAZYCOPY(special_roles)
+	//Move these to mob
 	if(iscyborg(current))
 		var/mob/living/silicon/robot/robot = current
 		if (robot.emagged)
-			roles += "Emagged"
-	return roles
+			result += span_bad("Emagged")
+	return result.Join(" | ")
 
 /datum/mind/proc/traitor_panel()
 	if(!SSticker.HasRoundStarted())
@@ -109,11 +100,12 @@ GLOBAL_VAR(antag_prototypes)
 	var/out = "<B>[name]</B>[(current && (current.real_name != name))?" (as [current.real_name])":""]<br>"
 	out += "Mind currently owned by key: [key] [active?"(synced)":"(not synced)"]<br>"
 	out += "Assigned role: [assigned_role.title]. <a href='byond://?src=[REF(src)];role_edit=1'>Edit</a><br>"
+	out += "Faction and special role: <b><font color='red'>[special_role]</font></b><br>"
 	out += "<a href='byond://?_src_=holder;[HrefToken()];check_teams=1'>Show Teams</a><br><br>"
 
-	var/special_statuses = get_special_roles() | get_special_statuses()
+	var/special_statuses = get_special_statuses()
 	if(length(special_statuses))
-		out += "Roles: [jointext(special_statuses, " | ")]<br>"
+		out += get_special_statuses() + "<br>"
 
 	if(!GLOB.antag_prototypes)
 		GLOB.antag_prototypes = list()
@@ -175,7 +167,7 @@ GLOBAL_VAR(antag_prototypes)
 					continue
 				pref_source = prototype
 				break
-		if(pref_source.pref_flag)
+		if(pref_source.job_rank)
 			antag_header_parts += pref_source.enabled_in_preferences(src) ? "Enabled in Prefs" : "Disabled in Prefs"
 
 		//Traitor : None | Traitor | IAA

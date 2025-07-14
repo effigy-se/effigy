@@ -19,7 +19,7 @@
 	suicide_cry = "FOR THE SYNDICATE!!!"
 	antag_hud_name = "battlecruiser_crew"
 	antagpanel_category = ANTAG_GROUP_SYNDICATE
-	pref_flag = ROLE_BATTLECRUISER_CREW
+	job_rank = ROLE_BATTLECRUISER_CREW
 	stinger_sound = 'sound/music/antag/ops.ogg'
 	/// Team to place the crewmember on.
 	var/datum/team/battlecruiser/battlecruiser_team
@@ -39,7 +39,7 @@
 /datum/antagonist/battlecruiser/captain
 	name = "Battlecruiser Captain"
 	antag_hud_name = "battlecruiser_lead"
-	pref_flag = ROLE_BATTLECRUISER_CAPTAIN
+	job_rank = ROLE_BATTLECRUISER_CAPTAIN
 
 /datum/antagonist/battlecruiser/create_team(datum/team/battlecruiser/team)
 	if(!team)

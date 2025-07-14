@@ -49,7 +49,6 @@
 			if(!input_reagent)
 				return FALSE
 
-			beaker.add_hiddenprint(ui.user)
 			beaker.reagents.add_reagent(input_reagent, amount, reagtemp = temperature, added_purity = (purity / 100))
 			return TRUE
 

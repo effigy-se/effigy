@@ -97,7 +97,6 @@
 			/obj/item/switchblade,
 			/obj/item/boxcutter,
 			/obj/item/pen,
-			/obj/item/flashlight/pen, //i mean cmon if a pen fits in there this does
 			/obj/item/scalpel,
 			/obj/item/dnainjector,
 			/obj/item/reagent_containers/syringe,
@@ -155,7 +154,6 @@
 			/obj/item/lipstick,
 			/obj/item/match,
 			/obj/item/pen,
-			/obj/item/flashlight/pen,
 			/obj/item/reagent_containers/cup/glass/flask,
 			/obj/item/reagent_containers/dropper,
 			/obj/item/reagent_containers/hypospray/medipen,

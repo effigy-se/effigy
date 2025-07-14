@@ -28,7 +28,11 @@
 	variable = TRUE
 
 /datum/movespeed_modifier/damage_slowdown
-	blacklisted_movetypes = FLOATING
+	blacklisted_movetypes = FLOATING|FLYING
+	variable = TRUE
+
+/datum/movespeed_modifier/damage_slowdown_flying
+	movetypes = FLYING
 	variable = TRUE
 
 /// Movespeed modifier applied by worn equipment.

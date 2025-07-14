@@ -4,7 +4,7 @@
 	savefile_identifier = PREFERENCE_PLAYER
 
 /datum/preference/toggle/widescreen/apply_to_client(client/client, value)
-	client.view_size?.setDefault(VIEWPORT_USE_PREF)
+	client.view_size?.setDefault(getScreenSize(value))
 
 /datum/preference/toggle/fullscreen_mode
 	default_value = FALSE

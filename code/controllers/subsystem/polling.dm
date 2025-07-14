@@ -285,10 +285,11 @@ SUBSYSTEM_DEF(polling)
 	if(the_ignore_category)
 		if(potential_candidate.ckey in GLOB.poll_ignore[the_ignore_category])
 			return FALSE
-	if(role && potential_candidate.client)
+	if(role)
 		if(!(role in potential_candidate.client.prefs.be_special))
 			return FALSE
-		if(potential_candidate.client.get_days_to_play_antag(role) > 0)
+		var/required_time = GLOB.special_roles[role] || 0
+		if(potential_candidate.client && potential_candidate.client.get_remaining_days(required_time) > 0)
 			return FALSE
 
 	if(check_jobban)

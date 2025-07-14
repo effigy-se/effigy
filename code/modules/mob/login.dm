@@ -94,7 +94,8 @@
 
 	//Reload alternate appearances
 	for(var/datum/atom_hud/alternate_appearance/alt_hud as anything in GLOB.active_alternate_appearances)
-		alt_hud.check_hud(src)
+		if(!alt_hud.apply_to_new_mob(src))
+			alt_hud.hide_from(src, absolute = TRUE)
 
 	update_client_colour()
 	update_mouse_pointer()
@@ -104,7 +105,10 @@
 		stop_sound_channel(CHANNEL_AMBIENCE)
 
 	if(client)
-		client.view_size.resetToDefault() // Resets the client.view in case it was changed.
+		if(client.view_size)
+			client.view_size.resetToDefault() // Resets the client.view in case it was changed.
+		else
+			client.change_view(getScreenSize(client.prefs.read_preference(/datum/preference/toggle/widescreen)))
 
 		for(var/datum/action/A as anything in persistent_client.player_actions)
 			A.Grant(src)

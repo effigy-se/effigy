@@ -61,9 +61,11 @@
 		QDEL_NULL(radio)
 	connected_ai = null
 
-/obj/item/organ/brain/cybernetic/ai/proc/cancel_rolls(mob/living/source, datum/mind/mind, antag_flag)
+/obj/item/organ/brain/cybernetic/ai/proc/cancel_rolls(mob/living/source, datum/mind/mind, datum/antagonist/antagonist)
 	SIGNAL_HANDLER
-	return antag_flag == ROLE_MALF ? NONE : CANCEL_ROLL
+	if(ispath(antagonist, /datum/antagonist/malf_ai))
+		return
+	return CANCEL_ROLL
 
 /obj/item/organ/brain/cybernetic/ai/proc/get_status_tab_item(mob/living/source, list/items)
 	SIGNAL_HANDLER
@@ -151,7 +153,7 @@
 		implant.radio.command = TRUE
 		implant.radio.channels = AI.radio.channels
 		for(var/channel in implant.radio.channels)
-			implant.radio.secure_radio_connections[channel] = add_radio(implant.radio, GLOB.default_radio_channels[channel])
+			implant.radio.secure_radio_connections[channel] = add_radio(implant.radio, GLOB.radiochannels[channel])
 
 /obj/item/organ/brain/cybernetic/ai/proc/undeploy(datum/source)
 	SIGNAL_HANDLER

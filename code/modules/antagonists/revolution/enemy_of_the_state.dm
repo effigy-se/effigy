@@ -23,7 +23,7 @@
 
 /datum/antagonist/enemy_of_the_state/on_gain()
 	owner.add_memory(/datum/memory/revolution_rev_defeat)
-	// LAZYADD(owner.special_statuses, "Exiled Head Revolutionary")
+	owner.special_role = "exiled headrev"
 	forge_objectives()
 	. = ..()
 

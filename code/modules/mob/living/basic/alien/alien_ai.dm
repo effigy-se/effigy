@@ -6,7 +6,6 @@
 	)
 
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/escape_captivity,
 		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/attack_obstacle_in_path,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
@@ -16,7 +15,6 @@
 
 /datum/ai_controller/basic_controller/alien/sentinel
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/escape_captivity,
 		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/attack_obstacle_in_path,
 		/datum/ai_planning_subtree/basic_ranged_attack_subtree/alien,
@@ -29,7 +27,6 @@
 	idle_behavior = /datum/idle_behavior/idle_random_walk/plant_weeds/queen
 
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/escape_captivity,
 		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/attack_obstacle_in_path,
 		/datum/ai_planning_subtree/basic_ranged_attack_subtree/alien,

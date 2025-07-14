@@ -31,7 +31,6 @@
 		"xlarge_beaker",
 		"jerrycan",
 		"reflex_hammer",
-		"blood_scanner",
 	)
 	experiments_to_unlock = list(
 		/datum/experiment/autopsy/human,

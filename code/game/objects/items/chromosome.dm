@@ -31,13 +31,13 @@
 		return TRUE
 
 /obj/item/chromosome/proc/apply(datum/mutation/mutation)
-	if(mutation.stabilizer_coeff != MUTATION_COEFFICIENT_UNMODIFIABLE && stabilizer_coeff)
+	if(mutation.stabilizer_coeff != MUTATION_COEFFICIENT_UNMODIFIABLE)
 		mutation.stabilizer_coeff = stabilizer_coeff
-	if(mutation.synchronizer_coeff != MUTATION_COEFFICIENT_UNMODIFIABLE && synchronizer_coeff)
+	if(mutation.synchronizer_coeff != MUTATION_COEFFICIENT_UNMODIFIABLE)
 		mutation.synchronizer_coeff = synchronizer_coeff
-	if(mutation.power_coeff != MUTATION_COEFFICIENT_UNMODIFIABLE && power_coeff)
+	if(mutation.power_coeff != MUTATION_COEFFICIENT_UNMODIFIABLE)
 		mutation.power_coeff = power_coeff
-	if(mutation.energy_coeff != MUTATION_COEFFICIENT_UNMODIFIABLE && energy_coeff)
+	if(mutation.energy_coeff != MUTATION_COEFFICIENT_UNMODIFIABLE)
 		mutation.energy_coeff = energy_coeff
 	mutation.can_chromosome = CHROMOSOME_USED
 	mutation.chromosome_name = name

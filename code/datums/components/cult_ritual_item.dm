@@ -181,7 +181,7 @@
 		span_warning("[cultist] strikes [cult_girder] with [parent]!"),
 		span_notice("You demolish [cult_girder].")
 		)
-	new /obj/item/stack/sheet/runed_metal(cult_girder.drop_location())
+	new /obj/item/stack/sheet/runed_metal(cult_girder.drop_location(), 1)
 	qdel(cult_girder)
 
 /*

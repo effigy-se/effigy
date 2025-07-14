@@ -42,6 +42,7 @@
 
 /obj/machinery/atmospherics/components/unary/thermomachine/Initialize(mapload)
 	. = ..()
+	RefreshParts()
 	update_appearance(UPDATE_ICON)
 	register_context()
 
@@ -67,7 +68,7 @@
 		return FALSE
 	. = ..()
 
-/obj/machinery/atmospherics/components/unary/thermomachine/on_construction(mob/user, obj_color, set_layer, from_flatpack = FALSE)
+/obj/machinery/atmospherics/components/unary/thermomachine/on_construction(mob/user, obj_color, set_layer)
 	var/obj/item/circuitboard/machine/thermomachine/board = circuit
 	if(board)
 		piping_layer = board.pipe_layer

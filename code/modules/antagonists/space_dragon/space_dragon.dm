@@ -2,7 +2,7 @@
 	name = "\improper Space Dragon"
 	roundend_category = "space dragons"
 	antagpanel_category = ANTAG_GROUP_LEVIATHANS
-	pref_flag = ROLE_SPACE_DRAGON
+	job_rank = ROLE_SPACE_DRAGON
 	show_in_antagpanel = FALSE
 	show_name_in_check_antagonists = TRUE
 	show_to_ghosts = TRUE
@@ -66,10 +66,12 @@
 /datum/antagonist/space_dragon/on_gain()
 	forge_objectives()
 	rift_ability = new()
+	owner.special_role = ROLE_SPACE_DRAGON
 	owner.set_assigned_role(SSjob.get_job_type(/datum/job/space_dragon))
 	return ..()
 
 /datum/antagonist/space_dragon/on_removal()
+	owner.special_role = null
 	owner.set_assigned_role(SSjob.get_job_type(/datum/job/unassigned))
 	return ..()
 

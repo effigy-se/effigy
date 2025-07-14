@@ -2,14 +2,14 @@
 /datum/antagonist/hypnotized
 	name = "\improper Hypnotized Victim"
 	stinger_sound = 'sound/music/antag/hypnotized.ogg'
-	pref_flag = ROLE_HYPNOTIZED
+	job_rank = ROLE_HYPNOTIZED
 	roundend_category = "hypnotized victims"
 	antag_hud_name = "brainwashed"
 	ui_name = "AntagInfoBrainwashed"
 	show_in_antagpanel = TRUE
 	antagpanel_category = ANTAG_GROUP_CREW
 	show_name_in_check_antagonists = TRUE
-	antag_flags = ANTAG_FAKE|ANTAG_SKIP_GLOBAL_LIST
+	count_against_dynamic_roll_chance = FALSE
 
 	/// Brain trauma associated with this antag datum
 	var/datum/brain_trauma/hypnosis/trauma

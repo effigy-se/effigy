@@ -15,7 +15,6 @@ GLOBAL_LIST_INIT(mook_commands, list(
 	ai_movement = /datum/ai_movement/basic_avoidance
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/escape_captivity,
 		/datum/ai_planning_subtree/target_retaliate,
 		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/look_for_village,
@@ -219,7 +218,6 @@ GLOBAL_LIST_INIT(mook_commands, list(
 	)
 	idle_behavior = /datum/idle_behavior/walk_near_target/mook_village
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/escape_captivity,
 		/datum/ai_planning_subtree/target_retaliate,
 		/datum/ai_planning_subtree/look_for_village,
 		/datum/ai_planning_subtree/simple_find_target,
@@ -272,7 +270,6 @@ GLOBAL_LIST_INIT(mook_commands, list(
 	)
 	idle_behavior = /datum/idle_behavior/walk_near_target/mook_village
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/escape_captivity,
 		/datum/ai_planning_subtree/target_retaliate,
 		/datum/ai_planning_subtree/look_for_village,
 		/datum/ai_planning_subtree/acknowledge_chief,
@@ -329,7 +326,6 @@ GLOBAL_LIST_INIT(mook_commands, list(
 	)
 	idle_behavior = /datum/idle_behavior/walk_near_target/mook_village
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/escape_captivity,
 		/datum/ai_planning_subtree/target_retaliate,
 		/datum/ai_planning_subtree/look_for_village,
 		/datum/ai_planning_subtree/simple_find_target,

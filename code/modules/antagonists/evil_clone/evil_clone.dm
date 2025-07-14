@@ -2,12 +2,12 @@
 /datum/antagonist/evil_clone
 	name = "\improper Evil Clone"
 	stinger_sound = 'sound/music/antag/hypnotized.ogg'
-	pref_flag = ROLE_EVIL_CLONE
+	job_rank = ROLE_EVIL_CLONE
 	roundend_category = "evil clones"
 	show_in_antagpanel = TRUE
 	antagpanel_category = ANTAG_GROUP_CREW
 	show_name_in_check_antagonists = TRUE
-	antag_flags = ANTAG_SKIP_GLOBAL_LIST
+	count_against_dynamic_roll_chance = FALSE
 
 /datum/antagonist/evil_clone/on_gain()
 	if (owner.current)

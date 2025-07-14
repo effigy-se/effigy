@@ -4858,6 +4858,10 @@
 	pixel_x = -6;
 	pixel_y = 2
 	},
+/obj/item/radio/headset/headset_medsci{
+	pixel_x = -5;
+	pixel_y = 12
+	},
 /obj/item/storage/pill_bottle/mutadone{
 	pixel_x = 8;
 	pixel_y = 16
@@ -14312,6 +14316,12 @@
 	},
 /turf/open/floor/engine/hull,
 /area/space/nearstation)
+"ekp" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/closed/wall,
+/area/station/maintenance/starboard/aft)
 "eku" = (
 /obj/structure/table/reinforced,
 /obj/item/stack/sheet/iron{
@@ -54570,6 +54580,10 @@
 /obj/effect/spawner/random/trash/box,
 /turf/open/floor/plating,
 /area/station/maintenance/port)
+"qmm" = (
+/obj/effect/turf_decal/tile/red/fourcorners,
+/turf/closed/wall/r_wall,
+/area/station/security/brig)
 "qmB" = (
 /obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/dark/textured_large,
@@ -115478,9 +115492,9 @@ mUi
 wKb
 wKb
 rdN
-wKb
-wKb
-wKb
+ekp
+ekp
+ekp
 jWB
 odZ
 nCo
@@ -115737,7 +115751,7 @@ uUX
 eEv
 eEv
 uWu
-wKb
+ekp
 fTM
 odZ
 nCo
@@ -115994,7 +116008,7 @@ ltC
 ltC
 byJ
 wLf
-wKb
+ekp
 wCv
 qEE
 nxh
@@ -116249,9 +116263,9 @@ qnM
 wKb
 wKb
 hGD
-wKb
-wKb
-wKb
+ekp
+ekp
+ekp
 wKb
 wKb
 wKb
@@ -168102,7 +168116,7 @@ oPP
 dnj
 hGg
 tXf
-kTw
+qmm
 lLV
 bOI
 dDS
@@ -168359,7 +168373,7 @@ bMg
 bOk
 kHU
 kTw
-kTw
+qmm
 mRs
 bOI
 oPa

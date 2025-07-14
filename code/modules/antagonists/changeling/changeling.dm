@@ -5,7 +5,7 @@
 	name = "\improper Changeling"
 	roundend_category = "changelings"
 	antagpanel_category = "Changeling"
-	pref_flag = ROLE_CHANGELING
+	job_rank = ROLE_CHANGELING
 	antag_moodlet = /datum/mood_event/focused
 	antag_hud_name = "changeling"
 	hijack_speed = 0.5
@@ -219,8 +219,7 @@
 	return ..()
 
 /datum/antagonist/changeling/farewell()
-	if(owner.current)
-		to_chat(owner.current, span_userdanger("You grow weak and lose your powers! You are no longer a changeling and are stuck in your current form!"))
+	to_chat(owner.current, span_userdanger("You grow weak and lose your powers! You are no longer a changeling and are stuck in your current form!"))
 
 /*
  * Instantiate the cellular emporium for the changeling.
@@ -1039,7 +1038,7 @@
 	name = "\improper Headslug Changeling"
 	show_in_antagpanel = FALSE
 	give_objectives = FALSE
-	antag_flags = ANTAG_SKIP_GLOBAL_LIST
+	count_against_dynamic_roll_chance = FALSE
 
 	genetic_points = 5
 	total_genetic_points = 5

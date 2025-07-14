@@ -57,6 +57,7 @@
 /client/verb/reportissue()
 	set name = "report-issue"
 	set desc = "Report an issue"
+	set hidden = TRUE
 
 	var/githuburl = CONFIG_GET(string/githuburl)
 	if(!githuburl)

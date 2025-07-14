@@ -82,7 +82,6 @@
 	icon_state = "demon_heart-on"
 	base_icon_state = "demon_heart"
 
-	beat_noise = "the writhing pulses of a fear given form" // evil schmeevil
 	color = COLOR_CRAYON_BLACK
 	decay_factor = 0
 	// No love is to be found in a heart so twisted.

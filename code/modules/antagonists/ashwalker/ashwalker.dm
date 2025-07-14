@@ -1,11 +1,12 @@
 /datum/antagonist/ashwalker
 	name = "\improper Ash Walker"
-	pref_flag = ROLE_LAVALAND
+	job_rank = ROLE_LAVALAND
 	show_in_antagpanel = FALSE
 	show_to_ghosts = TRUE
+	prevent_roundtype_conversion = FALSE
 	antagpanel_category = ANTAG_GROUP_ASHWALKERS
 	suicide_cry = "I HAVE NO IDEA WHAT THIS THING DOES!!"
-	antag_flags = ANTAG_FAKE|ANTAG_SKIP_GLOBAL_LIST
+	count_against_dynamic_roll_chance = FALSE
 	var/datum/team/ashwalkers/ashie_team
 
 /datum/antagonist/ashwalker/create_team(datum/team/ashwalkers/ashwalker_team)
@@ -32,8 +33,6 @@
 
 /datum/antagonist/ashwalker/on_removal()
 	. = ..()
-	if(!owner.current)
-		return
 	UnregisterSignal(owner.current, COMSIG_MOB_EXAMINATE)
 	if(!(FACTION_NEUTRAL in owner.current.faction))
 		owner.current.faction.Add(FACTION_NEUTRAL)

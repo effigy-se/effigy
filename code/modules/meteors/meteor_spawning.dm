@@ -77,7 +77,10 @@
  * Arguments:
  * * candidate - The mob (player) to be transformed into a changeling and meteored.
  */
-/proc/generate_changeling_meteor(datum/mind/player_mind)
+/proc/generate_changeling_meteor(mob/dead/selected)
+	var/datum/mind/player_mind = new(selected.key)
+	player_mind.active = TRUE
+
 	var/turf/picked_start
 
 	if (SSmapping.is_planetary())
@@ -98,7 +101,8 @@
 
 	new_changeling.forceMove(changeling_meteor) //Place our payload inside of its vessel
 
-	player_mind.transfer_to(new_changeling, force_key_move = TRUE)
+	player_mind.transfer_to(new_changeling)
+	player_mind.special_role = ROLE_CHANGELING_MIDROUND
 	player_mind.add_antag_datum(/datum/antagonist/changeling/space)
 	SEND_SOUND(new_changeling, 'sound/effects/magic/mutate.ogg')
 	message_admins("[ADMIN_LOOKUPFLW(new_changeling)] has been made into a space changeling by an event.")

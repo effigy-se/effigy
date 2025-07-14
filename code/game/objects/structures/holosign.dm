@@ -33,10 +33,6 @@
 		projector = null
 	return ..()
 
-/obj/structure/holosign/update_atom_colour()
-	. = ..()
-	create_vis_overlay()
-
 /obj/structure/holosign/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
 	if(.)
@@ -62,21 +58,16 @@
 			playsound(loc, 'sound/items/weapons/egloves.ogg', 80, TRUE)
 
 /obj/structure/holosign/proc/create_vis_overlay()
-	if(!use_vis_overlay)
-		return
-
 	var/turf/our_turf = get_turf(src)
-	alpha = 0
-	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
-	var/obj/effect/overlay/vis/overlay = SSvis_overlays.add_vis_overlay(src, icon, icon_state, ABOVE_MOB_LAYER, MUTATE_PLANE(GAME_PLANE, our_turf), dir, add_appearance_flags = KEEP_APART|RESET_ALPHA) //you see mobs under it, but you hit them like they are above it
-	if (color || cached_color_filter)
-		overlay.add_atom_colour(cached_color_filter || color, FIXED_COLOUR_PRIORITY)
+	if(use_vis_overlay)
+		alpha = 0
+		SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
+		SSvis_overlays.add_vis_overlay(src, icon, icon_state, ABOVE_MOB_LAYER, MUTATE_PLANE(GAME_PLANE, our_turf), dir, add_appearance_flags = RESET_ALPHA) //you see mobs under it, but you hit them like they are above it
 
 /obj/structure/holosign/wetsign
 	name = "wet floor sign"
 	desc = "The words flicker as if they mean nothing."
 	icon_state = "holosign"
-	base_icon_state = "holosign"
 
 /obj/structure/holosign/barrier
 	name = "security holobarrier"
@@ -158,7 +149,6 @@
 	name = "wet floor holobarrier"
 	desc = "When it says walk it means <b>WALK!</b>"
 	icon_state = "holosign_dense"
-	base_icon_state = "holosign_dense"
 	max_integrity = 1
 	openable = FALSE
 
@@ -183,7 +173,6 @@
 	name = "holofirelock"
 	desc = "A holographic barrier resembling a firelock. Though it does not prevent solid objects from passing through, gas is kept out."
 	icon_state = "holo_firelock"
-	base_icon_state = "holo_firelock"
 	openable = FALSE
 	density = FALSE
 	anchored = TRUE
@@ -215,7 +204,6 @@
 	name = "tram atmos barrier"
 	max_integrity = 150
 	icon_state = "holo_tram"
-	base_icon_state = "holo_tram"
 	openable = FALSE
 
 /obj/structure/holosign/barrier/atmos/Initialize(mapload)

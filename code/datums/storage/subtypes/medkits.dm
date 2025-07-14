@@ -25,8 +25,6 @@
 		/obj/item/implantcase,
 		/obj/item/implant,
 		/obj/item/implanter,
-		/obj/item/blood_scanner,
-		/obj/item/reflexhammer,
 
 		//stacks
 		/obj/item/stack/medical,

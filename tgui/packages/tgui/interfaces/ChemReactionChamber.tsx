@@ -39,7 +39,7 @@ export const ChemReactionChamber = (props) => {
   const reagents = data.reagents || [];
   const catalysts = data.catalysts || [];
   return (
-    <Window width={290} height={570}>
+    <Window width={290} height={520}>
       <Window.Content>
         <Stack vertical fill>
           <Stack.Item>
@@ -132,8 +132,9 @@ export const ChemReactionChamber = (props) => {
           <Stack.Item grow>
             <Section
               title="Settings"
-              fill
-              scrollable
+              height="220px"
+              maxHeight="220px"
+              overflow="hidden"
               buttons={
                 (isReacting && (
                   <Box inline bold color={'purple'}>
@@ -264,8 +265,13 @@ export const ChemReactionChamber = (props) => {
               </Stack>
             </Section>
           </Stack.Item>
-          <Stack.Item grow={0.7}>
-            <Section title="Catalysts" fill scrollable>
+          <Stack.Item>
+            <Section
+              title="Catalysts"
+              height="150px"
+              maxHeight="150px"
+              overflow="hidden"
+            >
               <Stack.Item>
                 <Stack vertical fill>
                   {catalysts.map((reagent) => (

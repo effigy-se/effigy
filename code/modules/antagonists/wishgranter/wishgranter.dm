@@ -11,6 +11,7 @@
 	objectives += hijack
 
 /datum/antagonist/wishgranter/on_gain()
+	owner.special_role = "Avatar of the Wish Granter"
 	forge_objectives()
 	. = ..()
 	give_powers()

@@ -8,7 +8,6 @@
 	ai_movement = /datum/ai_movement/basic_avoidance
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/escape_captivity,
 		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/attack_obstacle_in_path/trooper,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
@@ -26,7 +25,6 @@
 
 /datum/ai_controller/basic_controller/trooper/calls_reinforcements
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/escape_captivity,
 		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/call_reinforcements,
 		/datum/ai_planning_subtree/attack_obstacle_in_path/trooper,
@@ -36,7 +34,6 @@
 
 /datum/ai_controller/basic_controller/trooper/peaceful
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/escape_captivity,
 		/datum/ai_planning_subtree/target_retaliate,
 		/datum/ai_planning_subtree/call_reinforcements,
 		/datum/ai_planning_subtree/attack_obstacle_in_path/trooper,
@@ -46,7 +43,6 @@
 
 /datum/ai_controller/basic_controller/trooper/ranged
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/escape_captivity,
 		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/basic_ranged_attack_subtree/trooper,
 		/datum/ai_planning_subtree/travel_to_point/and_clear_target/reinforce,
@@ -62,7 +58,6 @@
 
 /datum/ai_controller/basic_controller/trooper/ranged/burst
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/escape_captivity,
 		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/basic_ranged_attack_subtree/trooper_burst,
 		/datum/ai_planning_subtree/travel_to_point/and_clear_target/reinforce,
@@ -77,7 +72,6 @@
 
 /datum/ai_controller/basic_controller/trooper/ranged/burst/peaceful
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/escape_captivity,
 		/datum/ai_planning_subtree/target_retaliate,
 		/datum/ai_planning_subtree/call_reinforcements,
 		/datum/ai_planning_subtree/basic_ranged_attack_subtree/trooper_burst,
@@ -86,7 +80,6 @@
 
 /datum/ai_controller/basic_controller/trooper/ranged/shotgunner
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/escape_captivity,
 		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/basic_ranged_attack_subtree/trooper_shotgun,
 		/datum/ai_planning_subtree/travel_to_point/and_clear_target/reinforce,

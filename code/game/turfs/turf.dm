@@ -516,8 +516,6 @@ GLOBAL_LIST_EMPTY(station_turfs)
 		qdel(L)
 
 /turf/proc/Bless()
-	if(locate(/obj/effect/blessing) in src)
-		return
 	new /obj/effect/blessing(src)
 
 //////////////////////////////
