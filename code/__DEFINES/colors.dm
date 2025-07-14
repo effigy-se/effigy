@@ -240,7 +240,6 @@
 
 /// Starlight!
 #define COLOR_STARLIGHT "#8589fa"
-#define COLOR_CYAN_STARLIGHT "#88c4cb" // EffigyEdit Add
 /**
  * Some defines to generalise colours used in lighting.
  *

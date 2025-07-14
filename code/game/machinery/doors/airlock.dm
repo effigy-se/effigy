@@ -507,13 +507,14 @@
  * Set the airlock state to a new value, change the icon state
  * and run the associated animation if required.
  */
-/obj/machinery/door/airlock/proc/set_airlock_state(new_state, animated = FALSE)
+/obj/machinery/door/airlock/proc/set_airlock_state(new_state, animated = FALSE, force_type = DEFAULT_DOOR_CHECKS)
 	if(!new_state)
 		new_state = density ? AIRLOCK_CLOSED : AIRLOCK_OPEN
 	airlock_state = new_state
 	if(animated)
 		operating = TRUE
-		run_animation(airlock_state)
+		//run_animation(airlock_state, force_type) // EffigyEdit Change - Custom Airlocks
+		run_animation(rapid_open ? "[airlock_state]_rapid" : airlock_state, force_type)
 		return
 	operating = FALSE
 	set_animation()
@@ -617,18 +618,34 @@
 */
 // EffigyEdit Remove End
 
-/obj/machinery/door/airlock/run_animation(animation)
+/obj/machinery/door/airlock/run_animation(animation, force_type = DEFAULT_DOOR_CHECKS)
 	if(animation == DOOR_DENY_ANIMATION)
 		if(machine_stat)
 			return
-		set_airlock_state(AIRLOCK_DENY, animated = FALSE)
+		set_airlock_state(AIRLOCK_DENY, animated = FALSE, force_type = force_type)
 
 	return ..()
 
-/obj/machinery/door/airlock/animation_effects(animation)
-	if(animation == DOOR_DENY_ANIMATION)
-		playsound(src, soundin = doorDeni, vol = 50, vary = FALSE, extrarange = 3)
-		addtimer(CALLBACK(src, PROC_REF(handle_deny_end)), AIRLOCK_DENY_ANIMATION_TIME)
+/obj/machinery/door/airlock/animation_effects(animation, force_type = DEFAULT_DOOR_CHECKS)
+	if(force_type == BYPASS_DOOR_CHECKS)
+		playsound(src, soundin = 'sound/machines/airlock/airlockforced.ogg', vol = 30, vary = TRUE)
+		return
+
+	switch(animation)
+		if(DOOR_OPENING_ANIMATION)
+			use_energy(50 JOULES)
+			playsound(src, soundin = doorOpen, vol = 30, vary = FALSE) // EffigyEdit Change - Original: vary = TRUE
+		if(DOOR_CLOSING_ANIMATION)
+			use_energy(50 JOULES)
+			playsound(src, soundin = doorClose, vol = 30, vary = FALSE) // EffigyEdit Change - Original: vary = TRUE
+		if(DOOR_DENY_ANIMATION)
+			playsound(src, soundin = doorDeni, vol = 50, vary = FALSE, extrarange = 3)
+			addtimer(CALLBACK(src, PROC_REF(handle_deny_end)), AIRLOCK_DENY_ANIMATION_TIME)
+		// EffigyEdit Add - Custom Airlocks
+		if(DOOR_OPENING_RAPID_ANIMATION)
+			use_energy(50 JOULES)
+			playsound(src, soundin = doorOpenRapid, vol = 30, vary = FALSE)
+		// EffigyEdit Add End
 
 /obj/machinery/door/airlock/proc/handle_deny_end()
 	if(airlock_state == AIRLOCK_DENY)
@@ -1277,7 +1294,7 @@
 		return FALSE
 
 	if(autoclose)
-		autoclose_in(normalspeed ? 8 SECONDS : 1.5 SECONDS)
+		autoclose_in(normalspeed ? 8 SECONDS : 2.2 SECONDS) // EffigyEdit Change - Custom Airlocks - Original: Rapid 1.5 SECONDS
 
 	if(closeOther != null && istype(closeOther, /obj/machinery/door/airlock))
 		addtimer(CALLBACK(closeOther, PROC_REF(close)), BYPASS_DOOR_CHECKS)
@@ -1298,7 +1315,7 @@
 				addtimer(CALLBACK(cyclelinkedairlock, PROC_REF(close)), BYPASS_DOOR_CHECKS)
 
 	SEND_SIGNAL(src, COMSIG_AIRLOCK_OPEN, forced)
-	set_airlock_state(AIRLOCK_OPENING, animated = TRUE)
+	set_airlock_state(AIRLOCK_OPENING, animated = TRUE, force_type = forced)
 	var/transparent_delay = animation_segment_delay(AIRLOCK_OPENING_TRANSPARENT)
 	sleep(transparent_delay)
 	set_opacity(0)
@@ -1327,19 +1344,14 @@
 		if(DEFAULT_DOOR_CHECKS) // Regular behavior.
 			if(!hasPower() || wires.is_cut(WIRE_OPEN) || (obj_flags & EMAGGED))
 				return FALSE
-			use_energy(50 JOULES)
-			playsound(src, doorOpen, 30, vary = FALSE) // EffigyEdit Change - Customized Airlocks - Original: vary = TRUE
 			return TRUE
 
 		if(FORCING_DOOR_CHECKS) // Only one check.
 			if(obj_flags & EMAGGED)
 				return FALSE
-			use_energy(50 JOULES)
-			playsound(src, doorOpen, 30, vary = FALSE) // EffigyEdit Change - Customized Airlocks - Original: vary = TRUE
 			return TRUE
 
 		if(BYPASS_DOOR_CHECKS) // No power usage, special sound, get it open.
-			playsound(src, 'sound/machines/airlock/airlockforced.ogg', 30, TRUE)
 			return TRUE
 
 		else
@@ -1372,7 +1384,7 @@
 	if(killthis)
 		SSexplosions.med_mov_atom += killthis
 	SEND_SIGNAL(src, COMSIG_AIRLOCK_CLOSE, forced)
-	set_airlock_state(AIRLOCK_CLOSING, animated = TRUE)
+	set_airlock_state(AIRLOCK_CLOSING, animated = TRUE, force_type = forced)
 	layer = CLOSED_DOOR_LAYER
 	if(air_tight)
 		set_density(TRUE)
@@ -1410,12 +1422,9 @@
 		if(DEFAULT_DOOR_CHECKS to FORCING_DOOR_CHECKS)
 			if(obj_flags & EMAGGED)
 				return FALSE
-			use_energy(50 JOULES)
-			playsound(src, doorClose, 30, vary = FALSE) // EffigyEdit Change - Customized Airlocks - Original: vary = TRUE
 			return TRUE
 
 		if(BYPASS_DOOR_CHECKS)
-			playsound(src, 'sound/machines/airlock/airlockforced.ogg', 30, TRUE)
 			return TRUE
 
 		else

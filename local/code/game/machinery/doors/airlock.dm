@@ -1,63 +1,67 @@
-#define AIRLOCK_LIGHT_POWER_IDLE 0.7
-#define AIRLOCK_LIGHT_POWER_ACTIVE 2.4
-#define AIRLOCK_LIGHT_RANGE 1.4
+#define AIRLOCK_LIGHT_POWER_LOW 1
+#define AIRLOCK_LIGHT_POWER_MID 1.4
+#define AIRLOCK_LIGHT_POWER_HIGH 2.1
+#define AIRLOCK_LIGHT_RANGE_LOW 1.4
+#define AIRLOCK_LIGHT_RANGE_HIGH 1.5
 
 // Airlock light states, used for generating the light overlays
+#define AIRLOCK_LIGHT_OPENING_RAPID "opening_rapid"
 #define AIRLOCK_LIGHT_POWERON "poweron"
 #define AIRLOCK_LIGHT_ENGINEERING "engineering"
 #define AIRLOCK_LIGHT_FIRE "fire"
 
+#define AIRLOCK_FRAME_OPENING_RAPID "opening_rapid"
+
 /obj/machinery/door/airlock
-	/// For those airlocks you might want to have varying "fillings" for, without having to
-	/// have an icon file per door with a different filling.
-	var/fill_state_suffix = null
-	doorOpen = 'local/sound/machines/airlockopen.ogg'
-	doorClose = 'local/sound/machines/airlockclose.ogg'
-	boltUp = 'local/sound/machines/bolts_up.ogg'
-	boltDown = 'local/sound/machines/bolts_down.ogg'
+	doorOpen = 'local/sound/machines/airlock/airlock_open.ogg'
+	doorClose = 'local/sound/machines/airlock/airlock_close.ogg'
+	var/doorOpenRapid = 'local/sound/machines/airlock/airlock_open_rapid.ogg'
+	boltUp = 'local/sound/machines/airlock/bolts_up.ogg'
+	boltDown = 'local/sound/machines/airlock/bolts_down.ogg'
 	light_dir = NONE
-	/// Use legacy airlock animation timings
-	var/use_legacy_animations = FALSE
-	/// Does this airlock emit a light?
-	var/has_environment_lights = TRUE
-	var/light_color_poweron = COLOR_STARLIGHT
-	var/light_color_bolts = LIGHT_COLOR_INTENSE_RED
-	var/light_color_emergency = LIGHT_COLOR_DIM_YELLOW
-	var/light_color_engineering = LIGHT_COLOR_PINK
-	var/light_color_permit = LIGHT_COLOR_ELECTRIC_CYAN
-	var/light_color_deny = LIGHT_COLOR_INTENSE_RED
-	var/light_color_warn = LIGHT_COLOR_PINK
-	var/door_light_range = AIRLOCK_LIGHT_RANGE
-	var/door_light_power = AIRLOCK_LIGHT_POWER_IDLE
+	///Airlock features such as lights, access restrictions, animation type
+	var/airlock_features = ENV_LIGHTS
 	///Is this door external? E.g. does it lead to space? Shuttle docking systems bolt doors with this flag.
 	var/external = FALSE
 
-/obj/machinery/door/airlock/external
-	external = TRUE
+/obj/machinery/door/airlock/Initialize(mapload)
+	. = ..()
+	if(mapload)
+		RegisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME, PROC_REF(set_animation_type))
 
-/obj/machinery/door/airlock/shuttle
-	external = TRUE
+/obj/machinery/door/airlock/proc/set_animation_type()
+	SIGNAL_HANDLER
+	UnregisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME)
+	if(airlock_features & LEGACY_ANIMATIONS)
+		return
 
-/obj/machinery/door/airlock/multi_tile
-	has_environment_lights = FALSE
+	if(length(req_access) || length(req_one_access))
+		airlock_features = airlock_features | ACCESS_RESTRICTED
+	else
+		airlock_features = airlock_features & ~ACCESS_RESTRICTED
 
 /obj/machinery/door/airlock/power_change()
 	..()
-	update_icon()
+	set_animation()
 
 /obj/machinery/door/airlock/animation_length(animation)
-	if(use_legacy_animations)
+	if(airlock_features & LEGACY_ANIMATIONS)
 		return legacy_animation_length(animation)
 
 	switch(animation)
+		if(DOOR_OPENING_RAPID_ANIMATION)
+			return 0.8 SECONDS
 		if(DOOR_OPENING_ANIMATION)
 			return 1.3 SECONDS
 		if(DOOR_CLOSING_ANIMATION)
 			return 2.1 SECONDS
 
 /obj/machinery/door/airlock/animation_segment_delay(animation)
-	if(use_legacy_animations)
-		return legacy_animation_segment_delay(animation)
+	if(airlock_features & LEGACY_ANIMATIONS)
+		return legacy_segment_delay(animation)
+
+	if(rapid_open)
+		return rapid_segment_delay(animation)
 
 	switch(animation)
 		if(AIRLOCK_OPENING_TRANSPARENT)
@@ -80,7 +84,7 @@
 		if(DOOR_CLOSING_ANIMATION)
 			return 2.0 SECONDS
 
-/obj/machinery/door/airlock/proc/legacy_animation_segment_delay(animation)
+/obj/machinery/door/airlock/proc/legacy_segment_delay(animation)
 	switch(animation)
 		if(AIRLOCK_OPENING_TRANSPARENT)
 			return 0.1 SECONDS
@@ -95,12 +99,28 @@
 		if(AIRLOCK_CLOSING_FINISHED)
 			return 2.0 SECONDS
 
+/obj/machinery/door/airlock/proc/rapid_segment_delay(animation)
+	switch(animation)
+		if(AIRLOCK_OPENING_TRANSPARENT)
+			return 0.1 SECONDS
+		if(AIRLOCK_OPENING_PASSABLE)
+			return 0.4 SECONDS
+		if(AIRLOCK_OPENING_FINISHED)
+			return 0.8 SECONDS
+		if(AIRLOCK_CLOSING_UNPASSABLE)
+			return 1.2 SECONDS
+		if(AIRLOCK_CLOSING_OPAQUE)
+			return 1.5 SECONDS
+		if(AIRLOCK_CLOSING_FINISHED)
+			return 2.1 SECONDS
+
 /obj/machinery/door/airlock/update_overlays()
 	. = ..()
 	var/frame_state
 	var/light_state = AIRLOCK_LIGHT_POWERON
-	var/new_light_power = AIRLOCK_LIGHT_POWER_IDLE
-	var/new_light_color
+	var/new_light_power = AIRLOCK_LIGHT_POWER_LOW
+	var/new_light_range = AIRLOCK_LIGHT_RANGE_HIGH
+	var/new_light_color = COLOR_STARLIGHT
 	if(machine_stat & MAINT) // in the process of being emagged
 		frame_state = AIRLOCK_FRAME_CLOSED
 	else switch(airlock_state)
@@ -108,67 +128,80 @@
 			frame_state = AIRLOCK_FRAME_CLOSED
 			if(locked)
 				light_state = AIRLOCK_LIGHT_BOLTS
-				new_light_color = LIGHT_COLOR_INTENSE_RED
+				new_light_power = AIRLOCK_LIGHT_POWER_MID
+				new_light_range = AIRLOCK_LIGHT_RANGE_HIGH
+				new_light_color = LIGHT_COLOR_BUBBLEGUM
 			else if(!normalspeed)
 				light_state = AIRLOCK_LIGHT_ENGINEERING
-				new_light_color = LIGHT_COLOR_PINK
+				new_light_color = COLOR_EFFIGY_HOT_PINK
 			else if(emergency)
 				light_state = AIRLOCK_LIGHT_EMERGENCY
-				new_light_color = LIGHT_COLOR_ELECTRIC_CYAN
+				new_light_color = COLOR_EFFIGY_SPRING_GREEN
 			else if(fire_active)
 				light_state = AIRLOCK_LIGHT_FIRE
-				new_light_color = LIGHT_COLOR_DEFAULT
+				new_light_power = AIRLOCK_LIGHT_POWER_MID
+				new_light_range = AIRLOCK_LIGHT_RANGE_LOW
+				new_light_color = LIGHT_COLOR_PINK
 			else if(engineering_override)
 				light_state = AIRLOCK_LIGHT_ENGINEERING
-				new_light_color = LIGHT_COLOR_PINK
-			else
-				new_light_color = COLOR_STARLIGHT
+				new_light_color = COLOR_EFFIGY_HOT_PINK
 		if(AIRLOCK_DENY)
 			frame_state = AIRLOCK_FRAME_CLOSED
 			light_state = AIRLOCK_LIGHT_DENIED
-			new_light_color = LIGHT_COLOR_INTENSE_RED
+			new_light_power = AIRLOCK_LIGHT_POWER_MID
+			new_light_range = AIRLOCK_LIGHT_RANGE_LOW
+			new_light_color = LIGHT_COLOR_BUBBLEGUM
 		if(AIRLOCK_CLOSING)
 			frame_state = AIRLOCK_FRAME_CLOSING
 			light_state = AIRLOCK_LIGHT_CLOSING
-			new_light_power = AIRLOCK_LIGHT_POWER_ACTIVE
-			new_light_color = LIGHT_COLOR_PINK
+			new_light_power = AIRLOCK_LIGHT_POWER_HIGH
+			new_light_range = AIRLOCK_LIGHT_RANGE_LOW
+			new_light_color = COLOR_EFFIGY_HOT_PINK
 		if(AIRLOCK_OPEN)
 			frame_state = AIRLOCK_FRAME_OPEN
-			new_light_power = AIRLOCK_LIGHT_POWER_ACTIVE
+			new_light_power = AIRLOCK_LIGHT_POWER_MID
+			new_light_range = AIRLOCK_LIGHT_RANGE_LOW
 			if(locked)
 				light_state = AIRLOCK_LIGHT_BOLTS
-				new_light_color = LIGHT_COLOR_INTENSE_RED
-			else if(emergency)
-				light_state = AIRLOCK_LIGHT_EMERGENCY
-				new_light_color = LIGHT_COLOR_ELECTRIC_CYAN
+				new_light_color = LIGHT_COLOR_BUBBLEGUM
 			else if(fire_active)
 				light_state = AIRLOCK_LIGHT_FIRE
 				new_light_color = LIGHT_COLOR_DEFAULT
+			else if(!normalspeed)
+				light_state = AIRLOCK_LIGHT_ENGINEERING
+				new_light_color = COLOR_EFFIGY_HOT_PINK
+			else if(emergency)
+				light_state = AIRLOCK_LIGHT_EMERGENCY
+				new_light_color = COLOR_EFFIGY_SPRING_GREEN
 			else if(engineering_override)
 				light_state = AIRLOCK_LIGHT_ENGINEERING
-				new_light_color = LIGHT_COLOR_PINK
+				new_light_color = COLOR_EFFIGY_HOT_PINK
 			else
-				new_light_color = COLOR_STARLIGHT
+				new_light_color = COLOR_EFFIGY_SPRING_GREEN
 			light_state += "_open"
 		if(AIRLOCK_OPENING)
-			frame_state = AIRLOCK_FRAME_OPENING
-			light_state = AIRLOCK_LIGHT_OPENING
-			new_light_power = AIRLOCK_LIGHT_POWER_ACTIVE
-			new_light_color = COLOR_CYAN_STARLIGHT
+			if(rapid_open)
+				frame_state = AIRLOCK_FRAME_OPENING_RAPID
+				light_state = AIRLOCK_LIGHT_OPENING_RAPID
+			else
+				frame_state = AIRLOCK_FRAME_OPENING
+				light_state = AIRLOCK_LIGHT_OPENING
+			new_light_power = AIRLOCK_LIGHT_POWER_HIGH
+			new_light_range = AIRLOCK_LIGHT_RANGE_LOW
+			new_light_color = COLOR_EFFIGY_SPRING_GREEN
 
-	. += get_airlock_overlay(frame_state, icon, src, em_block = TRUE)
 	if(airlock_material)
 		. += get_airlock_overlay("[airlock_material]_[frame_state]", overlays_file, src, em_block = TRUE)
 	else
-		. += get_airlock_overlay("fill_[frame_state + fill_state_suffix]", icon, src, em_block = TRUE)
+		. += get_airlock_overlay("fill_[frame_state]", icon, src, em_block = TRUE)
 
-	if(lights && hasPower() && has_environment_lights)
+	if(lights && hasPower() && (airlock_features & ENV_LIGHTS))
 		. += get_airlock_overlay("lights_[light_state]", overlays_file, src, em_block = FALSE)
 
 		if(multi_tile && filler)
-			filler.set_light(l_range = AIRLOCK_LIGHT_RANGE, l_power = new_light_power, l_color = new_light_color, l_on = TRUE)
+			filler.set_light(l_range = new_light_range, l_power = new_light_power, l_color = new_light_color, l_on = TRUE)
 
-		set_light(l_range = AIRLOCK_LIGHT_RANGE, l_power = new_light_power, l_color = new_light_color, l_on = TRUE)
+		set_light(l_range = new_light_range, l_power = new_light_power, l_color = new_light_color, l_on = TRUE)
 	else
 		set_light(l_on = FALSE)
 
@@ -202,6 +235,12 @@
 				continue
 			. += get_airlock_overlay("unres_[heading]", overlays_file, src, em_block = FALSE)
 
+/obj/machinery/door/airlock/open(forced = DEFAULT_DOOR_CHECKS)
+	if(!(airlock_features & LEGACY_ANIMATIONS) && !(airlock_features & ACCESS_RESTRICTED))
+		rapid_open()
+
+	return ..()
+
 /obj/machinery/door/airlock
 	icon = 'icons/map_icons/airlocks.dmi'
 	icon_state = "/obj/machinery/door/airlock"
@@ -209,9 +248,6 @@
 	post_init_icon_state = "closed"
 	greyscale_config = /datum/greyscale_config/airlock_effigy
 	greyscale_colors = "#757278#757278"
-
-/obj/structure/door_assembly
-	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
 
 /obj/machinery/door/airlock/atmos
 	icon = 'icons/map_icons/airlocks.dmi'
@@ -311,7 +347,98 @@
 
 /obj/machinery/door/airlock/public/glass/no_lights
 	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
-	has_environment_lights = FALSE
+	airlock_features = parent_type::airlock_features & ~ENV_LIGHTS
+
+/**
+ * Misc
+ */
+/obj/machinery/door/airlock/vault
+	icon = 'local/icons/obj/doors/airlocks/vault/vault.dmi'
+	overlays_file = 'local/icons/obj/doors/airlocks/vault/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_colors = null
+
+/obj/machinery/door/airlock/hatch
+	icon = 'local/icons/obj/doors/airlocks/hatch/centcom.dmi'
+	overlays_file = 'local/icons/obj/doors/airlocks/hatch/overlays.dmi'
+	note_overlay_file = 'icons/obj/doors/airlocks/hatch/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_colors = null
+
+/obj/machinery/door/airlock/maintenance_hatch
+	icon = 'local/icons/obj/doors/airlocks/hatch/maintenance.dmi'
+	overlays_file = 'local/icons/obj/doors/airlocks/hatch/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_colors = null
+
+/obj/machinery/door/airlock/highsecurity
+	icon = 'local/icons/obj/doors/airlocks/highsec/highsec.dmi'
+	overlays_file = 'local/icons/obj/doors/airlocks/highsec/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_colors = null
+
+/obj/machinery/door/airlock/shuttle
+	icon = 'local/icons/obj/doors/airlocks/shuttle/shuttle.dmi'
+	overlays_file = 'local/icons/obj/doors/airlocks/shuttle/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_colors = null
+	external = TRUE
+
+/obj/machinery/door/airlock/abductor
+	icon = 'local/icons/obj/doors/airlocks/abductor/abductor_airlock.dmi'
+	overlays_file = 'local/icons/obj/doors/airlocks/abductor/overlays.dmi'
+	note_overlay_file = 'icons/obj/doors/airlocks/external/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_colors = null
+
+/obj/machinery/door/airlock/cult
+	name = "cult airlock"
+	icon = 'local/icons/obj/doors/airlocks/cult/runed/cult.dmi'
+	overlays_file = 'local/icons/obj/doors/airlocks/cult/runed/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_colors = null
+
+/obj/machinery/door/airlock/cult/unruned
+	icon = 'local/icons/obj/doors/airlocks/cult/unruned/cult.dmi'
+	overlays_file = 'local/icons/obj/doors/airlocks/cult/unruned/overlays.dmi'
+
+/obj/machinery/door/airlock/centcom
+	icon = 'local/icons/obj/doors/airlocks/centcom/centcom.dmi'
+	overlays_file = 'local/icons/obj/doors/airlocks/centcom/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_colors = null
+
+/obj/machinery/door/airlock/grunge
+	icon = 'local/icons/obj/doors/airlocks/centcom/centcom.dmi'
+	overlays_file = 'local/icons/obj/doors/airlocks/centcom/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_colors = null
+
+/obj/machinery/door/airlock/freezer
+	icon = 'local/icons/obj/doors/airlocks/station/freezer.dmi'
+	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
+	icon_state = "closed"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_colors = null
 
 /**
  * External
@@ -323,37 +450,7 @@
 	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
-
-/obj/machinery/door/airlock/external/animation_length(animation)
-	switch(animation)
-		if(DOOR_OPENING_ANIMATION)
-			return 1.1 SECONDS
-		if(DOOR_CLOSING_ANIMATION)
-			return 2.0 SECONDS
-
-/obj/machinery/door/airlock/external/animation_segment_delay(animation)
-	switch(animation)
-		if(AIRLOCK_OPENING_TRANSPARENT)
-			return 0.7 SECONDS
-		if(AIRLOCK_OPENING_PASSABLE)
-			return 0.8 SECONDS
-		if(AIRLOCK_OPENING_FINISHED)
-			return 1.1 SECONDS
-		if(AIRLOCK_CLOSING_UNPASSABLE)
-			return 1.4 SECONDS
-		if(AIRLOCK_CLOSING_OPAQUE)
-			return 1.8 SECONDS
-		if(AIRLOCK_CLOSING_FINISHED)
-			return 2.0 SECONDS
-
-/obj/machinery/door/airlock/vault
-	icon = 'icons/obj/doors/airlocks/vault/vault.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/vault/overlays.dmi'
-	icon_state = "closed"
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_colors = null
-	use_legacy_animations = TRUE
+	external = TRUE
 
 /obj/machinery/door/airlock/survival_pod
 	icon = 'local/icons/obj/doors/airlocks/external/external.dmi'
@@ -363,130 +460,18 @@
 	greyscale_config = null
 	greyscale_colors = null
 
-/obj/machinery/door/airlock/survival_pod/animation_length(animation)
-	switch(animation)
-		if(DOOR_OPENING_ANIMATION)
-			return 1.1 SECONDS
-		if(DOOR_CLOSING_ANIMATION)
-			return 2.0 SECONDS
-
-/obj/machinery/door/airlock/survival_pod/animation_segment_delay(animation)
-	switch(animation)
-		if(AIRLOCK_OPENING_TRANSPARENT)
-			return 0.7 SECONDS
-		if(AIRLOCK_OPENING_PASSABLE)
-			return 0.8 SECONDS
-		if(AIRLOCK_OPENING_FINISHED)
-			return 1.1 SECONDS
-		if(AIRLOCK_CLOSING_UNPASSABLE)
-			return 1.4 SECONDS
-		if(AIRLOCK_CLOSING_OPAQUE)
-			return 1.8 SECONDS
-		if(AIRLOCK_CLOSING_FINISHED)
-			return 2.0 SECONDS
-
-/**
- * Misc
- */
-
-/obj/machinery/door/airlock/hatch
-	icon = 'icons/obj/doors/airlocks/hatch/centcom.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/hatch/overlays.dmi'
-	note_overlay_file = 'icons/obj/doors/airlocks/hatch/overlays.dmi'
-	icon_state = "closed"
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_colors = null
-	use_legacy_animations = TRUE
-
-/obj/machinery/door/airlock/maintenance_hatch
-	icon = 'icons/obj/doors/airlocks/hatch/maintenance.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/hatch/overlays.dmi'
-	icon_state = "closed"
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_colors = null
-	use_legacy_animations = TRUE
-
-/obj/machinery/door/airlock/highsecurity
-	icon = 'icons/obj/doors/airlocks/highsec/highsec.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/highsec/overlays.dmi'
-	icon_state = "closed"
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_colors = null
-	use_legacy_animations = TRUE
-
-/obj/machinery/door/airlock/shuttle
-	icon = 'icons/obj/doors/airlocks/shuttle/shuttle.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/shuttle/overlays.dmi'
-	icon_state = "closed"
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_colors = null
-	use_legacy_animations = TRUE
-
-/obj/machinery/door/airlock/abductor
-	icon = 'icons/obj/doors/airlocks/abductor/abductor_airlock.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/abductor/overlays.dmi'
-	note_overlay_file = 'icons/obj/doors/airlocks/external/overlays.dmi'
-	icon_state = "closed"
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_colors = null
-	use_legacy_animations = TRUE
-
-/obj/machinery/door/airlock/cult
-	name = "cult airlock"
-	icon = 'icons/obj/doors/airlocks/cult/runed/cult.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/cult/runed/overlays.dmi'
-	icon_state = "closed"
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_colors = null
-	use_legacy_animations = TRUE
-
-/obj/machinery/door/airlock/cult/unruned
-	icon = 'icons/obj/doors/airlocks/cult/unruned/cult.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/cult/unruned/overlays.dmi'
-
-/obj/machinery/door/airlock/centcom
-	icon = 'icons/obj/doors/airlocks/centcom/centcom.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/centcom/overlays.dmi'
-	icon_state = "closed"
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_colors = null
-	use_legacy_animations = TRUE
-
-/obj/machinery/door/airlock/grunge
-	icon = 'icons/obj/doors/airlocks/centcom/centcom.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/centcom/overlays.dmi'
-	icon_state = "closed"
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_colors = null
-	use_legacy_animations = TRUE
-
-/obj/machinery/door/airlock/freezer
-	icon = 'icons/obj/doors/airlocks/station/freezer.dmi'
-	icon_state = "closed"
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_colors = null
-	use_legacy_animations = TRUE
-
 /**
  * Multi-tile
  */
 
 /obj/machinery/door/airlock/multi_tile
+	icon = 'local/icons/obj/doors/airlocks/multi_tile/public/glass.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/multi_tile/public/overlays.dmi'
 	icon_state = "closed"
 	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
-	use_legacy_animations = TRUE
+	airlock_features = NONE
 
 /**
  * Tram
@@ -514,60 +499,42 @@
 	greyscale_colors = "#757278"
 	assemblytype = /obj/structure/door_assembly/door_assembly_material
 
+/obj/machinery/door/airlock/bananium
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/bananium"
+	greyscale_config = /datum/greyscale_config/airlock_effigy/material
+	greyscale_colors = "#FFFF69"
+	doorOpen = 'sound/items/bikehorn.ogg'
+
 /obj/machinery/door/airlock/gold
-	icon = 'icons/obj/doors/airlocks/station/gold.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
-	icon_state = "closed"
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_colors = null
-	use_legacy_animations = TRUE
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/gold"
+	greyscale_config = /datum/greyscale_config/airlock_effigy/material
+	greyscale_colors = "#EDBB31"
 
 /obj/machinery/door/airlock/diamond
-	icon = 'icons/obj/doors/airlocks/station/diamond.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
-	icon_state = "closed"
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_colors = null
-	use_legacy_animations = TRUE
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/diamond"
+	greyscale_config = /datum/greyscale_config/airlock_effigy/material
+	greyscale_colors = "#7DF9FF"
 
 /obj/machinery/door/airlock/uranium
-	icon = 'icons/obj/doors/airlocks/station/uranium.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
-	icon_state = "closed"
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_colors = null
-	use_legacy_animations = TRUE
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/uranium"
+	greyscale_config = /datum/greyscale_config/airlock_effigy/material
+	greyscale_colors = "#21FA90"
 
 /obj/machinery/door/airlock/plasma
-	icon = 'icons/obj/doors/airlocks/station/plasma.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
-	icon_state = "closed"
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_colors = null
-	use_legacy_animations = TRUE
-
-/obj/machinery/door/airlock/bananium
-	icon = 'icons/obj/doors/airlocks/station/bananium.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
-	doorOpen = 'sound/items/bikehorn.ogg'
-	icon_state = "closed"
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_colors = null
-	use_legacy_animations = TRUE
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/plasma"
+	greyscale_config = /datum/greyscale_config/airlock_effigy/material
+	greyscale_colors = "#F0197D"
 
 /obj/machinery/door/airlock/sandstone
-	icon = 'icons/obj/doors/airlocks/station/sandstone.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
-	icon_state = "closed"
-	post_init_icon_state = null
-	greyscale_config = null
-	greyscale_colors = null
-	use_legacy_animations = TRUE
+	icon = 'icons/map_icons/airlocks.dmi'
+	icon_state = "/obj/machinery/door/airlock/sandstone"
+	greyscale_config = /datum/greyscale_config/airlock_effigy/material
+	greyscale_colors = "#DFCEAC"
 
 /obj/machinery/door/airlock/wood
 	icon = 'local/icons/obj/doors/airlocks/station/wood.dmi'
@@ -576,25 +543,22 @@
 	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
-	use_legacy_animations = TRUE
 
 /obj/machinery/door/airlock/titanium
-	icon = 'icons/obj/doors/airlocks/shuttle/shuttle.dmi'
+	icon = 'local/icons/obj/doors/airlocks/shuttle/shuttle.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/shuttle/overlays.dmi'
 	icon_state = "closed"
 	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
-	use_legacy_animations = TRUE
 
 /obj/machinery/door/airlock/bronze
-	icon = 'icons/obj/doors/airlocks/clockwork/pinion_airlock.dmi'
+	icon = 'local/icons/obj/doors/airlocks/clockwork/pinion_airlock.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/clockwork/overlays.dmi'
 	icon_state = "closed"
 	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
-	use_legacy_animations = TRUE
 
 /**
  * Effigy
@@ -660,17 +624,6 @@
 	opacity = FALSE
 	glass = TRUE
 
-/obj/structure/door_assembly/door_assembly_cce
-	name = "central command airlock assembly"
-	icon = 'icons/map_icons/objects.dmi'
-	icon_state = "/obj/structure/door_assembly/door_assembly_cce"
-	post_init_icon_state = "construction"
-	greyscale_config = /obj/machinery/door/airlock/central_command::greyscale_config
-	greyscale_colors = /obj/machinery/door/airlock/central_command::greyscale_colors
-	base_name = "central command airlock"
-	glass_type = /obj/machinery/door/airlock/central_command/glass
-	airlock_type = /obj/machinery/door/airlock/central_command
-
 // Variant that's indestructible and unhackable. Oorah.
 /obj/machinery/door/airlock/central_command/indestructible_and_unhackable_not_fun_for_players_do_not_map_off_a_centcom_z_level // I'm sensing a pattern with this PR
 	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
@@ -685,61 +638,15 @@
 /obj/machinery/door/airlock/central_command/indestructible_and_unhackable_not_fun_for_players_do_not_map_off_a_centcom_z_level/screwdriver_act(mob/living/user, obj/item/tool)
 	return ITEM_INTERACT_SKIP_TO_ATTACK // Prevents opening the panel. Admins can varedit panel_open to muck with the wires still; if they really want.
 
-/**
- * Effigy Door Assemblies
- */
+#undef AIRLOCK_LIGHT_POWER_LOW
+#undef AIRLOCK_LIGHT_POWER_MID
+#undef AIRLOCK_LIGHT_POWER_HIGH
+#undef AIRLOCK_LIGHT_RANGE_LOW
+#undef AIRLOCK_LIGHT_RANGE_HIGH
 
-/obj/structure/door_assembly
-	icon = 'local/icons/obj/doors/airlocks/station/generic.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
-
-/obj/structure/door_assembly/door_assembly_public
-	icon = 'icons/obj/doors/airlocks/public/glass.dmi'
-	overlays_file = 'local/icons/obj/doors/airlocks/station/overlays.dmi'
-
-/obj/structure/door_assembly/door_assembly_com
-	icon = 'local/icons/obj/doors/airlocks/station/com.dmi'
-
-/obj/structure/door_assembly/door_assembly_sec
-	icon = 'local/icons/obj/doors/airlocks/station/sec.dmi'
-
-/obj/structure/door_assembly/door_assembly_eng
-	icon = 'local/icons/obj/doors/airlocks/station/engi.dmi'
-
-/obj/structure/door_assembly/door_assembly_min
-	icon = 'local/icons/obj/doors/airlocks/station/cargo.dmi'
-
-/obj/structure/door_assembly/door_assembly_atmo
-	icon = 'local/icons/obj/doors/airlocks/station/atmos.dmi'
-
-/obj/structure/door_assembly/door_assembly_research
-	icon = 'local/icons/obj/doors/airlocks/station/rnd.dmi'
-
-/obj/structure/door_assembly/door_assembly_science
-	icon = 'local/icons/obj/doors/airlocks/station/sci.dmi'
-
-/obj/structure/door_assembly/door_assembly_med
-	icon = 'local/icons/obj/doors/airlocks/station/med.dmi'
-
-/obj/structure/door_assembly/door_assembly_hydro
-	icon = 'local/icons/obj/doors/airlocks/station/hydro.dmi'
-
-/obj/structure/door_assembly/door_assembly_viro
-	icon = 'local/icons/obj/doors/airlocks/station/viro.dmi'
-
-/obj/structure/door_assembly/door_assembly_silver
-	icon = 'local/icons/obj/doors/airlocks/station/silver.dmi'
-
-/obj/structure/door_assembly/door_assembly_mai
-	icon = 'local/icons/obj/doors/airlocks/station/maint-int.dmi'
-
-/obj/structure/door_assembly/door_assembly_extmai
-	icon = 'local/icons/obj/doors/airlocks/station/maint-ext.dmi'
-
-#undef AIRLOCK_LIGHT_POWER_IDLE
-#undef AIRLOCK_LIGHT_POWER_ACTIVE
-#undef AIRLOCK_LIGHT_RANGE
-
+#undef AIRLOCK_LIGHT_OPENING_RAPID
 #undef AIRLOCK_LIGHT_POWERON
 #undef AIRLOCK_LIGHT_ENGINEERING
 #undef AIRLOCK_LIGHT_FIRE
+
+#undef AIRLOCK_FRAME_OPENING_RAPID
