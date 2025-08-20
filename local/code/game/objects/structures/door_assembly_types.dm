@@ -11,68 +11,105 @@
 	greyscale_colors = /obj/machinery/door/airlock::greyscale_colors
 
 /obj/structure/door_assembly/door_assembly_public
+	icon =  'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_public"
 	greyscale_config = /obj/machinery/door/airlock/public::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/public::greyscale_colors
 
 /obj/structure/door_assembly/door_assembly_com
+	icon =  'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_com"
 	greyscale_config = /obj/machinery/door/airlock/command::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/command::greyscale_colors
 
 /obj/structure/door_assembly/door_assembly_sec
+	icon =  'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_sec"
 	greyscale_config = /obj/machinery/door/airlock/security::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/security::greyscale_colors
 
 /obj/structure/door_assembly/door_assembly_eng
+	icon =  'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_eng"
 	greyscale_config = /obj/machinery/door/airlock/engineering::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/engineering::greyscale_colors
 
 /obj/structure/door_assembly/door_assembly_min
+	icon =  'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_min"
 	greyscale_config = /obj/machinery/door/airlock/mining::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/mining::greyscale_colors
 
 /obj/structure/door_assembly/door_assembly_atmo
+	icon =  'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_atmo"
 	greyscale_config = /obj/machinery/door/airlock/atmos::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/atmos::greyscale_colors
 
 /obj/structure/door_assembly/door_assembly_research
+	icon =  'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_research"
 	greyscale_config = /obj/machinery/door/airlock/research::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/research::greyscale_colors
 
 /obj/structure/door_assembly/door_assembly_science
+	icon =  'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_science"
 	greyscale_config = /obj/machinery/door/airlock/science::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/science::greyscale_colors
 
 /obj/structure/door_assembly/door_assembly_med
+	icon =  'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_med"
 	greyscale_config = /obj/machinery/door/airlock/medical::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/medical::greyscale_colors
 
 /obj/structure/door_assembly/door_assembly_hydro
+	icon =  'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_hydro"
 	greyscale_config = /obj/machinery/door/airlock/hydroponics::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/hydroponics::greyscale_colors
 
 /obj/structure/door_assembly/door_assembly_viro
+	icon =  'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_viro"
 	greyscale_config = /obj/machinery/door/airlock/virology::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/virology::greyscale_colors
 
 /obj/structure/door_assembly/door_assembly_silver
+	icon =  'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_silver"
 	greyscale_config = /obj/machinery/door/airlock/silver::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/silver::greyscale_colors
 
 /obj/structure/door_assembly/door_assembly_mai
+	icon =  'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_mai"
 	greyscale_config = /obj/machinery/door/airlock/maintenance::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/maintenance::greyscale_colors
 
 /obj/structure/door_assembly/door_assembly_extmai
+	icon =  'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_extmai"
 	greyscale_config = /obj/machinery/door/airlock/maintenance/external::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/maintenance/external::greyscale_colors
 
 /obj/structure/door_assembly/door_assembly_material
+	icon =  'icons/map_icons/objects.dmi'
+	icon_state = "/obj/structure/door_assembly/door_assembly_material"
 	greyscale_config = /obj/machinery/door/airlock/material::greyscale_config
 	greyscale_colors = /obj/machinery/door/airlock/material::greyscale_colors
 
 /obj/structure/door_assembly/door_assembly_abductor
 	icon = 'icons/obj/doors/airlocks/abductor/abductor_airlock.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/abductor/overlays.dmi'
+	icon_state = "construction"
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_colors = null
+
+/obj/structure/door_assembly/door_assembly_bronze
+	icon = 'icons/obj/doors/airlocks/clockwork/pinion_airlock.dmi'
 	icon_state = "construction"
 	post_init_icon_state = null
 	greyscale_config = null
@@ -162,6 +199,14 @@
 	icon = 'icons/obj/doors/airlocks/multi_tile/public/glass.dmi'
 	overlays_file = 'local/icons/obj/doors/airlocks/multi_tile/public/overlays.dmi'
 	icon_state = null
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_colors = null
+
+/obj/structure/door_assembly/multi_tile/door_assembly_tram
+	icon = 'icons/obj/doors/airlocks/tram/tram.dmi'
+	overlays_file = 'local/icons/obj/doors/airlocks/tram/tram-overlays.dmi'
+	icon_state = "construction"
 	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_colors = null
