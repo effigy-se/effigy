@@ -46,8 +46,13 @@ const icons = {
 };
 
 const DateDropdown = (props) => {
-  const { dates, selectedDate, setSelectedDate } = props;
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const {
+    dates,
+    selectedDate,
+    setSelectedDate,
+    selectedDateIndex,
+    setSelectedDateIndex,
+  } = props;
 
   return (
     dates.length > 0 && (
@@ -55,12 +60,12 @@ const DateDropdown = (props) => {
         <Stack.Item>
           <Button
             className="Changelog__Button"
-            disabled={selectedIndex === 0}
+            disabled={selectedDateIndex === 0}
             icon={'chevron-left'}
             onClick={() => {
-              const index = selectedIndex - 1;
+              const index = selectedDateIndex - 1;
 
-              setSelectedIndex(index);
+              setSelectedDateIndex(index);
               setSelectedDate(dates[index]);
               window.scrollTo(
                 0,
@@ -77,7 +82,7 @@ const DateDropdown = (props) => {
             onSelected={(value) => {
               const index = dates.indexOf(value);
 
-              setSelectedIndex(index);
+              setSelectedDateIndex(index);
               setSelectedDate(value);
               window.scrollTo(
                 0,
@@ -92,12 +97,12 @@ const DateDropdown = (props) => {
         <Stack.Item>
           <Button
             className="Changelog__Button"
-            disabled={selectedIndex === dates.length - 1}
+            disabled={selectedDateIndex === dates.length - 1}
             icon={'chevron-right'}
             onClick={() => {
-              const index = selectedIndex + 1;
+              const index = selectedDateIndex + 1;
 
-              setSelectedIndex(index);
+              setSelectedDateIndex(index);
               setSelectedDate(dates[index]);
               window.scrollTo(
                 0,
@@ -259,6 +264,7 @@ export const EffigyChangelog = (props) => {
   const [contents, setContents] = useState('');
   const [effigyContents, setEffigyContents] = useState('');
   const [selectedDate, setSelectedDate] = useState(dates[0]);
+  const [selectedDateIndex, setSelectedDateIndex] = useState(0);
 
   useEffect(() => {
     setContents('Loading changelog data...');
@@ -335,6 +341,8 @@ export const EffigyChangelog = (props) => {
         dates={dates}
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}
+        selectedDateIndex={selectedDateIndex}
+        setSelectedDateIndex={setSelectedDateIndex}
       />
     </Section>
   );
@@ -345,6 +353,8 @@ export const EffigyChangelog = (props) => {
         dates={dates}
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}
+        selectedDateIndex={selectedDateIndex}
+        setSelectedDateIndex={setSelectedDateIndex}
       />
       <h2>Licenses</h2>
       <Section title="Effigy">
