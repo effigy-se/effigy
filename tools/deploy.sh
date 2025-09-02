@@ -26,7 +26,7 @@ if [ -d ".git" ]; then
   cp -r .git/logs/* $1/.git/logs/
 fi
 
-cp tgstation.dmb tgstation.rsc $1/
+cp effigy.dmb effigy.rsc $1/
 cp -r _maps/* $1/_maps/
 cp -r code/datums/greyscale/json_configs/* $1/code/datums/greyscale/json_configs/
 cp -r local/code/datums/greyscale/json_configs/* $1/local/code/datums/greyscale/json_configs/ # EffigyEdit Add

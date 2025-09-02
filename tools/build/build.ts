@@ -18,7 +18,7 @@ import { prependDefines } from './lib/tgs';
 
 export const TGS_MODE = process.env.CBT_BUILD_MODE === 'TGS';
 
-export const DME_NAME = 'tgstation';
+export const DME_NAME = 'effigy';
 
 Juke.chdir('../..', import.meta.url);
 

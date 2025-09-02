@@ -69,6 +69,7 @@ jobs:
         run: |
           tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < tools/ticked_file_enforcement/schemas/tgstation_dme.json
           tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < tools/ticked_file_enforcement/schemas/unit_tests.json
+          tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < tools/ticked_file_enforcement/schemas/effigy_local.json
       - name: Check Define Sanity
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: tools/bootstrap/python -m define_sanity.check
@@ -81,7 +82,7 @@ jobs:
         run: ~/dreamchecker 2>&1 | bash tools/ci/annotate_dm.sh
       - name: Run OpenDream
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
-        run: ./DMCompiler_linux-x64/DMCompiler tgstation.dme --suppress-unimplemented --define=CIBUILDING | bash tools/ci/annotate_od.sh
+        run: ./DMCompiler_linux-x64/DMCompiler effigy.dme --suppress-unimplemented --define=CIBUILDING | bash tools/ci/annotate_od.sh
       - name: Run Map Checks
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: |
@@ -95,7 +96,7 @@ jobs:
         run: tools/bootstrap/python -m dmi.test
       - name: Check File Directories
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
-        run: bash tools/ci/check_filedirs.sh tgstation.dme
+        run: bash tools/ci/check_filedirs.sh effigy.dme
       - name: Check Changelogs
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: bash tools/ci/check_changelogs.sh
