@@ -1275,6 +1275,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/landmark/firealarm_sanity,
 /turf/open/floor/iron,
 /area/station/maintenance/floor2/port)
 "anN" = (
@@ -57584,6 +57585,7 @@
 	dir = 8
 	},
 /obj/effect/spawner/random/structure/closet_maintenance,
+/obj/effect/landmark/firealarm_sanity,
 /turf/open/floor/iron,
 /area/station/maintenance/floor2/port)
 "nbO" = (
