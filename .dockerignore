@@ -16,11 +16,11 @@ cfg
 data
 SQL
 node_modules
-tgstation.dmb
-tgstation.int
-tgstation.rsc
-tgstation.lk
-tgstation.dyn.rsc
+effigy.dmb
+effigy.int
+effigy.rsc
+effigy.lk
+effigy.dyn.rsc
 *.dll
 Dockerfile
 tools/bootstrap/.cache
