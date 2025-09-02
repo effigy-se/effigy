@@ -1,0 +1,7 @@
+{
+	"file": "effigy.dme",
+	"scannable_directory": "local/code/",
+	"subdirectories": true,
+	"excluded_files": [],
+	"forbidden_includes": []
+}
