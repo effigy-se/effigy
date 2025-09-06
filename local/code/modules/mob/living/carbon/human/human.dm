@@ -1,3 +1,9 @@
+/mob/living/carbon/human/species/animalid
+	race = /datum/species/animalid
+
+/mob/living/carbon/human/species/synth
+	race = /datum/species/synth
+
 /mob/living/carbon/human/Initialize(mapload)
 	. = ..()
 	mob_examine_panel = new(src) //create the datum

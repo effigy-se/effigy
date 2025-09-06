@@ -1,1017 +1,440 @@
-/obj/item/bodypart/proc/change_type(mob/living/user, obj/item/tool)
-	if(brute_dam || burn_dam)
-		user.balloon_alert(user, "limb damaged!")
-		return NONE
+/*
+/ Synthetic Species Limbs.
+/ Modularizes the Synth limbs off of the /robot/ limb side to no longer interfere with augments.
+/ Ensure Augment list does not populate these, they will not be balanced for indidivual limb gain.
+*/
 
-	var/list/possible_appearances = list()
-	for(var/types in GLOB.frame_types)
-		if(types == "none")
-			continue
-		LAZYADDASSOC(possible_appearances, types, image(icon = BODYPART_ICON_SYNTH_BASE, icon_state = "[types]_[body_zone]"))
-	//pick
-	var/new_type = show_radial_menu(user, src, possible_appearances, require_near = TRUE, tooltips = TRUE, radius = 48)
-	if(!new_type)
-		return NONE
-	//weld
-	if(tool.use_tool(src, user, delay = 2 SECONDS, volume = 20))
-		var/type_to_spawn = text2path("[type]/[new_type]")
-		if(!type_to_spawn)
-			type_to_spawn = text2path("[parent_type]/[new_type]")
-		var/obj/item/bodypart/new_bodypart = new type_to_spawn(loc)
-	//inherit detail
-		for(var/obj/item/organ/to_transfer in contents)
-			to_transfer.bodypart_insert(new_bodypart)
-		new_bodypart.name = name
-		new_bodypart.desc = desc
-		qdel(src)
-		return ITEM_INTERACT_SUCCESS
 
-/// Synth head, additive to TG base android
-/obj/item/bodypart/head/robot/android
-	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
-	// var for monitor heads and their emissive states
-	var/monitor_state
+/// Damage to LIMB modifier defines
+#define SYNTH_BRUTE_MODIFIER 1.0
+#define SYNTH_BURN_MODIFIER 1.0
 
-/obj/item/bodypart/head/robot/android/Initialize(mapload)
-	. = ..()
-	name = "[GLOB.frame_type_names[limb_id]] [parse_zone(body_zone)]"
+/// Exmaine text for Synth limb damage
+#define SYNTH_LIGHT_BRUTE_MSG "marred"
+#define SYNTH_MEDIUM_BRUTE_MSG "dented"
+#define SYNTH_HEAVY_BRUTE_MSG "falling apart"
 
-/obj/item/bodypart/head/robot/android/get_limb_icon(dropped, mob/living/carbon/update_on)
-	. = ..()
-	// emissive handling
-	if(!monitor_state || monitor_state == "none")
-		return .
+#define SYNTH_LIGHT_BURN_MSG "scorched"
+#define SYNTH_MEDIUM_BURN_MSG "charred"
+#define SYNTH_HEAVY_BURN_MSG "smoldering"
 
-	var/monitor_type = istype(src, /obj/item/bodypart/head/robot/android/synth_lizard) ? "lizard_em" : "monitor_em"
-
-	var/image/monitor_emissive = image('icons/blanks/32x32.dmi', "nothing", -BODY_LAYER)
-	monitor_emissive.overlays += emissive_appearance(BODYPART_ICON_SYNTH_BASE, monitor_type, src, alpha = owner.alpha)
-	. += monitor_emissive
-	return .
-
-/obj/item/bodypart/head/robot/android/welder_act_secondary(mob/living/user, obj/item/tool)
-	. = ..()
-	return change_type(user, tool)
-
-/obj/item/bodypart/head/robot/android/examine(mob/user)
-	. = ..()
-	. += span_blue("<b>Right-click</b> with a welding-tool to alter the limb appearance.")
-
-/// Synth chest, additive to TG base android
-/obj/item/bodypart/chest/robot/android
-	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
-
-/obj/item/bodypart/chest/robot/android/Initialize(mapload)
-	. = ..()
-	name = "[GLOB.frame_type_names[limb_id]] [parse_zone(body_zone)]"
-
-/obj/item/bodypart/chest/robot/android/welder_act_secondary(mob/living/user, obj/item/tool)
-	. = ..()
-	return change_type(user, tool)
-
-/obj/item/bodypart/chest/robot/android/examine(mob/user)
-	. = ..()
-	. += span_blue("<b>Right-click</b> with a welding-tool to alter the limb appearance.")
-
-/obj/item/bodypart/chest/robot/android/check_limbs()
-	return
-
-/// Synth right arm, additive to TG base android
-/obj/item/bodypart/arm/right/robot/android
-	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
-
-/obj/item/bodypart/arm/right/robot/android/Initialize(mapload)
-	. = ..()
-	name = "[GLOB.frame_type_names[limb_id]] [parse_zone(body_zone)]"
-
-/obj/item/bodypart/arm/right/robot/android/welder_act_secondary(mob/living/user, obj/item/tool)
-	. = ..()
-	return change_type(user, tool)
-
-/obj/item/bodypart/arm/right/robot/android/examine(mob/user)
-	. = ..()
-	. += span_blue("<b>Right-click</b> with a welding-tool to alter the limb appearance.")
-
-/// Synth left arm, additive to TG base android
-/obj/item/bodypart/arm/left/robot/android
-	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
-
-/obj/item/bodypart/arm/left/robot/android/Initialize(mapload)
-	. = ..()
-	name = "[GLOB.frame_type_names[limb_id]] [parse_zone(body_zone)]"
-
-/obj/item/bodypart/arm/left/robot/android/welder_act_secondary(mob/living/user, obj/item/tool)
-	. = ..()
-	return change_type(user, tool)
-
-/obj/item/bodypart/arm/left/robot/android/examine(mob/user)
-	. = ..()
-	. += span_blue("<b>Right-click</b> with a welding-tool to alter the limb appearance.")
-
-/// Synth right leg, additive to TG base android
-/obj/item/bodypart/leg/right/robot/android
-	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
-
-/obj/item/bodypart/leg/right/robot/android/Initialize(mapload)
-	. = ..()
-	name = "[GLOB.frame_type_names[limb_id]] [parse_zone(body_zone)]"
-
-/obj/item/bodypart/leg/right/robot/android/welder_act_secondary(mob/living/user, obj/item/tool)
-	. = ..()
-	return change_type(user, tool)
-
-/obj/item/bodypart/leg/right/robot/android/examine(mob/user)
-	. = ..()
-	. += span_blue("<b>Right-click</b> with a welding-tool to alter the limb appearance.")
-
-/// Synth left leg, additive to TG base android
-/obj/item/bodypart/leg/left/robot/android
-	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
-
-/obj/item/bodypart/leg/left/robot/android/Initialize(mapload)
-	. = ..()
-	name = "[GLOB.frame_type_names[limb_id]] [parse_zone(body_zone)]"
-
-/obj/item/bodypart/leg/left/robot/android/welder_act_secondary(mob/living/user, obj/item/tool)
-	. = ..()
-	return change_type(user, tool)
-
-/obj/item/bodypart/leg/left/robot/android/examine(mob/user)
-	. = ..()
-	. += span_blue("<b>Right-click</b> with a welding-tool to alter the limb appearance.")
-
-// Bodypart variations
-// Classic
-/obj/item/bodypart/head/robot/android/classic
+// Synth bois!
+/obj/item/bodypart/head/synth
+	name = "android head"
+	desc = "A standard base for an androids head, filled with various cameras and sensors with an optional slot for a posi-interface."
+	inhand_icon_state = "buildpipe"
 	icon_static = BODYPART_ICON_SYNTH_BASE
 	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "classic_head"
-	limb_id = "classic"
-
-/obj/item/bodypart/chest/robot/android/classic
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "classic_chest"
-	limb_id = "classic"
-
-/obj/item/bodypart/arm/right/robot/android/classic
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "classic_r_arm"
-	limb_id = "classic"
-
-/obj/item/bodypart/arm/left/robot/android/classic
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "classic_l_arm"
-	limb_id = "classic"
-
-/obj/item/bodypart/leg/right/robot/android/classic
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "classic_r_leg"
-	limb_id = "classic"
-
-/obj/item/bodypart/leg/left/robot/android/classic
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "classic_l_leg"
-	limb_id = "classic"
-
-// Bare
-/obj/item/bodypart/head/robot/android/bare
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
+	limb_id = SPECIES_SYNTH
+	obj_flags = CONDUCTS_ELECTRICITY
 	icon_state = "bare_head"
-	limb_id = "bare"
-	head_flags = HEAD_MONITOR_FACE
+	is_dimorphic = FALSE
+	should_draw_greyscale = TRUE
+	icon_greyscale = BODYPART_ICON_SYNTH_BASE
+	bodytype = BODYTYPE_ROBOTIC
+	bodyshape = BODYSHAPE_HUMANOID
+	change_exempt_flags = NONE
+	dmg_overlay_type = "robotic"
 
-/obj/item/bodypart/head/robot/android/bare/on_adding(mob/living/carbon/new_owner)
-	. = ..()
-	new_owner.AddComponent(/datum/component/monitor_head)
+	brute_modifier = SYNTH_BRUTE_MODIFIER
+	burn_modifier = SYNTH_BURN_MODIFIER
 
-/obj/item/bodypart/head/robot/android/bare/on_removal(mob/living/carbon/old_owner)
-	. = ..()
-	qdel(old_owner.GetComponent(/datum/component/monitor_head))
+	light_brute_msg = SYNTH_LIGHT_BRUTE_MSG
+	medium_brute_msg = SYNTH_MEDIUM_BRUTE_MSG
+	heavy_brute_msg = SYNTH_HEAVY_BRUTE_MSG
 
-/obj/item/bodypart/chest/robot/android/bare
+	light_burn_msg = SYNTH_LIGHT_BURN_MSG
+	medium_burn_msg = SYNTH_MEDIUM_BURN_MSG
+	heavy_burn_msg = SYNTH_HEAVY_BURN_MSG
+
+	biological_state = (BIO_ROBOTIC)
+
+	damage_examines = list(
+		BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT,
+		BURN = ROBOTIC_BURN_EXAMINE_TEXT,
+	)
+
+	head_flags = HEAD_ALL_FEATURES
+	bodypart_flags = BODYPART_UNHUSKABLE
+
+/datum/design/synth_head
+	name = "Android Head Base"
+	id = "synth_head"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.25,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/bodypart/head/synth
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
+/// Synth Chest, custom EMP effects go here to avoid stacking multiple. If they're alive they'll always have this, the rest go to organs.
+// Restrict to Synths only to avoid Mind related issues
+/obj/item/bodypart/chest/synth
+	name = "android torso"
+	desc = "A heavily customized robotic torso designed for androids, an armored core in the center holds their logic core."
+	inhand_icon_state = "buildpipe"
 	icon_static = BODYPART_ICON_SYNTH_BASE
 	icon = BODYPART_ICON_SYNTH_BASE
+	limb_id = SPECIES_SYNTH
+	obj_flags = CONDUCTS_ELECTRICITY
 	icon_state = "bare_chest"
-	limb_id = "bare"
+	is_dimorphic = FALSE
+	icon_greyscale = BODYPART_ICON_SYNTH_BASE
+	should_draw_greyscale = TRUE
+	bodytype = BODYTYPE_ROBOTIC
+	bodyshape = BODYSHAPE_HUMANOID
+	change_exempt_flags = NONE
+	dmg_overlay_type = "robotic"
 
-/obj/item/bodypart/arm/right/robot/android/bare
+	brute_modifier = SYNTH_BRUTE_MODIFIER
+	burn_modifier = SYNTH_BURN_MODIFIER
+
+	light_brute_msg = SYNTH_LIGHT_BRUTE_MSG
+	medium_brute_msg = SYNTH_MEDIUM_BRUTE_MSG
+	heavy_brute_msg = SYNTH_HEAVY_BRUTE_MSG
+
+	light_burn_msg = SYNTH_LIGHT_BURN_MSG
+	medium_burn_msg = SYNTH_MEDIUM_BURN_MSG
+	heavy_burn_msg = SYNTH_HEAVY_BURN_MSG
+
+	biological_state = (BIO_ROBOTIC)
+
+	damage_examines = list(
+		BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT,
+		BURN = ROBOTIC_BURN_EXAMINE_TEXT
+	)
+	bodypart_flags = BODYPART_UNHUSKABLE
+
+	wing_types = list(
+		/obj/item/organ/wings/functional/robotic,
+	)
+
+/datum/design/synth_chest
+	name = "Android Torso Base"
+	id = "synth_chest"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3.25,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/bodypart/chest/synth
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
+/obj/item/bodypart/chest/synth/proc/check_limbs()
+	SIGNAL_HANDLER
+
+	var/all_robotic = TRUE
+	for(var/obj/item/bodypart/part in owner.bodyparts)
+		all_robotic = all_robotic && IS_ROBOTIC_LIMB(part)
+
+	if(all_robotic)
+		owner.add_traits(list(
+			TRAIT_RESISTLOWPRESSURE,
+			TRAIT_RESISTHIGHPRESSURE,
+		))
+	else
+		owner.remove_traits(list(
+			TRAIT_RESISTLOWPRESSURE,
+			TRAIT_RESISTHIGHPRESSURE,
+		))
+
+/// Add: Slowdown, Confusion - Think Watchers Gaze flash
+/obj/item/bodypart/chest/synth/emp_effect(severity, protection)
+	. = ..()
+	if(!. || isnull(owner))
+		return
+
+	switch(severity)
+		if(EMP_HEAVY)
+			owner.set_jitter_if_lower(SYNTH_BAD_EFFECT_DURATION * SYNTH_HEAVY_EMP_MULTIPLIER)
+			owner.set_dizzy_if_lower(SYNTH_BAD_EFFECT_DURATION * SYNTH_HEAVY_EMP_MULTIPLIER)
+			owner.set_derpspeech_if_lower(SYNTH_BAD_EFFECT_DURATION * SYNTH_HEAVY_EMP_MULTIPLIER)
+			owner.set_confusion_if_lower(SYNTH_BAD_EFFECT_DURATION * 0.5)
+
+		if(EMP_LIGHT)
+			owner.set_jitter_if_lower(SYNTH_BAD_EFFECT_DURATION)
+			owner.set_dizzy_if_lower(SYNTH_BAD_EFFECT_DURATION)
+			owner.set_derpspeech_if_lower(SYNTH_BAD_EFFECT_DURATION)
+			owner.set_confusion_if_lower(SYNTH_BAD_EFFECT_DURATION * 0.25)
+
+
+/obj/item/bodypart/arm/left/synth
+	name = "android left arm"
+	desc = "A custom limb designed for androids, customizable to a degree your wallet agrees with."
+	limb_id = SPECIES_SYNTH
+	attack_verb_simple = list("slapped", "punched")
+	inhand_icon_state = "buildpipe"
 	icon_static = BODYPART_ICON_SYNTH_BASE
 	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "bare_r_arm"
-	limb_id = "bare"
-
-/obj/item/bodypart/arm/left/robot/android/bare
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
+	obj_flags = CONDUCTS_ELECTRICITY
 	icon_state = "bare_l_arm"
-	limb_id = "bare"
+	is_dimorphic = FALSE
+	icon_greyscale = BODYPART_ICON_SYNTH_BASE
+	should_draw_greyscale = TRUE
+	bodytype = BODYTYPE_ROBOTIC
+	bodyshape = BODYSHAPE_HUMANOID
+	change_exempt_flags = NONE
+	dmg_overlay_type = "robotic"
 
-/obj/item/bodypart/leg/right/robot/android/bare
+	brute_modifier = SYNTH_BRUTE_MODIFIER
+	burn_modifier = SYNTH_BURN_MODIFIER
+
+	light_brute_msg = SYNTH_LIGHT_BRUTE_MSG
+	medium_brute_msg = SYNTH_MEDIUM_BRUTE_MSG
+	heavy_brute_msg = SYNTH_HEAVY_BRUTE_MSG
+
+	light_burn_msg = SYNTH_LIGHT_BURN_MSG
+	medium_burn_msg = SYNTH_MEDIUM_BURN_MSG
+	heavy_burn_msg = SYNTH_HEAVY_BURN_MSG
+
+	biological_state = (BIO_ROBOTIC|BIO_JOINTED)
+
+	damage_examines = list(
+		BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT,
+		BURN = ROBOTIC_BURN_EXAMINE_TEXT,
+	)
+	disabling_threshold_percentage = 1
+	bodypart_flags = BODYPART_UNHUSKABLE
+
+/datum/design/synth_l_arm
+	name = "Android Left Arm Base"
+	id = "synth_l_arm"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/bodypart/arm/left/synth
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
+/obj/item/bodypart/arm/right/synth
+	name = "android right arm"
+	desc = "A custom limb designed for androids, customizable to a degree your wallet agrees with."
+	attack_verb_simple = list("slapped", "punched")
+	inhand_icon_state = "buildpipe"
 	icon_static = BODYPART_ICON_SYNTH_BASE
 	icon = BODYPART_ICON_SYNTH_BASE
+	limb_id = SPECIES_SYNTH
+	obj_flags = CONDUCTS_ELECTRICITY
+	icon_state = "bare_r_arm"
+	is_dimorphic = FALSE
+	icon_greyscale = BODYPART_ICON_SYNTH_BASE
+	should_draw_greyscale = TRUE
+	bodytype = BODYTYPE_ROBOTIC
+	bodyshape = BODYSHAPE_HUMANOID
+	change_exempt_flags = NONE
+	dmg_overlay_type = "robotic"
+
+	brute_modifier = SYNTH_BRUTE_MODIFIER
+	burn_modifier = SYNTH_BURN_MODIFIER
+
+	disabling_threshold_percentage = 1
+
+	light_brute_msg = SYNTH_LIGHT_BRUTE_MSG
+	medium_brute_msg = SYNTH_MEDIUM_BRUTE_MSG
+	heavy_brute_msg = SYNTH_HEAVY_BRUTE_MSG
+
+	light_burn_msg = SYNTH_LIGHT_BURN_MSG
+	medium_burn_msg = SYNTH_MEDIUM_BURN_MSG
+	heavy_burn_msg = SYNTH_HEAVY_BURN_MSG
+
+	biological_state = (BIO_ROBOTIC|BIO_JOINTED)
+
+	damage_examines = list(
+		BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT,
+		BURN = ROBOTIC_BURN_EXAMINE_TEXT,
+	)
+	bodypart_flags = BODYPART_UNHUSKABLE
+
+/datum/design/synth_r_arm
+	name = "Android Right Arm Base"
+	id = "synth_r_arm"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/bodypart/arm/right/synth
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
+/obj/item/bodypart/leg/left/synth
+	name = "android left leg"
+	desc = "A custom leg designed for androids, customizable to a degree your wallet agrees with."
+	attack_verb_simple = list("kicked", "stomped")
+	inhand_icon_state = "buildpipe"
+	icon_static = BODYPART_ICON_SYNTH_BASE
+	icon = BODYPART_ICON_SYNTH_BASE
+	limb_id = SPECIES_SYNTH
+	obj_flags = CONDUCTS_ELECTRICITY
+	icon_state = "bare_l_leg"
+	is_dimorphic = FALSE
+	icon_greyscale = BODYPART_ICON_SYNTH_BASE
+	should_draw_greyscale = TRUE
+	//digitigrade_type = /obj/item/bodypart/leg/left/synth/digitigrade
+	bodytype = BODYTYPE_ROBOTIC
+	bodyshape = BODYSHAPE_HUMANOID
+	change_exempt_flags = NONE
+	dmg_overlay_type = "robotic"
+
+	brute_modifier = SYNTH_BRUTE_MODIFIER
+	burn_modifier = SYNTH_BURN_MODIFIER
+
+	disabling_threshold_percentage = 1
+
+	light_brute_msg = SYNTH_LIGHT_BRUTE_MSG
+	medium_brute_msg = SYNTH_MEDIUM_BRUTE_MSG
+	heavy_brute_msg = SYNTH_HEAVY_BRUTE_MSG
+
+	light_burn_msg = SYNTH_LIGHT_BURN_MSG
+	medium_burn_msg = SYNTH_MEDIUM_BURN_MSG
+	heavy_burn_msg = SYNTH_HEAVY_BURN_MSG
+
+	biological_state = (BIO_ROBOTIC|BIO_JOINTED)
+
+	damage_examines = list(
+		BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT,
+		BURN = ROBOTIC_BURN_EXAMINE_TEXT,
+	)
+	bodypart_flags = BODYPART_UNHUSKABLE
+
+/datum/design/synth_l_leg
+	name = "Android Plantigrade Left Leg Base"
+	id = "synth_l_leg"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 2,
+	)
+	build_path = /obj/item/bodypart/leg/left/synth
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
+/obj/item/bodypart/leg/right/synth
+	name = "android right leg"
+	desc = "A custom leg designed for androids, customizable to a degree your wallet agrees with."
+	attack_verb_simple = list("kicked", "stomped")
+	inhand_icon_state = "buildpipe"
+	icon_static = BODYPART_ICON_SYNTH_BASE
+	icon = BODYPART_ICON_SYNTH_BASE
+	limb_id = SPECIES_SYNTH
+	obj_flags = CONDUCTS_ELECTRICITY
 	icon_state = "bare_r_leg"
-	limb_id = "bare"
-
-/obj/item/bodypart/leg/left/robot/android/bare
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "bare_r_leg"
-	limb_id = "bare"
-
-// Mariinsky
-/obj/item/bodypart/head/robot/android/mariinsky
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "mariinsky_head"
-	limb_id = "mariinsky"
-
-/obj/item/bodypart/chest/robot/android/mariinsky
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "mariinsky_chest"
-	limb_id = "mariinsky"
-
-/obj/item/bodypart/arm/right/robot/android/mariinsky
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "mariinsky_r_arm"
-	limb_id = "mariinsky"
-
-/obj/item/bodypart/arm/left/robot/android/mariinsky
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "mariinsky_l_arm"
-	limb_id = "mariinsky"
-
-/obj/item/bodypart/leg/right/robot/android/mariinsky
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "mariinsky_r_leg"
-	limb_id = "mariinsky"
-
-/obj/item/bodypart/leg/left/robot/android/mariinsky
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "mariinsky_r_leg"
-	limb_id = "mariinsky"
-
-// E3N
-/obj/item/bodypart/head/robot/android/e_three_n
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "e_three_n_head"
-	limb_id = "e_three_n"
-	head_flags = (HEAD_HAIR|HEAD_DEBRAIN)
-
-/obj/item/bodypart/chest/robot/android/e_three_n
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "e_three_n_chest"
-	limb_id = "e_three_n"
-
-/obj/item/bodypart/arm/right/robot/android/e_three_n
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "e_three_n_r_arm"
-	limb_id = "e_three_n"
-
-/obj/item/bodypart/arm/left/robot/android/e_three_n
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "e_three_n_l_arm"
-	limb_id = "e_three_n"
-
-/obj/item/bodypart/leg/right/robot/android/e_three_n
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "e_three_n_r_leg"
-	limb_id = "e_three_n"
-
-/obj/item/bodypart/leg/left/robot/android/e_three_n
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "e_three_n_r_leg"
-	limb_id = "e_three_n"
-
-// Morpheus
-/obj/item/bodypart/head/robot/android/mc //morb
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "mc_head"
-	limb_id = "mc"
-	head_flags = HEAD_MONITOR_FACE
-
-/obj/item/bodypart/head/robot/android/mc/on_adding(mob/living/carbon/new_owner)
-	. = ..()
-	new_owner.AddComponent(/datum/component/monitor_head)
-
-/obj/item/bodypart/head/robot/android/mc/on_removal(mob/living/carbon/old_owner)
-	. = ..()
-	qdel(old_owner.GetComponent(/datum/component/monitor_head))
-
-/obj/item/bodypart/chest/robot/android/mc
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "mc_chest"
-	limb_id = "mc"
-
-/obj/item/bodypart/arm/right/robot/android/mc
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "mc_r_arm"
-	limb_id = "mc"
-
-/obj/item/bodypart/arm/left/robot/android/mc
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "mc_l_arm"
-	limb_id = "mc"
-
-/obj/item/bodypart/leg/right/robot/android/mc
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "mc_r_leg"
-	limb_id = "mc"
-
-/obj/item/bodypart/leg/left/robot/android/mc
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "mc_r_leg"
-	limb_id = "mc"
-
-// Bishop Cyberkinetics
-/obj/item/bodypart/head/robot/android/bs_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "bs_one_head"
-	limb_id = "bs_one"
-	head_flags = HEAD_MONITOR_FACE
-
-/obj/item/bodypart/head/robot/android/bs_one/on_adding(mob/living/carbon/new_owner)
-	. = ..()
-	new_owner.AddComponent(/datum/component/monitor_head)
-
-/obj/item/bodypart/head/robot/android/bs_one/on_removal(mob/living/carbon/old_owner)
-	. = ..()
-	qdel(old_owner.GetComponent(/datum/component/monitor_head))
-
-/obj/item/bodypart/chest/robot/android/bs_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "bs_one_chest"
-	limb_id = "bs_one"
-
-/obj/item/bodypart/arm/right/robot/android/bs_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "bs_one_r_arm"
-	limb_id = "bs_one"
-
-/obj/item/bodypart/arm/left/robot/android/bs_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "bs_one_l_arm"
-	limb_id = "bs_one"
-
-/obj/item/bodypart/leg/right/robot/android/bs_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "bs_one_r_leg"
-	limb_id = "bs_one"
-
-/obj/item/bodypart/leg/left/robot/android/bs_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "bs_one_r_leg"
-	limb_id = "bs_one"
-
-// Bishop Cyberkinetics 2.0
-/obj/item/bodypart/head/robot/android/bs_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "bs_two_head"
-	limb_id = "bs_two"
-	head_flags = HEAD_MONITOR_FACE
-
-/obj/item/bodypart/head/robot/android/bs_two/on_adding(mob/living/carbon/new_owner)
-	. = ..()
-	new_owner.AddComponent(/datum/component/monitor_head)
-
-/obj/item/bodypart/head/robot/android/bs_two/on_removal(mob/living/carbon/old_owner)
-	. = ..()
-	qdel(old_owner.GetComponent(/datum/component/monitor_head))
-
-/obj/item/bodypart/chest/robot/android/bs_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "bs_two_chest"
-	limb_id = "bs_two"
-
-/obj/item/bodypart/arm/right/robot/android/bs_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "bs_two_r_arm"
-	limb_id = "bs_two"
-
-/obj/item/bodypart/arm/left/robot/android/bs_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "bs_two_l_arm"
-	limb_id = "bs_two"
-
-/obj/item/bodypart/leg/right/robot/android/bs_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "bs_two_r_leg"
-	limb_id = "bs_two"
-
-/obj/item/bodypart/leg/left/robot/android/bs_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "bs_two_r_leg"
-	limb_id = "bs_two"
-
-// Hephaestus Industries
-/obj/item/bodypart/head/robot/android/hi_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "hi_one_head"
-	limb_id = "hi_one"
-	head_flags = HEAD_MONITOR_FACE
-
-/obj/item/bodypart/head/robot/android/hi_one/on_adding(mob/living/carbon/new_owner)
-	. = ..()
-	new_owner.AddComponent(/datum/component/monitor_head)
-
-/obj/item/bodypart/head/robot/android/hi_one/on_removal(mob/living/carbon/old_owner)
-	. = ..()
-	qdel(old_owner.GetComponent(/datum/component/monitor_head))
-
-/obj/item/bodypart/chest/robot/android/hi_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "hi_one_chest"
-	limb_id = "hi_one"
-
-/obj/item/bodypart/arm/right/robot/android/hi_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "hi_one_r_arm"
-	limb_id = "hi_one"
-
-/obj/item/bodypart/arm/left/robot/android/hi_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "hi_one_l_arm"
-	limb_id = "hi_one"
-
-/obj/item/bodypart/leg/right/robot/android/hi_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "hi_one_r_leg"
-	limb_id = "hi_one"
-
-/obj/item/bodypart/leg/left/robot/android/hi_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "hi_one_r_leg"
-	limb_id = "hi_one"
-
-// Hephaestus Industries 2.0
-/obj/item/bodypart/head/robot/android/hi_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "hi_two_head"
-	limb_id = "hi_two"
-	head_flags = HEAD_MONITOR_FACE
-
-/obj/item/bodypart/head/robot/android/hi_two/on_adding(mob/living/carbon/new_owner)
-	. = ..()
-	new_owner.AddComponent(/datum/component/monitor_head)
-
-/obj/item/bodypart/head/robot/android/hi_two/on_removal(mob/living/carbon/old_owner)
-	. = ..()
-	qdel(old_owner.GetComponent(/datum/component/monitor_head))
-
-/obj/item/bodypart/chest/robot/android/hi_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "hi_two_chest"
-	limb_id = "hi_two"
-
-/obj/item/bodypart/arm/right/robot/android/hi_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "hi_two_r_arm"
-	limb_id = "hi_two"
-
-/obj/item/bodypart/arm/left/robot/android/hi_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "hi_two_l_arm"
-	limb_id = "hi_two"
-
-/obj/item/bodypart/leg/right/robot/android/hi_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "hi_two_r_leg"
-	limb_id = "hi_two"
-
-/obj/item/bodypart/leg/left/robot/android/hi_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "hi_two_r_leg"
-	limb_id = "hi_two"
-
-// Shellguard Munitions Standard Series 😎
-/obj/item/bodypart/head/robot/android/sgm
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "sgm_head"
-	limb_id = "sgm"
-	head_flags = HEAD_MONITOR_FACE
-
-/obj/item/bodypart/head/robot/android/sgm/on_adding(mob/living/carbon/new_owner)
-	. = ..()
-	new_owner.AddComponent(/datum/component/monitor_head)
-
-/obj/item/bodypart/head/robot/android/sgm/on_removal(mob/living/carbon/old_owner)
-	. = ..()
-	qdel(old_owner.GetComponent(/datum/component/monitor_head))
-
-/obj/item/bodypart/chest/robot/android/sgm
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "sgm_chest"
-	limb_id = "sgm"
-
-/obj/item/bodypart/arm/right/robot/android/sgm
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "sgm_r_arm"
-	limb_id = "sgm"
-
-/obj/item/bodypart/arm/left/robot/android/sgm
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "sgm_l_arm"
-	limb_id = "sgm"
-
-/obj/item/bodypart/leg/right/robot/android/sgm
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "sgm_r_leg"
-	limb_id = "sgm"
-
-/obj/item/bodypart/leg/left/robot/android/sgm
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "sgm_r_leg"
-	limb_id = "sgm"
-
-// Ward Takahashi Manufacturing
-/obj/item/bodypart/head/robot/android/wtm
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "wtm_head"
-	limb_id = "wtm"
-	head_flags = HEAD_MONITOR_FACE
-
-/obj/item/bodypart/head/robot/android/wtm/on_adding(mob/living/carbon/new_owner)
-	. = ..()
-	new_owner.AddComponent(/datum/component/monitor_head)
-
-/obj/item/bodypart/head/robot/android/wtm/on_removal(mob/living/carbon/old_owner)
-	. = ..()
-	qdel(old_owner.GetComponent(/datum/component/monitor_head))
-
-/obj/item/bodypart/chest/robot/android/wtm
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "wtm_chest"
-	limb_id = "wtm"
-
-/obj/item/bodypart/arm/right/robot/android/wtm
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "wtm_r_arm"
-	limb_id = "wtm"
-
-/obj/item/bodypart/arm/left/robot/android/wtm
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "wtm_l_arm"
-	limb_id = "wtm"
-
-/obj/item/bodypart/leg/right/robot/android/wtm
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "wtm_r_leg"
-	limb_id = "wtm"
-
-/obj/item/bodypart/leg/left/robot/android/wtm
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "wtm_r_leg"
-	limb_id = "wtm"
-
-// Xion Manufacturing Group
-/obj/item/bodypart/head/robot/android/xmg_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "xmg_one_head"
-	limb_id = "xmg_one"
-	head_flags = HEAD_MONITOR_FACE
-
-/obj/item/bodypart/head/robot/android/xmg_one/on_adding(mob/living/carbon/new_owner)
-	. = ..()
-	new_owner.AddComponent(/datum/component/monitor_head)
-
-/obj/item/bodypart/head/robot/android/xmg_one/on_removal(mob/living/carbon/old_owner)
-	. = ..()
-	qdel(old_owner.GetComponent(/datum/component/monitor_head))
-
-/obj/item/bodypart/chest/robot/android/xmg_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "xmg_one_chest"
-	limb_id = "xmg_one"
-
-/obj/item/bodypart/arm/right/robot/android/xmg_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "xmg_one_r_arm"
-	limb_id = "xmg_one"
-
-/obj/item/bodypart/arm/left/robot/android/xmg_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "xmg_one_l_arm"
-	limb_id = "xmg_one"
-
-/obj/item/bodypart/leg/right/robot/android/xmg_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "xmg_one_r_leg"
-	limb_id = "xmg_one"
-
-/obj/item/bodypart/leg/left/robot/android/xmg_one
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "xmg_one_r_leg"
-	limb_id = "xmg_one"
-
-// Xion Manufacturing Group 2.0
-/obj/item/bodypart/head/robot/android/xmg_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "xmg_two_head"
-	limb_id = "xmg_two"
-	head_flags = HEAD_MONITOR_FACE
-
-/obj/item/bodypart/head/robot/android/xmg_two/on_adding(mob/living/carbon/new_owner)
-	. = ..()
-	new_owner.AddComponent(/datum/component/monitor_head)
-
-/obj/item/bodypart/head/robot/android/xmg_two/on_removal(mob/living/carbon/old_owner)
-	. = ..()
-	qdel(old_owner.GetComponent(/datum/component/monitor_head))
-
-/obj/item/bodypart/chest/robot/android/xmg_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "xmg_two_chest"
-	limb_id = "xmg_two"
-
-/obj/item/bodypart/arm/right/robot/android/xmg_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "xmg_two_r_arm"
-	limb_id = "xmg_two"
-
-/obj/item/bodypart/arm/left/robot/android/xmg_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "xmg_two_l_arm"
-	limb_id = "xmg_two"
-
-/obj/item/bodypart/leg/right/robot/android/xmg_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "xmg_two_r_leg"
-	limb_id = "xmg_two"
-
-/obj/item/bodypart/leg/left/robot/android/xmg_two
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "xmg_two_r_leg"
-	limb_id = "xmg_two"
-
-// Zeng-Hu Pharmaceuticals
-/obj/item/bodypart/head/robot/android/zhp
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "zhp_head"
-	limb_id = "zhp"
-	head_flags = HEAD_MONITOR_FACE
-
-/obj/item/bodypart/head/robot/android/zhp/on_adding(mob/living/carbon/new_owner)
-	. = ..()
-	new_owner.AddComponent(/datum/component/monitor_head)
-
-/obj/item/bodypart/head/robot/android/zhp/on_removal(mob/living/carbon/old_owner)
-	. = ..()
-	qdel(old_owner.GetComponent(/datum/component/monitor_head))
-
-/obj/item/bodypart/chest/robot/android/zhp
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "zhp_chest"
-	limb_id = "zhp"
-
-/obj/item/bodypart/arm/right/robot/android/zhp
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "zhp_r_arm"
-	limb_id = "zhp"
-
-/obj/item/bodypart/arm/left/robot/android/zhp
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "zhp_l_arm"
-	limb_id = "zhp"
-
-/obj/item/bodypart/leg/right/robot/android/zhp
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "zhp_r_leg"
-	limb_id = "zhp"
-
-/obj/item/bodypart/leg/left/robot/android/zhp
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_state = "zhp_r_leg"
-	limb_id = "zhp"
-
-// Synthetic Lizard
-/obj/item/bodypart/head/robot/android/synth_lizard
-	bodyshape = BODYSHAPE_HUMANOID | BODYSHAPE_SNOUTED
+	is_dimorphic = FALSE
+	icon_greyscale = BODYPART_ICON_SYNTH_BASE
 	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "synth_lizard_head"
-	limb_id = "synth_lizard"
-	head_flags = HEAD_MONITOR_FACE
+	//digitigrade_type = /obj/item/bodypart/leg/right/synth/digitigrade
+	bodytype = BODYTYPE_ROBOTIC
+	bodyshape = BODYSHAPE_HUMANOID
+	change_exempt_flags = NONE
+	dmg_overlay_type = "robotic"
 
-/obj/item/bodypart/head/robot/android/synth_lizard/on_adding(mob/living/carbon/new_owner)
-	. = ..()
-	new_owner.AddComponent(/datum/component/monitor_head/lizard)
+	brute_modifier = SYNTH_BRUTE_MODIFIER
+	burn_modifier = SYNTH_BURN_MODIFIER
 
-/obj/item/bodypart/head/robot/android/synth_lizard/on_removal(mob/living/carbon/old_owner)
-	. = ..()
-	qdel(old_owner.GetComponent(/datum/component/monitor_head/lizard))
+	disabling_threshold_percentage = 1
 
-/obj/item/bodypart/chest/robot/android/synth_lizard
-	is_dimorphic = TRUE
-	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "synth_lizard_chest_f"
-	limb_id = "synth_lizard"
+	light_brute_msg = SYNTH_LIGHT_BRUTE_MSG
+	medium_brute_msg = SYNTH_MEDIUM_BRUTE_MSG
+	heavy_brute_msg = SYNTH_HEAVY_BRUTE_MSG
 
-/obj/item/bodypart/arm/right/robot/android/synth_lizard
-	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "synth_lizard_r_arm"
-	limb_id = "synth_lizard"
+	light_burn_msg = SYNTH_LIGHT_BURN_MSG
+	medium_burn_msg = SYNTH_MEDIUM_BURN_MSG
+	heavy_burn_msg = SYNTH_HEAVY_BURN_MSG
 
-/obj/item/bodypart/arm/left/robot/android/synth_lizard
-	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "synth_lizard_l_arm"
-	limb_id = "synth_lizard"
+	biological_state = (BIO_ROBOTIC|BIO_JOINTED)
 
-/obj/item/bodypart/leg/right/robot/android/synth_lizard
-	//bodypart_traits = list(TRAIT_HARD_SOLES)
-	bodyshape = BODYSHAPE_HUMANOID | BODYSHAPE_DIGITIGRADE
-	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "synth_lizard_r_leg"
-	limb_id = "synth_lizard"
+	damage_examines = list(
+		BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT,
+		BURN = ROBOTIC_BURN_EXAMINE_TEXT,
+	)
+	bodypart_flags = BODYPART_UNHUSKABLE
 
-/obj/item/bodypart/leg/left/robot/android/synth_lizard
-	//bodypart_traits = list(TRAIT_HARD_SOLES)
-	bodyshape = BODYSHAPE_HUMANOID | BODYSHAPE_DIGITIGRADE
-	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "synth_lizard_r_leg"
-	limb_id = "synth_lizard"
-
-// Human-Like
-/obj/item/bodypart/head/robot/android/human_like
-	is_dimorphic = TRUE
-	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "human_like_head_f"
-	limb_id = "human_like"
-
-/obj/item/bodypart/chest/robot/android/human_like
-	is_dimorphic = TRUE
-	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "human_like_chest_f"
-	limb_id = "human_like"
-
-/obj/item/bodypart/arm/right/robot/android/human_like
-	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "human_like_r_arm"
-	limb_id = "human_like"
-
-/obj/item/bodypart/arm/left/robot/android/human_like
-	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "human_like_l_arm"
-	limb_id = "human_like"
-
-/obj/item/bodypart/leg/right/robot/android/human_like
-	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "human_like_r_leg"
-	limb_id = "human_like"
-
-/obj/item/bodypart/leg/left/robot/android/human_like
-	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "human_like_r_leg"
-	limb_id = "human_like"
-
-// Zhenkov-Light
-/obj/item/bodypart/leg/right/robot/android/zhenkov
-	should_draw_greyscale = FALSE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "zhenkov_r_leg"
-	limb_id = "zhenkov"
-
-/obj/item/bodypart/leg/left/robot/android/zhenkov
-	should_draw_greyscale = FALSE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "zhenkov_r_leg"
-	limb_id = "zhenkov"
-
-// Zhenkov-Dark
-/obj/item/bodypart/leg/right/robot/android/zhenkovdark
-	should_draw_greyscale = FALSE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "zhenkovdark_r_leg"
-	limb_id = "zhenkovdark"
-
-/obj/item/bodypart/leg/left/robot/android/zhenkovdark
-	should_draw_greyscale = FALSE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "zhenkovdark_r_leg"
-	limb_id = "zhenkovdark"
-
-// Shard Alpha
-/obj/item/bodypart/leg/right/robot/android/shard_alpha
-	should_draw_greyscale = FALSE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "shard_alpha_r_leg"
-	limb_id = "shard_alpha"
-	footstep_type = FOOTSTEP_MOB_CLAW
-	footprint_sprite = FOOTPRINT_SPRITE_CLAWS
-	bodyshape = BODYSHAPE_HUMANOID | BODYSHAPE_DIGITIGRADE
-
-/obj/item/bodypart/leg/left/robot/android/shard_alpha
-	should_draw_greyscale = FALSE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "shard_alpha_r_leg"
-	limb_id = "shard_alpha"
-	footstep_type = FOOTSTEP_MOB_CLAW
-	footprint_sprite = FOOTPRINT_SPRITE_CLAWS
-	bodyshape = BODYSHAPE_HUMANOID | BODYSHAPE_DIGITIGRADE
-
-// Design Datums
-/datum/design/android_head
-	name = "Synth Head"
-	id = "android_head"
-	build_type = MECHFAB
-	build_path = /obj/item/bodypart/head/robot/android
+/datum/design/synth_r_leg
+	name = "Android Plantigrade Right Leg Base"
+	id = "synth_r_leg"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,
-		/datum/material/silver=SHEET_MATERIAL_AMOUNT*3,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 2,
 	)
-	construction_time = 20 SECONDS
+	build_path = /obj/item/bodypart/leg/right/synth
 	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ADVANCED_LIMBS
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
 	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
-/datum/design/android_chest
-	name = "Synth Chest"
-	id = "android_chest"
-	build_type = MECHFAB
-	build_path = /obj/item/bodypart/chest/robot/android
-	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,
-		/datum/material/silver=SHEET_MATERIAL_AMOUNT*3,
-	)
-	construction_time = 20 SECONDS
-	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ADVANCED_LIMBS
-	)
+/obj/item/bodypart/leg/left/synth/digitigrade
+	icon_greyscale = BODYPART_ICON_SYNTH_BASE
+	limb_id = BODYPART_ID_DIGITIGRADE
+	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
+	//base_limb_id = BODYPART_ID_DIGITIGRADE
 
-/datum/design/android_l_arm
-	name = "Synth Left Arm"
-	id = "android_l_arm"
-	build_type = MECHFAB
-	build_path = /obj/item/bodypart/arm/left/robot/android
+/datum/design/synth_l_d_leg
+	name = "Android Digitigrade Left Leg Base"
+	id = "synth_l_d_leg"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,
-		/datum/material/silver=SHEET_MATERIAL_AMOUNT*3,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 2,
 	)
-	construction_time = 20 SECONDS
+	build_path = /obj/item/bodypart/leg/left/synth/digitigrade
 	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ADVANCED_LIMBS
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
 	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
-/datum/design/android_r_arm
-	name = "Synth Right Arm"
-	id = "android_r_arm"
-	build_type = MECHFAB
-	build_path = /obj/item/bodypart/arm/right/robot/android
-	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,
-		/datum/material/silver=SHEET_MATERIAL_AMOUNT*3,
-	)
-	construction_time = 20 SECONDS
-	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ADVANCED_LIMBS
-	)
+/obj/item/bodypart/leg/right/synth/digitigrade
+	icon_greyscale = BODYPART_ICON_SYNTH_BASE
+	limb_id = BODYPART_ID_DIGITIGRADE
+	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
+	//base_limb_id = BODYPART_ID_DIGITIGRADE
 
-/datum/design/android_l_leg
-	name = "Synth Left Leg"
-	id = "android_l_leg"
-	build_type = MECHFAB
-	build_path = /obj/item/bodypart/leg/left/robot/android
+/datum/design/synth_r_d_leg
+	name = "Android Digitigrade Right Leg Base"
+	id = "synth_r_d_leg"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
 	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,
-		/datum/material/silver=SHEET_MATERIAL_AMOUNT*3,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 2,
 	)
-	construction_time = 20 SECONDS
+	build_path = /obj/item/bodypart/leg/right/synth/digitigrade
 	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ADVANCED_LIMBS
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
 	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
-/datum/design/android_r_leg
-	name = "Synth Right Leg"
-	id = "android_r_leg"
-	build_type = MECHFAB
-	build_path = /obj/item/bodypart/leg/right/robot/android
-	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,
-		/datum/material/silver=SHEET_MATERIAL_AMOUNT*3,
-	)
-	construction_time = 20 SECONDS
-	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ADVANCED_LIMBS
-	)
+#undef SYNTH_BRUTE_MODIFIER
+#undef SYNTH_BURN_MODIFIER
+
+#undef SYNTH_LIGHT_BRUTE_MSG
+#undef SYNTH_MEDIUM_BRUTE_MSG
+#undef SYNTH_HEAVY_BRUTE_MSG
+
+#undef SYNTH_LIGHT_BURN_MSG
+#undef SYNTH_MEDIUM_BURN_MSG
+#undef SYNTH_HEAVY_BURN_MSG

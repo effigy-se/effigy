@@ -110,6 +110,7 @@
 	taste_description = "water"
 	var/cooling_temperature = 2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_CLEANS
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC // EffigyEdit Add - Synths
 	default_container = /obj/item/reagent_containers/cup/glass/waterbottle
 
 /datum/glass_style/shot_glass/water
@@ -490,6 +491,7 @@
 	taste_description = "burning"
 	ph = 0.1
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC // EffigyEdit Add - Synths
 
 /datum/reagent/hellwater/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -1268,6 +1270,7 @@
 	burning_temperature = 1725 //more refined than oil
 	burning_volume = 0.2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC // EffigyEdit Add - Synths
 	addiction_types = list(/datum/addiction/alcohol = 4)
 
 /datum/glass_style/drinking_glass/fuel
@@ -1532,6 +1535,7 @@
 	taste_description = "something unknowable"
 	ph = 6
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC // EffigyEdit Add - Synths
 
 /datum/reagent/carbondioxide/expose_turf(turf/open/exposed_turf, reac_volume)
 	if(istype(exposed_turf))
@@ -1825,6 +1829,7 @@
 	taste_mult = 1.5
 	ph = 1.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC // EffigyEdit Add - Synths
 
 /datum/reagent/stable_plasma/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -2612,6 +2617,7 @@
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
 	ph = 15
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC // EffigyEdit Add - Synths
 	metabolized_traits = list(TRAIT_PACIFISM)
 
 /datum/reagent/bz_metabolites

@@ -1,5 +1,6 @@
 #define SPECIES_ANIMALID "animalid"
 #define SPECIES_INSECTOID "insectoid"
+#define SPECIES_SYNTH "synth"
 
 #define BODYPART_ICON_ANIMALID 'local/icons/mob/species/animalid_parts.dmi'
 #define BODYPART_ICON_INSECTOID 'local/icons/mob/species/insectoid_parts.dmi'

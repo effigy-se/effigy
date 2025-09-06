@@ -1,6 +1,3 @@
-/mob/living/carbon/human/species/animalid
-	race = /datum/species/animalid
-
 /datum/species/animalid
 	name = "Animalid"
 	plural_form = "Animalids"
