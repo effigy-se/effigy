@@ -129,7 +129,7 @@
 	monitor_head.add_bodypart_overlay(display_overlay)
 
 /datum/action/innate/monitor_head/proc/change_screen(mob/living/carbon/wearer, screen)
-	var/obj/item/bodypart/head/robot/android/monitor_head = wearer.get_bodypart(BODY_ZONE_HEAD)
+	var/obj/item/bodypart/head/robot/synth/monitor_head = wearer.get_bodypart(BODY_ZONE_HEAD)
 
 	display_overlay.icon_state = screen
 	monitor_head.monitor_state = screen

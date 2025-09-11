@@ -19,7 +19,7 @@
 	UnregisterSignal(quirk_holder, list(COMSIG_LIVING_ELECTROCUTE_ACT, COMSIG_LIVING_MINOR_SHOCK))
 
 /datum/quirk/system_shock/is_species_appropriate(datum/species/mob_species)
-	if (!ispath(mob_species, /datum/species/synthetic))
+	if (!ispath(mob_species, /datum/species/synth))
 		return FALSE
 	return ..()
 

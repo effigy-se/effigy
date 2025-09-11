@@ -25,7 +25,7 @@
 	inhand_icon_state = "buildpipe"
 	icon_static = BODYPART_ICON_SYNTH_BASE
 	icon = BODYPART_ICON_SYNTH_BASE
-	limb_id = SPECIES_SYNTH
+	limb_id = "bare"
 	obj_flags = CONDUCTS_ELECTRICITY
 	icon_state = "bare_head"
 	is_dimorphic = FALSE
@@ -81,7 +81,7 @@
 	inhand_icon_state = "buildpipe"
 	icon_static = BODYPART_ICON_SYNTH_BASE
 	icon = BODYPART_ICON_SYNTH_BASE
-	limb_id = SPECIES_SYNTH
+	limb_id = "bare"
 	obj_flags = CONDUCTS_ELECTRICITY
 	icon_state = "bare_chest"
 	is_dimorphic = FALSE
@@ -172,7 +172,7 @@
 /obj/item/bodypart/arm/left/synth
 	name = "android left arm"
 	desc = "A custom limb designed for androids, customizable to a degree your wallet agrees with."
-	limb_id = SPECIES_SYNTH
+	limb_id = "bare"
 	attack_verb_simple = list("slapped", "punched")
 	inhand_icon_state = "buildpipe"
 	icon_static = BODYPART_ICON_SYNTH_BASE
@@ -229,7 +229,7 @@
 	inhand_icon_state = "buildpipe"
 	icon_static = BODYPART_ICON_SYNTH_BASE
 	icon = BODYPART_ICON_SYNTH_BASE
-	limb_id = SPECIES_SYNTH
+	limb_id = "bare"
 	obj_flags = CONDUCTS_ELECTRICITY
 	icon_state = "bare_r_arm"
 	is_dimorphic = FALSE
@@ -283,7 +283,7 @@
 	inhand_icon_state = "buildpipe"
 	icon_static = BODYPART_ICON_SYNTH_BASE
 	icon = BODYPART_ICON_SYNTH_BASE
-	limb_id = SPECIES_SYNTH
+	limb_id = "bare"
 	obj_flags = CONDUCTS_ELECTRICITY
 	icon_state = "bare_l_leg"
 	is_dimorphic = FALSE
@@ -338,7 +338,7 @@
 	inhand_icon_state = "buildpipe"
 	icon_static = BODYPART_ICON_SYNTH_BASE
 	icon = BODYPART_ICON_SYNTH_BASE
-	limb_id = SPECIES_SYNTH
+	limb_id = "bare"
 	obj_flags = CONDUCTS_ELECTRICITY
 	icon_state = "bare_r_leg"
 	is_dimorphic = FALSE

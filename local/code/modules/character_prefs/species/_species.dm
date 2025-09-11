@@ -31,7 +31,7 @@
 	var/list/frame_bodyparts = target.dna.features["frame_list"]
 	if(!(type in GLOB.bodypart_allowed_species[CYBER_FRAME]))
 		return ..()
-	if(type == /datum/species/android && frame_bodyparts && frame_bodyparts[BODY_ZONE_HEAD])
+	if(type == /datum/species/synth && frame_bodyparts && frame_bodyparts[BODY_ZONE_HEAD])
 		bodypart_overrides[BODY_ZONE_HEAD] = frame_bodyparts[BODY_ZONE_HEAD]
 	if(frame_bodyparts && frame_bodyparts[BODY_ZONE_CHEST])
 		bodypart_overrides[BODY_ZONE_CHEST] = frame_bodyparts[BODY_ZONE_CHEST]

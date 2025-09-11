@@ -40,12 +40,12 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 
 	bodypart_overrides = list(
-		BODY_ZONE_HEAD = /obj/item/bodypart/head/robot/android,
-		BODY_ZONE_CHEST = /obj/item/bodypart/chest/robot/android,
-		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/robot/android,
-		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/robot/android,
-		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/robot/android,
-		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/robot/android,
+		BODY_ZONE_HEAD = /obj/item/bodypart/head/robot/synth,
+		BODY_ZONE_CHEST = /obj/item/bodypart/chest/robot/synth,
+		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/robot/synth,
+		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/robot/synth,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/robot/synth,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/robot/synth,
 	)
 
 /datum/species/android/get_physical_attributes()
