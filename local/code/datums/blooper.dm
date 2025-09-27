@@ -22,10 +22,20 @@
 	for(var/i in 1 to num_bloopers)
 		if(total_delay > BLOOPER_MAX_TIME)
 			break
-		addtimer(CALLBACK(src, PROC_REF(schedule_plays), speaker, listeners, blooper_pick, distance, volume, BLOOPER_DO_VARY(pitch, pitch_range)), total_delay)
+		addtimer(CALLBACK(src, PROC_REF(schedule_plays), speaker, listeners, distance, volume, BLOOPER_DO_VARY(pitch, pitch_range), blooper_pick), total_delay)
 		total_delay += rand(DS2TICKS(speed / BLOOPER_SPEED_BASELINE), DS2TICKS(speed / BLOOPER_SPEED_BASELINE) + DS2TICKS(speed / BLOOPER_SPEED_BASELINE)) TICKS
 	COOLDOWN_START(speaker, blooper_cooldown, total_delay)
 
-/datum/blooper/proc/schedule_plays(atom/movable/speaker, list/listeners, sound/voice, distance, volume, pitch)
+/datum/blooper/proc/schedule_plays(atom/movable/speaker, list/listeners, distance, volume, pitch, sound/voice)
+	PRIVATE_PROC(TRUE)
 	for(var/mob/target_mob in listeners)
-		target_mob.playsound_local(get_turf(speaker), voice, volume, vary = TRUE, frequency = pitch, falloff_distance = 0, falloff_exponent = BLOOPER_SOUND_FALLOFF_EXPONENT, max_distance = distance)
+		target_mob.playsound_local(
+			turf_source = get_turf(speaker),
+			soundin = voice,
+			vol = volume,
+			vary = TRUE,
+			frequency = pitch,
+			falloff_distance = 0,
+			falloff_exponent = BLOOPER_SOUND_FALLOFF_EXPONENT,
+			max_distance = distance,
+		)
