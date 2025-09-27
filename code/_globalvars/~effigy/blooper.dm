@@ -4,7 +4,6 @@ GLOBAL_LIST_INIT(blooper_list, initialize_blooper_datums())
 /proc/initialize_blooper_datums()
 	var/list/blooper_datums = list()
 	if(!rustg_file_exists("[BLOOPER_CONFIG_PATH]/blooper_config.json"))
-		stack_trace("Blooper config is missing!")
 		return blooper_datums
 	var/list/blooper_entries = safe_json_decode(rustg_file_read("[BLOOPER_CONFIG_PATH]/blooper_config.json"))
 	if(isnull(blooper_entries))

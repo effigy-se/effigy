@@ -4,10 +4,13 @@
 	savefile_key = "blooper_choice"
 
 /datum/preference/choiced/blooper/init_possible_values()
-	return assoc_to_keys(GLOB.blooper_list)
+	return length(GLOB.blooper_list) ? assoc_to_keys(GLOB.blooper_list) : list("None")
 
 /datum/preference/choiced/blooper/apply_to_human(mob/living/carbon/human/target, value)
 	target.blooper = GLOB.blooper_list[value]
+
+/datum/preference/choiced/blooper/is_accessible(datum/preferences/preferences)
+	return ..() && length(GLOB.blooper_list)
 
 /datum/preference/numeric/blooper_speed
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
@@ -23,6 +26,9 @@
 /datum/preference/numeric/blooper_speed/create_default_value()
 	return round((BLOOPER_DEFAULT_MINSPEED + BLOOPER_DEFAULT_MAXSPEED) / 2, 0.1)
 
+/datum/preference/numeric/blooper_speed/is_accessible(datum/preferences/preferences)
+	return ..() && length(GLOB.blooper_list)
+
 /datum/preference/numeric/blooper_pitch
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -37,6 +43,9 @@
 /datum/preference/numeric/blooper_pitch/create_default_value()
 	return round((BLOOPER_DEFAULT_MINPITCH + BLOOPER_DEFAULT_MAXPITCH) / 2, 0.1)
 
+/datum/preference/numeric/blooper_pitch/is_accessible(datum/preferences/preferences)
+	return ..() && length(GLOB.blooper_list)
+
 /datum/preference/numeric/blooper_pitch_range
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -50,6 +59,9 @@
 
 /datum/preference/numeric/blooper_pitch_range/create_default_value()
 	return 0.2
+
+/datum/preference/numeric/blooper_pitch_range/is_accessible(datum/preferences/preferences)
+	return ..() && length(GLOB.blooper_list)
 
 // Send vocal bloopers
 /datum/preference/toggle/send_blooper
