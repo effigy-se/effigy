@@ -2,8 +2,8 @@ import { Button, Stack } from 'tgui-core/components';
 import {
   type FeatureChoiced,
   type FeatureChoicedServerData,
-  FeatureNumberInput,
   type FeatureNumeric,
+  FeatureSliderInput,
   type FeatureValueProps,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
@@ -36,16 +36,20 @@ export const blooper_choice: FeatureChoiced = {
 };
 
 export const blooper_speed: FeatureNumeric = {
-  name: 'Character Voice Speed',
-  component: FeatureNumberInput,
+  name: 'Character Voice Speed %',
+  description: 'Lower number, slower voice. Higher number, faster voice.',
+  component: FeatureSliderInput,
 };
 
 export const blooper_pitch: FeatureNumeric = {
-  name: 'Character Voice Pitch',
-  component: FeatureNumberInput,
+  name: 'Character Voice Pitch %',
+  description: 'Lower number, deeper pitch. Higher number, higher pitch.',
+  component: FeatureSliderInput,
 };
 
 export const blooper_pitch_range: FeatureNumeric = {
-  name: 'Character Voice Range',
-  component: FeatureNumberInput,
+  name: 'Character Voice Range %',
+  description:
+    'Lower number, less pitch range. Higher number, more pitch range.',
+  component: FeatureSliderInput,
 };
