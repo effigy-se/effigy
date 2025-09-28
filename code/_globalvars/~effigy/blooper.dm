@@ -12,6 +12,7 @@ GLOBAL_LIST_INIT(blooper_list, initialize_blooper_datums())
 	for(var/entry in blooper_entries)
 		// These fields are required
 		if(isnull(entry["name"]) || isnull(entry["id"]) || isnull(entry["files"]) || !length(entry["files"]))
+			stack_trace("Blooper config entry was missing required field!")
 			continue
 		var/datum/blooper/new_blooper = new()
 		new_blooper.name = entry["name"]
