@@ -113,11 +113,6 @@
 		message_range++
 	var/list/listeners = get_hearers_in_view(message_range, source)
 	var/is_yelling = (say_test(message_raw) == "2") // boost the volume if their message ends in !
-	for(var/mob/target_mob in listeners)
-		if(!target_mob.client)
-			continue
-		if(!(target_mob.client?.prefs.read_preference(/datum/preference/toggle/hear_blooper)))
-			listeners -= target_mob
 	blooper.play_bloop(source, listeners, message_raw, message_range, volume * (is_yelling ? 2 : 1), blooper_speed, blooper_pitch, blooper_pitch_range)
 
 #undef LOOC_RANGE

@@ -34,6 +34,9 @@
 	speed = round(min_speed + ((max_speed - min_speed) * ((100 - speed) / 100)), 0.01) // this one gets inverted because lower % = faster isn't intuitive
 	pitch = round(min_pitch + ((max_pitch - min_pitch) * (pitch / 100)), 0.01)
 	pitch_range = round(min_vary + ((max_vary - min_vary) * (pitch_range / 100)), 0.01)
+	for(var/mob/target_mob in listeners)
+		if(target_mob.client && !(target_mob.client.prefs.read_preference(/datum/preference/toggle/hear_blooper)))
+			listeners -= target_mob
 	var/sound/blooper_pick = pick(soundpath_list)
 	var/num_bloopers = min(round(length(message) / speed, 1) + 1, BLOOPER_MAX_BLOOPERS)
 	var/total_delay = 0

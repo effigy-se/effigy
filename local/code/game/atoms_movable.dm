@@ -12,9 +12,4 @@
 	if(!blooper)
 		return
 	var/list/listeners = get_hearers_in_view(range, source)
-	for(var/mob/target_mob in listeners)
-		if(!target_mob.client)
-			continue
-		if(!(target_mob.client?.prefs.read_preference(/datum/preference/toggle/hear_blooper)))
-			listeners -= target_mob
 	blooper.play_bloop(source, listeners, message, range, BLOOPER_TRANSMIT_VOLUME, blooper_speed, blooper_pitch, blooper_pitch_range)
