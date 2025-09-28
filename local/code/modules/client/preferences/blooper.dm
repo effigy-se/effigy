@@ -4,13 +4,24 @@
 	savefile_key = "blooper_choice"
 
 /datum/preference/choiced/blooper/init_possible_values()
-	return length(GLOB.blooper_list) ? assoc_to_keys(GLOB.blooper_list) : list("None")
+	// no bloopers configured, return dummy list to avoid runtimes
+	if(!length(GLOB.blooper_list))
+		return list("none")
+	return assoc_to_keys(GLOB.blooper_list)
 
 /datum/preference/choiced/blooper/apply_to_human(mob/living/carbon/human/target, value)
 	target.blooper = GLOB.blooper_list[value]
 
 /datum/preference/choiced/blooper/is_accessible(datum/preferences/preferences)
 	return ..() && length(GLOB.blooper_list)
+
+/datum/preference/choiced/blooper/compile_constant_data()
+	var/list/data = ..()
+	var/list/display_names = list()
+	for(var/id in get_choices())
+		display_names[id] = astype(GLOB.blooper_list[id], /datum/blooper).name
+	data[CHOICED_PREFERENCE_DISPLAY_NAMES] = display_names
+	return data
 
 /datum/preference/numeric/blooper_speed
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
