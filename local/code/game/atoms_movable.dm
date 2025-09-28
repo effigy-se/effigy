@@ -2,9 +2,9 @@
 	// Text-to-blooper sounds
 	// yes. all atoms can have a say.
 	var/datum/blooper/blooper
-	var/blooper_speed = 4 //Lower values are faster, higher values are slower
-	var/blooper_pitch = 1
-	var/blooper_pitch_range = 0.2 //Actual pitch is (pitch - (blooper_pitch_range*0.5)) to (pitch + (blooper_pitch_range*0.5))
+	var/blooper_speed = 50
+	var/blooper_pitch = 50
+	var/blooper_pitch_range = 50 //Actual pitch is (pitch - (blooper_pitch_range*0.5)) to (pitch + (blooper_pitch_range*0.5))
 	COOLDOWN_DECLARE(blooper_cooldown)
 
 /atom/movable/send_speech(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language, list/message_mods = list(), forced = FALSE, tts_message, list/tts_filter)

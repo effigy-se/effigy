@@ -16,15 +16,14 @@
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "blooper_speed"
-	minimum = BLOOPER_DEFAULT_MINSPEED
-	maximum = BLOOPER_DEFAULT_MAXSPEED
-	step = 0.5
+	minimum = 0
+	maximum = 100
 
 /datum/preference/numeric/blooper_speed/apply_to_human(mob/living/carbon/human/target, value)
 	target.blooper_speed = value
 
 /datum/preference/numeric/blooper_speed/create_default_value()
-	return round((BLOOPER_DEFAULT_MINSPEED + BLOOPER_DEFAULT_MAXSPEED) / 2, 0.1)
+	return 50
 
 /datum/preference/numeric/blooper_speed/is_accessible(datum/preferences/preferences)
 	return ..() && length(GLOB.blooper_list)
@@ -33,15 +32,14 @@
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "blooper_pitch"
-	minimum = BLOOPER_DEFAULT_MINPITCH
-	maximum = BLOOPER_DEFAULT_MAXPITCH
-	step = 0.05
+	minimum = 0
+	maximum = 100
 
 /datum/preference/numeric/blooper_pitch/apply_to_human(mob/living/carbon/human/target, value)
 	target.blooper_pitch = value
 
 /datum/preference/numeric/blooper_pitch/create_default_value()
-	return round((BLOOPER_DEFAULT_MINPITCH + BLOOPER_DEFAULT_MAXPITCH) / 2, 0.1)
+	return 50
 
 /datum/preference/numeric/blooper_pitch/is_accessible(datum/preferences/preferences)
 	return ..() && length(GLOB.blooper_list)
@@ -50,15 +48,14 @@
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "blooper_pitch_range"
-	minimum = BLOOPER_DEFAULT_MINVARY
-	maximum = BLOOPER_DEFAULT_MAXVARY
-	step = 0.05
+	minimum = 0
+	maximum = 100
 
 /datum/preference/numeric/blooper_pitch_range/apply_to_human(mob/living/carbon/human/target, value)
 	target.blooper_pitch_range = value
 
 /datum/preference/numeric/blooper_pitch_range/create_default_value()
-	return 0.2
+	return 30
 
 /datum/preference/numeric/blooper_pitch_range/is_accessible(datum/preferences/preferences)
 	return ..() && length(GLOB.blooper_list)

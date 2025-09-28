@@ -16,8 +16,12 @@
 	if(!COOLDOWN_FINISHED(speaker, blooper_cooldown))
 		return
 	volume = min(volume, 100)
+	// convert passed values (which are percentages) into value clamped between min and max of blooper datum
+	speed = round(min_speed + ((max_speed - min_speed) * ((100 - speed) / 100)), 0.01) // this one gets inverted because lower % = faster isn't intuitive
+	pitch = round(min_pitch + ((max_pitch - min_pitch) * (pitch / 100)), 0.01)
+	pitch_range = round(min_vary + ((max_vary - min_vary) * (pitch_range / 100)), 0.01)
 	var/sound/blooper_pick = pick(soundpath_list)
-	var/num_bloopers = min(round((length(message) / speed)) + 1, BLOOPER_MAX_BLOOPERS)
+	var/num_bloopers = min(round(length(message) / speed, 1) + 1, BLOOPER_MAX_BLOOPERS)
 	var/total_delay = 0
 	for(var/i in 1 to num_bloopers)
 		if(total_delay > BLOOPER_MAX_TIME)
