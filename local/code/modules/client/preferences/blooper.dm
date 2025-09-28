@@ -17,6 +17,8 @@
 
 /datum/preference/choiced/blooper/compile_constant_data()
 	var/list/data = ..()
+	if(!length(GLOB.blooper_list))
+		return data
 	var/list/display_names = list()
 	for(var/id in get_choices())
 		display_names[id] = astype(GLOB.blooper_list[id], /datum/blooper).name
