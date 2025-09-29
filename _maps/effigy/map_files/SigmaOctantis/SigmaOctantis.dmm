@@ -9361,10 +9361,6 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/wood,
 /area/station/hallway/floor1/fore)
-"cbc" = (
-/obj/machinery/atmospherics/components/unary/bluespace_sender,
-/turf/open/floor/iron/dark,
-/area/station/engineering/atmos)
 "cbk" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark/end,
 /obj/machinery/telecomms/server/presets/common/birdstation,
@@ -152782,7 +152778,7 @@ bSX
 hCf
 lgT
 vdu
-cbc
+huE
 aAg
 huE
 kvs
