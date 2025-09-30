@@ -7345,7 +7345,6 @@
 /turf/open/floor/plating,
 /area/station/tcommsat/computer)
 "dUk" = (
-/obj/machinery/bluespace_vendor/directional/south,
 /obj/effect/turf_decal/siding/white{
 	dir = 1
 	},
@@ -13248,7 +13247,6 @@
 /area/station/hallway/secondary/exit/departure_lounge)
 "hew" = (
 /obj/effect/turf_decal/siding/white,
-/obj/machinery/bluespace_vendor/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/exit/departure_lounge)
 "hez" = (
@@ -15956,10 +15954,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/engineering/main)
-"iyG" = (
-/obj/machinery/bluespace_vendor/directional/west,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/entry)
 "iza" = (
 /obj/structure/chair/office{
 	dir = 8
@@ -27514,13 +27508,6 @@
 /obj/machinery/byteforge,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/cargo/bitrunning/den)
-"oWe" = (
-/obj/machinery/bluespace_vendor/directional/east,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/station/commons)
 "oWl" = (
 /obj/machinery/keycard_auth/wall_mounted/directional/west,
 /turf/open/floor/iron/white/textured_half{
@@ -31610,10 +31597,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
-"rbV" = (
-/obj/machinery/atmospherics/components/unary/bluespace_sender,
-/turf/open/floor/plating,
-/area/station/engineering/atmos)
 "rci" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -69809,7 +69792,7 @@ gEx
 gEx
 gEx
 rVA
-iyG
+ihh
 hJD
 jdE
 efq
@@ -129392,7 +129375,7 @@ aUx
 xhu
 aUx
 fvl
-oWe
+aUx
 lYm
 mvb
 aUx
@@ -147693,7 +147676,7 @@ bmd
 bmd
 bmd
 bmd
-rbV
+xnA
 drg
 xnA
 gZm
