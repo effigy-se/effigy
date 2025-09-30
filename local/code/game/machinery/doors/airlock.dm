@@ -195,7 +195,7 @@
 	else
 		. += get_airlock_overlay("fill_[frame_state]", icon, src, em_block = TRUE)
 
-	if(lights && hasPower() && (airlock_features & ENV_LIGHTS))
+	if(feedback && hasPower() && (airlock_features & ENV_LIGHTS))
 		. += get_airlock_overlay("lights_[light_state]", overlays_file, src, em_block = FALSE)
 
 		if(multi_tile && filler)

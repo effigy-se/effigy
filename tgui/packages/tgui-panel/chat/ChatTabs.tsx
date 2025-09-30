@@ -24,7 +24,7 @@ export function ChatTabs(props) {
     <Stack align="center">
       <Stack.Item>
         {/* EffigyEdit Change - TGUI - add mb={1} */}
-        <Tabs textAlign="center" mb={1}>
+        <Tabs scrollable textAlign="center" mb={1}>
           {pages.map((page) => (
             <Tabs.Tab
               key={page.id}
