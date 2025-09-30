@@ -550,6 +550,10 @@
 	new_profile.undershirt_color = target.undershirt_color
 	new_profile.socks_color = target.socks_color
 	new_profile.bra_color = target.bra_color
+	new_profile.blooper = target.blooper
+	new_profile.blooper_speed = target.blooper_speed
+	new_profile.blooper_pitch = target.blooper_pitch
+	new_profile.blooper_pitch_range = target.blooper_pitch_range
 	// EffigyEdit Add End
 
 	// Grab skillchips they have
@@ -780,6 +784,16 @@
 	user.mind?.set_level(/datum/skill/athletics, chosen_profile.athletics_level, silent = TRUE)
 	user.voice = chosen_profile.voice
 	user.voice_filter = chosen_profile.voice_filter
+	// EffigyEdit Add - Character Preferences
+	user.bra = chosen_profile.bra
+	user.undershirt_color = chosen_profile.undershirt_color
+	user.socks_color = chosen_profile.socks_color
+	user.bra_color = chosen_profile.bra_color
+	user.blooper = chosen_profile.blooper
+	user.blooper_speed = chosen_profile.blooper_speed
+	user.blooper_pitch = chosen_profile.blooper_pitch
+	user.blooper_pitch_range = chosen_profile.blooper_pitch_range
+	// EffigyEdit Add End
 
 	chosen_dna.copy_dna(user.dna, COPY_DNA_SE|COPY_DNA_SPECIES)
 
@@ -931,16 +945,6 @@
 	var/voice
 	/// The TTS filter of the profile filter
 	var/voice_filter = ""
-	// EffigyEdit Add - Character Preferences
-	/// The bra worn by the profile source
-	var/bra
-	/// The color of the undershirt used by the profile source
-	var/undershirt_color
-	/// The color of the socks used by the profile source
-	var/socks_color
-	/// The color of the bra used by the profile source
-	var/bra_color
-	// EffigyEdit Add End
 
 /datum/changeling_profile/Destroy()
 	qdel(dna)
@@ -980,6 +984,16 @@
 	new_profile.quirks = quirks.Copy()
 	new_profile.voice = voice
 	new_profile.voice_filter = voice_filter
+	// EffigyEdit Add - Character Preferences
+	new_profile.bra = bra
+	new_profile.undershirt_color = undershirt_color
+	new_profile.socks_color = socks_color
+	new_profile.bra_color = bra_color
+	new_profile.blooper = blooper
+	new_profile.blooper_speed = blooper_speed
+	new_profile.blooper_pitch = blooper_pitch
+	new_profile.blooper_pitch_range = blooper_pitch_range
+	// EffigyEdit Add End
 
 /datum/antagonist/changeling/roundend_report()
 	var/list/parts = list()

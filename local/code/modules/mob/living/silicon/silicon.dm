@@ -12,6 +12,14 @@
 	QDEL_NULL(mob_examine_panel)
 	return ..()
 
+// we let borgs have some bark too
+/mob/living/silicon/Login()
+	blooper = GLOB.blooper_list[client.prefs.read_preference(/datum/preference/choiced/blooper)]
+	blooper_speed = client.prefs.read_preference(/datum/preference/numeric/blooper_speed)
+	blooper_pitch = client.prefs.read_preference(/datum/preference/numeric/blooper_pitch)
+	blooper_pitch_range = client.prefs.read_preference(/datum/preference/numeric/blooper_pitch_range)
+	. = ..()
+
 /**
  *  Returns a list of lines containing silicon flavour text and a link to "look closer" and open the examine panel.
  *  Intended to be appended at the end of examine() result.

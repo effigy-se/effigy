@@ -1,12 +1,9 @@
 import { Button, Stack } from 'tgui-core/components';
-
 import {
-  CheckboxInput,
   type FeatureChoiced,
   type FeatureChoicedServerData,
   type FeatureNumeric,
   FeatureSliderInput,
-  type FeatureToggle,
   type FeatureValueProps,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
@@ -33,41 +30,26 @@ const FeatureBlooperDropdownInput = (
   );
 };
 
-export const blooper_speech: FeatureChoiced = {
+export const blooper_choice: FeatureChoiced = {
   name: 'Character Voice',
   component: FeatureBlooperDropdownInput,
 };
 
-export const blooper_speech_speed: FeatureNumeric = {
-  name: 'Character Voice Speed',
-  description: 'Lower number, faster speed. Higher number, slower voice.',
+export const blooper_speed: FeatureNumeric = {
+  name: 'Character Voice Speed %',
+  description: 'Lower number, slower voice. Higher number, faster voice.',
   component: FeatureSliderInput,
 };
 
-export const blooper_speech_pitch: FeatureNumeric = {
-  name: 'Character Voice Pitch',
+export const blooper_pitch: FeatureNumeric = {
+  name: 'Character Voice Pitch %',
   description: 'Lower number, deeper pitch. Higher number, higher pitch.',
   component: FeatureSliderInput,
 };
 
 export const blooper_pitch_range: FeatureNumeric = {
-  name: 'Character Voice Range',
-  description: 'Lower number, less range. Higher number, more range.',
+  name: 'Character Voice Range %',
+  description:
+    'Lower number, less pitch range. Higher number, more pitch range.',
   component: FeatureSliderInput,
-};
-
-export const hear_sound_blooper: FeatureToggle = {
-  name: 'Enable vocal bloopers',
-  category: 'SOUND',
-  component: CheckboxInput,
-};
-
-export const character_laugh: FeatureChoiced = {
-  name: 'Character Laugh',
-  component: FeatureDropdownInput,
-};
-
-export const character_scream: FeatureChoiced = {
-  name: 'Character Scream',
-  component: FeatureDropdownInput,
 };
