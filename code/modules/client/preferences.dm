@@ -398,20 +398,20 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// Whether we show current job clothes or nude/loadout only
 	var/show_job_clothes = TRUE
 
-	// EFFIGY EDIT - ADDITION - START: Oversized/big sprite canvas resizing
+	// EffigyEdit Change - Oversized/big sprite canvas resizing
 	var/image/canvas
 	var/last_canvas_size
-	// EFFIGY EDIT - END
+	// EffigyEdit Change End
 
 /atom/movable/screen/map_view/char_preview/Initialize(mapload, datum/preferences/preferences)
 	. = ..()
 	src.preferences = preferences
 
 /atom/movable/screen/map_view/char_preview/Destroy()
-	// EFFIGY EDIT - ADDITION - START: Oversized/big sprite canvas resizing
+	// EffigyEdit Change - Oversized/big sprite canvas resizing
 	canvas?.cut_overlays()
 	QDEL_NULL(canvas)
-	// EFFIGY EDIT - END
+	// EffigyEdit Change End
 	QDEL_NULL(body)
 	preferences?.character_preview_view = null
 	preferences = null
@@ -424,7 +424,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	else
 		body.wipe_state()
 
-	// EFFIGY EDIT - START: Oversized/big sprite canvas resizing
+	// EffigyEdit Change - Oversized/big sprite canvas resizing
 	// appearance = preferences.render_new_preview_appearance(body, show_job_clothes) // ORIGINAL CODE
 	if (canvas)
 		canvas.cut_overlays()
@@ -457,7 +457,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	canvas.add_overlay(body.appearance)
 	appearance = canvas.appearance
-	// EFFIGY EDIT - END
+	// EffigyEdit Change End
 
 /atom/movable/screen/map_view/char_preview/proc/create_body()
 	QDEL_NULL(body)
