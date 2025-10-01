@@ -398,11 +398,20 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// Whether we show current job clothes or nude/loadout only
 	var/show_job_clothes = TRUE
 
+	// EFFIGY EDIT - ADDITION - START: Oversized/big sprite canvas resizing
+	var/image/canvas
+	var/last_canvas_size
+	// EFFIGY EDIT - END
+
 /atom/movable/screen/map_view/char_preview/Initialize(mapload, datum/preferences/preferences)
 	. = ..()
 	src.preferences = preferences
 
 /atom/movable/screen/map_view/char_preview/Destroy()
+	// EFFIGY EDIT - ADDITION - START: Oversized/big sprite canvas resizing
+	canvas?.cut_overlays()
+	QDEL_NULL(canvas)
+	// EFFIGY EDIT - END
 	QDEL_NULL(body)
 	preferences?.character_preview_view = null
 	preferences = null
@@ -415,7 +424,40 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	else
 		body.wipe_state()
 
-	appearance = preferences.render_new_preview_appearance(body, show_job_clothes)
+	// EFFIGY EDIT - START: Oversized/big sprite canvas resizing
+	// appearance = preferences.render_new_preview_appearance(body, show_job_clothes) // ORIGINAL CODE
+	if (canvas)
+		canvas.cut_overlays()
+
+	preferences.render_new_preview_appearance(body, show_job_clothes)
+
+	var/canvas_size = 0
+
+	// Being over 1.1 scales it up
+	if (!isnull(body.dna.features["body_size"]) && body.dna.features["body_size"] > 1.1)
+		canvas_size = 1
+	// Add extra level if we're oversized
+	if (preferences.all_quirks.Find("Oversized"))
+		canvas_size += 1
+
+	if (last_canvas_size != canvas_size)
+		QDEL_NULL(canvas)
+		switch(canvas_size)
+			if(0)
+				body.pixel_x = 0
+				canvas = image('local/icons/ui/character_creator/template.dmi', icon_state = "default")
+			if(1)
+				body.pixel_x = 16
+				canvas = image('local/icons/ui/character_creator/template_64x64.dmi', icon_state = "default")
+			else
+				body.pixel_x = 32
+				canvas = image('local/icons/ui/character_creator/template_96x96.dmi', icon_state = "default")
+
+	last_canvas_size = canvas_size
+
+	canvas.add_overlay(body.appearance)
+	appearance = canvas.appearance
+	// EFFIGY EDIT - END
 
 /atom/movable/screen/map_view/char_preview/proc/create_body()
 	QDEL_NULL(body)
