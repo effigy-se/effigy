@@ -69,7 +69,7 @@
 ///	Cat ears type
 /datum/preference/choiced/felinid_ears
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -101,7 +101,7 @@
 	savefile_key = "feature_lizard_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -136,7 +136,7 @@
 	savefile_key = "feature_fox_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -171,7 +171,7 @@
 	savefile_key = "feature_dog_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -206,7 +206,7 @@
 	savefile_key = "feature_flying_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -241,7 +241,7 @@
 	savefile_key = "feature_monkey_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -276,7 +276,7 @@
 	savefile_key = "feature_mammal_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -311,7 +311,7 @@
 	savefile_key = "feature_fish_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -346,7 +346,7 @@
 	savefile_key = "feature_humanoid_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -381,7 +381,7 @@
 	savefile_key = "feature_synth_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 

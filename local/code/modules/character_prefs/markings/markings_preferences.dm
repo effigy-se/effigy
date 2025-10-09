@@ -3,7 +3,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_MARKINGS
 	abstract_type = /datum/preference/choiced/markings
-	relevant_external_organ = null
+	relevant_organ = null
 	var/body_zone
 	var/markingval
 
