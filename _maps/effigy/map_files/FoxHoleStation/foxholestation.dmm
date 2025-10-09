@@ -40076,7 +40076,7 @@
 /turf/open/floor/glass/reinforced,
 /area/station/hallway/secondary/entry)
 "vmn" = (
-/obj/item/circuitboard/machine/vending,
+/obj/item/circuitboard/machine/vendor,
 /obj/structure/closet/crate/secure/loot,
 /obj/item/stack/cable_coil,
 /turf/open/misc/asteroid/airless,

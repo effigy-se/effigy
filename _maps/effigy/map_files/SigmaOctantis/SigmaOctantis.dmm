@@ -54774,7 +54774,7 @@
 /obj/structure/railing,
 /obj/item/stack/cable_coil/five,
 /obj/item/stack/sheet/iron/five,
-/obj/item/circuitboard/machine/vending,
+/obj/item/circuitboard/machine/vendor,
 /turf/open/floor/plating,
 /area/station/ai_monitored/turret_protected/aisat/maint)
 "mvT" = (
