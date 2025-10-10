@@ -2,7 +2,7 @@
 #define ICON "ICON"
 #define TGUI "TGUI"
 
-/proc/debug_effigy(type, message)
+/proc/debug_effigy(message, type)
 	var/msg_type = type
 	if(isnull(type))
 		msg_type = "GAME"

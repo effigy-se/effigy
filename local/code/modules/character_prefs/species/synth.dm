@@ -79,8 +79,6 @@
 			do_sparks(3, TRUE, human)
 
 /datum/species/synth/spec_revival(mob/living/carbon/human/transformer)
-	//switch_to_screen(transformer, "Console")
-	//addtimer(CALLBACK(src, PROC_REF(switch_to_screen), transformer, saved_screen), 5 SECONDS)
 	playsound(transformer.loc, 'sound/machines/chime.ogg', 50, TRUE)
 	transformer.visible_message(span_notice("[transformer]'s [screen ? "monitor lights up" : "eyes flicker to life"]!"), span_notice("All systems nominal. You're back online!"))
 
@@ -88,63 +86,8 @@
 	. = ..()
 
 	RegisterSignal(transformer, COMSIG_ATOM_EMAG_ACT, PROC_REF(on_emag_act))
-
 	var/datum/action/sing_tones/sing_action = new
 	sing_action.Grant(transformer)
-
-/* IDK what to do about this part
-
-	var/screen_mutant_bodypart = transformer.dna.mutant_bodyparts[MUTANT_SYNTH_SCREEN]
-	var/obj/item/organ/eyes/eyes = transformer.get_organ_slot(ORGAN_SLOT_EYES)
-
-	if(!screen && screen_mutant_bodypart && screen_mutant_bodypart[MUTANT_INDEX_NAME] && screen_mutant_bodypart[MUTANT_INDEX_NAME] != "None")
-
-		if(eyes)
-			eyes.eye_icon_state = "None"
-
-		screen = new(transformer)
-		screen.Grant(transformer)
-
-		RegisterSignal(transformer, COMSIG_LIVING_DEATH, PROC_REF(bsod_death)) // screen displays bsod on death, if they have one
-
-		return
-
-	if(eyes)
-		eyes.eye_icon_state = initial(eyes.eye_icon_state)
-
-
-/datum/species/synth/apply_supplementary_body_changes(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
-	var/list/chassis = target.dna.mutant_bodyparts[MUTANT_SYNTH_CHASSIS]
-	var/list/head = target.dna.mutant_bodyparts[MUTANT_SYNTH_HEAD]
-	if(!chassis && !head)
-		return
-
-	var/datum/sprite_accessory/synth_chassis/chassis_of_choice = SSaccessories.sprite_accessories[MUTANT_SYNTH_CHASSIS][chassis[MUTANT_INDEX_NAME]]
-	var/datum/sprite_accessory/synth_head/head_of_choice = SSaccessories.sprite_accessories[MUTANT_SYNTH_HEAD][head[MUTANT_INDEX_NAME]]
-	if(!chassis_of_choice && !head_of_choice)
-		return
-
-	examine_limb_id = chassis_of_choice.icon_state
-
-	if(chassis_of_choice.color_src || head_of_choice.color_src)
-		target.add_traits(list(TRAIT_MUTANT_COLORS), SPECIES_TRAIT)
-
-	// We want to ensure that the IPC gets their chassis and their head correctly.
-	for(var/obj/item/bodypart/limb as anything in target.bodyparts)
-		if(limb.limb_id != SPECIES_SYNTH && initial(limb.base_limb_id) != SPECIES_SYNTH) // No messing with limbs that aren't actually synthetic.
-			continue
-
-		if(limb.body_zone == BODY_ZONE_HEAD)
-			if(head_of_choice.color_src && head[MUTANT_INDEX_COLOR_LIST] && length(head[MUTANT_INDEX_COLOR_LIST]))
-				limb.add_color_override(head[MUTANT_INDEX_COLOR_LIST][1], LIMB_COLOR_SYNTH)
-			limb.change_appearance(head_of_choice.icon, head_of_choice.icon_state, !!head_of_choice.color_src, head_of_choice.dimorphic)
-			continue
-
-		if(chassis_of_choice.color_src && chassis[MUTANT_INDEX_COLOR_LIST] && length(chassis[MUTANT_INDEX_COLOR_LIST]))
-			limb.add_color_override(chassis[MUTANT_INDEX_COLOR_LIST][1], LIMB_COLOR_SYNTH)
-		limb.change_appearance(chassis_of_choice.icon, chassis_of_choice.icon_state, !!chassis_of_choice.color_src, limb.body_part == CHEST && chassis_of_choice.dimorphic)
-		limb.name = "\improper[chassis_of_choice.name] [parse_zone(limb.body_zone)]"
-*/
 
 /datum/species/synth/on_species_loss(mob/living/carbon/human/human)
 	. = ..()
@@ -191,49 +134,13 @@
 	continual integration with subsections of the larger galactic community; wherein they aren't expressly built for purpose regardless."
 	)
 
-/**
- * Makes the IPC screen switch to BSOD followed by a blank screen
- *
- * Arguments:
- * * transformer - The human that will be affected by the screen change (read: IPC).
- * * screen_name - The name of the screen to switch the ipc_screen mutant bodypart to. Defaults to BSOD.
- */
-/*
-/datum/species/synth/proc/bsod_death(mob/living/carbon/human/transformer, screen_name = "BSOD")
-	saved_screen = screen // remember the old screen in case of revival
-	switch_to_screen(transformer, screen_name)
-	addtimer(CALLBACK(src, PROC_REF(switch_to_screen), transformer, "Blank"), 5 SECONDS)
-
-*/
-/**
- * Simple proc to switch the screen of a monitor-enabled synth, while updating their appearance.
- *
- * Arguments:
- * * transformer - The human that will be affected by the screen change (read: IPC).
- * * screen_name - The name of the screen to switch the ipc_screen mutant bodypart to.
- */
-/*
-/datum/species/synth/proc/switch_to_screen(mob/living/carbon/human/transformer, screen_name)
-	if(!screen)
-		return
-
-	// This is awful. Please find a better way to do this.
-	var/obj/item/organ/synth_screen/screen_organ = transformer.get_organ_slot(ORGAN_SLOT_EXTERNAL_SYNTH_SCREEN)
-	if(!istype(screen_organ))
-		return
-
-	transformer.dna.mutant_bodyparts[MUTANT_SYNTH_SCREEN][MUTANT_INDEX_NAME] = screen_name
-	screen_organ.bodypart_overlay.set_appearance_from_dna(transformer.dna)
-	transformer.update_body()
-*/
-
 /datum/species/synth/get_types_to_preload()
 	return ..() - typesof(/obj/item/organ/cyberimp/arm/toolkit/power_cord) // Don't cache things that lead to hard deletions.
 
 /datum/species/synth/create_pref_unique_perks()
 	var/list/perk_descriptions = list()
 
-	perk_descriptions += list(list( //tryin to keep traits minimal since synths will get a lot of traits when my upstream traits pr is merged
+	perk_descriptions += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = "robot",
 		SPECIES_PERK_NAME = "Synthetic Benefits",

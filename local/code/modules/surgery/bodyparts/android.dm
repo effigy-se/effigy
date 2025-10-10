@@ -31,6 +31,8 @@
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 	// var for monitor heads and their emissive states
 	var/monitor_state
+	/// what state the player has selected (to revert after being forced into another screen)
+	var/saved_state = "none"
 
 /obj/item/bodypart/head/robot/synth/Initialize(mapload)
 	. = ..()
