@@ -7363,7 +7363,6 @@
 #include "local\code\modules\surgery\bodyparts\animalid.dm"
 #include "local\code\modules\surgery\bodyparts\synth.dm"
 #include "local\code\modules\surgery\organs\power_cord.dm"
-#include "local\code\modules\surgery\organs\power_cord2.dm"
 #include "local\code\modules\surgery\organs\internal\ears\ears_synth.dm"
 #include "local\code\modules\surgery\organs\internal\eyes\eyes_synth.dm"
 #include "local\code\modules\surgery\organs\internal\heart\heart_synth.dm"

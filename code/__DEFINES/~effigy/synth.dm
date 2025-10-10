@@ -29,22 +29,12 @@
 #define SYNTH_DEAF_STACKS 30
 
 // Charge level defines
-#define SYNTH_CHARGE_MAX (STANDARD_CELL_CHARGE * 20) //Takes two high capacity cells to go from 0 to 100
+// These should probably be parts of the synth DNA, not defines. (So they could like, upgrade or something)
+#define SYNTH_CHARGE_MAX (STANDARD_BATTERY_CHARGE * 0.7)
 #define SYNTH_JOULES_PER_NUTRITION (SYNTH_CHARGE_MAX / NUTRITION_LEVEL_FULL)
 #define SYNTH_CHARGE_ALMOST_FULL (NUTRITION_LEVEL_ALMOST_FULL * SYNTH_JOULES_PER_NUTRITION)
-#define SYNTH_CHARGE_RATE (STANDARD_CELL_RATE * 2.5)
-#define SYNTH_APC_MINIMUM_PERCENT 20
-
-/*
-/// The speed a synth consumes electricity
-#define SYNTH_ENERGY_CONSUMPTION (210 JOULES)
-// These should probably be parts of the synth DNA, not defines. (So they could like, upgrade or something)
-#define SYNTH_CHARGE_MAX (STANDARD_CELL_CHARGE * 140)
-#define SYNTH_CHARGE_NOTREQ (STANDARD_CELL_CHARGE * 130)
-#define SYNTH_CHARGE_RATE (STANDARD_CELL_RATE * 1.4)
-#define SYNTH_CHARGE_DELAY (1.5 SECONDS)
+#define SYNTH_CHARGE_RATE (STANDARD_BATTERY_RATE * 0.07)
 #define SYNTH_APC_MINIMUM_PERCENT 30
-*/
 
 /// Mechfab defines
 #define RND_SUBCATEGORY_MECHFAB_ANDROID "/Android"

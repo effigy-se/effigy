@@ -1,41 +1,44 @@
 /obj/item/organ/cyberimp/arm/toolkit/power_cord
 	name = "charging implant"
 	desc = "An internal power cord. Useful if you run on elecricity. Not so much otherwise."
-	items_to_create = list(/obj/item/synth_powercord)
+	icon = 'local/icons/obj/medical/organs/organs.dmi'
+	icon_state = "charging_implant"
+	items_to_create = list(/obj/item/power_cord)
 	zone = "l_arm"
 
-/obj/item/synth_powercord
+/obj/item/power_cord
 	name = "power cord"
 	desc = "An internal power cord. Useful if you run on electricity. Not so much otherwise."
 	icon = 'icons/obj/stack_objects.dmi'
-	icon_state = "wire1"
+	icon_state = "wire2"
 	///Object basetypes which the powercord is allowed to connect to.
-	var/static/list/synth_charge_whitelist = typecacheof(list(
+	var/static/list/allowed_sources = typecacheof(list(
 		/obj/item/stock_parts/power_store,
 		/obj/machinery/power/apc,
 	))
 
 // Attempt to charge from an object by using them on the power cord.
-/obj/item/synth_powercord/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+/obj/item/power_cord/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(!can_power_draw(tool, user))
 		return NONE
+
 	try_power_draw(tool, user)
 	return ITEM_INTERACT_SUCCESS
 
 // Attempt to charge from an object by using the power cord on them.
-/obj/item/synth_powercord/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+/obj/item/power_cord/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!can_power_draw(interacting_with, user))
 		return NONE
 	try_power_draw(interacting_with, user)
 	return ITEM_INTERACT_SUCCESS
 
 /// Returns TRUE or FALSE depending on if the target object can be used as a power source.
-/obj/item/synth_powercord/proc/can_power_draw(obj/target, mob/user)
-	return ishuman(user) && is_type_in_typecache(target, synth_charge_whitelist)
+/obj/item/power_cord/proc/can_power_draw(obj/target, mob/user)
+	return ishuman(user) && is_type_in_typecache(target, allowed_sources)
 
 /// Attempts to start using an object as a power source.
 /// Checks the user's internal powercell to see if it exists.
-/obj/item/synth_powercord/proc/try_power_draw(obj/target, mob/living/carbon/human/user)
+/obj/item/power_cord/proc/try_power_draw(obj/target, mob/living/carbon/human/user)
 	// Only robotic species can use this
 	if(!(user.mob_biotypes & MOB_ROBOTIC))
 		to_chat(user, span_warning("You plug into [target], but nothing happens! It seems you don't have an internal cell to charge."))
@@ -60,6 +63,9 @@
 	if(QDELETED(target))
 		return
 
+	if(HAS_TRAIT(user, TRAIT_SYNTH_CHARGING))
+		REMOVE_TRAIT(user, TRAIT_SYNTH_CHARGING, SPECIES_TRAIT)
+
 	user.visible_message(span_notice("[user] unplugs from [target]."), span_notice("You unplug from [target]."))
 
 /**
@@ -75,7 +81,7 @@
  * * target - The power cell or APC to drain.
  * * user - The human mob draining the power cell.
  */
-/obj/item/synth_powercord/proc/do_power_draw(obj/target, mob/living/carbon/human/user)
+/obj/item/power_cord/proc/do_power_draw(obj/target, mob/living/carbon/human/user)
 	// Draw power from an APC if one was given.
 	var/obj/machinery/power/apc/target_apc
 	if(istype(target, /obj/machinery/power/apc))
@@ -89,6 +95,7 @@
 		return
 	var/wait = SSmachines.wait / (1 SECONDS)
 	var/energy_needed
+	ADD_TRAIT(user, TRAIT_SYNTH_CHARGING, SPECIES_TRAIT)
 	while(TRUE)
 		// Check if the charge level of the cell is below the minimum.
 		// Prevents synths from overloading the cell.
@@ -97,7 +104,7 @@
 			break
 
 		// Attempt to drain charge from the cell.
-		if(!do_after(user, wait SECONDS, target))
+		if(!do_after(user, wait SECONDS, target)) // slurp slurp slurp slurp
 			break
 
 		// Check if the user is nearly fully charged.
@@ -106,15 +113,12 @@
 		energy_needed = SYNTH_CHARGE_MAX - nutrition_level_joules
 
 		// Calculate how much to draw from the cell this cycle.
-		var/current_draw = min(energy_needed, SYNTH_CHARGE_RATE * wait)
+		var/energy_draw = min(energy_needed, power_to_energy(SYNTH_CHARGE_RATE))
+		var/energy_delivered = target_cell.use(energy_draw, force = TRUE)
 
-		var/energy_delivered = target_cell.use(current_draw, force = TRUE)
 		target_cell.update_appearance()
 		if(!energy_delivered)
-			// The cell could be sabotaged, which causes it to explode and qdelete.
-			if(QDELETED(target_cell))
-				return
-			user.balloon_alert(user, "[target_apc ? "APC" : "Cell"] empty!")
+			user.balloon_alert(user, "charge failed!")
 			break
 
 		// If charging was successful, then increase user nutrition and emit sparks.

@@ -38,7 +38,6 @@
 	check_flags = AB_CHECK_CONSCIOUS
 	button_icon = 'icons/mob/actions/actions_silicon.dmi'
 	button_icon_state = "drone_vision"
-	background_icon_state = "bg_default"
 	/// the var that should be changed when a different screen list should be used
 	var/head_type = MONITOR_HEAD
 	/// the overlay we use
@@ -51,7 +50,7 @@
 
 /datum/action/innate/monitor_head/Remove(mob/remove_from)
 	. = ..()
-	UnregisterSignal(remove_from, COMSIG_MOB_EMOTE)
+	UnregisterSignal(remove_from, list(COMSIG_MOB_EMOTE, COMSIG_LIVING_REVIVE))
 
 /datum/action/innate/monitor_head/Activate()
 	var/mob/living/carbon/human/wearer = owner
