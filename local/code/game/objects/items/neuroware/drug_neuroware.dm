@@ -7,15 +7,6 @@
 	list_reagents = list(/datum/reagent/drug/blastoff/synth = 15)
 	manufacturer_tag = NEUROWARE_DONK
 
-/obj/item/disk/neuroware/cocaine
-	name = "\improper #Zeng-Hu Accelerator neuroware"
-	desc = "A neuroware chip containing Zeng-Hu Accelerator, a powerful cyberware accelerator and overclock program. Reduces stun times, but causes drowsiness and severe system corruption if overloaded."
-	icon_state = "/obj/item/disk/neuroware/cocaine"
-	post_init_icon_state = "chip_zenghu"
-	greyscale_colors = CIRCUIT_COLOR_SECURITY
-	list_reagents = list(/datum/reagent/drug/cocaine/synth = 15)
-	manufacturer_tag = NEUROWARE_ZENGHU
-
 /obj/item/disk/neuroware/happiness
 	name = "\improper SmileML 2565 neuroware"
 	desc = "A neuroware chip containing the 2565 edition of SmileML, which induces happiness and blocks psychological pain. Multi-user license included."
@@ -51,13 +42,4 @@
 	post_init_icon_state = "chip_donk"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	list_reagents = list(/datum/reagent/drug/space_drugs/synth = 15)
-	manufacturer_tag = NEUROWARE_DONK
-
-/obj/item/disk/neuroware/thc
-	name = "\improper Mr.Stoned v1 neuroware"
-	desc = "A neuroware chip containing version 1.0 of Mr.Stoned, which emulates the effects of cannabis and THC."
-	icon_state = "/obj/item/disk/neuroware/thc"
-	post_init_icon_state = "chip_donk"
-	greyscale_colors = CIRCUIT_COLOR_GENERIC
-	list_reagents = list(/datum/reagent/drug/thc/synth = 15)
 	manufacturer_tag = NEUROWARE_DONK
