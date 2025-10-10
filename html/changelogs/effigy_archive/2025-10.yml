@@ -2,3 +2,6 @@
   xPokee:
   - qol: The background of the character creator now scales with your character's
       size.
+2025-10-10:
+  TealSeer:
+  - rscadd: Ported the vocal bark system
