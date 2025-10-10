@@ -17,7 +17,6 @@
 		TRAIT_ROBOTIC_DNA_ORGANS,
 		TRAIT_SYNTH,
 	)
-	//mutant_bodyparts = list()
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	reagent_flags = PROCESS_SYNTHETIC
 	payday_modifier = 1.0 // Matches the rest of the pay penalties the non-human crew have
@@ -48,25 +47,8 @@
 	siemens_coeff = 1 // Puts you in deep crit and near death but not outright dead
 	/// The innate action that synths get, if they've got a screen selected on species being set.
 	var/datum/action/innate/monitor_head/screen
-	/// This is the screen that is given to the user after they get revived. On death, their screen is temporarily set to BSOD before it turns off, hence the need for this var.
-	var/saved_screen = "Blank"
 	/// Set to TRUE if the species was emagged before
 	var/emag_effect = FALSE
-
-/*
-/datum/species/synth/get_default_mutant_bodyparts()
-	return list(
-		"ears" = list("None", FALSE),
-		"tail" = list("None", FALSE),
-		"ears" = list("None", FALSE),
-		"legs" = list("Normal Legs", FALSE),
-		"snout" = list("None", FALSE),
-		MUTANT_SYNTH_ANTENNA = list("None", FALSE),
-		MUTANT_SYNTH_SCREEN = list("None", FALSE),
-		MUTANT_SYNTH_CHASSIS = list("Default Chassis", FALSE),
-		MUTANT_SYNTH_HEAD = list("Default Head", FALSE),
-	)
-*/
 
 /datum/species/synth/spec_life(mob/living/carbon/human/human)
 	. = ..()
@@ -101,7 +83,6 @@
 
 	if(screen)
 		screen.Remove(human)
-		UnregisterSignal(human, COMSIG_LIVING_DEATH)
 
 /datum/species/synth/proc/on_emag_act(mob/living/carbon/human/source, mob/user)
 	SIGNAL_HANDLER
