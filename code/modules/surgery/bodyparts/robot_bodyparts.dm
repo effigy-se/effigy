@@ -194,8 +194,8 @@
 	change_exempt_flags = BP_BLOCK_CHANGE_SPECIES
 	dmg_overlay_type = "robotic"
 
-	brute_modifier = 0.8
-	burn_modifier = 0.8
+	brute_modifier = 1 // EffigyEdit Change - Synths - Original: 0.8
+	burn_modifier = 1 // EffigyEdit Change - Synths - Original: 0.8
 
 	light_brute_msg = ROBOTIC_LIGHT_BRUTE_MSG
 	medium_brute_msg = ROBOTIC_MEDIUM_BRUTE_MSG
@@ -222,6 +222,8 @@
 	if(!. || isnull(owner))
 		return
 
+	// EffigyEdit Change - Synths
+	/*
 	var/stun_time = 0
 	var/shift_x = 3
 	var/shift_y = 0
@@ -239,6 +241,20 @@
 		owner.Stun(stun_time)
 	owner.Shake(pixelshiftx = shift_x, pixelshifty = shift_y, duration = shake_duration)
 	return
+	*/
+	switch(severity)
+		if(EMP_HEAVY)
+			owner.set_jitter_if_lower(SYNTH_BAD_EFFECT_DURATION * SYNTH_HEAVY_EMP_MULTIPLIER)
+			owner.set_dizzy_if_lower(SYNTH_BAD_EFFECT_DURATION * SYNTH_HEAVY_EMP_MULTIPLIER)
+			owner.set_derpspeech_if_lower(SYNTH_BAD_EFFECT_DURATION * SYNTH_HEAVY_EMP_MULTIPLIER)
+			owner.set_confusion_if_lower(SYNTH_BAD_EFFECT_DURATION * 0.5)
+
+		if(EMP_LIGHT)
+			owner.set_jitter_if_lower(SYNTH_BAD_EFFECT_DURATION)
+			owner.set_dizzy_if_lower(SYNTH_BAD_EFFECT_DURATION)
+			owner.set_derpspeech_if_lower(SYNTH_BAD_EFFECT_DURATION)
+			owner.set_confusion_if_lower(SYNTH_BAD_EFFECT_DURATION * 0.25)
+	// EffigyEdit Change End
 
 /obj/item/bodypart/chest/robot/get_cell()
 	return cell

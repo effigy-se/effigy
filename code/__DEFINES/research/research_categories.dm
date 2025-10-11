@@ -177,9 +177,9 @@
 #define RND_SUBCATEGORY_MODSUIT_MODULES_SERVICE "/Service Modules"
 
 #define RND_CATEGORY_CYBERNETICS "/Cybernetics"
-#define RND_SUBCATEGORY_CYBERNETICS_ORGANS_1 "/Tier 1 Cybernetic Organs"
-#define RND_SUBCATEGORY_CYBERNETICS_ORGANS_2 "/Tier 2 Cybernetic Organs"
-#define RND_SUBCATEGORY_CYBERNETICS_ORGANS_3 "/Tier 3 Cybernetic Organs"
+#define RND_SUBCATEGORY_CYBERNETICS_ORGANS_1 "/Cybernetic Organs (T1)" // EffigyEdit Change - Original: "/Tier 1 Cybernetic Organs"
+#define RND_SUBCATEGORY_CYBERNETICS_ORGANS_2 "/Cybernetic Organs (T2)" // EffigyEdit Change - Original: "/Tier 2 Cybernetic Organs"
+#define RND_SUBCATEGORY_CYBERNETICS_ORGANS_3 "/Cybernetic Organs (T3)" // EffigyEdit Change - Original: "/Tier 3 Cybernetic Organs"
 #define RND_SUBCATEGORY_CYBERNETICS_ORGANS_COMBAT "/Combat Cybernetic Organs"
 #define RND_SUBCATEGORY_CYBERNETICS_ORGANS_MISC "/Miscellaneous Cybernetic Organs"
 #define RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT "/Cybernetic Combat Implants"
@@ -188,7 +188,7 @@
 #define RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY "/Cybernetic Utility Implants"
 #define RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_MISC "/Cybernetic Miscellaneous Implants"
 #define RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_SECURITY "/Cybernetic Security Implants"
-#define RND_SUBCATEGORY_CYBERNETICS_ADVANCED_LIMBS "/Cybernetic Advanced Limbs"
+#define RND_SUBCATEGORY_CYBERNETICS_ADVANCED_LIMBS "/Cybernetic Limbs (T3)" // EffigyEdit Change - Original: /Cybernetic Advanced Limbs
 
 // Limb Categories
 #define RND_CATEGORY_LIMBS_DIGITIGRADE "digitigrade"

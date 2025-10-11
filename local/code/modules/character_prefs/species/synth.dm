@@ -34,12 +34,12 @@
 	mutantappendix = null
 	exotic_bloodtype =  BLOOD_TYPE_OIL
 	bodypart_overrides = list(
-		BODY_ZONE_HEAD = /obj/item/bodypart/head/robot/synth/bare,
-		BODY_ZONE_CHEST = /obj/item/bodypart/chest/robot/synth/bare,
-		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/robot/synth/bare,
-		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/robot/synth/bare,
-		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/robot/synth/bare,
-		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/robot/synth/bare,
+		BODY_ZONE_HEAD = /obj/item/bodypart/head/robot/effigy/bare,
+		BODY_ZONE_CHEST = /obj/item/bodypart/chest/robot/effigy/bare,
+		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/robot/effigy/bare,
+		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/robot/effigy/bare,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/robot/effigy/bare,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/robot/effigy/bare,
 	)
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 	coldmod = 1.2
@@ -161,12 +161,12 @@
 	beepboop.dna.tail_type = CYBERNETIC_TYPE
 	beepboop.dna.features["tail_other"] = /datum/sprite_accessory/tails/lizard/none::name
 	beepboop.dna.features["frame_list"] = list(
-		BODY_ZONE_HEAD = /obj/item/bodypart/head/synth,
-		BODY_ZONE_CHEST = /obj/item/bodypart/chest/synth,
-		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/synth,
-		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/synth,
-		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/synth,
-		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/synth,
+		BODY_ZONE_HEAD = /obj/item/bodypart/head/robot/effigy/bare,
+		BODY_ZONE_CHEST = /obj/item/bodypart/chest/robot/effigy/bare,
+		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/robot/effigy/bare,
+		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/robot/effigy/bare,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/robot/effigy/bare,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/robot/effigy/bare,
 	)
 	regenerate_organs(beepboop)
 	beepboop.update_body(is_creating = TRUE)

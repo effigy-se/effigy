@@ -56,7 +56,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/head_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
 		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_HEAD, text2path("/obj/item/bodypart/head/robot/synth/[value]"))
+	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_HEAD, text2path("/obj/item/bodypart/head/robot/effigy/[value]"))
 
 /datum/preference/choiced/head_type/compile_constant_data()
 	var/list/data = ..()
@@ -86,7 +86,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/chest_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
 		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_CHEST, text2path("/obj/item/bodypart/chest/robot/synth/[value]"))
+	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_CHEST, text2path("/obj/item/bodypart/chest/robot/effigy/[value]"))
 
 /datum/preference/choiced/chest_type/compile_constant_data()
 	var/list/data = ..()
@@ -117,7 +117,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/arm_r_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
 		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_R_ARM, text2path("/obj/item/bodypart/arm/right/robot/synth/[value]"))
+	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_R_ARM, text2path("/obj/item/bodypart/arm/right/robot/effigy/[value]"))
 
 /datum/preference/choiced/arm_r_type/compile_constant_data()
 	var/list/data = ..()
@@ -148,7 +148,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/arm_l_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
 		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_L_ARM, text2path("/obj/item/bodypart/arm/left/robot/synth/[value]"))
+	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_L_ARM, text2path("/obj/item/bodypart/arm/left/robot/effigy/[value]"))
 
 /datum/preference/choiced/arm_l_type/compile_constant_data()
 	var/list/data = ..()
@@ -179,7 +179,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/leg_r_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
 		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_R_LEG, text2path("/obj/item/bodypart/leg/right/robot/synth/[value]"))
+	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_R_LEG, text2path("/obj/item/bodypart/leg/right/robot/effigy/[value]"))
 
 /datum/preference/choiced/leg_r_type/compile_constant_data()
 	var/list/data = ..()
@@ -213,7 +213,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 			whatever.change_exempt_flags &= ~BP_BLOCK_CHANGE_SPECIES
 		target.dna?.species?.replace_body(target)
 		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_L_LEG, text2path("/obj/item/bodypart/leg/left/robot/synth/[value]"))
+	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_L_LEG, text2path("/obj/item/bodypart/leg/left/robot/effigy/[value]"))
 
 /datum/preference/choiced/leg_l_type/compile_constant_data()
 	var/list/data = ..()

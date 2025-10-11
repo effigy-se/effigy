@@ -1,64 +1,5 @@
-/*
-/ Synthetic Species Limbs.
-/ Modularizes the Synth limbs off of the /robot/ limb side to no longer interfere with augments.
-/ Ensure Augment list does not populate these, they will not be balanced for indidivual limb gain.
-*/
-
-
-/// Damage to LIMB modifier defines
-#define SYNTH_BRUTE_MODIFIER 1.0
-#define SYNTH_BURN_MODIFIER 1.0
-
-/// Exmaine text for Synth limb damage
-#define SYNTH_LIGHT_BRUTE_MSG "marred"
-#define SYNTH_MEDIUM_BRUTE_MSG "dented"
-#define SYNTH_HEAVY_BRUTE_MSG "falling apart"
-
-#define SYNTH_LIGHT_BURN_MSG "scorched"
-#define SYNTH_MEDIUM_BURN_MSG "charred"
-#define SYNTH_HEAVY_BURN_MSG "smoldering"
-
-// Synth bois!
-/obj/item/bodypart/head/synth
-	name = "android head"
-	desc = "A standard base for an androids head, filled with various cameras and sensors with an optional slot for a posi-interface."
-	inhand_icon_state = "buildpipe"
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	limb_id = "bare"
-	obj_flags = CONDUCTS_ELECTRICITY
-	icon_state = "bare_head"
-	is_dimorphic = FALSE
-	should_draw_greyscale = TRUE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	bodytype = BODYTYPE_ROBOTIC
-	bodyshape = BODYSHAPE_HUMANOID
-	change_exempt_flags = NONE
-	dmg_overlay_type = "robotic"
-
-	brute_modifier = SYNTH_BRUTE_MODIFIER
-	burn_modifier = SYNTH_BURN_MODIFIER
-
-	light_brute_msg = SYNTH_LIGHT_BRUTE_MSG
-	medium_brute_msg = SYNTH_MEDIUM_BRUTE_MSG
-	heavy_brute_msg = SYNTH_HEAVY_BRUTE_MSG
-
-	light_burn_msg = SYNTH_LIGHT_BURN_MSG
-	medium_burn_msg = SYNTH_MEDIUM_BURN_MSG
-	heavy_burn_msg = SYNTH_HEAVY_BURN_MSG
-
-	biological_state = (BIO_ROBOTIC)
-
-	damage_examines = list(
-		BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT,
-		BURN = ROBOTIC_BURN_EXAMINE_TEXT,
-	)
-
-	head_flags = HEAD_DEFAULT_FEATURES
-	bodypart_flags = BODYPART_UNHUSKABLE
-
 /datum/design/synth_head
-	name = "Android Head Base"
+	name = "Synth Head"
 	id = "synth_head"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS
@@ -69,7 +10,7 @@
 	)
 	build_path = /obj/item/bodypart/head/synth
 	category = list(
-		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+		RND_CATEGORY_MECHFAB_SYNTH + RND_CATEGORY_MECHFAB_SYNTH_CHASSIS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
@@ -127,7 +68,7 @@
 	)
 	build_path = /obj/item/bodypart/chest/synth
 	category = list(
-		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+		RND_CATEGORY_MECHFAB_SYNTH + RND_CATEGORY_MECHFAB_SYNTH_CHASSIS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
@@ -218,7 +159,7 @@
 	)
 	build_path = /obj/item/bodypart/arm/left/synth
 	category = list(
-		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+		RND_CATEGORY_MECHFAB_SYNTH + RND_CATEGORY_MECHFAB_SYNTH_CHASSIS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
@@ -272,7 +213,7 @@
 	)
 	build_path = /obj/item/bodypart/arm/right/synth
 	category = list(
-		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+		RND_CATEGORY_MECHFAB_SYNTH + RND_CATEGORY_MECHFAB_SYNTH_CHASSIS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
@@ -327,7 +268,7 @@
 	)
 	build_path = /obj/item/bodypart/leg/left/synth
 	category = list(
-		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+		RND_CATEGORY_MECHFAB_SYNTH + RND_CATEGORY_MECHFAB_SYNTH_CHASSIS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
@@ -382,7 +323,7 @@
 	)
 	build_path = /obj/item/bodypart/leg/right/synth
 	category = list(
-		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+		RND_CATEGORY_MECHFAB_SYNTH + RND_CATEGORY_MECHFAB_SYNTH_CHASSIS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
@@ -403,7 +344,7 @@
 	)
 	build_path = /obj/item/bodypart/leg/left/synth/digitigrade
 	category = list(
-		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+		RND_CATEGORY_MECHFAB_SYNTH + RND_CATEGORY_MECHFAB_SYNTH_CHASSIS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
@@ -424,7 +365,7 @@
 	)
 	build_path = /obj/item/bodypart/leg/right/synth/digitigrade
 	category = list(
-		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+		RND_CATEGORY_MECHFAB_SYNTH + RND_CATEGORY_MECHFAB_SYNTH_CHASSIS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 

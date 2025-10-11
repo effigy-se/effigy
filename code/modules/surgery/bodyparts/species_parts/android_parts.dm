@@ -4,20 +4,20 @@
  * Yes, that is the entire reason these exist.
  */
 
-/obj/item/bodypart/head/robot/synth
+/obj/item/bodypart/head/robot/android
 	change_exempt_flags = NONE
 
-/obj/item/bodypart/chest/robot/synth
+/obj/item/bodypart/chest/robot/android
 	change_exempt_flags = NONE
 
-/obj/item/bodypart/arm/left/robot/synth
+/obj/item/bodypart/arm/left/robot/android
 	change_exempt_flags = NONE
 
-/obj/item/bodypart/arm/right/robot/synth
+/obj/item/bodypart/arm/right/robot/android
 	change_exempt_flags = NONE
 
-/obj/item/bodypart/leg/left/robot/synth
+/obj/item/bodypart/leg/left/robot/android
 	change_exempt_flags = NONE
 
-/obj/item/bodypart/leg/right/robot/synth
+/obj/item/bodypart/leg/right/robot/android
 	change_exempt_flags = NONE

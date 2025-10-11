@@ -137,7 +137,7 @@
 	monitor_head.add_bodypart_overlay(display_overlay)
 
 /datum/action/innate/monitor_head/proc/change_screen(mob/living/carbon/wearer, screen, system_forced = FALSE)
-	var/obj/item/bodypart/head/robot/synth/monitor_head = wearer.get_bodypart(BODY_ZONE_HEAD)
+	var/obj/item/bodypart/head/robot/effigy/monitor_head = wearer.get_bodypart(BODY_ZONE_HEAD)
 	if(screen == "saved_state")
 		screen = monitor_head.saved_state
 	if(!system_forced)
