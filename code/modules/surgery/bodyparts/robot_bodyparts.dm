@@ -291,6 +291,8 @@
 	for(var/obj/item/bodypart/part in owner.bodyparts)
 		all_robotic = all_robotic && IS_ROBOTIC_LIMB(part)
 
+	// EffigyEdit Change - Synths
+	/*
 	if(all_robotic)
 		owner.add_traits(list(
 			TRAIT_RESISTCOLD,
@@ -305,6 +307,28 @@
 			TRAIT_RESISTLOWPRESSURE,
 			TRAIT_RESISTHIGHPRESSURE,
 			), AUGMENTATION_TRAIT)
+	*/
+	if(all_robotic)
+		owner.add_traits(list(
+			TRAIT_RESISTLOWPRESSURE,
+			TRAIT_RESISTHIGHPRESSURE,
+			), AUGMENTATION_TRAIT)
+		if(!(HAS_TRAIT(owner, TRAIT_SYNTH)))
+			owner.add_traits(list(
+				TRAIT_RESISTCOLD,
+				TRAIT_RESISTHEAT,
+				), AUGMENTATION_TRAIT)
+	else
+		owner.remove_traits(list(
+			TRAIT_RESISTLOWPRESSURE,
+			TRAIT_RESISTHIGHPRESSURE,
+			), AUGMENTATION_TRAIT)
+		if(!(HAS_TRAIT(owner, TRAIT_SYNTH)))
+			owner.remove_traits(list(
+				TRAIT_RESISTCOLD,
+				TRAIT_RESISTHEAT,
+				), AUGMENTATION_TRAIT)
+	// EffigyEdit Change End
 
 /obj/item/bodypart/chest/robot/attackby(obj/item/weapon, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(weapon, /obj/item/stock_parts/power_store/cell))
