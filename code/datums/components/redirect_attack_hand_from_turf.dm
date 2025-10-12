@@ -32,6 +32,7 @@
 	connect_to_new_turf()
 
 /datum/component/redirect_attack_hand_from_turf/Destroy(force)
+	interact_check = null // EffigyEdit Add - Temporary fix for upstream bug
 	disconnect_from_old_turf()
 	return ..()
 
