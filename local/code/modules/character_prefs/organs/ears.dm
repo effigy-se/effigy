@@ -14,7 +14,6 @@
 
 /// Fox ears
 /obj/item/organ/ears/fox
-	preference = "feature_fox_ears"
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/fox_ears
 
 /datum/bodypart_overlay/mutant/ears/fox_ears/get_global_feature_list()
@@ -22,7 +21,6 @@
 
 /// Dog ears
 /obj/item/organ/ears/dog
-	preference = "feature_dog_ears"
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/dog_ears
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
@@ -31,7 +29,6 @@
 
 /// Flying ears
 /obj/item/organ/ears/flying
-	preference = "feature_flying_ears"
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/flying_ears
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
@@ -40,7 +37,6 @@
 
 /// Mammal ears
 /obj/item/organ/ears/mammal
-	preference = "feature_mammal_ears"
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/mammal_ears
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
@@ -49,7 +45,6 @@
 
 /// Monkey ears
 /obj/item/organ/ears/monkey
-	preference = "feature_monkey_ears"
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/monkey_ears
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
@@ -58,7 +53,6 @@
 
 /// Aquatic ears
 /obj/item/organ/ears/fish
-	preference = "feature_fish_ears"
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/fish_ears
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
@@ -67,7 +61,6 @@
 
 /// Humanoid ears
 /obj/item/organ/ears/humanoid
-	preference = "feature_humanoid_ears"
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/humanoid_ears
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
@@ -76,7 +69,6 @@
 
 /// Synth ears
 /obj/item/organ/ears/cybernetic
-	preference = "feature_synth_ears"
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/cybernetic
 
 /datum/bodypart_overlay/mutant/ears/cybernetic/get_global_feature_list()

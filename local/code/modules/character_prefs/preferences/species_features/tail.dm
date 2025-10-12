@@ -114,7 +114,7 @@
 ///	Lizard tail type
 /datum/preference/choiced/lizard_tail // override from TG default
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
@@ -147,7 +147,7 @@
 ///	Cat tail type
 /datum/preference/choiced/tail_felinid
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
@@ -181,7 +181,7 @@
 	savefile_key = "feature_dog_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
@@ -221,7 +221,7 @@
 	savefile_key = "feature_fox_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
@@ -261,7 +261,7 @@
 	savefile_key = "feature_mammal_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
@@ -301,7 +301,7 @@
 	savefile_key = "feature_flying_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
@@ -339,7 +339,7 @@
 ///	Monkey tail type
 /datum/preference/choiced/monkey_tail
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
@@ -375,7 +375,7 @@
 	savefile_key = "feature_fish_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
@@ -415,7 +415,7 @@
 	savefile_key = "feature_synth_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
@@ -455,7 +455,7 @@
 	savefile_key = "feature_humanoid_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
+	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 

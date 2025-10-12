@@ -1192,7 +1192,7 @@
 /obj/effect/turf_decal/trimline/dark_red/end{
 	dir = 4
 	},
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "aHR" = (
@@ -5278,7 +5278,7 @@
 /obj/effect/turf_decal/trimline/dark_red/end{
 	dir = 1
 	},
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "cNu" = (
@@ -5448,7 +5448,7 @@
 	dir = 8
 	},
 /obj/effect/spawner/random/clothing/wardrobe_closet_colored,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /obj/structure/sign/poster/official/random/directional/east,
 /turf/open/floor/iron/dark/side{
 	dir = 4
@@ -7986,7 +7986,7 @@
 /obj/effect/turf_decal/trimline/dark_blue/end{
 	dir = 1
 	},
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
@@ -10675,7 +10675,7 @@
 /obj/structure/closet/lasertag/blue,
 /obj/effect/turf_decal/tile/blue/full,
 /obj/effect/turf_decal/trimline/dark,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /obj/machinery/computer/security/telescreen/entertainment/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/commons/fitness/recreation/entertainment)
@@ -14532,7 +14532,7 @@
 /obj/structure/closet/lasertag/red,
 /obj/effect/turf_decal/tile/red/full,
 /obj/effect/turf_decal/trimline/dark,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/commons/fitness/recreation/entertainment)
 "hMw" = (
@@ -14732,7 +14732,7 @@
 	dir = 1
 	},
 /obj/structure/closet/firecloset/full,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/large,
 /area/station/hallway/secondary/exit/escape_pod)
 "hRm" = (
@@ -15308,7 +15308,7 @@
 	dir = 1
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/large,
 /area/station/hallway/secondary/exit/escape_pod)
 "ifK" = (
@@ -15510,7 +15510,7 @@
 /area/station/maintenance/starboard/central)
 "ilO" = (
 /obj/structure/closet/firecloset,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
@@ -17996,7 +17996,7 @@
 	},
 /obj/effect/turf_decal/siding/thinplating_new/dark/end,
 /obj/structure/closet/emcloset,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/large,
 /area/station/hallway/secondary/exit/escape_pod)
 "jEi" = (
@@ -21663,7 +21663,7 @@
 /obj/effect/turf_decal/trimline/dark_red/end{
 	dir = 1
 	},
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "lHu" = (
@@ -23075,7 +23075,7 @@
 /obj/effect/turf_decal/trimline/dark_blue/end{
 	dir = 1
 	},
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/white/corner,
 /area/station/hallway/secondary/entry)
 "mtq" = (
@@ -24790,7 +24790,7 @@
 	},
 /obj/effect/turf_decal/trimline/blue/arrow_ccw,
 /obj/structure/closet/emcloset,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
@@ -26713,7 +26713,7 @@
 /obj/effect/turf_decal/trimline/dark_red/end{
 	dir = 1
 	},
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/white/corner{
 	dir = 8
 	},
@@ -28650,7 +28650,7 @@
 /obj/effect/turf_decal/trimline/dark_blue/end{
 	dir = 4
 	},
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/edge,
 /area/station/hallway/primary/central)
@@ -28856,7 +28856,7 @@
 	dir = 1
 	},
 /obj/structure/sign/departments/maint/directional/south,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "pEX" = (
@@ -30535,7 +30535,7 @@
 /obj/effect/turf_decal/trimline/dark_red/end{
 	dir = 4
 	},
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "qBE" = (
@@ -31372,7 +31372,7 @@
 /area/station/security/prison/upper)
 "qVY" = (
 /obj/structure/closet/wardrobe/mixed,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /obj/effect/turf_decal/trimline/dark_blue/warning{
 	dir = 1
 	},
@@ -32504,7 +32504,7 @@
 	dir = 4
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/entry)
@@ -35205,7 +35205,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/white/corner,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/exit/departure_lounge)
 "sTY" = (
@@ -37619,7 +37619,7 @@
 	dir = 4
 	},
 /obj/structure/closet/firecloset,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
@@ -39219,7 +39219,7 @@
 /obj/structure/closet/lasertag/blue,
 /obj/effect/turf_decal/tile/blue/full,
 /obj/effect/turf_decal/tile/dark/diagonal_centre,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/commons/fitness/recreation/entertainment)
 "uUq" = (
@@ -40076,7 +40076,7 @@
 /turf/open/floor/glass/reinforced,
 /area/station/hallway/secondary/entry)
 "vmn" = (
-/obj/item/circuitboard/machine/vending,
+/obj/item/circuitboard/machine/vendor,
 /obj/structure/closet/crate/secure/loot,
 /obj/item/stack/cable_coil,
 /turf/open/misc/asteroid/airless,
@@ -44339,7 +44339,7 @@
 /obj/effect/turf_decal/tile/red/full,
 /obj/effect/turf_decal/tile/dark/diagonal_centre,
 /obj/machinery/light/blacklight/directional/east,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/commons/fitness/recreation/entertainment)
 "xwX" = (
@@ -45311,7 +45311,7 @@
 	dir = 1
 	},
 /obj/structure/closet/firecloset/full,
-/obj/effect/landmark/start/hangover/closet,
+/obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/large,
 /area/station/hallway/secondary/exit/escape_pod)
 "xUp" = (
