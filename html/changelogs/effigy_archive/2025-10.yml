@@ -5,3 +5,7 @@
 2025-10-10:
   TealSeer:
   - rscadd: Ported the vocal bark system
+2025-10-16:
+  TealSeer:
+  - bugfix: fixed the autodrobe being mostly out of stock and broken
+  - bugfix: fixed certain vending machines having duplicate items that broke

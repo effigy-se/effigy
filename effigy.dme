@@ -7370,7 +7370,6 @@
 #include "local\code\modules\transport\transport_module.dm"
 #include "local\code\modules\transport\transport_navigation.dm"
 #include "local\code\modules\vehicle\sealed.dm"
-#include "local\code\modules\vending\autodrobe.dm"
 #include "local\code\modules\vending\clothesmate.dm"
 #include "local\code\modules\vending\engivend.dm"
 #include "local\code\modules\vending\games.dm"
