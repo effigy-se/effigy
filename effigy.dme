@@ -7185,6 +7185,7 @@
 #include "local\code\modules\hydroponics\grown\nakati.dm"
 #include "local\code\modules\hydroponics\grown\piru.dm"
 #include "local\code\modules\hydroponics\grown\tea_coffee.dm"
+#include "local\code\modules\jobs\job_types\_job.dm"
 #include "local\code\modules\jobs\job_types\chaplain\chaplain_costumes.dm"
 #include "local\code\modules\jobs\job_types\chaplain\chaplain_divine_archer.dm"
 #include "local\code\modules\jobs\job_types\spawner\ai.dm"

@@ -5,6 +5,10 @@
 2025-10-10:
   TealSeer:
   - rscadd: Ported the vocal bark system
+2025-10-12:
+  nevimer:
+  - code_imp: cryogenics now alerts the station when there is no more command on the
+      roster
 2025-10-16:
   TealSeer:
   - bugfix: fixed the autodrobe being mostly out of stock and broken
