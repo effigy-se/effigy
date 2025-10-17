@@ -73,7 +73,7 @@
 // Toggle reagent overdose (overload) prevention
 /obj/item/disk/neuroware/screwdriver_act(mob/living/user, obj/item/screwdriver)
 	if(!can_hack)
-		return FALSE
+		return NONE
 	if(uses <= 0)
 		balloon_alert(user, "it's been used up!")
 		return FALSE
