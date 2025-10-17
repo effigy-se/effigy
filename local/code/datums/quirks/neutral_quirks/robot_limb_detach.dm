@@ -39,8 +39,7 @@
 		to_chat(cast_on, span_warning("ERROR: LIMB DISENGAGEMENT PROTOCOLS OFFLINE. Seek out a maintenance technician."))
 		return
 
-	var/list/exclusions = list()
-	exclusions += BODY_ZONE_CHEST
+	var/list/exclusions = list(BODY_ZONE_CHEST)
 	if (!issynth(cast_on))
 		exclusions += BODY_ZONE_HEAD // no decapitating yourself unless you're a synthetic, who keep their brains in their chest
 
@@ -57,7 +56,7 @@
 	if (QDELETED(src) || QDELETED(cast_on) || QDELETED(limb_to_detach))
 		return
 
-	if (length(limb_to_detach.wounds) >= 1)
+	if (length(limb_to_detach.wounds))
 		cast_on.balloon_alert(cast_on, "can't detach wounded limbs!")
 		playsound(cast_on, 'sound/machines/buzz/buzz-sigh.ogg', 25, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		return

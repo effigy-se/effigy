@@ -13,8 +13,8 @@
 ///Like pills, but doesn't directly contain reagents, instead adds them manually.
 /obj/item/disk/neuroware
 	name = "neuroware chip"
-	icon = 'local/icons/obj/neuroware.dmi'
-	icon_state = "chip_generic"
+	icon = 'icons/map_icons/items/_item.dmi'
+	icon_state = "/obj/item/disk/neuroware"
 	post_init_icon_state = "chip_generic"
 	greyscale_config = /datum/greyscale_config/neuroware
 	// Color of circuitboard underlay.
@@ -76,18 +76,18 @@
 		return NONE
 	if(uses <= 0)
 		balloon_alert(user, "it's been used up!")
-		return FALSE
+		return ITEM_INTERACT_BLOCKING
 	balloon_alert(user, "[can_overdose ? "enabling" : "disabling"] safety...")
 	screwdriver.play_tool_sound(src, 100)
 	if(!screwdriver.use_tool(src, user, 2 SECONDS))
 		balloon_alert(user, "interrupted!")
-		return FALSE
+		return ITEM_INTERACT_BLOCKING
 
 	can_overdose = !can_overdose
 
 	playsound(src, 'sound/machines/click.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
 	balloon_alert(user, "safety [can_overdose ? "disabled" : "enabled"]")
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/disk/neuroware/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
@@ -99,9 +99,10 @@
 	if(!try_install(user, user))
 		return ..()
 
-/obj/item/disk/neuroware/attack(mob/living/mob, mob/living/user, params)
-	if(!try_install(mob, user))
-		return ..()
+/obj/item/disk/neuroware/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!isliving(interacting_with))
+		return NONE
+	return try_install(interacting_with, user) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
 
 
 ///Safely implement any side-effects after installing.
