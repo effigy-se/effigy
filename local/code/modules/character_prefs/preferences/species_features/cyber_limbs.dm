@@ -56,7 +56,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/head_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
 		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_HEAD, text2path("/obj/item/bodypart/head/robot/android/[value]"))
+	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_HEAD, text2path("/obj/item/bodypart/head/robot/effigy/[value]"))
 
 /datum/preference/choiced/head_type/compile_constant_data()
 	var/list/data = ..()
@@ -72,7 +72,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/head_type/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species == /datum/species/android) // lifting this restriction would require code for the head's internal organs to become cybernetic too
+	if(species == /datum/species/synth) // lifting this restriction would require code for the head's internal organs to become cybernetic too
 		return TRUE
 	return FALSE
 
@@ -86,7 +86,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/chest_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
 		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_CHEST, text2path("/obj/item/bodypart/chest/robot/android/[value]"))
+	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_CHEST, text2path("/obj/item/bodypart/chest/robot/effigy/[value]"))
 
 /datum/preference/choiced/chest_type/compile_constant_data()
 	var/list/data = ..()
@@ -117,7 +117,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/arm_r_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
 		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_R_ARM, text2path("/obj/item/bodypart/arm/right/robot/android/[value]"))
+	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_R_ARM, text2path("/obj/item/bodypart/arm/right/robot/effigy/[value]"))
 
 /datum/preference/choiced/arm_r_type/compile_constant_data()
 	var/list/data = ..()
@@ -148,7 +148,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/arm_l_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
 		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_L_ARM, text2path("/obj/item/bodypart/arm/left/robot/android/[value]"))
+	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_L_ARM, text2path("/obj/item/bodypart/arm/left/robot/effigy/[value]"))
 
 /datum/preference/choiced/arm_l_type/compile_constant_data()
 	var/list/data = ..()
@@ -179,7 +179,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/leg_r_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
 		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_R_LEG, text2path("/obj/item/bodypart/leg/right/robot/android/[value]"))
+	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_R_LEG, text2path("/obj/item/bodypart/leg/right/robot/effigy/[value]"))
 
 /datum/preference/choiced/leg_r_type/compile_constant_data()
 	var/list/data = ..()
@@ -213,7 +213,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 			whatever.change_exempt_flags &= ~BP_BLOCK_CHANGE_SPECIES
 		target.dna?.species?.replace_body(target)
 		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_L_LEG, text2path("/obj/item/bodypart/leg/left/robot/android/[value]"))
+	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_L_LEG, text2path("/obj/item/bodypart/leg/left/robot/effigy/[value]"))
 
 /datum/preference/choiced/leg_l_type/compile_constant_data()
 	var/list/data = ..()
@@ -238,7 +238,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 	. = ..()
 	if(target.dna.features["frame_list"] && (type in GLOB.bodypart_allowed_species[CYBER_FRAME]))
 		//head
-		if(target.dna.features["frame_list"][BODY_ZONE_HEAD] && type == /datum/species/android)
+		if(target.dna.features["frame_list"][BODY_ZONE_HEAD] && type == /datum/species/synth)
 			var/obj/item/bodypart/head/old_limb = target.get_bodypart(BODY_ZONE_HEAD)
 			old_limb.drop_limb(TRUE, FALSE, FALSE)
 			old_limb.moveToNullspace()

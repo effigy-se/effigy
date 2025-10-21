@@ -38,7 +38,6 @@
 	check_flags = AB_CHECK_CONSCIOUS
 	button_icon = 'icons/mob/actions/actions_silicon.dmi'
 	button_icon_state = "drone_vision"
-	background_icon_state = "bg_default"
 	/// the var that should be changed when a different screen list should be used
 	var/head_type = MONITOR_HEAD
 	/// the overlay we use
@@ -47,10 +46,11 @@
 /datum/action/innate/monitor_head/Grant(mob/grant_to)
 	. = ..()
 	RegisterSignal(grant_to, COMSIG_MOB_EMOTE, PROC_REF(check_emote))
+	RegisterSignal(grant_to, COMSIG_LIVING_REVIVE, PROC_REF(screen_revival))
 
 /datum/action/innate/monitor_head/Remove(mob/remove_from)
 	. = ..()
-	UnregisterSignal(remove_from, COMSIG_MOB_EMOTE)
+	UnregisterSignal(remove_from, list(COMSIG_MOB_EMOTE, COMSIG_LIVING_REVIVE))
 
 /datum/action/innate/monitor_head/Activate()
 	var/mob/living/carbon/human/wearer = owner
@@ -96,27 +96,35 @@
 
 /datum/action/innate/monitor_head/update_status_on_signal(mob/living/carbon/wearer, new_stat, old_stat)
 	. = ..()
-
 	if(!display_overlay)
 		create_screen(wearer)
 
 	if(head_type & MONITOR_HEAD)
 		switch(new_stat)
+			if(CONSCIOUS)
+				change_screen(wearer, "waiting", system_forced = TRUE)
+				addtimer(CALLBACK(src, PROC_REF(change_screen), wearer, "saved_state", TRUE), 1.5 SECONDS)
 			if(SOFT_CRIT)
-				change_screen(wearer, "bsod")
+				change_screen(wearer, "bsod", system_forced = TRUE)
 			if(HARD_CRIT)
-				change_screen(wearer, "static3")
+				change_screen(wearer, "console", system_forced = TRUE)
 			if(UNCONSCIOUS)
-				change_screen(wearer, "none")
+				change_screen(wearer, "waiting", system_forced = TRUE)
 			if(DEAD)
-				change_screen(wearer, "none")
+				change_screen(wearer, "static3", system_forced = TRUE)
+				addtimer(CALLBACK(src, PROC_REF(change_screen), wearer, "none", TRUE), 7 SECONDS)
 
 	if(head_type & MONITOR_HEAD_LIZARD)
 		switch(new_stat)
 			if(UNCONSCIOUS)
-				change_screen(wearer, "none")
+				change_screen(wearer, "none", system_forced = TRUE)
 			if(DEAD)
-				change_screen(wearer, "none")
+				change_screen(wearer, "none", system_forced = TRUE)
+
+/datum/action/innate/monitor_head/proc/screen_revival(mob/living/carbon/wearer)
+	SIGNAL_HANDLER
+	if(head_type & MONITOR_HEAD)
+		change_screen(wearer, "console", system_forced = TRUE)
 
 /datum/action/innate/monitor_head/proc/create_screen(mob/living/carbon/wearer)
 	var/obj/item/bodypart/head/monitor_head = wearer.get_bodypart(BODY_ZONE_HEAD)
@@ -128,11 +136,16 @@
 
 	monitor_head.add_bodypart_overlay(display_overlay)
 
-/datum/action/innate/monitor_head/proc/change_screen(mob/living/carbon/wearer, screen)
-	var/obj/item/bodypart/head/robot/android/monitor_head = wearer.get_bodypart(BODY_ZONE_HEAD)
+/datum/action/innate/monitor_head/proc/change_screen(mob/living/carbon/wearer, screen, system_forced = FALSE)
+	var/obj/item/bodypart/head/robot/effigy/monitor_head = wearer.get_bodypart(BODY_ZONE_HEAD)
+	if(screen == "saved_state")
+		screen = monitor_head.saved_state
+	if(!system_forced)
+		monitor_head.saved_state = screen
 
-	display_overlay.icon_state = screen
 	monitor_head.monitor_state = screen
+	if(!isnull(display_overlay))
+		display_overlay.icon_state = screen
 
 	playsound(wearer, 'local/sound/mobs/humanoids/synth/monitor_switch.ogg', 100, TRUE)
 	wearer.update_body_parts()

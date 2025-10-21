@@ -2,11 +2,11 @@
 #define ICON "ICON"
 #define TGUI "TGUI"
 
-/proc/debug_effigy(type, message)
+/proc/debug_effigy(message, type)
 	var/msg_type = type
 	if(isnull(type))
 		msg_type = "GAME"
-	var/msg = span_debugcyan("\[[span_debugwhite("DEBUG")]]\[[span_debugyellow(msg_type)]\] [message]")
+	var/msg = span_cyan("\[[span_white("DEBUG")]]\[[span_yellow(msg_type)]\] [message]")
 	to_chat(world, msg)
 	logger.Log(LOG_CATEGORY_DEBUG, message)
 

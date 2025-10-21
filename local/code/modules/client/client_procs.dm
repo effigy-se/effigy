@@ -10,5 +10,5 @@
 	SIGNAL_HANDLER
 
 	winset(src, null, list("browser-options" = "+devtools"))
-	debug_effigy(TGUI, "TGUI DevTools are enabled!")
+	debug_effigy("TGUI DevTools are enabled!", TGUI)
 	UnregisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME)

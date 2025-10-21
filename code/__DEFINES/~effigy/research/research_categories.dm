@@ -1,0 +1,7 @@
+/// Mechfab defines
+#define RND_CATEGORY_MECHFAB_SYNTH "/Synth"
+#define RND_CATEGORY_MECHFAB_SYNTH_CHASSIS "/Synth Chassis"
+#define RND_CATEGORY_MECHFAB_SYNTH_ORGANS "/Synth Organs"
+
+#define RND_SUBCATEGORY_CYBERNETICS_CUSTOMIZABLE_LIMBS "/Cybernetic Limbs (T2)"
+#define RND_SUBCATEGORY_CYBERNETICS_BASIC_LIMBS "/Cybernetic Limbs (T1)"
