@@ -196,7 +196,7 @@
 	#define IS_ACTING_CAPTAIN 1
 	#define IS_FULL_CAPTAIN 2
 	var/is_captain = IS_NOT_CAPTAIN
-	var/captain_sound = 'sound/announcer/notice/notice2.ogg'
+	var/captain_sound = 'sound/announcer/announcement/announce_dig.ogg' // EffigyEdit Change - Original: notice2.ogg
 	// If we already have a captain, are they a "Captain" rank and are we allowing multiple of them to be assigned?
 	if(is_captain_job(job))
 		is_captain = IS_FULL_CAPTAIN
@@ -205,7 +205,7 @@
 	else if(!SSjob.assigned_captain && ishuman(character) && SSjob.chain_of_command[rank] && !is_banned_from(character.ckey, list(JOB_CAPTAIN)))
 		is_captain = IS_ACTING_CAPTAIN
 	if(is_captain != IS_NOT_CAPTAIN)
-		minor_announce(job.get_captaincy_announcement(character), sound_override = captain_sound)
+		minor_announce(job.get_captaincy_announcement(character), "Command Staffing Update", sound_override = captain_sound) // EffigyEdit Change - Original: minor_announce(job.get_captaincy_announcement(character), sound_override = captain_sound)
 		SSjob.promote_to_captain(character, is_captain == IS_ACTING_CAPTAIN)
 	#undef IS_NOT_CAPTAIN
 	#undef IS_ACTING_CAPTAIN

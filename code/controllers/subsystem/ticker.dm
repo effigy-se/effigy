@@ -39,7 +39,7 @@ SUBSYSTEM_DEF(ticker)
 	var/start_at
 
 	var/gametime_offset = 432000 //Deciseconds to add to world.time for station time.
-	var/station_time_rate_multiplier = 12 //factor of station time progressal vs real time.
+	var/station_time_rate_multiplier = 3 //factor of station time progressal vs real time. // EffigyEdit Change - Original: 12 - Prevent station time rollover during rounds
 
 	/// Num of players, used for pregame stats on statpanel
 	var/totalPlayers = 0
@@ -609,7 +609,7 @@ SUBSYSTEM_DEF(ticker)
 			captainless = FALSE
 			var/acting_captain = !is_captain_job(player_assigned_role)
 			SSjob.promote_to_captain(new_player_living, acting_captain)
-			OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(minor_announce), player_assigned_role.get_captaincy_announcement(new_player_living)))
+			OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(roundstart_captaincy_announcement), player_assigned_role.get_captaincy_announcement(new_player_living))) // EffigyEdit Change - Original: GLOBAL_PROC_REF(minor_announce)
 		if(ishuman(new_player_living))
 			if(player_assigned_role.job_flags & JOB_ASSIGN_QUIRKS)
 				if(CONFIG_GET(flag/roundstart_traits))

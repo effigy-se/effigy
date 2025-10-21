@@ -493,6 +493,14 @@
 		if((nearby_carbons.name == oldtarget_name) && (world.time < last_found + 100))
 			continue
 
+		// EffigyEdit Add - Beepsky ignores ongoing hallway RP
+		if(nearby_carbons.client) //We have a client. We're a player that uses move_delay.
+			if(nearby_carbons.client.move_delay + 7 SECONDS <= world.time)
+				continue
+		else if(nearby_carbons.next_move + 7 SECONDS <= world.time) //No client. We're a mob that uses next_move.
+			continue
+		// EffigyEdit Add End
+
 		threatlevel = nearby_carbons.assess_threat(judgement_criteria)
 
 		if(threatlevel < THREAT_ASSESS_DANGEROUS)
