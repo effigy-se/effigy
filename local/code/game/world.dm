@@ -4,7 +4,7 @@
 	var/new_status = "<a href=\"[CONFIG_GET(string/tagline_url)]\"><b>[CONFIG_GET(string/tagline_name)]</b></a>] [discord ? "\[<a href=\"[discord]\">Discord</a>\]" : ""]<br/>\[[CONFIG_GET(string/tagline_desc)]]<br/>"
 
 	if(SSmapping.current_map)
-		features += "\[Map: <b>[SSmapping.current_map.map_name]</b>[SSticker.IsRoundInProgress() ? " - [time2text(STATION_TIME_PASSED(), "hh:mm", NO_TIMEZONE)]" : ""]"
+		features += "\[Map: <b>[SSmapping.current_map.map_name]</b>]"
 
 	if(features)
 		new_status += features
