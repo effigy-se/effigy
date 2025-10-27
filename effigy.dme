@@ -6883,6 +6883,7 @@
 #include "local\code\datums\weather\weather.dm"
 #include "local\code\datums\weather\weather_types\rain_storm.dm"
 #include "local\code\game\atoms_movable.dm"
+#include "local\code\game\world.dm"
 #include "local\code\game\area\areas\mining.dm"
 #include "local\code\game\area\areas\ruins\jungle.dm"
 #include "local\code\game\area\areas\station\ai_monitored.dm"
