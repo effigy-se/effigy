@@ -584,6 +584,7 @@
 #include "code\__HELPERS\~effigy\is_helpers.dm"
 #include "code\__HELPERS\~effigy\logging.dm"
 #include "code\__HELPERS\~effigy\mobs.dm"
+#include "code\__HELPERS\~effigy\neuroware.dm"
 #include "code\__HELPERS\~effigy\text.dm"
 #include "code\_globalvars\_regexes.dm"
 #include "code\_globalvars\admin.dm"
