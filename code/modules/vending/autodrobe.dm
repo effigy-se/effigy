@@ -113,6 +113,11 @@ GLOBAL_LIST_INIT(autodrobe_fancy_items, list(
 	/obj/item/clothing/suit/costume/changshan_blue = 3,
 	/obj/item/clothing/suit/costume/cheongsam_red = 3,
 	/obj/item/clothing/suit/costume/cheongsam_blue = 3,
+	// EffigyEdit Add - Autodrobe Items
+	/obj/item/clothing/shoes/fancy_heels = 4,
+	/obj/item/clothing/under/dress/wedding_dress = 4,
+	/obj/item/clothing/under/dress/wedding_dress/ribbon = 4,
+	// EffigyEdit Add End
 ))
 
 GLOBAL_LIST_INIT(autodrobe_animal_items, list(

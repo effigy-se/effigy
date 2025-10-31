@@ -118,17 +118,22 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		else
 			CRASH("Illegal action for ui_act: '[action]'")
 
-/obj/machinery/computer/cryopod/proc/announce(message_type, user, rank)
+/obj/machinery/computer/cryopod/proc/announce(message_type, mob/living/user, rank)
 	switch(message_type)
 		if("CRYO_JOIN")
-			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has woken up from cryo storage.", announcement_channel)
+			radio.talk_into(src, "[user.real_name][rank ? ", [rank]" : ""] has woken up from cryo storage.", announcement_channel)
 		if("CRYO_LEAVE")
-			radio.talk_into(src, "[user][rank ? ", [rank]" : ""] has been moved to cryo storage.", announcement_channel)
+			radio.talk_into(src, "[user.real_name][rank ? ", [rank]" : ""] has been moved to cryo storage.", announcement_channel)
+			var/is_command = user?.mind?.assigned_role.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND
+			var/last_of_command = length(SSjob.get_all_heads())
+			if(is_command && last_of_command <= 1)
+				minor_announce(title = "Command Staffing Update", message = "[station_name()]'s last member of command staff has entered cryogenic storage. \
+				\n Please ensure that the station's essential operational equipment is secured.")
 
 /// Cryopods
 /obj/machinery/cryopod
 	name = "cryogenic freezer"
-	desc = "Suited for Cyborgs and Humanoids, the pod is a safe place for personnel affected by the Space Sleep Disorder to get some rest."
+	desc = "Suited for Cyborgs and Humanoids, the pod is a safe place for personnel affected by Space Sleep Disorder to get some rest."
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper-open"
 	base_icon_state = "sleeper"
@@ -381,7 +386,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
 	if(!quiet)
-		control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank)
+		control_computer.announce("CRYO_LEAVE", mob_occupant, announce_rank)
 
 	visible_message(span_notice("[src] hums and hisses as it moves [mob_occupant.real_name] into storage."))
 

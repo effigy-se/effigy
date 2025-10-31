@@ -1,4 +1,6 @@
 /obj/machinery/vending
+	/// List of products to exclude when building the vending machine's inventory
+	var/list/excluded_products
 	/// Additions to the `products` list  of the vending machine, modularly. Will become null after Initialize, to free up memory.
 	var/list/effigy_products
 	/// Additions to the `product_categories` list of the vending machine, modularly. Will become null after Initialize, to free up memory.
@@ -19,7 +21,7 @@
 			var/already_exists = FALSE
 			for(var/existing_category in product_categories)
 				if(existing_category["name"] == category["name"])
-					existing_category["products"] += category["products"]
+					existing_category["products"] |= category["products"]
 					already_exists = TRUE
 					break
 
@@ -36,9 +38,18 @@
 		for(var/item_to_add in effigy_contraband)
 			contraband[item_to_add] = effigy_contraband[item_to_add]
 
-	QDEL_LIST_ASSOC_VAL(effigy_product_categories)
+	remove_products(excluded_products)
 	effigy_products = null
+	effigy_product_categories = null
 	effigy_premium = null
 	effigy_contraband = null
-
 	return ..()
+
+/// Removes given list of products. Must be called before build_inventory() to actually prevent the records from being created.
+/obj/machinery/vending/proc/remove_products(list/paths_to_remove)
+	if(!length(paths_to_remove))
+		return
+	for(var/typepath in products)
+		for(var/to_remove in paths_to_remove)
+			if(ispath(typepath, to_remove))
+				products.Remove(typepath)

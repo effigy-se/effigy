@@ -656,3 +656,12 @@ GENERATE_ASSETS_IN_INIT
 
 ## Discord invite address
 # DISCORDLINK http://tgstation13.org/phpBB/index.php
+
+## Server short name on Hub entry
+# TAGLINE_NAME a generic TG-based server
+
+## Server tagline on Hub entry
+# TAGLINE_DESC
+
+## Server URL on Hub entry
+# TAGLINE_URL
