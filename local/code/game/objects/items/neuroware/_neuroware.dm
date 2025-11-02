@@ -123,7 +123,7 @@
 	if(target != user)
 		target.visible_message(
 			span_danger("[user] tries to force [src] into [target]'s [NEURO_SLOT_NAME]!"),
-		return FALSE
+			span_userdanger("[user] tries to force [src] into your [NEURO_SLOT_NAME]!")
 		)
 		if(target.is_blind())
 			to_chat(target, span_userdanger("You feel something being inserted into your [NEURO_SLOT_NAME]!"))
