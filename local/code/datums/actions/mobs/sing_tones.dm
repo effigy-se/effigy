@@ -20,12 +20,12 @@
 		desc = "Use your electric discharger to sing!"
 
 /datum/action/sing_tones/Remove(mob/remove_from)
-	..()
 	QDEL_NULL(song)
 	UnregisterSignal(remove_from, list(
 		COMSIG_SPECIES_LOSS,
 		COMSIG_ATOM_EMAG_ACT,
 	))
+	. = ..()
 
 /datum/action/sing_tones/proc/on_species_loss(mob/living/carbon/human/human)
 	SIGNAL_HANDLER

@@ -92,6 +92,6 @@
 	list_reagents[random_reagent] = rand(10, initial(random_reagent.overdose_threshold) - 1)
 	if(prob(30))
 		desc = pick(maint_neuroware_descs)
-		icon_state = pick(maint_neuroware_casings)
+		post_init_icon_state = pick(maint_neuroware_casings)
 		greyscale_colors = pick(maint_neuroware_colors)
 	return ..()
