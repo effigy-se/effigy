@@ -8,17 +8,14 @@
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD // 1.5x due to synthcode.tm being weird
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_HEART
-	var/last_message_time = 0
 
 /obj/item/organ/heart/synth/emp_act(severity)
 	. = ..()
 
-	if(!owner || . & EMP_PROTECT_SELF)
+	if(!owner || . & EMP_PROTECT_SELF || !COOLDOWN_FINISHED(src, severe_cooldown)) // So we can't just spam emp to kill people
 		return
 
-	if(!COOLDOWN_FINISHED(src, severe_cooldown)) //So we cant just spam emp to kill people.
-		COOLDOWN_START(src, severe_cooldown, 10 SECONDS)
-
+	COOLDOWN_START(src, severe_cooldown, 10 SECONDS)
 	switch(severity)
 		if(EMP_HEAVY)
 			to_chat(owner, span_warning("Alert: Main hydraulic pump control has taken severe damage, seek maintenance immediately. Error code: HP300-10."))

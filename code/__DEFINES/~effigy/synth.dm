@@ -19,13 +19,10 @@
 #define SYNTH_BRAIN_WAKE_THRESHOLD 50
 
 // EMP Damage thresholds from EMP - some organs being insta-killed doesnt really add much to the game
-#define SYNTH_EMP_HEART_DAMAGE_MAXIMUM 100
 #define SYNTH_EMP_BRAIN_DAMAGE_MAXIMUM 75
 
 // Universal stat defines
 #define SYNTH_BAD_EFFECT_DURATION 20 SECONDS
-#define SYNTH_HEART_DAMAGE_MESSAGE_INTERVAL 20 SECONDS
-#define SYNTH_BRAIN_DAMAGE_MESSAGE_INTERVAL 20 SECONDS
 #define SYNTH_DEAF_STACKS 30
 
 // Charge level defines

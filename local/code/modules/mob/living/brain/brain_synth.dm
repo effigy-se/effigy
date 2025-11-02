@@ -7,16 +7,15 @@
 	desc = "A cube of shining metal, four inches to a side and covered in shallow grooves. It has an IPC serial number engraved on the top. It is usually slotted into the chest of synthetic crewmembers."
 	icon = 'local/icons/obj/medical/organs/organs.dmi'
 	icon_state = "posibrain-ipc"
-	/// The last time (in ticks) a message about brain damage was sent. Don't touch.
-	var/last_message_time = 0
 	organ_traits = list(TRAIT_SILICON_EMOTES_ALLOWED)
 	var/obj/item/modular_computer/pda/synth/internal_computer
 	actions_types = list(/datum/action/item_action/synth/open_internal_computer)
+	/// Cooldown for sending messages about damage
+	COOLDOWN_DECLARE(damage_alert)
 
 /obj/item/organ/brain/synth/Initialize(mapload)
 	. = ..()
 	internal_computer = new(src)
-	ADD_TRAIT(src, TRAIT_SILICON_EMOTES_ALLOWED, INNATE_TRAIT)
 	AddComponent(/datum/component/bubble_icon_override, "robot", BUBBLE_ICON_PRIORITY_ORGAN)
 
 /obj/item/organ/brain/synth/Destroy()
@@ -69,12 +68,10 @@
 /obj/item/organ/brain/synth/emp_act(severity) // EMP act against the posi, keep the cap far below the organ health
 	. = ..()
 
-	if(!owner || . & EMP_PROTECT_SELF)
+	if(!owner || . & EMP_PROTECT_SELF || !COOLDOWN_FINISHED(src, severe_cooldown)) // So we can't just spam emp to kill people
 		return
 
-	if(!COOLDOWN_FINISHED(src, severe_cooldown)) //So we cant just spam emp to kill people.
-		COOLDOWN_START(src, severe_cooldown, 10 SECONDS)
-
+	COOLDOWN_START(src, severe_cooldown, 10 SECONDS)
 	switch(severity)
 		if(EMP_HEAVY)
 			to_chat(owner, span_warning("01001001 00100111 01101101 00100000 01100110 01110101 01100011 01101011 01100101 01100100 00101110"))
@@ -86,8 +83,8 @@
 /obj/item/organ/brain/synth/apply_organ_damage(damage_amount, maximum, required_organ_flag)
 	. = ..()
 
-	if(owner && damage > 0 && (world.time - last_message_time) > SYNTH_BRAIN_DAMAGE_MESSAGE_INTERVAL)
-		last_message_time = world.time
+	if(owner && damage > 0 && COOLDOWN_FINISHED(src, damage_alert))
+		COOLDOWN_START(src, damage_alert, 20 SECONDS)
 
 		if(damage > BRAIN_DAMAGE_SEVERE)
 			to_chat(owner, span_warning("Alre: re oumtnin ilir tocorr:pa ni ne:cnrrpiioruloomatt cessingode: P1_1-H"))
