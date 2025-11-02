@@ -104,6 +104,9 @@
 
 ///Returns TRUE if overdose would occur upon install(), overwise returns FALSE.
 /obj/item/disk/neuroware/proc/check_overdose(mob/living/carbon/human/target, list/reagent_list)
+	if(!can_overdose)
+		return FALSE
+
 	for(var/reagent_type as anything in reagent_list)
 		var/datum/reagent/existing_reagent = target.has_reagent(reagent_type)
 		if(!existing_reagent || existing_reagent.overdose_threshold == 0)
@@ -139,20 +142,20 @@
 			to_chat(target, span_userdanger("Something was inserted into your [NEURO_SLOT_NAME]!"))
 
 	// Prevent reagent overdose if safety is enabled
-	if(length(list_reagents) && !can_overdose && check_overdose(target, list_reagents))
+	if(length(list_reagents) && check_overdose(target, list_reagents))
 		balloon_alert(user, "overload prevented!")
 		return FALSE
 
 	// Actually perform the installation
 	if(!install(target, user))
-		return
+		return FALSE
 	target.balloon_alert_to_viewers(success_message)
 	playsound(target, 'sound/machines/pda_button/pda_button1.ogg', 50, TRUE)
 
 	// Implement side-effects from subtypes
 	after_install(target, user)
 
-	uses += -1
+	uses -= 1
 	if(!reusable && (uses == 0))
 		qdel(src)
 
