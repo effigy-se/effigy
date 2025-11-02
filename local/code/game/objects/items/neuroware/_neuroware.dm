@@ -1,11 +1,4 @@
-#define CHIP_LABEL_BISHOP "It has a <b>[span_cyan("Bishop Cybernetics, Inc.")]</b> label visible on it."
-#define CHIP_LABEL_DEFOREST "It has <b>[span_cyan("DeForest Medical Corporation")]</b> laser-etched into it."
-#define CHIP_LABEL_DONK "It has a <b>[span_green("Donk Corporation")]</b> label visible on it."
-#define CHIP_LABEL_MAINT "It has <b>[span_sans("XLR8.EXE")]</b> and <b>[span_sans("wakes you up!")]</b> drawn onto it."
-#define CHIP_LABEL_NT "It has a <b>[span_blue("Nanotrasen Systems, Inc.")]</b> label visible on it."
-#define CHIP_LABEL_SYNDIE "It has <b>[span_red("Cybersun Industries")]</b> laser-etched into it."
-#define CHIP_LABEL_WARD "It has <b>[span_yellow("Ward-Takahashi Manufacturing")]</b> laser-etched into it."
-#define CHIP_LABEL_ZENGHU "It has a <b>[span_pink("Zeng-Hu Pharmaceuticals")]</b> label visible on it."
+
 ///Neuroware chips are installed into this
 #define NEURO_SLOT_NAME "persocom chip slot"
 
@@ -42,21 +35,21 @@
 	desc += "<br>"
 	switch(manufacturer_tag)
 		if(NEUROWARE_NT)
-			desc += CHIP_LABEL_NT
+			desc += "It has a <b>[span_blue("Nanotrasen Systems, Inc.")]</b> label visible on it."
 		if(NEUROWARE_BISHOP)
-			desc += CHIP_LABEL_BISHOP
+			desc += "It has a <b>[span_cyan("Bishop Cybernetics, Inc.")]</b> label visible on it."
 		if(NEUROWARE_DEFOREST)
-			desc += CHIP_LABEL_DEFOREST
+			desc += "It has <b>[span_cyan("DeForest Medical Corporation")]</b> laser-etched into it."
 		if(NEUROWARE_DONK)
-			desc += CHIP_LABEL_DONK
+			desc += "It has a <b>[span_green("Donk Corporation")]</b> label visible on it."
 		if(NEUROWARE_MAINT)
-			desc += CHIP_LABEL_MAINT
+			desc += "It has <b>[span_sans("XLR8.EXE")]</b> and <b>[span_sans("wakes you up!")]</b> drawn onto it."
 		if(NEUROWARE_SYNDIE)
-			desc += CHIP_LABEL_SYNDIE
+			desc += "It has <b>[span_red("Cybersun Industries")]</b> laser-etched into it."
 		if(NEUROWARE_WARD)
-			desc += CHIP_LABEL_WARD
+			desc += "It has <b>[span_yellow("Ward-Takahashi Manufacturing")]</b> laser-etched into it."
 		if(NEUROWARE_ZENGHU)
-			desc += CHIP_LABEL_ZENGHU
+			desc += "It has a <b>[span_pink("Zeng-Hu Pharmaceuticals")]</b> label visible on it."
 	AddElement(/datum/element/unique_examine, \
 	desc = "A neuroware chip uploads neurocomputing programs to the user's brain. The recipient must be a synthetic humanoid. \
 		Neurocomputing software, also known as neuroware, are programs designed to execute their code within the synaptic connections of artificial neural networks.")
@@ -123,21 +116,21 @@
 ///Installs only if the mob has a synthetic brain, unless they got a nif
 /obj/item/disk/neuroware/proc/try_install(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	if(!ishuman(target))
-		return
+		return FALSE
 	if(uses == 0)
 		balloon_alert(user, "it's been used up!")
-		return
+		return FALSE
 	if(target != user)
 		target.visible_message(
 			span_danger("[user] tries to force [src] into [target]'s [NEURO_SLOT_NAME]!"),
-			span_userdanger("[user] tries to force [src] into your [NEURO_SLOT_NAME]!")
+		return FALSE
 		)
 		if(target.is_blind())
 			to_chat(target, span_userdanger("You feel something being inserted into your [NEURO_SLOT_NAME]!"))
 		if(external_delay > 0)
 			user.balloon_alert_to_viewers("inserting chip...")
 			if(!do_after(user, 5 SECONDS, target))
-				return
+				return FALSE
 		target.visible_message(
 			span_danger("[user] forces [src] into [target]'s [NEURO_SLOT_NAME]!"),
 			span_userdanger("[user] forces [src] into your [NEURO_SLOT_NAME]!")
@@ -148,7 +141,7 @@
 	// Prevent reagent overdose if safety is enabled
 	if(length(list_reagents) && !can_overdose && check_overdose(target, list_reagents))
 		balloon_alert(user, "overload prevented!")
-		return
+		return FALSE
 
 	// Actually perform the installation
 	if(!install(target, user))
@@ -178,12 +171,4 @@
 		log_combat(user, target, "added neuroware to", src, chip_reagents.get_reagent_log_string())
 	return TRUE
 
-#undef CHIP_LABEL_BISHOP
-#undef CHIP_LABEL_DEFOREST
-#undef CHIP_LABEL_DONK
-#undef CHIP_LABEL_MAINT
-#undef CHIP_LABEL_NT
-#undef CHIP_LABEL_SYNDIE
-#undef CHIP_LABEL_WARD
-#undef CHIP_LABEL_ZENGHU
 #undef NEURO_SLOT_NAME
