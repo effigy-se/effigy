@@ -104,7 +104,7 @@
 
 ///Returns TRUE if overdose would occur upon install(), overwise returns FALSE.
 /obj/item/disk/neuroware/proc/check_overdose(mob/living/carbon/human/target, list/reagent_list)
-	if(!can_overdose)
+	if(!can_overdose || !length(reagent_list))
 		return FALSE
 
 	for(var/reagent_type as anything in reagent_list)
