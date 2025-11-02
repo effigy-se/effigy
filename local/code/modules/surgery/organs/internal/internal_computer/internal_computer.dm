@@ -140,20 +140,23 @@
 	if(is_centcom_level(loc.z)) // Centcom is excluded because cafe
 		return NTNET_NO_SIGNAL
 
-/obj/item/modular_computer/pda/attack(mob/living/target_mob, mob/living/user, params)
-	var/mob/living/carbon/human/targetmachine = target_mob
-	if(!istype(targetmachine))
+/obj/item/modular_computer/pda/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	var/mob/living/carbon/human/target_machine = interacting_with
+	if(!istype(target_machine))
 		return ..()
 
-	var/obj/item/organ/brain/synth/robotbrain = targetmachine.get_organ_slot(ORGAN_SLOT_BRAIN)
-	if(istype(robotbrain))
-		if(user.zone_selected == BODY_ZONE_PRECISE_EYES)
-			balloon_alert(user, "establishing SSH login with persocom...")
-			if(do_after(user, 5 SECONDS))
-				balloon_alert(user, "connection established")
-				to_chat(targetmachine, span_notice("[user] establishes an SSH connection between [src] and your persocom emulation."))
-				robotbrain.internal_computer.interact(user)
-			return
+	var/obj/item/organ/brain/synth/robot_brain = target_machine.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(!istype(robot_brain))
+		return ..()
+
+	if(user.zone_selected == BODY_ZONE_PRECISE_EYES)
+		balloon_alert(user, "establishing SSH login with persocom...")
+		if(do_after(user, 5 SECONDS))
+			balloon_alert(user, "connection established")
+			to_chat(target_machine, span_notice("[user] establishes an SSH connection between [src] and your persocom emulation."))
+			robot_brain.internal_computer.interact(user)
+		return ITEM_INTERACT_SUCCESS
+
 	return ..()
 
 /obj/item/modular_computer/pda/synth/get_header_data()
