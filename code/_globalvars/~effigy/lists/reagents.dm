@@ -9,7 +9,7 @@ GLOBAL_LIST_INIT(name2neuroware, build_name2neurowarelist())
 	var/list/name_to_reagent = list()
 	var/list/only_names = list()
 	for (var/datum/reagent/reagent as anything in GLOB.chemical_reagents_list)
-		if(reagent.chemical_flags & REAGENT_NEUROWARE)
+		if(reagent.chemical_flags & REAGENT_NEUROWARE_PACKAGE)
 			var/name = initial(reagent.name)
 			if (length(name))
 				name_to_reagent[name] = reagent

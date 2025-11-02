@@ -66,7 +66,7 @@
 // Synth reagents
 /datum/reagent/consumable/laughter/synth
 	name = "humorlib.dll"
-	chemical_flags = REAGENT_NEUROWARE
+	chemical_flags = REAGENT_NEUROWARE_PACKAGE
 	process_flags = REAGENT_SYNTHETIC
 	self_consuming = TRUE
 	purge_multiplier = 0
@@ -75,7 +75,7 @@ NEUROWARE_METABOLIZE_HELPER(/datum/reagent/consumable/laughter/synth)
 
 /datum/reagent/consumable/superlaughter/synth
 	name = "HAHAHAHAHA.exe"
-	chemical_flags = REAGENT_NEUROWARE
+	chemical_flags = REAGENT_NEUROWARE_PACKAGE
 	process_flags = REAGENT_SYNTHETIC
 	self_consuming = TRUE
 	purge_multiplier = 0

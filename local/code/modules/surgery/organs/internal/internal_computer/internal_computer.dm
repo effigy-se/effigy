@@ -27,7 +27,7 @@
 	desc = "Accesses your built-in virtual machine."
 	check_flags = AB_CHECK_CONSCIOUS
 
-/datum/action/item_action/synth/open_internal_computer/Trigger(trigger_flags)
+/datum/action/item_action/synth/open_internal_computer/Trigger(mob/clicker, trigger_flags)
 	. = ..()
 	var/obj/item/organ/brain/synth/targetmachine = target
 	targetmachine.internal_computer.interact(owner)

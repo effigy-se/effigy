@@ -67,7 +67,7 @@
 	if(!isnull(neuro_status))
 		target.balloon_alert_to_viewers("neuroware reset")
 		for(var/datum/reagent/reagent as anything in target.reagents.reagent_list)
-			if(reagent.chemical_flags & REAGENT_NEUROWARE)
+			if(reagent.chemical_flags & REAGENT_NEUROWARE_PACKAGE)
 				target.reagents.del_reagent(reagent.type)
 
 	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/brainwashed))

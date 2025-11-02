@@ -45,7 +45,7 @@
 	if(isnull(neuro_status))
 		return
 	for(var/datum/reagent/reagent as anything in organ_owner.reagents.reagent_list)
-		if(reagent.chemical_flags & REAGENT_NEUROWARE)
+		if(reagent.chemical_flags & REAGENT_NEUROWARE_PACKAGE)
 			organ_owner.reagents.remove_reagent(reagent)
 
 // EffigyEdit TODO: combine with the proc above
