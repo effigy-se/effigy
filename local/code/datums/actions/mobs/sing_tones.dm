@@ -41,7 +41,7 @@
 	song.allowed_instrument_ids += emag_instrument_ids
 	song.set_instrument("honk")
 
-/datum/action/sing_tones/Trigger(trigger_flags)
+/datum/action/sing_tones/Trigger(mob/clicker, trigger_flags)
 	. = ..()
 	if(!.)
 		return
