@@ -6848,7 +6848,7 @@
 #include "local\code\datums\mind.dm"
 #include "local\code\datums\quirk.dm"
 #include "local\code\datums\scream_type.dm"
-#include "local\code\datums\actions\mob\sing_tones.dm"
+#include "local\code\datums\actions\mobs\sing_tones.dm"
 #include "local\code\datums\atmosphere\planetary.dm"
 #include "local\code\datums\components\chasm.dm"
 #include "local\code\datums\components\damage_tracker.dm"
