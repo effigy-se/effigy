@@ -971,6 +971,7 @@
 
 /datum/reagent/consumable/liquidelectricity/enriched
 	name = "Enriched Liquid Electricity"
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC // EffigyEdit Add - Synths
 
 /datum/reagent/consumable/liquidelectricity/enriched/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume) //can't be on life because of the way blood works.
 	. = ..()
