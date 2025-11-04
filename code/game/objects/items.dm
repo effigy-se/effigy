@@ -1259,6 +1259,18 @@
 				outline_color = COLOR_THEME_CLOCKWORK //if you want free gbp go fix the fact that clockwork's tooltip css is glass'
 			if("glass")
 				outline_color = COLOR_THEME_GLASS
+			// EffigyEdit Add - Custom UI Styles
+			if("effigy-cyan")
+				outline_color = COLOR_EFFIGY_SKY_BLUE
+			if("effigy-magenta")
+				outline_color = COLOR_EFFIGY_ELECTRIC_MAGENTA
+			if("effigy-yellow")
+				outline_color = COLOR_EFFIGY_JASMINE_YELLOW
+			if("effigy-green")
+				outline_color = COLOR_EFFIGY_SPRING_GREEN
+			if("effigy-slate")
+				outline_color = COLOR_EFFIGY_SLATE
+			// EffigyEdit Add End
 			else //this should never happen, hopefully
 				outline_color = COLOR_WHITE
 	if(color)
