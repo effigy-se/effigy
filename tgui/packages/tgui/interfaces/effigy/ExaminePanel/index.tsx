@@ -47,6 +47,15 @@ export function ExaminePanel(props) {
     headshot,
   } = data;
 
+  // This does not fix the screwy character preview problem,
+  // however, it does make it work right now. I am so sorry.
+  const [previewKey, setPreviewKey] = useState(0);
+  if (previewKey === 0 && assigned_map) {
+    setTimeout(() => {
+      setPreviewKey(1);
+    }, 200);
+  }
+
   return (
     <Window title={character_name} width={900} height={720}>
       <Window.Content>
@@ -59,6 +68,7 @@ export function ExaminePanel(props) {
                 fontSize="13px"
               >
                 <ByondUi
+                  key={previewKey}
                   height="100%"
                   width="100%"
                   className="ExaminePanel__map"
@@ -76,6 +86,7 @@ export function ExaminePanel(props) {
                   fontSize="13px"
                 >
                   <ByondUi
+                    key={previewKey}
                     height="260px"
                     width="100%"
                     className="ExaminePanel__map"
