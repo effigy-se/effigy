@@ -1,6 +1,0 @@
-author: "LT3"
-delete-after: True
-changes:
-  - bugfix: "Examine panel only shows expected profile fields"
-  - bugfix: "Tweaked various UI elements for consistency/alignment"
-  - spellcheck: "DNA Fixer text fixer'd"
