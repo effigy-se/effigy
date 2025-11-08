@@ -6913,7 +6913,7 @@
 #include "local\code\game\world.dm"
 #include "local\code\game\area\areas\mining.dm"
 #include "local\code\game\area\areas\ruins\jungle.dm"
-#include "local\code\game\area\areas\station\ai_monitored.dm"
+#include "local\code\game\area\areas\station\ai.dm"
 #include "local\code\game\area\areas\station\command.dm"
 #include "local\code\game\area\areas\station\common.dm"
 #include "local\code\game\area\areas\station\medical.dm"
