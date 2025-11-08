@@ -19,6 +19,8 @@ jobs:
         if: github.event.pull_request.draft == false
         id: CodeOwnersParser
         uses: tgstation/CodeOwnersParser@v1
+        with:
+          fileLimit: 2000
 
       #Request reviews
       - name: Request reviews

@@ -20,6 +20,7 @@
 	ph = 8.4
 	color = "#DB90C6"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC // EffigyEdit Add - Synths
 
 /datum/reagent/medicine/leporazine/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -1317,6 +1318,7 @@
 	overdose_threshold = 60
 	ph = 8.7
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC // EffigyEdit Add - Synths
 	addiction_types = list(/datum/addiction/stimulants = 4) //0.8 per 2 seconds
 	metabolized_traits = list(TRAIT_BATON_RESISTANCE, TRAIT_ANALGESIA, TRAIT_STIMULATED)
 
@@ -1412,6 +1414,7 @@
 	overdose_threshold = 30
 	ph = 11
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC // EffigyEdit Add - Synths
 
 /datum/reagent/medicine/syndicate_nanites/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
