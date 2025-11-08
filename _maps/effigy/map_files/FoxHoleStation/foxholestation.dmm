@@ -30718,7 +30718,6 @@
 /area/station/cargo/warehouse)
 "qFJ" = (
 /obj/machinery/turretid{
-	icon_state = "control_stun";
 	name = "AI Chamber turret control";
 	pixel_x = -28;
 	pixel_y = -4
@@ -43838,7 +43837,6 @@
 "xhJ" = (
 /obj/machinery/turretid{
 	control_area = "/area/station/ai/upload/chamber";
-	icon_state = "control_stun";
 	name = "AI Upload turret control";
 	pixel_x = -28
 	},

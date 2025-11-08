@@ -33924,7 +33924,6 @@
 /area/taeloth/nearstation/dormitory_concourse/crew_facilities)
 "lQl" = (
 /obj/machinery/turretid{
-	icon_state = "control_stun";
 	name = "AI Chamber turret control";
 	pixel_x = -28;
 	pixel_y = -4
@@ -66370,7 +66369,6 @@
 "wVw" = (
 /obj/machinery/turretid{
 	control_area = "/area/station/ai/upload/chamber";
-	icon_state = "control_stun";
 	name = "AI Upload Turret Control";
 	pixel_y = -24
 	},
