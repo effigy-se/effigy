@@ -53,14 +53,14 @@
 		put_in_hands(loadout_case)
 	// EffigyEdit Add End
 	// Handle any snowflake on_equips
-	var/list/new_contents = get_all_gear()
+	var/list/new_contents = get_all_gear(INCLUDE_PROSTHETICS|INCLUDE_ABSTRACT|INCLUDE_ACCESSORIES)
 	var/update = NONE
 	for(var/datum/loadout_item/item as anything in loadout_datums)
 		update |= item.on_equip_item(
 			equipped_item = locate(item.item_path) in (override_preference == LOADOUT_OVERRIDE_CASE && !visuals_only) ? loadout_case : new_contents, // EffigyEdit Change - Loadout override preference - Original: equipped_item = locate(item.item_path) in new_contents,
-			preference_source = preference_source,
-			preference_list = preference_list,
+			item_details = preference_list?[item.item_path] || list(),
 			equipper = src,
+			outfit = equipped_outfit,
 			visuals_only = visuals_only,
 		)
 	if(update)

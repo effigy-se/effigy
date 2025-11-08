@@ -21,21 +21,21 @@
 	return TRUE
 
 /// Moth antennae type
-/datum/preference/choiced/moth_antennae
+/datum/preference/choiced/species_feature/moth_antennae
 	category = PREFERENCE_CATEGORY_CLOTHING
 
-/datum/preference/choiced/moth_antennae/compile_constant_data()
+/datum/preference/choiced/species_feature/moth_antennae/compile_constant_data()
 	var/list/data = ..()
 
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/antennae_color::savefile_key
 
 	return data
 
-/datum/preference/choiced/moth_antennae/create_default_value()
+/datum/preference/choiced/species_feature/moth_antennae/create_default_value()
 	return /datum/sprite_accessory/moth_antennae/none::name
 
-/datum/preference/choiced/moth_antennae/icon_for(value)
-	var/datum/sprite_accessory/sprite_accessory = SSaccessories.moth_antennae_list[value]
+/datum/preference/choiced/species_feature/moth_antennae/icon_for(value)
+	var/datum/sprite_accessory/sprite_accessory = get_accessory_for_value(value)
 	var/static/datum/universal_icon/final_icon
 	final_icon = uni_icon('local/icons/mob/mutant/sprite_accessories/fallback.dmi', null)
 
@@ -51,7 +51,7 @@
 
 	return final_icon
 
-/datum/preference/choiced/moth_antennae/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/moth_antennae/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!(species.type in GLOB.bodypart_allowed_species[ANTENNAE]))

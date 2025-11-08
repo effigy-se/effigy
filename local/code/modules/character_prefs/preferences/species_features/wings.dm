@@ -2,12 +2,9 @@
 	///	This variable is read by the regenerate_organs() proc to know what organ subtype to give
 	var/wing_type = NO_VARIATION
 
-/datum/controller/subsystem/accessories
-	var/list/wings_list_more
-
 /datum/controller/subsystem/accessories/setup_lists()
 	. = ..()
-	wings_list_more = init_sprite_accessory_subtypes(/datum/sprite_accessory/wings_anthro)["default_sprites"] // FLAKY DEFINE: this should be using DEFAULT_SPRITE_LIST
+	feature_list["wings_anthro"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/wings_anthro)["default_sprites"] // FLAKY DEFINE: this should be using DEFAULT_SPRITE_LIST
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
@@ -67,34 +64,34 @@
 	return TRUE
 
 ///	Wings type
-/datum/preference/choiced/moth_wings/icon_for(value)
-	var/datum/sprite_accessory/moth_wings = SSaccessories.moth_wings_list[value]
+/datum/preference/choiced/species_feature/moth_wings/icon_for(value)
+	var/datum/sprite_accessory/moth_wings = get_accessory_for_value(value)
 	return generate_back_icon(moth_wings, "moth_wings")
 
-/datum/preference/choiced/wings
+/datum/preference/choiced/species_feature/wings
 	savefile_key = "feature_wings"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Wings"
+	feature_key = "wings_anthro"
 
-/datum/preference/choiced/wings/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["wings"] = value
+/datum/preference/choiced/species_feature/wings/apply_to_human(mob/living/carbon/human/target, value)
+	target.dna.features[FEATURE_WINGS] = value
 
-/datum/preference/choiced/wings/compile_constant_data()
+/datum/preference/choiced/species_feature/wings/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/wings_color::savefile_key
 	return data
 
-/datum/preference/choiced/wings/create_default_value()
+/datum/preference/choiced/species_feature/wings/create_default_value()
 	return /datum/sprite_accessory/wings_anthro/none::name
 
-/datum/preference/choiced/wings/icon_for(value)
-	var/datum/sprite_accessory/wings = SSaccessories.wings_list_more[value]
+/datum/preference/choiced/species_feature/wings/icon_for(value)
+	var/datum/sprite_accessory/wings = get_accessory_for_value(value)
 	return generate_back_icon(wings, "wings")
 
-/datum/preference/choiced/wings/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/wings/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!(species.type in GLOB.bodypart_allowed_species[WINGS]))
@@ -106,22 +103,19 @@
 
 	return FALSE
 
-/datum/preference/choiced/wings/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.wings_list_more)
-
 ///	Moth wings type
-/datum/preference/choiced/moth_wings
+/datum/preference/choiced/species_feature/moth_wings
 	category = PREFERENCE_CATEGORY_CLOTHING
 
-/datum/preference/choiced/moth_wings/compile_constant_data()
+/datum/preference/choiced/species_feature/moth_wings/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/wings_color::savefile_key
 	return data
 
-/datum/preference/choiced/moth_wings/create_default_value()
+/datum/preference/choiced/species_feature/moth_wings/create_default_value()
 	return /datum/sprite_accessory/moth_wings/none::name
 
-/datum/preference/choiced/moth_wings/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/moth_wings/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!(species.type in GLOB.bodypart_allowed_species[WINGS]))

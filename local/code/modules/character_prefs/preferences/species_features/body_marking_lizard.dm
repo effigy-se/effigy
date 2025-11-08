@@ -9,11 +9,6 @@
 	//if(value == FALSE)
 	target.dna.features["lizard_markings"] = /datum/sprite_accessory/lizard_markings/none::name
 
-/datum/preference/choiced/lizard_body_markings/compile_constant_data()
-	var/list/data = ..()
-	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/body_markings_color::savefile_key
-	return data
-
 /datum/preference/toggle/markings/create_default_value()
 	return FALSE
 
@@ -22,14 +17,19 @@
 	return FALSE
 
 /// Lizard body markings type
-/datum/preference/choiced/lizard_body_markings
+/datum/preference/choiced/species_feature/lizard_body_markings
 	category = PREFERENCE_CATEGORY_CLOTHING
 
-/datum/preference/choiced/lizard_body_markings/create_default_value()
+/datum/preference/choiced/species_feature/lizard_body_markings/compile_constant_data()
+	var/list/data = ..()
+	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/body_markings_color::savefile_key
+	return data
+
+/datum/preference/choiced/species_feature/lizard_body_markings/create_default_value()
 	return /datum/sprite_accessory/lizard_markings/none::name
 
-/datum/preference/choiced/lizard_body_markings/icon_for(value)
-	var/datum/sprite_accessory/sprite_accessory = SSaccessories.lizard_markings_list[value]
+/datum/preference/choiced/species_feature/lizard_body_markings/icon_for(value)
+	var/datum/sprite_accessory/sprite_accessory = get_accessory_for_value(value)
 	var/static/datum/universal_icon/final_icon
 	final_icon = uni_icon('local/icons/mob/mutant/sprite_accessories/fallback.dmi', null)
 
@@ -46,7 +46,7 @@
 
 	return final_icon
 
-/datum/preference/choiced/lizard_body_markings/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/lizard_body_markings/is_accessible(datum/preferences/preferences)
 	. = ..()
 	/*
 	var/has_markings = preferences.read_preference(/datum/preference/toggle/markings)

@@ -14,7 +14,7 @@
 	feature_key = "tail_other"
 
 /datum/bodypart_overlay/mutant/tail/mammal/get_global_feature_list()
-	return SSaccessories.tails_list_mammal
+	return SSaccessories.feature_list["tail_mammal"]
 
 /// Dog tail
 /obj/item/organ/tail/dog
@@ -26,7 +26,7 @@
 	feature_key = "tail_other"
 
 /datum/bodypart_overlay/mutant/tail/dog/get_global_feature_list()
-	return SSaccessories.tails_list_dog
+	return SSaccessories.feature_list["tail_dog"]
 
 /// Fox tail
 /obj/item/organ/tail/fox
@@ -38,7 +38,7 @@
 	feature_key = "tail_other"
 
 /datum/bodypart_overlay/mutant/tail/fox/get_global_feature_list()
-	return SSaccessories.tails_list_fox
+	return SSaccessories.feature_list["tail_fox"]
 
 /// Flying tail
 /obj/item/organ/tail/flying
@@ -49,7 +49,7 @@
 	feature_key = "tail_other"
 
 /datum/bodypart_overlay/mutant/tail/flying/get_global_feature_list()
-	return SSaccessories.tails_list_flying
+	return SSaccessories.feature_list["tail_flying"]
 
 /// Fish tail
 /obj/item/organ/tail/fish
@@ -65,7 +65,7 @@
 	feature_key = "tail_other"
 
 /datum/bodypart_overlay/mutant/tail/cybernetic/get_global_feature_list()
-	return SSaccessories.tails_list_synth
+	return SSaccessories.feature_list["tail_synthetic"]
 
 /// Humanoid tail
 /obj/item/organ/tail/humanoid
@@ -77,4 +77,4 @@
 	feature_key = "tail_other"
 
 /datum/bodypart_overlay/mutant/tail/humanoid/get_global_feature_list()
-	return SSaccessories.tails_list_humanoid
+	return SSaccessories.feature_list["tail_humanoid"]

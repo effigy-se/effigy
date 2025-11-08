@@ -2,22 +2,14 @@
 	///	This variable is read by the regenerate_organs() proc to know what organ subtype to give
 	var/tail_type = NO_VARIATION
 
-/datum/controller/subsystem/accessories
-	var/list/tails_list_dog
-	var/list/tails_list_fox
-	var/list/tails_list_flying
-	var/list/tails_list_mammal
-	var/list/tails_list_synth
-	var/list/tails_list_humanoid
-
 /datum/controller/subsystem/accessories/setup_lists()
 	. = ..()
-	tails_list_dog = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/dog)["default_sprites"]
-	tails_list_fox = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/fox)["default_sprites"]
-	tails_list_flying = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/flying)["default_sprites"]
-	tails_list_mammal = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/mammal)["default_sprites"]
-	tails_list_synth = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/cybernetic)["default_sprites"]
-	tails_list_humanoid = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/humanoid)["default_sprites"]
+	feature_list["tail_dog"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/dog)["default_sprites"]
+	feature_list["tail_fox"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/fox)["default_sprites"]
+	feature_list["tail_flying"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/flying)["default_sprites"]
+	feature_list["tail_mammal"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/mammal)["default_sprites"]
+	feature_list["tail_synthetic"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/cybernetic)["default_sprites"]
+	feature_list["tail_humanoid"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/humanoid)["default_sprites"]
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
@@ -112,28 +104,26 @@
 	return TRUE
 
 ///	Lizard tail type
-/datum/preference/choiced/lizard_tail // override from TG default
+/datum/preference/choiced/species_feature/lizard_tail // override from TG default
 	category = PREFERENCE_CATEGORY_CLOTHING
 	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_LIZARD
 
-/datum/preference/choiced/lizard_tail/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["tail_lizard"] = value
-
-/datum/preference/choiced/lizard_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/lizard_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/lizard_tail/create_default_value()
+/datum/preference/choiced/species_feature/lizard_tail/create_default_value()
 	return /datum/sprite_accessory/tails/lizard/none::name
 
-/datum/preference/choiced/lizard_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_lizard[value]
+/datum/preference/choiced/species_feature/lizard_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
-/datum/preference/choiced/lizard_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/lizard_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
@@ -145,28 +135,26 @@
 	return FALSE
 
 ///	Cat tail type
-/datum/preference/choiced/tail_felinid
+/datum/preference/choiced/species_feature/tail_felinid
 	category = PREFERENCE_CATEGORY_CLOTHING
 	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_CAT
 
-/datum/preference/choiced/tail_felinid/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["tail_cat"] = value
-
-/datum/preference/choiced/tail_felinid/compile_constant_data()
+/datum/preference/choiced/species_feature/tail_felinid/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/tail_felinid/create_default_value()
+/datum/preference/choiced/species_feature/tail_felinid/create_default_value()
 	return /datum/sprite_accessory/tails/felinid/none::name
 
-/datum/preference/choiced/tail_felinid/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_felinid[value]
+/datum/preference/choiced/species_feature/tail_felinid/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
-/datum/preference/choiced/tail_felinid/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/tail_felinid/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(species.type in GLOB.bodypart_allowed_species[TAIL])
@@ -177,34 +165,31 @@
 	return FALSE
 
 ///	Dog tail type
-/datum/preference/choiced/dog_tail
+/datum/preference/choiced/species_feature/dog_tail
 	savefile_key = "feature_dog_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = "tail_dog"
 
-/datum/preference/choiced/dog_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/dog_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == DOG_TYPE)	// we will be sharing the 'tail_other' slot with multiple tail types
 		target.dna.features["tail_other"] = value
 
-/datum/preference/choiced/dog_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/dog_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/dog_tail/create_default_value()
+/datum/preference/choiced/species_feature/dog_tail/create_default_value()
 	return /datum/sprite_accessory/tails/dog/none::name
 
-/datum/preference/choiced/dog_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_dog[value]
+/datum/preference/choiced/species_feature/dog_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
-/datum/preference/choiced/dog_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_dog)
-
-/datum/preference/choiced/dog_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/dog_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
@@ -217,34 +202,31 @@
 	return FALSE
 
 ///	Fox tail type
-/datum/preference/choiced/fox_tail
+/datum/preference/choiced/species_feature/fox_tail
 	savefile_key = "feature_fox_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = "tail_fox"
 
-/datum/preference/choiced/fox_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/fox_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == FOX_TYPE)
 		target.dna.features["tail_other"] = value
 
-/datum/preference/choiced/fox_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/fox_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/fox_tail/create_default_value()
+/datum/preference/choiced/species_feature/fox_tail/create_default_value()
 	return /datum/sprite_accessory/tails/fox/none::name
 
-/datum/preference/choiced/fox_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_fox[value]
+/datum/preference/choiced/species_feature/fox_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
-/datum/preference/choiced/fox_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_fox)
-
-/datum/preference/choiced/fox_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/fox_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
@@ -257,34 +239,31 @@
 	return FALSE
 
 ///	Mammal tail type
-/datum/preference/choiced/mammal_tail
+/datum/preference/choiced/species_feature/mammal_tail
 	savefile_key = "feature_mammal_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = "tail_mammal"
 
-/datum/preference/choiced/mammal_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/mammal_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == MAMMAL_TYPE)
 		target.dna.features["tail_other"] = value
 
-/datum/preference/choiced/mammal_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/mammal_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/mammal_tail/create_default_value()
+/datum/preference/choiced/species_feature/mammal_tail/create_default_value()
 	return /datum/sprite_accessory/tails/mammal/none::name
 
-/datum/preference/choiced/mammal_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_mammal[value]
+/datum/preference/choiced/species_feature/mammal_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
-/datum/preference/choiced/mammal_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_mammal)
-
-/datum/preference/choiced/mammal_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/mammal_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
@@ -297,34 +276,31 @@
 	return FALSE
 
 ///	Flying tail type
-/datum/preference/choiced/flying_tail
+/datum/preference/choiced/species_feature/flying_tail
 	savefile_key = "feature_flying_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = "tail_flying"
 
-/datum/preference/choiced/flying_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/flying_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == FLYING_TYPE)
 		target.dna.features["tail_other"] = value
 
-/datum/preference/choiced/flying_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/flying_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/flying_tail/create_default_value()
+/datum/preference/choiced/species_feature/flying_tail/create_default_value()
 	return /datum/sprite_accessory/tails/flying/none::name
 
-/datum/preference/choiced/flying_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_flying[value]
+/datum/preference/choiced/species_feature/flying_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
-/datum/preference/choiced/flying_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_flying)
-
-/datum/preference/choiced/flying_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/flying_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
@@ -337,28 +313,26 @@
 	return FALSE
 
 ///	Monkey tail type
-/datum/preference/choiced/monkey_tail
+/datum/preference/choiced/species_feature/monkey_tail
 	category = PREFERENCE_CATEGORY_CLOTHING
 	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_MONKEY
 
-/datum/preference/choiced/monkey_tail/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["tail_monkey"] = value
-
-/datum/preference/choiced/monkey_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/monkey_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/monkey_tail/create_default_value()
+/datum/preference/choiced/species_feature/monkey_tail/create_default_value()
 	return /datum/sprite_accessory/tails/monkey/none::name
 
-/datum/preference/choiced/monkey_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_monkey[value]
+/datum/preference/choiced/species_feature/monkey_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
-/datum/preference/choiced/monkey_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/monkey_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
@@ -371,34 +345,31 @@
 	return FALSE
 
 ///	Aquatic tail type
-/datum/preference/choiced/fish_tail
+/datum/preference/choiced/species_feature/fish_tail
 	savefile_key = "feature_fish_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_FISH
 
-/datum/preference/choiced/fish_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/fish_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == AQUATIC_TYPE)
-		target.dna.features["fish_tail"] = value
+		target.dna.features[FEATURE_TAIL_FISH] = value
 
-/datum/preference/choiced/fish_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/fish_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/fish_tail/create_default_value()
+/datum/preference/choiced/species_feature/fish_tail/create_default_value()
 	return /datum/sprite_accessory/tails/fish/none::name
 
-/datum/preference/choiced/fish_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_fish[value]
+/datum/preference/choiced/species_feature/fish_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
-/datum/preference/choiced/fish_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_fish)
-
-/datum/preference/choiced/fish_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/fish_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
@@ -411,34 +382,31 @@
 	return FALSE
 
 ///	Synth tail type
-/datum/preference/choiced/synth_tail
+/datum/preference/choiced/species_feature/synth_tail
 	savefile_key = "feature_synth_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = "tail_synthetic"
 
-/datum/preference/choiced/synth_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/synth_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == CYBERNETIC_TYPE)
 		target.dna.features["tail_other"] = value
 
-/datum/preference/choiced/synth_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/synth_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/synth_tail/create_default_value()
+/datum/preference/choiced/species_feature/synth_tail/create_default_value()
 	return /datum/sprite_accessory/tails/cybernetic/none::name
 
-/datum/preference/choiced/synth_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_synth[value]
+/datum/preference/choiced/species_feature/synth_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
-/datum/preference/choiced/synth_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_synth)
-
-/datum/preference/choiced/synth_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/synth_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
@@ -451,34 +419,31 @@
 	return FALSE
 
 ///	Humanoid tail type
-/datum/preference/choiced/humanoid_tail
+/datum/preference/choiced/species_feature/humanoid_tail
 	savefile_key = "feature_humanoid_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = "tail_humanoid"
 
-/datum/preference/choiced/humanoid_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/humanoid_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == HUMANOID_TYPE)
 		target.dna.features["tail_other"] = value
 
-/datum/preference/choiced/humanoid_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/humanoid_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/humanoid_tail/create_default_value()
+/datum/preference/choiced/species_feature/humanoid_tail/create_default_value()
 	return /datum/sprite_accessory/tails/humanoid/none::name
 
-/datum/preference/choiced/humanoid_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_humanoid[value]
+/datum/preference/choiced/species_feature/humanoid_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
-/datum/preference/choiced/humanoid_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_humanoid)
-
-/datum/preference/choiced/humanoid_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/humanoid_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))

@@ -328,7 +328,7 @@ There are several things that need to be remembered:
 
 		var/mutable_appearance/neck_overlay = worn_item.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = icon_file, humie = src) // EffigyEdit Change - Character Preferences - Original: worn_item.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = icon_file)
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
-		my_chest?.worn_belt_offset?.apply_offset(neck_overlay)
+		my_chest?.worn_neck_offset?.apply_offset(neck_overlay)
 		overlays_standing[NECK_LAYER] = neck_overlay
 
 	apply_overlay(NECK_LAYER)
@@ -950,6 +950,141 @@ generate/load female uniform sprites matching all previously decided variables
 					observers = null
 					break
 
+/mob/living/carbon/human/update_body(is_creating = FALSE)
+	update_eyes()
+	update_underwear()
+	return ..()
+
+/mob/living/carbon/human/proc/update_underwear()
+	remove_overlay(BODY_LAYER)
+	if(HAS_TRAIT(src, TRAIT_HUSK) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN))
+		return
+	// Underwear, Undershirts & Socks
+	var/list/standing = list()
+	/* EffigyEdit Change - Character Preferences
+	if(underwear)
+		var/datum/sprite_accessory/underwear/undie_accessory = SSaccessories.underwear_list[underwear]
+		var/mutable_appearance/underwear_overlay
+		if(undie_accessory)
+			if(dna.species.sexes && physique == FEMALE && (undie_accessory.gender == MALE))
+				underwear_overlay = mutable_appearance(wear_female_version(undie_accessory.icon_state, undie_accessory.icon, FEMALE_UNIFORM_FULL), layer = -BODY_LAYER)
+			else
+				underwear_overlay = mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, -BODY_LAYER)
+			if(!undie_accessory.use_static)
+				underwear_overlay.color = underwear_color
+			standing += underwear_overlay
+	*/
+	if(underwear && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES))
+		var/datum/sprite_accessory/underwear/underwear_accessory = SSaccessories.underwear_list[underwear]
+		var/mutable_appearance/underwear_overlay
+		var/female_sprite_flags = FEMALE_UNIFORM_FULL // the default gender shaping
+		if(underwear_accessory)
+			var/underwear_icon_state = underwear_accessory.icon_state
+			if(underwear_accessory.has_digitigrade && (bodyshape & BODYSHAPE_DIGITIGRADE))
+				underwear_icon_state += "_d"
+				female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY // for digi gender shaping
+			if(dna.species.sexes && physique == FEMALE && underwear_accessory.gender == MALE)
+				underwear_overlay = mutable_appearance(wear_female_version(underwear_icon_state, underwear_accessory.icon, female_sprite_flags), layer = -UNDERWEAR_UNDERSHIRT)
+			else
+				underwear_overlay = mutable_appearance(underwear_accessory.icon, underwear_icon_state, -UNDERWEAR_UNDERSHIRT)
+			if(!underwear_accessory.use_static)
+				underwear_overlay.color = underwear_color
+			standing += underwear_overlay
+	// EffigyEdit Change End
+
+	// EffigyEdit Addition - Character Preferences
+	if(bra && !(underwear_visibility & UNDERWEAR_HIDE_BRA))
+		var/datum/sprite_accessory/bra/bra_accessory = SSaccessories.bra_list[bra]
+		if(bra_accessory)
+			var/mutable_appearance/bra_overlay
+			var/bra_icon_state = bra_accessory.icon_state
+			bra_overlay = mutable_appearance(bra_accessory.icon, bra_icon_state, -BRA_SOCKS_LAYER)
+			if(!bra_accessory.use_static)
+				bra_overlay.color = bra_color
+			standing += bra_overlay
+	// EffigyEdit Addition End
+
+	/* EffigyEdit Change - Character Preferences
+	if(undershirt)
+		var/datum/sprite_accessory/undershirt/undie_accessory = SSaccessories.undershirt_list[undershirt]
+		if(undie_accessory)
+			var/mutable_appearance/working_shirt
+			if(dna.species.sexes && physique == FEMALE)
+				working_shirt = mutable_appearance(wear_female_version(undie_accessory.icon_state, undie_accessory.icon), layer = -BODY_LAYER)
+			else
+				working_shirt = mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, layer = -BODY_LAYER)
+			standing += working_shirt
+	*/
+	if(undershirt && !(underwear_visibility & UNDERWEAR_HIDE_SHIRT))
+		var/datum/sprite_accessory/undershirt/undershirt_accessory = SSaccessories.undershirt_list[undershirt]
+		if(undershirt_accessory)
+			var/mutable_appearance/undershirt_overlay
+			if(dna.species.sexes && physique == FEMALE)
+				undershirt_overlay = mutable_appearance(wear_female_version(undershirt_accessory.icon_state, undershirt_accessory.icon), layer = -UNDERWEAR_UNDERSHIRT)
+			else
+				undershirt_overlay = mutable_appearance(undershirt_accessory.icon, undershirt_accessory.icon_state, layer = -UNDERWEAR_UNDERSHIRT)
+			if(!undershirt_accessory.use_static)
+				undershirt_overlay.color = undershirt_color
+			standing += undershirt_overlay
+	// EffigyEdit Change End
+
+	/* EffigyEdit Change - Character Preferences
+	if(socks && num_legs >= 2 && !(bodyshape & BODYSHAPE_DIGITIGRADE))
+		var/datum/sprite_accessory/socks/undie_accessory = SSaccessories.socks_list[socks]
+		if(undie_accessory)
+			standing += mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, -BODY_LAYER)
+	*/
+	if(socks && !(underwear_visibility & UNDERWEAR_HIDE_SOCKS))
+		var/datum/sprite_accessory/socks/socks_accessory = SSaccessories.socks_list[socks]
+		if(socks_accessory)
+			var/mutable_appearance/socks_overlay
+			var/socks_icon_state = socks_accessory.icon_state
+			if(bodyshape & BODYSHAPE_DIGITIGRADE)
+				socks_icon_state += "_d"
+			socks_overlay = mutable_appearance(socks_accessory.icon, socks_icon_state, -BRA_SOCKS_LAYER)
+			if(!socks_accessory.use_static)
+				socks_overlay.color = socks_color
+			standing += socks_overlay
+	// EffigyEdit Change End
+
+	if(standing.len)
+		overlays_standing[BODY_LAYER] = standing
+
+	apply_overlay(BODY_LAYER)
+
+/mob/living/carbon/human/proc/update_eyes()
+	remove_overlay(EYES_LAYER)
+	if(HAS_TRAIT(src, TRAIT_HUSK) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN))
+		return
+	var/obj/item/bodypart/head/noggin = get_bodypart(BODY_ZONE_HEAD)
+	if(!(noggin?.head_flags & HEAD_EYESPRITES))
+		return
+	// eyes (missing eye sprites get handled by the head itself, but sadly we have to do this stupid shit here, for now)
+	var/obj/item/organ/eyes/eye_organ = get_organ_slot(ORGAN_SLOT_EYES)
+	if(eye_organ)
+		eye_organ.refresh(call_update = FALSE)
+		overlays_standing[EYES_LAYER] = eye_organ.generate_body_overlay(src)
+		apply_overlay(EYES_LAYER)
+
+/// Updates face (as of now, only eye) offsets
+/mob/living/carbon/human/update_face_offset()
+	var/list/eye_overlays = overlays_standing[EYES_LAYER]
+
+	if(HAS_TRAIT(src, TRAIT_INVISIBLE_MAN) || HAS_TRAIT(src, TRAIT_HUSK) || !length(eye_overlays))
+		return
+
+	remove_overlay(EYES_LAYER)
+
+	var/obj/item/bodypart/head/noggin = get_bodypart(BODY_ZONE_HEAD)
+	for (var/mutable_appearance/overlay as anything in eye_overlays)
+		overlay.pixel_w = 0
+		overlay.pixel_z = 0
+		noggin.worn_face_offset.apply_offset(overlay)
+
+	overlays_standing[EYES_LAYER] = eye_overlays
+	apply_overlay(EYES_LAYER)
+
+
 // Only renders the head of the human
 /mob/living/carbon/human/proc/update_body_parts_head_only(update_limb_data)
 	if(!dna?.species)
@@ -998,7 +1133,7 @@ generate/load female uniform sprites matching all previously decided variables
 	// hardcoding this here until bodypart updating is more sane
 	// we need to update clothing items that may have been affected by bodyshape updates
 	if(check_shapes & BODYSHAPE_DIGITIGRADE)
-		for(var/obj/item/thing as anything in get_equipped_items())
+		for(var/obj/item/thing as anything in get_equipped_items(INCLUDE_PROSTHETICS|INCLUDE_ABSTRACT))
 			if(thing.slot_flags & ignore_slots)
 				continue
 			if(thing.supports_variations_flags & DIGITIGRADE_VARIATIONS)

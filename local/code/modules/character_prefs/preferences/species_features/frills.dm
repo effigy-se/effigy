@@ -29,7 +29,7 @@
 
 /datum/preference/toggle/frills/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == FALSE)
-		target.dna.features["frills"] = /datum/sprite_accessory/frills/none::name
+		target.dna.features[FEATURE_FRILLS] = /datum/sprite_accessory/frills/none::name
 
 /datum/preference/toggle/frills/create_default_value()
 	return FALSE
@@ -43,21 +43,22 @@
 	return TRUE
 
 /// Frills type
-/datum/preference/choiced/lizard_frills
+/datum/preference/choiced/species_feature/lizard_frills
 	category = PREFERENCE_CATEGORY_CLOTHING
 
-/datum/preference/choiced/lizard_frills/compile_constant_data()
+/datum/preference/choiced/species_feature/lizard_frills/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/frills_color::savefile_key
 	return data
 
-/datum/preference/choiced/lizard_frills/create_default_value()
+/datum/preference/choiced/species_feature/lizard_frills/create_default_value()
 	return /datum/sprite_accessory/frills/none::name
 
-/datum/preference/choiced/lizard_frills/icon_for(value)
-	return generate_side_icon(SSaccessories.frills_list[value], "frills")
+/datum/preference/choiced/species_feature/lizard_frills/icon_for(value)
+	var/datum/sprite_accessory/chosen_frills = get_accessory_for_value(value)
+	return generate_side_icon(chosen_frills, FEATURE_FRILLS)
 
-/datum/preference/choiced/lizard_frills/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/lizard_frills/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!(species.type in GLOB.bodypart_allowed_species[FRILLS]))
@@ -93,8 +94,8 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target.dna.features["frills"] && (type in GLOB.bodypart_allowed_species[FRILLS]))
-		if(target.dna.features["frills"] != /datum/sprite_accessory/frills/none::name && target.dna.features["frills"] != /datum/sprite_accessory/blank::name)
+	if(target.dna.features[FEATURE_FRILLS] && (type in GLOB.bodypart_allowed_species[FRILLS]))
+		if(target.dna.features[FEATURE_FRILLS] != /datum/sprite_accessory/frills/none::name && target.dna.features[FEATURE_FRILLS] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/frills)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .
