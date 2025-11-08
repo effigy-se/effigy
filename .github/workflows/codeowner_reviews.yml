@@ -26,4 +26,5 @@ jobs:
         uses: tgstation/RequestReviewFromUser@v1
         with:
           separator: " "
+          fileLimit: 2000
           users: ${{ steps.CodeOwnersParser.outputs.owners }}
