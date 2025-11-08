@@ -23,8 +23,9 @@
 
 // Cargo Export Datum //
 
-/datum/export/scrap
-	unit_name = "scrap"
+// This is non-functional and fails CI
+///datum/export/scrap
+//	unit_name = "scrap"
 
 /datum/export/stack/get_amount(obj/O)
 	var/obj/item/scrap/S = O
