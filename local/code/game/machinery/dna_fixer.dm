@@ -45,7 +45,7 @@
 	. += "With the power of modern neurological scanning and synthflesh cosmetic surgery, the Veymed Corporation \
 		has teamed up with Nanotrasen Human Resources (and elsewise)  to bring you the DNA Fixer! \
 		Ever revived a patient and had them file a malpractice lawsuit because their head got attached to the wrong body? \
-		Just slap 'em in the SAD and turn it on! Their frown will turn upside down as they're reconstituted as their ideal self \
+		Just slap 'em in the DNA Fixer and turn it on! Their frown will turn upside down as they're reconstituted as their ideal self \
 		via the magic technology of brain scanning! Within a few short moments, they'll be popped out as their ideal self, \
 		ready to continue on with their day lawsuit-free!"
 
@@ -173,7 +173,7 @@
 	update_appearance()
 
 	// defaults to rejecting it unless specified otherwise
-	if(tgui_alert(occupant, "The SAD you are within is about to rejuvenate you, resetting your body to its default state (in character preferences). Do you consent?", "Rejuvenate", list("Yes", "No"), timeout = 10 SECONDS) == "Yes")
+	if(tgui_alert(occupant, "The DNA Fixer is about to reset your body to its default state (in character preferences). Do you consent?", "A New (Old) You", list("Yes", "No"), timeout = 10 SECONDS) == "Yes")
 		player_consent = CONSENT_GRANTED
 		say("Starting procedure! Baking for a cycle time of [DisplayTimeText(processing_time)] at laser power [display_power(active_power_usage)].")
 		to_chat(occupant, span_warning("This will take [DisplayTimeText(processing_time)] to complete. To cancel the procedure, hit the RESIST button or hotkey."))
@@ -235,7 +235,7 @@
 
 	open_machine()
 
-/// The player can break out of the SAD if they've changed their mind about using it.
+/// The player can break out of the DNA Fixer if they've changed their mind about using it.
 /obj/machinery/dna_fixer/container_resist_act(mob/living/user)
 	if(state_open)
 		return

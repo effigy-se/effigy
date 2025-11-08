@@ -1,54 +1,50 @@
-/datum/examine_panel
-	/// Mob that the examine panel belongs to
-	var/mob/living/holder
-	/// The screen containing the appearance of the mob
-	var/atom/movable/screen/map_view/examine_panel_screen
-
-/datum/examine_panel/New(mob/holder_mob)
-	holder = holder_mob
-
-/datum/examine_panel/Destroy(force)
-	SStgui.close_uis(src)
-	holder = null
-	qdel(examine_panel_screen)
-	return ..()
-
-/datum/examine_panel/ui_state(mob/user)
-	return GLOB.always_state
-
-/datum/examine_panel/ui_close(mob/user)
-	examine_panel_screen.hide_from(user)
-
-/atom/movable/screen/map_view/examine_panel_screen
-	name = "examine panel screen"
-
-/datum/examine_panel/ui_interact(mob/user, datum/tgui/ui)
-	if(!examine_panel_screen)
-		examine_panel_screen = new
-		examine_panel_screen.name = "screen"
-		examine_panel_screen.assigned_map = "examine_panel_[REF(holder)]_map"
-		examine_panel_screen.del_on_map_removal = FALSE
-		examine_panel_screen.screen_loc = "[examine_panel_screen.assigned_map]:1,1"
-
-	var/mutable_appearance/current_mob_appearance = new(holder)
+/atom/movable/screen/map_view/examine_panel_screen/proc/update_character(mob/target)
+	var/mutable_appearance/current_mob_appearance = new(target.appearance)
 	current_mob_appearance.setDir(SOUTH)
 	current_mob_appearance.transform = matrix() // We reset their rotation, in case they're lying down.
 
 	// In case they're pixel-shifted, we bring 'em back!
 	current_mob_appearance.pixel_x = 0
 	current_mob_appearance.pixel_y = 0
+	cut_overlays()
+	add_overlay(current_mob_appearance)
 
-	examine_panel_screen.cut_overlays()
-	examine_panel_screen.add_overlay(current_mob_appearance)
+/datum/examine_panel
+	/// Mob that the examine panel belongs to
+	var/mob/living/holder
+	/// Lazy assoc list of viewers to screens
+	var/list/viewer_screens
+
+/datum/examine_panel/ui_state(mob/user)
+	return GLOB.always_state
+
+/datum/examine_panel/ui_close(mob/user)
+	var/viewer_screen = LAZYACCESS(viewer_screens, user)
+	LAZYREMOVE(viewer_screens, user)
+	qdel(viewer_screen)
+
+/datum/examine_panel/Destroy(force)
+	holder = null
+	QDEL_LIST_ASSOC_VAL(viewer_screens)
+	. = ..()
+
+/datum/examine_panel/ui_interact(mob/user, datum/tgui/ui)
+	var/atom/movable/screen/map_view/examine_panel_screen/viewer_screen = LAZYACCESS(viewer_screens, user)
+	if(isnull(viewer_screen))
+		viewer_screen = new
+		viewer_screen.generate_view("examine_panel_[REF(holder)]_[REF(user)]_map")
+		viewer_screen.update_character(holder)
+		LAZYSET(viewer_screens, user, viewer_screen)
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ExaminePanel")
 		ui.open()
-		examine_panel_screen.display_to(user, ui.window)
+		viewer_screen.display_to(user, ui.window)
 
 /datum/examine_panel/ui_data(mob/user)
-	var/list/data = list()
+	. = ..()
+	var/list/data = .
 
 	var/datum/preferences/preferences = holder.client?.prefs
 
@@ -104,9 +100,11 @@
 			else
 				custom_species_lore = holder_human.dna.features["custom_species_lore"]
 
+	var/atom/movable/screen/map_view/examine_panel_screen/viewer_screen = LAZYACCESS(viewer_screens, user)
+
 	data["obscured"] = obscured ? TRUE : FALSE
 	data["character_name"] = name
-	data["assigned_map"] = examine_panel_screen.assigned_map
+	data["assigned_map"] = viewer_screen?.assigned_map
 	data["flavour_text"] = flavour_text
 	data["ooc_notes"] = ooc_notes
 	data["custom_species"] = custom_species

@@ -135,6 +135,6 @@
 /mob/living/carbon/human/proc/check_organ_damage(obj/item/organ/organ_to_check)
 	var/obj/item/organ/organ_to_track = get_organ_by_type(organ_to_check)
 	if(!organ_to_track)
-		return 100 //If the organ is missing, return max damage. we have this here so that if the SAD replaces an organ, it's broken.
+		return 100 //If the organ is missing, return max damage. we have this here so that if the DNA Fixer replaces an organ, it's broken.
 
 	return organ_to_track.damage
