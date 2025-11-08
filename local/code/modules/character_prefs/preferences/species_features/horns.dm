@@ -71,7 +71,7 @@
 
 /datum/preference/toggle/horns/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == FALSE)
-		target.dna.features["horns"] = /datum/sprite_accessory/horns/none::name
+		target.dna.features[FEATURE_HORNS] = /datum/sprite_accessory/horns/none::name
 
 /datum/preference/toggle/horns/create_default_value()
 	return FALSE
@@ -86,8 +86,8 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target.dna.features["horns"] && (type in GLOB.bodypart_allowed_species[HORNS]))
-		if(target.dna.features["horns"] != /datum/sprite_accessory/horns/none::name && target.dna.features["horns"] != /datum/sprite_accessory/blank::name)
+	if(target.dna.features[FEATURE_HORNS] && (type in GLOB.bodypart_allowed_species[HORNS]))
+		if(target.dna.features[FEATURE_HORNS] != /datum/sprite_accessory/horns/none::name && target.dna.features[FEATURE_HORNS] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/horns)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .
@@ -97,21 +97,22 @@
 		old_part.moveToNullspace()
 
 /// Horn type
-/datum/preference/choiced/lizard_horns
+/datum/preference/choiced/species_feature/lizard_horns
 	category = PREFERENCE_CATEGORY_CLOTHING
 
-/datum/preference/choiced/lizard_horns/compile_constant_data()
+/datum/preference/choiced/species_feature/lizard_horns/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/horns_color::savefile_key
 	return data
 
-/datum/preference/choiced/lizard_horns/create_default_value()
+/datum/preference/choiced/species_feature/lizard_horns/create_default_value()
 	return /datum/sprite_accessory/horns/none::name
 
-/datum/preference/choiced/lizard_horns/icon_for(value)
-	return generate_side_icon(SSaccessories.horns_list[value], "horns")
+/datum/preference/choiced/species_feature/lizard_horns/icon_for(value)
+	var/datum/sprite_accessory/chosen_horns = get_accessory_for_value(value)
+	return generate_side_icon(chosen_horns, FEATURE_HORNS)
 
-/datum/preference/choiced/lizard_horns/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/lizard_horns/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!(species.type in GLOB.bodypart_allowed_species[HORNS]))

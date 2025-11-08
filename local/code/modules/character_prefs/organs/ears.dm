@@ -1,23 +1,19 @@
 /// Cat ears
 /obj/item/organ/ears/cat
-	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/cat_ears
-
-/datum/bodypart_overlay/mutant/ears/cat_ears/get_global_feature_list()
-	return SSaccessories.ears_list
-
+	bodypart_overlay = /datum/bodypart_overlay/mutant/ears
 /// Lizard ears
 /obj/item/organ/ears/lizard
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/lizard_ears
 
 /datum/bodypart_overlay/mutant/ears/lizard_ears/get_global_feature_list()
-	return SSaccessories.ears_list_lizard
+	return SSaccessories.feature_list["ears_lizard"]
 
 /// Fox ears
 /obj/item/organ/ears/fox
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/fox_ears
 
 /datum/bodypart_overlay/mutant/ears/fox_ears/get_global_feature_list()
-	return SSaccessories.ears_list_fox
+	return SSaccessories.feature_list["ears_fox"]
 
 /// Dog ears
 /obj/item/organ/ears/dog
@@ -25,7 +21,7 @@
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 /datum/bodypart_overlay/mutant/ears/dog_ears/get_global_feature_list()
-	return SSaccessories.ears_list_dog
+	return SSaccessories.feature_list["ears_dog"]
 
 /// Flying ears
 /obj/item/organ/ears/flying
@@ -33,7 +29,7 @@
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 /datum/bodypart_overlay/mutant/ears/flying_ears/get_global_feature_list()
-	return SSaccessories.ears_list_flying
+	return SSaccessories.feature_list["ears_flying"]
 
 /// Mammal ears
 /obj/item/organ/ears/mammal
@@ -41,7 +37,7 @@
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 /datum/bodypart_overlay/mutant/ears/mammal_ears/get_global_feature_list()
-	return SSaccessories.ears_list_mammal
+	return SSaccessories.feature_list["ears_mammal"]
 
 /// Monkey ears
 /obj/item/organ/ears/monkey
@@ -49,7 +45,7 @@
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 /datum/bodypart_overlay/mutant/ears/monkey_ears/get_global_feature_list()
-	return SSaccessories.ears_list_monkey
+	return SSaccessories.feature_list["ears_monkey"]
 
 /// Aquatic ears
 /obj/item/organ/ears/fish
@@ -57,7 +53,7 @@
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 /datum/bodypart_overlay/mutant/ears/fish_ears/get_global_feature_list()
-	return SSaccessories.ears_list_fish
+	return SSaccessories.feature_list["ears_fish"]
 
 /// Humanoid ears
 /obj/item/organ/ears/humanoid
@@ -65,11 +61,11 @@
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 /datum/bodypart_overlay/mutant/ears/humanoid_ears/get_global_feature_list()
-	return SSaccessories.ears_list_humanoid
+	return SSaccessories.feature_list["ears_humanoid"]
 
 /// Synth ears
 /obj/item/organ/ears/cybernetic
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/cybernetic
 
 /datum/bodypart_overlay/mutant/ears/cybernetic/get_global_feature_list()
-	return SSaccessories.ears_list_synthetic
+	return SSaccessories.feature_list["ears_synthetic"]

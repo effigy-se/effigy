@@ -66,7 +66,9 @@
 
 /obj/machinery/solarlight/proc/update_camera_chunk()
 	var/turf/our_turf = get_turf(src)
-	GLOB.cameranet.updateChunk(our_turf.x, our_turf.y, our_turf.z)
+	var/datum/camerachunk/chunk = SScameras.generate_chunk(our_turf.x, our_turf.y, our_turf.z)
+	chunk.force_update(TRUE)
+
 
 /obj/machinery/solarlight/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()

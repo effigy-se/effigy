@@ -9,9 +9,3 @@
 
 	dna_block = null
 	bodypart_overlay = /datum/bodypart_overlay/mutant/fluff
-
-/datum/bodypart_overlay/mutant/fluff
-	feature_key = "fluff"
-
-/datum/bodypart_overlay/mutant/fluff/get_global_feature_list()
-	return SSaccessories.fluff_list
