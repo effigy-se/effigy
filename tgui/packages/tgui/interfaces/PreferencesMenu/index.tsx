@@ -21,7 +21,7 @@ import { ServerPrefs } from './useServerPrefs';
 export function PreferencesMenu(props) {
   return (
     /* EffigyEdit Change - Character Preferences - Original 920x770 */
-    <Window width={1167} height={700}>
+    <Window width={1159} height={700}>
       <Window.Content>
         <Suspense fallback={<LoadingScreen />}>
           <PrefsWindowInner />
