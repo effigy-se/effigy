@@ -10,7 +10,7 @@ import { AntagsPage } from './AntagsPage';
 import { JobsPage } from './JobsPage';
 import { LoadoutPage } from './loadout';
 import { MainPage } from './MainPage';
-import { QuirksPage } from './QuirksPage';
+import { QuirkPersonalityPage } from './QuirksPage';
 import { SpeciesPage } from './SpeciesPage';
 
 enum Page {
@@ -77,7 +77,7 @@ export function CharacterPreferenceWindow(props) {
 
       break;
     case Page.Quirks:
-      pageContents = <QuirksPage />;
+      pageContents = <QuirkPersonalityPage />;
       break;
 
     case Page.Loadout:
@@ -154,7 +154,7 @@ export function CharacterPreferenceWindow(props) {
               page={Page.Quirks}
               setPage={setCurrentPage}
             >
-              Quirks
+              Personality
             </PageButton>
           </Stack.Item>
         </Stack>
@@ -166,6 +166,7 @@ export function CharacterPreferenceWindow(props) {
         overflowY="auto"
         mt="7px"
         ml="8px"
+        mr="12px"
       >
         {pageContents}
       </Stack.Item>

@@ -61,7 +61,7 @@ export function ItemDisplay(props: DisplayProps) {
   return (
     <div style={{ position: 'relative' }}>
       <ImageButton
-        imageSize={scale * 32}
+        imageSize={scale * 24}
         color={active ? 'blue' : 'default'}
         style={{ textTransform: 'capitalize', zIndex: '1' }}
         tooltip={item.name}
@@ -149,7 +149,7 @@ export function ItemListDisplay(props: ListProps) {
               </>
             )}
             <Stack.Item>
-              <Stack wrap g={0.5}>
+              <Stack wrap g={1}>
                 {group.items.map((item) => (
                   <Stack.Item key={item.name}>
                     <ItemDisplay

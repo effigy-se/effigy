@@ -60,7 +60,7 @@ export function LoadoutPage(props) {
   }
 
   return (
-    <Stack vertical fill ml="-4px" mr="10px">
+    <Stack vertical fill ml="-3px">
       <Stack.Item>
         {/* Start Custom Loadouts */}
         {!!managingPreset && (
@@ -70,7 +70,6 @@ export function LoadoutPage(props) {
               width="400px"
               backgroundColor="#101010"
               style={{
-                borderRadius: '2px',
                 position: 'relative',
                 display: 'inline-block',
                 padding: '5px',
