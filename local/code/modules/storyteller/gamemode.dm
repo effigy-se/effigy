@@ -301,10 +301,8 @@ SUBSYSTEM_DEF(gamemode)
 		if(is_banned_from(candidate.client.ckey, BAN_ANTAGONIST))
 			continue
 		*/
-		/* EffigyEdit TODO - Antag Pref
-		if(!candidate.client?.prefs?.read_preference(/datum/preference/toggle/be_antag))
+		if(!candidate.client?.prefs?.read_preference(/datum/preference/toggle/be_antagonist))
 			continue
-		*/
 		candidates += candidate
 	return candidates
 

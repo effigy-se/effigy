@@ -77,8 +77,9 @@ export function GamePreferencesPage(props) {
               value={value}
             />
           ) : (
+            // EffigyEdit Change - Original: ...is not filled out properly!!!
             <Box as="b" color="red">
-              ...is not filled out properly!!!
+              Missing TGUI Export. Yell at a coder!
             </Box>
           )}
         </Flex.Item>

@@ -939,7 +939,6 @@
 	maptext = MAPTEXT(new_maptext)
 
 // EffigyEdit Add - Custom Lobby
-///Antagonist Toggle - TODO, add toggle for global antag disable
 /atom/movable/screen/lobby/button/antagonist
 	enabled = FALSE
 	name = "Toggle Antag Status"
@@ -955,16 +954,40 @@
 	// We display it at the same time as character preferences
 	if(SSearly_assets.initialized == INITIALIZATION_INNEW_REGULAR || SSatoms.initialized == INITIALIZATION_INNEW_REGULAR)
 		set_button_status(TRUE)
+		update_antag_status()
 	else
 		set_button_status(FALSE)
 		RegisterSignal(SSearly_assets, COMSIG_SUBSYSTEM_POST_INITIALIZE, PROC_REF(enable_antag_button))
 		RegisterSignal(SSatoms, COMSIG_SUBSYSTEM_POST_INITIALIZE, PROC_REF(enable_antag_button))
 
+/atom/movable/screen/lobby/button/antagonist/Click(location, control, params)
+	. = ..()
+	if(!.)
+		return
+
+	var/datum/preferences/preferences = hud.mymob.canon_client.prefs
+	var/antag_preference = preferences.read_preference(/datum/preference/toggle/be_antagonist)
+	preferences.write_preference(GLOB.preference_entries[/datum/preference/toggle/be_antagonist], !antag_preference)
+	preferences.save_preferences()
+	update_antag_status()
+
 /atom/movable/screen/lobby/button/antagonist/proc/enable_antag_button()
 	SIGNAL_HANDLER
 	set_button_status(TRUE)
+	update_antag_status()
 	UnregisterSignal(SSearly_assets, COMSIG_SUBSYSTEM_POST_INITIALIZE)
 	UnregisterSignal(SSatoms, COMSIG_SUBSYSTEM_POST_INITIALIZE)
+
+/atom/movable/screen/lobby/button/antagonist/proc/update_antag_status()
+	if(isnull(hud))
+		return
+
+	var/datum/preferences/preferences = hud.mymob.canon_client.prefs
+	var/antag_enabled = preferences.read_preference(/datum/preference/toggle/be_antagonist)
+	if(antag_enabled)
+		maptext = "<span style='font-family: \"Chakra Petch\"; font-size: 18pt; color: #21fa90; line-height: 0.90; -dm-text-outline: 1px #22252f'>Antag Enabled</span>"
+	else
+		maptext = "<span style='font-family: \"Chakra Petch\"; font-size: 18pt; color: #ffe45e; line-height: 0.90; -dm-text-outline: 1px #22252f'>Antag Disabled</span>"
 
 /atom/movable/screen/lobby/loading_screen
 	name = "Initializing game..."
