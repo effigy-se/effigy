@@ -10,13 +10,6 @@
 # More can be found in code\__DEFINES\maps.dm
 
 # METASTATION MAP TEMPLATES
-# Metastation Interlink
-[templates.metastation_interlink]
-map_files = ["metastation_interlink.dmm"]
-directory = "_maps/effigy/templates/automapper/metastation/"
-required_map = "MetaStation.dmm"
-coordinates = [50, 128, 1]
-trait_name = "Station"
 
 # Metastation Cryo
 [templates.metastation_cryo]
@@ -27,13 +20,6 @@ coordinates = [136, 182, 1]
 trait_name = "Station"
 
 # ICEBOX MAP TEMPLATES
-# Icebox Interlink
-[templates.icebox_interlink]
-map_files = ["icebox_interlink.dmm"]
-directory = "_maps/effigy/templates/automapper/icebox/"
-required_map = "IceBoxStation.dmm"
-coordinates = [33, 132, 3]
-trait_name = "Station"
 
 # Icebox Cryo
 [templates.icebox_cryo]
