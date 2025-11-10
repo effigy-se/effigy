@@ -24,29 +24,19 @@ GLOBAL_LIST_INIT(mutant_variations, list(
 	MAMMAL_TYPE,
 ))
 
-#define ANTENNAE "antennae"
-#define CYBER_FRAME "cyber_frame"
-#define CYBER_ORGANS "cyber_organs"
-#define EARS "ears"
-#define FLUFF "fluff"
-#define FRILLS "frills"
-#define HORNS "horns"
-#define DIGI_LEGS "digi_legs"
-#define SNOUT "snout"
-#define LIZARD_MARKING "lizard_marking"
-#define MOTH_MARKING "moth_marking"
-#define MUSHROOM_CAP "mush_cap"
-#define SPINES "spines"
-#define TAIL "tail"
-#define WINGS "wings"
+#define FEATURE_CYBER_FRAME "cyber_frame"
+#define FEATURE_CYBER_ORGANS "cyber_organs"
+#define FEATURE_FLUFF "fluff"
+#define FEATURE_DIGI_LEGS "digi_legs"
+#define FEATURE_TAIL "tail"
 
 GLOBAL_LIST_INIT(bodypart_allowed_species, list(
-	ANTENNAE = list(
+	FEATURE_MOTH_ANTENNAE = list(
 		/datum/species/android,
 		/datum/species/insectoid,
 		/datum/species/moth,
 	),
-	CYBER_FRAME = list(
+	FEATURE_CYBER_FRAME = list(
 		/datum/species/android,
 		/datum/species/animalid,
 		/datum/species/human,
@@ -56,7 +46,7 @@ GLOBAL_LIST_INIT(bodypart_allowed_species, list(
 		/datum/species/plasmaman,
 		/datum/species/synth,
 	),
-	CYBER_ORGANS = list(
+	FEATURE_CYBER_ORGANS = list(
 		/datum/species/animalid,
 		/datum/species/human,
 		/datum/species/insectoid,
@@ -64,28 +54,28 @@ GLOBAL_LIST_INIT(bodypart_allowed_species, list(
 		/datum/species/moth,
 		/datum/species/plasmaman,
 	),
-	EARS = list(
+	FEATURE_EARS = list(
 		/datum/species/android,
 		/datum/species/animalid,
 		/datum/species/insectoid,
 		/datum/species/synth,
 	),
-	FLUFF = list(
+	FEATURE_FLUFF = list(
 		/datum/species/moth,
 	),
-	FRILLS = list(
+	FEATURE_FRILLS = list(
 		/datum/species/android,
 		/datum/species/animalid,
 		/datum/species/lizard,
 		/datum/species/synth,
 	),
-	HORNS = list(
+	FEATURE_HORNS = list(
 		/datum/species/android,
 		/datum/species/animalid,
 		/datum/species/lizard,
 		/datum/species/synth,
 	),
-	DIGI_LEGS = list(
+	FEATURE_DIGI_LEGS = list(
 		/datum/species/android,
 		/datum/species/animalid,
 		/datum/species/insectoid,
@@ -93,21 +83,21 @@ GLOBAL_LIST_INIT(bodypart_allowed_species, list(
 		/datum/species/moth,
 		/datum/species/synth,
 	),
-	SNOUT = list(
+	FEATURE_SNOUT = list(
 		/datum/species/animalid,
 		/datum/species/android,
 		/datum/species/insectoid,
 		/datum/species/lizard,
 		/datum/species/synth,
 	),
-	TAIL = list(
+	FEATURE_TAIL = list(
 		/datum/species/animalid,
 		/datum/species/android,
 		/datum/species/insectoid,
 		/datum/species/lizard,
 		/datum/species/synth,
 	),
-	WINGS = list(
+	FEATURE_WINGS = list(
 		/datum/species/android,
 		/datum/species/animalid,
 		/datum/species/insectoid,

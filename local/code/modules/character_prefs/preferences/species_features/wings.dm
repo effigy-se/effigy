@@ -13,14 +13,14 @@
 	if(!ishuman(target))
 		return
 
-	if(target.dna.features["moth_wings"] && (type in GLOB.bodypart_allowed_species[WINGS]))
+	if(target.dna.features["moth_wings"] && (type in GLOB.bodypart_allowed_species[FEATURE_WINGS]))
 		if(target.dna.wing_type == NO_VARIATION)
 			return .
 		if((target.dna.features["moth_wings"] != /datum/sprite_accessory/moth_wings/none::name && target.dna.features["moth_wings"] != /datum/sprite_accessory/blank::name))
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/wings/moth)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .
-	if(target.dna.features["wings"] && (type in GLOB.bodypart_allowed_species[WINGS]))
+	if(target.dna.features["wings"] && (type in GLOB.bodypart_allowed_species[FEATURE_WINGS]))
 		if(target.dna.features["wings"] != /datum/sprite_accessory/wings_anthro/none::name && target.dna.features["wings"] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/wings/more)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -58,7 +58,7 @@
 /datum/preference/choiced/wing_variation/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[WINGS]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_WINGS]))
 		return FALSE
 
 	return TRUE
@@ -94,7 +94,7 @@
 /datum/preference/choiced/species_feature/wings/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[WINGS]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_WINGS]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/wing_variation)
@@ -118,7 +118,7 @@
 /datum/preference/choiced/species_feature/moth_wings/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[WINGS]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_WINGS]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/wing_variation)

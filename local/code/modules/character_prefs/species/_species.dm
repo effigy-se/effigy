@@ -29,7 +29,7 @@
 //	Used for most races
 /datum/species/on_species_gain(mob/living/carbon/human/target, datum/species/old_species, pref_load, regenerate_icons = TRUE)
 	var/list/frame_bodyparts = target.dna.features["frame_list"]
-	if(!(type in GLOB.bodypart_allowed_species[CYBER_FRAME]))
+	if(!(type in GLOB.bodypart_allowed_species[FEATURE_CYBER_FRAME]))
 		return ..()
 	if(type == /datum/species/synth && frame_bodyparts && frame_bodyparts[BODY_ZONE_HEAD])
 		bodypart_overrides[BODY_ZONE_HEAD] = frame_bodyparts[BODY_ZONE_HEAD]
