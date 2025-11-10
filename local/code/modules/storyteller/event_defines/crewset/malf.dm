@@ -23,10 +23,8 @@
 			continue
 		if(is_banned_from(candidate.ckey, list(antag_flag, ROLE_SYNDICATE, BAN_ANTAGONIST)))
 			continue
-		/* EffigyEdit TODO - Antag Pref
-		if(!candidate.client?.prefs?.read_preference(/datum/preference/toggle/be_antag))
+		if(!candidate.client?.prefs?.read_preference(/datum/preference/toggle/be_antagonist))
 			continue
-		*/
 		candidates += candidate
 	return candidates
 

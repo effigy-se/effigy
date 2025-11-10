@@ -7155,6 +7155,7 @@
 #include "local\code\modules\client\client_procs.dm"
 #include "local\code\modules\client\effigy_registration.dm"
 #include "local\code\modules\client\preferences\_admin.dm"
+#include "local\code\modules\client\preferences\antagonist.dm"
 #include "local\code\modules\client\preferences\blooper.dm"
 #include "local\code\modules\client\preferences\detailed_init.dm"
 #include "local\code\modules\client\preferences\looc.dm"
