@@ -2,35 +2,37 @@
 /// The default priority level
 #define PREFERENCE_PRIORITY_DEFAULT 1
 
+#define PREFERENCE_PRIORITY_PRE_SPECIES 2 // EffigyEdit Add - Priority after highest but before species is set, used for tail/ears variation prefs
+
 /// The priority at which species runs, needed for external organs to apply properly.
-#define PREFERENCE_PRIORITY_SPECIES 2
+#define PREFERENCE_PRIORITY_SPECIES 3 // EffigyEdit Change - Original: 2
 
 /**
  * Some preferences get applied directly to bodyparts (anything head_flags related right now).
  * These must apply after species, as species gaining might replace the bodyparts of the human.
  */
-#define PREFERENCE_PRIORITY_BODYPARTS 3
+#define PREFERENCE_PRIORITY_BODYPARTS 4 // EffigyEdit Change - Original: 3
 
 /// The priority at which gender is determined, needed for proper randomization.
-#define PREFERENCE_PRIORITY_GENDER 4
+#define PREFERENCE_PRIORITY_GENDER 5 // EffigyEdit Change - Original: 4
 
 /// The priority at which body type is decided, applied after gender so we can
 /// support the "use gender" option.
-#define PREFERENCE_PRIORITY_BODY_TYPE 5
+#define PREFERENCE_PRIORITY_BODY_TYPE 6 // EffigyEdit Change - Original: 5
 
 /// Used for preferences that rely on body setup being finalized.
-#define PREFERENCE_PRORITY_LATE_BODY_TYPE 6
+#define PREFERENCE_PRORITY_LATE_BODY_TYPE 7 // EffigyEdit Change - Original: 6
 
 /// Equpping items based on preferences.
 /// Should happen after species and body type to make sure it looks right.
 /// Mostly redundant, but a safety net for saving/loading.
-#define PREFERENCE_PRIORITY_LOADOUT 7
+#define PREFERENCE_PRIORITY_LOADOUT 8 // EffigyEdit Change - Original: 7
 
 /// The priority at which names are decided, needed for proper randomization.
-#define PREFERENCE_PRIORITY_NAMES 8
+#define PREFERENCE_PRIORITY_NAMES 9 // EffigyEdit Change - Original: 8
 
 /// Preferences that aren't names, but change the name changes set by PREFERENCE_PRIORITY_NAMES.
-#define PREFERENCE_PRIORITY_NAME_MODIFICATIONS 9
+#define PREFERENCE_PRIORITY_NAME_MODIFICATIONS 10 // EffigyEdit Change - Original: 9
 
 /// The maximum preference priority, keep this updated, but don't use it for `priority`.
 #define MAX_PREFERENCE_PRIORITY PREFERENCE_PRIORITY_NAME_MODIFICATIONS

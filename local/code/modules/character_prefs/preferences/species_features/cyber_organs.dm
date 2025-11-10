@@ -38,7 +38,7 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 /datum/preference/choiced/heart_type/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[CYBER_ORGANS]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_CYBER_ORGANS]))
 		return FALSE
 
 	return TRUE
@@ -71,7 +71,7 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 /datum/preference/choiced/lungs_type/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[CYBER_ORGANS]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_CYBER_ORGANS]))
 		return FALSE
 
 	return TRUE
@@ -104,7 +104,7 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 /datum/preference/choiced/liver_type/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[CYBER_ORGANS]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_CYBER_ORGANS]))
 		return FALSE
 
 	return TRUE
@@ -137,7 +137,7 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 /datum/preference/choiced/stomach_type/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[CYBER_ORGANS]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_CYBER_ORGANS]))
 		return FALSE
 
 	return TRUE
@@ -170,7 +170,7 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 /datum/preference/choiced/eyes_type/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[CYBER_ORGANS]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_CYBER_ORGANS]))
 		return FALSE
 
 	return TRUE
@@ -203,7 +203,7 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 /datum/preference/choiced/tongue_type/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[CYBER_ORGANS]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_CYBER_ORGANS]))
 		return FALSE
 
 	return TRUE
@@ -235,7 +235,7 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 /datum/preference/choiced/breathing_tube/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[CYBER_ORGANS]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_CYBER_ORGANS]))
 		return FALSE
 
 	return TRUE

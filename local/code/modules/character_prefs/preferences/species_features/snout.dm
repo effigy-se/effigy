@@ -1,6 +1,6 @@
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target.dna.features[FEATURE_SNOUT] && (type in GLOB.bodypart_allowed_species[SNOUT]))
+	if(target.dna.features[FEATURE_SNOUT] && (type in GLOB.bodypart_allowed_species[FEATURE_SNOUT]))
 		if(target.dna.features[FEATURE_SNOUT] != /datum/sprite_accessory/snouts/none::name && target.dna.features[FEATURE_SNOUT] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/snout)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -27,7 +27,7 @@
 /datum/preference/toggle/snout/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[SNOUT]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_SNOUT]))
 		return FALSE
 
 	return TRUE
@@ -51,7 +51,7 @@
 /datum/preference/choiced/species_feature/lizard_snout/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[SNOUT]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_SNOUT]))
 		return FALSE
 
 	var/has_snout = preferences.read_preference(/datum/preference/toggle/snout)

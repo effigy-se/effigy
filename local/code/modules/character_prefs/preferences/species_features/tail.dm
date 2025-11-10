@@ -18,23 +18,23 @@
 	if(!ishuman(target))
 		return
 
-	if(target.dna.features["tail_lizard"] != /datum/sprite_accessory/tails/lizard/none::name  && (type in GLOB.bodypart_allowed_species[TAIL]) && target.dna.features["tail_lizard"] != /datum/sprite_accessory/blank::name)
+	if(target.dna.features["tail_lizard"] != /datum/sprite_accessory/tails/lizard/none::name  && (type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["tail_lizard"] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/lizard)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if(target.dna.features["tail_cat"] != /datum/sprite_accessory/tails/felinid/none::name && (type in GLOB.bodypart_allowed_species[TAIL]) && target.dna.features["tail_cat"] != /datum/sprite_accessory/blank::name)
+	else if(target.dna.features["tail_cat"] != /datum/sprite_accessory/tails/felinid/none::name && (type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["tail_cat"] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/cat)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if(target.dna.features["tail_monkey"] != /datum/sprite_accessory/tails/monkey/none::name && (type in GLOB.bodypart_allowed_species[TAIL]) && target.dna.features["tail_monkey"] != /datum/sprite_accessory/blank::name)
+	else if(target.dna.features["tail_monkey"] != /datum/sprite_accessory/tails/monkey/none::name && (type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["tail_monkey"] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/monkey)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if(target.dna.features["fish_tail"] != /datum/sprite_accessory/tails/fish/none::name && (type in GLOB.bodypart_allowed_species[TAIL]) && target.dna.features["fish_tail"] != /datum/sprite_accessory/blank::name)
+	else if(target.dna.features["fish_tail"] != /datum/sprite_accessory/tails/fish/none::name && (type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["fish_tail"] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/fish)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if((target.dna.features["tail_other"] != /datum/sprite_accessory/tails/lizard/none::name && (type in GLOB.bodypart_allowed_species[TAIL]) && target.dna.features["tail_other"] != /datum/sprite_accessory/blank::name) && (target.dna.tail_type != NO_VARIATION))
+	else if((target.dna.features["tail_other"] != /datum/sprite_accessory/tails/lizard/none::name && (type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["tail_other"] != /datum/sprite_accessory/blank::name) && (target.dna.tail_type != NO_VARIATION))
 		var/obj/item/organ/organ_path = text2path("/obj/item/organ/tail/[target.dna.tail_type]")
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(organ_path)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -98,7 +98,7 @@
 /datum/preference/choiced/tail_variation/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	return TRUE
@@ -126,7 +126,7 @@
 /datum/preference/choiced/species_feature/lizard_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -157,7 +157,7 @@
 /datum/preference/choiced/species_feature/tail_felinid/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == CAT_TYPE)
@@ -172,6 +172,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 	feature_key = "tail_dog"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/dog_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == DOG_TYPE)	// we will be sharing the 'tail_other' slot with multiple tail types
@@ -192,7 +193,7 @@
 /datum/preference/choiced/species_feature/dog_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -209,6 +210,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 	feature_key = "tail_fox"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/fox_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == FOX_TYPE)
@@ -229,7 +231,7 @@
 /datum/preference/choiced/species_feature/fox_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -246,6 +248,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 	feature_key = "tail_mammal"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/mammal_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == MAMMAL_TYPE)
@@ -266,7 +269,7 @@
 /datum/preference/choiced/species_feature/mammal_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -283,6 +286,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 	feature_key = "tail_flying"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/flying_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == FLYING_TYPE)
@@ -303,7 +307,7 @@
 /datum/preference/choiced/species_feature/flying_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -335,7 +339,7 @@
 /datum/preference/choiced/species_feature/monkey_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -353,10 +357,6 @@
 	main_feature_name = "Tail"
 	feature_key = FEATURE_TAIL_FISH
 
-/datum/preference/choiced/species_feature/fish_tail/apply_to_human(mob/living/carbon/human/target, value)
-	if(target.dna.tail_type == AQUATIC_TYPE)
-		target.dna.features[FEATURE_TAIL_FISH] = value
-
 /datum/preference/choiced/species_feature/fish_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
@@ -372,7 +372,7 @@
 /datum/preference/choiced/species_feature/fish_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -389,6 +389,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 	feature_key = "tail_synthetic"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/synth_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == CYBERNETIC_TYPE)
@@ -409,7 +410,7 @@
 /datum/preference/choiced/species_feature/synth_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -426,6 +427,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 	feature_key = "tail_humanoid"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/humanoid_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == HUMANOID_TYPE)
@@ -446,7 +448,7 @@
 /datum/preference/choiced/species_feature/humanoid_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[TAIL]))
+	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
