@@ -9,6 +9,7 @@
 #define AIRLOCK_LIGHT_POWERON "poweron"
 #define AIRLOCK_LIGHT_ENGINEERING "reta_Engineering"
 #define AIRLOCK_LIGHT_FIRE "fire"
+#define AIRLOCK_LIGHT_OPENING_FIRE "opening_fire"
 
 #define AIRLOCK_FRAME_OPENING_RAPID "opening_rapid"
 
@@ -118,8 +119,8 @@
 	. = ..()
 	var/frame_state
 	var/light_state = AIRLOCK_LIGHT_POWERON
-	var/new_light_power = AIRLOCK_LIGHT_POWER_LOW
-	var/new_light_range = AIRLOCK_LIGHT_RANGE_HIGH
+	var/new_light_power = AIRLOCK_LIGHT_POWER_MID
+	var/new_light_range = AIRLOCK_LIGHT_RANGE_LOW
 	var/new_light_color = COLOR_STARLIGHT
 	if(machine_stat & MAINT) // in the process of being emagged
 		frame_state = AIRLOCK_FRAME_CLOSED
@@ -128,28 +129,30 @@
 			frame_state = AIRLOCK_FRAME_CLOSED
 			if(locked)
 				light_state = AIRLOCK_LIGHT_BOLTS
-				new_light_power = AIRLOCK_LIGHT_POWER_MID
 				new_light_range = AIRLOCK_LIGHT_RANGE_HIGH
 				new_light_color = LIGHT_COLOR_BUBBLEGUM
 			else if(emergency)
 				light_state = AIRLOCK_LIGHT_EMERGENCY
+				new_light_power = AIRLOCK_LIGHT_POWER_LOW
+				new_light_range = AIRLOCK_LIGHT_RANGE_HIGH
 				new_light_color = COLOR_EFFIGY_SPRING_GREEN
 			else if(fire_active)
 				light_state = AIRLOCK_LIGHT_FIRE
-				new_light_power = AIRLOCK_LIGHT_POWER_MID
-				new_light_range = AIRLOCK_LIGHT_RANGE_LOW
 				new_light_color = LIGHT_COLOR_PINK
 			else
 				var/active_reta = has_active_reta_access()
 				if(active_reta)
 					light_state = "[AIRLOCK_LIGHT_RETA]_[active_reta]"
 					if(active_reta == "Medical")
+						new_light_power = AIRLOCK_LIGHT_POWER_HIGH
 						new_light_color = COLOR_EFFIGY_SKY_BLUE
+					else if(active_reta == "Security")
+						new_light_color = LIGHT_COLOR_FLARE
 					else
 						new_light_color = COLOR_EFFIGY_HOT_PINK
-				else if(!normalspeed)
-					light_state = AIRLOCK_LIGHT_ENGINEERING
-					new_light_color = COLOR_EFFIGY_HOT_PINK
+				else
+					new_light_power = AIRLOCK_LIGHT_POWER_LOW
+					new_light_range = AIRLOCK_LIGHT_RANGE_HIGH
 		if(AIRLOCK_DENY)
 			frame_state = AIRLOCK_FRAME_CLOSED
 			light_state = AIRLOCK_LIGHT_DENIED
@@ -182,12 +185,17 @@
 			if(rapid_open)
 				frame_state = AIRLOCK_FRAME_OPENING_RAPID
 				light_state = AIRLOCK_LIGHT_OPENING_RAPID
+				new_light_color = COLOR_EFFIGY_SPRING_GREEN
+			else if(!normalspeed)
+				frame_state = AIRLOCK_FRAME_OPENING
+				light_state = AIRLOCK_LIGHT_OPENING_FIRE
+				new_light_color = COLOR_EFFIGY_HOT_PINK
 			else
 				frame_state = AIRLOCK_FRAME_OPENING
 				light_state = AIRLOCK_LIGHT_OPENING
+				new_light_color = COLOR_EFFIGY_SPRING_GREEN
 			new_light_power = AIRLOCK_LIGHT_POWER_HIGH
 			new_light_range = AIRLOCK_LIGHT_RANGE_LOW
-			new_light_color = COLOR_EFFIGY_SPRING_GREEN
 
 	if(airlock_material)
 		. += get_airlock_overlay("[airlock_material]_[frame_state]", overlays_file, src, em_block = TRUE)
