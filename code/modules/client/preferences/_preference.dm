@@ -2,7 +2,7 @@
 /// The default priority level
 #define PREFERENCE_PRIORITY_DEFAULT 1
 
-#define PREFERENCE_PRIORITY_PRE_SPECIES 2 // EffigyEdit Add - Priority after highest but before species is set, used for tail variation pref
+#define PREFERENCE_PRIORITY_PRE_SPECIES 2 // EffigyEdit Add - Priority after highest but before species is set, used for tail/ears variation prefs
 
 /// The priority at which species runs, needed for external organs to apply properly.
 #define PREFERENCE_PRIORITY_SPECIES 3 // EffigyEdit Change - Original: 2

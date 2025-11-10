@@ -62,6 +62,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 	feature_key = FEATURE_EARS
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/felinid_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == CAT_TYPE)
@@ -94,6 +95,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 	feature_key = "ears_lizard"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/lizard_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == LIZARD_TYPE)
@@ -126,6 +128,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 	feature_key = "ears_fox"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/fox_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == FOX_TYPE)
@@ -158,6 +161,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 	feature_key = "ears_dog"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/dog_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -190,6 +194,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 	feature_key = "ears_flying"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/flying_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == FLYING_TYPE)
@@ -222,6 +227,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 	feature_key = "ears_monkey"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/monkey_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == MONKEY_TYPE)
@@ -254,6 +260,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 	feature_key = "ears_mammal"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/mammal_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == MAMMAL_TYPE)
@@ -286,6 +293,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 	feature_key = "ears_fish"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/fish_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == AQUATIC_TYPE)
@@ -318,6 +326,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 	feature_key = "ears_humanoid"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/humanoid_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == HUMANOID_TYPE)
@@ -350,6 +359,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 	feature_key = "ears_synthetic"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/synthetic_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == CYBERNETIC_TYPE)
