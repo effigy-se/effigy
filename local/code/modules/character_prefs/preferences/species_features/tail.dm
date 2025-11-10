@@ -172,6 +172,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 	feature_key = "tail_dog"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/dog_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == DOG_TYPE)	// we will be sharing the 'tail_other' slot with multiple tail types
@@ -209,6 +210,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 	feature_key = "tail_fox"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/fox_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == FOX_TYPE)
@@ -246,6 +248,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 	feature_key = "tail_mammal"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/mammal_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == MAMMAL_TYPE)
@@ -283,6 +286,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 	feature_key = "tail_flying"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/flying_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == FLYING_TYPE)
@@ -385,6 +389,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 	feature_key = "tail_synthetic"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/synth_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == CYBERNETIC_TYPE)
@@ -422,6 +427,7 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 	feature_key = "tail_humanoid"
+	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/humanoid_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == HUMANOID_TYPE)
