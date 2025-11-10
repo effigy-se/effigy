@@ -353,10 +353,6 @@
 	main_feature_name = "Tail"
 	feature_key = FEATURE_TAIL_FISH
 
-/datum/preference/choiced/species_feature/fish_tail/apply_to_human(mob/living/carbon/human/target, value)
-	if(target.dna.tail_type == AQUATIC_TYPE)
-		target.dna.features[FEATURE_TAIL_FISH] = value
-
 /datum/preference/choiced/species_feature/fish_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
