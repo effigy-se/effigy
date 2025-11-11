@@ -10,3 +10,5 @@
   LT3:
   - rscadd: Toggle antagonist preference on the lobby screen
   - bugfix: Tooltips now load their stylesheet correctly
+  TealSeer:
+  - bugfix: fixed certain tail/ear choices not properly being applied
