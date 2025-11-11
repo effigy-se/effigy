@@ -485,6 +485,9 @@
 	greyscale_colors = null
 	airlock_features = NONE
 
+/obj/machinery/door/airlock/multi_tile/public/glass
+	airlock_features = ENV_LIGHTS
+
 /**
  * Tram
  */
