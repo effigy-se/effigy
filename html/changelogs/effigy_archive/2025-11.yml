@@ -12,3 +12,6 @@
   - bugfix: Tooltips now load their stylesheet correctly
   TealSeer:
   - bugfix: fixed certain tail/ear choices not properly being applied
+2025-11-11:
+  LT3:
+  - rscadd: Airlock lighting indicates RETA status
