@@ -20,7 +20,7 @@
 		return // No mob or area somehow; can this whole shebang
 	if(extended_info)
 		var/station_name = (custom_facility_name ? "[custom_facility_name]" : GLOB.station_name)
-		our_blurb_text = "[time2text(world.realtime, "Day, MMM DD")] - [custom_year ? "[custom_year]" : CURRENT_STATION_YEAR], [station_time_timestamp("hh:mm")]\n[station_name], [our_blurb_text]"
+		our_blurb_text = "[time2text(world.realtime, "Day DD Month")] - [custom_year ? "[custom_year]" : CURRENT_STATION_YEAR], [station_time_timestamp("hh:mm")]\n[station_name], [our_blurb_text]"
 	if(uppercase)
 		our_blurb_text = uppertext(our_blurb_text)
 
