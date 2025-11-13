@@ -939,6 +939,23 @@
 	maptext = MAPTEXT(new_maptext)
 
 // EffigyEdit Add - Custom Lobby
+/atom/movable/screen/lobby/logo
+	name = "Space Station 13"
+	icon = 'local/icons/runtime/logo.dmi'
+	icon_state = "logo_title"
+	screen_loc = "TOP-1.2,LEFT+1.2"
+
+/atom/movable/screen/lobby/logo/Click(location, control, params)
+	if(usr != get_mob())
+		return
+
+	if(!usr.client || usr.client.interviewee)
+		return
+
+	. = ..()
+	var/matrix/transform_matrix = transform
+	transform = transform_matrix.Turn(24)
+
 /atom/movable/screen/lobby/button/antagonist
 	enabled = FALSE
 	name = "Toggle Antag Status"
