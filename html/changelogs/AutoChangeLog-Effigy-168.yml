@@ -1,5 +1,0 @@
-author: "LT3"
-delete-after: True
-changes:
-  - admin: "Server revision and client version are now in the status panel"
-  - admin: "Updated issue submission template"
