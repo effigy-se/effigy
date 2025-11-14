@@ -69,8 +69,8 @@
 	if(hud_version != HUD_STYLE_STANDARD || !mymob?.client)
 		return
 
-	var/y_offset = 397
-	var/x_offset = 233
+	var/y_offset = 376 // EffigyEdit Change - Original: 397
+	var/x_offset = 485 // EffigyEdit Change - Original: 233
 	var/y_button_offset = 27
 	var/x_button_offset = -27
 	var/iteration = 0
