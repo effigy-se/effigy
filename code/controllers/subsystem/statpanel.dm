@@ -48,7 +48,7 @@ SUBSYSTEM_DEF(statpanels)
 		var/current_date = "[time2text(world.realtime, "DDD DD Month")] [CURRENT_STATION_YEAR]"
 		global_data += list(
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "Local"]",
-			"Connected: [GLOB.clients.len] | Active: [SSmetrics.active_players] | Observing: [SSmetrics.observing_players]",
+			"Connected: [GLOB.clients.len] / Active: [SSmetrics.active_players] / Observing: [SSmetrics.observing_players]",
 			"Round Time: [ROUND_TIME()]",
 			"Station Time: [station_time_timestamp(format = "hh:mm")], [current_date]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss", world.timezone)]",
