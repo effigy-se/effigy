@@ -69,8 +69,8 @@
 	if(hud_version != HUD_STYLE_STANDARD || !mymob?.client)
 		return
 
-	var/y_offset = 397
-	var/x_offset = 233
+	var/y_offset = 376 // EffigyEdit Change - Original: 397
+	var/x_offset = 485 // EffigyEdit Change - Original: 233
 	var/y_button_offset = 27
 	var/x_button_offset = -27
 	var/iteration = 0
@@ -939,6 +939,23 @@
 	maptext = MAPTEXT(new_maptext)
 
 // EffigyEdit Add - Custom Lobby
+/atom/movable/screen/lobby/logo
+	name = "Space Station 13"
+	icon = 'local/icons/runtime/logo.dmi'
+	icon_state = "logo_title"
+	screen_loc = "TOP-1.2,LEFT+1.2"
+
+/atom/movable/screen/lobby/logo/Click(location, control, params)
+	if(usr != get_mob())
+		return
+
+	if(!usr.client || usr.client.interviewee)
+		return
+
+	. = ..()
+	var/matrix/transform_matrix = transform
+	transform = transform_matrix.Turn(24)
+
 /atom/movable/screen/lobby/button/antagonist
 	enabled = FALSE
 	name = "Toggle Antag Status"
