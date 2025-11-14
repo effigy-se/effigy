@@ -10,7 +10,7 @@ body:
         **Please verify if the issue is specific to the Effigy codebase. If your issue can be reproduced on /tg/Station master, please open the issue at
         https://github.com/tgstation/tgstation/issues.**
   - type: input
-    id: reporting-version
+    id: server-revision
     attributes:
       label: "Server Revision:"
       description: |
