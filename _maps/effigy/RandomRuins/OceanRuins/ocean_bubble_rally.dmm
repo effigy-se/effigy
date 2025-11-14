@@ -1509,7 +1509,7 @@
 "SQ" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/effect/spawner/liquids_spawner/fulltile,
-/obj/machinery/light/built/directional/north,
+/obj/machinery/light/empty/directional/north,
 /turf/open/floor/plating,
 /area/ruin/ocean/bubble/titanium)
 "SV" = (
