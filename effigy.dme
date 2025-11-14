@@ -6886,6 +6886,7 @@
 #include "local\code\datums\greyscale\config_types\greyscale_configs\shoes\heels.dm"
 #include "local\code\datums\greyscale\config_types\greyscale_configs\suits\coats.dm"
 #include "local\code\datums\greyscale\config_types\greyscale_configs\under\skirts_dresses.dm"
+#include "local\code\datums\helper_datums\getrev.dm"
 #include "local\code\datums\id_trim\ruins.dm"
 #include "local\code\datums\keybinding\communication.dm"
 #include "local\code\datums\keybinding\mob.dm"
