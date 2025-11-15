@@ -6,7 +6,7 @@
 	icon_state = "roughstone0"
 	baseturfs = /turf/open/misc/rough_stone
 	planetary_atmos = TRUE
-	tiled_dirt = FALSE
+	tiled_turf = FALSE
 	rust_resistance = RUST_RESISTANCE_ORGANIC
 
 // Do not use the basetype on any maps that aren't jungles & ESPECIALLY not inside

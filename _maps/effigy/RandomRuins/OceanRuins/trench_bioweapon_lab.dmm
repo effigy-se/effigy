@@ -194,7 +194,7 @@
 /obj/machinery/atmospherics/components/tank/air/layer4{
 	dir = 1
 	},
-/obj/machinery/light/built/directional/south,
+/obj/machinery/light/empty/directional/south,
 /turf/open/floor/plating,
 /area/ruin/ocean/bioweapon_research)
 "cx" = (
@@ -342,7 +342,7 @@
 /obj/effect/turf_decal/tile/dark_red,
 /obj/structure/barricade/sandbags,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/light/built/directional/south,
+/obj/machinery/light/empty/directional/south,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
 	},
@@ -1397,7 +1397,7 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
 	},
-/obj/machinery/light/built/directional/east,
+/obj/machinery/light/empty/directional/east,
 /obj/machinery/vending/boozeomat/syndicate,
 /turf/open/floor/wood/tile,
 /area/ruin/ocean/bioweapon_research)
@@ -1539,7 +1539,7 @@
 /turf/open/floor/iron/smooth,
 /area/ruin/ocean/bioweapon_research)
 "xe" = (
-/obj/machinery/light/built/directional/south,
+/obj/machinery/light/empty/directional/south,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -1795,7 +1795,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/light/built/directional/west,
+/obj/machinery/light/empty/directional/west,
 /turf/open/floor/iron,
 /area/ruin/ocean/bioweapon_research)
 "zV" = (
@@ -2544,7 +2544,7 @@
 /obj/item/knife/kitchen{
 	pixel_x = 6
 	},
-/obj/machinery/light/built/directional/east,
+/obj/machinery/light/empty/directional/east,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/kitchen,
 /area/ruin/ocean/bioweapon_research)

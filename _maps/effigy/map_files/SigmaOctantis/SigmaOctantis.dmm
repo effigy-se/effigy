@@ -7661,7 +7661,7 @@
 /area/station/commons/vacant_room)
 "bGI" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/light/built/directional/north,
+/obj/machinery/light/empty/directional/north,
 /obj/item/light/tube/broken,
 /turf/open/floor/light/colour_cycle/dancefloor_b,
 /area/station/medical/abandoned)
