@@ -553,6 +553,7 @@
 /atom/movable/screen/lobby/button/bottom/crew_manifest/proc/show_manifest_button()
 	SIGNAL_HANDLER
 	set_button_status(TRUE)
+	maptext = enabled_maptext
 	UnregisterSignal(SSticker, COMSIG_TICKER_ROUND_STARTING)
 // EffigyEdit Add End
 
