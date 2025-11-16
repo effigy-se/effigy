@@ -216,7 +216,7 @@ SUBSYSTEM_DEF(ticker)
 			timeLeft -= wait
 
 			// EffigyEdit Add - Custom Lobby
-			if(CONFIG_GET(flag/use_scheduled_lobby_track) && timeLeft <= lobby_track_duration && lobby_track_duration > 0 && !lobby_track_fired)
+			if(CONFIG_GET(flag/use_scheduled_lobby_track) && timeLeft <= lobby_track_duration && lobby_track_duration > 0 && !lobby_track_fired && totalPlayersReady > 0)
 				if(timeLeft >= lobby_track_duration - 4 SECONDS)
 					play_lobby_track(lobby_track_id)
 				lobby_track_fired = TRUE
