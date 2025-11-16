@@ -218,6 +218,7 @@ ADMIN_VERB(delay, R_SERVER, "Delay Pre-Game", "Delay the game start.", ADMIN_CAT
 	newtime = newtime*10
 	SSticker.SetTimeLeft(newtime)
 	SSticker.start_immediately = FALSE
+	SSticker.launch_queued = FALSE // EffigyEdit Add - Custom Lobby
 	if(newtime < 0)
 		to_chat(world, span_infoplain("<b>The game start has been delayed.</b>"), confidential = TRUE)
 		log_admin("[key_name(user)] delayed the round start.")
