@@ -20,3 +20,6 @@
   - admin: Server revision and client version are now in the status panel
   - admin: Updated issue submission template
   - bugfix: Station trait buttons display correctly on lobby screen
+2025-11-16:
+  LT3:
+  - bugfix: Fixed overriding admin delayed round start with the ready button
