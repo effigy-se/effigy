@@ -118,7 +118,7 @@
 		is_reacting = TRUE //We've entered the reaction phase - this is set here so any reagent handling called in on_reaction() doesn't cause infinite loops
 		START_PROCESSING(SSreagents, src) //see process() to see how reactions are handled
 	else
-		is_reacting = FALSE
+		finish_reacting()
 
 	TEST_ONLY_ASSERT(!. || MC_RUNNING(), "We reacted during subsystem init, that shouldn't be happening!")
 
