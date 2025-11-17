@@ -70,4 +70,4 @@ body:
         2. Do Y action
         3. Observe Z result
     validations:
-      required: true
+      required: false
