@@ -118,7 +118,7 @@
 		is_reacting = TRUE //We've entered the reaction phase - this is set here so any reagent handling called in on_reaction() doesn't cause infinite loops
 		START_PROCESSING(SSreagents, src) //see process() to see how reactions are handled
 	else
-		finish_reacting()
+		finish_reacting() // EffigyEdit Change - Liquids - Original: is_reacting = FALSE - To stop force_stop_reacting() runtimes on line 163
 
 	TEST_ONLY_ASSERT(!. || MC_RUNNING(), "We reacted during subsystem init, that shouldn't be happening!")
 
