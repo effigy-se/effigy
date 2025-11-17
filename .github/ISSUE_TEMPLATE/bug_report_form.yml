@@ -5,19 +5,28 @@ body:
     attributes:
       value: |
         # **Please read the following guidelines. Follow all instructions or else your issue is subject to closure.**
-        ## If you use the "Report Issue" button in the top-right corner of the game, it will automatically fill in some of the information below.
+        ## If you use the "Report Issue" button it will automatically fill in some of the information required.
 
-        If you are reporting an issue found in another branch or codebase, you _must_ link the branch or codebase repo in your issue report or it will be closed.
-        For branches, If you have not pushed your code up, please either reproduce it on master or push your code up before making an issue report.
-        For other codebases, if you do not have a public code repository you will be refused help unless you can completely reproduce the issue on our master branch.
+        **Please verify if the issue is specific to the Effigy codebase. If your issue can be reproduced on /tg/Station master, please open the issue at
+        https://github.com/tgstation/tgstation/issues.**
+  - type: input
+    id: server-revision
+    attributes:
+      label: "Server Revision:"
+      description: |
+        You can find this in the Status Panel at the top right of your screen.
+        It is strongly recommended that you include this if you experience an issue on the live Effigy server, as it provides information about what build/test merges are active.
+      placeholder: "4e79610"
+    validations:
+      required: false
   - type: input
     id: reporting-version
     attributes:
       label: "Client Version:"
       description: |
-        The BYOND version you are using to report this issue. You can find this information in the bottom left corner of the "About BYOND" window in the BYOND client.
+        The BYOND version you are using to report this issue. You can find this in the Status Panel at the top right of your screen.
         It is strongly recommended that you include this, especially for concerns on the visual aspects of the game.
-      placeholder: "xxx.xxxx"
+      placeholder: "1669"
     validations:
       required: false
   - type: textarea
@@ -36,9 +45,8 @@ body:
     attributes:
       label: "Round ID:"
       description: |
-        If you discovered this issue from playing tgstation hosted servers, the Round ID can be found in the Status panel or retrieved from https://statbus.space/
+        If you discovered this issue from playing on the /tg/station hosted Effigy server, the Round ID can be found in the Status Panel.
         The Round ID lets us look up valuable information and logs for the round the bug happened. Leave this blank if there is no round ID.
-      placeholder: "XXXXXX"
     validations:
       required: false
   - type: textarea
@@ -62,4 +70,4 @@ body:
         2. Do Y action
         3. Observe Z result
     validations:
-      required: true
+      required: false

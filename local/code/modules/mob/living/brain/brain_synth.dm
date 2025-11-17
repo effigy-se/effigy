@@ -24,14 +24,11 @@
 
 /obj/item/organ/brain/synth/on_mob_insert(mob/living/carbon/brain_owner, special, movement_flags)
 	. = ..()
-	if(brain_owner.stat != DEAD || !ishuman(brain_owner))
-		return
-
 	var/mob/living/carbon/human/human_brain_owner = brain_owner
 	if(!istype(human_brain_owner))
 		return
 
-	if(HAS_TRAIT(human_brain_owner, TRAIT_REVIVES_BY_HEALING) && human_brain_owner.health > SYNTH_BRAIN_WAKE_THRESHOLD)
+	if(human_brain_owner.stat == DEAD && HAS_TRAIT(human_brain_owner, TRAIT_REVIVES_BY_HEALING) && human_brain_owner.health > SYNTH_BRAIN_WAKE_THRESHOLD)
 		human_brain_owner.revive(FALSE)
 
 	RegisterSignal(human_brain_owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_equip_signal))

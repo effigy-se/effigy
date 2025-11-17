@@ -217,7 +217,7 @@ Temporary Items
 !/config/title_music/sounds/exclude
 /config/title_screens/images/*
 !/config/title_screens/images/exclude
-/config/bloopers/*.*
+/config/bloopers/*
 !/config/bloopers/blooper_config.json.example
 !/config/bloopers/README.md
 

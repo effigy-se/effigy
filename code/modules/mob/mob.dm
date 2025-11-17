@@ -886,7 +886,10 @@
 
 /// Adds this list to the output to the stat browser
 /mob/proc/get_status_tab_items()
-	. = list("") //we want to offset unique stuff from standard stuff
+	// EffigyEdit Change - Bug Reporting
+	// . = list("") //we want to offset unique stuff from standard stuff
+	. = list("Server Rev: [get_local_revdata()] / Client Ver: [client?.byond_build]", "") // For issue reporting
+	// EffigyEdit Change End
 	SEND_SIGNAL(src, COMSIG_MOB_GET_STATUS_TAB_ITEMS, .)
 	return .
 

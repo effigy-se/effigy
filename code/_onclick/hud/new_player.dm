@@ -69,8 +69,8 @@
 	if(hud_version != HUD_STYLE_STANDARD || !mymob?.client)
 		return
 
-	var/y_offset = 397
-	var/x_offset = 233
+	var/y_offset = 376 // EffigyEdit Change - Original: 397
+	var/x_offset = 485 // EffigyEdit Change - Original: 233
 	var/y_button_offset = 27
 	var/x_button_offset = -27
 	var/iteration = 0
@@ -553,6 +553,7 @@
 /atom/movable/screen/lobby/button/bottom/crew_manifest/proc/show_manifest_button()
 	SIGNAL_HANDLER
 	set_button_status(TRUE)
+	maptext = enabled_maptext
 	UnregisterSignal(SSticker, COMSIG_TICKER_ROUND_STARTING)
 // EffigyEdit Add End
 
@@ -919,6 +920,8 @@
 			[ROUND_TIME()] in<br />"
 		new_maptext += "</span>"
 	else
+		// EffigyEdit Change - Custom Lobby - Original:
+		/*
 		var/time_remaining = SSticker.GetTimeLeft()
 		if(time_remaining > 0)
 			time_remaining = "[round(time_remaining/10)]s"
@@ -935,10 +938,49 @@
 		else
 			new_maptext = "<span style='text-align: center; vertical-align: middle; font-size: 18px'>[time_remaining]</span><br /> \
 				<span style='text-align: center; vertical-align: middle'>[LAZYLEN(GLOB.clients)] player\s</span>"
+		*/
+		var/font_size
+		var/time_remaining = SSticker.GetTimeLeft()
+		if(time_remaining > 0)
+			time_remaining = "[round(time_remaining/10)]s"
+			font_size = "18px"
+		else if(time_remaining == -10)
+			time_remaining = "DELAYED<br />by admin"
+			font_size = "9px"
+		else
+			time_remaining = "Starting<br />SOON"
+			font_size = "9px"
+
+		if(hud.mymob.client?.holder)
+			// EffigyEdit Change - Original: <span style='text-align: center; vertical-align: middle'>Starting in [time_remaining]<br />
+			new_maptext = "<span style='text-align: center; vertical-align: middle'>[time_remaining]<br /> \
+				[SSticker.totalPlayersReady] / [LAZYLEN(GLOB.clients)] players ready<br /> \
+				[SSticker.total_admins_ready] / [length(GLOB.admins)] admins ready</span>"
+		else
+			new_maptext = "<span style='text-align: center; vertical-align: middle; line-height: 1.1; [font_size ? "font-size: [font_size]" : ""]'>[time_remaining]</span><br /> \
+				<span style='text-align: center; vertical-align: middle'>[SSticker.totalPlayersReady] players ready</span>"
+		// EffigyEdit Change End
 
 	maptext = MAPTEXT(new_maptext)
 
 // EffigyEdit Add - Custom Lobby
+/atom/movable/screen/lobby/logo
+	name = "Space Station 13"
+	icon = 'local/icons/runtime/logo.dmi'
+	icon_state = "logo_title"
+	screen_loc = "TOP-1.2,LEFT+1.2"
+
+/atom/movable/screen/lobby/logo/Click(location, control, params)
+	if(usr != get_mob())
+		return
+
+	if(!usr.client || usr.client.interviewee)
+		return
+
+	. = ..()
+	var/matrix/transform_matrix = transform
+	transform = transform_matrix.Turn(24)
+
 /atom/movable/screen/lobby/button/antagonist
 	enabled = FALSE
 	name = "Toggle Antag Status"
