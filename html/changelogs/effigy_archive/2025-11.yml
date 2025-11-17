@@ -23,3 +23,6 @@
 2025-11-16:
   LT3:
   - bugfix: Fixed overriding admin delayed round start with the ready button
+2025-11-17:
+  TealSeer:
+  - bugfix: fixed scream sounds not playing
