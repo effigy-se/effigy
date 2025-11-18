@@ -6893,6 +6893,7 @@
 #include "local\code\datums\keybinding\living.dm"
 #include "local\code\datums\mapgen\Cavegens\JungleCaves.dm"
 #include "local\code\datums\materials\basemats.dm"
+#include "local\code\datums\mocking\client.dm"
 #include "local\code\datums\mutations\_mutations.dm"
 #include "local\code\datums\quirks\neutral_quirks\oversized.dm"
 #include "local\code\datums\quirks\neutral_quirks\robot_limb_detach.dm"
