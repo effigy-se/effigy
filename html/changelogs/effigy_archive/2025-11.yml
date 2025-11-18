@@ -26,3 +26,6 @@
 2025-11-17:
   TealSeer:
   - bugfix: fixed scream sounds not playing
+2025-11-18:
+  TealSeer:
+  - rscadd: Added auto-punctuation preference
