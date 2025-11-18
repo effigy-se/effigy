@@ -37,7 +37,6 @@
 		/obj/item/surgical_drapes,
 		/obj/item/surgicaldrill,
 		/obj/item/blood_scanner,
-		/obj/item/reagent_containers/medigel/sterilizine, // EffigyEdit Add
 		/obj/item/storage/pill_bottle/lidocaine,  // EffigyEdit Add
 	))
 
