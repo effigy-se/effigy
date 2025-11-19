@@ -337,11 +337,11 @@ SUBSYSTEM_DEF(ticker)
 	round_start_time = world.time //otherwise round_start_time would be 0 for the signals
 	// EffigyEdit Add - Automated Transfer Shuttle
 	SSgamemode.auto_shuttle_start_time = world.realtime
-	message_admins("Shuttle auto-call status is [SSgamemode.auto_shuttle_call ? "enabled" : "disabled"].")
-	log_game("Shuttle auto-call status is [SSgamemode.auto_shuttle_call ? "enabled" : "disabled"].")
+	message_admins("Auto-shuttle (emergency) status is [SSgamemode.auto_shuttle_call ? "enabled" : "disabled"].")
+	log_game("Auto-shuttle (emergency) status is [SSgamemode.auto_shuttle_call ? "enabled" : "disabled"].")
 	if(SSgamemode.auto_shuttle_call)
-		message_admins("Auto-call configured time is [DisplayTimeText(SSgamemode.auto_shuttle_fire_time)].")
-		log_game("Auto-call configured time is [DisplayTimeText(SSgamemode.auto_shuttle_fire_time)].")
+		message_admins("Auto-shuttle configured time is [DisplayTimeText(SSgamemode.auto_shuttle_fire_time)].")
+		log_game("Auto-shuttle configured time is [DisplayTimeText(SSgamemode.auto_shuttle_fire_time)].")
 	// EffigyEdit Add End
 	SEND_SIGNAL(src, COMSIG_TICKER_ROUND_STARTING, world.time)
 

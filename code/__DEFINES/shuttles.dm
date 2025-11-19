@@ -65,8 +65,8 @@
 #define ENGINE_START_TIME 100
 
 // Alert level related
-#define ALERT_COEFF_AUTOEVAC_NORMAL 2.5
-#define ALERT_COEFF_GREEN 2
+#define ALERT_COEFF_AUTOEVAC_NORMAL 1 // EffigyEdit Change - Original: 2.5
+#define ALERT_COEFF_GREEN 1 // EffigyEdit Change - Original: 2
 #define ALERT_COEFF_BLUE 1
 #define ALERT_COEFF_RED 0.5
 #define ALERT_COEFF_AUTOEVAC_CRITICAL 0.4
