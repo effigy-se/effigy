@@ -1,7 +1,7 @@
 // Automatic emergency shuttle
 /// Number (in minutes) for the automatic escape shuttle call
 /datum/config_entry/number/auto_shuttle_time
-	default = 135
+	default = 90
 	integer = TRUE
 	min_val = 20
 
