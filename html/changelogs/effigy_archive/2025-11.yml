@@ -29,3 +29,7 @@
 2025-11-18:
   TealSeer:
   - rscadd: Added auto-punctuation preference
+2025-11-19:
+  LT3:
+  - config: Default auto-shuttle timer reduced to 90 minutes
+  - balance: Green alert shuttle timer reduced to 10 minutes
