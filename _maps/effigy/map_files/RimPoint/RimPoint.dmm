@@ -10166,6 +10166,25 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/ce)
+"dBz" = (
+/obj/structure/sign/directions/security{
+	dir = 4;
+	pixel_y = 10
+	},
+/obj/structure/sign/directions/supply{
+	dir = 4;
+	pixel_y = 4
+	},
+/obj/structure/sign/directions/upload{
+	dir = 4;
+	pixel_y = -2
+	},
+/obj/structure/sign/directions/vault{
+	dir = 4;
+	pixel_y = -8
+	},
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/station/commons/dorms/room1)
 "dBB" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
@@ -13065,7 +13084,8 @@
 "ezC" = (
 /obj/machinery/button/curtain{
 	id = "dorm2curtain";
-	pixel_x = 26
+	pixel_x = 26;
+	dir = 4
 	},
 /obj/structure/cable/multilayer/multiz,
 /obj/machinery/power/apc/auto_name/directional/north,
@@ -17662,7 +17682,8 @@
 	name = "Disposal Vent Control";
 	pixel_x = -25;
 	pixel_y = 4;
-	req_access = list("maint_tunnels")
+	req_access = list("maint_tunnels");
+	dir = 8
 	},
 /obj/machinery/computer/pod/old/mass_driver_controller/trash{
 	pixel_x = -24;
@@ -18150,6 +18171,25 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/engineering/supermatter/room)
+"gob" = (
+/obj/structure/sign/directions/evac{
+	dir = 4;
+	pixel_y = 10
+	},
+/obj/structure/sign/directions/lavaland{
+	dir = 4;
+	pixel_y = 4
+	},
+/obj/structure/sign/directions/medical{
+	dir = 4;
+	pixel_y = -2
+	},
+/obj/structure/sign/directions/science{
+	dir = 4;
+	pixel_y = -8
+	},
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/taeloth/nearstation/dormitory_concourse)
 "goc" = (
 /turf/open/floor/iron/chapel{
 	dir = 4
@@ -18206,25 +18246,6 @@
 	dir = 1
 	},
 /area/taeloth/nearstation/gateway)
-"gpi" = (
-/obj/structure/sign/directions/arrival/directional/north{
-	pixel_y = 42;
-	dir = 4
-	},
-/obj/structure/sign/directions/command/directional/north{
-	pixel_y = 36;
-	dir = 4
-	},
-/obj/structure/sign/directions/dorms/directional/north{
-	pixel_y = 30;
-	dir = 2
-	},
-/obj/structure/sign/directions/engineering/directional/north{
-	pixel_y = 24;
-	dir = 4
-	},
-/turf/open/misc/grass/jungle,
-/area/taeloth/nearstation/dormitory_concourse)
 "gpv" = (
 /obj/structure/closet/secure_closet/security/sec,
 /obj/effect/turf_decal/bot_red,
@@ -18634,7 +18655,8 @@
 "gxw" = (
 /obj/machinery/button/curtain{
 	id = "dorm3curtain";
-	pixel_x = -26
+	pixel_x = -26;
+	dir = 8
 	},
 /obj/structure/cable/multilayer/multiz,
 /obj/machinery/power/apc/auto_name/directional/north,
@@ -20394,25 +20416,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
-"hcj" = (
-/obj/structure/sign/directions/evac/directional/north{
-	pixel_y = 42;
-	dir = 4
-	},
-/obj/structure/sign/directions/lavaland/directional/north{
-	pixel_y = 36;
-	dir = 4
-	},
-/obj/structure/sign/directions/medical/directional/north{
-	pixel_y = 30;
-	dir = 4
-	},
-/obj/structure/sign/directions/science/directional/north{
-	pixel_y = 24;
-	dir = 4
-	},
-/turf/open/misc/grass/jungle,
-/area/taeloth/nearstation/dormitory_concourse)
 "hcq" = (
 /obj/machinery/portable_atmospherics/canister/anesthetic_mix,
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
@@ -30260,15 +30263,18 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
 /obj/machinery/button/door/incinerator_vent_atmos_main{
 	pixel_x = -36;
-	pixel_y = 8
+	pixel_y = 8;
+	dir = 8
 	},
 /obj/machinery/button/door/incinerator_vent_atmos_aux{
 	pixel_x = -36;
-	pixel_y = -8
+	pixel_y = -8;
+	dir = 8
 	},
 /obj/machinery/button/ignition/incinerator/atmos{
 	pixel_x = -24;
-	pixel_y = 8
+	pixel_y = 8;
+	dir = 8
 	},
 /turf/open/floor/iron,
 /area/station/maintenance/disposal/incinerator)
@@ -31579,7 +31585,8 @@
 /obj/structure/dresser,
 /obj/machinery/button/curtain{
 	pixel_y = 26;
-	id = "dorm1curtain"
+	id = "dorm1curtain";
+	dir = 1
 	},
 /turf/open/floor/carpet,
 /area/station/commons/dorms/room1)
@@ -32349,25 +32356,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/textured_large,
 /area/station/hallway/secondary/recreation)
-"lpa" = (
-/obj/structure/sign/directions/security/directional/north{
-	pixel_y = 42;
-	dir = 4
-	},
-/obj/structure/sign/directions/supply/directional/north{
-	pixel_y = 36;
-	dir = 4
-	},
-/obj/structure/sign/directions/upload/directional/north{
-	pixel_y = 30;
-	dir = 4
-	},
-/obj/structure/sign/directions/vault/directional/north{
-	pixel_y = 24;
-	dir = 4
-	},
-/turf/open/misc/dirt/jungle/dark,
-/area/taeloth/nearstation/dormitory_concourse)
 "lpg" = (
 /turf/closed/wall,
 /area/taeloth/nearstation/no_valids_to_hunt/cargo_landing_zone/mining)
@@ -33926,7 +33914,8 @@
 /obj/machinery/turretid{
 	name = "AI Chamber turret control";
 	pixel_x = -28;
-	pixel_y = -4
+	pixel_y = -4;
+	dir = 8
 	},
 /obj/effect/turf_decal/tile/dark_blue{
 	dir = 1
@@ -38227,7 +38216,8 @@
 	dir = 8
 	},
 /obj/structure/secure_safe/hos{
-	pixel_y = 32
+	pixel_y = 32;
+	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -40089,7 +40079,8 @@
 "ocN" = (
 /obj/machinery/button/crematorium{
 	id = "crematoriumChapel";
-	pixel_y = 24
+	pixel_y = 24;
+	dir = 1
 	},
 /obj/structure/chair/stool/directional/west,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -44754,7 +44745,8 @@
 "pKn" = (
 /obj/machinery/button/curtain{
 	id = "chapel";
-	pixel_x = -26
+	pixel_x = -26;
+	dir = 8
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -45952,7 +45944,8 @@
 	control_area = "/area/station/ai/satellite/interior";
 	name = "Antechamber Turret Control";
 	pixel_x = -28;
-	req_access = list("minisat")
+	req_access = list("minisat");
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/station/ai/satellite/teleporter)
@@ -50885,6 +50878,24 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
+"rKZ" = (
+/obj/structure/sign/directions/arrival{
+	dir = 4;
+	pixel_y = 10
+	},
+/obj/structure/sign/directions/command{
+	dir = 4;
+	pixel_y = 4
+	},
+/obj/structure/sign/directions/dorms{
+	pixel_y = -2
+	},
+/obj/structure/sign/directions/engineering{
+	dir = 4;
+	pixel_y = -8
+	},
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/station/commons/dorms/room1)
 "rLe" = (
 /obj/effect/spawner/random/structure/billboard/nanotrasen,
 /turf/open/floor/engine/hull/reinforced/taeloth,
@@ -54501,6 +54512,25 @@
 /obj/structure/railing/corner/end/flip,
 /turf/open/floor/iron/diagonal,
 /area/station/security/prison)
+"sTp" = (
+/obj/structure/sign/directions/arrival{
+	dir = 4;
+	pixel_y = 10
+	},
+/obj/structure/sign/directions/command{
+	dir = 4;
+	pixel_y = 4
+	},
+/obj/structure/sign/directions/dorms{
+	dir = 4;
+	pixel_y = -2
+	},
+/obj/structure/sign/directions/engineering{
+	dir = 4;
+	pixel_y = -8
+	},
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/taeloth/nearstation/dormitory_concourse)
 "sTx" = (
 /obj/structure/dresser,
 /turf/open/floor/wood/parquet,
@@ -57815,25 +57845,6 @@
 /obj/effect/mapping_helpers/mail_sorting/service/library,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/recreation)
-"uew" = (
-/obj/structure/sign/directions/security/directional/north{
-	pixel_y = 42;
-	dir = 4
-	},
-/obj/structure/sign/directions/supply/directional/north{
-	pixel_y = 36;
-	dir = 4
-	},
-/obj/structure/sign/directions/upload/directional/north{
-	pixel_y = 30;
-	dir = 4
-	},
-/obj/structure/sign/directions/vault/directional/north{
-	pixel_y = 24;
-	dir = 4
-	},
-/turf/open/misc/grass/jungle,
-/area/taeloth/nearstation/dormitory_concourse)
 "uex" = (
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
@@ -58886,7 +58897,8 @@
 /obj/machinery/button/flasher{
 	id = "PermaDoors";
 	name = "Flash Control";
-	pixel_y = 24
+	pixel_y = 24;
+	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -60602,6 +60614,25 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/iron,
 /area/station/security/brig/entrance)
+"vbc" = (
+/obj/structure/sign/directions/evac{
+	dir = 4;
+	pixel_y = 10
+	},
+/obj/structure/sign/directions/lavaland{
+	dir = 4;
+	pixel_y = 4
+	},
+/obj/structure/sign/directions/medical{
+	dir = 4;
+	pixel_y = -2
+	},
+/obj/structure/sign/directions/science{
+	dir = 4;
+	pixel_y = -8
+	},
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/station/commons/dorms/room1)
 "vbe" = (
 /obj/structure/flora/bush/lavendergrass,
 /turf/open/misc/beach/sand,
@@ -62845,25 +62876,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/range)
-"vMZ" = (
-/obj/structure/sign/directions/arrival/directional/north{
-	pixel_y = 42;
-	dir = 4
-	},
-/obj/structure/sign/directions/command/directional/north{
-	pixel_y = 36;
-	dir = 4
-	},
-/obj/structure/sign/directions/dorms/directional/north{
-	pixel_y = 30;
-	dir = 4
-	},
-/obj/structure/sign/directions/engineering/directional/north{
-	pixel_y = 24;
-	dir = 4
-	},
-/turf/open/misc/dirt/jungle,
-/area/taeloth/nearstation/dormitory_concourse)
 "vNi" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/arrow_cw,
 /obj/effect/turf_decal/siding/thinplating_new/dark,
@@ -63678,6 +63690,25 @@
 	dir = 9
 	},
 /area/station/command/heads_quarters/ce)
+"was" = (
+/obj/structure/sign/directions/security{
+	dir = 4;
+	pixel_y = 10
+	},
+/obj/structure/sign/directions/supply{
+	dir = 4;
+	pixel_y = 4
+	},
+/obj/structure/sign/directions/upload{
+	dir = 4;
+	pixel_y = -2
+	},
+/obj/structure/sign/directions/vault{
+	dir = 4;
+	pixel_y = -8
+	},
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/taeloth/nearstation/dormitory_concourse)
 "waw" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -64172,11 +64203,13 @@
 "wkx" = (
 /obj/machinery/button/door/incinerator_vent_ordmix{
 	pixel_x = -24;
-	pixel_y = 8
+	pixel_y = 8;
+	dir = 8
 	},
 /obj/machinery/button/ignition/incinerator/ordmix{
 	pixel_x = -24;
-	pixel_y = -6
+	pixel_y = -6;
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden,
 /turf/open/floor/plating,
@@ -66301,7 +66334,8 @@
 	control_area = "/area/station/ai/satellite/service";
 	name = "Service Bay Turret Control";
 	req_access = list("minisat");
-	pixel_y = 28
+	pixel_y = 28;
+	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -69426,7 +69460,8 @@
 "xYH" = (
 /obj/machinery/button/curtain{
 	pixel_y = 26;
-	id = "dorm1curtain"
+	id = "dorm1curtain";
+	dir = 1
 	},
 /obj/structure/cable/multilayer/multiz,
 /obj/machinery/power/apc/auto_name/directional/west,
@@ -80072,8 +80107,8 @@ abe
 abe
 abe
 abe
-iNB
-vMZ
+sTp
+hnu
 tPO
 ehr
 gGv
@@ -80329,8 +80364,8 @@ abe
 abe
 abe
 abe
-iNB
-hcj
+gob
+tPO
 hnu
 tPO
 abe
@@ -80586,8 +80621,8 @@ abe
 abe
 abe
 abe
-iNB
-lpa
+was
+ehr
 tPO
 kpb
 nqi
@@ -83640,8 +83675,8 @@ bhS
 bhS
 bhS
 dcM
-bhS
-gpi
+rKZ
+tPO
 tPO
 tPO
 tPO
@@ -83897,8 +83932,8 @@ rQh
 jtJ
 lpV
 qDn
-bhS
-hcj
+vbc
+tPO
 iQr
 tPO
 bxE
@@ -84154,8 +84189,8 @@ bhS
 laQ
 euh
 gOt
-bhS
-uew
+dBz
+tPO
 tPO
 tPO
 hnu

@@ -130,7 +130,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 #endif
 
 	alarm_manager = new(src)
-	if(mapload)
+	if(mapload && !istype(loc, /obj/machinery/solarlight)) // EffigyEdit Change - Disgusting gross hack for solar lights
 		find_and_hang_on_atom(mark_for_late_init = TRUE)
 
 /obj/machinery/camera/Destroy(force)
