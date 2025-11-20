@@ -405,7 +405,7 @@
 "iw" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/light/built/directional/east,
+/obj/machinery/light/empty/directional/east,
 /turf/open/floor/iron/white/corner{
 	dir = 1
 	},
@@ -577,7 +577,7 @@
 /area/ruin/unpowered/taeloth_coverup/maintenance)
 "mf" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/built/directional/east,
+/obj/machinery/light/empty/directional/east,
 /turf/open/floor/iron/white/side{
 	dir = 6
 	},
@@ -1133,7 +1133,7 @@
 "yc" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/structure/chair/office,
-/obj/machinery/light/built/directional/south,
+/obj/machinery/light/empty/directional/south,
 /turf/open/floor/iron/dark,
 /area/ruin/unpowered/taeloth_coverup/genetics)
 "yq" = (
@@ -1146,7 +1146,7 @@
 "ys" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/light/built/directional/east,
+/obj/machinery/light/empty/directional/east,
 /turf/open/floor/plating,
 /area/ruin/unpowered/taeloth_coverup/starboard_hall)
 "yD" = (
@@ -1720,7 +1720,7 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
-/obj/machinery/light/built/directional/west,
+/obj/machinery/light/empty/directional/west,
 /obj/effect/spawner/random/trash/garbage,
 /turf/open/floor/iron/white/corner{
 	dir = 8
@@ -1916,7 +1916,7 @@
 "PO" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/broken_floor,
-/obj/machinery/light/built/directional/north,
+/obj/machinery/light/empty/directional/north,
 /turf/open/floor/iron,
 /area/ruin/unpowered/taeloth_coverup/experimentor_lab)
 "PV" = (
