@@ -74,31 +74,35 @@
 		to_chat(user, span_notice("You make a circle with your hand."))
 
 /datum/emote/living/carbon/meow
-	key = "meow"
-	key_third_person = "meows"
+	key = "petmeow" // EffigyEdit Change - 'meow' used by /datum/emote/living/carbon/meow/effigy
+	key_third_person = null // EffigyEdit Change - 'meows' used by /datum/emote/living/carbon/meow/effigy
 	vary = TRUE
 	sound = SFX_CAT_MEOW
 	message = "meows!"
 	message_mime = "meows silently."
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 
+/* // EffigyEdit Remove - Custom Emotes - Remove emote restriction
 /datum/emote/living/carbon/meow/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional, params)
 	if(!iscarbon(user) || (!istype(user.get_organ_slot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/cat)))
 		return FALSE
 	return ..()
+*/ // EffigyEdit Remove End
 
 /datum/emote/living/carbon/purr
-	key = "purr"
-	key_third_person = "purrs"
+	key = "petpurr" // EffigyEdit Change - 'purr' used by /datum/emote/living/carbon/purr/effigy
+	key_third_person = null // EffigyEdit Change - 'purrs' used by /datum/emote/living/carbon/purr/effigy
 	vary = TRUE
 	sound = SFX_CAT_PURR
 	message = "purrs."
 	emote_type = EMOTE_AUDIBLE
 
+/* // EffigyEdit Remove - Custom Emotes - Remove emote restriction
 /datum/emote/living/carbon/purr/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional, params)
 	if(!iscarbon(user) || (!istype(user.get_organ_slot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/cat)) || HAS_MIND_TRAIT(user, TRAIT_MIMING))
 		return FALSE
 	return ..()
+*/ // EffigyEdit Remove End
 
 /datum/emote/living/carbon/mchitter
 	key = "chitter"
@@ -108,10 +112,12 @@
 	sound = 'sound/mobs/humanoids/moth/moth_chitter.ogg'
 	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
 
+/* // EffigyEdit Remove - Custom Emotes - Remove emote restriction
 /datum/emote/living/carbon/mchitter/can_run_emote(mob/living/carbon/user, status_check, intentional, params)
 	if(!ismoth(user))
 		return FALSE
 	return ..()
+*/ // EffigyEdit Remove End
 
 /datum/emote/living/carbon/moan
 	key = "moan"
@@ -128,10 +134,12 @@
 	sound = 'sound/mobs/humanoids/moth/moth_squeak.ogg'
 	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
 
+/* // EffigyEdit Remove - Custom Emotes - Remove emote restriction
 /datum/emote/living/carbon/msqueak/can_run_emote(mob/living/carbon/user, status_check, intentional, params)
 	if(!ismoth(user))
 		return FALSE
 	return ..()
+*/ // EffigyEdit Remove End
 
 /datum/emote/living/carbon/noogie
 	key = "noogie"

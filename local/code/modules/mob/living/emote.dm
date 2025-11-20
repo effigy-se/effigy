@@ -1,3 +1,169 @@
+// keep these in alphabetical order or I swear to god I will drive this repo off a cliff
+
+/datum/emote/living/awoo
+	key = "awoo"
+	key_third_person = "awoos"
+	message = "lets out an awoo!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/awoo.ogg'
+
+/datum/emote/living/awoo_long
+	key = "awoo2"
+	message = "lets out an awoo!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/long_awoo.ogg'
+
+/datum/emote/living/baa
+	key = "baa"
+	key_third_person = "baas"
+	message = "lets out a baa."
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/baa.ogg'
+
+/datum/emote/living/baa2
+	key = "baa2"
+	key_third_person = "baas"
+	message = "bleats."
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/baa2.ogg'
+
+/datum/emote/living/bark
+	key = "bark"
+	key_third_person = "barks"
+	message = "barks!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/bark2.ogg'
+
+/datum/emote/living/bark2
+	key = "bark2"
+	message = "barks!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/bark1.ogg'
+
+/datum/emote/living/bawk
+	key = "bawk"
+	key_third_person = "bawks"
+	message = "bawks like a chicken."
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/bawk.ogg'
+
+/datum/emote/living/blep
+	key = "blep"
+	key_third_person = "bleps"
+	message = "bleps their tongue out. Blep."
+	message_AI = "shows an image of a random blepping animal. Blep."
+	message_robot = "bleps their robo-tongue out. Blep."
+
+/datum/emote/living/blink2
+	key = "blink2"
+	key_third_person = "blinks twice"
+	message = "blinks twice."
+	message_AI = "has their display flicker twice."
+
+/datum/emote/living/blush
+	sound = 'local/sound/emotes/generic/blush.ogg'
+
+/datum/emote/living/bork
+	key = "bork"
+	key_third_person = "borks"
+	message = "lets out a bork."
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/bork.ogg'
+
+/datum/emote/living/bow
+	targets_person = TRUE
+
+/datum/emote/living/cackle
+	key = "cackle"
+	key_third_person = "cackles"
+	message = "cackles hysterically!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/hyena/cackle.ogg'
+
+/datum/emote/living/cackle_giggle
+	key = "cackle2"
+	message = "cackles hysterically!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/hyena/cackle_giggle.ogg'
+
+/datum/emote/living/cat_chirp
+	key = "catchirp"
+	message = "chirps!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/catchirp.ogg'
+
+/datum/emote/living/caw
+	key = "caw"
+	key_third_person = "caws"
+	message = "caws!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/caw.ogg'
+
+/datum/emote/living/caw2
+	key = "caw2"
+	key_third_person = "caws twice"
+	message = "caws twice!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/caw2.ogg'
+
+/datum/emote/living/chitter
+	key = "chitter"
+	key_third_person = "chitters"
+	message = "chitters!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/generic/mothchitter.ogg'
+
+/datum/emote/living/clap1
+	key = "clap1"
+	key_third_person = "claps once"
+	message = "claps once."
+	emote_type = EMOTE_AUDIBLE
+	hands_use_check = TRUE
+	vary = TRUE
+	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
+
+/datum/emote/living/clap1/can_run_emote(mob/living/user, status_check = TRUE , intentional, params)
+	if(!iscarbon(user) || user.usable_hands < 2)
+		return FALSE
+	return ..()
+
+/datum/emote/living/clap1/get_sound(mob/living/user)
+	return pick(
+		'local/sound/emotes/generic/claponce1.ogg',
+		'local/sound/emotes/generic/claponce2.ogg',
+	)
+
+/datum/emote/living/clear
+	key = "clear"
+	key_third_person = "clears their throat"
+	message = "clears their throat."
+
+/datum/emote/living/deermah
+	key = "mah"
+	key_third_person = "mahs"
+	message = "bleats like a deer!"
+	emote_type = EMOTE_AUDIBLE
+	sound = 'local/sound/emotes/voice/mah.ogg'
+
+/datum/emote/living/ear_twitch
+	key = "etwitch"
+	key_third_person = "twitches their ears"
+	message = "twitches their ears!"
+
 /datum/emote/living/emote_whisper
 	key = "emotew"
 	key_third_person = "emotew"
@@ -55,20 +221,589 @@
 
 	return TRUE
 
-/datum/emote/living/bow
-	targets_person = TRUE
+/datum/emote/living/eyeroll
+	key = "eyeroll"
+	key_third_person = "rolls their eyes"
+	message = "rolls their eyes."
+
+/datum/emote/living/exasperated
+	key = "esigh" // short for exasperated sigh
+	key_third_person = "esighs"
+	message = "lets out an exasperated sigh."
+	emote_type = EMOTE_AUDIBLE
+
+/datum/emote/living/sigh_exasperated/get_sound(mob/living/user)
+	if(HAS_MIND_TRAIT(user, TRAIT_MIMING))
+		return
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/human_user = user
+	if(human_user.physique == FEMALE)
+		return 'local/sound/emotes/voice/female_sigh_exasperated.ogg'
+	return 'local/sound/emotes/voice/male_sigh_exasperated.ogg'
+
+/datum/emote/living/flutter //Moth flutter
+	key = "flutter"
+	key_third_person = "flutters"
+	message = "rapidly flutters their wings!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'sound/mobs/humanoids/moth/moth_flutter.ogg'
+
+/datum/emote/living/fpurr
+	key = "fpurr"
+	key_third_person = "fpurrs"
+	message = "purrs!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/fox_purr.ogg'
+
+/datum/emote/living/gasp/get_sound(mob/living/user)
+	if(HAS_MIND_TRAIT(user, TRAIT_MIMING))
+		return
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/human_user = user
+	if(human_user.physique == FEMALE)
+		return pick(
+			'local/sound/emotes/generic/female/gasp_f1.ogg',
+			'local/sound/emotes/generic/female/gasp_f2.ogg',
+			'local/sound/emotes/generic/female/gasp_f3.ogg',
+			'local/sound/emotes/generic/female/gasp_f4.ogg',
+			'local/sound/emotes/generic/female/gasp_f5.ogg',
+			'local/sound/emotes/generic/female/gasp_f6.ogg',
+		)
+	return pick(
+		'local/sound/emotes/generic/male/gasp_m1.ogg',
+		'local/sound/emotes/generic/male/gasp_m2.ogg',
+		'local/sound/emotes/generic/male/gasp_m3.ogg',
+		'local/sound/emotes/generic/male/gasp_m4.ogg',
+		'local/sound/emotes/generic/male/gasp_m5.ogg',
+		'local/sound/emotes/generic/male/gasp_m6.ogg',
+	)
+
+/datum/emote/living/gecker
+	key = "gecker"
+	key_third_person = "geckers"
+	message = "geckers!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/foxgecker.ogg'
 
 /datum/emote/living/glare
 	targets_person = TRUE
 
+/datum/emote/living/gnash
+	key = "gnash"
+	key_third_person = "gnashes"
+	message = "gnashes."
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'sound/items/weapons/bite.ogg'
+
+/datum/emote/living/growl
+	key = "growl"
+	key_third_person = "growls"
+	message = "lets out a growl."
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/growl.ogg'
+
+/datum/emote/living/headtilt
+	key = "tilt"
+	key_third_person = "tilts"
+	message = "tilts their head."
+	message_AI = "tilts the image on their display."
+
+/datum/emote/living/hiss
+	key = "hiss1"
+	key_third_person = "hisses"
+	message = "hisses!"
+	emote_type = EMOTE_AUDIBLE
+	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
+	vary = TRUE
+	sound = 'local/sound/emotes/generic/hiss.ogg'
+
+/datum/emote/living/hiss_feline
+	key = "fhiss"
+	message = "hisses!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/feline_hiss.ogg'
+
+/datum/emote/living/honk
+	key = "honk2"
+	key_third_person = "honks loudly like a goose!"
+	message = "honks loudly like a goose!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/goose_honk.ogg'
+
+/datum/emote/living/hoot
+	key = "hoot"
+	key_third_person = "hoots"
+	message = "hoots!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/hoot.ogg'
+
+/datum/emote/living/howl
+	key = "howl"
+	key_third_person = "howls"
+	message = "lets out a long howl."
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/howl.ogg'
+
+/datum/emote/living/huff
+	key = "huff"
+	key_third_person = "huffs"
+	message = "huffs!"
+
+/datum/emote/living/hyena_laugh
+	key = "hlaugh"
+	key_third_person = "hlaughs"
+	message = "laughs!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+
+/datum/emote/living/hyena_laugh/get_sound(mob/living/user)
+	return pick(
+		'local/sound/emotes/voice/hyena/laugh_bright.ogg',
+		'local/sound/emotes/voice/hyena/laugh_low.ogg',
+		'local/sound/emotes/voice/hyena/laugh_short.ogg',
+		'local/sound/emotes/voice/hyena/laugh_twice.ogg',
+		'local/sound/emotes/voice/hyena/laugh1.ogg',
+		'local/sound/emotes/voice/hyena/laugh2.ogg',
+	)
+
+/datum/emote/living/kiss
+	cooldown = TAUNT_EMOTE_DURATION
+
+/datum/emote/living/kweh
+	key = "kweh"
+	key_third_person = "kwehs"
+	message = "kwehs out loud!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+
+/datum/emote/living/kweh/get_sound(mob/living/user)
+	return pick(
+		'sound/mobs/non-humanoids/raptor/raptor_1.ogg',
+		'sound/mobs/non-humanoids/raptor/raptor_4.ogg',
+		'sound/mobs/non-humanoids/raptor/raptor_5.ogg',
+	)
+
+/datum/emote/living/kweh_sad
+	key = "skweh"
+	key_third_person = "skwehs"
+	message = "kwehs sadly"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+
+/datum/emote/living/kweh_sad/get_sound(mob/living/user)
+	return pick(
+		'sound/mobs/non-humanoids/raptor/raptor_2.ogg',
+		'sound/mobs/non-humanoids/raptor/raptor_3.ogg',
+	)
+
 /datum/emote/living/look
 	targets_person = TRUE
+
+/datum/emote/living/mar
+	key = "mar"
+	key_third_person = "mars"
+	message = "lets out a mar!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/mar.ogg'
+
+/datum/emote/living/neigh
+	key = "neigh"
+	key_third_person = "neighs"
+	message = "neighs."
+	emote_type = EMOTE_AUDIBLE
+
+/datum/emote/living/neigh/get_sound(mob/living/user)
+	return 'sound/mobs/non-humanoids/pony/whinny03.ogg'
+
+/datum/emote/living/neigh2
+	key = "neigh2"
+	key_third_person = "neighs2"
+	message = "lets out a long winded whinny!"
+	emote_type = EMOTE_AUDIBLE
+
+/datum/emote/living/neigh2/get_sound(mob/living/user)
+	return pick(
+		'sound/mobs/non-humanoids/pony/whinny01.ogg',
+		'sound/mobs/non-humanoids/pony/whinny02.ogg',
+	)
+
+/datum/emote/living/meow
+	key = "meow"
+	key_third_person = "meows"
+	message = "meows!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/generic/meow.ogg'
+
+/datum/emote/living/meow2
+	key = "meow2"
+	key_third_person = "meowalt"
+	message = "meows!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'sound/effects/meow1.ogg'
+
+/datum/emote/living/merp
+	key = "merp"
+	key_third_person = "merps"
+	message = "merps!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/merp.ogg'
+
+/datum/emote/living/mggaow
+	key = "mggaow"
+	key_third_person = "meowloud"
+	message = "meows loudly!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/mggaow.ogg'
+
+/datum/emote/living/moo
+	key = "moo"
+	key_third_person = "moos!"
+	message = "moos!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/moo.ogg'
+
+/datum/emote/living/mothsqueak
+	key = "msqueak"
+	key_third_person = "lets out a tiny squeak"
+	message = "lets out a tiny squeak!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/mothsqueak.ogg'
+
+/datum/emote/living/mrowl
+	key = "mrowl"
+	key_third_person = "mrowls"
+	message = "mrowls!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/mrowl.ogg'
+
+/datum/emote/living/mrrp //you play like a cat
+	key = "mrrp"
+	key_third_person = "mrrps"
+	message = "mrrps!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/mrrp.ogg'
 
 /datum/emote/living/nod
 	targets_person = TRUE
 
+/datum/emote/living/nya
+	key = "nya"
+	key_third_person = "nyas"
+	message = "lets out a nya!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/nya.ogg'
+
+/datum/emote/living/pant
+	key = "pant"
+	key_third_person = "pants"
+	message = "pants like a dog!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/generic/pant.ogg'
+
+/datum/emote/living/peep
+	key = "peep"
+	key_third_person = "peeps"
+	message = "peeps like a bird!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/peep_once.ogg'
+
+/datum/emote/living/peep2
+	key = "peep2"
+	key_third_person = "peeps twice"
+	message = "peeps twice like a bird!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/peep.ogg'
+
 /datum/emote/living/point
 	targets_person = TRUE
 
+/datum/emote/living/prbt
+	key = "prbt"
+	key_third_person = "prbts"
+	message = "prbts!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/prbt.ogg'
+
+/datum/emote/living/purr
+	key = "purr"
+	key_third_person = "purrs!"
+	message = "purrs!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/feline_purr.ogg'
+
+/datum/emote/living/quill
+	key = "quill"
+	key_third_person = "quills"
+	message = "rustles their quills."
+	emote_type = EMOTE_AUDIBLE
+	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
+	vary = TRUE
+	sound = 'local/sound/emotes/generic/voxrustle.ogg'
+
+/datum/emote/living/rattle
+	key = "rattle"
+	key_third_person = "rattles"
+	message = "rattles!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/rattle.ogg'
+
+/datum/emote/living/rawr
+	key = "rawr"
+	key_third_person = "rawrs"
+	message = "lets out a rawr!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/rawr.ogg'
+
+/datum/emote/living/rpurr
+	key = "rpurr"
+	key_third_person = "purrs!"
+	message = "purrs!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/raptor_purr.ogg'
+
+/datum/emote/living/smirk
+	key = "smirk"
+	key_third_person = "smirks"
+	message = "smirks."
+
+//Silicons can snap now
+/datum/emote/living/snap
+	key = "snap"
+	key_third_person = "snaps"
+	message = "snaps their fingers."
+	message_param = "snaps their fingers at %t."
+	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
+	sound = 'sound/mobs/humanoids/human/snap/fingersnap1.ogg'
+
+/datum/emote/living/snap2
+	key = "snap2"
+	key_third_person = "snaps twice"
+	message = "snaps twice."
+	message_param = "snaps twice at %t."
+	emote_type = EMOTE_AUDIBLE
+	hands_use_check = TRUE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/snap2.ogg'
+
+/datum/emote/living/snap3
+	key = "snap3"
+	key_third_person = "snaps thrice"
+	message = "snaps thrice."
+	message_param = "snaps thrice at %t."
+	emote_type = EMOTE_AUDIBLE
+	hands_use_check = TRUE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/snap3.ogg'
+
+/datum/emote/living/snort
+	key = "snort"
+	key_third_person = "snorts"
+	message = "snorts."
+	emote_type = EMOTE_AUDIBLE
+	sound = 'sound/mobs/non-humanoids/pony/snort.ogg'
+
 /datum/emote/living/stare
 	targets_person = TRUE
+
+/datum/emote/living/squeak_mouse
+	key = "squeak"
+	key_third_person = "squeaks"
+	message = "squeaks!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'sound/mobs/non-humanoids/mouse/mousesqueek.ogg'
+
+/datum/emote/living/squint
+	key = "squint"
+	key_third_person = "squints"
+	message = "squints."
+	message_AI = "zooms in."
+
+/datum/emote/living/squeal
+	key = "squeal"
+	key_third_person = "squeals"
+	message = "squeals!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/squeal.ogg'
+
+/datum/emote/living/squish
+	key = "squish"
+	key_third_person = "squishes"
+	message = "squishes!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/slime_squish.ogg'
+
+/datum/emote/living/stoatchirp
+	key = "schirp" // short for stoatchirp
+	key_third_person = "schirps"
+	message = "chirp chirp chirps!"
+	emote_type = EMOTE_AUDIBLE
+	sound = 'sound/mobs/non-humanoids/stoat/stoat_sounds.ogg'
+
+/datum/emote/living/tail_thump
+	key = "tailthump"
+	key_third_person = "tailthumps"
+	message = "thumps their tail!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/tailthump.ogg'
+
+/datum/emote/living/tail_thump/can_run_emote(mob/user, status_check, intentional, params)
+	var/obj/item/organ/tail/tail = user.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
+	if(isnull(tail))
+		return FALSE
+	return ..()
+
+/datum/emote/living/thump
+	key = "thump"
+	key_third_person = "thumps"
+	message = "thumps their foot!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'sound/effects/glass/glassbash.ogg'
+
+/datum/emote/living/trills
+	key = "trill"
+	key_third_person = "trills"
+	message = "trills!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/trills.ogg'
+
+/datum/emote/living/warble
+	key = "warble"
+	key_third_person = "warbles"
+	message = "warbles!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/warbles.ogg'
+
+/datum/emote/living/weh
+	key = "weh"
+	key_third_person = "wehs"
+	message = "lets out a weh!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/weh.ogg'
+
+/datum/emote/living/whine1
+	key = "whine1"
+	key_third_person = "whines"
+	message = "lets out a whine!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/whine1.ogg'
+
+/datum/emote/living/whine2
+	key = "whine2"
+	message = "lets out a whine!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/whine2.ogg'
+
+/datum/emote/living/whoop
+	key = "whoop"
+	key_third_person = "whoops"
+	message = "lets out a whoop!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/hyena/whoop.ogg'
+
+/datum/emote/living/whoop2
+	key = "whoop2"
+	message = "lets out a whoop!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/hyena/whoop_long.ogg'
+
+/datum/emote/living/woof
+	key = "woof"
+	key_third_person = "woofs"
+	message = "lets out a woof!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/woof.ogg'
+
+/datum/emote/living/woof2
+	key = "woof2"
+	message = "lets out a woof!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/woof2.ogg'
+
+/datum/emote/living/wurble
+	key = "wurble"
+	key_third_person = "wurbles"
+	message = "lets out a wurble."
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/wurble.ogg'
+
+/datum/emote/living/yelp1
+	key = "yelp"
+	message = "lets out a yelp!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/yelp1.ogg'
+
+/datum/emote/living/yelp2
+	key = "yelp2"
+	message = "lets out a yelp!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/yelp2.ogg'
+
+/datum/emote/living/yip
+	key = "yip"
+	key_third_person = "yips"
+	message = "yips!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+
+/datum/emote/living/yip/get_sound(mob/living/user)
+	return pick(
+		'local/sound/emotes/voice/yip1.ogg',
+		'local/sound/emotes/voice/yip2.ogg',
+		'local/sound/emotes/voice/yip2.ogg',
+	)
+
+/datum/emote/living/yip2
+	key = "yipyip"
+	key_third_person = "yips twice"
+	message = "yips twice!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/yip.ogg'
