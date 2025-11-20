@@ -90,7 +90,7 @@
 */ // EffigyEdit Remove End
 
 /datum/emote/living/carbon/purr
-	key = "purr" // EffigyEdit Change - 'purr' used by /datum/emote/living/carbon/purr/effigy
+	key = "petpurr" // EffigyEdit Change - 'purr' used by /datum/emote/living/carbon/purr/effigy
 	key_third_person = null // EffigyEdit Change - 'purrs' used by /datum/emote/living/carbon/purr/effigy
 	vary = TRUE
 	sound = SFX_CAT_PURR

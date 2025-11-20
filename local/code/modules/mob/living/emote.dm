@@ -54,12 +54,6 @@
 	vary = TRUE
 	sound = 'local/sound/emotes/voice/bawk.ogg'
 
-/datum/emote/beep
-	emote_type = EMOTE_AUDIBLE
-	vary = TRUE
-	sound = 'local/sound/emotes/generic/twobeep.ogg'
-	mob_type_allowed_typecache = list(/mob/living) // Beep already exists on brains and silicons
-
 /datum/emote/living/blep
 	key = "blep"
 	key_third_person = "bleps"
@@ -72,12 +66,6 @@
 	key_third_person = "blinks twice"
 	message = "blinks twice."
 	message_AI = "has their display flicker twice."
-
-/datum/emote/living/blink_rapid
-	key = "rblink"
-	key_third_person = "rapidly blinks"
-	message = "rapidly blinks!"
-	message_AI = "has their display flash rapidly!"
 
 /datum/emote/living/blush
 	sound = 'local/sound/emotes/generic/blush.ogg'
@@ -346,7 +334,7 @@
 	sound = 'local/sound/emotes/voice/feline_hiss.ogg'
 
 /datum/emote/living/honk
-	key = "honk1"
+	key = "honk2"
 	key_third_person = "honks loudly like a goose!"
 	message = "honks loudly like a goose!"
 	emote_type = EMOTE_AUDIBLE
@@ -361,8 +349,16 @@
 	vary = TRUE
 	sound = 'local/sound/emotes/voice/hoot.ogg'
 
+/datum/emote/living/howl
+	key = "howl"
+	key_third_person = "howls"
+	message = "lets out a long howl."
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/howl.ogg'
+
 /datum/emote/living/huff
-	key = "huffs"
+	key = "huff"
 	key_third_person = "huffs"
 	message = "huffs!"
 
@@ -416,6 +412,14 @@
 /datum/emote/living/look
 	targets_person = TRUE
 
+/datum/emote/living/mar
+	key = "mar"
+	key_third_person = "mars"
+	message = "lets out a mar!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/voice/mar.ogg'
+
 /datum/emote/living/neigh
 	key = "neigh"
 	key_third_person = "neighs"
@@ -444,6 +448,14 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'local/sound/emotes/generic/meow.ogg'
+
+/datum/emote/living/meow2
+	key = "meow2"
+	key_third_person = "meowalt"
+	message = "meows!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'sound/effects/meow1.ogg'
 
 /datum/emote/living/merp
 	key = "merp"
@@ -503,6 +515,14 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'local/sound/emotes/voice/nya.ogg'
+
+/datum/emote/living/pant
+	key = "pant"
+	key_third_person = "pants"
+	message = "pants like a dog!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	sound = 'local/sound/emotes/generic/pant.ogg'
 
 /datum/emote/living/peep
 	key = "peep"
@@ -676,8 +696,8 @@
 	sound = 'sound/effects/glass/glassbash.ogg'
 
 /datum/emote/living/trills
-	key = "trills"
-	key_third_person = "trills!"
+	key = "trill"
+	key_third_person = "trills"
 	message = "trills!"
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
