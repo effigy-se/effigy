@@ -47,7 +47,6 @@
 	sound = 'local/sound/emotes/voice/synth_shutdown.ogg'
 	cooldown = 2 SECONDS
 
-
 /datum/emote/living/carbon/human/synth/rstartup
 	key = "startup"
 	message = "chimes to life."
