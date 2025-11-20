@@ -1,5 +1,0 @@
-author: "LT3"
-delete-after: True
-changes:
-  - config: "Default auto-shuttle timer reduced to 90 minutes"
-  - balance: "Green alert shuttle timer reduced to 10 minutes"
