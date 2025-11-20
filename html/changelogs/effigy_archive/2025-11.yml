@@ -33,3 +33,6 @@
   LT3:
   - config: Default auto-shuttle timer reduced to 90 minutes
   - balance: Green alert shuttle timer reduced to 10 minutes
+2025-11-20:
+  LT3:
+  - bugfix: Missing emotes have been found and strongarmed back into your vocabulary
