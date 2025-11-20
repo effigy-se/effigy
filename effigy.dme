@@ -462,7 +462,6 @@
 #include "code\__DEFINES\~effigy\turf.dm"
 #include "code\__DEFINES\~effigy\vehicles.dm"
 #include "code\__DEFINES\~effigy\vv.dm"
-#include "code\__DEFINES\~effigy\wounds.dm"
 #include "code\__DEFINES\~effigy\atmospherics\atmos_mapping_helpers.dm"
 #include "code\__DEFINES\~effigy\dcs\signals_human.dm"
 #include "code\__DEFINES\~effigy\research\research_categories.dm"
