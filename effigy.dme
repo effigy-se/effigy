@@ -7291,7 +7291,6 @@
 #include "local\code\modules\mob\living\living.dm"
 #include "local\code\modules\mob\living\living_say.dm"
 #include "local\code\modules\mob\living\mob.dm"
-#include "local\code\modules\mob\living\species_emote.dm"
 #include "local\code\modules\mob\living\ssd_indicator.dm"
 #include "local\code\modules\mob\living\basic\guardian\guardian_types\support.dm"
 #include "local\code\modules\mob\living\basic\pets\gondolas\gondolapod.dm"
