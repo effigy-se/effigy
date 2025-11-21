@@ -59,7 +59,7 @@
 	icon_state = "plushie_granite"
 	attack_verb_continuous = list("bleps", "SQUEEZES", "pies")
 	attack_verb_simple = list("blep", "SQUEEZE", "pie")
-	squeak_override = list('local/sound/emotes/generic/twobeep.ogg' = 1)
+	squeak_override = list('sound/machines/beep/twobeep.ogg' = 1)
 
 /obj/item/toy/plush/effigy/edgy_bird
 	name = "edgy birb plushie"
@@ -124,4 +124,4 @@
 	icon_state = "plushie_courier"
 	attack_verb_continuous = list("delivers", "export scans", "dwoops", "bwuhs", "stamps")
 	attack_verb_simple = list("deliver", "export scan", "dwoop", "bwuh", "stamp")
-	squeak_override = list('local/sound/emotes/generic/twobeep.ogg' = 1)
+	squeak_override = list('sound/machines/beep/twobeep.ogg' = 1)
