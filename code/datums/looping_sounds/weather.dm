@@ -102,6 +102,7 @@
 	end_sound = 'sound/ambience/weather/rain/rain_end.ogg'
 	volume = 70
 	sound_channel = CHANNEL_WEATHER
+	use_reverb = FALSE // EffigyEdit Add
 
 /datum/looping_sound/rain/start
 	mid_sounds = 'sound/ambience/weather/rain/rain_start.ogg'
