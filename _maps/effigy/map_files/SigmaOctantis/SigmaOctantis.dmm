@@ -99021,6 +99021,7 @@
 /obj/effect/turf_decal/trimline/dark/mid_joiner{
 	dir = 8
 	},
+/obj/structure/fireaxecabinet/jawsofrecovery/directional/south,
 /turf/open/floor/iron/smooth_large,
 /area/station/medical/medbay/central)
 "wxp" = (
