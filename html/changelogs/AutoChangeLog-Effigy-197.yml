@@ -1,0 +1,4 @@
+author: "Soot-IX"
+delete-after: True
+changes:
+  - bugfix: "Removed reverb from rain sound loop."
