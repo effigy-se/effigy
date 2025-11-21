@@ -36,3 +36,9 @@
 2025-11-20:
   LT3:
   - bugfix: Missing emotes have been found and strongarmed back into your vocabulary
+2025-11-21:
+  LT3:
+  - map: Missing paramedic jaws of recovery cabinets have been located
+  - bugfix: Fixed stasis surgery applying a pain debuff
+  Soot-IX:
+  - bugfix: Removed reverb from rain sound loop.
