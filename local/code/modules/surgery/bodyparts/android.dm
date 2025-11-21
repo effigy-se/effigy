@@ -827,54 +827,53 @@
 
 // Human-Like
 /obj/item/bodypart/head/robot/effigy/human_like
-	is_dimorphic = TRUE
 	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "human_like_head_f"
-	limb_id = "human_like"
+	icon_static = BODYPART_ICON_ANIMALID
+	icon = BODYPART_ICON_ANIMALID
+	icon_greyscale = BODYPART_ICON_ANIMALID
+	icon_state = "animalid_head"
+	limb_id = "animalid"
 
 /obj/item/bodypart/chest/robot/effigy/human_like
 	is_dimorphic = TRUE
 	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "human_like_chest_f"
-	limb_id = "human_like"
+	icon_static = BODYPART_ICON_ANIMALID
+	icon = BODYPART_ICON_ANIMALID
+	icon_greyscale = BODYPART_ICON_ANIMALID
+	icon_state = "animalid_chest_f"
+	limb_id = "animalid"
 
 /obj/item/bodypart/arm/right/robot/effigy/human_like
 	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "human_like_r_arm"
-	limb_id = "human_like"
+	icon_static = BODYPART_ICON_ANIMALID
+	icon = BODYPART_ICON_ANIMALID
+	icon_greyscale = BODYPART_ICON_ANIMALID
+	icon_state = "animalid_r_arm"
+	limb_id = "animalid"
 
 /obj/item/bodypart/arm/left/robot/effigy/human_like
 	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "human_like_l_arm"
-	limb_id = "human_like"
+	icon_static = BODYPART_ICON_ANIMALID
+	icon = BODYPART_ICON_ANIMALID
+	icon_greyscale = BODYPART_ICON_ANIMALID
+	icon_state = "animalid_l_arm"
+	limb_id = "animalid"
 
 /obj/item/bodypart/leg/right/robot/effigy/human_like
 	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "human_like_r_leg"
-	limb_id = "human_like"
+	icon_static = BODYPART_ICON_ANIMALID
+	icon = BODYPART_ICON_ANIMALID
+	icon_greyscale = BODYPART_ICON_ANIMALID
+	icon_state = "animalid_r_leg"
+	limb_id = "animalid"
 
 /obj/item/bodypart/leg/left/robot/effigy/human_like
 	should_draw_greyscale = TRUE
-	icon_static = BODYPART_ICON_SYNTH_BASE
-	icon = BODYPART_ICON_SYNTH_BASE
-	icon_greyscale = BODYPART_ICON_SYNTH_BASE
-	icon_state = "human_like_r_leg"
-	limb_id = "human_like"
+	icon_static = BODYPART_ICON_ANIMALID
+	icon = BODYPART_ICON_ANIMALID
+	icon_greyscale = BODYPART_ICON_ANIMALID
+	icon_state = "animalid_r_leg"
+	limb_id = "animalid"
 
 // Zhenkov-Light
 /obj/item/bodypart/leg/right/robot/effigy/zhenkov
