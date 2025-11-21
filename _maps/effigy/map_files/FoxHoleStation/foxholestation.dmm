@@ -1877,7 +1877,7 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/white/smooth_edge,
-/area/station/medical/office)
+/area/station/medical/paramedic)
 "aYZ" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -4751,7 +4751,7 @@
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 1
 	},
-/area/station/medical/office)
+/area/station/medical/paramedic)
 "cyy" = (
 /turf/open/floor/holofloor/stairs/left,
 /area/station/hallway/secondary/command)
@@ -5896,7 +5896,7 @@
 	},
 /obj/item/stack/medical/gauze,
 /turf/open/floor/plating,
-/area/station/medical/office)
+/area/station/medical/paramedic)
 "deH" = (
 /obj/structure/table/reinforced/rglass,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -7799,7 +7799,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white/smooth_half,
-/area/station/medical/office)
+/area/station/medical/paramedic)
 "efq" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron,
@@ -8207,6 +8207,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
+/obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "eru" = (
@@ -16688,7 +16689,7 @@
 /obj/item/stack/medical/mesh,
 /obj/item/stack/medical/suture,
 /turf/open/floor/plating,
-/area/station/medical/office)
+/area/station/medical/paramedic)
 "iRL" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -17947,7 +17948,6 @@
 /obj/machinery/camera/directional/east{
 	c_tag = "Medbay Office"
 	},
-/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 1
 	},
@@ -17965,8 +17965,10 @@
 	},
 /obj/item/pen,
 /obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/structure/fireaxecabinet/jawsofrecovery/directional/north,
 /turf/open/floor/iron/white/smooth_edge,
-/area/station/medical/office)
+/area/station/medical/paramedic)
 "jCR" = (
 /obj/machinery/atmospherics/pipe/smart/simple/dark/visible{
 	dir = 4
@@ -19453,7 +19455,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white/textured_large,
-/area/station/medical/office)
+/area/station/medical/paramedic)
 "kpk" = (
 /obj/machinery/camera/autoname/directional/north,
 /obj/machinery/chem_master/condimaster{
@@ -19530,7 +19532,7 @@
 /area/station/medical/storage)
 "krM" = (
 /turf/closed/wall,
-/area/station/medical/office)
+/area/station/medical/paramedic)
 "krQ" = (
 /obj/structure/table/optable,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -26792,7 +26794,7 @@
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 1
 	},
-/area/station/medical/office)
+/area/station/medical/paramedic)
 "oBt" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark/corner{
 	dir = 4
@@ -33020,7 +33022,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white/smooth_half,
-/area/station/medical/office)
+/area/station/medical/paramedic)
 "rQg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -38158,7 +38160,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/white/smooth_half,
-/area/station/medical/office)
+/area/station/medical/paramedic)
 "uuZ" = (
 /turf/closed/wall,
 /area/station/commons/fitness/recreation)
@@ -38351,7 +38353,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/station/medical/office)
+/area/station/medical/paramedic)
 "uzD" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -39110,7 +39112,7 @@
 /obj/structure/table/reinforced/rglass,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
-/area/station/medical/office)
+/area/station/medical/paramedic)
 "uPR" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/dark/smooth_large,
@@ -41759,7 +41761,6 @@
 	},
 /obj/machinery/shower/directional/east,
 /obj/structure/drain,
-/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "wfK" = (
@@ -41932,7 +41933,7 @@
 	},
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/white/smooth_half,
-/area/station/medical/office)
+/area/station/medical/paramedic)
 "wjZ" = (
 /obj/structure/flora/rock/pile/style_random,
 /turf/open/misc/asteroid/airless,
