@@ -6706,6 +6706,7 @@
 /area/taeloth/underground)
 "cpU" = (
 /obj/structure/table,
+/obj/item/papercutter,
 /turf/open/floor/glass/reinforced,
 /area/station/cargo/sorting)
 "cqd" = (
@@ -22582,7 +22583,6 @@
 /area/station/hallway/secondary/exit/escape_pod)
 "hQW" = (
 /obj/structure/table,
-/obj/item/papercutter,
 /obj/effect/turf_decal/trimline/brown/warning{
 	dir = 4
 	},
