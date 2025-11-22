@@ -22590,10 +22590,10 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/west,
+/obj/item/stamp/denied,
 /obj/item/stamp/granted{
 	pixel_y = 8
 	},
-/obj/item/stamp/denied,
 /turf/open/floor/iron,
 /area/station/cargo/office)
 "hQX" = (
