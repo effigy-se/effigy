@@ -7423,7 +7423,6 @@
 #include "local\code\modules\surgery\surgery.dm"
 #include "local\code\modules\surgery\surgery_step.dm"
 #include "local\code\modules\surgery\bodyparts\android.dm"
-#include "local\code\modules\surgery\bodyparts\animalid.dm"
 #include "local\code\modules\surgery\organs\power_cord.dm"
 #include "local\code\modules\surgery\organs\internal\ears\ears_synth.dm"
 #include "local\code\modules\surgery\organs\internal\eyes\eyes_synth.dm"

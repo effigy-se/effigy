@@ -1,7 +1,6 @@
 /obj/item/bodypart/head/animalid
 	icon_greyscale = BODYPART_ICON_ANIMALID
 	limb_id = SPECIES_ANIMALID
-	is_dimorphic = FALSE
 
 /obj/item/bodypart/chest/animalid
 	icon_greyscale = BODYPART_ICON_ANIMALID
