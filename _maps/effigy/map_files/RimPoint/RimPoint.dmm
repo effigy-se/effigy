@@ -8663,7 +8663,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/obj/item/radio/intercom/directional/west,
+/obj/structure/sink/directional/east,
 /turf/open/floor/iron,
 /area/station/medical/morgue)
 "dbR" = (
@@ -48549,6 +48549,7 @@
 /area/station/tcommsat/server)
 "qWF" = (
 /obj/effect/turf_decal/tile/dark_blue/diagonal_edge,
+/obj/structure/sink/directional/south,
 /turf/open/floor/iron/diagonal,
 /area/station/science/robotics/augments)
 "qWR" = (
@@ -64555,6 +64556,7 @@
 /area/taeloth/nearstation/ai_sat_trail)
 "wpW" = (
 /obj/structure/table/reinforced,
+/obj/item/radio/intercom/directional/north,
 /turf/open/floor/iron,
 /area/station/medical/morgue)
 "wpY" = (
