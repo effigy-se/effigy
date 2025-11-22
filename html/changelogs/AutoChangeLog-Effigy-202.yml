@@ -1,4 +1,0 @@
-author: "LT3"
-delete-after: True
-changes:
-  - bugfix: "Synths can now pick a body color when using human-like or lizard parts"

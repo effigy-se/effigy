@@ -1,6 +1,0 @@
-author: "TealSeer"
-delete-after: True
-changes:
-  - map: "added GRANTED/DENIED stamps to Rimpoint cargo"
-  - map: "added two cargo shuttle displays to Rimpoint cargo"
-  - map: "added a few sinks to Rimpoint medbay and science"
