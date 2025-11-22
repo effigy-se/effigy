@@ -19,7 +19,6 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 
 /datum/preference/choiced/heart_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		target.dna?.species?.regenerate_organs(target)
 		return
 	target.dna?.species?.mutantheart = text2path("/obj/item/organ/heart/[value]")
 	LAZYADDASSOC(target.dna.features["frame_list"], ORGAN_SLOT_HEART, text2path("/obj/item/organ/heart/[value]"))
@@ -52,7 +51,6 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 
 /datum/preference/choiced/lungs_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		target.dna?.species?.regenerate_organs(target)
 		return
 	target.dna?.species?.mutantlungs = text2path("/obj/item/organ/lungs/[value]")
 	LAZYADDASSOC(target.dna.features["frame_list"], ORGAN_SLOT_LUNGS, text2path("/obj/item/organ/lungs/[value]"))
@@ -85,7 +83,6 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 
 /datum/preference/choiced/liver_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		target.dna?.species?.regenerate_organs(target)
 		return
 	target.dna?.species?.mutantliver = text2path("/obj/item/organ/liver/[value]")
 	LAZYADDASSOC(target.dna.features["frame_list"], ORGAN_SLOT_LIVER, text2path("/obj/item/organ/liver/[value]"))
@@ -118,7 +115,6 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 
 /datum/preference/choiced/stomach_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		target.dna?.species?.regenerate_organs(target)
 		return
 	target.dna?.species?.mutantstomach = text2path("/obj/item/organ/stomach/[value]")
 	LAZYADDASSOC(target.dna.features["frame_list"], ORGAN_SLOT_STOMACH, text2path("/obj/item/organ/stomach/[value]"))
@@ -151,7 +147,6 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 
 /datum/preference/choiced/eyes_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		target.dna?.species?.regenerate_organs(target)
 		return
 	target.dna?.species?.mutanteyes = text2path("/obj/item/organ/eyes/[value]")
 	LAZYADDASSOC(target.dna.features["frame_list"], ORGAN_SLOT_EYES, text2path("/obj/item/organ/eyes/[value]"))
@@ -184,7 +179,6 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 
 /datum/preference/choiced/tongue_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		target.dna?.species?.regenerate_organs(target)
 		return
 	target.dna?.species?.mutanttongue = text2path("/obj/item/organ/tongue/[value]")
 	LAZYADDASSOC(target.dna.features["frame_list"], ORGAN_SLOT_TONGUE, text2path("/obj/item/organ/tongue/[value]"))
@@ -217,7 +211,6 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 
 /datum/preference/choiced/breathing_tube/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		target.dna?.species?.regenerate_organs(target)
 		return
 	LAZYADDASSOC(target.dna.features["frame_list"], ORGAN_SLOT_BREATHING_TUBE, text2path("/obj/item/organ/cyberimp/mouth/[value]"))
 
