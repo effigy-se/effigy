@@ -43026,6 +43026,10 @@
 /obj/structure/table,
 /obj/effect/spawner/random/bureaucracy/birthday_wrap,
 /obj/item/storage/box/lights/mixed,
+/obj/machinery/status_display/supply{
+	dir = 4;
+	pixel_x = 32
+	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/lobby)
 "pfe" = (
@@ -54810,6 +54814,16 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/command/eva)
+"sXc" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
+/obj/machinery/status_display/supply{
+	dir = 4;
+	pixel_x = 32
+	},
+/turf/open/floor/iron,
+/area/station/cargo/storage)
 "sXk" = (
 /turf/open/floor/iron/dark/side{
 	dir = 5
@@ -110642,7 +110656,7 @@ sBD
 vXL
 grc
 ylf
-jPA
+sXc
 uGU
 eog
 vGs
