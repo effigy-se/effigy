@@ -412,7 +412,7 @@ MORGUE_CADAVER_OTHER_SPECIES_PROBABILITY 50
 ## Set MORGUE_CADAVER_OTHER_SPECIES_PROBABILITY to determine the chances between being a human and this specific species.
 ## Only used if MORGUE_CADAVER_DISABLE_NONHUMANS is commented out
 ## Prob = 100 means all corpses will be this race.
-MORGUE_CADAVER_OVERRIDE_SPECIES animalid
+# MORGUE_CADAVER_OVERRIDE_SPECIES animalid
 
 ##Overflow job. Default is assistant.
 ## NOTE: This will overwrite anything you put in jobconfig.toml!
