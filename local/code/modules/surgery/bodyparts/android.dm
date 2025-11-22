@@ -827,6 +827,7 @@
 
 // Human-Like
 /obj/item/bodypart/head/robot/effigy/human_like
+	is_dimorphic = TRUE
 	should_draw_greyscale = TRUE
 	icon_static = BODYPART_ICON_ANIMALID
 	icon = BODYPART_ICON_ANIMALID
