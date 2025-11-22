@@ -175,7 +175,7 @@ const ColorSelector: React.FC<ColorSelectorProps> = React.memo(
 
     return (
       <Flex direction="row">
-        <Flex.Item mr={2}>
+        <Flex.Item mr={2} mt={2.5}>
           <Stack vertical>
             <Stack.Item>
               <div className="react-colorful">
@@ -187,7 +187,7 @@ const ColorSelector: React.FC<ColorSelectorProps> = React.memo(
                 />
               </div>
             </Stack.Item>
-            <Stack.Item>
+            <Stack.Item mt={3}>
               <Box inline width="86px" height="20px" textAlign="center">
                 New
               </Box>
@@ -199,7 +199,7 @@ const ColorSelector: React.FC<ColorSelectorProps> = React.memo(
                 <Box
                   inline
                   width="86px"
-                  height="30px"
+                  height="80px"
                   backgroundColor={hexColor}
                 />
               </Tooltip>
@@ -207,7 +207,7 @@ const ColorSelector: React.FC<ColorSelectorProps> = React.memo(
                 <Box
                   inline
                   width="86px"
-                  height="30px"
+                  height="80px"
                   backgroundColor={defaultColor}
                 />
               </Tooltip>
@@ -222,7 +222,7 @@ const ColorSelector: React.FC<ColorSelectorProps> = React.memo(
             />
           ) : (
             <Stack vertical>
-              <Stack.Item>
+              <Stack.Item mt={5.5}>
                 <Stack>
                   <Stack.Item>
                     <Box textColor="label">Hex:</Box>
@@ -246,11 +246,11 @@ const ColorSelector: React.FC<ColorSelectorProps> = React.memo(
                   </Stack.Item>
                 </Stack>
               </Stack.Item>
-              <Stack.Divider />
+              <Stack.Divider mt={2} mb={2} />
               <HueRow color={color} handleChange={handleChange} />
               <SaturationRow color={color} handleChange={handleChange} />
               <ValueRow color={color} handleChange={handleChange} />
-              <Stack.Divider />
+              <Stack.Divider mt={2} mb={2} />
               <RedRow color={color} handleChange={handleChange} />
               <GreenRow color={color} handleChange={handleChange} />
               <BlueRow color={color} handleChange={handleChange} />
