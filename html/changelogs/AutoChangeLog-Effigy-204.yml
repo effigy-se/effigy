@@ -1,0 +1,6 @@
+author: "LT3"
+delete-after: True
+changes:
+  - image: "Animalids can now select skin tones matching humans"
+  - bugfix: "Fixed misaligned elements in color picker window"
+  - qol: "Color picker presets are now more visible"
