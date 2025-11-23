@@ -266,6 +266,46 @@
 	name = "Stubby"
 	icon_state = "stubby"
 
+/datum/sprite_accessory/snouts/synthliz/synthliz_under
+	name = "Synthetic Lizard - Snout Under"
+	icon_state = "synthliz_under"
+
+/datum/sprite_accessory/snouts/synthliz/synthliz_tert
+	name = "Synthetic Lizard - Snout Tertiary"
+	icon_state = "synthliz_tert"
+
+/datum/sprite_accessory/snouts/synthliz/synthliz_tertunder
+	name = "Synthetic Lizard - Snout Tertiary Under"
+	icon_state = "synthliz_tertunder"
+
+/datum/sprite_accessory/snouts/synthliz/synthliz_long
+	name = "Synthetic Lizard - Snout Long"
+	icon_state = "synthliz_long"
+
+/datum/sprite_accessory/snouts/synthliz/synthliz_thicklong
+	name = "Synthetic Lizard - Snout Long & Thick"
+	icon_state = "synthliz_thicklong"
+
+/datum/sprite_accessory/snouts/synthliz/barlessbasic
+	name = "Synthetic Lizard - Barless"
+	icon_state = "synthliz_barless_basic"
+
+/datum/sprite_accessory/snouts/synthliz/barlessunder
+	name = "Synthetic Lizard - Barless Under"
+	icon_state = "synthliz_barless_under"
+
+/datum/sprite_accessory/snouts/synthliz/barlessover
+	name = "Synthetic Lizard - Barless Over"
+	icon_state = "synthliz_barless_over"
+
+/datum/sprite_accessory/snouts/synthliz/barlesstert
+	name = "Synthetic Lizard - Barless Tertiary"
+	icon_state = "synthliz_barless_tert"
+
+/datum/sprite_accessory/snouts/synthliz/barlesstertunder
+	name = "Synthetic Lizard - Barless Tertiary Under"
+	icon_state = "synthliz_barless_tertunder"
+
 /datum/sprite_accessory/snouts/tajaran
 	name = "Tajaran"
 	icon_state = "ntajaran"
