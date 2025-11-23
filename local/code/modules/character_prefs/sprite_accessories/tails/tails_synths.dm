@@ -6,7 +6,9 @@
  * and should be kept together and sorted as 'Beak'
  */
 
-/datum/sprite_accessory/tails/synthliz
-	icon = 'local/icons/mob/mutant/sprite_accessories/tails/tails_synths.dmi'
+// note for future me: this is NOT an abstract 'synth' category. just a lizard tail named synth.
+// making an abstract synth category breaks everything, we'll figure that out some other time.
+/datum/sprite_accessory/tails/lizard/synth
 	name = "Synthetic Lizard"
+	icon = 'local/icons/mob/mutant/sprite_accessories/tails/tails_synths.dmi'
 	icon_state = "synthliz"
