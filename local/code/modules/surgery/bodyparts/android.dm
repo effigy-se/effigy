@@ -29,6 +29,7 @@
 /// Cybernetic head, additive to TG base android
 /obj/item/bodypart/head/robot/effigy
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
+	head_flags = HEAD_EYESPRITES | HEAD_FACIAL_HAIR | HEAD_HAIR | HEAD_EYECOLOR
 	// var for monitor heads and their emissive states
 	var/monitor_state
 	/// what state the player has selected (to revert after being forced into another screen)

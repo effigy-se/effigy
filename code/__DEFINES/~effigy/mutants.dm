@@ -32,12 +32,12 @@ GLOBAL_LIST_INIT(mutant_variations, list(
 
 GLOBAL_LIST_INIT(bodypart_allowed_species, list(
 	FEATURE_MOTH_ANTENNAE = list(
-		/datum/species/android,
+		/datum/species/animalid,
 		/datum/species/insectoid,
 		/datum/species/moth,
+		/datum/species/synth,
 	),
 	FEATURE_CYBER_FRAME = list(
-		/datum/species/android,
 		/datum/species/animalid,
 		/datum/species/human,
 		/datum/species/insectoid,
@@ -55,13 +55,18 @@ GLOBAL_LIST_INIT(bodypart_allowed_species, list(
 		/datum/species/plasmaman,
 	),
 	FEATURE_EARS = list(
-		/datum/species/android,
 		/datum/species/animalid,
 		/datum/species/insectoid,
+		/datum/species/lizard,
+		/datum/species/moth,
 		/datum/species/synth,
 	),
 	FEATURE_FLUFF = list(
+		/datum/species/animalid,
+		/datum/species/insectoid,
+		/datum/species/lizard,
 		/datum/species/moth,
+		/datum/species/synth,
 	),
 	FEATURE_FRILLS = list(
 		/datum/species/android,
@@ -70,37 +75,39 @@ GLOBAL_LIST_INIT(bodypart_allowed_species, list(
 		/datum/species/synth,
 	),
 	FEATURE_HORNS = list(
-		/datum/species/android,
 		/datum/species/animalid,
 		/datum/species/lizard,
 		/datum/species/synth,
 	),
 	FEATURE_DIGI_LEGS = list(
-		/datum/species/android,
 		/datum/species/animalid,
 		/datum/species/insectoid,
 		/datum/species/lizard,
 		/datum/species/moth,
 		/datum/species/synth,
 	),
+	FEATURE_LIZARD_MARKINGS = list(
+		/datum/species/animalid,
+		/datum/species/lizard,
+		/datum/species/synth,
+	),
 	FEATURE_SNOUT = list(
 		/datum/species/animalid,
-		/datum/species/android,
 		/datum/species/insectoid,
 		/datum/species/lizard,
+		/datum/species/moth,
 		/datum/species/synth,
 	),
 	FEATURE_TAIL = list(
 		/datum/species/animalid,
-		/datum/species/android,
 		/datum/species/insectoid,
 		/datum/species/lizard,
 		/datum/species/synth,
 	),
 	FEATURE_WINGS = list(
-		/datum/species/android,
 		/datum/species/animalid,
 		/datum/species/insectoid,
+		/datum/species/lizard,
 		/datum/species/moth,
 		/datum/species/synth,
 	),
