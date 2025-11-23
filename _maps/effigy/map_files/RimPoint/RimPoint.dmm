@@ -57444,9 +57444,7 @@
 "tXX" = (
 /obj/structure/rack,
 /obj/effect/turf_decal/bot_purple,
-/obj/item/paper/crumpled{
-	default_raw_text = "for the LOVE OF GOD - only turn on ONE of the valves to the thermomachines, PLEASE. i don't care which, but if you enable both, you are GOING TO BLOW US ALL UP!! THIS HAS BEEN PROVEN!!"
-	},
+/obj/item/paper/crumpled/engineer_note,
 /turf/open/floor/iron/dark,
 /area/station/engineering/supermatter/room)
 "tYb" = (
