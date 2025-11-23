@@ -55,3 +55,5 @@
   - bugfix: Fixed misaligned elements in color picker window
   - qol: Color picker presets are now more visible
   - bugfix: Fixed some missing customization options on various parts and species
+  Zergspower:
+  - bugfix: Fixed missing synth tails and snouts
