@@ -32,12 +32,12 @@ import {
 import { clamp } from 'tgui-core/math';
 import { classes } from 'tgui-core/react';
 
-import { useBackend } from '../backend';
-import { Window } from '../layouts';
-import { type Interaction, Interactive } from './common/effigy/Interactive';
-import { InputButtons } from './common/InputButtons';
-import { Loader } from './common/Loader';
-import { Pointer } from './common/Pointer';
+import { useBackend } from '../../backend';
+import { Window } from '../../layouts';
+import { type Interaction, Interactive } from '../common/effigy/Interactive';
+import { InputButtons } from '../common/InputButtons';
+import { Loader } from '../common/Loader';
+import { Pointer } from '../common/Pointer';
 
 interface ColorPickerData {
   autofocus: boolean;
@@ -66,14 +66,14 @@ export const ColorPickerModal: React.FC<ColorPickerModalProps> = () => {
   }, [default_color]);
 
   if (!title) {
-    title = 'Color';
+    title = 'Colour Editor';
   }
 
   return (
     <Window
-      height={message ? 430 : 390}
+      height={message ? 545 : 490}
       title={title}
-      width={600}
+      width={770}
       theme="generic"
     >
       {!!timeout && <Loader value={timeout} />}
@@ -120,8 +120,10 @@ const ColorPresets: React.FC<ColorPresetsProps> = React.memo(
           onClick={() => setShowPresets(false)}
           position="absolute"
           right="4px"
-          icon="arrow-left"
-        />
+          icon="chevron-up"
+        >
+          Hide
+        </Button>
         <Stack justify="center">
           <Stack.Item>
             {colorList.map((row, index) => (
@@ -131,7 +133,7 @@ const ColorPresets: React.FC<ColorPresetsProps> = React.memo(
                     <Box key={entry} p="1px" backgroundColor="black">
                       <Box
                         p="1px"
-                        backgroundColor="#AAAAAA"
+                        backgroundColor="#454C5F"
                         onClick={() => setColor(hexToHsva(entry))}
                       >
                         <Box
@@ -173,7 +175,7 @@ const ColorSelector: React.FC<ColorSelectorProps> = React.memo(
 
     return (
       <Flex direction="row">
-        <Flex.Item mr={2}>
+        <Flex.Item mr={2} mt={2.5}>
           <Stack vertical>
             <Stack.Item>
               <div className="react-colorful">
@@ -185,27 +187,27 @@ const ColorSelector: React.FC<ColorSelectorProps> = React.memo(
                 />
               </div>
             </Stack.Item>
-            <Stack.Item>
-              <Box inline width="100px" height="20px" textAlign="center">
-                Current
+            <Stack.Item mt={3}>
+              <Box inline width="86px" height="20px" textAlign="center">
+                New
               </Box>
-              <Box inline width="100px" height="20px" textAlign="center">
-                Previous
+              <Box inline width="86px" height="20px" textAlign="center">
+                Existing
               </Box>
               <br />
               <Tooltip content={hexColor} position="bottom">
                 <Box
                   inline
-                  width="100px"
-                  height="30px"
+                  width="86px"
+                  height="80px"
                   backgroundColor={hexColor}
                 />
               </Tooltip>
               <Tooltip content={defaultColor} position="bottom">
                 <Box
                   inline
-                  width="100px"
-                  height="30px"
+                  width="86px"
+                  height="80px"
                   backgroundColor={defaultColor}
                 />
               </Tooltip>
@@ -220,7 +222,7 @@ const ColorSelector: React.FC<ColorSelectorProps> = React.memo(
             />
           ) : (
             <Stack vertical>
-              <Stack.Item>
+              <Stack.Item mt={5.5}>
                 <Stack>
                   <Stack.Item>
                     <Box textColor="label">Hex:</Box>
@@ -236,17 +238,19 @@ const ColorSelector: React.FC<ColorSelectorProps> = React.memo(
                   </Stack.Item>
                   <Stack.Item>
                     <Button
-                      icon="eye-dropper"
+                      icon="chevron-down"
                       onClick={() => setShowPresets(true)}
-                    />
+                    >
+                      Skin Tones and Presets
+                    </Button>
                   </Stack.Item>
                 </Stack>
               </Stack.Item>
-              <Stack.Divider />
+              <Stack.Divider mt={2} mb={2} />
               <HueRow color={color} handleChange={handleChange} />
               <SaturationRow color={color} handleChange={handleChange} />
               <ValueRow color={color} handleChange={handleChange} />
-              <Stack.Divider />
+              <Stack.Divider mt={2} mb={2} />
               <RedRow color={color} handleChange={handleChange} />
               <GreenRow color={color} handleChange={handleChange} />
               <BlueRow color={color} handleChange={handleChange} />

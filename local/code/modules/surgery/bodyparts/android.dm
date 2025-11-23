@@ -827,12 +827,13 @@
 
 // Human-Like
 /obj/item/bodypart/head/robot/effigy/human_like
+	is_dimorphic = TRUE
 	should_draw_greyscale = TRUE
 	icon_static = BODYPART_ICON_ANIMALID
 	icon = BODYPART_ICON_ANIMALID
 	icon_greyscale = BODYPART_ICON_ANIMALID
-	icon_state = "animalid_head"
-	limb_id = "animalid"
+	icon_state = "animalid_head_f"
+	limb_id = SPECIES_ANIMALID
 
 /obj/item/bodypart/chest/robot/effigy/human_like
 	is_dimorphic = TRUE
@@ -841,7 +842,7 @@
 	icon = BODYPART_ICON_ANIMALID
 	icon_greyscale = BODYPART_ICON_ANIMALID
 	icon_state = "animalid_chest_f"
-	limb_id = "animalid"
+	limb_id = SPECIES_ANIMALID
 
 /obj/item/bodypart/arm/right/robot/effigy/human_like
 	should_draw_greyscale = TRUE
@@ -849,7 +850,7 @@
 	icon = BODYPART_ICON_ANIMALID
 	icon_greyscale = BODYPART_ICON_ANIMALID
 	icon_state = "animalid_r_arm"
-	limb_id = "animalid"
+	limb_id = SPECIES_ANIMALID
 
 /obj/item/bodypart/arm/left/robot/effigy/human_like
 	should_draw_greyscale = TRUE
@@ -857,7 +858,7 @@
 	icon = BODYPART_ICON_ANIMALID
 	icon_greyscale = BODYPART_ICON_ANIMALID
 	icon_state = "animalid_l_arm"
-	limb_id = "animalid"
+	limb_id = SPECIES_ANIMALID
 
 /obj/item/bodypart/leg/right/robot/effigy/human_like
 	should_draw_greyscale = TRUE
@@ -865,7 +866,7 @@
 	icon = BODYPART_ICON_ANIMALID
 	icon_greyscale = BODYPART_ICON_ANIMALID
 	icon_state = "animalid_r_leg"
-	limb_id = "animalid"
+	limb_id = SPECIES_ANIMALID
 
 /obj/item/bodypart/leg/left/robot/effigy/human_like
 	should_draw_greyscale = TRUE
@@ -873,7 +874,7 @@
 	icon = BODYPART_ICON_ANIMALID
 	icon_greyscale = BODYPART_ICON_ANIMALID
 	icon_state = "animalid_r_leg"
-	limb_id = "animalid"
+	limb_id = SPECIES_ANIMALID
 
 // Zhenkov-Light
 /obj/item/bodypart/leg/right/robot/effigy/zhenkov
