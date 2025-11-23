@@ -7280,6 +7280,7 @@
 #include "local\code\modules\mapfluff\ruins\jungle_ruin_code.dm"
 #include "local\code\modules\mapfluff\ruins\lavalandruin_code\elephantgraveyard.dm"
 #include "local\code\modules\mapfluff\ruins\objects_and_mobs\museum.dm"
+#include "local\code\modules\mapfluff\ruins\objects_and_mobs\rimpoint.dm"
 #include "local\code\modules\mapping\mapping_helpers.dm"
 #include "local\code\modules\mining\abandoned_crates.dm"
 #include "local\code\modules\mining\ores_coins.dm"
