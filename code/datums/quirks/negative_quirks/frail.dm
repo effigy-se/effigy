@@ -1,7 +1,7 @@
 /datum/quirk/frail
-	name = "Frail"
+	name = "Osteoporosis" // EffigyEdit Change - Original: Frail
 	desc = "You have skin of paper and bones of glass! You suffer wounds much more easily than most."
-	icon = FA_ICON_SKULL
+	icon = FA_ICON_CRUTCH // EffigyEdit Change - Original: FA_ICON_SKULL
 	value = -6
 	mob_trait = TRAIT_EASILY_WOUNDED
 	gain_text = span_danger("You feel frail.")
