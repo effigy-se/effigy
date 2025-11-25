@@ -5,6 +5,8 @@
 
 #define TRAIT_HARD_SOLES "hard_soles" // No step on glass
 
+#define TRAIT_FELINID "felinid_traits"
+
 // Defines for some extra inherent traits
 #define TRAIT_REVIVES_BY_HEALING "trait_revives_by_healing"
 #define TRAIT_ROBOTIC_DNA_ORGANS "trait_robotic_dna_organs"

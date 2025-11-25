@@ -127,7 +127,7 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 #define iszombie(A) (is_species(A, /datum/species/zombie))
 #define isskeleton(A) (is_species(A, /datum/species/skeleton))
 #define ismoth(A) (is_species(A, /datum/species/moth))
-#define isfelinid(A) (is_species(A, /datum/species/human/felinid))
+#define isfelinid(A) (is_species(A, /datum/species/human/felinid) || HAS_TRAIT(A, TRAIT_FELINID)) // EffigyEdit Change - Original: (is_species(A, /datum/species/human/felinid))
 #define isethereal(A) (is_species(A, /datum/species/ethereal))
 #define isvampire(A) (is_species(A,/datum/species/human/vampire))
 #define isdullahan(A) (is_species(A, /datum/species/dullahan))

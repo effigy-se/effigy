@@ -5,5 +5,5 @@
 	lose_text = span_notice("You no longer care for headpats all that much.")
 	medical_record_text = "Patient seems to get excited easily."
 	value = 0
-	// mob_trait = TRAIT_EXCITABLE
+	//mob_trait = TRAIT_EXCITABLE
 	icon = FA_ICON_LAUGH_BEAM

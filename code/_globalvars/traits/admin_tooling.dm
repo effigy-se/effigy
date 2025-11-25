@@ -420,6 +420,7 @@ GLOBAL_LIST_INIT(admin_visible_traits, list(
 	),
 	// Effigy Edit Add - Traits
 	/obj/item/card/id/advanced = list(
+		"TRAIT_FELINID" = TRAIT_FELINID,
 		"TRAIT_HARD_SOLES" = TRAIT_HARD_SOLES,
 		"TRAIT_OVERSIZED" = TRAIT_OVERSIZED,
 		"TRAIT_ROBOTIC_DNA_ORGANS" = TRAIT_ROBOTIC_DNA_ORGANS,
