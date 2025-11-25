@@ -1102,13 +1102,13 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/splash)
 	VAR_PRIVATE/static/icon/bar_mask
 	/// Gradient used to color the bar
 	VAR_PRIVATE/static/list/hunger_gradient = list(
-		0.0, "#FF0000",
+		0.0, "#F0197D", // EffigyEdit Change - Original: #FF0000
 		0.2, "#FF8000",
-		0.4, "#f0f000",
-		0.6, "#00FF00",
+		0.4, "#FFE45E", // EffigyEdit Change - Original: #f0f000
+		0.6, "#21FA90", // EffigyEdit Change - Original: #00FF00
 		0.8, "#46daff",
-		1.0, "#2A72AA",
-		1.2, "#494949",
+		1.0, "#2CCAFF", // EffigyEdit Change - Original: #2A72AA
+		1.2, "#757575", // EffigyEdit Change - Original: #494949
 	)
 	/// Offset of the mask
 	VAR_PRIVATE/bar_offset
