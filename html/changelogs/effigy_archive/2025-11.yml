@@ -57,3 +57,6 @@
   - bugfix: Fixed some missing customization options on various parts and species
   Zergspower:
   - bugfix: Fixed missing synth tails and snouts
+2025-11-25:
+  TealSeer:
+  - bugfix: fixed hunger bar not showing
