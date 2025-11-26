@@ -1,5 +1,5 @@
 /datum/quirk/frail
-	name = "Osteoporosis" // EffigyEdit Change - Original: Frail
+	name = "Easily Wounded" // EffigyEdit Change - Original: Frail
 	desc = "You have skin of paper and bones of glass! You suffer wounds much more easily than most."
 	icon = FA_ICON_CRUTCH // EffigyEdit Change - Original: FA_ICON_SKULL
 	value = -6

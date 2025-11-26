@@ -6,4 +6,4 @@
 	medical_record_text = "Patient's digits are thick and lack the dexterity for operating some small devices, computers and non-adapted firearms."
 	value = -4
 	mob_trait = TRAIT_CHUNKYFINGERS
-	icon = FA_ICON_HAND_MIDDLE_FINGER
+	icon = FA_ICON_HAND_DOTS
