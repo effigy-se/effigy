@@ -7,3 +7,12 @@
 	medical_record_text = "Patient seems to be easily distracted by laser pointers."
 	mob_trait = TRAIT_FELINID
 	icon = FA_ICON_CAT
+
+/datum/quirk/felinid_traits/is_species_appropriate(datum/species/mob_species)
+	if(ispath(mob_species, /datum/species/animalid))
+		return TRUE
+
+	if(ispath(mob_species, /datum/species/synth))
+		return TRUE
+
+	return FALSE
