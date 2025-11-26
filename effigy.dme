@@ -6898,7 +6898,6 @@
 #include "local\code\datums\mocking\client.dm"
 #include "local\code\datums\mutations\_mutations.dm"
 #include "local\code\datums\quirks\negative_quirks\alexithymia.dm"
-#include "local\code\datums\quirks\negative_quirks\big_hands.dm"
 #include "local\code\datums\quirks\negative_quirks\fragile.dm"
 #include "local\code\datums\quirks\negative_quirks\monophobia.dm"
 #include "local\code\datums\quirks\neutral_quirks\excitable.dm"
