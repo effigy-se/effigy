@@ -9,7 +9,7 @@
 	icon = FA_ICON_HANDSHAKE_SIMPLE_SLASH
 	quirk_flags = QUIRK_HUMAN_ONLY
 	/// The action we add with this quirk in add(), used for easy deletion later
-	var/datum/action/cooldown/mob_cooldown/robot_self_amputation/added_action
+	var/datum/action/cooldown/robot_self_amputation/added_action
 
 /datum/quirk/robot_limb_detach/add(client/client_source)
 	added_action = new()
@@ -18,17 +18,16 @@
 /datum/quirk/robot_limb_detach/remove()
 	QDEL_NULL(added_action)
 
-/datum/action/cooldown/mob_cooldown/robot_self_amputation
+/datum/action/cooldown/robot_self_amputation
 	name = "Detach a robotic limb"
 	desc = "Disengage one of your robotic limbs from your cybernetic mounts. Requires you to not be restrained or otherwise under duress. Will not function on wounded limbs - tend to them first."
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "autotomy"
 
-	click_to_activate = FALSE
 	cooldown_time = 30 SECONDS
 	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_HANDS_BLOCKED | AB_CHECK_INCAPACITATED
 
-/datum/action/cooldown/mob_cooldown/robot_self_amputation/Activate(mob/living/carbon/carbon_target)
+/datum/action/cooldown/robot_self_amputation/Activate(mob/living/carbon/carbon_target)
 	if(!istype(carbon_target))
 		return
 
