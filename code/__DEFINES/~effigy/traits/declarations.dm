@@ -2,10 +2,12 @@
 #define TRAIT_OVERSIZED "trait_oversized"
 /// Snout hurts when booped
 #define TRAIT_SENSITIVESNOUT "sensitive_snout"
-
-#define TRAIT_HARD_SOLES "hard_soles" // No step on glass
-
+/// I LOVE THE FEELING OF GLASS SHARDS UNDER MY FEET
+#define TRAIT_HARD_SOLES "hard_soles"
+/// Enable Catbrain
 #define TRAIT_FELINID "felinid_traits"
+/// :clueless:
+#define TRAIT_SELF_UNAWARE "self_unaware"
 
 // Defines for some extra inherent traits
 #define TRAIT_REVIVES_BY_HEALING "trait_revives_by_healing"

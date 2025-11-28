@@ -280,19 +280,26 @@
 			var/absmood = abs(the_event.mood_change)
 			highest_absolute_mood = absmood > highest_absolute_mood ? absmood : highest_absolute_mood
 
+	// EffigyEdit Add - Self-Unaware Trait
+	if(HAS_TRAIT(mob_parent, TRAIT_SELF_UNAWARE))
+		mood_screen_object.icon_state = "mood5"
+		mood_screen_object.color = COLOR_EFFIGY_CHARCOAL
+		return
+	// EffigyEdit Add End
+
 	switch(sanity_level)
 		if (SANITY_LEVEL_GREAT)
-			mood_screen_object.color = "#2eeb9a"
+			mood_screen_object.color = COLOR_EFFIGY_ELECTRIC_BLUE // EffigyEdit Change - Custom UI - Original: #2eeb9a
 		if (SANITY_LEVEL_NEUTRAL)
-			mood_screen_object.color = "#86d656"
+			mood_screen_object.color = COLOR_EFFIGY_SKY_BLUE // EffigyEdit Change - Custom UI - Original: #86d656
 		if (SANITY_LEVEL_DISTURBED)
-			mood_screen_object.color = "#4b96c4"
+			mood_screen_object.color = COLOR_EFFIGY_DARK_BLUE // EffigyEdit Change - Custom UI - Original: #4b96c4
 		if (SANITY_LEVEL_UNSTABLE)
-			mood_screen_object.color = "#dfa65b"
+			mood_screen_object.color = COLOR_EFFIGY_CORAL_ORANGE // EffigyEdit Change - Custom UI - Original: #dfa65b
 		if (SANITY_LEVEL_CRAZY)
-			mood_screen_object.color = "#f38943"
+			mood_screen_object.color = COLOR_EFFIGY_ELECTRIC_MAGENTA // EffigyEdit Change - Custom UI - Original: #f38943
 		if (SANITY_LEVEL_INSANE)
-			mood_screen_object.color = "#f15d36"
+			mood_screen_object.color = COLOR_EFFIGY_ELECTRIC_PURPLE // EffigyEdit Change - Custom UI - Original: #f15d36
 
 	if (!conflicting_moodies.len) // there's no special icons, use the normal icon states
 		mood_screen_object.icon_state = "mood[mood_level]"
@@ -405,67 +412,75 @@
 			msg += "<br>"
 	// EffigyEdit Change End
 
-	msg += span_notice("My current sanity: ") //Long term
-	switch(sanity)
-		if(SANITY_GREAT to INFINITY)
-			msg += "[span_boldnicegreen("My mind feels like a temple!")]<br>"
-		if(SANITY_NEUTRAL to SANITY_GREAT)
-			msg += "[span_nicegreen("I have been feeling great lately!")]<br>"
-		if(SANITY_DISTURBED to SANITY_NEUTRAL)
-			msg += "[span_nicegreen("I have felt quite decent lately.")]<br>"
-		if(SANITY_UNSTABLE to SANITY_DISTURBED)
-			msg += "[span_warning("I'm feeling a little bit unhinged...")]<br>"
-		if(SANITY_CRAZY to SANITY_UNSTABLE)
-			msg += "[span_warning("I'm freaking out!!")]<br>"
-		if(SANITY_INSANE to SANITY_CRAZY)
-			msg += "[span_boldwarning("AHAHAHAHAHAHAHAHAHAH!!")]<br>"
+	// EffigyEdit Change - Self-Unaware Trait
+	// We add this trait check for self-unaware
+	if(!HAS_TRAIT(user, TRAIT_SELF_UNAWARE))
+		msg += span_notice("My current sanity: ") //Long term
+		switch(sanity)
+			if(SANITY_GREAT to INFINITY)
+				msg += "[span_boldnicegreen("My mind feels like a temple!")]<br>"
+			if(SANITY_NEUTRAL to SANITY_GREAT)
+				msg += "[span_nicegreen("I have been feeling great lately!")]<br>"
+			if(SANITY_DISTURBED to SANITY_NEUTRAL)
+				msg += "[span_nicegreen("I have felt quite decent lately.")]<br>"
+			if(SANITY_UNSTABLE to SANITY_DISTURBED)
+				msg += "[span_warning("I'm feeling a little bit unhinged...")]<br>"
+			if(SANITY_CRAZY to SANITY_UNSTABLE)
+				msg += "[span_warning("I'm freaking out!!")]<br>"
+			if(SANITY_INSANE to SANITY_CRAZY)
+				msg += "[span_boldwarning("AHAHAHAHAHAHAHAHAHAH!!")]<br>"
 
-	msg += span_notice("My current mood: ") //Short term
-	switch(mood_level)
-		if(MOOD_LEVEL_SAD4)
-			msg += "[span_boldwarning("I wish I was dead!")]<br>"
-		if(MOOD_LEVEL_SAD3)
-			msg += "[span_boldwarning("I feel terrible...")]<br>"
-		if(MOOD_LEVEL_SAD2)
-			msg += "[span_boldwarning("I feel very upset.")]<br>"
-		if(MOOD_LEVEL_SAD1)
-			msg += "[span_warning("I'm a bit sad.")]<br>"
-		if(MOOD_LEVEL_NEUTRAL)
-			msg += "[span_grey("I'm alright.")]<br>"
-		if(MOOD_LEVEL_HAPPY1)
-			msg += "[span_nicegreen("I feel pretty okay.")]<br>"
-		if(MOOD_LEVEL_HAPPY2)
-			msg += "[span_boldnicegreen("I feel pretty good.")]<br>"
-		if(MOOD_LEVEL_HAPPY3)
-			msg += "[span_boldnicegreen("I feel amazing!")]<br>"
-		if(MOOD_LEVEL_HAPPY4)
-			msg += "[span_boldnicegreen("I love life!")]<br>"
+		msg += span_notice("My current mood: ") //Short term
+		switch(mood_level)
+			if(MOOD_LEVEL_SAD4)
+				msg += "[span_boldwarning("I wish I was dead!")]<br>"
+			if(MOOD_LEVEL_SAD3)
+				msg += "[span_boldwarning("I feel terrible...")]<br>"
+			if(MOOD_LEVEL_SAD2)
+				msg += "[span_boldwarning("I feel very upset.")]<br>"
+			if(MOOD_LEVEL_SAD1)
+				msg += "[span_warning("I'm a bit sad.")]<br>"
+			if(MOOD_LEVEL_NEUTRAL)
+				msg += "[span_grey("I'm alright.")]<br>"
+			if(MOOD_LEVEL_HAPPY1)
+				msg += "[span_nicegreen("I feel pretty okay.")]<br>"
+			if(MOOD_LEVEL_HAPPY2)
+				msg += "[span_boldnicegreen("I feel pretty good.")]<br>"
+			if(MOOD_LEVEL_HAPPY3)
+				msg += "[span_boldnicegreen("I feel amazing!")]<br>"
+			if(MOOD_LEVEL_HAPPY4)
+				msg += "[span_boldnicegreen("I love life!")]<br>"
+	// EffigyEdit Change End
 
 	var/list/additional_lines = list()
-	SEND_SIGNAL(user, COMSIG_CARBON_MOOD_CHECK, additional_lines)
-	if (length(additional_lines))
-		msg += "[additional_lines.Join("<br>")]<br>"
+	// EffigyEdit Change - Self-Unaware Trait
+	// We add this trait check for self-unaware
+	if(!HAS_TRAIT(user, TRAIT_SELF_UNAWARE))
+		SEND_SIGNAL(user, COMSIG_CARBON_MOOD_CHECK, additional_lines)
+		if (length(additional_lines))
+			msg += "[additional_lines.Join("<br>")]<br>"
 
-	msg += "[span_notice("Moodlets:")]<br>"//All moodlets
-	if(mood_events.len)
-		for(var/category in mood_events)
-			var/datum/mood_event/event = mood_events[category]
-			msg += "&bull; "
-			switch(event.mood_change)
-				if(-INFINITY to MOOD_SAD2)
-					msg += "[span_boldwarning(event.description)]<br>"
-				if(MOOD_SAD2 to MOOD_SAD1)
-					msg += "[span_warning(event.description)]<br>"
-				if(MOOD_SAD1 to MOOD_NEUTRAL)
-					msg += "[span_grey(event.description)]<br>"
-				if(MOOD_NEUTRAL to MOOD_HAPPY1)
-					msg += "[span_info(event.description)]<br>"
-				if(MOOD_HAPPY1 to MOOD_HAPPY2)
-					msg += "[span_nicegreen(event.description)]<br>"
-				if(MOOD_HAPPY2 to INFINITY)
-					msg += "[span_boldnicegreen(event.description)]<br>"
-	else
-		msg += "&bull; [span_grey("I don't have much of a reaction to anything right now.")]<br>"
+		msg += "[span_notice("Moodlets:")]<br>"//All moodlets
+		if(mood_events.len)
+			for(var/category in mood_events)
+				var/datum/mood_event/event = mood_events[category]
+				msg += "&bull; "
+				switch(event.mood_change)
+					if(-INFINITY to MOOD_SAD2)
+						msg += "[span_boldwarning(event.description)]<br>"
+					if(MOOD_SAD2 to MOOD_SAD1)
+						msg += "[span_warning(event.description)]<br>"
+					if(MOOD_SAD1 to MOOD_NEUTRAL)
+						msg += "[span_grey(event.description)]<br>"
+					if(MOOD_NEUTRAL to MOOD_HAPPY1)
+						msg += "[span_info(event.description)]<br>"
+					if(MOOD_HAPPY1 to MOOD_HAPPY2)
+						msg += "[span_nicegreen(event.description)]<br>"
+					if(MOOD_HAPPY2 to INFINITY)
+						msg += "[span_boldnicegreen(event.description)]<br>"
+		else
+			msg += "&bull; [span_grey("I don't have much of a reaction to anything right now.")]<br>"
+	// EffigyEdit Change End
 
 	if(LAZYLEN(mob_parent.quirks))
 		msg += span_notice("You have these quirks: [mob_parent.get_quirk_string(FALSE, CAT_QUIRK_ALL)].")

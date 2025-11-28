@@ -31,6 +31,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/spacer_born, /datum/quirk/oversized),
 	list(/datum/quirk/oversized, /datum/quirk/freerunning),
 	list(/datum/quirk/oversized, /datum/quirk/settler),
+	list(/datum/quirk/self_unaware, /datum/quirk/self_aware),
 	/// EFFIGY EDIT END ///
 ))
 
