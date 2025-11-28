@@ -6906,6 +6906,7 @@
 #include "local\code\datums\quirks\neutral_quirks\robot_limb_detach.dm"
 #include "local\code\datums\quirks\neutral_quirks\sensitive_snout.dm"
 #include "local\code\datums\quirks\neutral_quirks\system_shock.dm"
+#include "local\code\datums\quirks\neutral_quirks\waddle.dm"
 #include "local\code\datums\ruins\jungle.dm"
 #include "local\code\datums\shuttles\arrival.dm"
 #include "local\code\datums\shuttles\cargo.dm"
