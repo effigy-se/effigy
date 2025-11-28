@@ -821,6 +821,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 	),
 	// Effigy Edit Add - Traits
 	/obj/item/card/id/advanced = list(
+		"TRAIT_EXCITABLE" = TRAIT_EXCITABLE,
 		"TRAIT_FELINID" = TRAIT_FELINID,
 		"TRAIT_HARD_SOLES" = TRAIT_HARD_SOLES,
 		"TRAIT_OVERSIZED" = TRAIT_OVERSIZED,

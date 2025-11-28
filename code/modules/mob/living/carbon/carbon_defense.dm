@@ -320,7 +320,7 @@
 		who_touched_us.blood_in_hands -= 1
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/helper, force_friendly)
-	var/nosound = FALSE /// EFFIGY EDIT ADDITION
+	var/nosound = FALSE // EffigyEdit Add
 	if(on_fire)
 		to_chat(helper, span_warning("You can't put [p_them()] out with just your bare hands!"))
 		return
@@ -340,7 +340,7 @@
 						null, span_hear("You hear the rustling of clothes."), DEFAULT_MESSAGE_RANGE, list(helper, src))
 		to_chat(helper, span_notice("You shake [src] trying to pick [p_them()] up!"))
 		to_chat(src, span_notice("[helper] shakes you to get you up!"))
-	/// EFFIGY EDIT ADD
+	// EffigyEdit Add - Sensitive Snout Trait
 	else if(helper.zone_selected == BODY_ZONE_PRECISE_MOUTH)
 		nosound = TRUE
 		playsound(src, 'local/sound/emotes/nose_boop.ogg', 50, 0)
@@ -349,13 +349,13 @@
 			var/datum/quirk/sensitivesnout/poor_snout = src.get_quirk(/datum/quirk/sensitivesnout)
 			poor_snout?.get_booped(helper)
 		return
-	/// EFFIGY EDIT END
+	// EffigyEdit Add End
 	else if(check_zone(helper.zone_selected) == BODY_ZONE_HEAD && get_bodypart(BODY_ZONE_HEAD)) //Headpats!
-		/// EFFIGY EDIT BEGIN
+		// EffigyEdit Add - Oversized Trait
 		if(HAS_TRAIT(src, TRAIT_OVERSIZED) && !HAS_TRAIT(helper, TRAIT_OVERSIZED))
 			visible_message(span_warning("[helper] tries to pat [src] on the head, but can't reach!"))
 			return
-		/// EFFIGY EDIT END
+		// EffigyEdit Add End
 		helper.visible_message(span_notice("[helper] gives [src] a pat on the head to make [p_them()] feel better!"), \
 					null, span_hear("You hear a soft patter."), DEFAULT_MESSAGE_RANGE, list(helper, src))
 		to_chat(helper, span_notice("You give [src] a pat on the head to make [p_them()] feel better!"))
@@ -364,6 +364,12 @@
 		share_blood_on_touch(helper, ITEM_SLOT_HEAD|ITEM_SLOT_MASK)
 		if(HAS_TRAIT(src, TRAIT_BADTOUCH))
 			to_chat(helper, span_warning("[src] looks visibly upset as you pat [p_them()] on the head."))
+		// EffigyEdit Add - Excitable Trait
+		if(HAS_TRAIT(src, TRAIT_EXCITABLE))
+			var/obj/item/organ/tail/src_tail = get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
+			if(src_tail && !(src_tail.wag_flags & WAG_WAGGING))
+				emote("wag")
+		// EffigyEdit Add End
 
 	else if ((helper.zone_selected == BODY_ZONE_PRECISE_GROIN) && !isnull(src.get_organ_by_type(/obj/item/organ/tail)))
 		helper.visible_message(span_notice("[helper] pulls on [src]'s tail!"), \
