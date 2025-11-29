@@ -1,6 +1,6 @@
 /datum/quirk/system_shock
 	name = "System Shock"
-	desc = "You and electricity have a volatile relationship. One spark's liable to forcefully reboot your systems. Note: This quirk only works on synths."
+	desc = "You and electricity have a volatile relationship. One spark's liable to forcefully reboot your systems."
 	gain_text = span_danger("You start feeling nervous around plug sockets.")
 	lose_text = span_notice("You feel normal about sparks.")
 	medical_record_text = "Patient's processors are unusually uninsulated."
@@ -19,7 +19,7 @@
 	UnregisterSignal(quirk_holder, list(COMSIG_LIVING_ELECTROCUTE_ACT, COMSIG_LIVING_MINOR_SHOCK))
 
 /datum/quirk/system_shock/is_species_appropriate(datum/species/mob_species)
-	if (!ispath(mob_species, /datum/species/synth))
+	if(!ispath(mob_species, /datum/species/synth))
 		return FALSE
 	return ..()
 
