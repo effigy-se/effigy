@@ -61,3 +61,8 @@
   TealSeer:
   - bugfix: fixed hunger bar not showing
   - bugfix: fixed shard alpha thigh plate markings going on the wrong legs
+2025-11-29:
+  LT3:
+  - rscadd: 'Quirks are back: alexithymia, big hands, fragile, monophobia, excitable,
+      and felinid traits'
+  - balance: Quirk prices adjusted to their previous values
