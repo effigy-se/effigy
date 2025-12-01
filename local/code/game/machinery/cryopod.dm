@@ -215,7 +215,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		smoke.start()
 		qdel(smoke) // We're done with you
 		comedy_target.Paralyze(8 SECONDS)
-		comedy_target.adjustStaminaLoss(40)
+		comedy_target.adjust_stamina_loss(40)
 		step_away(comedy_target, src)
 		shake_camera(comedy_target, 4, 3)
 		comedy_target.visible_message(

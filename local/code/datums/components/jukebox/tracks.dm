@@ -15,19 +15,19 @@
 	song_path = 'sound/music/lobby_music/title0.ogg'
 	song_name = "SolusLunes - Endless Space"
 	song_length = 3 MINUTES + 25 SECONDS
-	song_beat = 1 SECONDS
+	song_beat_deciseconds = 1 SECONDS
 
 /datum/track/default/title_one
 	song_path = 'sound/music/lobby_music/title1.mod'
 	song_name = "XCEED - Flip Flap"
 	song_length = 2 MINUTES + 28 SECONDS
-	song_beat = 1 SECONDS
+	song_beat_deciseconds = 1 SECONDS
 
 /datum/track/default/title_two
 	song_path = 'sound/music/lobby_music/title2.ogg'
 	song_name = "Chef Boyardee - robocop"
 	song_length = 1 MINUTES + 57 SECONDS
-	song_beat = 1 SECONDS
+	song_beat_deciseconds = 1 SECONDS
 
 /// EFFIGY-SPECIFIC
 
@@ -37,19 +37,19 @@
 	song_path = 'local/sound/music/re_power_recovery/lobby.ogg'
 	song_name = "Blue Rose Red Heart - Your Job Is Simple"
 	song_length = 3 MINUTES
-	song_beat = 1 SECONDS // BPM of 40
+	song_beat_deciseconds = 1 SECONDS // BPM of 40
 
 /datum/track/default/repr_our_rides_here
 	song_path = 'local/sound/music/re_power_recovery/shuttledock.ogg'
 	song_name = "Blue Rose Red Heart - Our Ride's Here"
 	song_length = 1 MINUTES + 16 SECONDS
-	song_beat = 2 SECONDS + 4 DECISECONDS // BPM of 100
+	song_beat_deciseconds = 2 SECONDS + 4 DECISECONDS // BPM of 100
 
 /datum/track/default/repr_st_lilyben_sunrise // cover of tintin on the moon (reprise of your job is simple)
 	song_path = 'local/sound/music/re_power_recovery/credits.ogg'
 	song_name = "Blue Rose Red Heart - St. Lilyben Sunrise (Your Job Is Simple: Reprise)"
 	song_length = 3 MINUTES
-	song_beat = 1 SECONDS // BPM of 40
+	song_beat_deciseconds = 1 SECONDS // BPM of 40
 
 /// RIMPOINT
 
@@ -57,4 +57,4 @@
 	song_path = 'local/sound/ambience/ambihotspring.ogg'
 	song_name = "Blue Rose Red Heart - Hotspring Haze"
 	song_length = 1 MINUTES + 27 SECONDS
-	song_beat = 5 SECONDS + 4 DECISECONDS + 55 MILLISECONDS // BPM of 44
+	song_beat_deciseconds = 5 SECONDS + 4 DECISECONDS + 55 MILLISECONDS // BPM of 44

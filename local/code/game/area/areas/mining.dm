@@ -11,7 +11,8 @@
 	requires_power = TRUE
 	default_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
-	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED
+	area_flags = VALID_TERRITORY
+	area_flags_mapping = UNIQUE_AREA | FLORA_ALLOWED
 	sound_environment = SOUND_AREA_TAELOTH
 	ambience_index = AMBIENCE_HOLY
 	min_ambience_cooldown = 4 MINUTES
@@ -51,7 +52,8 @@
 /// likewise cult can also build/rune here. again - probably not smart as a cultie; but you can. There are some exceptions to areas we want to name but don't want either on; too.
 /// For those; see /area/taeloth/nearstation/no_valids_to_hunt
 /area/taeloth/nearstation
-	area_flags = VALID_TERRITORY | BLOBS_ALLOWED | UNIQUE_AREA | FLORA_ALLOWED | CULT_PERMITTED
+	area_flags = VALID_TERRITORY | BLOBS_ALLOWED | CULT_PERMITTED
+	area_flags_mapping = UNIQUE_AREA | FLORA_ALLOWED
 
 /// AI
 /area/taeloth/nearstation/ai_sat_trail
@@ -200,6 +202,7 @@
 
 /area/taeloth/nearstation/no_valids_to_hunt
 	area_flags = /area/taeloth::area_flags
+	area_flags_mapping = /area/taeloth::area_flags_mapping
 
 /// AI
 /area/taeloth/nearstation/no_valids_to_hunt/ai_sat_lake
@@ -239,14 +242,16 @@
 
 /area/taeloth/unexplored // In theory, monsters spawn here. They do not in practice, unimplemented. Random Generation + Ruins work though.
 	icon_state = "unexplored"
-	area_flags = VALID_TERRITORY | UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED
+	area_flags = VALID_TERRITORY
+	area_flags_mapping = UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED
 	map_generator = /datum/map_generator/jungle_generator
 	mood_bonus = -5
 	mood_message = "The trees themselves feel like walls; closing in..." // Makes it harder to stay out in the jungle over a prolonged period of time.
 
 /area/taeloth/unexplored/danger // Additional to said theory: megafauna.
 	icon_state = "danger"
-	area_flags = VALID_TERRITORY | UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED
+	area_flags = VALID_TERRITORY
+	area_flags_mapping = UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED
 
 /*
 	UNGERGROUND
@@ -263,5 +268,6 @@
 
 /area/taeloth/underground/unexplored
 	icon_state = "unexplored"
-	area_flags = VALID_TERRITORY | UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED
+	area_flags = VALID_TERRITORY
+	area_flags_mapping = UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED
 	map_generator = /datum/map_generator/cave_generator/rimpoint_jungle // really need to replace that floor with a proper stone one at some point.. soon(tm)
