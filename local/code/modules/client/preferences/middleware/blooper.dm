@@ -4,7 +4,7 @@
 	)
 
 /datum/preference_middleware/blooper/proc/play_blooper(list/params, mob/user)
-	var/datum/blooper/blooper_to_use = GLOB.blooper_list[preferences.read_preference(/datum/preference/choiced/blooper)]
+	var/datum/blooper/blooper_to_use = SSblooper.blooper_list[preferences.read_preference(/datum/preference/choiced/blooper)]
 	var/blooper_speed = preferences.read_preference(/datum/preference/numeric/blooper_speed)
 	var/blooper_pitch = preferences.read_preference(/datum/preference/numeric/blooper_pitch)
 	var/blooper_pitch_range = preferences.read_preference(/datum/preference/numeric/blooper_pitch_range)

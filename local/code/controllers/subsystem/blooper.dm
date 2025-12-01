@@ -1,9 +1,18 @@
 #define BLOOPER_CONFIG_PATH "[global.config.directory]/bloopers"
-GLOBAL_LIST_INIT(blooper_list, initialize_blooper_datums())
 
-/proc/initialize_blooper_datums()
+SUBSYSTEM_DEF(blooper)
+	name = "Blooper"
+	flags = SS_NO_FIRE | SS_NO_INIT
+
+	var/list/blooper_list
+
+/datum/controller/subsystem/blooper/PreInit()
+	blooper_list = initialize_blooper_datums()
+
+/datum/controller/subsystem/blooper/proc/initialize_blooper_datums()
 	var/list/blooper_datums = list()
 	if(!rustg_file_exists("[BLOOPER_CONFIG_PATH]/blooper_config.json"))
+		logger.Log(LOG_CATEGORY_DEBUG, "blooper_config.json not found.")
 		return blooper_datums
 	var/list/blooper_entries = safe_json_decode(rustg_file_read("[BLOOPER_CONFIG_PATH]/blooper_config.json"))
 	if(isnull(blooper_entries))
