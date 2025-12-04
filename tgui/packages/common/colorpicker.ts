@@ -477,7 +477,6 @@ export const colorList = [
     '111111',
     '000000',
   ],
-  // EffigyEdit Add - TGUI Color Picker
   [
     'f0197d',
     'ff7f50',
@@ -511,5 +510,4 @@ export const colorList = [
     '754223',
     '471b18',
   ],
-  // EffigyEdit Add End
 ];
