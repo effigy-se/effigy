@@ -6,7 +6,7 @@ SUBSYSTEM_DEF(blooper)
 
 	var/list/blooper_list
 
-/datum/controller/subsystem/blooper/PreInit()
+/datum/controller/subsystem/blooper/OnConfigLoad()
 	blooper_list = initialize_blooper_datums()
 
 /datum/controller/subsystem/blooper/proc/initialize_blooper_datums()
