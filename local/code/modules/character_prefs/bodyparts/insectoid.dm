@@ -1,7 +1,6 @@
 /obj/item/bodypart/head/insectoid
 	icon_greyscale = BODYPART_ICON_INSECTOID
 	limb_id = SPECIES_INSECTOID
-	eyes_icon = 'local/icons/mob/species/insectoid_eyes.dmi'
 
 /obj/item/bodypart/chest/insectoid
 	icon_greyscale = BODYPART_ICON_INSECTOID

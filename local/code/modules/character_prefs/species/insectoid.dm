@@ -11,6 +11,7 @@
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BUG
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
+	mutanteyes = /obj/item/organ/eyes/bug
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/insectoid,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/insectoid,

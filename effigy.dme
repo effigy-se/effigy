@@ -7101,7 +7101,6 @@
 #include "local\code\modules\cargo\packs\security.dm"
 #include "local\code\modules\cargo\packs\service.dm"
 #include "local\code\modules\character_prefs\_overrides.dm"
-#include "local\code\modules\character_prefs\bodyparts\_bodyparts.dm"
 #include "local\code\modules\character_prefs\bodyparts\animalid.dm"
 #include "local\code\modules\character_prefs\bodyparts\insectoid.dm"
 #include "local\code\modules\character_prefs\bodyparts\lizard.dm"
