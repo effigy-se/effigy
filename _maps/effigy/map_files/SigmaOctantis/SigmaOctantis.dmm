@@ -22784,6 +22784,18 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/station/maintenance/floor2/starboard)
+"feK" = (
+/obj/machinery/plumbing/floor_pump/input/on/waste/directional/south,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
+	dir = 10
+	},
+/turf/open/floor/iron/textured_half{
+	dir = 8
+	},
+/area/station/cargo/storage)
 "feU" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -44070,6 +44082,12 @@
 /obj/machinery/light/directional/east,
 /turf/open/floor/catwalk_floor,
 /area/station/security/processing)
+"jZN" = (
+/obj/machinery/duct/waste,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
+/turf/open/floor/iron/half,
+/area/station/cargo/storage)
 "jZR" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -47380,6 +47398,18 @@
 /obj/effect/turf_decal/siding/dark,
 /turf/open/floor/iron/herringbone,
 /area/station/science/xenobiology)
+"kKX" = (
+/obj/effect/turf_decal/trimline/brown/warning{
+	dir = 1
+	},
+/obj/machinery/duct/waste,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2,
+/turf/open/floor/iron,
+/area/station/cargo/storage)
 "kLd" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/stripes/corner{
@@ -54984,6 +55014,15 @@
 /obj/machinery/meter,
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
+"myu" = (
+/obj/effect/turf_decal/trimline/brown/warning,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/cargo/storage)
 "myw" = (
 /obj/effect/turf_decal/siding/dark/corner,
 /obj/structure/railing/corner,
@@ -70070,6 +70109,19 @@
 /obj/effect/spawner/liquids_spawner/fulltile,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/station/maintenance/floor1/port/aft)
+"pTn" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/water_sensor,
+/obj/machinery/atmospherics/components/unary/airlock_pump{
+	external_pressure_target = 101.325
+	},
+/turf/open/floor/catwalk_floor,
+/area/station/cargo/storage)
 "pTp" = (
 /obj/effect/landmark/start/ai,
 /obj/item/radio/intercom/command/directional/north,
@@ -71861,6 +71913,21 @@
 	},
 /turf/open/floor/iron/white/diagonal,
 /area/station/science/ordnance/testlab)
+"qpB" = (
+/obj/machinery/door/airlock/external/glass,
+/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wideplating_new,
+/obj/machinery/duct/waste,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/storage)
 "qpN" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
@@ -79904,6 +79971,12 @@
 /obj/machinery/plumbing/floor_pump/input/on/waste/directional/south,
 /turf/open/floor/iron,
 /area/station/security/warden)
+"sdZ" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/iron,
+/area/station/cargo/storage)
 "seb" = (
 /obj/effect/turf_decal/tile/dark_blue/full,
 /obj/effect/turf_decal/siding/wideplating_new{
@@ -85666,6 +85739,12 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor/water_sensor,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
+	dir = 5
+	},
 /turf/open/floor/catwalk_floor,
 /area/station/cargo/storage)
 "tvg" = (
@@ -151232,7 +151311,7 @@ fGX
 fGX
 fGX
 atH
-tuX
+pTn
 tuX
 atH
 pMe
@@ -151490,12 +151569,12 @@ fGX
 fGX
 iXv
 lBb
-ssG
-yhM
-adS
-qUC
-hOr
-pjT
+feK
+qpB
+jZN
+myu
+sdZ
+kKX
 xPd
 nFq
 xCf
