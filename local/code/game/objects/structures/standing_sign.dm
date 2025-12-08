@@ -7,6 +7,11 @@
 	icon_state = "generic"
 	density = TRUE
 	anchored = TRUE
+	custom_materials = list(
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/wood = HALF_SHEET_MATERIAL_AMOUNT / 2,
+		/datum/material/paper = HALF_SHEET_MATERIAL_AMOUNT / 2,
+	)
 
 /obj/structure/standing_sign/hotspring
 	name = "Hotspring"
