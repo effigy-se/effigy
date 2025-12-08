@@ -1986,10 +1986,6 @@
 /area/station/maintenance/floor1/starboard/aft)
 "auL" = (
 /obj/machinery/light/directional/east,
-/obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=1";
-	location = "Bridge"
-	},
 /turf/open/floor/iron/diagonal,
 /area/station/hallway/floor1/fore)
 "auX" = (
@@ -14586,10 +14582,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine/atmos)
 "dkO" = (
-/obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=4";
-	location = "QM #2"
-	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/storage)
 "dkX" = (
@@ -15775,6 +15767,10 @@
 /obj/effect/mapping_helpers/mail_sorting/security/general,
 /obj/effect/mapping_helpers/mail_sorting/security/hos_office,
 /obj/effect/mapping_helpers/mail_sorting/security/detectives_office,
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;dir=1";
+	location = "Security Front Door"
+	},
 /turf/open/floor/iron,
 /area/station/hallway/floor1/aft)
 "dzB" = (
@@ -28661,10 +28657,6 @@
 	dir = 6
 	},
 /obj/machinery/camera/autoname/directional/west,
-/obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=1";
-	location = "Security"
-	},
 /turf/open/floor/iron,
 /area/station/hallway/floor1/aft)
 "gtY" = (
@@ -31718,8 +31710,11 @@
 /obj/effect/turf_decal/siding/wideplating_new/end{
 	dir = 4
 	},
-/obj/structure/closet/crate,
 /obj/structure/cable,
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;dir=1";
+	location = "QM #2"
+	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/storage)
 "hdQ" = (
@@ -51199,7 +51194,7 @@
 /obj/machinery/duct/waste,
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=2";
-	location = "Engineering"
+	location = "Engineering Front Door"
 	},
 /turf/open/floor/iron/diagonal,
 /area/station/hallway/floor1)
@@ -51773,10 +51768,6 @@
 	dir = 4
 	},
 /obj/machinery/camera/autoname/directional/north,
-/obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=4";
-	location = "Service Hall"
-	},
 /turf/open/floor/iron,
 /area/station/hallway/floor2/fore)
 "lKI" = (
@@ -52631,10 +52622,6 @@
 /obj/machinery/duct/supply,
 /obj/machinery/duct/waste,
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer4,
-/obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=8";
-	location = "Science"
-	},
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 9
 	},
@@ -56420,7 +56407,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=4";
+	codes_txt = "delivery;dir=1";
 	location = "QM #1"
 	},
 /turf/open/floor/iron/dark,
@@ -80494,7 +80481,7 @@
 /area/station/engineering/hallway)
 "sjF" = (
 /obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=4";
+	codes_txt = "delivery;dir=8";
 	location = "Bar"
 	},
 /obj/structure/plasticflaps/opaque,
@@ -80960,6 +80947,10 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 4
+	},
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;dir=1";
+	location = "Service Hall Front Door"
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/hallway/floor2/fore)
@@ -91923,6 +91914,10 @@
 	dir = 4
 	},
 /obj/machinery/duct/waste,
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;dir=4";
+	location = "Bridge"
+	},
 /turf/open/floor/iron/diagonal,
 /area/station/hallway/floor1/fore)
 "uTI" = (
@@ -98077,6 +98072,10 @@
 /obj/structure/cable,
 /obj/machinery/duct/supply,
 /obj/machinery/duct/waste,
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;dir=1";
+	location = "Science Front Door"
+	},
 /turf/open/floor/catwalk_floor/iron_white,
 /area/station/science/lobby)
 "wmS" = (
