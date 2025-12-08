@@ -51464,6 +51464,21 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/floor2/port)
+"lFQ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/conveyor{
+	id = "cargounload";
+	dir = 8
+	},
+/obj/machinery/status_display/supply{
+	dir = 1;
+	pixel_y = 32
+	},
+/turf/open/floor/plating,
+/area/station/cargo/storage)
 "lGb" = (
 /obj/structure/transit_tube/curved{
 	dir = 4
@@ -104301,6 +104316,9 @@
 /obj/machinery/modular_computer/preset/cargochat/cargo{
 	dir = 1
 	},
+/obj/machinery/status_display/supply{
+	pixel_y = -32
+	},
 /turf/open/floor/wood,
 /area/station/cargo/storage)
 "xEJ" = (
@@ -150446,7 +150464,7 @@ atH
 kPJ
 kPJ
 atH
-tIx
+lFQ
 aOx
 ylc
 mQP
