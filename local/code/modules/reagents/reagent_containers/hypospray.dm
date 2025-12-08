@@ -353,54 +353,63 @@
 	fill_icon_thresholds = list(10, 25, 50, 75, 100)
 	var/chem_color = "#FFFFFF" //Used for hypospray overlay
 	var/type_suffix = "-s"
+	/// For determining atom_skins used
+	var/large = FALSE
 	fill_icon = 'local/icons/obj/medical/hypospray/hypospray_fillings.dmi'
-	current_skin = "hypovial"
-
-	unique_reskin = list(
-		"Sterile" = "hypovial",
-		"Generic" = "hypovial-generic",
-		"Brute" = "hypovial-brute",
-		"Burn" = "hypovial-burn",
-		"Toxin" = "hypovial-tox",
-		"Oxyloss" = "hypovial-oxy",
-		"Crit" = "hypovial-crit",
-		"Buff" = "hypovial-buff",
-		"Custom" = "hypovial-custom",
-	)
 
 /obj/item/reagent_containers/cup/hypovial/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_OBJ_RESKIN, PROC_REF(on_reskin))
+	AddComponent(/datum/component/reskinable_item, large ? /datum/atom_skin/hypovial_large : /datum/atom_skin/hypovial)
 
-/obj/item/reagent_containers/cup/hypovial/Destroy(force)
+/datum/atom_skin/hypovial
+	abstract_type = /datum/atom_skin/hypovial
+
+/datum/atom_skin/hypovial/sterile
+	preview_name = "Sterile"
+	new_icon_state = "hypovial"
+
+/datum/atom_skin/hypovial/generic
+	preview_name = "Generic"
+	new_icon_state = "hypovial-generic"
+
+/datum/atom_skin/hypovial/brute
+	preview_name = "Brute"
+	new_icon_state = "hypovial-brute"
+
+/datum/atom_skin/hypovial/burn
+	preview_name = "Burn"
+	new_icon_state = "hypovial-burn"
+
+/datum/atom_skin/hypovial/toxin
+	preview_name = "Toxin"
+	new_icon_state = "hypovial-tox"
+
+/datum/atom_skin/hypovial/oxyloss
+	preview_name = "Oxyloss"
+	new_icon_state = "hypovial-oxy"
+
+/datum/atom_skin/hypovial/crit
+	preview_name = "Crit"
+	new_icon_state = "hypovial-crit"
+
+/datum/atom_skin/hypovial/buff
+	preview_name = "Buff"
+	new_icon_state = "hypovial-buff"
+
+/datum/atom_skin/hypovial/custom
+	preview_name = "Custom"
+	new_icon_state = "hypovial"
+
+/datum/atom_skin/hypovial/custom/apply(atom/apply_to)
 	. = ..()
-	UnregisterSignal(src, COMSIG_OBJ_RESKIN)
+	var/list/allowed_configs = list("[apply_to::greyscale_config]")
+	apply_to.greyscale_colors ||= "#FFFF00"
+	var/datum/greyscale_modify_menu/menu = new(apply_to, usr, allowed_configs)
+	menu.ui_interact(usr)
 
-/obj/item/reagent_containers/cup/hypovial/examine(mob/user)
+/datum/atom_skin/hypovial/custom/clear_skin(atom/clear_from)
 	. = ..()
-	. += span_notice("Ctrl-Shift-Click to reskin or set a custom color.")
-
-/obj/item/reagent_containers/cup/hypovial/click_ctrl_shift(mob/user)
-	current_skin = null
-	icon_state = initial(icon_state)
-	icon = initial(icon)
-	greyscale_colors = null
-	reskin_obj(user)
-
-/obj/item/reagent_containers/cup/hypovial/proc/on_reskin()
-	if(current_skin == "Custom")
-		icon_state = unique_reskin["Sterile"]
-		current_skin = unique_reskin["Sterile"]
-		var/atom/fake_atom = src
-		var/list/allowed_configs = list()
-		var/config = initial(fake_atom.greyscale_config)
-		allowed_configs += "[config]"
-		if(greyscale_colors == null)
-			greyscale_colors = "#FFFF00"
-		var/datum/greyscale_modify_menu/menu = new(src, usr, allowed_configs)
-		menu.ui_interact(usr)
-	else
-		icon_state = unique_reskin[current_skin]
+	clear_from.greyscale_colors = null
 
 /obj/item/reagent_containers/cup/hypovial/update_overlays()
 	. = ..()
@@ -413,13 +422,6 @@
 			if(findtext(overlay_image.icon_state, fill_icon_state) != 0)
 				overlay_image.layer = layer - 0.01
 				chem_color = overlay_image.color
-
-/obj/item/reagent_containers/cup/hypovial/Initialize(mapload)
-	. = ..()
-	update_icon()
-
-/obj/item/reagent_containers/cup/hypovial/on_reagent_change()
-	update_icon()
 
 //Fit in all hypos
 /obj/item/reagent_containers/cup/hypovial/small
@@ -451,26 +453,65 @@
 /obj/item/reagent_containers/cup/hypovial/large
 	name = "large hypovial"
 	icon_state = "hypoviallarge"
+	greyscale_config = /datum/greyscale_config/hypovial_large
 	fill_icon_state = "hypoviallarge_fill"
-	current_skin = "hypoviallarge"
 	desc = "A large, 120u capacity vial that fits only in the most deluxe hyposprays."
 	volume = 100
 	possible_transfer_amounts = list(1,2,5,10,15,20,30,40,60,120)
 	type_suffix = "-l"
+	large = TRUE
 
-	unique_reskin = list(
-		"Sterile" = "hypoviallarge",
-		"Generic" = "hypoviallarge-generic",
-		"Brute" = "hypoviallarge-brute",
-		"Burn" = "hypoviallarge-burn",
-		"Toxin" = "hypoviallarge-tox",
-		"Oxyloss" = "hypoviallarge-oxy",
-		"Crit" = "hypoviallarge-crit",
-		"Buff" = "hypoviallarge-buff",
-		"Custom" = "hypoviallarge-custom",
-	)
+/datum/atom_skin/hypovial_large
+	abstract_type = /datum/atom_skin/hypovial_large
 
-/obj/item/reagent_containers/cup/hypovial/large/style/
+/datum/atom_skin/hypovial_large/sterile
+	preview_name = "Sterile"
+	new_icon_state = "hypoviallarge"
+
+/datum/atom_skin/hypovial_large/generic
+	preview_name = "Generic"
+	new_icon_state = "hypoviallarge-generic"
+
+/datum/atom_skin/hypovial_large/brute
+	preview_name = "Brute"
+	new_icon_state = "hypoviallarge-brute"
+
+/datum/atom_skin/hypovial_large/burn
+	preview_name = "Burn"
+	new_icon_state = "hypoviallarge-burn"
+
+/datum/atom_skin/hypovial_large/toxin
+	preview_name = "Toxin"
+	new_icon_state = "hypoviallarge-tox"
+
+/datum/atom_skin/hypovial_large/oxyloss
+	preview_name = "Oxyloss"
+	new_icon_state = "hypoviallarge-oxy"
+
+/datum/atom_skin/hypovial_large/crit
+	preview_name = "Crit"
+	new_icon_state = "hypoviallarge-crit"
+
+/datum/atom_skin/hypovial_large/buff
+	preview_name = "Buff"
+	new_icon_state = "hypoviallarge-buff"
+
+/datum/atom_skin/hypovial_large/custom
+	preview_name = "Custom"
+	new_icon_state = "hypoviallarge"
+
+/datum/atom_skin/hypovial_large/custom/apply(atom/apply_to)
+	. = ..()
+	var/list/allowed_configs = list("[apply_to::greyscale_config]")
+	apply_to.greyscale_colors ||= "#FFFF00"
+	var/datum/greyscale_modify_menu/menu = new(apply_to, usr, allowed_configs)
+	menu.ui_interact(usr)
+
+/datum/atom_skin/hypovial_large/custom/clear_skin(atom/clear_from)
+	. = ..()
+	clear_from.greyscale_colors = null
+
+/obj/item/reagent_containers/cup/hypovial/large/style
 	icon_state = "hypoviallarge"
 
 //Styles
