@@ -31715,6 +31715,7 @@
 	codes_txt = "delivery;dir=1";
 	location = "QM #2"
 	},
+/mob/living/simple_animal/bot/mulebot,
 /turf/open/floor/iron/dark,
 /area/station/cargo/storage)
 "hdQ" = (
@@ -56410,6 +56411,7 @@
 	codes_txt = "delivery;dir=1";
 	location = "QM #1"
 	},
+/mob/living/simple_animal/bot/mulebot,
 /turf/open/floor/iron/dark,
 /area/station/cargo/storage)
 "mOv" = (
