@@ -553,7 +553,7 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 	var/chat_message = chat_warning ? span_warning(message) : span_info(message) // EffigyEdit Change - Custom Lobby
 	// EffigyEdit Add - Custom Lobby
 	GLOB.init_progress++
-	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(send_init_fluff_message))
+	INVOKE_ASYNC(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, send_init_fluff_message))
 	SEND_GLOBAL_SIGNAL(COMSIG_SUBSYSTEM_INCREMENT_PROGRESS, GLOB.init_progress)
 	// EffigyEdit Add End
 
