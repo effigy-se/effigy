@@ -1,0 +1,5 @@
+author: "TealSeer"
+delete-after: True
+changes:
+  - map: "several improvements to Sigma Octantis cargo"
+  - map: "Sigma Octantis cargo now starts with two MULEbots"
