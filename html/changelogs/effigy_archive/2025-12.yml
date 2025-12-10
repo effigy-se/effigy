@@ -5,3 +5,5 @@
   TealSeer:
   - bugfix: fixed stairs being invisible
   - map: added a camera near the xenobio freezer on Foxhole
+  - map: several improvements to Sigma Octantis cargo
+  - map: Sigma Octantis cargo now starts with two MULEbots
