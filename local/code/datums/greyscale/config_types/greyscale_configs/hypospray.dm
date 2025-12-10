@@ -12,3 +12,8 @@
 	name = "Hypovial"
 	icon_file = 'local/icons/obj/medical/hypospray/hypovials.dmi'
 	json_config = 'local/code/datums/greyscale/json_configs/hypospray/hypovial.json'
+
+/datum/greyscale_config/hypovial_large
+	name = "Large Hypovial"
+	icon_file = 'local/icons/obj/medical/hypospray/hypovials.dmi'
+	json_config = 'local/code/datums/greyscale/json_configs/hypospray/hypovial_large.json'

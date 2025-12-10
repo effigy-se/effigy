@@ -13049,7 +13049,7 @@
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "hbc" = (
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_y = 13;
 	pixel_x = -9
 	},

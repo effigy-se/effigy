@@ -803,13 +803,15 @@
 /atom/movable/screen/lobby/button/start_now/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
 	if(SSticker?.current_state > GAME_STATE_PREGAME)
-		qdel(src)
+		set_button_status(FALSE)
+		return
 
 	RegisterSignal(SSticker, COMSIG_TICKER_ROUND_STARTING, PROC_REF(enter_pregame))
 
 /atom/movable/screen/lobby/button/start_now/proc/enter_pregame(source)
 	SIGNAL_HANDLER
-	qdel(src)
+	set_button_status(FALSE)
+	UnregisterSignal(SSticker, COMSIG_TICKER_ROUND_STARTING)
 // EffigyEdit Add End
 
 /atom/movable/screen/lobby/button/start_now/Click(location, control, params)
@@ -1051,7 +1053,8 @@
 /atom/movable/screen/lobby/loading_screen/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
 	if(SSticker?.current_state != GAME_STATE_STARTUP)
-		qdel(src)
+		icon = null
+		return
 
 	icon = SStitle.splash_turf.icon
 	icon_state = SStitle.splash_turf.icon_state
@@ -1059,7 +1062,8 @@
 
 /atom/movable/screen/lobby/loading_screen/proc/enter_pregame(source)
 	SIGNAL_HANDLER
-	qdel(src)
+	icon = null
+	UnregisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME)
 
 /atom/movable/screen/lobby/progress_bar
 	icon = 'local/icons/hud/lobby/loading.dmi'
@@ -1070,7 +1074,8 @@
 /atom/movable/screen/lobby/progress_bar/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
 	if(SSticker?.current_state != GAME_STATE_STARTUP)
-		qdel(src)
+		icon_state = null
+		return
 
 	RegisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME, PROC_REF(enter_pregame))
 	RegisterSignal(SSdcs, COMSIG_SUBSYSTEM_INCREMENT_PROGRESS, PROC_REF(init_progress))
@@ -1081,7 +1086,9 @@
 	SIGNAL_HANDLER
 	if(hud.mymob)
 		winset(hud.mymob, "mapwindow.status_bar", "is-visible=true")
-	qdel(src)
+	icon_state = null
+	UnregisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME)
+	UnregisterSignal(SSdcs, COMSIG_SUBSYSTEM_INCREMENT_PROGRESS)
 
 /atom/movable/screen/lobby/progress_bar/proc/init_progress(source, new_progress)
 	SIGNAL_HANDLER
@@ -1094,18 +1101,24 @@
 	screen_loc = "BOTTOM:+28,LEFT:+72"
 	layer = PATH_ARROW_DEBUG_LAYER
 
-/atom/movable/screen/lobby/fluff_text/Initialize(mapload, datum/hud/hud_owner)
+// We want to be getting updates before the atom SS initializes
+/atom/movable/screen/lobby/fluff_text/New(loc, datum/hud/our_hud, ...)
 	. = ..()
 	if(SSticker?.current_state != GAME_STATE_STARTUP)
-		qdel(src)
+		maptext = null
+		return
 
 	RegisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME, PROC_REF(enter_pregame))
+	RegisterSignal(SStitle, COMSIG_TITLE_FLUFF_MESSAGE, PROC_REF(on_fluff_message))
 
 /atom/movable/screen/lobby/fluff_text/proc/enter_pregame(source)
 	SIGNAL_HANDLER
-	qdel(src)
+	maptext = null
+	UnregisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME)
+	UnregisterSignal(SStitle, COMSIG_TITLE_FLUFF_MESSAGE)
 
-/atom/movable/screen/lobby/fluff_text/proc/init_progress(fluff_message)
+/atom/movable/screen/lobby/fluff_text/proc/on_fluff_message(datum/source, fluff_message)
+	SIGNAL_HANDLER
 	maptext = "<span style='font-family: \"Chakra Petch\"; font-size: 12pt; line-height: 0.90; -dm-text-outline: 1px #22252f'>[fluff_message]</span>"
 // EffigyEdit Add End
 

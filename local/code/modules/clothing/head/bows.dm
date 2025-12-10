@@ -7,12 +7,23 @@
 	greyscale_config = /datum/greyscale_config/small_bow
 	greyscale_config_worn = /datum/greyscale_config/small_bow/worn
 	greyscale_colors = "#7b9ab5"
-	obj_flags = INFINITE_RESKIN
 	flags_1 = IS_PLAYER_COLORABLE_1
-	unique_reskin = list(
-		"Right-Side" = "small_bow",
-		"Left-Side" = "small_bow_t",
-	)
+
+/obj/item/clothing/head/small_bow/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/small_bow, infinite = TRUE)
+
+/datum/atom_skin/small_bow
+	abstract_type = /datum/atom_skin/small_bow
+	reset_missing = FALSE
+
+/datum/atom_skin/small_bow/right
+	preview_name = "Right-Side"
+	new_icon_state = "small_bow"
+
+/datum/atom_skin/small_bow/left
+	preview_name = "Left-Side"
+	new_icon_state = "small_bow_t"
 
 /obj/item/clothing/head/large_bow
 	name = "large bow"
