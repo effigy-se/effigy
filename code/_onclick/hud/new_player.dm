@@ -1088,6 +1088,7 @@
 		winset(hud.mymob, "mapwindow.status_bar", "is-visible=true")
 	icon_state = null
 	UnregisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME)
+	UnregisterSignal(SSdcs, COMSIG_SUBSYSTEM_INCREMENT_PROGRESS)
 
 /atom/movable/screen/lobby/progress_bar/proc/init_progress(source, new_progress)
 	SIGNAL_HANDLER
@@ -1100,20 +1101,24 @@
 	screen_loc = "BOTTOM:+28,LEFT:+72"
 	layer = PATH_ARROW_DEBUG_LAYER
 
-/atom/movable/screen/lobby/fluff_text/Initialize(mapload, datum/hud/hud_owner)
+// We want to be getting updates before the atom SS initializes
+/atom/movable/screen/lobby/fluff_text/New(loc, datum/hud/our_hud, ...)
 	. = ..()
 	if(SSticker?.current_state != GAME_STATE_STARTUP)
 		maptext = null
 		return
 
 	RegisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME, PROC_REF(enter_pregame))
+	RegisterSignal(SStitle, COMSIG_TITLE_FLUFF_MESSAGE, PROC_REF(on_fluff_message))
 
 /atom/movable/screen/lobby/fluff_text/proc/enter_pregame(source)
 	SIGNAL_HANDLER
 	maptext = null
 	UnregisterSignal(SSticker, COMSIG_TICKER_ENTER_PREGAME)
+	UnregisterSignal(SStitle, COMSIG_TITLE_FLUFF_MESSAGE)
 
-/atom/movable/screen/lobby/fluff_text/proc/init_progress(fluff_message)
+/atom/movable/screen/lobby/fluff_text/proc/on_fluff_message(datum/source, fluff_message)
+	SIGNAL_HANDLER
 	maptext = "<span style='font-family: \"Chakra Petch\"; font-size: 12pt; line-height: 0.90; -dm-text-outline: 1px #22252f'>[fluff_message]</span>"
 // EffigyEdit Add End
 
