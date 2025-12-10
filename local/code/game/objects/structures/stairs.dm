@@ -1,2 +1,2 @@
 /obj/structure/stairs
-	icon = 'local/icons/obj/structures/stairs.dmi'
+	icon = 'local/icons/obj/stairs.dmi'
