@@ -7,3 +7,6 @@
   - map: added a camera near the xenobio freezer on Foxhole
   - map: several improvements to Sigma Octantis cargo
   - map: Sigma Octantis cargo now starts with two MULEbots
+2025-12-11:
+  LT3:
+  - admin: Admins with +SERVER can change the server hub tagline
