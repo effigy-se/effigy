@@ -34,11 +34,6 @@
 
 	new_brain = new new_brain()
 
-/* Need variant for this
-	new_brain.modular_persistence = old_brain.modular_persistence
-	old_brain.modular_persistence = null
-*/
-
 	new_brain.Insert(target, movement_flags = DELETE_IF_REPLACED)
 
 	// Prefs can be applied to mindless mobs, let's not try to move the non-existent mind back in!

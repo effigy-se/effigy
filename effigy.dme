@@ -6884,6 +6884,7 @@
 #include "local\code\controllers\subsystem\dynamic\dynamic_ruleset_midround.dm"
 #include "local\code\controllers\subsystem\dynamic\dynamic_ruleset_roundstart.dm"
 #include "local\code\controllers\subsystem\persistence\_persistence.dm"
+#include "local\code\controllers\subsystem\persistence\tagline.dm"
 #include "local\code\datums\blooper.dm"
 #include "local\code\datums\emotes.dm"
 #include "local\code\datums\ert.dm"
