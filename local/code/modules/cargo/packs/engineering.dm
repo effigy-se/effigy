@@ -20,7 +20,6 @@
 	crate_name = "engineering MODsuit crate"
 	crate_type = /obj/structure/closet/crate/secure/engineering
 
-/* EffigyEdit TODO: This fails cargo export CI check for some reason
 /datum/supply_pack/engineering/modsuit_atmospherics
 	name = "Atmospherics MODsuit Crate"
 	desc = "Contains a single MODsuit, built to standard atmospherics specifications."
@@ -29,7 +28,6 @@
 	cost = CARGO_CRATE_VALUE * 14
 	crate_name = "atmospherics MODsuit crate"
 	crate_type = /obj/structure/closet/crate/secure/engineering/atmos
-*/
 
 /datum/supply_pack/engineering/doublecap_tanks
 	name = "Double Extended Emergency Tank Crate"
