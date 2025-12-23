@@ -136,6 +136,14 @@ GLOBAL_LIST_INIT(bio_state_anatomy, list(
 /// Cranial fissure wound.
 #define WOUND_SERIES_CRANIAL_FISSURE "wound_series_cranial_fissure"
 
+// EffigyEdit Add - Robotic Wounds
+// See local/code/datums/wounds/blunt_robotic_external.dm
+#define WOUND_SERIES_METAL_BLUNT_BASIC "wound_series_metal_blunt_basic"
+#define WOUND_SERIES_METAL_BURN_OVERHEAT "wound_series_metal_burn_basic"
+#define WOUND_SERIES_WIRE_SLASH_ELECTRICAL_DAMAGE "wound_series_metal_slash_electrical_damage_basic"
+#define WOUND_SERIES_WIRE_PIERCE_ELECTRICAL_DAMAGE "wound_series_metal_pierce_electrical_damage_basic"
+// EffigyEdit Add End - Robotic Wounds
+
 /// A assoc list of (wound typepath -> wound_pregen_data instance). Every wound should have a pregen data.
 GLOBAL_LIST_INIT_TYPED(all_wound_pregen_data, /datum/wound_pregen_data, generate_wound_static_data())
 
@@ -207,16 +215,20 @@ GLOBAL_LIST_INIT(wound_series_collections, generate_wound_series_collection())
 /// Allows for determining of which wound series are caused by what.
 GLOBAL_LIST_INIT(wounding_types_to_series, list(
 	WOUND_BLUNT = list(
-		WOUND_SERIES_BONE_BLUNT_BASIC
+		WOUND_SERIES_BONE_BLUNT_BASIC,
+		WOUND_SERIES_METAL_BLUNT_BASIC, // EffigyEdit Add - Robotic Wounds
 	),
 	WOUND_SLASH = list(
 		WOUND_SERIES_FLESH_SLASH_BLEED,
+		WOUND_SERIES_WIRE_SLASH_ELECTRICAL_DAMAGE, // EffigyEdit Add - Robotic Wounds
 	),
 	WOUND_BURN = list(
 		WOUND_SERIES_FLESH_BURN_BASIC,
+		WOUND_SERIES_METAL_BURN_OVERHEAT, // EffigyEdit Add - Robotic Wounds
 	),
 	WOUND_PIERCE = list(
-		WOUND_SERIES_FLESH_PUNCTURE_BLEED
+		WOUND_SERIES_FLESH_PUNCTURE_BLEED,
+		WOUND_SERIES_WIRE_PIERCE_ELECTRICAL_DAMAGE, // EffigyEdit Add - Robotic Wounds
 	),
 ))
 
