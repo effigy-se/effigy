@@ -53,6 +53,7 @@
 			affected_mob.reagents.remove_reagent(reagent.type, remove_amount)
 	..()
 	return TRUE
+
 /datum/reagent/medicine/liquid_solder
 	name = "Liquid Solder"
 	description = "Repairs brain damage in synthetics."
@@ -68,7 +69,6 @@
 			return ..()
 		affected_mob.cure_trauma_type(resilience = TRAUMA_RESILIENCE_BASIC)
 	return ..()
-
 
 /datum/reagent/medicine/nanite_slurry
 	name = "Nanite Slurry"

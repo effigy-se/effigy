@@ -113,3 +113,44 @@ NEUROWARE_METABOLIZE_HELPER(/datum/reagent/medicine/morphine/synth)
 	purge_multiplier = 0
 
 NEUROWARE_METABOLIZE_HELPER(/datum/reagent/medicine/morphine/synth)
+
+// a potent coolant that treats synthetic burns at decent efficiency. compared to hercuri it's worse, but without
+// the lethal side effects, opting for a movement speed decrease instead
+/datum/reagent/dinitrogen_plasmide
+	name = "Dinitrogen Plasmide"
+	description = "A compound of nitrogen and stabilized plasma, this substance has the ability to flash-cool overheated metals \
+	while avoiding excessive damage. Being a heavy compound, it has the effect of slowing anything that metabolizes it."
+	ph = 4.8
+	specific_heat = SPECIFIC_HEAT_PLASMA * 1.2
+	color = "#b779cc"
+	taste_description = "dull plasma"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
+	overdose_threshold = 60 // it takes a lot, if youre really messed up you CAN hit this but it's unlikely
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/dinitrogen_plasmide/on_mob_metabolize(mob/living/affected_mob)
+	. = ..()
+
+	affected_mob.add_movespeed_modifier(/datum/movespeed_modifier/dinitrogen_plasmide)
+	to_chat(affected_mob, span_warning("Your joints suddenly feel stiff."))
+
+/datum/reagent/dinitrogen_plasmide/on_mob_end_metabolize(mob/living/affected_mob)
+	. = ..()
+
+	affected_mob.remove_movespeed_modifier(/datum/movespeed_modifier/dinitrogen_plasmide)
+	affected_mob.remove_movespeed_modifier(/datum/movespeed_modifier/dinitrogen_plasmide_overdose)
+	to_chat(affected_mob, span_warning("Your joints no longer feel stiff!"))
+
+/datum/reagent/dinitrogen_plasmide/overdose_start(mob/living/affected_mob)
+	. = ..()
+
+	to_chat(affected_mob, span_danger("You feel like your joints are filling with some viscous fluid!"))
+	affected_mob.add_movespeed_modifier(/datum/movespeed_modifier/dinitrogen_plasmide_overdose)
+
+/datum/reagent/dinitrogen_plasmide/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
+	. = ..()
+
+	holder.remove_reagent(type, 1.2 * seconds_per_tick) // decays
+	holder.add_reagent(/datum/reagent/stable_plasma, 0.4 * seconds_per_tick)
+	holder.add_reagent(/datum/reagent/nitrogen, 0.8 * seconds_per_tick)

@@ -82,15 +82,14 @@
 	/// A assoc list of (reagent typepath -> cooling), where cooling is how much its presence will reduce the effective temperature of a reagent spray for cooling us.
 	var/static/list/reagent_types_to_extra_cooling = list(
 		/datum/reagent/medicine/c2/hercuri = 60,
-		///datum/reagent/dinitrogen_plasmide = 50, CHANGE ME - IMPLEMENT THIS!
+		/datum/reagent/dinitrogen_plasmide = 50,
 	)
 
 	/// A assoc list of (reagent typepath -> damage mult), where the mult will be multiplied against the thermal shock damage.
 	var/static/list/reagent_types_to_thermal_shock_mult = list(
 		/datum/reagent/medicine/c2/hercuri = 0.3,
-		///datum/reagent/dinitrogen_plasmide = 0.6, CHANGE ME - IMPLEMENT THIS!
+		/datum/reagent/dinitrogen_plasmide = 0.6,
 	)
-
 
 /datum/wound/burn/robotic/overheat/New(temperature)
 	chassis_temperature = (isnull(temperature) ? get_random_starting_temperature() : temperature)
