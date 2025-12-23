@@ -131,26 +131,22 @@ NEUROWARE_METABOLIZE_HELPER(/datum/reagent/medicine/morphine/synth)
 
 /datum/reagent/dinitrogen_plasmide/on_mob_metabolize(mob/living/affected_mob)
 	. = ..()
-
 	affected_mob.add_movespeed_modifier(/datum/movespeed_modifier/dinitrogen_plasmide)
 	to_chat(affected_mob, span_warning("Your joints suddenly feel stiff."))
 
 /datum/reagent/dinitrogen_plasmide/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
-
 	affected_mob.remove_movespeed_modifier(/datum/movespeed_modifier/dinitrogen_plasmide)
 	affected_mob.remove_movespeed_modifier(/datum/movespeed_modifier/dinitrogen_plasmide_overdose)
 	to_chat(affected_mob, span_warning("Your joints no longer feel stiff!"))
 
 /datum/reagent/dinitrogen_plasmide/overdose_start(mob/living/affected_mob)
 	. = ..()
-
 	to_chat(affected_mob, span_danger("You feel like your joints are filling with some viscous fluid!"))
 	affected_mob.add_movespeed_modifier(/datum/movespeed_modifier/dinitrogen_plasmide_overdose)
 
 /datum/reagent/dinitrogen_plasmide/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-
 	holder.remove_reagent(type, 1.2 * seconds_per_tick) // decays
 	holder.add_reagent(/datum/reagent/stable_plasma, 0.4 * seconds_per_tick)
 	holder.add_reagent(/datum/reagent/nitrogen, 0.8 * seconds_per_tick)
