@@ -770,6 +770,10 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 	var/mod = 2.0
 	for(var/obj/thingy in operation_turf)
 		mod = min(mod, modifiers[thingy.type] || 2.0)
+		// EffigyEdit Add - Enhanced Surgery
+		if(astype(thingy, /obj/structure/table/optable)?.computer?.is_operational)
+			mod *= OPERATING_COMPUTER_MODIFIER
+		// EffigyEdit Add End
 	return mod
 
 /**
@@ -1080,6 +1084,7 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 
 	SEND_SIGNAL(surgeon, COMSIG_LIVING_SURGERY_SUCCESS, src, operating_on, tool)
 	play_operation_sound(operating_on, surgeon, tool, success_sound)
+	surgeon.balloon_alert(surgeon, get_feedback_message(operating_on, surgeon, operation_args)) // EffigyEdit Add - Enhanced Surgery
 	on_success(operating_on, surgeon, tool, operation_args)
 
 /**

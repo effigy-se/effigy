@@ -187,7 +187,8 @@
 
 	patient.heal_bodypart_damage(brute_healed, burn_healed)
 
-	user_msg += get_progress(surgeon, patient, brute_healed, burn_healed)
+	if(!has_detailed_feedback(patient, surgeon)) // EffigyEdit Add - Enhanced Surgery
+		user_msg += get_progress(surgeon, patient, brute_healed, burn_healed)
 
 	if(HAS_MIND_TRAIT(surgeon, TRAIT_MORBID) && patient.stat != DEAD) //Morbid folk don't care about tending the dead as much as tending the living
 		surgeon.add_mood_event("morbid_tend_wounds", /datum/mood_event/morbid_tend_wounds)
