@@ -566,6 +566,7 @@
 #define NIGHTVISION_LIGHT_HIG 3
 
 /obj/item/organ/eyes/night_vision
+	abstract_type = /obj/item/organ/eyes/night_vision
 	actions_types = list(/datum/action/item_action/organ_action/use)
 
 	// These lists are used as the color cutoff for the eye
@@ -877,13 +878,12 @@
 			set_beam_range(new_range)
 			return TRUE
 		if("pick_color")
-			// EffigyEdit Change - TGUI Color Picker
 			var/new_color = tgui_color_picker(
 				usr,
 				"Choose eye color color:",
 				"High Luminosity Eyes Menu",
 				light_color_string
-			) // EffigyEdit Change End
+			)
 			if(new_color)
 				var/to_update = params["to_update"]
 				set_beam_color(new_color, to_update)

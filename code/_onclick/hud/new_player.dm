@@ -302,8 +302,6 @@
 	icon_state = "not_ready"
 	base_icon_state = "not_ready"
 	*/
-	///Whether we are readied up for the round or not
-	var/ready = FALSE
 	name = "Toggle Ready Status"
 	icon = 'local/icons/hud/lobby/lobby_315x32.dmi'
 	icon_state = "button"
@@ -341,8 +339,9 @@
 	if(!.)
 		return
 	var/mob/dead/new_player/new_player = hud.mymob
-	ready = !ready
-	if(ready)
+
+	// switch based on the user, if they aren't ready then we change them to ready, and vice versa
+	if(new_player.ready == PLAYER_NOT_READY)
 		new_player.auto_deadmin_on_ready_or_latejoin()
 		new_player.ready = PLAYER_READY_TO_PLAY
 		// base_icon_state = "ready" // EffigyEdit Remove - Custom Lobby
@@ -351,6 +350,7 @@
 		new_player.ready = PLAYER_NOT_READY
 		// base_icon_state = "not_ready" // EffigyEdit Remove - Custom Lobby
 		maptext = "<span style='font-family: \"Chakra Petch\"; font-size: 18pt; line-height: 0.90; -dm-text-outline: 1px #22252f'>Not Ready</span>"
+
 	update_appearance(UPDATE_ICON)
 	SEND_SIGNAL(hud, COMSIG_HUD_PLAYER_READY_TOGGLE)
 
@@ -729,7 +729,7 @@
 	var/blip_icon_state = "ready_blip"
 	if(blip_enabled && hud)
 		var/mob/dead/new_player/new_player = hud.mymob
-		blip_icon_state += "_[new_player.ready ? "" : "not_"]ready"
+		blip_icon_state += "_[new_player.is_ready_to_play() ? "" : "not_"]ready"
 	else
 		blip_icon_state += "_disabled"
 	var/mutable_appearance/ready_blip = mutable_appearance(icon, blip_icon_state)
