@@ -44,7 +44,7 @@
 
 /obj/structure/curtain/attackby(obj/item/W, mob/user)
 	if (istype(W, /obj/item/toy/crayon))
-		color = tgui_color_picker(user, "", "Choose Color", color) // EffigyEdit Change - TGUI Color Picker
+		color = tgui_color_picker(user, "", "Choose Color", color)
 	else
 		return ..()
 

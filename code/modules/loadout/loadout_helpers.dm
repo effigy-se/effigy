@@ -31,11 +31,15 @@
 	var/override_preference = preference_source.read_preference(/datum/preference/choiced/loadout_override_preference)
 	var/obj/item/storage/briefcase/empty/loadout_case
 	// EffigyEdit Add End
-	var/list/preference_list = preference_source.read_preference(/datum/preference/loadout)
-	preference_list = preference_list[preference_source.read_preference(/datum/preference/loadout_index)] // EffigyEdit Add - Custom Loadouts
-	var/list/loadout_datums = loadout_list_to_datums(preference_list)
+	var/list/item_details = preference_source.read_preference(/datum/preference/loadout)
+	item_details = item_details[preference_source.read_preference(/datum/preference/loadout_index)] // EffigyEdit Add - Custom Loadouts
+	var/list/loadout_datums = loadout_list_to_datums(item_details)
 	// Slap our things into the outfit given
 	for(var/datum/loadout_item/item as anything in loadout_datums)
+		if(!item.is_equippable(src, item_details?[item.item_path] || list()))
+			loadout_datums -= item
+			continue
+
 		// EffigyEdit Change - Loadout override preference
 		if(override_preference == LOADOUT_OVERRIDE_CASE && !visuals_only)
 			if(!loadout_case)
@@ -58,7 +62,7 @@
 	for(var/datum/loadout_item/item as anything in loadout_datums)
 		update |= item.on_equip_item(
 			equipped_item = locate(item.item_path) in (override_preference == LOADOUT_OVERRIDE_CASE && !visuals_only) ? loadout_case : new_contents, // EffigyEdit Change - Loadout override preference - Original: equipped_item = locate(item.item_path) in new_contents,
-			item_details = preference_list?[item.item_path] || list(),
+			item_details = item_details?[item.item_path] || list(),
 			equipper = src,
 			outfit = equipped_outfit,
 			visuals_only = visuals_only,

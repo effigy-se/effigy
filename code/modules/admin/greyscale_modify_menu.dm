@@ -166,13 +166,12 @@
 
 		if("pick_color")
 			var/group = params["color_index"]
-			// EffigyEdit Change - TGUI Color Picker
 			var/new_color = tgui_color_picker(
 				usr,
 				"Choose color for greyscale color group [group]:",
 				"Greyscale Modification Menu",
 				split_colors[group]
-			) // EffigyEdit Change End
+			)
 			if(new_color)
 				split_colors[group] = new_color
 				queue_refresh()

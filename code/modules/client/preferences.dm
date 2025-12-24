@@ -264,13 +264,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			var/default_value = read_preference(requested_preference.type)
 
 			// Yielding
-			// EffigyEdit Change - TGUI Color Picker
 			var/new_color = tgui_color_picker(
 				usr,
 				null,
 				null,
 				default_value || COLOR_WHITE,
-			) // EffigyEdit Change End
+			)
 
 			if (!new_color)
 				return FALSE

@@ -10,7 +10,8 @@
 	else
 		return INFINITY //Can't get flashed without eyes
 	if(isclothing(head)) //Adds head protection
-		. += head.flash_protect
+		var/obj/item/clothing/helmet = head
+		. += helmet.flash_protect
 	if(isclothing(glasses)) //Glasses
 		. += glasses.flash_protect
 	if(isclothing(wear_mask)) //Mask
@@ -345,7 +346,7 @@
 		nosound = TRUE
 		playsound(src, 'local/sound/emotes/nose_boop.ogg', 50, 0)
 		helper.visible_message(span_notice("[helper] boops [src]'s nose."), span_notice("You boop [src] on the nose."))
-		if(HAS_TRAIT(src, TRAIT_SENSITIVESNOUT) && get_location_accessible(src, BODY_ZONE_PRECISE_MOUTH))
+		if(HAS_TRAIT(src, TRAIT_SENSITIVESNOUT) && !is_mouth_covered())
 			var/datum/quirk/sensitivesnout/poor_snout = src.get_quirk(/datum/quirk/sensitivesnout)
 			poor_snout?.get_booped(helper)
 		return
@@ -711,7 +712,7 @@
 		if (picked_user_part && BODYTYPE_CAN_BE_BIOSCRAMBLED(picked_user_part.bodytype))
 			changed_something = TRUE
 			new_part = new new_part()
-			new_part.replace_limb(src, special = TRUE)
+			new_part.replace_limb(src)
 			if (picked_user_part)
 				qdel(picked_user_part)
 
