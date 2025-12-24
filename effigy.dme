@@ -7437,6 +7437,7 @@
 #include "local\code\modules\surgery\bodyparts\android.dm"
 #include "local\code\modules\surgery\operations\_operation.dm"
 #include "local\code\modules\surgery\operations\operation_healing.dm"
+#include "local\code\modules\surgery\operations\operation_organ_repair.dm"
 #include "local\code\modules\surgery\organs\power_cord.dm"
 #include "local\code\modules\surgery\organs\internal\ears\ears_synth.dm"
 #include "local\code\modules\surgery\organs\internal\eyes\eyes_synth.dm"

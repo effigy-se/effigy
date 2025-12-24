@@ -3,6 +3,7 @@
 	desc = "A device that transfers generated heat to a fluid medium to cool it down. Required to keep your synthetics cool-headed. Its shape resembles lungs." //Purposefully left the 'fluid medium' ambigious for interpretation of the character, whether it be air or fluid cooling
 	icon = 'local/icons/obj/medical/organs/organs.dmi'
 	icon_state = "lungs-ipc"
+	gender = NEUTER
 	safe_nitro_min = 0
 	safe_co2_max = 0
 	safe_plasma_min = 0
