@@ -225,6 +225,7 @@
 		/obj/item/stack/medical/bone_gel,
 		/obj/item/stack/sticky_tape/surgical,
 		/obj/item/clothing/mask/surgical,
+		/obj/item/storage/pill_bottle/lidocaine, // EffigyEdit Add
 	)
 
 /obj/effect/spawner/surgery_tray
