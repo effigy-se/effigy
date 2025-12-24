@@ -4,6 +4,25 @@
  * @license MIT
  */
 
+export const THEMES = ['light', 'dark'] as const;
+
+export const COLORS = {
+  DARK: {
+    BG_BASE: '#1a1c23', // EffigyEdit Change - TGUI - Original: #202020
+    BG_SECOND: '#22252f', // EffigyEdit Change - TGUI - Original: #151515
+    BUTTON: '#3a4050', // EffigyEdit Change - TGUI - Original: #404040
+    TEXT: '#e7e9ee', // EffigyEdit Change - TGUI - Original: #A6A6A6
+    TEXT_DARK: '#22252f', // EffigyEdit Add - TGUI
+  },
+  LIGHT: {
+    BG_BASE: '#EEEEEE',
+    BG_SECOND: '#FFFFFF',
+    BUTTON: '#FFFFFF',
+    TEXT: '#000000',
+    TEXT_DARK: '#000000', // EffigyEdit Add - TGUI
+  },
+} as const;
+
 export const SETTINGS_TABS = [
   {
     id: 'general',
@@ -22,7 +41,7 @@ export const SETTINGS_TABS = [
     id: 'statPanel',
     name: 'Stat Panel',
   },
-];
+] as const;
 
 export const FONTS_DISABLED = 'Default';
 
@@ -39,7 +58,7 @@ export const FONTS = [
   'Trebuchet MS',
   'Courier New',
   'Lucida Console',
-];
+] as const;
 */
 export const FONTS = [
   FONTS_DISABLED,
@@ -52,7 +71,7 @@ export const FONTS = [
   'Ubuntu Mono',
   'Courier New',
   'Lucida Console',
-];
+] as const;
 // EffigyEdit Change End
 
 export const WARN_AFTER_HIGHLIGHT_AMT = 10;

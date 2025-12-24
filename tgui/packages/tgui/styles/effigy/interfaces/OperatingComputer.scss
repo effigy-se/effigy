@@ -1,0 +1,17 @@
+.theme-operating_computer {
+  // Base
+  --color-base: hsl(151, 96%, 17%);
+
+  // Components
+  --button-background-selected: hsl(332, 88%, 52%);
+  --button-background-caution: hsl(195, 100%, 59%);
+  --button-background-danger: hsl(257, 67%, 48%);
+  --button-border-radius: 0;
+
+  --collapsible-background-selected: hsl(332, 88%, 52%);
+  --collapsible-background-caution: hsl(195, 100%, 59%);
+  --collapsible-background-danger: hsl(257, 67%, 48%);
+
+  --progress-bar-background: hsla(0, 0%, 0%, 0.5);
+  --tab-background-selected: var(--color-base);
+}

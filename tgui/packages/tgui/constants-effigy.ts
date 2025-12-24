@@ -93,7 +93,7 @@ export const EFFIGY_WINDOW_SIZES = {
   NtosStatus: [400, 380],
   NtosVirtualPet: [450, 600],
   NuclearBomb: [430, 515],
-  OperatingComputer: [415, 470],
+  OperatingComputer: [497, 710],
   OreRedemptionMachine: [485, 605],
   OreSilo: [760, 600],
   OutfitEditor: [620, 690],
