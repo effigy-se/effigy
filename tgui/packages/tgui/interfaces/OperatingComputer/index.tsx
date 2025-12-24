@@ -1,4 +1,5 @@
 import '../../styles/interfaces/OperatingComputer.scss';
+import '../../styles/effigy/interfaces/OperatingComputer.scss'; // EffigyEdit Add - TGUI
 
 import { Section, Stack, Tabs } from 'tgui-core/components';
 import { useFuzzySearch } from 'tgui-core/fuzzysearch';
