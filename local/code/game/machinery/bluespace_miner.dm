@@ -56,7 +56,7 @@
 
 /obj/machinery/bluespace_miner/Destroy()
 	QDEL_NULL(mat_container)
-	. = ..()
+	return ..()
 
 /obj/machinery/bluespace_miner/RefreshParts()
 	. = ..()
