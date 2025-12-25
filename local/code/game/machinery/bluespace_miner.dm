@@ -55,7 +55,7 @@
 	register_context()
 
 /obj/machinery/bluespace_miner/Destroy()
-	src.mat_container = null
+	QDEL_NULL(mat_container)
 	. = ..()
 
 /obj/machinery/bluespace_miner/RefreshParts()
