@@ -296,12 +296,14 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		to_chat(initiator, span_boldwarning("Notified admins to prioritize your ticket"))
 		var/datum/discord_embed/embed = format_embed_discord(message)
 		embed.content = extra_message
-		embed.footer = "This player requested an admin"
+		embed.footer = "The player marked this ahelp as Urgent" // EffigyEdit Change - Original: "This player requested an admin"
 		send2adminchat_webhook(embed, urgent = TRUE)
 		webhook_sent = WEBHOOK_URGENT
 	//send it to TGS if nobody is on and tell us how many were on
 	var/admin_number_present = send2tgs_adminless_only(initiator_ckey, "Ticket #[id]: [message_to_send]")
 	log_admin_private("Ticket #[id]: [key_name(initiator)]: [name] - heard by [admin_number_present] non-AFK admins who have +BAN.")
+	// EffigyEdit Change - adminhelps to Discord
+	/*
 	if(admin_number_present <= 0)
 		to_chat(initiator, span_notice("No active admins are online, your adminhelp was sent to admins who are available through IRC or Discord."), confidential = TRUE)
 		heard_by_no_admins = TRUE
@@ -313,6 +315,18 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 			embed.footer = "This player sent an ahelp when no admins are available [urgent? "and also requested an admin": ""]"
 			send2adminchat_webhook(embed, urgent = FALSE)
 			webhook_sent = WEBHOOK_NON_URGENT
+	*/
+	to_chat(initiator, alert_boxed_message(PURPLE, "Your adminhelp is additionally sent to admins who are available through Discord."), confidential = TRUE)
+	heard_by_no_admins = TRUE
+	var/regular_webhook_url = CONFIG_GET(string/regular_adminhelp_webhook_url)
+	if(regular_webhook_url)
+		var/extra_message = CONFIG_GET(string/ahelp_message)
+		var/datum/discord_embed/embed = format_embed_discord(message)
+		embed.content = extra_message
+		embed.footer = "heard by [admin_number_present] non-AFK admins who have +BAN"
+		send2adminchat_webhook(embed, urgent = FALSE)
+		webhook_sent = WEBHOOK_NON_URGENT
+	// EffigyEdit Change End - adminhelps to Discord
 
 /proc/send2adminchat_webhook(message_or_embed, urgent)
 	var/webhook = CONFIG_GET(string/urgent_adminhelp_webhook_url)
