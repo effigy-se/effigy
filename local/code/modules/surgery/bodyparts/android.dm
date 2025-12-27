@@ -30,6 +30,7 @@
 /obj/item/bodypart/head/robot/effigy
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 	head_flags = HEAD_EYESPRITES | HEAD_FACIAL_HAIR | HEAD_HAIR | HEAD_EYECOLOR
+	is_emissive = TRUE
 	// var for monitor heads and their emissive states
 	var/monitor_state
 	/// what state the player has selected (to revert after being forced into another screen)
@@ -62,6 +63,7 @@
 
 /// Cybernetic chest, additive to TG base android
 /obj/item/bodypart/chest/robot/effigy
+	is_emissive = TRUE
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 
 /obj/item/bodypart/chest/robot/effigy/Initialize(mapload)
@@ -81,6 +83,10 @@
 
 /// Cybernetic right arm, additive to TG base android
 /obj/item/bodypart/arm/right/robot/effigy
+	unarmed_damage_high = 13
+	max_damage = LIMB_MAX_HP_ADVANCED
+	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
+	is_emissive = TRUE
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 
 /obj/item/bodypart/arm/right/robot/effigy/Initialize(mapload)
@@ -97,6 +103,10 @@
 
 /// Cybernetic left arm, additive to TG base android
 /obj/item/bodypart/arm/left/robot/effigy
+	unarmed_damage_high = 13
+	max_damage = LIMB_MAX_HP_ADVANCED
+	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
+	is_emissive = TRUE
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 
 /obj/item/bodypart/arm/left/robot/effigy/Initialize(mapload)
@@ -113,6 +123,10 @@
 
 /// Cybernetic right leg, additive to TG base android
 /obj/item/bodypart/leg/right/robot/effigy
+	unarmed_damage_high = 17
+	max_damage = LIMB_MAX_HP_ADVANCED
+	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
+	is_emissive = TRUE
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 
 /obj/item/bodypart/leg/right/robot/effigy/Initialize(mapload)
@@ -129,6 +143,10 @@
 
 /// Cybernetic left leg, additive to TG base android
 /obj/item/bodypart/leg/left/robot/effigy
+	unarmed_damage_high = 17
+	max_damage = LIMB_MAX_HP_ADVANCED
+	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
+	is_emissive = TRUE
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 
 /obj/item/bodypart/leg/left/robot/effigy/Initialize(mapload)
@@ -933,100 +951,3 @@
 	footstep_type = FOOTSTEP_MOB_CLAW
 	footprint_sprite = FOOTPRINT_SPRITE_CLAWS
 	bodyshape = BODYSHAPE_HUMANOID | BODYSHAPE_DIGITIGRADE
-
-// Design Datums
-/datum/design/customizable_head
-	name = "Customizable Head"
-	id = "customizable_head"
-	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
-	build_path = /obj/item/bodypart/head/robot/effigy
-	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,
-		/datum/material/silver=SHEET_MATERIAL_AMOUNT*3,
-	)
-	construction_time = 20 SECONDS
-	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_CUSTOMIZABLE_LIMBS,
-		RND_CATEGORY_MECHFAB_SYNTH + RND_CATEGORY_MECHFAB_SYNTH_CHASSIS,
-	)
-	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
-
-/datum/design/customizable_chest
-	name = "Customizable Chest"
-	id = "customizable_chest"
-	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
-	build_path = /obj/item/bodypart/chest/robot/effigy
-	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,
-		/datum/material/silver=SHEET_MATERIAL_AMOUNT*3,
-	)
-	construction_time = 20 SECONDS
-	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_CUSTOMIZABLE_LIMBS,
-		RND_CATEGORY_MECHFAB_SYNTH + RND_CATEGORY_MECHFAB_SYNTH_CHASSIS,
-	)
-	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
-
-/datum/design/customizable_l_arm
-	name = "Customizable Left Arm"
-	id = "customizable_l_arm"
-	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
-	build_path = /obj/item/bodypart/arm/left/robot/effigy
-	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,
-		/datum/material/silver=SHEET_MATERIAL_AMOUNT*3,
-	)
-	construction_time = 20 SECONDS
-	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_CUSTOMIZABLE_LIMBS,
-		RND_CATEGORY_MECHFAB_SYNTH + RND_CATEGORY_MECHFAB_SYNTH_CHASSIS,
-	)
-	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
-
-/datum/design/customizable_r_arm
-	name = "Customizable Right Arm"
-	id = "customizable_r_arm"
-	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
-	build_path = /obj/item/bodypart/arm/right/robot/effigy
-	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,
-		/datum/material/silver=SHEET_MATERIAL_AMOUNT*3,
-	)
-	construction_time = 20 SECONDS
-	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_CUSTOMIZABLE_LIMBS,
-		RND_CATEGORY_MECHFAB_SYNTH + RND_CATEGORY_MECHFAB_SYNTH_CHASSIS,
-	)
-	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
-
-/datum/design/customizable_l_leg
-	name = "Customizable Left Leg"
-	id = "customizable_l_leg"
-	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
-	build_path = /obj/item/bodypart/leg/left/robot/effigy
-	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,
-		/datum/material/silver=SHEET_MATERIAL_AMOUNT*3,
-	)
-	construction_time = 20 SECONDS
-	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_CUSTOMIZABLE_LIMBS,
-		RND_CATEGORY_MECHFAB_SYNTH + RND_CATEGORY_MECHFAB_SYNTH_CHASSIS,
-	)
-	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
-
-/datum/design/customizable_r_leg
-	name = "Customizable Right Leg"
-	id = "customizable_r_leg"
-	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
-	build_path = /obj/item/bodypart/leg/right/robot/effigy
-	materials = list(
-		/datum/material/iron=SHEET_MATERIAL_AMOUNT*10,
-		/datum/material/silver=SHEET_MATERIAL_AMOUNT*3,
-	)
-	construction_time = 20 SECONDS
-	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_CUSTOMIZABLE_LIMBS,
-		RND_CATEGORY_MECHFAB_SYNTH + RND_CATEGORY_MECHFAB_SYNTH_CHASSIS,
-	)
-	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
