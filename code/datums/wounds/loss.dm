@@ -58,6 +58,8 @@
 /obj/item/bodypart/proc/get_dismember_message(wounding_type, outright)
 	var/occur_text
 
+	// EffigyEdit Change - Robotic Wounds
+	/*
 	if(outright)
 		switch(wounding_type)
 			if(WOUND_BLUNT)
@@ -69,17 +71,19 @@
 			if(WOUND_BURN)
 				occur_text = "is outright incinerated, falling to dust!"
 	else
-		var/bone_text = get_internal_description()
-		var/tissue_text = get_external_description()
+	*/
+	var/bone_text = get_internal_description()
+	var/tissue_text = get_external_description()
 
-		switch(wounding_type)
-			if(WOUND_BLUNT)
-				occur_text = "is shattered through the last [bone_text] holding it together, severing it completely!"
-			if(WOUND_SLASH)
-				occur_text = "is slashed through the last [tissue_text] holding it together, severing it completely!"
-			if(WOUND_PIERCE)
-				occur_text = "is pierced through the last [tissue_text] holding it together, severing it completely!"
-			if(WOUND_BURN)
-				occur_text = "is completely incinerated, falling to dust!"
+	switch(wounding_type)
+		if(WOUND_BLUNT)
+			occur_text = "is shattered through the last [bone_text] holding it together, severing it completely!"
+		if(WOUND_SLASH)
+			occur_text = "is slashed through the last [tissue_text] holding it together, severing it completely!"
+		if(WOUND_PIERCE)
+			occur_text = "is pierced through the last [tissue_text] holding it together, severing it completely!"
+		if(WOUND_BURN)
+			occur_text = "is completely incinerated, falling to dust!"
+	// EffigyEdit Change End - Robotic Wounds
 
 	return occur_text
