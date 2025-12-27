@@ -13,3 +13,11 @@
 2025-12-14:
   LT3:
   - rscadd: Atmospheric modsuit is again available through cargo order
+2025-12-24:
+  TealSeer:
+  - admin: the CTRL-click quick spawn option now lets you choose the style of supply
+      pod
+  - qol: lidocaine now spawns in runtimestation surgical tray
+2025-12-25:
+  LT3:
+  - admin: All adminhelps are sent to Discord
