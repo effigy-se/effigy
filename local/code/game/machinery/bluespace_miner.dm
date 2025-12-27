@@ -33,7 +33,7 @@
 		/obj/item/stack/sheet/mineral/diamond = 1,
 	)
 	COOLDOWN_DECLARE(process_speed)
-	var/datum/component/remote_materials/mat_container
+	var/datum/remote_materials/mat_container
 
 /obj/machinery/bluespace_miner/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
@@ -46,16 +46,17 @@
 
 /obj/machinery/bluespace_miner/Initialize(mapload)
 	. = ..()
-	src.mat_container = AddComponent(
-		/datum/component/remote_materials, \
-		mapload = FALSE, \
-		mat_container_flags = MATCONTAINER_EXAMINE | MATCONTAINER_NO_INSERT, \
+	mat_container = new ( \
+		src, \
+		SSmaterials.materials_by_category[MAT_CATEGORY_ITEM_MATERIAL], \
+		0, \
+		MATCONTAINER_EXAMINE | MATCONTAINER_NO_INSERT \
 	)
 	register_context()
 
 /obj/machinery/bluespace_miner/Destroy()
-	src.mat_container = null
-	. = ..()
+	QDEL_NULL(mat_container)
+	return ..()
 
 /obj/machinery/bluespace_miner/RefreshParts()
 	. = ..()
