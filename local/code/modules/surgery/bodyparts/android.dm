@@ -30,8 +30,7 @@
 /obj/item/bodypart/head/robot/effigy
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 	head_flags = HEAD_EYESPRITES | HEAD_FACIAL_HAIR | HEAD_HAIR | HEAD_EYECOLOR
-	is_emissive = TRUE
-	// var for monitor heads and their emissive states
+	/// var for monitor heads and their emissive states
 	var/monitor_state
 	/// what state the player has selected (to revert after being forced into another screen)
 	var/saved_state = "none"
@@ -63,7 +62,6 @@
 
 /// Cybernetic chest, additive to TG base android
 /obj/item/bodypart/chest/robot/effigy
-	is_emissive = TRUE
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 
 /obj/item/bodypart/chest/robot/effigy/Initialize(mapload)
@@ -86,7 +84,6 @@
 	unarmed_damage_high = 13
 	max_damage = LIMB_MAX_HP_ADVANCED
 	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
-	is_emissive = TRUE
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 
 /obj/item/bodypart/arm/right/robot/effigy/Initialize(mapload)
@@ -106,7 +103,6 @@
 	unarmed_damage_high = 13
 	max_damage = LIMB_MAX_HP_ADVANCED
 	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
-	is_emissive = TRUE
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 
 /obj/item/bodypart/arm/left/robot/effigy/Initialize(mapload)
@@ -126,7 +122,6 @@
 	unarmed_damage_high = 17
 	max_damage = LIMB_MAX_HP_ADVANCED
 	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
-	is_emissive = TRUE
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 
 /obj/item/bodypart/leg/right/robot/effigy/Initialize(mapload)
@@ -146,7 +141,6 @@
 	unarmed_damage_high = 17
 	max_damage = LIMB_MAX_HP_ADVANCED
 	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
-	is_emissive = TRUE
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 
 /obj/item/bodypart/leg/left/robot/effigy/Initialize(mapload)
