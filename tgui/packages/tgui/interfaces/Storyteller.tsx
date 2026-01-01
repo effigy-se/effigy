@@ -1,7 +1,6 @@
 // Effigy Storyteller gamemode control panel
 
 import { useState } from 'react';
-import { Tooltip } from 'tgui-core/components';
 import {
   Box,
   Button,
@@ -10,6 +9,7 @@ import {
   Section,
   Stack,
   Table,
+  Tooltip,
 } from 'tgui-core/components';
 
 import { useBackend } from '../backend';
@@ -115,8 +115,8 @@ export const StorytellerRoundData = (props) => {
           </Button>
         </LabeledList.Item>
         <LabeledList.Item label="Active Players">
-          {pop_data.active} {'('}Head: {pop_data.head}, Sec:{' '}
-          {pop_data.sec}, Eng: {pop_data.eng}, Med: {pop_data.med}
+          {pop_data.active} {'('}Head: {pop_data.head}, Sec: {pop_data.sec},
+          Eng: {pop_data.eng}, Med: {pop_data.med}
           {')'}
         </LabeledList.Item>
         <LabeledList.Item
@@ -393,6 +393,7 @@ export const StorytellerEventPanelCategory = (
               />
             );
           }
+          return null;
         })}
     </>
   );
