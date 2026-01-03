@@ -98,6 +98,10 @@
 #define BONE_SCAR_FILE "wounds/bone_scar_desc.json"
 /// File location for scar wound descriptions
 #define SCAR_LOC_FILE "wounds/scar_loc.json"
+// EffigyEdit Add - Robotic Wounds
+/// File location for metalic wound descriptions
+#define METAL_SCAR_FILE "effigy/metal_scar_desc.json"
+// EffigyEdit Add End - Robotic Wounds
 /// File location for exodrone descriptions
 #define EXODRONE_FILE "exodrone.json"
 /// File location for clown honk descriptions
