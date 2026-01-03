@@ -191,8 +191,7 @@ function JobRow(props: JobRowProps) {
 
   const createSetPriority = createCreateSetPriorityFromName(name);
 
-  const experienceNeeded =
-    data.job_required_experience?.[name];
+  const experienceNeeded = data.job_required_experience?.[name];
   const daysLeft = data.job_days_left ? data.job_days_left[name] : 0;
 
   let rightSide: ReactNode;
@@ -337,7 +336,7 @@ function JoblessRoleDropdown(props) {
 
   const selection = options?.find(
     (option) => option.value === selected,
-  )!.displayText;
+  )?.displayText;
 
   return (
     <Box position="absolute" right={1} width="30%">

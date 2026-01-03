@@ -1,15 +1,15 @@
-import { ReactNode, useState } from 'react';
-import { Button, ByondUi, Section, Stack } from 'tgui-core/components';
+import { type ReactNode, useState } from 'react';
+import { ByondUi, Section, Stack } from 'tgui-core/components';
 
 import { resolveAsset } from '../../../assets';
 import { useBackend } from '../../../backend';
 import { Window } from '../../../layouts';
-import { ExaminePanelData } from './data';
+import type { ExaminePanelData } from './data';
 
 function formatURLs(text: string) {
   if (!text) return;
   const parts: ReactNode[] = [];
-  let regex = /https?:\/\/[^\s/$.?#].[^\s]*/gi;
+  const regex = /https?:\/\/[^\s/$.?#].[^\s]*/gi;
   let lastIndex = 0;
 
   text.replace(regex, (url, index) => {
@@ -62,11 +62,7 @@ export function ExaminePanel(props) {
         <Stack fill>
           <Stack.Item width="30%">
             {!headshot ? (
-              <Section
-                fill
-                title="Character Preview"
-                fontSize="13px"
-              >
+              <Section fill title="Character Preview" fontSize="13px">
                 <ByondUi
                   key={previewKey}
                   height="100%"
@@ -96,11 +92,7 @@ export function ExaminePanel(props) {
                     }}
                   />
                 </Section>
-                <Section
-                  height="265px"
-                  title="Headshot"
-                  fontSize="13px"
-                >
+                <Section height="265px" title="Headshot" fontSize="13px">
                   <img
                     src={resolveAsset(headshot)}
                     height="250px"
@@ -123,7 +115,7 @@ export function ExaminePanel(props) {
                   lineHeight="1.5"
                   mt="0px"
                 >
-                {formatURLs(flavour_text)}
+                  {formatURLs(flavour_text)}
                 </Section>
               </Stack.Item>
               <Stack.Item grow>
@@ -137,7 +129,7 @@ export function ExaminePanel(props) {
                       fontSize="13px"
                       lineHeight="1.5"
                     >
-                    {formatURLs(ooc_notes)}
+                      {formatURLs(ooc_notes)}
                     </Section>
                   </Stack.Item>
                   <Stack.Item grow basis={0}>
@@ -156,7 +148,6 @@ export function ExaminePanel(props) {
                       {custom_species
                         ? formatURLs(custom_species_lore)
                         : 'Just a normal space dweller.'}
-
                     </Section>
                   </Stack.Item>
                 </Stack>
