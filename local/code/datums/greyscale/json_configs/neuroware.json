@@ -154,5 +154,12 @@
 			"icon_state": "chip_zenghu",
 			"blend_mode": "overlay"
 		}
+	],
+	"o_invisible": [
+		{
+			"type": "icon_state",
+			"icon_state": "o_invisible",
+			"blend_mode": "overlay"
+		}
 	]
 }
