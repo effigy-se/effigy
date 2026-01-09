@@ -15654,19 +15654,19 @@
 /area/station/engineering/atmos/upper)
 "dxO" = (
 /obj/structure/table/reinforced,
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_y = 4
 	},
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = -2;
 	pixel_y = 2
 	},
-/obj/item/computer_disk,
+/obj/item/disk/computer,
 /obj/item/book/manual/wiki/ordnance{
 	pixel_x = 4;
 	pixel_y = 1
 	},
-/obj/item/computer_disk/ordnance{
+/obj/item/disk/computer/ordnance{
 	pixel_x = -4;
 	pixel_y = -1
 	},
@@ -30156,8 +30156,8 @@
 "gKc" = (
 /obj/structure/table/wood,
 /obj/item/clipboard,
-/obj/item/computer_disk/quartermaster,
-/obj/item/computer_disk/quartermaster,
+/obj/item/disk/computer/quartermaster,
+/obj/item/disk/computer/quartermaster,
 /obj/machinery/requests_console/auto_name/directional/east,
 /obj/effect/mapping_helpers/requests_console/supplies,
 /obj/effect/mapping_helpers/requests_console/assistance,
@@ -39253,7 +39253,7 @@
 /area/station/maintenance/starboard/greater)
 "iPo" = (
 /obj/machinery/dna_infuser,
-/obj/item/infuser_book,
+/obj/item/tgui_book/manual/infuser,
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted,
 /obj/effect/turf_decal/siding/dark{
 	dir = 6
@@ -49135,11 +49135,11 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/item/computer_disk{
+/obj/item/disk/computer{
 	pixel_x = 7;
 	pixel_y = 2
 	},
-/obj/item/computer_disk,
+/obj/item/disk/computer,
 /turf/open/floor/iron/white/diagonal,
 /area/station/science/ordnance/testlab)
 "lde" = (
