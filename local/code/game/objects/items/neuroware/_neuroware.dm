@@ -12,6 +12,9 @@
 	greyscale_config = /datum/greyscale_config/neuroware
 	// Color of circuitboard underlay.
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
+	sticker_icon_state = "o_invisible"
+	read_only = TRUE
+	read_only_locked = TRUE
 	var/success_message = "inserted neuroware chip"
 	///Associative list of reagent types to units. Added to the mob when the chip is used.
 	var/list/list_reagents
