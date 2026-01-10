@@ -54,7 +54,7 @@
 	src.autofocus = autofocus
 	src.title = title
 	src.default = default
-	src.message = message
+	//src.message = message // EffigyEdit Remove - Effigy window constants don't support variable height, so we don't want to include a message
 	if (timeout)
 		src.timeout = timeout
 		start_time = world.time

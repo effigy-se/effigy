@@ -40,7 +40,7 @@ export const EFFIGY_WINDOW_SIZES = {
   ChemSynthesizer: [340, 430],
   CircuitAccessChecker: [420, 490],
   ColorMatrixEditor: [600, 255],
-  ColorPickerModal: [820, 490],
+  ColorPickerModal: [820, 492],
   CommandReport: [430, 690],
   CommunicationsConsole: [400, 765],
   ComponentPrinter: [750, 600],
