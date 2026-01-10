@@ -391,7 +391,6 @@
 /area/station/hallway/secondary/exit/departure_lounge)
 "aed" = (
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible,
-/obj/machinery/duct/supply,
 /obj/machinery/plumbing/floor_pump/input/on/waste/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2{
 	dir = 8
@@ -18373,7 +18372,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/duct/waste,
 /turf/open/floor/iron/kitchen,
 /area/station/service/kitchen)
 "efs" = (
@@ -93360,7 +93358,6 @@
 "vku" = (
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible,
 /obj/machinery/plumbing/floor_pump/input/on/waste/directional/south,
-/obj/machinery/duct/supply,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
