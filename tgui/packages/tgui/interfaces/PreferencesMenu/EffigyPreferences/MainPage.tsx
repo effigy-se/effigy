@@ -1,7 +1,8 @@
 import { sortBy } from 'es-toolkit';
 import { filter, map } from 'es-toolkit/compat';
 import { type ReactNode, useState } from 'react';
-import { type sendAct, useBackend } from 'tgui/backend';
+import { useBackend } from 'tgui/backend';
+import type { sendAct } from 'tgui/events/act';
 import {
   Box,
   Button,
@@ -25,7 +26,7 @@ import {
   type FeatureChoicedServerData,
   FeatureValueInput,
 } from '../preferences/features/base';
-import { Gender, GENDERS } from '../preferences/gender';
+import { GENDERS, Gender } from '../preferences/gender';
 import {
   createSetPreference,
   type PreferencesMenuData,
@@ -394,10 +395,12 @@ const createSetRandomization =
   };
 
 function sortPreferences(array: [string, unknown][]) {
-  return sortBy(array, [([featureId, _]) => {
-    const feature = features[featureId];
-    return feature?.name;
-  }]);
+  return sortBy(array, [
+    ([featureId, _]) => {
+      const feature = features[featureId];
+      return feature?.name;
+    },
+  ]);
 }
 
 type PreferenceListProps = {

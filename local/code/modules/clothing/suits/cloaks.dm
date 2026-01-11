@@ -27,6 +27,7 @@
 
 /datum/atom_skin/long_cape
 	abstract_type = /datum/atom_skin/long_cape
+	greyscale_item_path = /obj/item/clothing/neck/long_cape
 	reset_missing = FALSE
 
 /datum/atom_skin/long_cape/default

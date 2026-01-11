@@ -67,16 +67,16 @@ export const ColorSelector: React.FC<ColorSelectorProps> = React.memo(
               <Tooltip content={hexColor} position="bottom">
                 <Box
                   inline
-                  width="100px"
-                  height="30px"
+                  width="103px" // EffigyEdit Change - Original: 100px
+                  height="60px" // EffigyEdit Change - Original: 30px
                   backgroundColor={hexColor}
                 />
               </Tooltip>
               <Tooltip content={defaultColor} position="bottom">
                 <Box
                   inline
-                  width="100px"
-                  height="30px"
+                  width="103px" // EffigyEdit Change - Original: 100px
+                  height="60px" // EffigyEdit Change - Original: 30px
                   backgroundColor={defaultColor}
                 />
               </Tooltip>
@@ -118,11 +118,11 @@ export const ColorSelector: React.FC<ColorSelectorProps> = React.memo(
                   </Stack.Item>
                 </Stack>
               </Stack.Item>
-              <Stack.Divider mt={2} mb={2} />
+              <Stack.Divider mt={1} mb={3} /> {/* EffigyEdit Change - Original: mt={2} mb={2} */}
               <HueRow color={color} handleChange={handleChange} />
               <SaturationRow color={color} handleChange={handleChange} />
               <ValueRow color={color} handleChange={handleChange} />
-              <Stack.Divider mt={2} mb={2} />
+              <Stack.Divider mt={3} mb={3} /> {/* EffigyEdit Change - Original: mt={2} mb={2} */}
               <RedRow color={color} handleChange={handleChange} />
               <GreenRow color={color} handleChange={handleChange} />
               <BlueRow color={color} handleChange={handleChange} />
