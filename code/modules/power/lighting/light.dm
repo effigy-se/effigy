@@ -226,14 +226,12 @@
 	update()
 
 // update the icon_state and luminosity of the light depending on its state
-/obj/machinery/light/proc/update(trigger = TRUE, instant = FALSE, play_sound = TRUE) // EffigyEdit Change - Customized Lighting - Original: trigger = TRUE)
+/obj/machinery/light/proc/update(trigger = TRUE)
 	switch(status)
 		if(LIGHT_BROKEN,LIGHT_BURNED,LIGHT_EMPTY)
 			on = FALSE
 	low_power_mode = FALSE
 	if(on)
-	// EffigyEdit Change - Customized Lighting
-	/*
 		var/brightness_set = brightness
 		var/power_set = bulb_power
 		var/color_set = bulb_colour
@@ -254,10 +252,33 @@
 			color_set = bulb_emergency_colour
 			brightness_set = brightness * bulb_major_emergency_brightness_mul
 		else if (nightshift_enabled)
+			// EffigyEdit Change - Customized Lighting
+			/* Original:
 			brightness_set = nightshift_brightness
 			power_set = nightshift_light_power
-			if(!color)
+			*/
+			brightness_set -= NIGHTSHIFT_RANGE_MODIFIER
+			power_set -= NIGHTSHIFT_POWER_MODIFIER
+			if(!color && nightshift_light_color)
 				color_set = nightshift_light_color
+			else if(color) // In case it's spraypainted.
+				color_set = color
+			else // Adjust light values to be warmer. I doubt caching would speed this up by any worthwhile amount, as it's all very fast number and string operations.
+				// Convert to numbers for easier manipulation.
+				var/list/color_parts = rgb2num(bulb_colour)
+				var/red = color_parts[1]
+				var/green = color_parts[2]
+				var/blue = color_parts[3]
+
+				red += round(red * NIGHTSHIFT_COLOR_MODIFIER)
+				green -= round(green * NIGHTSHIFT_COLOR_MODIFIER * 0.3)
+				red = clamp(red, 0, 255) // clamp to be safe, or you can end up with an invalid hex value
+				green = clamp(green, 0, 255)
+				blue = clamp(blue, 0, 255)
+				color_set = "#[num2hex(red, 2)][num2hex(green, 2)][num2hex(blue, 2)]"  // Splice the numbers together and turn them back to hex.
+			//if(!color)
+			//	color_set = nightshift_light_color
+			// EffigyEdit Change End
 		if (cached_color_filter)
 			color_set = apply_matrix_to_color(color_set, cached_color_filter["color"], cached_color_filter["space"] || COLORSPACE_RGB)
 		var/matching = light && brightness_set == light.light_range && power_set == light.light_power && color_set == light.light_color
@@ -273,26 +294,6 @@
 					l_power = power_set,
 					l_color = color_set
 					)
-	*/
-		if(instant)
-			turn_on(trigger)
-		else if(maploaded)
-			turn_on(trigger)
-			maploaded = FALSE
-		else if(!turning_on)
-			turning_on = TRUE
-			var/my_delay = 0
-			switch(dir)
-				if(NORTH)
-					my_delay = 1.25 SECONDS
-				if(SOUTH)
-					my_delay = 0.75 SECONDS
-				if(EAST)
-					my_delay = 1 SECONDS
-				if(WEST)
-					my_delay = 0.50 SECONDS
-			addtimer(CALLBACK(src, PROC_REF(switch_mode), trigger, play_sound), my_delay)
-		// EffigyEdit Change End
 	else if(has_emergency_power(LIGHT_EMERGENCY_POWER_USE) && !turned_off())
 		use_power = IDLE_POWER_USE
 		low_power_mode = TRUE
