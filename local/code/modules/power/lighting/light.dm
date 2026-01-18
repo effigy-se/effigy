@@ -12,7 +12,7 @@
 	bulb_low_power_pow_min = 0.75
 	bulb_emergency_colour = LIGHT_COLOR_INTENSE_RED
 	bulb_major_emergency_brightness_mul = 1
-	power_consumption_rate = 5.62
+	power_consumption_rate = 15.9
 
 /obj/machinery/light/dim
 	bulb_colour = LIGHT_COLOR_DEFAULT
