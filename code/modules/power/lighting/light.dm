@@ -237,7 +237,7 @@
 		var/color_set = bulb_colour
 		if(color)
 			color_set = color
-		if(reagents)
+		if(reagents || !is_full_charge()) // EffigyEdit TODO: Revert once TG #94910 is here
 			START_PROCESSING(SSmachines, src)
 		var/area/local_area = get_room_area()
 		if (flickering)
@@ -294,7 +294,7 @@
 					l_power = power_set,
 					l_color = color_set
 					)
-	else if(has_emergency_power(LIGHT_EMERGENCY_POWER_USE) && !turned_off())
+	else if(has_emergency_power(LIGHT_EMERGENCY_POWER_USE * SSMACHINES_DT) && !turned_off()) // EffigyEdit TODO: Revert once TG #94910 is here
 		use_power = IDLE_POWER_USE
 		low_power_mode = TRUE
 		START_PROCESSING(SSmachines, src)
@@ -349,6 +349,7 @@
 		reagents.handle_reactions()
 	if(low_power_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE * seconds_per_tick))
 		update(FALSE) //Disables emergency mode and sets the color to normal
+		return PROCESS_KILL // EffigyEdit TODO: Revert once TG #94910 is here
 
 /obj/machinery/light/proc/burn_out()
 	if(status == LIGHT_OK)
