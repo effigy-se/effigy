@@ -299,7 +299,7 @@
 					l_power = power_set,
 					l_color = color_set
 					)
-	else if(has_emergency_power(LIGHT_EMERGENCY_POWER_USE * SSMACHINES_DT) && !turned_off()) // EffigyEdit TODO: Revert once TG #94910 is here
+	else if(has_emergency_power(LIGHT_EMERGENCY_POWER_USE * SSMACHINES_DT) && !turned_off())
 		use_power = IDLE_POWER_USE
 		low_power_mode = TRUE
 		if (reagents?.spark_act(idle_power_usage, TRUE) & SPARK_ACT_DESTRUCTIVE)
