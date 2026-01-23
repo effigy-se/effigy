@@ -362,7 +362,7 @@ SUBSYSTEM_DEF(ticker)
 	// Spawn traitors and stuff
 	for(var/datum/dynamic_ruleset/roundstart/ruleset in SSdynamic.queued_rulesets)
 		ruleset.execute()
-		SSdynamic.queued_rulesets -= ruleset
+		SSdynamic.unqueue_ruleset(ruleset)
 		SSdynamic.executed_rulesets += ruleset
 	// Queue roundstart intercept report
 	/* EffigyEdit Remove - Storyteller

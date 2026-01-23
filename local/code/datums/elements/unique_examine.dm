@@ -164,7 +164,7 @@
 		// Standard faction checks
 		if(EXAMINE_CHECK_FACTION)
 			// What factions do they have that fulfills our requirements?
-			var/list/required_factions = requirements & examiner.faction
+			var/list/required_factions = requirements & examiner.get_faction()
 			if(!length(required_factions))
 				return
 
