@@ -110,8 +110,10 @@
     padding: var(--space-s) var(--space-m);
     border-radius: 0;
 
-    @include button.button-color();
-    @include button.button-color-transparent();
+    // EffigyEdit Remove - TGUI
+    //@include button.button-color();
+    //@include button.button-color-transparent();
+    // EffigyEdit Remove End
 
     &:first-child {
       border-radius: var(--border-radius-medium) 0 0 var(--border-radius-medium);
@@ -194,7 +196,7 @@
 
     &--active {
       cursor: var(--cursor-default);
-      color: var(--tab-color-selected);
+      //color: var(--tab-color-selected); // EffigyEdit Remove - TGUI
       border-color: var(--color-primary);
     }
   }

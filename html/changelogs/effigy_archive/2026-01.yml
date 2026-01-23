@@ -1,0 +1,7 @@
+2026-01-16:
+  LT3:
+  - bugfix: Fixed font color of proto/autolathe recipes list
+2026-01-23:
+  LT3:
+  - image: Improved light tube blending overlays
+  - bugfix: Fixed missing flickering light overlay

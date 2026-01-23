@@ -271,16 +271,17 @@
 	mood = 0
 	shown_mood = 0
 
-	for(var/category in mood_events)
-		var/datum/mood_event/the_event = mood_events[category]
-		var/event_mood = the_event.mood_change
-		event_mood *= max((event_mood > 0) ? positive_mood_modifier : negative_mood_modifier, 0)
-		mood += event_mood
-		if (!the_event.hidden)
-			shown_mood += event_mood
+	if (!HAS_TRAIT(mob_parent, TRAIT_APATHETIC))
+		for(var/category in mood_events)
+			var/datum/mood_event/the_event = mood_events[category]
+			var/event_mood = the_event.mood_change
+			event_mood *= max((event_mood > 0) ? positive_mood_modifier : negative_mood_modifier, 0)
+			mood += event_mood
+			if (!the_event.hidden)
+				shown_mood += event_mood
 
-	mood *= max(mood_modifier, 0)
-	shown_mood *= max(mood_modifier, 0)
+		mood *= max(mood_modifier, 0)
+		shown_mood *= max(mood_modifier, 0)
 
 	switch(mood)
 		if (-INFINITY to MOOD_SAD4)
@@ -459,9 +460,9 @@
 			msg += "<br>"
 	// EffigyEdit Change End
 
-	// EffigyEdit Change - Self-Unaware Trait
-	// We add this trait check for self-unaware
-	if(!HAS_TRAIT(user, TRAIT_SELF_UNAWARE))
+	if (HAS_TRAIT(mob_parent, TRAIT_APATHETIC) || HAS_TRAIT(mob_parent, TRAIT_SELF_UNAWARE)) // EffigyEdit Add - Self-Unaware Trait
+		msg += span_notice("My mood: [span_grey("I don't feel anything.")]<br>")
+	else
 		msg += span_notice("My current sanity: ") //Long term
 		switch(sanity)
 			if(SANITY_GREAT to INFINITY)
@@ -497,7 +498,6 @@
 				msg += "[span_boldnicegreen("I feel amazing!")]<br>"
 			if(MOOD_LEVEL_HAPPY4)
 				msg += "[span_boldnicegreen("I love life!")]<br>"
-	// EffigyEdit Change End
 
 	var/list/additional_lines = list()
 	// EffigyEdit Change - Self-Unaware Trait
@@ -617,6 +617,9 @@
 
 	if (amount > maximum)
 		amount = min(amount, maximum)
+
+	if (HAS_TRAIT(mob_parent, TRAIT_APATHETIC))
+		amount = SANITY_NEUTRAL
 
 	if(amount == sanity) //Prevents stuff from flicking around.
 		return

@@ -186,6 +186,8 @@
 /obj/machinery/light/update_overlays()
 	. = ..()
 	if(!on || status != LIGHT_OK)
+		. += mutable_appearance(overlay_icon, "[base_state]_off") // EffigyEdit Add - Customized Lighting
+		. += emissive_appearance(overlay_icon, "[base_state]_off", src, src.alpha) // EffigyEdit Add - Customized Lighting
 		return
 
 	. += emissive_appearance(overlay_icon, "[base_state]", src, alpha = src.alpha)
@@ -226,21 +228,24 @@
 	update()
 
 // update the icon_state and luminosity of the light depending on its state
-/obj/machinery/light/proc/update(trigger = TRUE, instant = FALSE, play_sound = TRUE) // EffigyEdit Change - Customized Lighting - Original: trigger = TRUE)
+/obj/machinery/light/proc/update(trigger = TRUE)
 	switch(status)
 		if(LIGHT_BROKEN,LIGHT_BURNED,LIGHT_EMPTY)
 			on = FALSE
 	low_power_mode = FALSE
+
 	if(on)
-	// EffigyEdit Change - Customized Lighting
-	/*
 		var/brightness_set = brightness
 		var/power_set = bulb_power
 		var/color_set = bulb_colour
 		if(color)
 			color_set = color
-		if(reagents)
+		if(reagents || !is_full_charge())
 			START_PROCESSING(SSmachines, src)
+			if (reagents?.spark_act(active_power_usage, TRUE) & SPARK_ACT_DESTRUCTIVE)
+				message_admins("A rigged lightbulb at [AREACOORD(src)] has exploded.")
+				qdel(src)
+				return
 		var/area/local_area = get_room_area()
 		if (flickering)
 			brightness_set = brightness * bulb_low_power_brightness_mul
@@ -254,10 +259,33 @@
 			color_set = bulb_emergency_colour
 			brightness_set = brightness * bulb_major_emergency_brightness_mul
 		else if (nightshift_enabled)
+			// EffigyEdit Change - Customized Lighting
+			/* Original:
 			brightness_set = nightshift_brightness
 			power_set = nightshift_light_power
-			if(!color)
+			*/
+			brightness_set -= NIGHTSHIFT_RANGE_MODIFIER
+			power_set -= NIGHTSHIFT_POWER_MODIFIER
+			if(!color && nightshift_light_color)
 				color_set = nightshift_light_color
+			else if(color) // In case it's spraypainted.
+				color_set = color
+			else // Adjust light values to be warmer. I doubt caching would speed this up by any worthwhile amount, as it's all very fast number and string operations.
+				// Convert to numbers for easier manipulation.
+				var/list/color_parts = rgb2num(bulb_colour)
+				var/red = color_parts[1]
+				var/green = color_parts[2]
+				var/blue = color_parts[3]
+
+				red += round(red * NIGHTSHIFT_COLOR_MODIFIER)
+				green -= round(green * NIGHTSHIFT_COLOR_MODIFIER * 0.3)
+				red = clamp(red, 0, 255) // clamp to be safe, or you can end up with an invalid hex value
+				green = clamp(green, 0, 255)
+				blue = clamp(blue, 0, 255)
+				color_set = "#[num2hex(red, 2)][num2hex(green, 2)][num2hex(blue, 2)]"  // Splice the numbers together and turn them back to hex.
+			//if(!color)
+			//	color_set = nightshift_light_color
+			// EffigyEdit Change End
 		if (cached_color_filter)
 			color_set = apply_matrix_to_color(color_set, cached_color_filter["color"], cached_color_filter["space"] || COLORSPACE_RGB)
 		var/matching = light && brightness_set == light.light_range && power_set == light.light_power && color_set == light.light_color
@@ -273,29 +301,13 @@
 					l_power = power_set,
 					l_color = color_set
 					)
-	*/
-		if(instant)
-			turn_on(trigger)
-		else if(maploaded)
-			turn_on(trigger)
-			maploaded = FALSE
-		else if(!turning_on)
-			turning_on = TRUE
-			var/my_delay = 0
-			switch(dir)
-				if(NORTH)
-					my_delay = 1.25 SECONDS
-				if(SOUTH)
-					my_delay = 0.75 SECONDS
-				if(EAST)
-					my_delay = 1 SECONDS
-				if(WEST)
-					my_delay = 0.50 SECONDS
-			addtimer(CALLBACK(src, PROC_REF(switch_mode), trigger, play_sound), my_delay)
-		// EffigyEdit Change End
-	else if(has_emergency_power(LIGHT_EMERGENCY_POWER_USE) && !turned_off())
+	else if(has_emergency_power(LIGHT_EMERGENCY_POWER_USE * SSMACHINES_DT) && !turned_off())
 		use_power = IDLE_POWER_USE
 		low_power_mode = TRUE
+		if (reagents?.spark_act(idle_power_usage, TRUE) & SPARK_ACT_DESTRUCTIVE)
+			message_admins("A rigged lightbulb at [AREACOORD(src)] has exploded.")
+			qdel(src)
+			return
 		START_PROCESSING(SSmachines, src)
 	else
 		use_power = IDLE_POWER_USE
@@ -312,9 +324,9 @@
 		var/static_power_used_new = 0
 		var/area/local_area = get_room_area()
 		if (nightshift_enabled && !local_area?.fire)
-			static_power_used_new = nightshift_brightness * nightshift_light_power * power_consumption_rate
+			static_power_used_new = ceil(nightshift_brightness * nightshift_light_power * power_consumption_rate)
 		else
-			static_power_used_new = brightness * bulb_power * power_consumption_rate
+			static_power_used_new = ceil(brightness * bulb_power * power_consumption_rate)
 		if(static_power_used != static_power_used_new) //Consumption changed - update
 			removeStaticPower(static_power_used, AREA_USAGE_STATIC_LIGHT)
 			static_power_used = static_power_used_new
@@ -348,6 +360,7 @@
 		reagents.handle_reactions()
 	if(low_power_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE * seconds_per_tick))
 		update(FALSE) //Disables emergency mode and sets the color to normal
+		return PROCESS_KILL
 
 /obj/machinery/light/proc/burn_out()
 	if(status == LIGHT_OK)
@@ -428,7 +441,7 @@
 		tool.play_tool_sound(src, 75)
 		user.visible_message(span_notice("[user.name] opens [src]'s casing."), \
 			span_notice("You open [src]'s casing."), span_hear("You hear a noise."))
-		deconstruct()
+		deconstruct(disassembled = TRUE)
 		return
 
 	if(tool.item_flags & ABSTRACT)
@@ -441,16 +454,19 @@
 			electrocute_mob(user, get_area(src), src, (rand(7,10) * 0.1), TRUE)
 
 /obj/machinery/light/on_deconstruction(disassembled)
-	var/atom/drop_point = drop_location()
 
-	var/obj/item/wallframe/light_fixture/frame = null
+	var/obj/structure/light_construct/frame = null
 	switch(fitting)
 		if("tube")
-			frame = new /obj/item/wallframe/light_fixture(drop_point)
+			frame = new /obj/structure/light_construct(loc)
 		if("bulb")
-			frame = new /obj/item/wallframe/light_fixture/small(drop_point)
+			frame = new /obj/structure/light_construct/small(loc)
 		if("floor bulb")
-			frame = new /obj/item/wallframe/light_fixture/small(drop_point)
+			frame = new /obj/structure/light_construct/floor(loc)
+	frame.stage = LIGHT_CONSTRUCT_WIRED
+	frame.icon_state = "[frame.fixture_type]-construct-stage2"
+	frame.setDir(dir)
+	frame.find_and_mount_on_atom()
 	if(!disassembled)
 		frame.take_damage(frame.max_integrity * 0.5, sound_effect = FALSE)
 		if(status != LIGHT_BROKEN)
@@ -462,7 +478,8 @@
 
 	var/obj/item/stock_parts/power_store/real_cell = get_cell()
 	if(!QDELETED(real_cell))
-		real_cell.forceMove(drop_point)
+		real_cell.forceMove(frame)
+		frame.cell = real_cell
 
 /obj/machinery/light/attacked_by(obj/item/attacking_object, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
