@@ -146,6 +146,11 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 	/datum/wound = list(
 		"TRAIT_WOUND_SCANNED" = TRAIT_WOUND_SCANNED,
 	),
+	// EffigyEdit Add - Robotic Wounds
+	/datum/wound/electrical_damage = list(
+		"TRAIT_ELECTRICAL_DAMAGE_REPAIRING" = TRAIT_ELECTRICAL_DAMAGE_REPAIRING,
+	),
+	// EffigyEdit Add End - Robotic Wounds
 	/datum/antagonist/heretic = list(
 		"TRAIT_LOCK_GRASP_UPGRADED" = TRAIT_LOCK_GRASP_UPGRADED,
 	),
