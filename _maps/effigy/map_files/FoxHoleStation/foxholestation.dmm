@@ -8970,10 +8970,10 @@
 /area/station/medical/break_room)
 "eMQ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/components/binary/pump/on/supply/hidden/layer4{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/components/binary/pump/on/general/hidden/layer4{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/maintenance/aft/lesser)
 "eNw" = (
