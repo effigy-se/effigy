@@ -544,6 +544,7 @@
 	screen_loc = "TOP:-122,CENTER:+2"
 	name = "Observe"
 	*/
+	enabled = null // set in init
 	name = "Crew Manifest"
 	icon = 'local/icons/hud/lobby/lobby_315x32.dmi'
 	icon_state = "button_disabled"
@@ -564,7 +565,6 @@
 /atom/movable/screen/lobby/button/bottom/crew_manifest/proc/show_manifest_button()
 	SIGNAL_HANDLER
 	set_button_status(TRUE)
-	maptext = enabled_maptext
 	UnregisterSignal(SSticker, COMSIG_TICKER_ROUND_STARTING)
 // EffigyEdit Add End
 
