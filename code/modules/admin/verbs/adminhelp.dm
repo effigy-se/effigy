@@ -905,7 +905,7 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 
 /proc/send2tgs_adminless_only(source, msg, requiredflags = R_BAN)
 	var/list/adm = get_admin_counts(requiredflags)
-	var/list/activemins = adm["present"]
+	///var/list/activemins = adm["present"] // EffigyEdit Remove - TODO TEMPORARY - Send all ahelps through TGS
 	//. = activemins.len // EffigyEdit Remove - TODO TEMPORARY - Send all ahelps through TGS
 	//if(. <= 0) // EffigyEdit Remove - TODO TEMPORARY - Send all ahelps through TGS
 	var/final = ""
