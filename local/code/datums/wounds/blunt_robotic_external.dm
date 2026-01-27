@@ -58,9 +58,3 @@
 		span_green("You finish fastening [your_or_other] [limb.plaintext_zone]!"))
 
 	remove_wound()
-
-/datum/wound_pregen_data/blunt_metal/loose_screws
-	abstract = FALSE
-	wound_path_to_generate = /datum/wound/blunt/robotic/moderate
-	viable_zones = list(BODY_ZONE_CHEST, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
-	threshold_minimum = 30

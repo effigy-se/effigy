@@ -462,13 +462,6 @@
 
 	scar_keyword = "bluntsevere"
 
-/datum/wound_pregen_data/blunt_metal/fastenings
-	abstract = FALSE
-
-	wound_path_to_generate = /datum/wound/blunt/robotic/secures_internals/severe
-
-	threshold_minimum = 65
-
 /datum/wound/blunt/robotic/secures_internals/critical
 	name = "Collapsed Superstructure"
 	desc = "The superstructure has totally collapsed in one or more locations, causing extreme internal oscillation with every move and massive limb dysfunction"
