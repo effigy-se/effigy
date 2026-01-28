@@ -5,3 +5,14 @@
   LT3:
   - image: Improved light tube blending overlays
   - bugfix: Fixed missing flickering light overlay
+2026-01-25:
+  TealSeer:
+  - bugfix: fixed title screen crew manifest button sometimes not appearing
+  - map: fixed Rimpoint elevator doors
+  - map: Fixed Foxhole air pump
+2026-01-26:
+  LT3:
+  - sound: Reduced volume of airlock authentication sound
+2026-01-27:
+  LT3:
+  - qol: Medical HUD hides health bar when the mob is at full health

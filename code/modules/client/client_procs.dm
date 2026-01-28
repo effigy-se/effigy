@@ -1269,6 +1269,8 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 /// Handles any "fluff" or supplementary procedures related to an admin logout event. Should not have anything critically related cleaning up an admin's logout.
 /client/proc/handle_admin_logout()
 	adminGreet(logout = TRUE)
+	// EffigyEdit Remove - No logout messages to TGS
+	/*
 	if(length(GLOB.admins) > 0 || !SSticker.IsRoundInProgress()) // We only want to report this stuff if we are currently playing.
 		return
 
@@ -1295,6 +1297,8 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 	message_to_send += "(No admins online)"
 
 	send2adminchat("Server", jointext(message_to_send, " "))
+	*/
+	// EffigyEdit Remove End
 
 /// This grabs the DPI of the user per their skin
 /client/proc/acquire_dpi()

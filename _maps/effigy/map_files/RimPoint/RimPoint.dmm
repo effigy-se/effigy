@@ -10615,7 +10615,8 @@
 	},
 /obj/machinery/door/window/elevator/left/directional/north{
 	transport_linked_id = "com_vator";
-	pixel_y = -9
+	pixel_y = -9;
+	elevator_mode = 1
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
@@ -11492,7 +11493,8 @@
 	},
 /obj/machinery/door/window/elevator/right/directional/north{
 	transport_linked_id = "com_vator";
-	pixel_y = -9
+	pixel_y = -9;
+	elevator_mode = 1
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
@@ -17616,7 +17618,8 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/door/window/elevator/left/directional/south{
 	transport_linked_id = "sec_vator";
-	pixel_y = 9
+	pixel_y = 9;
+	elevator_mode = 1
 	},
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/iron/small,
@@ -22946,7 +22949,8 @@
 	},
 /obj/machinery/door/window/elevator/left/directional/north{
 	transport_linked_id = "com_vator";
-	pixel_y = -9
+	pixel_y = -9;
+	elevator_mode = 1
 	},
 /obj/effect/turf_decal/siding/white/corner{
 	dir = 8
@@ -42304,7 +42308,8 @@
 	},
 /obj/machinery/door/window/elevator/left/directional/north{
 	transport_linked_id = "sec_vator";
-	pixel_y = -9
+	pixel_y = -9;
+	elevator_mode = 1
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
 /obj/machinery/door/firedoor/border_only{
@@ -43866,7 +43871,8 @@
 	},
 /obj/machinery/door/window/elevator/right/directional/north{
 	transport_linked_id = "sec_vator";
-	pixel_y = -9
+	pixel_y = -9;
+	elevator_mode = 1
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
 /obj/machinery/door/firedoor/border_only{
@@ -44223,7 +44229,8 @@
 	},
 /obj/machinery/door/window/elevator/right/directional/north{
 	transport_linked_id = "com_vator";
-	pixel_y = -9
+	pixel_y = -9;
+	elevator_mode = 1
 	},
 /obj/effect/turf_decal/siding/white/corner,
 /obj/machinery/door/firedoor/border_only{
@@ -45957,7 +45964,8 @@
 	},
 /obj/machinery/door/window/elevator/right/directional/south{
 	transport_linked_id = "sec_vator";
-	pixel_y = 9
+	pixel_y = 9;
+	elevator_mode = 1
 	},
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/iron/small,
