@@ -5,7 +5,7 @@
 	heat_differential_healing_mult = 0.01
 	simple_desc = "Electrical conduits have been pierced open, resulting in a fault that <b>slowly</b> intensifies, but with <b>extreme</b> maximum voltage!"
 
-/datum/wound/burn/electrical_damage/pierce/get_limb_examine_description()
+/datum/wound/electrical_damage/pierce/get_limb_examine_description()
 	return span_warning("The metal on this limb is pierced open.")
 
 /datum/wound/electrical_damage/pierce/moderate

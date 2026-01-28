@@ -6996,6 +6996,7 @@
 #include "local\code\datums\wounds\blunt_robotic_external.dm"
 #include "local\code\datums\wounds\blunt_robotic_internal.dm"
 #include "local\code\datums\wounds\burn_robotic.dm"
+#include "local\code\datums\wounds\electrical_damage_base.dm"
 #include "local\code\datums\wounds\pierce_robotic.dm"
 #include "local\code\datums\wounds\slash_robotic.dm"
 #include "local\code\game\atoms_movable.dm"
