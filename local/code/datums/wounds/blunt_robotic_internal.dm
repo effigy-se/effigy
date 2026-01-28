@@ -419,7 +419,7 @@
 	name = "Detached Fastenings"
 	desc = "Various fastening devices are extremely loose and solder has disconnected at multiple points, causing significant jostling of internal components and \
 	noticable limb dysfunction."
-	treat_text_short = "Repair surgically, start with a screwdriver and follow the instructions, use gauze to reduce negative effects."
+	treat_text_short = "Repair surgically, start with a screwdriver and then weld in place. Use gauze to reduce negative effects."
 	treat_text = "Fastening of bolts and screws by a qualified technician (though bone gel may suffice in the absence of one) followed by re-soldering."
 	examine_desc = "jostles with every move, solder visibly broken"
 	occur_text = "visibly cracks open, solder flying everywhere"
@@ -465,7 +465,8 @@
 /datum/wound/blunt/robotic/secures_internals/critical
 	name = "Collapsed Superstructure"
 	desc = "The superstructure has totally collapsed in one or more locations, causing extreme internal oscillation with every move and massive limb dysfunction"
-	treat_text_short = "THIS TEXT WAS GARBAGE USELESS AND SHOULD BE REPLACED WITH ACTUAL SHORT TEXT ON HOW TO TREAT THE WOUND"
+	treat_text_short = "Repair surgically, start by superheating the limb until you can mold it by aggressively grabbing it, screwdriver, then weld. \
+		When it's done, use gauze to reduce negative effects."
 	treat_text = "Reforming of superstructure via either RCD or manual molding, followed by typical treatment of loosened internals. \
 				To manually mold, the limb must be aggressively grabbed and welded held to it to make it malleable (though attacking it til thermal overload may be adequate) \
 				followed by firmly grasping and molding the limb with heat-resistant gloves."
