@@ -1,1 +1,0 @@
-#define COMPONENT_LIVING_PASSABLE (1<<0)

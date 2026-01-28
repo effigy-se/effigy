@@ -441,7 +441,6 @@
 #include "code\__DEFINES\~effigy\layers.dm"
 #include "code\__DEFINES\~effigy\light.dm"
 #include "code\__DEFINES\~effigy\liquids.dm"
-#include "code\__DEFINES\~effigy\living.dm"
 #include "code\__DEFINES\~effigy\logging.dm"
 #include "code\__DEFINES\~effigy\maps.dm"
 #include "code\__DEFINES\~effigy\mobs.dm"
