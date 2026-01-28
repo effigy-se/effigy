@@ -87,7 +87,7 @@
 /// Checks if the parent is considered passthroughable from a direction. Projectiles will ignore the check and hit.
 /datum/component/pixel_shift/proc/check_passable(mob/source, atom/movable/mover, border_dir)
 	SIGNAL_HANDLER
-	if(!isprojectile(mover) && !mover.throwing && passthroughable & border_dir)
+	if(!isprojectile(mover) && !mover.throwing && (passthroughable & border_dir))
 		return COMPONENT_LIVING_PASSABLE
 
 /// Activates Pixel Shift on Keybind down. Only Pixel Shift movement will be allowed.
