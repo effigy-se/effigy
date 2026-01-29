@@ -46,7 +46,7 @@ const CLOTHING_SELECTION_WIDTH = 8.3;
 const CLOTHING_SELECTION_MULTIPLIER = 4.3;
 
 type CharacterControlsProps = {
-  handleRotate: () => void;
+  handleRotate: (ccw: boolean) => void;
   handleOpenSpecies: () => void;
   gender: Gender;
   setGender: (gender: Gender) => void;
@@ -60,7 +60,7 @@ function CharacterControls(props: CharacterControlsProps) {
     <Stack>
       <Stack.Item>
         <Button
-          onClick={props.handleRotate}
+          onClick={() => props.handleRotate(true)}
           fontSize="22px"
           icon="undo"
           tooltip="Rotate"
@@ -70,7 +70,7 @@ function CharacterControls(props: CharacterControlsProps) {
 
       <Stack.Item>
         <Button
-          onClick={props.handleRotate}
+          onClick={() => props.handleRotate(false)}
           fontSize="22px"
           icon="redo"
           tooltip="Rotate"
@@ -683,8 +683,10 @@ export function MainPage(props: MainPageProps) {
               <CharacterControls
                 gender={data.character_preferences.misc.gender}
                 handleOpenSpecies={props.openSpecies}
-                handleRotate={() => {
-                  act('rotate');
+                handleRotate={(value) => {
+                  act('rotate', {
+                    ccw: value,
+                  });
                 }}
                 setGender={createSetPreference(act, 'gender')}
                 showGender={
