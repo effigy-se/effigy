@@ -13,3 +13,11 @@
 2026-01-26:
   LT3:
   - sound: Reduced volume of airlock authentication sound
+2026-01-27:
+  LT3:
+  - qol: Medical HUD hides health bar when the mob is at full health
+2026-01-28:
+  LT3:
+  - bugfix: Lidocaine is again available in the NanoDrug Plus
+  LT3, TealSeer, Zergspower:
+  - rscadd: Robotic body parts now get robotic specific wounds

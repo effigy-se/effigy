@@ -23,3 +23,7 @@
 
 /// The trait that determines if someone has the robotic limb reattachment quirk.
 #define TRAIT_ROBOTIC_LIMBATTACHMENT "trait_robotic_limbattachment"
+
+// We use a trait to avoid erronous setting of a variable to false if two people are repairing and one stops.
+/// When someone is fixing electrical damage, this trait is set and prevents the wound from worsening.
+#define TRAIT_ELECTRICAL_DAMAGE_REPAIRING "electrical_damage_repairing"

@@ -26,6 +26,7 @@
 #define COMSIG_LIVING_RESET_PULL_OFFSETS "living_reset_pull_offsets"
 //from base of living/CanAllowThrough(): (atom/movable/mover, border_dir)
 #define COMSIG_LIVING_CAN_ALLOW_THROUGH "living_can_allow_through"
+	#define COMPONENT_LIVING_PASSABLE (1<<0)
 
 //when a character name is changed
 #define COMSIG_PREFERENCES_NAME_APPLIED "preferences_name_applied"

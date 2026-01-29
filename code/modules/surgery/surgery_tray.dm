@@ -206,6 +206,7 @@
 		/obj/item/stack/sticky_tape/surgical,
 		/obj/item/surgical_drapes,
 		/obj/item/surgicaldrill/cruel,
+		/obj/item/autopsy_scanner, // EffigyEdit Add
 	)
 
 /obj/item/surgery_tray/full/morgue/deployed
