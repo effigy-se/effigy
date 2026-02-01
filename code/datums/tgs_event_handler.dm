@@ -14,13 +14,14 @@
 			message_admins("TGS: Instance renamed to from [world.TgsInstanceName()] to [args[2]]")
 		if(TGS_EVENT_COMPILE_START)
 			message_admins("TGS: Deployment started, new game version incoming...")
+			to_chat(world, alert_boxed_message(BLUE, "TGS Deployment started, new game version incoming...")) // EffigyEdit Add - TGS Messages
 		if(TGS_EVENT_COMPILE_CANCELLED)
 			message_admins("TGS: Deployment cancelled!")
 		if(TGS_EVENT_COMPILE_FAILURE)
 			message_admins("TGS: Deployment failed!")
 		if(TGS_EVENT_DEPLOYMENT_COMPLETE)
 			message_admins("TGS: Deployment complete!")
-			to_chat(world, span_boldannounce("Server updated, changes will be applied on the next round..."))
+			to_chat(world, alert_boxed_message(PURPLE, "Server updated! Changes will be applied on the next round...")) // EffigyEdit Change - TGS Messages
 		if(TGS_EVENT_WATCHDOG_DETACH)
 			message_admins("TGS restarting...")
 			reattach_timer = addtimer(CALLBACK(src, PROC_REF(LateOnReattach)), 1 MINUTES, TIMER_STOPPABLE)
