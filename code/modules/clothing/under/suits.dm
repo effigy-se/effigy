@@ -76,6 +76,7 @@
 	desc = "It's a very smart uniform with a special pocket for tip."
 	icon_state = "waiter"
 	inhand_icon_state = "waiter"
+	sensor_mode = SENSOR_OFF // EffigyEdit Add - Waiter suit sensors off by default
 
 /obj/item/clothing/under/suit/black_really
 	name = "executive suit"
