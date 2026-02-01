@@ -291,6 +291,8 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 /datum/admin_help/proc/send_message_to_tgs(message, urgent = FALSE)
 	var/message_to_send = message
 
+	// EffigyEdit Remove - adminhelps to Discord
+	/*
 	if(urgent)
 		var/extra_message = CONFIG_GET(string/urgent_ahelp_message)
 		to_chat(initiator, span_boldwarning("Notified admins to prioritize your ticket"))
@@ -299,6 +301,8 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		embed.footer = "The player marked this ahelp as Urgent" // EffigyEdit Change - Original: "This player requested an admin"
 		send2adminchat_webhook(embed, urgent = TRUE)
 		webhook_sent = WEBHOOK_URGENT
+	*/
+	// EffigyEdit Remove End
 	//send it to TGS if nobody is on and tell us how many were on
 	var/admin_number_present = send2tgs_adminless_only(initiator_ckey, "Ticket #[id]: [message_to_send]")
 	log_admin_private("Ticket #[id]: [key_name(initiator)]: [name] - heard by [admin_number_present] non-AFK admins who have +BAN.")
@@ -316,10 +320,10 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 			send2adminchat_webhook(embed, urgent = FALSE)
 			webhook_sent = WEBHOOK_NON_URGENT
 	*/
-	to_chat(initiator, alert_boxed_message(PURPLE, "Your adminhelp is additionally sent to admins who are available through Discord."), confidential = TRUE)
 	heard_by_no_admins = TRUE
 	var/regular_webhook_url = CONFIG_GET(string/regular_adminhelp_webhook_url)
 	if(regular_webhook_url)
+		to_chat(initiator, alert_boxed_message(PURPLE, "Your adminhelp is automatically sent to admins who are available through Discord."), confidential = TRUE)
 		var/extra_message = CONFIG_GET(string/ahelp_message)
 		var/datum/discord_embed/embed = format_embed_discord(message)
 		embed.content = extra_message
