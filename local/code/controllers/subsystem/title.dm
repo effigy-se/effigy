@@ -1,5 +1,5 @@
 /datum/controller/subsystem/title
-	var/list/static/fluff_messages
+	var/static/list/fluff_messages
 	var/fluff_enabled = FALSE
 
 /datum/controller/subsystem/title/OnConfigLoad()
