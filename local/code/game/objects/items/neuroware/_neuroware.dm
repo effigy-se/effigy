@@ -110,7 +110,7 @@
 	if(!can_overdose || !length(reagent_list))
 		return FALSE
 
-	for(var/reagent_type as anything in reagent_list)
+	for(var/reagent_type in reagent_list)
 		var/datum/reagent/existing_reagent = target.has_reagent(reagent_type)
 		if(!existing_reagent || existing_reagent.overdose_threshold == 0)
 			continue

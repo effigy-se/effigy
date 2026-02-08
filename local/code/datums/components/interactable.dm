@@ -14,7 +14,7 @@
 
 /datum/component/interactable/proc/rebuild_emote_list()
 	emotes = list()
-	for(var/key as anything in GLOB.emote_list)
+	for(var/key in GLOB.emote_list)
 		for(var/datum/emote/emote_iterator in GLOB.emote_list[key])
 			if(emote_iterator.targets_person)
 				emotes |= emote_iterator

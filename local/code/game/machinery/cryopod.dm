@@ -226,8 +226,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		close_machine(joining_mob)
 
 /obj/machinery/cryopod/proc/find_control_computer(urgent = FALSE)
-	for(var/cryo_console as anything in GLOB.cryopod_computers)
-		var/obj/machinery/computer/cryopod/console = cryo_console
+	for(var/obj/machinery/computer/cryopod/console as anything in GLOB.cryopod_computers)
 		if(get_area(console) == get_area(src))
 			control_computer_weakref = WEAKREF(console)
 			break
