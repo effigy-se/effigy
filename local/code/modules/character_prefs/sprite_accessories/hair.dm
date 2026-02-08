@@ -799,7 +799,7 @@
 
 //-->fixed dreadlocks, added alt version for anthros, added new style <3
 /datum/sprite_accessory/hair/dreadlocks
-    icon = 'local/icons/mob/mutant/sprite_accessories/hair.dmi'
+	icon = 'local/icons/mob/mutant/sprite_accessories/hair.dmi'
 
 /datum/sprite_accessory/hair/modular/dreadlocks_alt
 	name = "Dreadlocks Alt"
