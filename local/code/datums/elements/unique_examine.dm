@@ -70,9 +70,9 @@
 	// Having hint = TRUE will register a normal examine signal to give examiners a hint additional info is present
 	if(hint)
 		what_are_we = get_identifier(thing)
-		RegisterSignal(thing, COMSIG_ATOM_EXAMINE, .proc/on_examine)
+		RegisterSignal(thing, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 
-	RegisterSignal(thing, COMSIG_ATOM_EXAMINE_MORE, .proc/on_examine_more)
+	RegisterSignal(thing, COMSIG_ATOM_EXAMINE_MORE, PROC_REF(on_examine_more))
 
 /datum/element/unique_examine/Detach(atom/thing)
 	. = ..()
