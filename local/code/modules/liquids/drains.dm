@@ -8,6 +8,7 @@
 	density = FALSE
 	layer = GAS_SCRUBBER_LAYER
 	anchored = TRUE
+	plane = FLOOR_PLANE
 	var/processing = FALSE
 	var/drain_flat = 5
 	var/drain_percent = 0.1

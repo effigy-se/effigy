@@ -25,7 +25,7 @@
 
 	/// Currently pumping.
 	var/is_pumping = FALSE
-	/// Floor tile is placed down
+	/// If true, we are embedded in a floor tile. If false, we're sitting on top of the floor.
 	var/tile_placed = FALSE
 
 /obj/machinery/plumbing/floor_pump/Initialize(mapload, bolt, layer)
@@ -89,7 +89,7 @@
 /obj/machinery/plumbing/floor_pump/proc/on_hide(atom/movable/AM, should_hide)
 	SIGNAL_HANDLER
 
-	tile_placed = should_hide
+	tile_placed = !should_hide
 	update_appearance()
 
 /**
