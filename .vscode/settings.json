@@ -6,7 +6,7 @@
 	"files.insertFinalNewline": true,
 	"files.trimTrailingWhitespace": true,
 	"editor.insertSpaces": false,
-	"git.branchProtection": ["master"],
+	"git.branchProtection": ["master", "main"],
 	"gitlens.advanced.blame.customArguments": ["-w"],
 	"tgstationTestExplorer.project.resultsType": "json",
 	"[javascript][typescript][javascriptreact][typescriptreact][css][json][jsonc]": {
