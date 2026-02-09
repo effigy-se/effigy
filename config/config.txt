@@ -668,3 +668,6 @@ GENERATE_ASSETS_IN_INIT
 
 ## Channel on the Discord where people can self-assign roles
 # DISCORD_ROLES_CHANNEL_ID
+
+## Discord role ID to notify about a new game starting
+# ROLE_ANNOUNCE_NEW_GAME

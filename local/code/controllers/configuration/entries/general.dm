@@ -16,6 +16,9 @@
 /datum/config_entry/string/discord_roles_channel_id
 	default = ""
 
+/datum/config_entry/string/role_announce_new_game
+	default = ""
+
 /// manifest preview in pre-lobby
 /datum/config_entry/flag/show_manifest_preview
 	default = TRUE
