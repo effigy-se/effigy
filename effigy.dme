@@ -6939,6 +6939,7 @@
 #include "local\code\datums\mind.dm"
 #include "local\code\datums\quirk.dm"
 #include "local\code\datums\scream_type.dm"
+#include "local\code\datums\tgs_event_handler.dm"
 #include "local\code\datums\actions\mobs\sing_tones.dm"
 #include "local\code\datums\ai_laws\laws_station_sided.dm"
 #include "local\code\datums\atmosphere\planetary.dm"

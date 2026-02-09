@@ -58,6 +58,7 @@ SUBSYSTEM_DEF(ticker)
 	var/roundend_check_paused = FALSE
 
 	var/round_start_time = 0
+	var/utc_init_time = 0 // EffigyEdit Add
 	var/list/round_start_events
 	var/list/round_end_events
 	var/mode_result = "undefined"
@@ -154,7 +155,8 @@ SUBSYSTEM_DEF(ticker)
 			//	send2chat(new /datum/tgs_message_content("New round starting on [SSmapping.current_map.map_name]!"), channel_tag) // EffigyEdit Change - New Round Discord Notification
 				send2chat(new /datum/tgs_message_content("Round **[GLOB.round_id]** starting on **[SSmapping.current_map.map_name]!**[CONFIG_GET(string/role_announce_new_game) ? " <@&[CONFIG_GET(string/role_announce_new_game)]>" : ""][CONFIG_GET(string/discord_roles_channel_id) ? "\nTo opt-in for new game notifications, go to <#[CONFIG_GET(string/discord_roles_channel_id)]> and assign yourself the role." : ""]"), channel_tag)
 			current_state = GAME_STATE_PREGAME
-			// EffigyEdit Add - Storyteller
+			// EffigyEdit Add - Storyteller and TGS
+			utc_init_time = REALTIMEOFDAY
 			GLOB.init_message_clients = null
 			var/storyteller = CONFIG_GET(string/default_storyteller)
 			if(storyteller)
@@ -177,11 +179,6 @@ SUBSYSTEM_DEF(ticker)
 					++totalPlayersReady
 					if(player.client?.holder)
 						++total_admins_ready
-
-			// EffigyEdit Add - Custom Lobby
-			if(timeLeft == COUNTDOWN_GAME_INIT)
-				return // server isn't finished init
-			// EffigyEdit Add End
 
 			if(start_immediately)
 				timeLeft = 0

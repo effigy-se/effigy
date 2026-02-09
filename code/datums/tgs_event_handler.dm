@@ -22,6 +22,7 @@
 		if(TGS_EVENT_DEPLOYMENT_COMPLETE)
 			message_admins("TGS: Deployment complete!")
 			to_chat(world, alert_boxed_message(PURPLE, "Server updated! Changes will be applied on the next round...")) // EffigyEdit Change - TGS Messages
+			post_deployment_restart() // EffigyEdit Add - TGS Messages
 		if(TGS_EVENT_WATCHDOG_DETACH)
 			message_admins("TGS restarting...")
 			reattach_timer = addtimer(CALLBACK(src, PROC_REF(LateOnReattach)), 1 MINUTES, TIMER_STOPPABLE)

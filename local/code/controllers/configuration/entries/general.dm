@@ -25,6 +25,9 @@
 
 /datum/config_entry/flag/setup_bypass_player_check
 
+/// if server is idle, automatically reboot after a TGS deployment
+/datum/config_entry/flag/reboot_on_idle_deployment
+
 /// File where fluff status messages are stored
 /datum/config_entry/string/fluff_status_file
 	default = "config/effigy_splash_fluff.txt"
