@@ -6,7 +6,7 @@
 	desc = "Drainage inlet embedded in the floor to prevent flooding."
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	density = FALSE
-	layer = GAS_SCRUBBER_LAYER
+	layer = ABOVE_OPEN_TURF_LAYER
 	anchored = TRUE
 	plane = FLOOR_PLANE
 	var/processing = FALSE
