@@ -13,6 +13,9 @@
 /datum/config_entry/string/discordlink
 	default = ""
 
+/datum/config_entry/string/discord_roles_channel_id
+	default = ""
+
 /// manifest preview in pre-lobby
 /datum/config_entry/flag/show_manifest_preview
 	default = TRUE
