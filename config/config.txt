@@ -671,3 +671,6 @@ GENERATE_ASSETS_IN_INIT
 
 ## Discord role ID to notify about a new game starting
 # ROLE_ANNOUNCE_NEW_GAME
+
+## Automatically reboot after a TGS deployment if the server is idle
+# REBOOT_ON_IDLE_DEPLOYMENT
