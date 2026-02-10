@@ -25,7 +25,7 @@
 
 /datum/config_entry/flag/setup_bypass_player_check
 
-/// if server is idle, automatically reboot after a TGS deployment
+/// Automatically reboot after a TGS deployment if the server is idle
 /datum/config_entry/flag/reboot_on_idle_deployment
 
 /// File where fluff status messages are stored
