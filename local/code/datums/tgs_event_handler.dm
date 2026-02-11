@@ -12,4 +12,4 @@
 	if((REALTIMEOFDAY - SSticker.utc_init_time) < 2 HOURS)
 		return
 
-	SSticker.Reboot("TGS Deployment: New Game Version", "pregame", 15 SECONDS)
+	SSticker.Reboot("TGS Deployment: New Game Version", "pregame", 4 SECONDS)
