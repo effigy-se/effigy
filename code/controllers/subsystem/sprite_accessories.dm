@@ -84,13 +84,13 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	feature_list[FEATURE_FRILLS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/frills)
 	feature_list[FEATURE_HORNS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/horns)
 	feature_list[FEATURE_LIZARD_MARKINGS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/lizard_markings)
-	feature_list[FEATURE_SNOUT] = INIT_ACCESSORY(/datum/sprite_accessory/snouts)
+	feature_list[FEATURE_SNOUT] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/snouts) // EffigyEdit Change - Made optional
 	feature_list[FEATURE_SPINES] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/spines)
 	feature_list[FEATURE_TAILSPINES] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tail_spines)
-	feature_list[FEATURE_TAIL_LIZARD] = INIT_ACCESSORY(/datum/sprite_accessory/tails/lizard)
+	feature_list[FEATURE_TAIL_LIZARD] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/lizard) // EffigyEdit Change - Made optional
 	// moths
-	feature_list[FEATURE_MOTH_WINGS] = INIT_ACCESSORY(/datum/sprite_accessory/moth_wings)
-	feature_list[FEATURE_MOTH_ANTENNAE] = INIT_ACCESSORY(/datum/sprite_accessory/moth_antennae)
+	feature_list[FEATURE_MOTH_WINGS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/moth_wings) // EffigyEdit Change - Made optional
+	feature_list[FEATURE_MOTH_ANTENNAE] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/moth_antennae) // EffigyEdit Change - Made optional
 	feature_list[FEATURE_MOTH_MARKINGS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/moth_markings)
 	// generic wings
 	feature_list[FEATURE_WINGS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/wings)
@@ -98,8 +98,8 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	// generic features
 	feature_list[FEATURE_MUSH_CAP] = INIT_ACCESSORY(/datum/sprite_accessory/caps)
 	feature_list[FEATURE_POD_HAIR] = INIT_ACCESSORY(/datum/sprite_accessory/pod_hair)
-	feature_list[FEATURE_TAIL_FISH] = INIT_ACCESSORY(/datum/sprite_accessory/tails/fish)
-	feature_list[FEATURE_TAIL_MONKEY] = INIT_ACCESSORY(/datum/sprite_accessory/tails/monkey)
+	feature_list[FEATURE_TAIL_FISH] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/fish) // EffigyEdit Change - Made optional
+	feature_list[FEATURE_TAIL_MONKEY] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/monkey) // EffigyEdit Change - Made optional
 	feature_list[FEATURE_TAIL_XENO] = INIT_ACCESSORY(/datum/sprite_accessory/tails/xeno)
 	// EffigyEdit Add - Character Preferences
 	feature_list[FEATURE_FLUFF] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/fluff)

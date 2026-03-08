@@ -62,10 +62,3 @@
 
 /datum/bodypart_overlay/mutant/ears/humanoid_ears/get_global_feature_list()
 	return SSaccessories.feature_list["ears_humanoid"]
-
-/// Synth ears
-/obj/item/organ/ears/cybernetic
-	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/cybernetic
-
-/datum/bodypart_overlay/mutant/ears/cybernetic/get_global_feature_list()
-	return SSaccessories.feature_list["ears_synthetic"]

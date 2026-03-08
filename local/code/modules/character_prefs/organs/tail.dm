@@ -51,18 +51,6 @@
 /obj/item/organ/tail/fish
 	organ_traits = list(TRAIT_TACKLING_TAILED_DEFENDER, TRAIT_FLOPPING)
 
-/// Synth tail
-/obj/item/organ/tail/cybernetic
-	dna_block = null
-	organ_flags = ORGAN_ROBOTIC
-	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/cybernetic
-
-/datum/bodypart_overlay/mutant/tail/cybernetic
-	feature_key = "tail_other"
-
-/datum/bodypart_overlay/mutant/tail/cybernetic/get_global_feature_list()
-	return SSaccessories.feature_list["tail_synthetic"]
-
 /// Humanoid tail
 /obj/item/organ/tail/humanoid
 	dna_block = null

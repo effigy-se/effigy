@@ -9,27 +9,28 @@
 	if(!ishuman(target))
 		return
 
-	if((type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["tail_lizard"] != /datum/sprite_accessory/blank::name)
-		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/lizard)
-		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		return .
-	else if((type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["tail_cat"] != /datum/sprite_accessory/blank::name)
-		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/cat)
-		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		return .
-	else if((type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["tail_monkey"] != /datum/sprite_accessory/blank::name)
-		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/monkey)
-		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		return .
-	else if((type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["fish_tail"] != /datum/sprite_accessory/blank::name)
-		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/fish)
-		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		return .
-	else if((type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["tail_other"] != /datum/sprite_accessory/blank::name && target.dna.tail_type != NO_VARIATION)
-		var/obj/item/organ/organ_path = text2path("/obj/item/organ/tail/[target.dna.tail_type]")
-		var/obj/item/organ/replacement = SSwardrobe.provide_type(organ_path)
-		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		return .
+	if(target.dna.tail_type != NO_VARIATION)
+		if((type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["tail_lizard"] != /datum/sprite_accessory/blank::name)
+			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/lizard)
+			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+			return .
+		else if((type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["tail_cat"] != /datum/sprite_accessory/blank::name)
+			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/cat)
+			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+			return .
+		else if((type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["tail_monkey"] != /datum/sprite_accessory/blank::name)
+			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/monkey)
+			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+			return .
+		else if((type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["fish_tail"] != /datum/sprite_accessory/blank::name)
+			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/fish)
+			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+			return .
+		else if((type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["tail_other"] != /datum/sprite_accessory/blank::name)
+			var/obj/item/organ/organ_path = text2path("/obj/item/organ/tail/[target.dna.tail_type]")
+			var/obj/item/organ/replacement = SSwardrobe.provide_type(organ_path)
+			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+			return .
 
 	var/obj/item/organ/tail/old_part = target.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
 	if(istype(old_part))
