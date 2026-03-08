@@ -38,6 +38,11 @@
 	moth.dna.features[FEATURE_MOTH_ANTENNAE] = "Firewatch"
 	moth.dna.features[FEATURE_MOTH_MARKINGS] = "None"
 	moth.dna.features[FEATURE_MOTH_WINGS] = "Firewatch"
+	// EffigyEdit Add - Character Preferences
+	moth.dna.wing_type = "Moth Wings"
+	moth.dna.features[FEATURE_FLUFF] = "None"
+	moth.dna.features[FEATURE_SNOUT] = "None"
+	// EffigyEdit Add End
 	moth.set_species(/datum/species/moth)
 	moth.equipOutfit(/datum/outfit/job/cmo, visuals_only = TRUE)
 	test_screenshot("[/datum/species/moth]", get_flat_icon_for_all_directions(moth))
