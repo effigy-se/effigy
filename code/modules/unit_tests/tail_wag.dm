@@ -100,3 +100,16 @@
 	dummy.wag_tail()
 	if(dummy_tail.wag_flags & WAG_WAGGING)
 		TEST_FAIL("A dead mob was able to wag their tail!")
+
+// EffigyEdit Add - Character Preferences
+/// Test to make sure tails with wagging sprites are flagged as waggable, and vice versa
+/datum/unit_test/tail_wagging_sprites
+
+/datum/unit_test/tail_wagging_sprites/Run()
+	for(var/datum/sprite_accessory/tails/tail as anything in subtypesof(/datum/sprite_accessory/tails))
+		var/sprite_exists = icon_exists(tail.icon, "m_tail_wagging_[tail.icon_state]_FRONT")
+		if(sprite_exists && !tail.can_wag)
+			TEST_FAIL("[tail] has wagging sprites but can_wag is FALSE!")
+		else if(!sprite_exists && tail.can_wag)
+			TEST_FAIL("[tail] lacks wagging sprites but can_wag is TRUE!")
+// EffigyEdit Add End
