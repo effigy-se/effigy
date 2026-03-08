@@ -1,3 +1,11 @@
+/datum/admins/proc/announce_round_discord()
+	set category = "Server"
+	set desc = "Manually send a new round Discord announcement."
+	set name = "Announce Round to Discord"
+	SSticker.announce_new_round_to_discord(admin_forced = TRUE)
+	log_admin("[key_name(usr)] manually triggered a Discord round announcement.")
+	message_admins("[key_name_admin(usr)] manually triggered a Discord round announcement.")
+
 /datum/admins/proc/toggledchat()
 	set category = "Server"
 	set desc = "Toggle dis bitch"
