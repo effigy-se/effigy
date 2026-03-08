@@ -4,27 +4,17 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target == null)
-		return
-	if(!ishuman(target))
-		return
-
-	if(target.dna.tail_type != NO_VARIATION)
-		if((type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["fish_tail"] != /datum/sprite_accessory/blank::name)
-			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/fish)
+	if((type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.tail_type != NO_VARIATION)
+		var/obj/item/organ/tail/tail_type = GLOB.tail_variations[target.dna.tail_type]
+		var/feature_key = tail_type::bodypart_overlay::feature_key
+		if(target.dna.features[feature_key] != /datum/sprite_accessory/blank::name)
+			var/obj/item/organ/replacement = SSwardrobe.provide_type(tail_type)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-			return .
-		else if((type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.features["tail_[target.dna.tail_type]"] != /datum/sprite_accessory/blank::name)
-			var/obj/item/organ/organ_path = text2path("/obj/item/organ/tail/[target.dna.tail_type]")
-			var/obj/item/organ/replacement = SSwardrobe.provide_type(organ_path)
-			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-			return .
-
-	var/obj/item/organ/tail/old_part = target.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
-	if(istype(old_part))
-		old_part.Remove(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		old_part.moveToNullspace()
-
+	else
+		var/obj/item/organ/tail/old_part = target.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
+		if(istype(old_part))
+			old_part.Remove(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+			old_part.moveToNullspace()
 
 /// Tail variation
 /datum/preference/choiced/tail_variation

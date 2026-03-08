@@ -23,6 +23,18 @@ GLOBAL_LIST_INIT(mutant_variations, list(
 	MAMMAL_TYPE,
 ))
 
+GLOBAL_LIST_INIT(tail_variations, list(
+	NO_VARIATION = null,
+	AQUATIC_TYPE = /obj/item/organ/tail/fish,
+	CAT_TYPE = /obj/item/organ/tail/cat,
+	DOG_TYPE = /obj/item/organ/tail/dog,
+	FLYING_TYPE = /obj/item/organ/tail/flying,
+	FOX_TYPE = /obj/item/organ/tail/fox,
+	HUMANOID_TYPE = /obj/item/organ/tail/humanoid,
+	LIZARD_TYPE = /obj/item/organ/tail/lizard,
+	MAMMAL_TYPE = /obj/item/organ/tail/mammal,
+))
+
 #define FEATURE_CYBER_FRAME "cyber_frame"
 #define FEATURE_CYBER_ORGANS "cyber_organs"
 #define FEATURE_FLUFF "fluff"
