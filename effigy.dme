@@ -7235,6 +7235,7 @@
 #include "local\code\modules\character_prefs\species\synth.dm"
 #include "local\code\modules\character_prefs\sprite_accessories\bras.dm"
 #include "local\code\modules\character_prefs\sprite_accessories\facial_hair.dm"
+#include "local\code\modules\character_prefs\sprite_accessories\fluff.dm"
 #include "local\code\modules\character_prefs\sprite_accessories\frills.dm"
 #include "local\code\modules\character_prefs\sprite_accessories\hair.dm"
 #include "local\code\modules\character_prefs\sprite_accessories\horns.dm"

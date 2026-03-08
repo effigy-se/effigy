@@ -118,7 +118,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	// EffigyEdit Add - Character Preferences
 	target.dna.features["tail_other"] = "No Tail"
 	target.dna.features[FEATURE_WINGS] = "No Wings"
-	target.dna.features["fluff"] = "No Fluff"
 	// EffigyEdit Add End
 	target.dna.initialize_dna(newblood_type = get_blood_type(BLOOD_TYPE_O_MINUS), create_mutation_blocks = FALSE, randomize_features = FALSE)
 	// UF and UI are nondeterministic, even though the features are the same some blocks will randomize slightly

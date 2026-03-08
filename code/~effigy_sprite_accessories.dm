@@ -24,11 +24,6 @@
 	name = "No Antennae"
 	icon_state = "none"
 
-/datum/sprite_accessory/fluff/none
-	icon = 'local/icons/mob/mutant/sprite_accessories/fallback.dmi'
-	name = "No Fluff"
-	icon_state = "none"
-
 /// Ears
 /datum/sprite_accessory/ears/none
 	icon = 'local/icons/mob/mutant/sprite_accessories/fallback.dmi'
