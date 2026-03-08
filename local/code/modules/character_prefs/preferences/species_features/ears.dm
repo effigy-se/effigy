@@ -4,15 +4,13 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target.dna.features[FEATURE_EARS] && (type in GLOB.bodypart_allowed_species[FEATURE_EARS]))
-		if(target.dna.ear_type == NO_VARIATION)
+	if(target.dna.ear_type != NO_VARIATION && (type in GLOB.bodypart_allowed_species[FEATURE_EARS]))
+		if(target.dna.ear_type == AQUATIC_TYPE && target.dna.features["ears_fish"] != /datum/sprite_accessory/blank::name)
+			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/ears/fish)
+			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .
-		else if(target.dna.features[FEATURE_EARS] != /datum/sprite_accessory/blank::name)
-			var/obj/item/organ/organ_path
-			if(target.dna.ear_type == AQUATIC_TYPE)
-				organ_path = text2path("/obj/item/organ/ears/fish")
-			else
-				organ_path = text2path("/obj/item/organ/ears/[target.dna.ear_type]")
+		else if(target.dna.features["ears_[target.dna.ear_type]"] != /datum/sprite_accessory/blank::name)
+			var/obj/item/organ/organ_path = text2path("/obj/item/organ/ears/[target.dna.ear_type]")
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(organ_path)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .
@@ -85,10 +83,6 @@
 	feature_key = "ears_lizard"
 	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
-/datum/preference/choiced/species_feature/lizard_ears/apply_to_human(mob/living/carbon/human/target, value)
-	if(target.dna.ear_type == LIZARD_TYPE)
-		target.dna.features[FEATURE_EARS] = value
-
 /datum/preference/choiced/species_feature/lizard_ears/create_default_value()
 	return /datum/sprite_accessory/blank::name
 
@@ -117,10 +111,6 @@
 	main_feature_name = "Ears"
 	feature_key = "ears_fox"
 	priority = PREFERENCE_PRIORITY_PRE_SPECIES
-
-/datum/preference/choiced/species_feature/fox_ears/apply_to_human(mob/living/carbon/human/target, value)
-	if(target.dna.ear_type == FOX_TYPE)
-		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/species_feature/fox_ears/create_default_value()
 	return /datum/sprite_accessory/blank::name
@@ -166,10 +156,6 @@
 /datum/preference/choiced/species_feature/dog_ears/create_default_value()
 	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/species_feature/dog_ears/apply_to_human(mob/living/carbon/human/target, value)
-	if(target.dna.ear_type == DOG_TYPE)
-		target.dna.features[FEATURE_EARS] = value
-
 /datum/preference/choiced/species_feature/dog_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
 	return generate_ears_icon(chosen_ears)
@@ -183,10 +169,6 @@
 	main_feature_name = "Ears"
 	feature_key = "ears_flying"
 	priority = PREFERENCE_PRIORITY_PRE_SPECIES
-
-/datum/preference/choiced/species_feature/flying_ears/apply_to_human(mob/living/carbon/human/target, value)
-	if(target.dna.ear_type == FLYING_TYPE)
-		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/species_feature/flying_ears/create_default_value()
 	return /datum/sprite_accessory/blank::name
@@ -217,10 +199,6 @@
 	feature_key = "ears_monkey"
 	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
-/datum/preference/choiced/species_feature/monkey_ears/apply_to_human(mob/living/carbon/human/target, value)
-	if(target.dna.ear_type == MONKEY_TYPE)
-		target.dna.features[FEATURE_EARS] = value
-
 /datum/preference/choiced/species_feature/monkey_ears/create_default_value()
 	return /datum/sprite_accessory/blank::name
 
@@ -249,10 +227,6 @@
 	main_feature_name = "Ears"
 	feature_key = "ears_mammal"
 	priority = PREFERENCE_PRIORITY_PRE_SPECIES
-
-/datum/preference/choiced/species_feature/mammal_ears/apply_to_human(mob/living/carbon/human/target, value)
-	if(target.dna.ear_type == MAMMAL_TYPE)
-		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/species_feature/mammal_ears/create_default_value()
 	return /datum/sprite_accessory/blank::name
@@ -283,10 +257,6 @@
 	feature_key = "ears_fish"
 	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
-/datum/preference/choiced/species_feature/fish_ears/apply_to_human(mob/living/carbon/human/target, value)
-	if(target.dna.ear_type == AQUATIC_TYPE)
-		target.dna.features[FEATURE_EARS] = value
-
 /datum/preference/choiced/species_feature/fish_ears/create_default_value()
 	return /datum/sprite_accessory/blank::name
 
@@ -315,10 +285,6 @@
 	main_feature_name = "Ears"
 	feature_key = "ears_humanoid"
 	priority = PREFERENCE_PRIORITY_PRE_SPECIES
-
-/datum/preference/choiced/species_feature/humanoid_ears/apply_to_human(mob/living/carbon/human/target, value)
-	if(target.dna.ear_type == HUMANOID_TYPE)
-		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/species_feature/humanoid_ears/create_default_value()
 	return /datum/sprite_accessory/blank::name
@@ -349,10 +315,6 @@
 	main_feature_name = "Ears"
 	feature_key = "ears_synthetic"
 	priority = PREFERENCE_PRIORITY_PRE_SPECIES
-
-/datum/preference/choiced/species_feature/synthetic_ears/apply_to_human(mob/living/carbon/human/target, value)
-	if(target.dna.ear_type == CYBERNETIC_TYPE)
-		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/species_feature/synthetic_ears/create_default_value()
 	return /datum/sprite_accessory/blank::name
