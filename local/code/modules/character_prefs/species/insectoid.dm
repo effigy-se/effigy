@@ -30,8 +30,8 @@
 	human_for_preview.dna.features["snout"] = "None"
 	human_for_preview.dna.ear_type = MAMMAL_TYPE
 	human_for_preview.dna.features["ears"] = "None"
-	human_for_preview.dna.tail_type = MAMMAL_TYPE
-	human_for_preview.dna.features["tail_other"] = /datum/sprite_accessory/tails/lizard/none::name
+	human_for_preview.dna.tail_type = NO_VARIATION
+	human_for_preview.dna.features["tail_other"] = /datum/sprite_accessory/blank::name
 	human_for_preview.set_haircolor("#365745", update = FALSE)
 	human_for_preview.set_hairstyle("Ziegler", update = TRUE)
 	human_for_preview.eye_color_left = "#f8c67a"

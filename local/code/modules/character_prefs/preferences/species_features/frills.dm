@@ -29,7 +29,7 @@
 
 /datum/preference/toggle/frills/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == FALSE)
-		target.dna.features[FEATURE_FRILLS] = /datum/sprite_accessory/frills/none::name
+		target.dna.features[FEATURE_FRILLS] = /datum/sprite_accessory/blank::name
 
 /datum/preference/toggle/frills/create_default_value()
 	return FALSE
@@ -52,7 +52,7 @@
 	return data
 
 /datum/preference/choiced/species_feature/lizard_frills/create_default_value()
-	return /datum/sprite_accessory/frills/none::name
+	return /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/species_feature/lizard_frills/icon_for(value)
 	var/datum/sprite_accessory/chosen_frills = get_accessory_for_value(value)
@@ -95,7 +95,7 @@
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
 	if(target.dna.features[FEATURE_FRILLS] && (type in GLOB.bodypart_allowed_species[FEATURE_FRILLS]))
-		if(target.dna.features[FEATURE_FRILLS] != /datum/sprite_accessory/frills/none::name && target.dna.features[FEATURE_FRILLS] != /datum/sprite_accessory/blank::name)
+		if(target.dna.features[FEATURE_FRILLS] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/frills)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .

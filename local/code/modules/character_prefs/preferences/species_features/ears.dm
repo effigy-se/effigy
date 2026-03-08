@@ -2,23 +2,12 @@
 	///	This variable is read by the regenerate_organs() proc to know what organ subtype to give
 	var/ear_type = NO_VARIATION
 
-/datum/controller/subsystem/accessories/setup_lists()
-	. = ..()
-	feature_list["ears_lizard"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_anthro/lizard)["default_sprites"]
-	feature_list["ears_dog"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_anthro/dog)["default_sprites"]
-	feature_list["ears_fox"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_anthro/fox)["default_sprites"]
-	feature_list["ears_flying"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_anthro/flying)["default_sprites"]
-	feature_list["ears_monkey"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_anthro/monkey)["default_sprites"]
-	feature_list["ears_mammal"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_anthro/mammal)["default_sprites"]
-	feature_list["ears_fish"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_anthro/fish)["default_sprites"]
-	feature_list["ears_humanoid"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_anthro/humanoid)["default_sprites"]
-
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
 	if(target.dna.features[FEATURE_EARS] && (type in GLOB.bodypart_allowed_species[FEATURE_EARS]))
 		if(target.dna.ear_type == NO_VARIATION)
 			return .
-		else if(target.dna.features[FEATURE_EARS] != /datum/sprite_accessory/ears/none::name && target.dna.features[FEATURE_EARS] != /datum/sprite_accessory/blank::name)
+		else if(target.dna.features[FEATURE_EARS] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/organ_path
 			if(target.dna.ear_type == AQUATIC_TYPE)
 				organ_path = text2path("/obj/item/organ/ears/fish")
@@ -38,7 +27,7 @@
 /datum/preference/choiced/ear_variation/apply_to_human(mob/living/carbon/human/target, chosen_variation)
 	target.dna.ear_type = chosen_variation
 	if(chosen_variation == NO_VARIATION)
-		target.dna.features[FEATURE_EARS] = /datum/sprite_accessory/ears/none::name
+		target.dna.features[FEATURE_EARS] = /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/ear_variation/create_default_value()
 	return NO_VARIATION
@@ -68,7 +57,7 @@
 		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/species_feature/felinid_ears/create_default_value()
-	return /datum/sprite_accessory/ears/none::name
+	return /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/species_feature/felinid_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
@@ -101,7 +90,7 @@
 		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/species_feature/lizard_ears/create_default_value()
-	return /datum/sprite_accessory/ears_anthro/lizard/none::name
+	return /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/species_feature/lizard_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
@@ -134,7 +123,7 @@
 		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/species_feature/fox_ears/create_default_value()
-	return /datum/sprite_accessory/ears_anthro/fox/none::name
+	return /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/species_feature/fox_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
@@ -175,7 +164,7 @@
 	return FALSE
 
 /datum/preference/choiced/species_feature/dog_ears/create_default_value()
-	return /datum/sprite_accessory/ears_anthro/dog/none::name
+	return /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/species_feature/dog_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == DOG_TYPE)
@@ -200,7 +189,7 @@
 		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/species_feature/flying_ears/create_default_value()
-	return /datum/sprite_accessory/ears_anthro/flying/none::name
+	return /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/species_feature/flying_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
@@ -233,7 +222,7 @@
 		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/species_feature/monkey_ears/create_default_value()
-	return /datum/sprite_accessory/ears_anthro/monkey/none::name
+	return /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/species_feature/monkey_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
@@ -266,7 +255,7 @@
 		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/species_feature/mammal_ears/create_default_value()
-	return /datum/sprite_accessory/ears_anthro/mammal/none::name
+	return /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/species_feature/mammal_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
@@ -299,7 +288,7 @@
 		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/species_feature/fish_ears/create_default_value()
-	return /datum/sprite_accessory/ears_anthro/fish/none::name
+	return /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/species_feature/fish_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
@@ -332,7 +321,7 @@
 		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/species_feature/humanoid_ears/create_default_value()
-	return /datum/sprite_accessory/ears_anthro/humanoid/none::name
+	return /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/species_feature/humanoid_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
@@ -366,7 +355,7 @@
 		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/species_feature/synthetic_ears/create_default_value()
-	return /datum/sprite_accessory/ears_anthro/cybernetic/none::name
+	return /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/species_feature/synthetic_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
