@@ -1,15 +1,9 @@
-/datum/admins/proc/announce_round_discord()
-	set category = "Server"
-	set desc = "Manually send a new round Discord announcement."
-	set name = "Announce Round to Discord"
+ADMIN_VERB(discord_notification, R_ADMIN, "Discord Round Notification", "Manually send a new round Discord announcement.", ADMIN_CATEGORY_SERVER)
 	SSticker.announce_new_round_to_discord(admin_forced = TRUE)
 	log_admin("[key_name(usr)] manually triggered a Discord round announcement.")
 	message_admins("[key_name_admin(usr)] manually triggered a Discord round announcement.")
 
-/datum/admins/proc/toggledchat()
-	set category = "Server"
-	set desc = "Toggle dis bitch"
-	set name = "Toggle Dead Chat"
+ADMIN_VERB(toggle_dead_chat, R_ADMIN, "Toggle Dead Chat", "Toggle dis bitch", ADMIN_CATEGORY_SERVER)
 	toggle_dchat()
 	log_admin("[key_name(usr)] toggled dead chat.")
 	message_admins("[key_name_admin(usr)] toggled dead chat.")
