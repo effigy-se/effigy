@@ -9,15 +9,12 @@
 	if(!ishuman(target))
 		return
 
-	if(target.dna.features["moth_wings"] && (type in GLOB.bodypart_allowed_species[FEATURE_WINGS]))
-		if(target.dna.wing_type == NO_VARIATION)
-			return .
-		if((target.dna.features["moth_wings"] != /datum/sprite_accessory/blank::name))
+	if(target.dna.wing_type != NO_VARIATION && (type in GLOB.bodypart_allowed_species[FEATURE_WINGS]))
+		if(target.dna.wing_type == "Moth Wings" && target.dna.features["moth_wings"] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/wings/moth)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .
-	if(target.dna.features["wings"] && (type in GLOB.bodypart_allowed_species[FEATURE_WINGS]))
-		if(target.dna.features["wings"] != /datum/sprite_accessory/blank::name)
+		else if(target.dna.wing_type == "Wings" && target.dna.features["wings_anthro"] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/wings/more)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .
@@ -38,12 +35,12 @@
 	target.dna.wing_type = chosen_variation
 	switch(chosen_variation)
 		if(NO_VARIATION)
-			target.dna.features["wings"] = /datum/sprite_accessory/blank::name
+			target.dna.features["wings_anthro"] = /datum/sprite_accessory/blank::name
 			target.dna.features["moth_wings"] = /datum/sprite_accessory/blank::name
 		if("Wings")
 			target.dna.features["moth_wings"] = /datum/sprite_accessory/blank::name
 		if("Moth Wings")
-			target.dna.features["wings"] = /datum/sprite_accessory/blank::name
+			target.dna.features["wings_anthro"] = /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/wing_variation/create_default_value()
 	return NO_VARIATION
@@ -71,9 +68,6 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Wings"
 	feature_key = "wings_anthro"
-
-/datum/preference/choiced/species_feature/wings/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features[FEATURE_WINGS] = value
 
 /datum/preference/choiced/species_feature/wings/compile_constant_data()
 	var/list/data = ..()
@@ -125,6 +119,7 @@
 
 /datum/bodypart_overlay/mutant/wings/more
 	layers = EXTERNAL_FRONT | EXTERNAL_FRONT_2 | EXTERNAL_FRONT_3 | EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3 | EXTERNAL_BEHIND | EXTERNAL_BEHIND_2 | EXTERNAL_BEHIND_3
+	feature_key = "wings_anthro"
 	feature_key_sprite = "wings"
 
 /datum/bodypart_overlay/mutant/wings/more/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
