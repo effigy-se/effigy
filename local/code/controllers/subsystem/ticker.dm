@@ -45,3 +45,12 @@
 	to_chat(world, finalized_announcement)
 	for(var/mob/player in GLOB.player_list)
 		SEND_SOUND(player, sound('sound/announcer/default/attention.ogg'))
+
+/// Announces a new round to Discord, but only if the previous round completed normally.
+/// Checks for a flag file written by SSpersistence.collect_data() at round end.
+/datum/controller/subsystem/ticker/proc/announce_new_round_to_discord(admin_forced = FALSE)
+	if(!fexists("data/previous_round_end_status.txt"))
+		return
+	fdel("data/previous_round_end_status.txt")
+	for(var/channel_tag in CONFIG_GET(str_list/channel_announce_new_game))
+		send2chat(new /datum/tgs_message_content("Round **[GLOB.round_id]** starting on **[SSmapping.current_map.map_name]!**[CONFIG_GET(string/role_announce_new_game) ? " <@&[CONFIG_GET(string/role_announce_new_game)]>" : ""][CONFIG_GET(string/discord_roles_channel_id) ? "\nTo opt-in for new game notifications, go to <#[CONFIG_GET(string/discord_roles_channel_id)]> and assign yourself the role." : ""]"), channel_tag)

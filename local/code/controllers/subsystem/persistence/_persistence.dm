@@ -21,6 +21,7 @@ We then just check what the last one is in SSgamemode.storyteller_vote_choices()
 	. = ..()
 	collect_storyteller_type()
 	save_tagline()
+	text2file("PERSISTENT_END_OF_ROUND", "data/previous_round_end_status.txt")
 
 /// Loads last storyteller into last_storyteller_type
 /datum/controller/subsystem/persistence/proc/load_storyteller_type()
