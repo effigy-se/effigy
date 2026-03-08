@@ -84,6 +84,10 @@
 	ling.dna.features[FEATURE_LEGS] = DIGITIGRADE_LEGS
 	ling.set_eye_color(COLOR_WHITE)
 	ling.dna.update_ui_block(/datum/dna_block/identity/eye_colors)
+	// EffigyEdit Add - Character Preferences
+	ling.dna.tail_type = LIZARD_TYPE
+	ling.dna.features[FEATURE_FLUFF] = "None"
+	// EffigyEdit Add End
 	ling.set_species(/datum/species/lizard)
 
 	ling.real_name = ling_name
