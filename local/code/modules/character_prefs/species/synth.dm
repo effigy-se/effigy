@@ -161,7 +161,7 @@
 	beepboop.dna.features["ears"] = /datum/sprite_accessory/ears_anthro/humanoid/protogen::name
 	beepboop.dna.features["ears_color_1"] = "#333333"
 	beepboop.dna.tail_type = HUMANOID_TYPE
-	beepboop.dna.features["tail_other"] = /datum/sprite_accessory/tails/humanoid/cable::name
+	beepboop.dna.features["tail_humanoid"] = /datum/sprite_accessory/tails/humanoid/cable::name
 	beepboop.dna.features["frame_list"] = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/robot/effigy/bare,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/robot/effigy/bare,
