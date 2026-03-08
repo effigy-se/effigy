@@ -12,6 +12,17 @@
 	lizard.dna.features[FEATURE_HORNS] = "Simple"
 	lizard.dna.features[FEATURE_FRILLS] = "Aquatic"
 	lizard.dna.features[FEATURE_LEGS] = "Normal Legs"
+	// EffigyEdit Add - Character Preferences
+	lizard.dna.tail_type = LIZARD_TYPE
+	lizard.dna.features[FEATURE_FLUFF] = "None"
+	lizard.dna.features[FEATURE_LIZARD_MARKINGS] = "None"
+	lizard.dna.features["snout_color_1"] = "#099"
+	lizard.dna.features["snout_color_2"] = "#099"
+	lizard.dna.features["tail_color_1"] = "#099"
+	lizard.dna.features["horns_color_1"] = "#066"
+	lizard.dna.features["frills_color_1"] = "#099"
+	lizard.dna.features["frills_color_2"] = "#066"
+	// EffigyEdit Add End
 	lizard.set_species(/datum/species/lizard)
 	lizard.equipOutfit(/datum/outfit/job/engineer)
 	test_screenshot("[/datum/species/lizard]", get_flat_icon_for_all_directions(lizard))
