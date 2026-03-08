@@ -47,7 +47,7 @@
 	if(bodypart.owner == null)
 		return ..()
 	var/datum/sprite_accessory/tails/tail_sprite = bodypart_overlay?.sprite_datum
-	if(tail_sprite?.can_wag)
+	if(istype(tail_sprite) && tail_sprite?.can_wag)
 		wag_flags |= WAG_ABLE
 	else
 		wag_flags &= ~WAG_ABLE

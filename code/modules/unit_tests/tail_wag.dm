@@ -6,6 +6,7 @@
 /datum/unit_test/tail_wag/Run()
 	var/mob/living/carbon/human/dummy = allocate(/mob/living/carbon/human/consistent)
 	var/obj/item/organ/tail/cat/dummy_tail = allocate(/obj/item/organ/tail/cat)
+	dummy_tail.bodypart_overlay.imprint_on_next_insertion = TRUE // EffigyEdit Add - Overwrite randomized sprite accessory next insert
 	dummy_tail.Insert(dummy, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 	// SANITY TEST
