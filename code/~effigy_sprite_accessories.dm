@@ -75,11 +75,6 @@
 	name = SPRITE_ACCESSORY_NO_EARS
 	icon_state = /datum/sprite_accessory/ears/none::icon_state
 
-/datum/sprite_accessory/ears_anthro/cybernetic/none
-	icon = 'local/icons/mob/mutant/sprite_accessories/fallback.dmi'
-	name = SPRITE_ACCESSORY_NO_EARS
-	icon_state = /datum/sprite_accessory/ears/none::icon_state
-
 /// Tail time
 /datum/sprite_accessory/tails/none
 	icon = 'local/icons/mob/mutant/sprite_accessories/fallback.dmi'
@@ -122,11 +117,6 @@
 	icon_state = /datum/sprite_accessory/tails/none::icon_state
 
 /datum/sprite_accessory/tails/fish/none
-	icon = /datum/sprite_accessory/tails/none::icon
-	name = SPRITE_ACCESSORY_NO_TAIL
-	icon_state = /datum/sprite_accessory/tails/none::icon_state
-
-/datum/sprite_accessory/tails/cybernetic/none
 	icon = /datum/sprite_accessory/tails/none::icon
 	name = SPRITE_ACCESSORY_NO_TAIL
 	icon_state = /datum/sprite_accessory/tails/none::icon_state

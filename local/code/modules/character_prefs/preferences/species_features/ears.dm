@@ -12,7 +12,6 @@
 	feature_list["ears_mammal"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_anthro/mammal)["default_sprites"]
 	feature_list["ears_fish"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_anthro/fish)["default_sprites"]
 	feature_list["ears_humanoid"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_anthro/humanoid)["default_sprites"]
-	feature_list["ears_synthetic"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_anthro/cybernetic)["default_sprites"]
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
@@ -351,6 +350,7 @@
 
 	return FALSE
 
+/* There's no sprites for this
 ///	Synth ears type
 /datum/preference/choiced/species_feature/synthetic_ears
 	savefile_key = "feature_synth_ears"
@@ -383,6 +383,12 @@
 		return TRUE
 
 	return FALSE
+
+/datum/preference/choiced/species_feature/synthetic_ears/compile_constant_data()
+	var/list/data = ..()
+	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
+	return data
+*/
 
 /// Generate selection preview
 /datum/preference/choiced/proc/generate_ears_icon(chosen_ears)
@@ -518,11 +524,6 @@
 	return data
 
 /datum/preference/choiced/species_feature/humanoid_ears/compile_constant_data()
-	var/list/data = ..()
-	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
-	return data
-
-/datum/preference/choiced/species_feature/synthetic_ears/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
 	return data

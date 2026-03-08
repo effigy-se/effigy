@@ -8,7 +8,6 @@
 	feature_list["tail_fox"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/fox)["default_sprites"]
 	feature_list["tail_flying"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/flying)["default_sprites"]
 	feature_list["tail_mammal"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/mammal)["default_sprites"]
-	feature_list["tail_synthetic"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/cybernetic)["default_sprites"]
 	feature_list["tail_humanoid"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/humanoid)["default_sprites"]
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
@@ -381,6 +380,7 @@
 
 	return FALSE
 
+/* There's no sprites for this
 ///	Synth tail type
 /datum/preference/choiced/species_feature/synth_tail
 	savefile_key = "feature_synth_tail"
@@ -401,7 +401,7 @@
 	return data
 
 /datum/preference/choiced/species_feature/synth_tail/create_default_value()
-	return /datum/sprite_accessory/tails/cybernetic/none::name
+	return /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/species_feature/synth_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
@@ -418,6 +418,7 @@
 		return TRUE
 
 	return FALSE
+*/
 
 ///	Humanoid tail type
 /datum/preference/choiced/species_feature/humanoid_tail

@@ -3,7 +3,6 @@
 #define NO_VARIATION "none"
 #define AQUATIC_TYPE "aquatic"
 #define CAT_TYPE "cat"
-#define CYBERNETIC_TYPE "cybernetic"
 #define DOG_TYPE "dog"
 #define FLYING_TYPE "flying"
 #define FOX_TYPE "fox"

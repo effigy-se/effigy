@@ -7255,7 +7255,6 @@
 #include "local\code\modules\character_prefs\sprite_accessories\ears\ears_monkey.dm"
 #include "local\code\modules\character_prefs\sprite_accessories\tails\tails_aquatic.dm"
 #include "local\code\modules\character_prefs\sprite_accessories\tails\tails_cat.dm"
-#include "local\code\modules\character_prefs\sprite_accessories\tails\tails_cybernetic.dm"
 #include "local\code\modules\character_prefs\sprite_accessories\tails\tails_dog.dm"
 #include "local\code\modules\character_prefs\sprite_accessories\tails\tails_flying.dm"
 #include "local\code\modules\character_prefs\sprite_accessories\tails\tails_fox.dm"
