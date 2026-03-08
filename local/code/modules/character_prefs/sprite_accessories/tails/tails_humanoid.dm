@@ -11,6 +11,7 @@
 /datum/sprite_accessory/tails/humanoid/cable
 	name = "Cable"
 	icon_state = "cable"
+	can_wag = TRUE
 
 /datum/sprite_accessory/tails/humanoid/plug
 	name = "Plug"
