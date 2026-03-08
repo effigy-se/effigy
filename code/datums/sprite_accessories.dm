@@ -1910,6 +1910,8 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	em_block = TRUE
 	/// Describes which tail spine sprites to use, if any.
 	var/spine_key = NONE
+	/// Does this sprite have wagging animations?
+	var/can_wag = FALSE // EffigyEdit Add - Character Preferences
 
 // EffigyEdit Remove - Character Preferences - Moved to local/code/modules/character_prefs/sprite_accessories/tails/tails_aquatic.dm
 /*

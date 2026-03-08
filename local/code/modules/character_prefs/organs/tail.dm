@@ -1,13 +1,11 @@
 /// Monkey tail
 /obj/item/organ/tail/monkey
 	name = "monkey tail"
-	wag_flags = WAG_ABLE
 
 /// Mammal tail
 /obj/item/organ/tail/mammal
 	name = "mammal tail"
 	dna_block = null
-	wag_flags = WAG_ABLE
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/mammal
 
 /datum/bodypart_overlay/mutant/tail/mammal
@@ -19,7 +17,6 @@
 /// Dog tail
 /obj/item/organ/tail/dog
 	dna_block = null
-	wag_flags = WAG_ABLE
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/dog
 
 /datum/bodypart_overlay/mutant/tail/dog
@@ -31,7 +28,6 @@
 /// Fox tail
 /obj/item/organ/tail/fox
 	dna_block = null
-	wag_flags = WAG_ABLE
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/fox
 
 /datum/bodypart_overlay/mutant/tail/fox
@@ -70,7 +66,6 @@
 /// Humanoid tail
 /obj/item/organ/tail/humanoid
 	dna_block = null
-	wag_flags = WAG_ABLE
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/humanoid
 
 /datum/bodypart_overlay/mutant/tail/humanoid
