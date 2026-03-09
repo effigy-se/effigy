@@ -28,96 +28,96 @@
 	target.dna.tail_type = chosen_variation
 	switch(chosen_variation)
 		if(NO_VARIATION)
-			target.dna.features["fish_tail"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_cat"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_dog"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_flying"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_fox"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_humanoid"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_lizard"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_monkey"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_mammal"] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_DOG] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FLYING] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FOX] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_HUMANOID] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MAMMAL] = /datum/sprite_accessory/blank::name
 		if(AQUATIC_TYPE)
-			target.dna.features["tail_cat"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_dog"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_flying"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_fox"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_humanoid"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_lizard"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_monkey"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_mammal"] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_DOG] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FLYING] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FOX] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_HUMANOID] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MAMMAL] = /datum/sprite_accessory/blank::name
 		if(CAT_TYPE)
-			target.dna.features["fish_tail"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_dog"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_flying"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_fox"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_humanoid"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_lizard"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_monkey"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_mammal"] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_DOG] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FLYING] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FOX] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_HUMANOID] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MAMMAL] = /datum/sprite_accessory/blank::name
 		if(DOG_TYPE)
-			target.dna.features["fish_tail"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_cat"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_flying"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_fox"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_humanoid"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_lizard"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_monkey"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_mammal"] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FLYING] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FOX] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_HUMANOID] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MAMMAL] = /datum/sprite_accessory/blank::name
 		if(FLYING_TYPE)
-			target.dna.features["fish_tail"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_cat"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_dog"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_fox"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_humanoid"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_lizard"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_monkey"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_mammal"] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_DOG] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FOX] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_HUMANOID] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MAMMAL] = /datum/sprite_accessory/blank::name
 		if(FOX_TYPE)
-			target.dna.features["fish_tail"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_cat"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_dog"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_flying"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_humanoid"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_lizard"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_monkey"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_mammal"] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_DOG] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FLYING] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_HUMANOID] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MAMMAL] = /datum/sprite_accessory/blank::name
 		if(HUMANOID_TYPE)
-			target.dna.features["fish_tail"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_cat"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_dog"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_flying"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_fox"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_lizard"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_monkey"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_mammal"] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_DOG] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FLYING] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FOX] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MAMMAL] = /datum/sprite_accessory/blank::name
 		if(LIZARD_TYPE)
-			target.dna.features["fish_tail"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_cat"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_dog"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_flying"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_fox"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_humanoid"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_monkey"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_mammal"] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_DOG] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FLYING] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FOX] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_HUMANOID] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MAMMAL] = /datum/sprite_accessory/blank::name
 		if(MONKEY_TYPE)
-			target.dna.features["fish_tail"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_cat"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_dog"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_flying"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_fox"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_humanoid"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_lizard"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_mammal"] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_DOG] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FLYING] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FOX] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_HUMANOID] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MAMMAL] = /datum/sprite_accessory/blank::name
 		if(MAMMAL_TYPE)
-			target.dna.features["fish_tail"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_cat"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_dog"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_flying"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_fox"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_humanoid"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_lizard"] = /datum/sprite_accessory/blank::name
-			target.dna.features["tail_monkey"] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_DOG] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FLYING] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FOX] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_HUMANOID] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/tail_variation/create_default_value()
 	return NO_VARIATION
@@ -201,7 +201,7 @@
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
-	feature_key = "tail_dog"
+	feature_key = FEATURE_TAIL_DOG
 	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/dog_tail/compile_constant_data()
@@ -235,7 +235,7 @@
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
-	feature_key = "tail_fox"
+	feature_key = FEATURE_TAIL_FOX
 	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/fox_tail/compile_constant_data()
@@ -269,7 +269,7 @@
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
-	feature_key = "tail_mammal"
+	feature_key = FEATURE_TAIL_MAMMAL
 	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/mammal_tail/compile_constant_data()
@@ -303,7 +303,7 @@
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
-	feature_key = "tail_flying"
+	feature_key = FEATURE_TAIL_FLYING
 	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/flying_tail/compile_constant_data()
@@ -438,7 +438,7 @@
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
-	feature_key = "tail_humanoid"
+	feature_key = FEATURE_TAIL_HUMANOID
 	priority = PREFERENCE_PRIORITY_PRE_SPECIES
 
 /datum/preference/choiced/species_feature/humanoid_tail/compile_constant_data()

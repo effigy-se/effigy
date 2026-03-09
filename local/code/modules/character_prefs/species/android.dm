@@ -5,7 +5,7 @@
 	robot_for_preview.dna.features[FEATURE_EARS_HUMANOID] = "Protogen"
 	robot_for_preview.dna.features["ears_color_1"] = "#333333"
 	robot_for_preview.dna.tail_type = HUMANOID_TYPE
-	robot_for_preview.dna.features["tail_humanoid"] = "Cable"
+	robot_for_preview.dna.features[FEATURE_TAIL_HUMANOID] = "Cable"
 	robot_for_preview.dna.features["frame_list"] = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/robot/effigy/sgm,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/robot/effigy/sgm,

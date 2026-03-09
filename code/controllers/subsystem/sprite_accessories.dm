@@ -112,11 +112,11 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	feature_list[FEATURE_EARS_MAMMAL] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/ears_anthro/mammal)
 	feature_list[FEATURE_EARS_AQUATIC] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/ears_anthro/fish)
 	feature_list[FEATURE_EARS_HUMANOID] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/ears_anthro/humanoid)
-	feature_list["tail_dog"] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/dog)
-	feature_list["tail_fox"] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/fox)
-	feature_list["tail_flying"] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/flying)
-	feature_list["tail_mammal"] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/mammal)
-	feature_list["tail_humanoid"] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/humanoid)
+	feature_list[FEATURE_TAIL_DOG] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/dog)
+	feature_list[FEATURE_TAIL_FOX] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/fox)
+	feature_list[FEATURE_TAIL_FLYING] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/flying)
+	feature_list[FEATURE_TAIL_MAMMAL] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/mammal)
+	feature_list[FEATURE_TAIL_HUMANOID] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/humanoid)
 	feature_list["wings_anthro"] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/wings_anthro)
 	// EffigyEdit Add End
 

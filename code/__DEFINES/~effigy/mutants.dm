@@ -62,6 +62,12 @@ GLOBAL_LIST_INIT(ear_variations, list(
 #define FEATURE_EARS_MAMMAL "ears_mammal"
 #define FEATURE_EARS_MONKEY "ears_monkey"
 
+#define FEATURE_TAIL_DOG "tail_dog"
+#define FEATURE_TAIL_FLYING "tail_flying"
+#define FEATURE_TAIL_FOX "tail_fox"
+#define FEATURE_TAIL_HUMANOID "tail_humanoid"
+#define FEATURE_TAIL_MAMMAL "tail_mammal"
+
 GLOBAL_LIST_INIT(bodypart_allowed_species, list(
 	FEATURE_MOTH_ANTENNAE = list(
 		/datum/species/animalid,
