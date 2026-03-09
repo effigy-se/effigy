@@ -2,17 +2,18 @@
 
 /datum/species/android/prepare_human_for_preview(mob/living/carbon/human/robot_for_preview)
 	robot_for_preview.dna.ear_type = HUMANOID_TYPE
-	robot_for_preview.dna.features["ears"] = /datum/sprite_accessory/ears_anthro/humanoid/protogen::name
+	robot_for_preview.dna.features["ears_humanoid"] = "Protogen"
 	robot_for_preview.dna.features["ears_color_1"] = "#333333"
 	robot_for_preview.dna.tail_type = HUMANOID_TYPE
-	robot_for_preview.dna.features["tail_humanoid"] = /datum/sprite_accessory/tails/humanoid/cable::name
+	robot_for_preview.dna.features["tail_humanoid"] = "Cable"
 	robot_for_preview.dna.features["frame_list"] = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/robot/effigy/sgm,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/robot/effigy/sgm,
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/robot/effigy/sgm,
 		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/robot/effigy/sgm,
 		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/robot/effigy/sgm,
-		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/robot/effigy/sgm)
+		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/robot/effigy/sgm
+	)
 	regenerate_organs(robot_for_preview)
 	robot_for_preview.update_body(is_creating = TRUE)
 

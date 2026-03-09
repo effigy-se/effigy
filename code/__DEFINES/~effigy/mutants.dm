@@ -80,7 +80,6 @@ GLOBAL_LIST_INIT(bodypart_allowed_species, list(
 		/datum/species/synth,
 	),
 	FEATURE_FRILLS = list(
-		/datum/species/android,
 		/datum/species/animalid,
 		/datum/species/lizard,
 		/datum/species/synth,
