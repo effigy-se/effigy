@@ -2,7 +2,7 @@
 
 /datum/species/android/prepare_human_for_preview(mob/living/carbon/human/robot_for_preview)
 	robot_for_preview.dna.ear_type = HUMANOID_TYPE
-	robot_for_preview.dna.features["ears_humanoid"] = "Protogen"
+	robot_for_preview.dna.features[FEATURE_EARS_HUMANOID] = "Protogen"
 	robot_for_preview.dna.features["ears_color_1"] = "#333333"
 	robot_for_preview.dna.tail_type = HUMANOID_TYPE
 	robot_for_preview.dna.features["tail_humanoid"] = "Cable"

@@ -1,19 +1,24 @@
 /// Cat ears
 /obj/item/organ/ears/cat
-	bodypart_overlay = /datum/bodypart_overlay/mutant/ears
+	dna_block = null
+	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/cat_ears
+
+/datum/bodypart_overlay/mutant/ears/cat_ears
+	feature_key = FEATURE_EARS_CAT
+
 /// Lizard ears
 /obj/item/organ/ears/lizard
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/lizard_ears
 
 /datum/bodypart_overlay/mutant/ears/lizard_ears
-	feature_key = "ears_lizard"
+	feature_key = FEATURE_EARS_LIZARD
 
 /// Fox ears
 /obj/item/organ/ears/fox
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/fox_ears
 
 /datum/bodypart_overlay/mutant/ears/fox_ears
-	feature_key = "ears_fox"
+	feature_key = FEATURE_EARS_FOX
 
 /// Dog ears
 /obj/item/organ/ears/dog
@@ -21,7 +26,7 @@
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 /datum/bodypart_overlay/mutant/ears/dog_ears
-	feature_key = "ears_dog"
+	feature_key = FEATURE_EARS_DOG
 
 /// Flying ears
 /obj/item/organ/ears/flying
@@ -29,7 +34,7 @@
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 /datum/bodypart_overlay/mutant/ears/flying_ears
-	feature_key = "ears_flying"
+	feature_key = FEATURE_EARS_FLYING
 
 /// Mammal ears
 /obj/item/organ/ears/mammal
@@ -37,7 +42,7 @@
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 /datum/bodypart_overlay/mutant/ears/mammal_ears
-	feature_key = "ears_mammal"
+	feature_key = FEATURE_EARS_MAMMAL
 
 /// Monkey ears
 /obj/item/organ/ears/monkey
@@ -45,7 +50,7 @@
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 /datum/bodypart_overlay/mutant/ears/monkey_ears
-	feature_key = "ears_monkey"
+	feature_key = FEATURE_EARS_MONKEY
 
 /// Aquatic ears
 /obj/item/organ/ears/fish
@@ -53,7 +58,7 @@
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 /datum/bodypart_overlay/mutant/ears/fish_ears
-	feature_key = "ears_fish"
+	feature_key = FEATURE_EARS_AQUATIC
 
 /// Humanoid ears
 /obj/item/organ/ears/humanoid
@@ -61,4 +66,4 @@
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 /datum/bodypart_overlay/mutant/ears/humanoid_ears
-	feature_key = "ears_humanoid"
+	feature_key = FEATURE_EARS_HUMANOID
