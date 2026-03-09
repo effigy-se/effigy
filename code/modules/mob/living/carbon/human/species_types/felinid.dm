@@ -29,11 +29,11 @@
 	if(!pref_load) //Hah! They got forcefully purrbation'd. Force default felinid parts on them if they have no mutant parts in those areas!
 		if(human_who_gained_species.dna.features[FEATURE_TAIL_CAT] == SPRITE_ACCESSORY_NONE)
 			human_who_gained_species.dna.features[FEATURE_TAIL_CAT] = get_consistent_feature_entry(SSaccessories.feature_list[FEATURE_TAIL_CAT])
-		if(human_who_gained_species.dna.features[FEATURE_EARS] == SPRITE_ACCESSORY_NONE)
-			human_who_gained_species.dna.features[FEATURE_EARS] = get_consistent_feature_entry(SSaccessories.feature_list[FEATURE_EARS])
+		if(human_who_gained_species.dna.features[FEATURE_EARS_CAT] == SPRITE_ACCESSORY_NONE) // EffigyEdit Change - FEATURE_EARS -> FEATURE_EARS_CAT
+			human_who_gained_species.dna.features[FEATURE_EARS_CAT] = get_consistent_feature_entry(SSaccessories.feature_list[FEATURE_EARS_CAT]) // EffigyEdit Change - FEATURE_EARS -> FEATURE_EARS_CAT
 
 	// Swapping out feline ears for normal ol' human ears if they have invisible cat ears.
-	if(human_who_gained_species.dna.features[FEATURE_EARS] == SPRITE_ACCESSORY_NONE)
+	if(human_who_gained_species.dna.features[FEATURE_EARS_CAT] == SPRITE_ACCESSORY_NONE) // EffigyEdit Change - FEATURE_EARS -> FEATURE_EARS_CAT
 		mutantears = /obj/item/organ/ears
 	return ..()
 

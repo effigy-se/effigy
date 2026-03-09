@@ -8,7 +8,7 @@
 	if(randomize_features)
 		if(species.id != /datum/species/human/felinid::id)
 			features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
-			features[FEATURE_EARS] = /datum/sprite_accessory/blank::name
+			features[FEATURE_EARS_CAT] = /datum/sprite_accessory/blank::name
 		if(species.id != /datum/species/monkey::id)
 			features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/blank::name
 	update_dna_identity()
