@@ -19,9 +19,9 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 
 /datum/preference/choiced/heart_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		return
-	target.dna?.species?.mutantheart = text2path("/obj/item/organ/heart/[value]")
-	LAZYADDASSOC(target.dna.features["frame_list"], ORGAN_SLOT_HEART, text2path("/obj/item/organ/heart/[value]"))
+		LAZYREMOVE(target.dna.features["frame_list"], ORGAN_SLOT_HEART)
+	else
+		LAZYSET(target.dna.features["frame_list"], ORGAN_SLOT_HEART, text2path("/obj/item/organ/heart/[value]"))
 
 /datum/preference/choiced/heart_type/compile_constant_data()
 	var/list/data = ..()
@@ -51,9 +51,9 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 
 /datum/preference/choiced/lungs_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		return
-	target.dna?.species?.mutantlungs = text2path("/obj/item/organ/lungs/[value]")
-	LAZYADDASSOC(target.dna.features["frame_list"], ORGAN_SLOT_LUNGS, text2path("/obj/item/organ/lungs/[value]"))
+		LAZYREMOVE(target.dna.features["frame_list"], ORGAN_SLOT_LUNGS)
+	else
+		LAZYSET(target.dna.features["frame_list"], ORGAN_SLOT_LUNGS, text2path("/obj/item/organ/lungs/[value]"))
 
 /datum/preference/choiced/lungs_type/compile_constant_data()
 	var/list/data = ..()
@@ -83,9 +83,9 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 
 /datum/preference/choiced/liver_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		return
-	target.dna?.species?.mutantliver = text2path("/obj/item/organ/liver/[value]")
-	LAZYADDASSOC(target.dna.features["frame_list"], ORGAN_SLOT_LIVER, text2path("/obj/item/organ/liver/[value]"))
+		LAZYREMOVE(target.dna.features["frame_list"], ORGAN_SLOT_LIVER)
+	else
+		LAZYSET(target.dna.features["frame_list"], ORGAN_SLOT_LIVER, text2path("/obj/item/organ/liver/[value]"))
 
 /datum/preference/choiced/liver_type/compile_constant_data()
 	var/list/data = ..()
@@ -115,9 +115,9 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 
 /datum/preference/choiced/stomach_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		return
-	target.dna?.species?.mutantstomach = text2path("/obj/item/organ/stomach/[value]")
-	LAZYADDASSOC(target.dna.features["frame_list"], ORGAN_SLOT_STOMACH, text2path("/obj/item/organ/stomach/[value]"))
+		LAZYREMOVE(target.dna.features["frame_list"], ORGAN_SLOT_STOMACH)
+	else
+		LAZYSET(target.dna.features["frame_list"], ORGAN_SLOT_STOMACH, text2path("/obj/item/organ/stomach/[value]"))
 
 /datum/preference/choiced/stomach_type/compile_constant_data()
 	var/list/data = ..()
@@ -147,9 +147,9 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 
 /datum/preference/choiced/eyes_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		return
-	target.dna?.species?.mutanteyes = text2path("/obj/item/organ/eyes/[value]")
-	LAZYADDASSOC(target.dna.features["frame_list"], ORGAN_SLOT_EYES, text2path("/obj/item/organ/eyes/[value]"))
+		LAZYREMOVE(target.dna.features["frame_list"], ORGAN_SLOT_EYES)
+	else
+		LAZYSET(target.dna.features["frame_list"], ORGAN_SLOT_EYES, text2path("/obj/item/organ/eyes/[value]"))
 
 /datum/preference/choiced/eyes_type/compile_constant_data()
 	var/list/data = ..()
@@ -179,9 +179,9 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 
 /datum/preference/choiced/tongue_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		return
-	target.dna?.species?.mutanttongue = text2path("/obj/item/organ/tongue/[value]")
-	LAZYADDASSOC(target.dna.features["frame_list"], ORGAN_SLOT_TONGUE, text2path("/obj/item/organ/tongue/[value]"))
+		LAZYREMOVE(target.dna.features["frame_list"], ORGAN_SLOT_TONGUE)
+	else
+		LAZYSET(target.dna.features["frame_list"], ORGAN_SLOT_TONGUE, text2path("/obj/item/organ/tongue/[value]"))
 
 /datum/preference/choiced/tongue_type/compile_constant_data()
 	var/list/data = ..()
@@ -211,8 +211,9 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 
 /datum/preference/choiced/breathing_tube/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		return
-	LAZYADDASSOC(target.dna.features["frame_list"], ORGAN_SLOT_BREATHING_TUBE, text2path("/obj/item/organ/cyberimp/mouth/[value]"))
+		LAZYREMOVE(target.dna.features["frame_list"], ORGAN_SLOT_BREATHING_TUBE)
+	else
+		LAZYSET(target.dna.features["frame_list"], ORGAN_SLOT_BREATHING_TUBE, text2path("/obj/item/organ/cyberimp/mouth/[value]"))
 
 /datum/preference/choiced/breathing_tube/compile_constant_data()
 	var/list/data = ..()
@@ -235,62 +236,66 @@ GLOBAL_LIST_INIT(organ_type_names, list(
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target.dna.features["frame_list"])
-		//liver
-		if(target.dna.features["frame_list"][ORGAN_SLOT_HEART])
-			var/obj/item/organ/heart/old_organ = target.get_organ_slot(ORGAN_SLOT_HEART)
-			var/obj/item/organ/heart/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][ORGAN_SLOT_HEART])
+	// heart
+	if(LAZYACCESS(target.dna.features["frame_list"], ORGAN_SLOT_HEART))
+		var/obj/item/organ/heart/old_organ = target.get_organ_slot(ORGAN_SLOT_HEART)
+		var/obj/item/organ/heart/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][ORGAN_SLOT_HEART])
+		old_organ.before_organ_replacement(replacement)
+		old_organ.Remove(target, special = TRUE)
+		QDEL_NULL(old_organ)
+		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+	// lungs
+	if(LAZYACCESS(target.dna.features["frame_list"], ORGAN_SLOT_LUNGS))
+		var/obj/item/organ/lungs/old_organ = target.get_organ_slot(ORGAN_SLOT_LUNGS)
+		var/obj/item/organ/lungs/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][ORGAN_SLOT_LUNGS])
+		old_organ.before_organ_replacement(replacement)
+		old_organ.Remove(target, special = TRUE)
+		QDEL_NULL(old_organ)
+		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+	// liver
+	if(LAZYACCESS(target.dna.features["frame_list"], ORGAN_SLOT_LIVER))
+		var/obj/item/organ/liver/old_organ = target.get_organ_slot(ORGAN_SLOT_LIVER)
+		var/obj/item/organ/liver/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][ORGAN_SLOT_LIVER])
+		old_organ.before_organ_replacement(replacement)
+		old_organ.Remove(target, special = TRUE)
+		QDEL_NULL(old_organ)
+		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+	// stomach
+	if(LAZYACCESS(target.dna.features["frame_list"], ORGAN_SLOT_STOMACH))
+		var/obj/item/organ/stomach/old_organ = target.get_organ_slot(ORGAN_SLOT_STOMACH)
+		var/obj/item/organ/stomach/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][ORGAN_SLOT_STOMACH])
+		old_organ.before_organ_replacement(replacement)
+		old_organ.Remove(target, special = TRUE)
+		QDEL_NULL(old_organ)
+		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+	// eyes
+	if(LAZYACCESS(target.dna.features["frame_list"], ORGAN_SLOT_EYES))
+		var/obj/item/organ/eyes/old_organ = target.get_organ_slot(ORGAN_SLOT_EYES)
+		var/obj/item/organ/eyes/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][ORGAN_SLOT_EYES])
+		old_organ.before_organ_replacement(replacement)
+		old_organ.Remove(target, special = TRUE)
+		QDEL_NULL(old_organ)
+		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+	// tongue
+	if(LAZYACCESS(target.dna.features["frame_list"], ORGAN_SLOT_TONGUE))
+		var/obj/item/organ/tongue/old_organ = target.get_organ_slot(ORGAN_SLOT_TONGUE)
+		var/obj/item/organ/tongue/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][ORGAN_SLOT_TONGUE])
+		old_organ.before_organ_replacement(replacement)
+		old_organ.Remove(target, special = TRUE)
+		QDEL_NULL(old_organ)
+		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+	// breathing tube
+	if(LAZYACCESS(target.dna.features["frame_list"], ORGAN_SLOT_BREATHING_TUBE))
+		var/obj/item/organ/cyberimp/mouth/old_organ = target.get_organ_slot(ORGAN_SLOT_BREATHING_TUBE)
+		var/obj/item/organ/cyberimp/mouth/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][ORGAN_SLOT_BREATHING_TUBE])
+		if(!isnull(old_organ))
 			old_organ.before_organ_replacement(replacement)
 			old_organ.Remove(target, special = TRUE)
 			QDEL_NULL(old_organ)
-			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		//liver
-		if(target.dna.features["frame_list"][ORGAN_SLOT_LUNGS])
-			var/obj/item/organ/lungs/old_organ = target.get_organ_slot(ORGAN_SLOT_LUNGS)
-			var/obj/item/organ/lungs/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][ORGAN_SLOT_LUNGS])
-			old_organ.before_organ_replacement(replacement)
+		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+	else
+		// breathing tube isn't a vital organ, so delete existing
+		var/obj/item/organ/cyberimp/mouth/old_organ = target.get_organ_slot(ORGAN_SLOT_BREATHING_TUBE)
+		if(!isnull(old_organ))
 			old_organ.Remove(target, special = TRUE)
-			QDEL_NULL(old_organ)
-			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		//liver
-		if(target.dna.features["frame_list"][ORGAN_SLOT_LIVER])
-			var/obj/item/organ/liver/old_organ = target.get_organ_slot(ORGAN_SLOT_LIVER)
-			var/obj/item/organ/liver/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][ORGAN_SLOT_LIVER])
-			old_organ.before_organ_replacement(replacement)
-			old_organ.Remove(target, special = TRUE)
-			QDEL_NULL(old_organ)
-			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		//liver
-		if(target.dna.features["frame_list"][ORGAN_SLOT_STOMACH])
-			var/obj/item/organ/stomach/old_organ = target.get_organ_slot(ORGAN_SLOT_STOMACH)
-			var/obj/item/organ/stomach/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][ORGAN_SLOT_STOMACH])
-			old_organ.before_organ_replacement(replacement)
-			old_organ.Remove(target, special = TRUE)
-			QDEL_NULL(old_organ)
-			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		//eyes
-		if(target.dna.features["frame_list"][ORGAN_SLOT_EYES])
-			var/obj/item/organ/eyes/old_organ = target.get_organ_slot(ORGAN_SLOT_EYES)
-			var/obj/item/organ/eyes/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][ORGAN_SLOT_EYES])
-			old_organ.before_organ_replacement(replacement)
-			old_organ.Remove(target, special = TRUE)
-			QDEL_NULL(old_organ)
-			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		//tongue
-		if(target.dna.features["frame_list"][ORGAN_SLOT_TONGUE])
-			var/obj/item/organ/tongue/old_organ = target.get_organ_slot(ORGAN_SLOT_TONGUE)
-			var/obj/item/organ/tongue/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][ORGAN_SLOT_TONGUE])
-			old_organ.before_organ_replacement(replacement)
-			old_organ.Remove(target, special = TRUE)
-			QDEL_NULL(old_organ)
-			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		//breathing tube
-		if(target.dna.features["frame_list"][ORGAN_SLOT_BREATHING_TUBE])
-			var/obj/item/organ/cyberimp/mouth/old_organ = target.get_organ_slot(ORGAN_SLOT_BREATHING_TUBE)
-			var/obj/item/organ/cyberimp/mouth/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][ORGAN_SLOT_BREATHING_TUBE])
-			if(!isnull(old_organ))
-				old_organ.before_organ_replacement(replacement)
-				old_organ.Remove(target, special = TRUE)
-				QDEL_NULL(old_organ)
-			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		return .
+			qdel(old_organ)
