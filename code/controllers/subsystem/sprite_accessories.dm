@@ -78,19 +78,19 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 
 	feature_list = list()
 	// felinids
-	feature_list[FEATURE_TAIL_CAT] = INIT_ACCESSORY(/datum/sprite_accessory/tails/felinid) // EffigyEdit Change - Original: feature_list[FEATURE_TAIL_CAT] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/felinid)
+	feature_list[FEATURE_TAIL_CAT] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/felinid)
 	feature_list[FEATURE_EARS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/ears)
 	// lizards
 	feature_list[FEATURE_FRILLS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/frills)
 	feature_list[FEATURE_HORNS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/horns)
 	feature_list[FEATURE_LIZARD_MARKINGS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/lizard_markings)
-	feature_list[FEATURE_SNOUT] = INIT_ACCESSORY(/datum/sprite_accessory/snouts)
+	feature_list[FEATURE_SNOUT] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/snouts) // EffigyEdit Change - Made optional
 	feature_list[FEATURE_SPINES] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/spines)
 	feature_list[FEATURE_TAILSPINES] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tail_spines)
-	feature_list[FEATURE_TAIL_LIZARD] = INIT_ACCESSORY(/datum/sprite_accessory/tails/lizard)
+	feature_list[FEATURE_TAIL_LIZARD] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/lizard) // EffigyEdit Change - Made optional
 	// moths
-	feature_list[FEATURE_MOTH_WINGS] = INIT_ACCESSORY(/datum/sprite_accessory/moth_wings)
-	feature_list[FEATURE_MOTH_ANTENNAE] = INIT_ACCESSORY(/datum/sprite_accessory/moth_antennae)
+	feature_list[FEATURE_MOTH_WINGS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/moth_wings) // EffigyEdit Change - Made optional
+	feature_list[FEATURE_MOTH_ANTENNAE] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/moth_antennae) // EffigyEdit Change - Made optional
 	feature_list[FEATURE_MOTH_MARKINGS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/moth_markings)
 	// generic wings
 	feature_list[FEATURE_WINGS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/wings)
@@ -98,9 +98,27 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	// generic features
 	feature_list[FEATURE_MUSH_CAP] = INIT_ACCESSORY(/datum/sprite_accessory/caps)
 	feature_list[FEATURE_POD_HAIR] = INIT_ACCESSORY(/datum/sprite_accessory/pod_hair)
-	feature_list[FEATURE_TAIL_FISH] = INIT_ACCESSORY(/datum/sprite_accessory/tails/fish)
-	feature_list[FEATURE_TAIL_MONKEY] = INIT_ACCESSORY(/datum/sprite_accessory/tails/monkey)
+	feature_list[FEATURE_TAIL_FISH] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/fish) // EffigyEdit Change - Made optional
+	feature_list[FEATURE_TAIL_MONKEY] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/monkey) // EffigyEdit Change - Made optional
 	feature_list[FEATURE_TAIL_XENO] = INIT_ACCESSORY(/datum/sprite_accessory/tails/xeno)
+	// EffigyEdit Add - Character Preferences
+	feature_list[FEATURE_FLUFF] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/fluff)
+	feature_list[FEATURE_EARS_LIZARD] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/ears_anthro/lizard)
+	feature_list[FEATURE_EARS_CAT] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/ears)
+	feature_list[FEATURE_EARS_DOG] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/ears_anthro/dog)
+	feature_list[FEATURE_EARS_FOX] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/ears_anthro/fox)
+	feature_list[FEATURE_EARS_FLYING] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/ears_anthro/flying)
+	feature_list[FEATURE_EARS_MONKEY] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/ears_anthro/monkey)
+	feature_list[FEATURE_EARS_MAMMAL] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/ears_anthro/mammal)
+	feature_list[FEATURE_EARS_AQUATIC] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/ears_anthro/fish)
+	feature_list[FEATURE_EARS_HUMANOID] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/ears_anthro/humanoid)
+	feature_list[FEATURE_TAIL_DOG] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/dog)
+	feature_list[FEATURE_TAIL_FOX] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/fox)
+	feature_list[FEATURE_TAIL_FLYING] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/flying)
+	feature_list[FEATURE_TAIL_MAMMAL] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/mammal)
+	feature_list[FEATURE_TAIL_HUMANOID] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/humanoid)
+	feature_list["wings_anthro"] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/wings_anthro)
+	// EffigyEdit Add End
 
 /// This proc just initializes all /datum/sprite_accessory/hair_gradient into an list indexed by gradient-style name
 /datum/controller/subsystem/accessories/proc/init_hair_gradients()

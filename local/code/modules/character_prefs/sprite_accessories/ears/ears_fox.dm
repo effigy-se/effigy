@@ -32,7 +32,7 @@
 	name = "Lunasune"
 	icon_state = "lunasune"
 
-/datum/sprite_accessory/ears/fox/renamon
+/datum/sprite_accessory/ears_anthro/fox/renamon
 	name = "Renamon"
 	icon_state = "renamon"
 

@@ -115,11 +115,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features[FEATURE_ETHEREAL_COLOR] = COLOR_WHITE
 	for(var/feature_key in SSaccessories.feature_list)
 		target.dna.features[feature_key] = get_consistent_feature_entry(SSaccessories.feature_list[feature_key])
-	// EffigyEdit Add - Character Preferences
-	target.dna.features["tail_other"] = "No Tail"
-	target.dna.features[FEATURE_WINGS] = "No Wings"
-	target.dna.features["fluff"] = "No Fluff"
-	// EffigyEdit Add End
 	target.dna.initialize_dna(newblood_type = get_blood_type(BLOOD_TYPE_O_MINUS), create_mutation_blocks = FALSE, randomize_features = FALSE)
 	// UF and UI are nondeterministic, even though the features are the same some blocks will randomize slightly
 	// In practice this doesn't matter, but this is for the sake of 100%(ish) consistency

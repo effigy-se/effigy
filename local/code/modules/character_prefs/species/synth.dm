@@ -157,11 +157,6 @@
 	return perk_descriptions
 
 /datum/species/synth/prepare_human_for_preview(mob/living/carbon/human/beepboop)
-	beepboop.dna.ear_type = CYBERNETIC_TYPE
-	beepboop.dna.features["ears"] = "No Ears"
-	beepboop.dna.features["ears_color_1"] = "#333333"
-	beepboop.dna.tail_type = CYBERNETIC_TYPE
-	beepboop.dna.features["tail_other"] = /datum/sprite_accessory/tails/lizard/none::name
 	beepboop.dna.features["frame_list"] = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/robot/effigy/bare,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/robot/effigy/bare,
@@ -170,5 +165,11 @@
 		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/robot/effigy/bare,
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/robot/effigy/bare,
 	)
+	beepboop.dna.features[FEATURE_MOTH_ANTENNAE] = "None"
+	beepboop.dna.features[FEATURE_FLUFF] = "None"
+	beepboop.dna.features[FEATURE_FRILLS] = "None"
+	beepboop.dna.features[FEATURE_HORNS] = "None"
+	beepboop.dna.features[FEATURE_LIZARD_MARKINGS] = "None"
+	beepboop.dna.features[FEATURE_SNOUT] = "None"
 	regenerate_organs(beepboop)
 	beepboop.update_body(is_creating = TRUE)

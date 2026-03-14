@@ -92,7 +92,12 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	new_dna.temporary_mutations = LAZYLISTDUPLICATE(temporary_mutations)
 	new_dna.mutation_index = mutation_index
 	new_dna.default_mutation_genes = default_mutation_genes
-	new_dna.update_effigy_body_size() // EffigyEdit Add - Character Preferences
+	// EffigyEdit Add - Character Preferences
+	new_dna.update_effigy_body_size()
+	new_dna.ear_type = ear_type
+	new_dna.tail_type = tail_type
+	new_dna.wing_type = wing_type
+	// EffigyEdit Add End
 	//if the new DNA has a holder, transform them immediately, otherwise save it
 	if(new_dna.holder)
 		if (iscarbon(new_dna.holder))

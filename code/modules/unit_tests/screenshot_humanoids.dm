@@ -12,6 +12,17 @@
 	lizard.dna.features[FEATURE_HORNS] = "Simple"
 	lizard.dna.features[FEATURE_FRILLS] = "Aquatic"
 	lizard.dna.features[FEATURE_LEGS] = "Normal Legs"
+	// EffigyEdit Add - Character Preferences
+	lizard.dna.tail_type = LIZARD_TYPE
+	lizard.dna.features[FEATURE_FLUFF] = "None"
+	lizard.dna.features[FEATURE_LIZARD_MARKINGS] = "None"
+	lizard.dna.features["snout_color_1"] = "#099"
+	lizard.dna.features["snout_color_2"] = "#099"
+	lizard.dna.features["tail_color_1"] = "#099"
+	lizard.dna.features["horns_color_1"] = "#066"
+	lizard.dna.features["frills_color_1"] = "#099"
+	lizard.dna.features["frills_color_2"] = "#066"
+	// EffigyEdit Add End
 	lizard.set_species(/datum/species/lizard)
 	lizard.equipOutfit(/datum/outfit/job/engineer)
 	test_screenshot("[/datum/species/lizard]", get_flat_icon_for_all_directions(lizard))
@@ -27,6 +38,11 @@
 	moth.dna.features[FEATURE_MOTH_ANTENNAE] = "Firewatch"
 	moth.dna.features[FEATURE_MOTH_MARKINGS] = "None"
 	moth.dna.features[FEATURE_MOTH_WINGS] = "Firewatch"
+	// EffigyEdit Add - Character Preferences
+	moth.dna.wing_type = "Moth Wings"
+	moth.dna.features[FEATURE_FLUFF] = "None"
+	moth.dna.features[FEATURE_SNOUT] = "None"
+	// EffigyEdit Add End
 	moth.set_species(/datum/species/moth)
 	moth.equipOutfit(/datum/outfit/job/cmo, visuals_only = TRUE)
 	test_screenshot("[/datum/species/moth]", get_flat_icon_for_all_directions(moth))

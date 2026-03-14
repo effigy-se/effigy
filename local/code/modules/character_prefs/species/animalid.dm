@@ -22,20 +22,23 @@
 	)
 
 /datum/species/animalid/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
-	human_for_preview.dna.features["mcolor"] = "#776155"
-	human_for_preview.dna.features["snout"] = "Round"
+	human_for_preview.dna.features[FEATURE_MUTANT_COLOR] = "#776155"
+	human_for_preview.dna.features[FEATURE_SNOUT] = "Round"
 	human_for_preview.dna.features["snout_color_2"] = "#ffffff"
 	human_for_preview.dna.features["snout_color_3"] = "#776155"
 	human_for_preview.dna.ear_type = CAT_TYPE
-	human_for_preview.dna.features["ears"] = "Big"
+	human_for_preview.dna.features[FEATURE_EARS_CAT] = "Big"
 	human_for_preview.dna.features["ears_color_1"] = "#776155"
 	human_for_preview.dna.features["ears_color_2"] = "#ffffff"
-	human_for_preview.dna.tail_type = MAMMAL_TYPE
-	human_for_preview.dna.features["tail_other"] = /datum/sprite_accessory/tails/lizard/none::name
 	human_for_preview.set_haircolor("#574036", update = FALSE)
 	human_for_preview.set_hairstyle("Emo Long", update = TRUE)
-	human_for_preview.eye_color_left = "#C4F87A"
-	human_for_preview.eye_color_right = "#C4F87A"
+	human_for_preview.set_eye_color("#C4F87A")
+	human_for_preview.dna.update_ui_block(/datum/dna_block/identity/eye_colors)
+	human_for_preview.dna.features[FEATURE_MOTH_ANTENNAE] = "None"
+	human_for_preview.dna.features[FEATURE_FLUFF] = "None"
+	human_for_preview.dna.features[FEATURE_FRILLS] = "None"
+	human_for_preview.dna.features[FEATURE_HORNS] = "None"
+	human_for_preview.dna.features[FEATURE_LIZARD_MARKINGS] = "None"
 	regenerate_organs(human_for_preview)
 	human_for_preview.update_body(is_creating = TRUE)
 

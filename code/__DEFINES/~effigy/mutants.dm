@@ -3,7 +3,6 @@
 #define NO_VARIATION "none"
 #define AQUATIC_TYPE "aquatic"
 #define CAT_TYPE "cat"
-#define CYBERNETIC_TYPE "cybernetic"
 #define DOG_TYPE "dog"
 #define FLYING_TYPE "flying"
 #define FOX_TYPE "fox"
@@ -24,11 +23,50 @@ GLOBAL_LIST_INIT(mutant_variations, list(
 	MAMMAL_TYPE,
 ))
 
+GLOBAL_LIST_INIT(tail_variations, list(
+	NO_VARIATION = null,
+	AQUATIC_TYPE = /obj/item/organ/tail/fish,
+	CAT_TYPE = /obj/item/organ/tail/cat,
+	DOG_TYPE = /obj/item/organ/tail/dog,
+	FLYING_TYPE = /obj/item/organ/tail/flying,
+	FOX_TYPE = /obj/item/organ/tail/fox,
+	HUMANOID_TYPE = /obj/item/organ/tail/humanoid,
+	LIZARD_TYPE = /obj/item/organ/tail/lizard,
+	MAMMAL_TYPE = /obj/item/organ/tail/mammal,
+))
+
+GLOBAL_LIST_INIT(ear_variations, list(
+	NO_VARIATION = null,
+	AQUATIC_TYPE = /obj/item/organ/ears/fish,
+	CAT_TYPE = /obj/item/organ/ears/cat,
+	DOG_TYPE = /obj/item/organ/ears/dog,
+	FLYING_TYPE = /obj/item/organ/ears/flying,
+	FOX_TYPE = /obj/item/organ/ears/fox,
+	HUMANOID_TYPE = /obj/item/organ/ears/humanoid,
+	LIZARD_TYPE = /obj/item/organ/ears/lizard,
+	MAMMAL_TYPE = /obj/item/organ/ears/mammal,
+))
+
 #define FEATURE_CYBER_FRAME "cyber_frame"
 #define FEATURE_CYBER_ORGANS "cyber_organs"
 #define FEATURE_FLUFF "fluff"
 #define FEATURE_DIGI_LEGS "digi_legs"
 #define FEATURE_TAIL "tail"
+#define FEATURE_EARS_AQUATIC "ears_fish"
+#define FEATURE_EARS_CAT "ears_cat"
+#define FEATURE_EARS_DOG "ears_dog"
+#define FEATURE_EARS_FLYING "ears_flying"
+#define FEATURE_EARS_FOX "ears_fox"
+#define FEATURE_EARS_HUMANOID "ears_humanoid"
+#define FEATURE_EARS_LIZARD "ears_lizard"
+#define FEATURE_EARS_MAMMAL "ears_mammal"
+#define FEATURE_EARS_MONKEY "ears_monkey"
+
+#define FEATURE_TAIL_DOG "tail_dog"
+#define FEATURE_TAIL_FLYING "tail_flying"
+#define FEATURE_TAIL_FOX "tail_fox"
+#define FEATURE_TAIL_HUMANOID "tail_humanoid"
+#define FEATURE_TAIL_MAMMAL "tail_mammal"
 
 GLOBAL_LIST_INIT(bodypart_allowed_species, list(
 	FEATURE_MOTH_ANTENNAE = list(
@@ -69,7 +107,6 @@ GLOBAL_LIST_INIT(bodypart_allowed_species, list(
 		/datum/species/synth,
 	),
 	FEATURE_FRILLS = list(
-		/datum/species/android,
 		/datum/species/animalid,
 		/datum/species/lizard,
 		/datum/species/synth,

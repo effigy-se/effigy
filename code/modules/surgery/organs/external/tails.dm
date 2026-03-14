@@ -46,6 +46,11 @@
 		return ..()
 	if(bodypart.owner == null)
 		return ..()
+	var/datum/sprite_accessory/tails/tail_sprite = bodypart_overlay?.sprite_datum
+	if(istype(tail_sprite) && tail_sprite?.can_wag)
+		wag_flags |= WAG_ABLE
+	else
+		wag_flags &= ~WAG_ABLE
 	// EffigyEdit Add End
 	var/obj/item/organ/spines/our_spines = bodypart.owner.get_organ_slot(ORGAN_SLOT_EXTERNAL_SPINES)
 	if(our_spines)
@@ -162,7 +167,7 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/cat
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
-	wag_flags = WAG_ABLE
+	// wag_flags = WAG_ABLE // EffigyEdit Remove - Handling is per-sprite instead of organ-wide
 
 /obj/item/organ/tail/cat/get_butt_sprite()
 	return icon('icons/mob/butts.dmi', BUTT_SPRITE_CAT)
@@ -243,7 +248,7 @@
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/lizard
 
-	wag_flags = WAG_ABLE
+	// wag_flags = WAG_ABLE // EffigyEdit Remove - Handling is per-sprite instead of organ-wide
 	dna_block = /datum/dna_block/feature/accessory/tail_lizard
 
 ///Lizard tail bodypart overlay datum

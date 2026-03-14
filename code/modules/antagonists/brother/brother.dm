@@ -139,6 +139,11 @@
 	brother2.dna.features[FEATURE_MOTH_ANTENNAE] = "Plain"
 	brother2.dna.features[FEATURE_MOTH_MARKINGS] = "None"
 	brother2.dna.features[FEATURE_MOTH_WINGS] = "Plain"
+	// EffigyEdit Add - Character Preferences
+	brother2.dna.wing_type = "Moth Wings"
+	brother2.dna.features[FEATURE_FLUFF] = "None"
+	brother2.dna.features[FEATURE_SNOUT] = "None"
+	// EffigyEdit Add End
 	brother2.set_species(/datum/species/moth)
 
 	var/datum/universal_icon/brother1_icon = render_preview_outfit(/datum/outfit/job/quartermaster, brother1)

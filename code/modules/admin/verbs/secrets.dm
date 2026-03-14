@@ -577,7 +577,7 @@ ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before w
 				SEND_SOUND(human_mob, sound(SSstation.announcer.event_sounds[ANNOUNCER_ANIMES]))
 
 				if(human_mob.dna.species.id == SPECIES_HUMAN)
-					if(human_mob.dna.features[FEATURE_TAIL_CAT] == "None" || human_mob.dna.features[FEATURE_EARS] == "None")
+					if(human_mob.dna.features[FEATURE_TAIL_CAT] == "None" || human_mob.dna.features[FEATURE_EARS_CAT] == "None") // EffigyEdit Change - FEATURE_EARS -> FEATURE_EARS_CAT
 						var/obj/item/organ/ears/cat/ears = new
 						var/obj/item/organ/tail/cat/tail = new
 						ears.Insert(human_mob, movement_flags = DELETE_IF_REPLACED)

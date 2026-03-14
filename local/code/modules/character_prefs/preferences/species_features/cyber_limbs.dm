@@ -55,8 +55,9 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 
 /datum/preference/choiced/head_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_HEAD, text2path("/obj/item/bodypart/head/robot/effigy/[value]"))
+		LAZYREMOVE(target.dna.features["frame_list"], BODY_ZONE_HEAD)
+	else
+		LAZYSET(target.dna.features["frame_list"], BODY_ZONE_HEAD, text2path("/obj/item/bodypart/head/robot/effigy/[value]"))
 
 /datum/preference/choiced/head_type/compile_constant_data()
 	var/list/data = ..()
@@ -85,8 +86,9 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 
 /datum/preference/choiced/chest_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_CHEST, text2path("/obj/item/bodypart/chest/robot/effigy/[value]"))
+		LAZYREMOVE(target.dna.features["frame_list"], BODY_ZONE_CHEST)
+	else
+		LAZYSET(target.dna.features["frame_list"], BODY_ZONE_CHEST, text2path("/obj/item/bodypart/chest/robot/effigy/[value]"))
 
 /datum/preference/choiced/chest_type/compile_constant_data()
 	var/list/data = ..()
@@ -116,8 +118,9 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 
 /datum/preference/choiced/arm_r_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_R_ARM, text2path("/obj/item/bodypart/arm/right/robot/effigy/[value]"))
+		LAZYREMOVE(target.dna.features["frame_list"], BODY_ZONE_R_ARM)
+	else
+		LAZYSET(target.dna.features["frame_list"], BODY_ZONE_R_ARM, text2path("/obj/item/bodypart/arm/right/robot/effigy/[value]"))
 
 /datum/preference/choiced/arm_r_type/compile_constant_data()
 	var/list/data = ..()
@@ -147,8 +150,9 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 
 /datum/preference/choiced/arm_l_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_L_ARM, text2path("/obj/item/bodypart/arm/left/robot/effigy/[value]"))
+		LAZYREMOVE(target.dna.features["frame_list"], BODY_ZONE_L_ARM)
+	else
+		LAZYSET(target.dna.features["frame_list"], BODY_ZONE_L_ARM, text2path("/obj/item/bodypart/arm/left/robot/effigy/[value]"))
 
 /datum/preference/choiced/arm_l_type/compile_constant_data()
 	var/list/data = ..()
@@ -178,8 +182,9 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 
 /datum/preference/choiced/leg_r_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_R_LEG, text2path("/obj/item/bodypart/leg/right/robot/effigy/[value]"))
+		LAZYREMOVE(target.dna.features["frame_list"], BODY_ZONE_R_LEG)
+	else
+		LAZYSET(target.dna.features["frame_list"], BODY_ZONE_R_LEG, text2path("/obj/item/bodypart/leg/right/robot/effigy/[value]"))
 
 /datum/preference/choiced/leg_r_type/compile_constant_data()
 	var/list/data = ..()
@@ -209,11 +214,9 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 
 /datum/preference/choiced/leg_l_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "none")
-		for(var/obj/item/bodypart/whatever as anything in target.bodyparts)
-			whatever.change_exempt_flags &= ~BP_BLOCK_CHANGE_SPECIES
-		target.dna?.species?.replace_body(target)
-		return
-	LAZYADDASSOC(target.dna.features["frame_list"], BODY_ZONE_L_LEG, text2path("/obj/item/bodypart/leg/left/robot/effigy/[value]"))
+		LAZYREMOVE(target.dna.features["frame_list"], BODY_ZONE_L_LEG)
+	else
+		LAZYSET(target.dna.features["frame_list"], BODY_ZONE_L_LEG, text2path("/obj/item/bodypart/leg/left/robot/effigy/[value]"))
 
 /datum/preference/choiced/leg_l_type/compile_constant_data()
 	var/list/data = ..()
@@ -236,47 +239,16 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target.dna.features["frame_list"] && (type in GLOB.bodypart_allowed_species[FEATURE_CYBER_FRAME]))
-		//head
-		if(target.dna.features["frame_list"][BODY_ZONE_HEAD] && type == /datum/species/synth)
-			var/obj/item/bodypart/head/old_limb = target.get_bodypart(BODY_ZONE_HEAD)
-			old_limb.drop_limb(TRUE, FALSE, FALSE)
-			old_limb.moveToNullspace()
-			var/obj/item/bodypart/head/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][BODY_ZONE_HEAD])
-			replacement.try_attach_limb(target, TRUE)
-		//chest
-		if(target.dna.features["frame_list"][BODY_ZONE_CHEST])
-			var/obj/item/bodypart/chest/old_limb = target.get_bodypart(BODY_ZONE_CHEST)
-			old_limb.drop_limb(TRUE, FALSE, FALSE)
-			old_limb.moveToNullspace()
-			var/obj/item/bodypart/chest/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][BODY_ZONE_CHEST])
-			replacement.try_attach_limb(target, TRUE)
-		//right arm
-		if(target.dna.features["frame_list"][BODY_ZONE_R_ARM])
-			var/obj/item/bodypart/arm/right/old_limb = target.get_bodypart(BODY_ZONE_R_ARM)
-			old_limb.drop_limb(TRUE, FALSE, FALSE)
-			old_limb.moveToNullspace()
-			var/obj/item/bodypart/arm/right/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][BODY_ZONE_R_ARM])
-			replacement.try_attach_limb(target, TRUE)
-		//left arm
-		if(target.dna.features["frame_list"][BODY_ZONE_L_ARM])
-			var/obj/item/bodypart/arm/left/old_limb = target.get_bodypart(BODY_ZONE_L_ARM)
-			old_limb.drop_limb(TRUE, FALSE, FALSE)
-			old_limb.moveToNullspace()
-			var/obj/item/bodypart/arm/left/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][BODY_ZONE_L_ARM])
-			replacement.try_attach_limb(target, TRUE)
-		//right leg
-		if(target.dna.features["frame_list"][BODY_ZONE_R_LEG])
-			var/obj/item/bodypart/leg/right/old_limb = target.get_bodypart(BODY_ZONE_R_LEG)
-			old_limb.drop_limb(TRUE, FALSE, FALSE)
-			old_limb.moveToNullspace()
-			var/obj/item/bodypart/leg/right/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][BODY_ZONE_R_LEG])
-			replacement.try_attach_limb(target, TRUE)
-		//left leg
-		if(target.dna.features["frame_list"][BODY_ZONE_L_LEG])
-			var/obj/item/bodypart/leg/left/old_limb = target.get_bodypart(BODY_ZONE_L_LEG)
-			old_limb.drop_limb(TRUE, FALSE, FALSE)
-			old_limb.moveToNullspace()
-			var/obj/item/bodypart/leg/left/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][BODY_ZONE_L_LEG])
-			replacement.try_attach_limb(target, TRUE)
-		return .
+	if(!(type in GLOB.bodypart_allowed_species[FEATURE_CYBER_FRAME]))
+		return
+
+	for(var/body_zone in GLOB.all_body_zones)
+		if(!LAZYACCESS(target.dna.features["frame_list"], body_zone))
+			continue
+		if(body_zone == BODY_ZONE_HEAD && type != /datum/species/synth)
+			continue
+		var/obj/item/bodypart/old_limb = target.get_bodypart(body_zone)
+		old_limb.drop_limb(special = TRUE, dismembered = FALSE, move_to_floor = FALSE)
+		old_limb.moveToNullspace()
+		var/obj/item/bodypart/replacement = SSwardrobe.provide_type(target.dna.features["frame_list"][body_zone])
+		replacement.try_attach_limb(target, special = TRUE)

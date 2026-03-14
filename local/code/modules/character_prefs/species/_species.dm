@@ -25,26 +25,6 @@
 	/// Is this species restricted from changing their body_size in character creation?
 	var/body_size_restricted = FALSE
 
-/// Cybernetic limbs logic here!
-//	Used for most races
-/datum/species/on_species_gain(mob/living/carbon/human/target, datum/species/old_species, pref_load, regenerate_icons = TRUE)
-	var/list/frame_bodyparts = target.dna.features["frame_list"]
-	if(!(type in GLOB.bodypart_allowed_species[FEATURE_CYBER_FRAME]))
-		return ..()
-	if(type == /datum/species/synth && frame_bodyparts && frame_bodyparts[BODY_ZONE_HEAD])
-		bodypart_overrides[BODY_ZONE_HEAD] = frame_bodyparts[BODY_ZONE_HEAD]
-	if(frame_bodyparts && frame_bodyparts[BODY_ZONE_CHEST])
-		bodypart_overrides[BODY_ZONE_CHEST] = frame_bodyparts[BODY_ZONE_CHEST]
-	if(frame_bodyparts && frame_bodyparts[BODY_ZONE_R_ARM])
-		bodypart_overrides[BODY_ZONE_R_ARM] = frame_bodyparts[BODY_ZONE_R_ARM]
-	if(frame_bodyparts && frame_bodyparts[BODY_ZONE_L_ARM])
-		bodypart_overrides[BODY_ZONE_L_ARM] = frame_bodyparts[BODY_ZONE_L_ARM]
-	if(frame_bodyparts && frame_bodyparts[BODY_ZONE_R_LEG])
-		bodypart_overrides[BODY_ZONE_R_LEG] = frame_bodyparts[BODY_ZONE_R_LEG]
-	if(frame_bodyparts && frame_bodyparts[BODY_ZONE_L_LEG])
-		bodypart_overrides[BODY_ZONE_L_LEG] = frame_bodyparts[BODY_ZONE_L_LEG]
-	return ..()
-
 /// spec_revival logic
 /datum/species/proc/spec_revival(mob/living/carbon/human/target)
 	return

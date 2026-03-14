@@ -11,6 +11,7 @@
 /datum/sprite_accessory/tails/dog/eevee
 	name = "Eevee"
 	icon_state = "eevee"
+	can_wag = TRUE
 
 /datum/sprite_accessory/tails/dog/husky
 	name = "Husky"
@@ -19,27 +20,34 @@
 /datum/sprite_accessory/tails/dog/lab
 	name = "Labrador"
 	icon_state = "lab"
+	can_wag = TRUE
 
 /datum/sprite_accessory/tails/dog/otie
 	name = "Otusian"
 	icon_state = "otusian"
+	can_wag = TRUE
 
 /datum/sprite_accessory/tails/dog/shepherd
 	name = "Shepherd"
 	icon_state = "shepherd"
+	can_wag = TRUE
 
 /datum/sprite_accessory/tails/dog/australian_shepherd
 	name = "Australian Shepherd"
 	icon_state = "australianshepherd"
+	can_wag = TRUE
 
 /datum/sprite_accessory/tails/dog/shortpup
 	name = "Short"
 	icon_state = "shortpup"
+	can_wag = TRUE
 
 /datum/sprite_accessory/tails/dog/straight
 	name = "Straight"
 	icon_state = "straighttail"
+	can_wag = TRUE
 
 /datum/sprite_accessory/tails/dog/wolf
 	name = "Wolf"
 	icon_state = "wolf"
+	can_wag = TRUE

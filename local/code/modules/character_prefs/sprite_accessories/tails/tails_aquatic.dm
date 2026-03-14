@@ -40,10 +40,12 @@
 /datum/sprite_accessory/tails/fish/shark_no_fin
 	name = "Shark No Fin"
 	icon_state = "sharknofin"
+	can_wag = TRUE
 
 /datum/sprite_accessory/tails/fish/data_shark
 	name = "Data Shark"
 	icon_state = "datashark"
+	can_wag = TRUE
 
 /datum/sprite_accessory/tails/fish/simple
 	name = "Simple"
@@ -52,3 +54,4 @@
 /datum/sprite_accessory/tails/fish/tentacle
 	name = "Tentacle"
 	icon_state = "tentacle"
+	can_wag = TRUE

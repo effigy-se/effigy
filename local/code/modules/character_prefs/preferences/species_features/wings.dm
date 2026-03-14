@@ -2,10 +2,6 @@
 	///	This variable is read by the regenerate_organs() proc to know what organ subtype to give
 	var/wing_type = NO_VARIATION
 
-/datum/controller/subsystem/accessories/setup_lists()
-	. = ..()
-	feature_list["wings_anthro"] = init_sprite_accessory_subtypes(/datum/sprite_accessory/wings_anthro)["default_sprites"] // FLAKY DEFINE: this should be using DEFAULT_SPRITE_LIST
-
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
 	if(target == null)
@@ -13,15 +9,12 @@
 	if(!ishuman(target))
 		return
 
-	if(target.dna.features["moth_wings"] && (type in GLOB.bodypart_allowed_species[FEATURE_WINGS]))
-		if(target.dna.wing_type == NO_VARIATION)
-			return .
-		if((target.dna.features["moth_wings"] != /datum/sprite_accessory/moth_wings/none::name && target.dna.features["moth_wings"] != /datum/sprite_accessory/blank::name))
+	if(target.dna.wing_type != NO_VARIATION && (type in GLOB.bodypart_allowed_species[FEATURE_WINGS]))
+		if(target.dna.wing_type == "Moth Wings" && target.dna.features["moth_wings"] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/wings/moth)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .
-	if(target.dna.features["wings"] && (type in GLOB.bodypart_allowed_species[FEATURE_WINGS]))
-		if(target.dna.features["wings"] != /datum/sprite_accessory/wings_anthro/none::name && target.dna.features["wings"] != /datum/sprite_accessory/blank::name)
+		else if(target.dna.wing_type == "Wings" && target.dna.features["wings_anthro"] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/wings/more)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .
@@ -42,12 +35,12 @@
 	target.dna.wing_type = chosen_variation
 	switch(chosen_variation)
 		if(NO_VARIATION)
-			target.dna.features["wings"] = /datum/sprite_accessory/wings_anthro/none::name
-			target.dna.features["moth_wings"] = /datum/sprite_accessory/moth_wings/none::name
+			target.dna.features["wings_anthro"] = /datum/sprite_accessory/blank::name
+			target.dna.features["moth_wings"] = /datum/sprite_accessory/blank::name
 		if("Wings")
-			target.dna.features["moth_wings"] = /datum/sprite_accessory/moth_wings/none::name
+			target.dna.features["moth_wings"] = /datum/sprite_accessory/blank::name
 		if("Moth Wings")
-			target.dna.features["wings"] = /datum/sprite_accessory/wings_anthro/none::name
+			target.dna.features["wings_anthro"] = /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/wing_variation/create_default_value()
 	return NO_VARIATION
@@ -76,16 +69,13 @@
 	main_feature_name = "Wings"
 	feature_key = "wings_anthro"
 
-/datum/preference/choiced/species_feature/wings/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features[FEATURE_WINGS] = value
-
 /datum/preference/choiced/species_feature/wings/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/wings_color::savefile_key
 	return data
 
 /datum/preference/choiced/species_feature/wings/create_default_value()
-	return /datum/sprite_accessory/wings_anthro/none::name
+	return /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/species_feature/wings/icon_for(value)
 	var/datum/sprite_accessory/wings = get_accessory_for_value(value)
@@ -113,7 +103,7 @@
 	return data
 
 /datum/preference/choiced/species_feature/moth_wings/create_default_value()
-	return /datum/sprite_accessory/moth_wings/none::name
+	return /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/species_feature/moth_wings/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -129,6 +119,7 @@
 
 /datum/bodypart_overlay/mutant/wings/more
 	layers = EXTERNAL_FRONT | EXTERNAL_FRONT_2 | EXTERNAL_FRONT_3 | EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3 | EXTERNAL_BEHIND | EXTERNAL_BEHIND_2 | EXTERNAL_BEHIND_3
+	feature_key = "wings_anthro"
 	feature_key_sprite = "wings"
 
 /datum/bodypart_overlay/mutant/wings/more/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)

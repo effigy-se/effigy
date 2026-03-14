@@ -1,3 +1,7 @@
 2026-03-09:
   LT3:
   - admin: Admins can manually trigger new round notification
+2026-03-14:
+  TealSeer:
+  - bugfix: fixed non-waggable tails being marked waggable, and vice versa
+  - code_imp: refactored parts of customization code, please report any weirdness

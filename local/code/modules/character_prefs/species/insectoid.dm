@@ -26,16 +26,14 @@
 	)
 
 /datum/species/insectoid/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
-	human_for_preview.dna.features["mcolor"] = "#272727"
-	human_for_preview.dna.features["snout"] = "None"
-	human_for_preview.dna.ear_type = MAMMAL_TYPE
-	human_for_preview.dna.features["ears"] = "None"
-	human_for_preview.dna.tail_type = MAMMAL_TYPE
-	human_for_preview.dna.features["tail_other"] = /datum/sprite_accessory/tails/lizard/none::name
+	human_for_preview.dna.features[FEATURE_MUTANT_COLOR] = "#272727"
+	human_for_preview.dna.features[FEATURE_SNOUT] = "None"
+	human_for_preview.dna.features[FEATURE_MOTH_ANTENNAE] = "None"
+	human_for_preview.dna.features[FEATURE_FLUFF] = "None"
 	human_for_preview.set_haircolor("#365745", update = FALSE)
 	human_for_preview.set_hairstyle("Ziegler", update = TRUE)
-	human_for_preview.eye_color_left = "#f8c67a"
-	human_for_preview.eye_color_right = "#f8c67a"
+	human_for_preview.set_eye_color("#F8C67A")
+	human_for_preview.dna.update_ui_block(/datum/dna_block/identity/eye_colors)
 	regenerate_organs(human_for_preview)
 	human_for_preview.update_body(is_creating = TRUE)
 

@@ -129,7 +129,7 @@
 
 /datum/unit_test/felinid_ears/Run()
 	var/mob/living/carbon/human/normal_dummy = allocate(/mob/living/carbon/human/consistent)
-	normal_dummy.dna.features[FEATURE_EARS] = SPRITE_ACCESSORY_NONE
+	normal_dummy.dna.features[FEATURE_EARS_CAT] = SPRITE_ACCESSORY_NONE // EffigyEdit Change - FEATURE_EARS -> FEATURE_EARS_CAT
 	normal_dummy.set_species(/datum/species/human/felinid, pref_load = TRUE)
 	TEST_ASSERT(!istype(normal_dummy.get_organ_slot(ORGAN_SLOT_EARS), /obj/item/organ/ears/cat), "Felinid with NONE ears set had cat ears on species gain.")
 	TEST_ASSERT_NOTNULL(normal_dummy.get_organ_slot(ORGAN_SLOT_EARS), "Felinid with NONE ears set had NO ears on species gain.")
