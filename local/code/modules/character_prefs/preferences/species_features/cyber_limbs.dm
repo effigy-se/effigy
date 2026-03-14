@@ -104,7 +104,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/chest_type/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_CYBER_FRAME]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_CYBER_FRAME]))
 		return FALSE
 
 	return TRUE
@@ -136,7 +136,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/arm_r_type/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_CYBER_FRAME]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_CYBER_FRAME]))
 		return FALSE
 
 	return TRUE
@@ -168,7 +168,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/arm_l_type/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_CYBER_FRAME]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_CYBER_FRAME]))
 		return FALSE
 
 	return TRUE
@@ -200,7 +200,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/leg_r_type/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_CYBER_FRAME]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_CYBER_FRAME]))
 		return FALSE
 
 	return TRUE
@@ -232,14 +232,14 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/leg_l_type/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_CYBER_FRAME]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_CYBER_FRAME]))
 		return FALSE
 
 	return TRUE
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(!(type in GLOB.bodypart_allowed_species[FEATURE_CYBER_FRAME]))
+	if(!is_type_in_typecache(src, GLOB.bodypart_allowed_species[FEATURE_CYBER_FRAME]))
 		return
 
 	for(var/body_zone in GLOB.all_body_zones)

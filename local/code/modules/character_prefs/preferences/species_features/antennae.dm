@@ -15,7 +15,7 @@
 /datum/preference/toggle/antennae/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_MOTH_ANTENNAE]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_MOTH_ANTENNAE]))
 		return FALSE
 
 	return TRUE
@@ -54,7 +54,7 @@
 /datum/preference/choiced/species_feature/moth_antennae/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_MOTH_ANTENNAE]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_MOTH_ANTENNAE]))
 		return FALSE
 
 	var/has_antennae = preferences.read_preference(/datum/preference/toggle/antennae)
@@ -114,7 +114,7 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target.dna.features[FEATURE_MOTH_ANTENNAE] && (type in GLOB.bodypart_allowed_species[FEATURE_MOTH_ANTENNAE]))
+	if(target.dna.features[FEATURE_MOTH_ANTENNAE] && is_type_in_typecache(src, GLOB.bodypart_allowed_species[FEATURE_MOTH_ANTENNAE]))
 		if(target.dna.features[FEATURE_MOTH_ANTENNAE] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/antennae)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)

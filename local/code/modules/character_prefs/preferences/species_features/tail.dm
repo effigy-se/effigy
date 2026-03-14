@@ -4,7 +4,7 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if((type in GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.tail_type != NO_VARIATION)
+	if(is_type_in_typecache(src, GLOB.bodypart_allowed_species[FEATURE_TAIL]) && target.dna.tail_type != NO_VARIATION)
 		var/obj/item/organ/tail/tail_type = GLOB.tail_variations[target.dna.tail_type]
 		var/feature_key = tail_type::bodypart_overlay::feature_key
 		if(target.dna.features[feature_key] != /datum/sprite_accessory/blank::name)
@@ -128,7 +128,7 @@
 /datum/preference/choiced/tail_variation/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	return TRUE
@@ -156,7 +156,7 @@
 /datum/preference/choiced/species_feature/lizard_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -187,7 +187,7 @@
 /datum/preference/choiced/species_feature/tail_felinid/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == CAT_TYPE)
@@ -219,7 +219,7 @@
 /datum/preference/choiced/species_feature/dog_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -253,7 +253,7 @@
 /datum/preference/choiced/species_feature/fox_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -287,7 +287,7 @@
 /datum/preference/choiced/species_feature/mammal_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -321,7 +321,7 @@
 /datum/preference/choiced/species_feature/flying_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -353,7 +353,7 @@
 /datum/preference/choiced/species_feature/monkey_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -386,7 +386,7 @@
 /datum/preference/choiced/species_feature/fish_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -421,7 +421,7 @@
 /datum/preference/choiced/species_feature/synth_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -456,7 +456,7 @@
 /datum/preference/choiced/species_feature/humanoid_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_TAIL]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_TAIL]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
