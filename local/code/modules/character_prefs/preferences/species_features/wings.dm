@@ -9,7 +9,7 @@
 	if(!ishuman(target))
 		return
 
-	if(target.dna.wing_type != NO_VARIATION && (type in GLOB.bodypart_allowed_species[FEATURE_WINGS]))
+	if(target.dna.wing_type != NO_VARIATION && is_type_in_typecache(src, GLOB.bodypart_allowed_species[FEATURE_WINGS]))
 		if(target.dna.wing_type == "Moth Wings" && target.dna.features["moth_wings"] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/wings/moth)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -51,7 +51,7 @@
 /datum/preference/choiced/wing_variation/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_WINGS]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_WINGS]))
 		return FALSE
 
 	return TRUE
@@ -84,7 +84,7 @@
 /datum/preference/choiced/species_feature/wings/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_WINGS]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_WINGS]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/wing_variation)
@@ -108,7 +108,7 @@
 /datum/preference/choiced/species_feature/moth_wings/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_WINGS]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_WINGS]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/wing_variation)

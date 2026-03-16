@@ -69,13 +69,13 @@ GLOBAL_LIST_INIT(ear_variations, list(
 #define FEATURE_TAIL_MAMMAL "tail_mammal"
 
 GLOBAL_LIST_INIT(bodypart_allowed_species, list(
-	FEATURE_MOTH_ANTENNAE = list(
+	FEATURE_MOTH_ANTENNAE = typecacheof(list(
 		/datum/species/animalid,
 		/datum/species/insectoid,
 		/datum/species/moth,
 		/datum/species/synth,
-	),
-	FEATURE_CYBER_FRAME = list(
+	)),
+	FEATURE_CYBER_FRAME = typecacheof(list(
 		/datum/species/animalid,
 		/datum/species/human,
 		/datum/species/insectoid,
@@ -83,71 +83,71 @@ GLOBAL_LIST_INIT(bodypart_allowed_species, list(
 		/datum/species/moth,
 		/datum/species/plasmaman,
 		/datum/species/synth,
-	),
-	FEATURE_CYBER_ORGANS = list(
+	)),
+	FEATURE_CYBER_ORGANS = typecacheof(list(
 		/datum/species/animalid,
 		/datum/species/human,
 		/datum/species/insectoid,
 		/datum/species/lizard,
 		/datum/species/moth,
 		/datum/species/plasmaman,
-	),
-	FEATURE_EARS = list(
+	)),
+	FEATURE_EARS = typecacheof(list(
 		/datum/species/animalid,
 		/datum/species/insectoid,
 		/datum/species/lizard,
 		/datum/species/moth,
 		/datum/species/synth,
-	),
-	FEATURE_FLUFF = list(
+	)),
+	FEATURE_FLUFF = typecacheof(list(
 		/datum/species/animalid,
 		/datum/species/insectoid,
 		/datum/species/lizard,
 		/datum/species/moth,
 		/datum/species/synth,
-	),
-	FEATURE_FRILLS = list(
+	)),
+	FEATURE_FRILLS = typecacheof(list(
 		/datum/species/animalid,
 		/datum/species/lizard,
 		/datum/species/synth,
-	),
-	FEATURE_HORNS = list(
+	)),
+	FEATURE_HORNS = typecacheof(list(
 		/datum/species/animalid,
 		/datum/species/lizard,
 		/datum/species/synth,
-	),
-	FEATURE_DIGI_LEGS = list(
-		/datum/species/animalid,
-		/datum/species/insectoid,
-		/datum/species/lizard,
-		/datum/species/moth,
-		/datum/species/synth,
-	),
-	FEATURE_LIZARD_MARKINGS = list(
-		/datum/species/animalid,
-		/datum/species/lizard,
-		/datum/species/synth,
-	),
-	FEATURE_SNOUT = list(
+	)),
+	FEATURE_DIGI_LEGS = typecacheof(list(
 		/datum/species/animalid,
 		/datum/species/insectoid,
 		/datum/species/lizard,
 		/datum/species/moth,
 		/datum/species/synth,
-	),
-	FEATURE_TAIL = list(
+	)),
+	FEATURE_LIZARD_MARKINGS = typecacheof(list(
 		/datum/species/animalid,
-		/datum/species/insectoid,
 		/datum/species/lizard,
 		/datum/species/synth,
-	),
-	FEATURE_WINGS = list(
+	)),
+	FEATURE_SNOUT = typecacheof(list(
 		/datum/species/animalid,
 		/datum/species/insectoid,
 		/datum/species/lizard,
 		/datum/species/moth,
 		/datum/species/synth,
-	),
+	)),
+	FEATURE_TAIL = typecacheof(list(
+		/datum/species/animalid,
+		/datum/species/insectoid,
+		/datum/species/lizard,
+		/datum/species/synth,
+	)),
+	FEATURE_WINGS = typecacheof(list(
+		/datum/species/animalid,
+		/datum/species/insectoid,
+		/datum/species/lizard,
+		/datum/species/moth,
+		/datum/species/synth,
+	)),
 ))
 
 // length of the dna feature marking list

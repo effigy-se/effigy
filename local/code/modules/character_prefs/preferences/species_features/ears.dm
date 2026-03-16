@@ -4,7 +4,7 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target.dna.ear_type != NO_VARIATION && (type in GLOB.bodypart_allowed_species[FEATURE_EARS]))
+	if(target.dna.ear_type != NO_VARIATION && is_type_in_typecache(src, GLOB.bodypart_allowed_species[FEATURE_EARS]))
 		var/obj/item/organ/ears/ear_type = GLOB.ear_variations[target.dna.ear_type]
 		var/feature_key = ear_type::bodypart_overlay::feature_key
 		if(target.dna.features[feature_key] != /datum/sprite_accessory/blank::name)
@@ -30,7 +30,7 @@
 /datum/preference/choiced/ear_variation/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_EARS]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_EARS]))
 		return FALSE
 
 	return TRUE
@@ -54,7 +54,7 @@
 /datum/preference/choiced/species_feature/felinid_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_EARS]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_EARS]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
@@ -83,7 +83,7 @@
 /datum/preference/choiced/species_feature/lizard_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_EARS]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_EARS]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
@@ -112,7 +112,7 @@
 /datum/preference/choiced/species_feature/fox_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_EARS]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_EARS]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
@@ -134,7 +134,7 @@
 /datum/preference/choiced/species_feature/dog_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_EARS]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_EARS]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
@@ -170,7 +170,7 @@
 /datum/preference/choiced/species_feature/flying_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_EARS]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_EARS]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
@@ -199,7 +199,7 @@
 /datum/preference/choiced/species_feature/monkey_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_EARS]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_EARS]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
@@ -228,7 +228,7 @@
 /datum/preference/choiced/species_feature/mammal_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_EARS]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_EARS]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
@@ -257,7 +257,7 @@
 /datum/preference/choiced/species_feature/fish_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_EARS]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_EARS]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
@@ -286,7 +286,7 @@
 /datum/preference/choiced/species_feature/humanoid_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_EARS]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_EARS]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
@@ -316,7 +316,7 @@
 /datum/preference/choiced/species_feature/synthetic_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(!(species.type in GLOB.bodypart_allowed_species[FEATURE_EARS]))
+	if(!is_type_in_typecache(species, GLOB.bodypart_allowed_species[FEATURE_EARS]))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
