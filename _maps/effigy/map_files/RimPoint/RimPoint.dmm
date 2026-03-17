@@ -3373,6 +3373,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron,
 /area/station/maintenance/starboard/fore/upper)
 "bfs" = (
@@ -24714,6 +24715,7 @@
 /area/station/maintenance/starboard/fore)
 "ips" = (
 /obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron,
 /area/station/maintenance/starboard/fore)
 "ipy" = (
