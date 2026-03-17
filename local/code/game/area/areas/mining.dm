@@ -78,6 +78,10 @@
 	name = "Cargo Department - Exterior"
 	icon_state = "cargo_lobby"
 
+/area/taeloth/nearstation/cargo_crossway/escape_pods
+	name = "Escape Pod Trail"
+	icon_state = "cargo_lobby"
+
 /area/taeloth/nearstation/cargo_roof
 	name = "Cargo - Roof"
 	icon_state = "cargo_lobby"
