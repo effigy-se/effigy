@@ -3373,7 +3373,6 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron,
 /area/station/maintenance/starboard/fore/upper)
 "bfs" = (
@@ -17050,6 +17049,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron,
 /area/station/maintenance/starboard/fore/upper)
 "fIY" = (
@@ -24293,6 +24293,11 @@
 	},
 /turf/open/floor/stone,
 /area/taeloth/nearstation/engsci_crossway)
+"iiF" = (
+/obj/structure/closet/firecloset,
+/obj/machinery/firealarm/directional/south,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
 "iiJ" = (
 /obj/structure/table/wood,
 /obj/machinery/fax{
@@ -69995,6 +70000,7 @@
 /obj/structure/railing{
 	dir = 4
 	},
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/starboard/fore/upper)
 "xrk" = (
@@ -121552,7 +121558,7 @@ acB
 gIo
 iPg
 rPo
-eLX
+iiF
 gIo
 huX
 uoK
