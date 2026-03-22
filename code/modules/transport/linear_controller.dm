@@ -464,7 +464,7 @@
 
 	// Close all lift doors
 	update_lift_doors(action = CYCLE_CLOSED)
-	sleep(1.1 SECONDS)
+	sleep(2.4 SECONDS) // EffigyEdit Change - Original: 1.1 SECONDS - Windoor Animation
 	// Approach the desired z-level one step at a time
 	for(var/i in 1 to z_difference)
 		if(!Check_lift_move(direction))
