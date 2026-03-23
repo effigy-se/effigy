@@ -5,7 +5,6 @@
 	lose_text = span_notice("ERROR: LIMB DISENGAGEMENT PROTOCOLS OFFLINE.")
 	medical_record_text = "Patient bears quick-attach and release limb joint cybernetics."
 	value = 0
-	mob_trait = TRAIT_ROBOTIC_LIMBATTACHMENT
 	icon = FA_ICON_HANDSHAKE_SIMPLE_SLASH
 	quirk_flags = QUIRK_HUMAN_ONLY
 	/// The action we add with this quirk in add(), used for easy deletion later
@@ -14,9 +13,40 @@
 /datum/quirk/robot_limb_detach/add(client/client_source)
 	added_action = new()
 	added_action.Grant(quirk_holder)
+	RegisterSignal(quirk_holder, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(on_item_interaction))
 
 /datum/quirk/robot_limb_detach/remove()
 	QDEL_NULL(added_action)
+	UnregisterSignal(quirk_holder, COMSIG_ATOM_ITEM_INTERACTION)
+
+/datum/quirk/robot_limb_detach/proc/on_item_interaction(datum/source, mob/living/user, obj/item/tool, list/modifiers)
+	SIGNAL_HANDLER
+	if(!istype(tool, /obj/item/bodypart) || user.combat_mode)
+		return NONE
+
+	var/obj/item/bodypart/new_limb = tool
+	if(!(new_limb.bodytype & BODYTYPE_ROBOTIC) || quirk_holder.get_bodypart(new_limb.body_zone))
+		return NONE
+
+	user.temporarilyRemoveItemFromInventory(new_limb, TRUE)
+	if(!new_limb.try_attach_limb(quirk_holder))
+		to_chat(user, span_warning("[quirk_holder]'s body rejects [new_limb]!"))
+		new_limb.forceMove(quirk_holder.drop_location())
+		return ITEM_INTERACT_BLOCKING
+
+	if(new_limb.check_for_frankenstein(quirk_holder))
+		new_limb.bodypart_flags |= BODYPART_IMPLANTED
+	if(user == quirk_holder)
+		quirk_holder.visible_message(
+			span_warning("[user] jams [new_limb] into [user.p_their()] empty socket!"),
+			span_notice("You force [new_limb] into your empty socket, and it locks into place!"),
+		)
+	else
+		quirk_holder.visible_message(
+			span_warning("[user] jams [new_limb] into [quirk_holder]'s empty socket!"),
+			span_notice("[user] jams [new_limb] into your empty socket, and it locks into place!"),
+		)
+	return ITEM_INTERACT_SUCCESS
 
 /datum/action/cooldown/robot_self_amputation
 	name = "Detach a robotic limb"
