@@ -24,6 +24,10 @@
 	if(!istype(tool, /obj/item/bodypart) || user.combat_mode)
 		return NONE
 
+	// if this can be handled by the base /obj/item/bodypart/attack code then let it
+	if(HAS_TRAIT(quirk_holder, TRAIT_LIMBATTACHMENT) || HAS_TRAIT(tool, TRAIT_EASY_ATTACH))
+		return NONE
+
 	var/obj/item/bodypart/new_limb = tool
 	if(!(new_limb.bodytype & BODYTYPE_ROBOTIC) || quirk_holder.get_bodypart(new_limb.body_zone))
 		return NONE
