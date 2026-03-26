@@ -1,4 +1,0 @@
-author: "TealSeer"
-delete-after: True
-changes:
-  - bugfix: "fixed cybernetic limb mount quirk not letting you reattach limbs"

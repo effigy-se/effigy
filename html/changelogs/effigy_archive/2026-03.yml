@@ -22,3 +22,6 @@
 2026-03-24:
   TealSeer:
   - bugfix: fixed organ manipulation surgery not working for synth organs
+2026-03-26:
+  TealSeer:
+  - bugfix: fixed cybernetic limb mount quirk not letting you reattach limbs
