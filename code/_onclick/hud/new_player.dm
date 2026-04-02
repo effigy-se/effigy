@@ -5,13 +5,6 @@
 #define TRAIT_BUTTON_OFFSET 27
 #define SQUARE_VIEWPORT_OFFSET 64
 
-// EffigyEdit Add - Custom Lobby
-#define LOBBY_MAPTEXT_HEIGHT 56
-#define LOBBY_MAPTEXT_WIDTH 512
-#define LOBBY_MAPTEXT_X 6
-#define LOBBY_MAPTEXT_Y -7
-// EffigyEdit Add End
-
 /datum/hud/new_player
 	///Whether the menu is currently on the client's screen or not
 	var/menu_hud_status = TRUE
@@ -107,10 +100,3 @@
 #undef TRAIT_BUTTON_X_ORIGIN
 #undef TRAIT_BUTTON_OFFSET
 #undef SQUARE_VIEWPORT_OFFSET
-
-// EffigyEdit Add - Custom Lobby
-#undef LOBBY_MAPTEXT_HEIGHT
-#undef LOBBY_MAPTEXT_WIDTH
-#undef LOBBY_MAPTEXT_X
-#undef LOBBY_MAPTEXT_Y
-// EffigyEdit Add End
