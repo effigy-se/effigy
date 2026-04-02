@@ -101,7 +101,6 @@ There are several things that need to be remembered:
 		var/handled_by_bodyshape = TRUE
 		var/icon_file
 		var/woman
-
 		//BEGIN SPECIES HANDLING
 		// EffigyEdit Change - Character Preferences
 		/* Original:
@@ -961,91 +960,24 @@ generate/load female uniform sprites matching all previously decided variables
 		return
 	// Underwear, Undershirts & Socks
 	var/list/standing = list()
-	/* EffigyEdit Change - Character Preferences
+	var/active_bodyshapes = get_active_bodyshapes()
 	if(underwear)
-		var/datum/sprite_accessory/underwear/undie_accessory = SSaccessories.underwear_list[underwear]
-		var/mutable_appearance/underwear_overlay
-		if(undie_accessory)
-			if(dna.species.sexes && physique == FEMALE && (undie_accessory.gender == MALE))
-				underwear_overlay = mutable_appearance(wear_female_version(undie_accessory.icon_state, undie_accessory.icon, FEMALE_UNIFORM_FULL), layer = -BODY_LAYER)
-			else
-				underwear_overlay = mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, -BODY_LAYER)
-			if(!undie_accessory.use_static)
-				underwear_overlay.color = underwear_color
+		var/datum/sprite_accessory/clothing/underwear/undie_accessory = SSaccessories.underwear_list[underwear]
+		var/mutable_appearance/underwear_overlay = undie_accessory?.make_appearance(underwear_color, physique, active_bodyshapes)
+		if(underwear_overlay)
 			standing += underwear_overlay
-	*/
-	if(underwear && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES))
-		var/datum/sprite_accessory/underwear/underwear_accessory = SSaccessories.underwear_list[underwear]
-		var/mutable_appearance/underwear_overlay
-		var/female_sprite_flags = FEMALE_UNIFORM_FULL // the default gender shaping
-		if(underwear_accessory)
-			var/underwear_icon_state = underwear_accessory.icon_state
-			if(underwear_accessory.has_digitigrade && (bodyshape & BODYSHAPE_DIGITIGRADE))
-				underwear_icon_state += "_d"
-				female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY // for digi gender shaping
-			if(dna.species.sexes && physique == FEMALE && underwear_accessory.gender == MALE)
-				underwear_overlay = mutable_appearance(wear_female_version(underwear_icon_state, underwear_accessory.icon, female_sprite_flags), layer = -UNDERWEAR_UNDERSHIRT)
-			else
-				underwear_overlay = mutable_appearance(underwear_accessory.icon, underwear_icon_state, -UNDERWEAR_UNDERSHIRT)
-			if(!underwear_accessory.use_static)
-				underwear_overlay.color = underwear_color
-			standing += underwear_overlay
-	// EffigyEdit Change End
 
-	// EffigyEdit Addition - Character Preferences
-	if(bra && !(underwear_visibility & UNDERWEAR_HIDE_BRA))
-		var/datum/sprite_accessory/bra/bra_accessory = SSaccessories.bra_list[bra]
-		if(bra_accessory)
-			var/mutable_appearance/bra_overlay
-			var/bra_icon_state = bra_accessory.icon_state
-			bra_overlay = mutable_appearance(bra_accessory.icon, bra_icon_state, -BRA_SOCKS_LAYER)
-			if(!bra_accessory.use_static)
-				bra_overlay.color = bra_color
-			standing += bra_overlay
-	// EffigyEdit Addition End
-
-	/* EffigyEdit Change - Character Preferences
 	if(undershirt)
-		var/datum/sprite_accessory/undershirt/undie_accessory = SSaccessories.undershirt_list[undershirt]
-		if(undie_accessory)
-			var/mutable_appearance/working_shirt
-			if(dna.species.sexes && physique == FEMALE)
-				working_shirt = mutable_appearance(wear_female_version(undie_accessory.icon_state, undie_accessory.icon), layer = -BODY_LAYER)
-			else
-				working_shirt = mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, layer = -BODY_LAYER)
-			standing += working_shirt
-	*/
-	if(undershirt && !(underwear_visibility & UNDERWEAR_HIDE_SHIRT))
-		var/datum/sprite_accessory/undershirt/undershirt_accessory = SSaccessories.undershirt_list[undershirt]
-		if(undershirt_accessory)
-			var/mutable_appearance/undershirt_overlay
-			if(dna.species.sexes && physique == FEMALE)
-				undershirt_overlay = mutable_appearance(wear_female_version(undershirt_accessory.icon_state, undershirt_accessory.icon), layer = -UNDERWEAR_UNDERSHIRT)
-			else
-				undershirt_overlay = mutable_appearance(undershirt_accessory.icon, undershirt_accessory.icon_state, layer = -UNDERWEAR_UNDERSHIRT)
-			if(!undershirt_accessory.use_static)
-				undershirt_overlay.color = undershirt_color
-			standing += undershirt_overlay
-	// EffigyEdit Change End
+		var/datum/sprite_accessory/clothing/undershirt/shirt_accessory = SSaccessories.undershirt_list[undershirt]
+		var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(null, physique, active_bodyshapes)
+		if(shirt_overlay)
+			standing += shirt_overlay
 
-	/* EffigyEdit Change - Character Preferences
 	if(socks && num_legs >= 2 && !(bodyshape & BODYSHAPE_DIGITIGRADE))
-		var/datum/sprite_accessory/socks/undie_accessory = SSaccessories.socks_list[socks]
-		if(undie_accessory)
-			standing += mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, -BODY_LAYER)
-	*/
-	if(socks && !(underwear_visibility & UNDERWEAR_HIDE_SOCKS))
-		var/datum/sprite_accessory/socks/socks_accessory = SSaccessories.socks_list[socks]
-		if(socks_accessory)
-			var/mutable_appearance/socks_overlay
-			var/socks_icon_state = socks_accessory.icon_state
-			if(bodyshape & BODYSHAPE_DIGITIGRADE)
-				socks_icon_state += "_d"
-			socks_overlay = mutable_appearance(socks_accessory.icon, socks_icon_state, -BRA_SOCKS_LAYER)
-			if(!socks_accessory.use_static)
-				socks_overlay.color = socks_color
+		var/datum/sprite_accessory/clothing/socks/sock_accessory = SSaccessories.socks_list[socks]
+		var/mutable_appearance/socks_overlay = sock_accessory?.make_appearance(null, physique, active_bodyshapes)
+		if(socks_overlay)
 			standing += socks_overlay
-	// EffigyEdit Change End
 
 	if(standing.len)
 		overlays_standing[BODY_LAYER] = standing
@@ -1117,7 +1049,7 @@ generate/load female uniform sprites matching all previously decided variables
 		// optimization - none of our limbs or organs have the desired shape
 		return .
 
-	for(var/obj/item/bodypart/limb as anything in bodyparts)
+	for(var/obj/item/bodypart/limb as anything in get_bodyparts())
 		var/checked_bodyshape = limb.bodyshape
 		// accounts for stuff like snouts
 		for(var/obj/item/organ/organ in limb)
