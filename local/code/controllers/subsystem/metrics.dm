@@ -2,7 +2,7 @@ SUBSYSTEM_DEF(metrics)
 	name = "Metrics"
 	wait = 24 SECONDS
 	runlevels = ALL
-	flags = SS_NO_INIT
+	ss_flags = SS_NO_INIT
 	dependencies = list(
 		/datum/controller/subsystem/statpanels,
 	)
