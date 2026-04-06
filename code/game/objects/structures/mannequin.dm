@@ -112,9 +112,10 @@
 	if(socks_overlay)
 		. += socks_overlay
 	// EffigyEdit Add - Character Preferences
-	var/datum/sprite_accessory/bra/bra = SSaccessories.bra_list[bra_name]
-	if(bra)
-		. += mutable_appearance(bra.icon, bra.icon_state, -BRA_SOCKS_LAYER)
+	var/datum/sprite_accessory/clothing/bra/bra = SSaccessories.bra_list[bra_name]
+	var/mutable_appearance/bra_overlay = bra?.make_appearance(COLOR_WHITE, body_type, BODYSHAPE_HUMANOID)
+	if(bra_overlay)
+		. += bra_overlay
 	// EffigyEdit Add End
 	for(var/slot_flag in worn_items)
 		var/obj/item/worn_item = worn_items[slot_flag]

@@ -961,23 +961,31 @@ generate/load female uniform sprites matching all previously decided variables
 	// Underwear, Undershirts & Socks
 	var/list/standing = list()
 	var/active_bodyshapes = get_active_bodyshapes()
-	if(underwear)
+	if(underwear && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES)) // EffigyEdit Change - Add underwear_visibility check
 		var/datum/sprite_accessory/clothing/underwear/undie_accessory = SSaccessories.underwear_list[underwear]
 		var/mutable_appearance/underwear_overlay = undie_accessory?.make_appearance(underwear_color, physique, active_bodyshapes)
 		if(underwear_overlay)
 			standing += underwear_overlay
 
-	if(undershirt)
+	if(undershirt && !(underwear_visibility & UNDERWEAR_HIDE_SHIRT)) // EffigyEdit Change - Add underwear_visibility check
 		var/datum/sprite_accessory/clothing/undershirt/shirt_accessory = SSaccessories.undershirt_list[undershirt]
-		var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(null, physique, active_bodyshapes)
+		var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(undershirt_color, physique, active_bodyshapes) // EffigyEdit Change - Pass undershirt_color
 		if(shirt_overlay)
 			standing += shirt_overlay
 
-	if(socks && num_legs >= 2 && !(bodyshape & BODYSHAPE_DIGITIGRADE))
+	if(socks && !(underwear_visibility & UNDERWEAR_HIDE_SOCKS)) // EffigyEdit Change - Add underwear_visibility check, remove digitigrade check
 		var/datum/sprite_accessory/clothing/socks/sock_accessory = SSaccessories.socks_list[socks]
-		var/mutable_appearance/socks_overlay = sock_accessory?.make_appearance(null, physique, active_bodyshapes)
+		var/mutable_appearance/socks_overlay = sock_accessory?.make_appearance(socks_color, physique, active_bodyshapes) // EffigyEdit Change - Pass socks_color
 		if(socks_overlay)
 			standing += socks_overlay
+
+	// EffigyEdit Add - Character Preferences
+	if(bra && !(underwear_visibility & UNDERWEAR_HIDE_BRA))
+		var/datum/sprite_accessory/clothing/bra/bra_accessory = SSaccessories.bra_list[bra]
+		var/mutable_appearance/bra_overlay = bra_accessory?.make_appearance(bra_color, physique, active_bodyshapes)
+		if(bra_overlay)
+			standing += bra_overlay
+	// EffigyEdit Add End
 
 	if(standing.len)
 		overlays_standing[BODY_LAYER] = standing
