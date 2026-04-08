@@ -6,7 +6,7 @@
 	crate_name = "lumber crate"
 	crate_type = /obj/structure/closet/crate/cargo
 
-/datum/supply_pack/materials/rawlumber/generate()
+/datum/supply_pack/materials/rawlumber/generate(atom/A, datum/bank_account/paying_account, crate_override)
 	. = ..()
 	for(var/i in 1 to 19)
 		new /obj/item/grown/log(.)

@@ -15,7 +15,8 @@
 	INVOKE_ASYNC(src, PROC_REF(send_init_fluff_message))
 	for(var/mob/loading_mob as anything in GLOB.new_player_list)
 		var/datum/hud/player_hud = loading_mob.hud_used
-		for(var/atom/movable/screen/lobby/progress_bar/client_progress in player_hud.static_inventory)
+		var/atom/movable/screen/lobby/progress_bar/client_progress = player_hud.screen_objects[HUD_KEY_NEW_PLAYER(/atom/movable/screen/lobby/progress_bar)]
+		if(istype(client_progress))
 			animate(client_progress, transform = client_progress.transform.Translate(x = 144, y = 0), time = 8 SECONDS)
 
 /datum/controller/subsystem/title/proc/send_init_fluff_message()
