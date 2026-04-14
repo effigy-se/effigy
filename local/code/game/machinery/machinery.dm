@@ -22,4 +22,4 @@
 	icon = 'local/icons/obj/engine/emitter.dmi'
 
 /obj/machinery/firealarm
-	icon = 'local/icons/obj/firealarm.dmi'
+	icon = 'local/icons/obj/machines/wallmounts.dmi'
