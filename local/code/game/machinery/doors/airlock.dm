@@ -142,7 +142,7 @@
 			else
 				var/active_reta = has_active_reta_access()
 				if(active_reta)
-					light_state = "[AIRLOCK_LIGHT_RETA]_[active_reta]"
+					light_state = "[AIRLOCK_LIGHT_RETA]_[lowertext(active_reta)]"
 					if(active_reta == "Medical")
 						new_light_power = AIRLOCK_LIGHT_POWER_HIGH
 						new_light_color = COLOR_EFFIGY_SKY_BLUE
