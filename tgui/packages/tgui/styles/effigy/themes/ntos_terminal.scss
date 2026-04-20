@@ -1,0 +1,17 @@
+.theme-ntos_terminal:root {
+  // Base
+  --font-family: 'Ubuntu Mono';
+  // Components
+  .Tab {
+    background-color: hsl(224, 35%, 0%, 0.3);
+  }
+
+  .Tab--selected {
+    background-color: hsl(224, 35%, 100%, 0.3);
+  }
+
+  .Button--selected {
+    color: var(--color-primary);
+    background-color: hsl(224, 35%, 100%, 0.3);
+  }
+}

@@ -1,0 +1,19 @@
+.theme-neutral:root {
+  // Components
+  --button-color: var(--color-black);
+  --button-background-default: var(--color-primary);
+  --number-input-border-color-active: var(--color-white);
+
+  .Tab {
+    background-color: hsl(224, 35%, 0%, 0.3);
+  }
+
+  .Tab--selected {
+    background-color: hsl(224, 35%, 100%, 0.3);
+  }
+
+  .Button--selected {
+    color: var(--color-white);
+    background-color: hsl(224, 35%, 100%, 0.3);
+  }
+}
