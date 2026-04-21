@@ -9,4 +9,13 @@
   --button-color: var(--color-text-fixed-white);
   --button-background-default: hsl(224, 35%, 18%);
   --button-color-transparent: var(--color-light-grey);
+  --tab-color-selected: var(--color-white);
+  --number-input-border-color-active: var(--color-white);
+  --tab-background: hsl(224, 35%, 18%);
+
+  .Button--selected {
+    color: var(--color-white);
+    background-color: var(--section-background);
+    background-color: hsl(224, 35%, 18%, 0.5);
+  }
 }
