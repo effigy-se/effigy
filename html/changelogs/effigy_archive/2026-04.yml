@@ -1,0 +1,5 @@
+2026-04-21:
+  LT3:
+  - bugfix: MODsuits can now overslot over equipped suits
+  - bugfix: Airlocks properly show active RETA status
+  - bugfix: Fixed various minor TGUI style issues
