@@ -424,6 +424,7 @@
 	)
 
 /datum/component/riding/creature/pony
+	other_unbuckle = CAN_DISARM_UNBUCKLE
 	vehicle_move_delay = 1.5
 	COOLDOWN_DECLARE(pony_trot_cooldown)
 
@@ -640,7 +641,7 @@
 	)
 
 /datum/component/riding/creature/leaper
-	can_force_unbuckle = FALSE
+	other_unbuckle = CAN_DISARM_UNBUCKLE
 	can_use_abilities = TRUE
 	ride_check_flags = JUST_FRIEND_RIDERS
 
