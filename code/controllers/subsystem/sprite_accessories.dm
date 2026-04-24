@@ -102,6 +102,7 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	feature_list[FEATURE_TAIL_MONKEY] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/monkey) // EffigyEdit Change - Made optional
 	feature_list[FEATURE_TAIL_XENO] = INIT_ACCESSORY(/datum/sprite_accessory/tails/xeno)
 	// EffigyEdit Add - Character Preferences
+	body_markings = INIT_ACCESSORY(/datum/sprite_accessory/body_marking)
 	feature_list[FEATURE_FLUFF] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/fluff)
 	feature_list[FEATURE_EARS_LIZARD] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/ears_anthro/lizard)
 	feature_list[FEATURE_EARS_CAT] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/ears)
