@@ -33,15 +33,13 @@
 	var/perlin_zoom = 65
 
 ///Seeds the rust-g perlin noise with a random number.
-/datum/map_generator/ocean_generator/generate_terrain(list/turfs)
+/datum/map_generator/ocean_generator/generate_terrain(list/turfs, area/generate_in)
 	. = ..()
 	var/height_seed = rand(0, 50000)
 	var/humidity_seed = rand(0, 50000)
 	var/heat_seed = rand(0, 50000)
 
-	for(var/t in turfs) //Go through all the turfs and generate them
-		var/turf/gen_turf = t
-
+	for(var/turf/gen_turf as anything in turfs) //Go through all the turfs and generate them
 		if(istype(gen_turf, /turf/open/openspace/ocean))
 			continue
 
@@ -52,6 +50,7 @@
 
 
 		var/datum/biome/selected_biome
+		var/closed = FALSE
 		if(height <= 0.85) //If height is less than 0.85, we generate biomes based on the heat and humidity of the area.
 			var/humidity = text2num(rustg_noise_get_at_coordinates("[humidity_seed]", "[drift_x]", "[drift_y]"))
 			var/heat = text2num(rustg_noise_get_at_coordinates("[heat_seed]", "[drift_x]", "[drift_y]"))
@@ -79,8 +78,9 @@
 			selected_biome = possible_biomes[heat_level][humidity_level]
 		else //Over 0.85; It's a wall
 			selected_biome = /datum/biome/ocean_wall
+			closed = TRUE
 		selected_biome = SSmapping.biomes[selected_biome] //Get the instance of this biome from SSmapping
-		selected_biome.generate_turf(gen_turf)
+		selected_biome.generate_turf(gen_turf, closed)
 		CHECK_TICK
 
 /datum/map_generator/cave_generator/trench
