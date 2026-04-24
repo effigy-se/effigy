@@ -121,6 +121,15 @@
 	layers = EXTERNAL_FRONT | EXTERNAL_FRONT_2 | EXTERNAL_FRONT_3 | EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3 | EXTERNAL_BEHIND | EXTERNAL_BEHIND_2 | EXTERNAL_BEHIND_3
 	feature_key = "wings_anthro"
 	feature_key_sprite = "wings"
+	color_source = ORGAN_COLOR_OVERRIDE
+
+/datum/bodypart_overlay/mutant/wings/more/override_color(obj/item/bodypart/bodypart_owner)
+	if(!bodypart_owner.owner)
+		return bodypart_owner.draw_color
+
+	. = bodypart_owner.owner.dna.features["wings_color_1"]
+	draw_color_2 = bodypart_owner.owner.dna.features["wings_color_2"]
+	draw_color_3 = bodypart_owner.owner.dna.features["wings_color_3"]
 
 /datum/bodypart_overlay/mutant/wings/more/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
 	if(limb == null)
@@ -128,33 +137,44 @@
 	if(limb.owner == null)
 		return ..()
 	if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT))
-		overlay.color = limb.owner.dna.features["wings_color_1"]
+		overlay.color = draw_color
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT))
-		overlay.color = limb.owner.dna.features["wings_color_1"]
+		overlay.color = draw_color
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND))
-		overlay.color = limb.owner.dna.features["wings_color_1"]
+		overlay.color = draw_color
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_2))
-		overlay.color = limb.owner.dna.features["wings_color_2"]
+		overlay.color = draw_color_2
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_2))
-		overlay.color = limb.owner.dna.features["wings_color_2"]
+		overlay.color = draw_color_2
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND_2))
-		overlay.color = limb.owner.dna.features["wings_color_2"]
+		overlay.color = draw_color_2
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_3))
-		overlay.color = limb.owner.dna.features["wings_color_3"]
+		overlay.color = draw_color_3
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_3))
-		overlay.color = limb.owner.dna.features["wings_color_3"]
+		overlay.color = draw_color_3
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND_3))
-		overlay.color = limb.owner.dna.features["wings_color_3"]
+		overlay.color = draw_color_3
 		return overlay
 	return ..()
+
+/datum/bodypart_overlay/mutant/wings/moth
+	color_source = ORGAN_COLOR_OVERRIDE
+
+/datum/bodypart_overlay/mutant/wings/moth/override_color(obj/item/bodypart/bodypart_owner)
+	if(!bodypart_owner.owner)
+		return bodypart_owner.draw_color
+
+	. = bodypart_owner.owner.dna.features["wings_color_1"]
+	draw_color_2 = bodypart_owner.owner.dna.features["wings_color_2"]
+	draw_color_3 = bodypart_owner.owner.dna.features["wings_color_3"]
 
 //	Moth wings have their own bespoke RGB code.
 /datum/bodypart_overlay/mutant/wings/moth/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
@@ -164,9 +184,9 @@
 		return ..()
 	var/color_intended = COLOR_WHITE
 
-	var/tcol_1 = limb.owner.dna.features["wings_color_1"]
-	var/tcol_2 = limb.owner.dna.features["wings_color_2"]
-	var/tcol_3 = limb.owner.dna.features["wings_color_3"]
+	var/tcol_1 = draw_color
+	var/tcol_2 = draw_color_2
+	var/tcol_3 = draw_color_3
 	if(tcol_1 && tcol_2 && tcol_3)
 		//this is beyond ugly but it works
 		var/r1 = hex2num(copytext(tcol_1, 2, 4)) / 255.0
