@@ -2,6 +2,9 @@
 /obj/item/organ/tail/monkey
 	name = "monkey tail"
 
+/datum/bodypart_overlay/mutant/tail/cat
+	color_source = ORGAN_COLOR_OVERRIDE
+
 /// Mammal tail
 /obj/item/organ/tail/mammal
 	name = "mammal tail"
