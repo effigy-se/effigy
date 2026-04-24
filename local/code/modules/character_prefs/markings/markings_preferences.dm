@@ -22,10 +22,6 @@
 	return SPRITE_ACCESSORY_NONE
 
 /datum/preference/choiced/markings/apply_to_human(mob/living/carbon/human/target, value)
-
-	if(value == SPRITE_ACCESSORY_NONE)
-		return
-
 	if(!target.dna.features["markings_list"])
 		var/list/markings_listt = list()
 		LAZYSETLEN(markings_listt, MARKING_LIST_LEN)
@@ -36,8 +32,8 @@
 		LAZYSETLEN(markings_listt, MARKING_LIST_LEN)
 		target.dna.features["markings_list_zones"] = markings_listt
 
-	target.dna.features["markings_list"][markingval] = value
-	target.dna.features["markings_list_zones"][markingval] = body_zone
+	target.dna.features["markings_list"][markingval] = value == /datum/sprite_accessory/blank::name ? null : value
+	target.dna.features["markings_list_zones"][markingval] = value == /datum/sprite_accessory/blank::name ? null : body_zone
 
 /// Zonal marking colors
 /datum/preference/color/markings
