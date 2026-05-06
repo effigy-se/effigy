@@ -5,6 +5,7 @@ export type Channel =
   | 'Whis'
   | 'LOOC'
   | 'OOC'
+  | 'Pray'
   | 'Admin'; // EffigyEdit Change - LOOC
 
 /**
@@ -22,11 +23,12 @@ export class ChannelIterator {
     'Whis',
     'LOOC',
     'OOC',
+    'Pray',
     'Admin',
   ];
   private readonly blacklist: Channel[] = ['Admin'];
   // private readonly quiet: Channel[] = ['OOC', 'Admin']; // EffigyEdit Change - LOOC
-  private readonly quiet: Channel[] = ['LOOC', 'OOC', 'Admin'];
+  private readonly quiet: Channel[] = ['LOOC', 'OOC', 'Admin', 'Pray'];
 
   public next(): Channel {
     if (this.blacklist.includes(this.channels[this.index])) {
