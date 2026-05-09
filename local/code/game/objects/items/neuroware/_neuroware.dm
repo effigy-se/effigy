@@ -40,9 +40,9 @@
 		if(NEUROWARE_NT)
 			desc += "It has a <b>[span_blue("Nanotrasen Systems, Inc.")]</b> label visible on it."
 		if(NEUROWARE_BISHOP)
-			desc += "It has a <b>[span_cyan("Bishop Cybernetics, Inc.")]</b> label visible on it."
+			desc += "It has a <b>[span_cyan_plain("Bishop Cybernetics, Inc.")]</b> label visible on it."
 		if(NEUROWARE_DEFOREST)
-			desc += "It has <b>[span_cyan("DeForest Medical Corporation")]</b> laser-etched into it."
+			desc += "It has <b>[span_cyan_plain("DeForest Medical Corporation")]</b> laser-etched into it."
 		if(NEUROWARE_DONK)
 			desc += "It has a <b>[span_green("Donk Corporation")]</b> label visible on it."
 		if(NEUROWARE_MAINT)
