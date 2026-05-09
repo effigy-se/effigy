@@ -48,9 +48,8 @@ SUBSYSTEM_DEF(statpanels)
 		global_data += list(
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "Local"]",
 			"Connected: [GLOB.clients.len] / Active: [SSmetrics.active_players] / Observing: [SSmetrics.observing_players]",
-			"Round Time: [ROUND_TIME()]",
-			"Station Time: [station_time_timestamp(format = "hh:mm")], [current_date]",
-			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss", world.timezone)]",
+			"Shift Time/PT:  [(SSticker.round_start_time == 0) ? "Pre-Shift" : round_timestamp()], [current_date]",
+			"Server Time/NST: [server_timestamp(format = "YYYY-MM-DD hh:mm:ss")]",
 			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% (Avg: [round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
 		)
 

@@ -14,6 +14,8 @@
 	var/current_range = 7
 	/// The camera installed into the light, if any
 	var/obj/machinery/camera/solar_camera
+	///Currently in night shift mode?
+	var/nightshift_enabled = FALSE
 
 /obj/machinery/solarlight/Initialize(mapload)
 	. = ..()
@@ -38,7 +40,7 @@
 	var/light_color =  NONSENSICAL_VALUE
 	if(!isnull(color))
 		light_color = color
-	var/new_range = SSnightshift.nightshift_active ? 4 : 7
+	var/new_range = nightshift_enabled ? 4 : 7
 	set_light(new_range, light_power, light_color) // Exact range of internal cameras
 
 /obj/machinery/solarlight/screwdriver_act(mob/living/user, obj/item/I)

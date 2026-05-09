@@ -308,7 +308,6 @@ SUBSYSTEM_DEF(ticker)
 	if(!CONFIG_GET(flag/ooc_during_round))
 		toggle_ooc(FALSE) // Turn it off
 
-	SSnightshift.check_nightshift() // EffigyEdit Add - Variable Start Time
 	CHECK_TICK
 	GLOB.start_landmarks_list = shuffle(GLOB.start_landmarks_list) //Shuffle the order of spawn points so they dont always predictably spawn bottom-up and right-to-left
 	create_characters() //Create player characters

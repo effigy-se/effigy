@@ -996,8 +996,7 @@ generate/load female uniform sprites matching all previously decided variables
 			. += bra_overlay
 	// EffigyEdit Add End
 
-	if(standing.len)
-		overlays_standing[BODY_LAYER] = standing
+	return .
 
 /// Updates eye sprites if relevant
 /mob/living/proc/update_eyes(refresh = TRUE)
