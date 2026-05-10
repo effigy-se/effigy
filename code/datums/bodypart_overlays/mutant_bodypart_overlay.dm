@@ -115,6 +115,10 @@
 	. += "[get_base_icon_state()]"
 	. += "[feature_key]"
 	. += "[dye_color || draw_color]"
+	// EffigyEdit Add - Character Preferences
+	. += "[draw_color_2]"
+	. += "[draw_color_3]"
+	// EffigyEdit Add End
 	return .
 
 ///Return a dumb glob list for this specific feature (called from parse_sprite)

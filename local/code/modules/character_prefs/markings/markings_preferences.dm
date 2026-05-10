@@ -11,21 +11,16 @@
 	var/datum/bodypart_overlay/simple/body_marking/body_markings/markings = new /datum/bodypart_overlay/simple/body_marking/body_markings()
 	var/list/returnval = list()
 	var/list/allmarkings = assoc_to_keys_features(SSaccessories.body_markings)
-	returnval += "None"
 	for(var/i in allmarkings)
 		var/datum/sprite_accessory/body_marking/accessory = markings.get_accessory(i)
 		if(accessory.body_zones & body_zone)
 			returnval += i
-	return sort_list(returnval)
+	return list("None") + sort_list(returnval)
 
 /datum/preference/choiced/markings/create_default_value()
 	return SPRITE_ACCESSORY_NONE
 
 /datum/preference/choiced/markings/apply_to_human(mob/living/carbon/human/target, value)
-
-	if(value == SPRITE_ACCESSORY_NONE)
-		return
-
 	if(!target.dna.features["markings_list"])
 		var/list/markings_listt = list()
 		LAZYSETLEN(markings_listt, MARKING_LIST_LEN)
@@ -36,8 +31,8 @@
 		LAZYSETLEN(markings_listt, MARKING_LIST_LEN)
 		target.dna.features["markings_list_zones"] = markings_listt
 
-	target.dna.features["markings_list"][markingval] = value
-	target.dna.features["markings_list_zones"][markingval] = body_zone
+	target.dna.features["markings_list"][markingval] = value == /datum/sprite_accessory/blank::name ? null : value
+	target.dna.features["markings_list_zones"][markingval] = value == /datum/sprite_accessory/blank::name ? null : body_zone
 
 /// Zonal marking colors
 /datum/preference/color/markings
