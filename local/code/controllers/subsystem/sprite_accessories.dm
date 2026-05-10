@@ -1,5 +1,6 @@
 /datum/controller/subsystem/accessories
 	var/list/sprite_accessory_layers = list()
+	var/list/body_markings = list()
 
 /datum/controller/subsystem/accessories/proc/get_sprite_accessory_layers(icon_file)
 	if(sprite_accessory_layers[icon_file])

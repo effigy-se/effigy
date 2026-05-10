@@ -389,6 +389,15 @@
 	layers = EXTERNAL_FRONT | EXTERNAL_FRONT_2 | EXTERNAL_FRONT_3 | EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3 | EXTERNAL_BEHIND | EXTERNAL_BEHIND_2 | EXTERNAL_BEHIND_3
 	feature_key = "ears"
 	feature_key_sprite = "ears"
+	color_source = ORGAN_COLOR_OVERRIDE
+
+/datum/bodypart_overlay/mutant/ears/override_color(obj/item/bodypart/bodypart_owner)
+	if(!bodypart_owner.owner)
+		return bodypart_owner.draw_color
+
+	. = bodypart_owner.owner.dna.features["ears_color_1"]
+	draw_color_2 = bodypart_owner.owner.dna.features["ears_color_2"]
+	draw_color_3 = bodypart_owner.owner.dna.features["ears_color_3"]
 
 /datum/bodypart_overlay/mutant/ears/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
 	if(limb == null)
@@ -396,31 +405,31 @@
 	if(limb.owner == null)
 		return ..()
 	if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT))
-		overlay.color = limb.owner.dna.features["ears_color_1"]
+		overlay.color = draw_color
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT))
-		overlay.color = limb.owner.dna.features["ears_color_1"]
+		overlay.color = draw_color
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND))
-		overlay.color = limb.owner.dna.features["ears_color_1"]
+		overlay.color = draw_color
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_2))
-		overlay.color = limb.owner.dna.features["ears_color_2"]
+		overlay.color = draw_color_2
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_2))
-		overlay.color = limb.owner.dna.features["ears_color_2"]
+		overlay.color = draw_color_2
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND_2))
-		overlay.color = limb.owner.dna.features["ears_color_2"]
+		overlay.color = draw_color_2
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_3))
-		overlay.color = limb.owner.dna.features["ears_color_3"]
+		overlay.color = draw_color_3
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_3))
-		overlay.color = limb.owner.dna.features["ears_color_3"]
+		overlay.color = draw_color_3
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND_3))
-		overlay.color = limb.owner.dna.features["ears_color_3"]
+		overlay.color = draw_color_3
 		return overlay
 	return ..()
 

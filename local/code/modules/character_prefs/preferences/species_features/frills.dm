@@ -3,6 +3,15 @@
 
 /datum/bodypart_overlay/mutant/frills
 	layers = EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3
+	color_source = ORGAN_COLOR_OVERRIDE
+
+/datum/bodypart_overlay/mutant/frills/override_color(obj/item/bodypart/bodypart_owner)
+	if(!bodypart_owner.owner)
+		return bodypart_owner.draw_color
+
+	. = bodypart_owner.owner.dna.features["frills_color_1"]
+	draw_color_2 = bodypart_owner.owner.dna.features["frills_color_2"]
+	draw_color_3 = bodypart_owner.owner.dna.features["frills_color_3"]
 
 /datum/bodypart_overlay/mutant/frills/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
 	if(limb == null)
@@ -10,13 +19,13 @@
 	if(limb.owner == null)
 		return ..()
 	if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT))
-		overlay.color = limb.owner.dna.features["frills_color_1"]
+		overlay.color = draw_color
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_2))
-		overlay.color = limb.owner.dna.features["frills_color_2"]
+		overlay.color = draw_color_2
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_3))
-		overlay.color = limb.owner.dna.features["frills_color_3"]
+		overlay.color = draw_color_3
 		return overlay
 	return ..()
 

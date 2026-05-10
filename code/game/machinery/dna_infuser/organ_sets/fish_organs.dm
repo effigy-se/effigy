@@ -282,6 +282,7 @@
 
 /datum/bodypart_overlay/mutant/tail/fish
 	feature_key = FEATURE_TAIL_FISH
+/* EffigyEdit Remove - Character Preferences
 	color_source = ORGAN_COLOR_OVERRIDE
 	draw_on_husks = HUSK_OVERLAY_GRAYSCALE
 
@@ -309,6 +310,7 @@
 		if(texture.can_draw_on_bodypart(limb, limb.owner, limb.is_husked))
 			texture.modify_bodypart_appearance(appearance)
 	return appearance
+*/// EffigyEdit Remove End
 
 ///Lungs that replace the need of oxygen with water vapor or being wet
 /obj/item/organ/lungs/fish

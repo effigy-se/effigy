@@ -1,0 +1,4 @@
+author: "TealSeer"
+delete-after: True
+changes:
+  - bugfix: "fixed mutant body parts sometimes turning white"
