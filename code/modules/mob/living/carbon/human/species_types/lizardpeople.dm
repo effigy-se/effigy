@@ -240,6 +240,7 @@ Lizard subspecies: SILVER SCALED
 	// EffigyEdit Add - Lizards
 	new_silverscale.dna.tail_type = LIZARD_TYPE
 	new_silverscale.dna.features[FEATURE_TAIL_LIZARD] = "Light Tiger"
+	new_silverscale.dna.features["tail_color_1"] = new_silverscale.dna.features[FEATURE_MUTANT_COLOR]
 	// EffigyEdit Add End
 	. = ..()
 	new_silverscale.add_filter("silver_glint", 2, list("type" = "outline", "color" = "#ffffff63", "size" = 2))
@@ -248,4 +249,7 @@ Lizard subspecies: SILVER SCALED
 	was_silverscale.dna.features[FEATURE_MUTANT_COLOR] = old_mutcolor
 	was_silverscale.remove_eye_color(EYE_COLOR_SPECIES_PRIORITY)
 	was_silverscale.remove_filter("silver_glint")
+	// EffigyEdit Add - Lizards
+	was_silverscale.dna.features["tail_color_1"] = was_silverscale.dna.features[FEATURE_MUTANT_COLOR]
+	// EffigyEdit Add End
 	return ..()
