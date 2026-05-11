@@ -288,7 +288,7 @@
 	icon = BODYPART_ICON_SYNTH_BASE
 	icon_state = "e_three_n_head"
 	limb_id = "e_three_n"
-	head_flags = (HEAD_HAIR|HEAD_DEBRAIN)
+	head_flags = (HEAD_HAIR)
 
 /obj/item/bodypart/chest/robot/effigy/e_three_n
 	icon_static = BODYPART_ICON_SYNTH_BASE

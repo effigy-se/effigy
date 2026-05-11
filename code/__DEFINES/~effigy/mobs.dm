@@ -12,7 +12,7 @@
 #define ORGAN_VISIBILITY_MODE_ALWAYS_HIDE "Always Hide"
 
 /// Head_flags of android heads that don't feature eyes (monitor heads (IPCs))
-#define HEAD_MONITOR_FACE (HEAD_HAIR|HEAD_LIPS|HEAD_DEBRAIN)
+#define HEAD_MONITOR_FACE (HEAD_HAIR|HEAD_LIPS)
 
 GLOBAL_LIST_INIT(monitor_displays, list(
 	"Disabled" = "none",
