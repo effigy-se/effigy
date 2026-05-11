@@ -195,6 +195,14 @@ Lizard subspecies: ASHWALKERS
 	return "Ash Walkers are identical to lizardpeople in almost all aspects. \
 		Unlike them, they're always digitigrade, they can breathe Lavaland's often noxious atmosphere and resist viruses. They are usually illiterate."
 
+// EffigyEdit Add - Lizards
+/datum/species/lizard/ashwalker/on_species_gain(mob/living/carbon/human/new_ashwalker, datum/species/old_species, pref_load, regenerate_icons)
+	new_ashwalker.dna.tail_type = LIZARD_TYPE
+	new_ashwalker.dna.features[FEATURE_TAIL_LIZARD] = "Light Tiger"
+	new_ashwalker.dna.features["tail_color_1"] = new_ashwalker.dna.features[FEATURE_MUTANT_COLOR]
+	. = ..()
+// EffigyEdit Add End
+
 /*
 Lizard subspecies: SILVER SCALED
 */
@@ -229,6 +237,10 @@ Lizard subspecies: SILVER SCALED
 	old_mutcolor = new_silverscale.dna.features[FEATURE_MUTANT_COLOR]
 	new_silverscale.dna.features[FEATURE_MUTANT_COLOR] = "#eeeeee"
 	new_silverscale.add_eye_color("#0000a0", EYE_COLOR_SPECIES_PRIORITY)
+	// EffigyEdit Add - Lizards
+	new_silverscale.dna.tail_type = LIZARD_TYPE
+	new_silverscale.dna.features[FEATURE_TAIL_LIZARD] = "Light Tiger"
+	// EffigyEdit Add End
 	. = ..()
 	new_silverscale.add_filter("silver_glint", 2, list("type" = "outline", "color" = "#ffffff63", "size" = 2))
 
