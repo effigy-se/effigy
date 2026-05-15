@@ -4191,7 +4191,7 @@
 /obj/machinery/ai_slipper{
 	uses = 10
 	},
-/mob/living/simple_animal/bot/secbot/pingsky,
+/mob/living/basic/bot/secbot/pingsky,
 /obj/structure/cable/layer1,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -13022,7 +13022,7 @@
 /area/station/maintenance/department/medical/morgue)
 "esX" = (
 /obj/effect/turf_decal/siding/wideplating_new,
-/mob/living/simple_animal/bot/secbot/beepsky,
+/mob/living/basic/bot/secbot/beepsky,
 /turf/open/floor/stone,
 /area/taeloth/nearstation/arrivals)
 "ete" = (
@@ -22293,7 +22293,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/medical/treatment_center)
 "hzW" = (
-/mob/living/simple_animal/bot/secbot/beepsky/armsky,
+/mob/living/basic/bot/secbot/beepsky/armsky,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/red/line,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{

@@ -195,6 +195,25 @@ Lizard subspecies: ASHWALKERS
 	return "Ash Walkers are identical to lizardpeople in almost all aspects. \
 		Unlike them, they're always digitigrade, they can breathe Lavaland's often noxious atmosphere and resist viruses. They are usually illiterate."
 
+// EffigyEdit Add - Character Preferences
+/datum/species/lizard/ashwalker/on_species_gain(mob/living/carbon/human/new_ashwalker, datum/species/old_species, pref_load, regenerate_icons)
+	go_bald(new_ashwalker)
+	var/mutant_color = new_ashwalker.dna.features[FEATURE_MUTANT_COLOR]
+	new_ashwalker.dna.tail_type = LIZARD_TYPE
+	new_ashwalker.dna.features[FEATURE_TAIL_LIZARD] = "Light Tiger"
+	new_ashwalker.dna.features[FEATURE_FRILLS] = "Aquatic"
+	new_ashwalker.dna.features[FEATURE_FLUFF] = "None"
+	new_ashwalker.dna.features["tail_color_1"] = mutant_color
+	new_ashwalker.dna.features["frills_color_1"] = mutant_color
+	new_ashwalker.dna.features["snout_color_1"] = mutant_color
+	new_ashwalker.dna.features["snout_color_2"] = mutant_color
+	new_ashwalker.dna.features["tail_color_1"] = mutant_color
+	new_ashwalker.dna.features["horns_color_1"] = mutant_color
+	new_ashwalker.dna.features["frills_color_1"] = mutant_color
+	new_ashwalker.dna.features["frills_color_2"] = mutant_color
+	. = ..()
+// EffigyEdit Add End
+
 /*
 Lizard subspecies: SILVER SCALED
 */
@@ -225,15 +244,43 @@ Lizard subspecies: SILVER SCALED
 		Mostly identical, they are holy, don't breathe, don't get viruses, their hide cannot be pierced, love the taste of wine, \
 		and their tongue allows them to turn into a statue, for some reason."
 
+#define SILVERSCALE_COLOR "#eeeeee" // EffigyEdit Add - Character Preferences
 /datum/species/lizard/silverscale/on_species_gain(mob/living/carbon/human/new_silverscale, datum/species/old_species, pref_load, regenerate_icons)
 	old_mutcolor = new_silverscale.dna.features[FEATURE_MUTANT_COLOR]
 	new_silverscale.dna.features[FEATURE_MUTANT_COLOR] = "#eeeeee"
 	new_silverscale.add_eye_color("#0000a0", EYE_COLOR_SPECIES_PRIORITY)
+	// EffigyEdit Add - Character Preferences
+	go_bald(new_silverscale)
+	new_silverscale.dna.tail_type = LIZARD_TYPE
+	new_silverscale.dna.features[FEATURE_TAIL_LIZARD] = "Light Tiger"
+	new_silverscale.dna.features[FEATURE_FRILLS] = "Aquatic"
+	new_silverscale.dna.features[FEATURE_FLUFF] = "None"
+	new_silverscale.dna.features["tail_color_1"] = SILVERSCALE_COLOR
+	new_silverscale.dna.features["frills_color_1"] = SILVERSCALE_COLOR
+	new_silverscale.dna.features["snout_color_1"] = SILVERSCALE_COLOR
+	new_silverscale.dna.features["snout_color_2"] = SILVERSCALE_COLOR
+	new_silverscale.dna.features["tail_color_1"] = SILVERSCALE_COLOR
+	new_silverscale.dna.features["horns_color_1"] = SILVERSCALE_COLOR
+	new_silverscale.dna.features["frills_color_1"] = SILVERSCALE_COLOR
+	new_silverscale.dna.features["frills_color_2"] = SILVERSCALE_COLOR
+	// EffigyEdit Add End
 	. = ..()
 	new_silverscale.add_filter("silver_glint", 2, list("type" = "outline", "color" = "#ffffff63", "size" = 2))
+
+#undef SILVERSCALE_COLOR  // EffigyEdit Add - Character Preferences
 
 /datum/species/lizard/silverscale/on_species_loss(mob/living/carbon/human/was_silverscale, datum/species/new_species, pref_load)
 	was_silverscale.dna.features[FEATURE_MUTANT_COLOR] = old_mutcolor
 	was_silverscale.remove_eye_color(EYE_COLOR_SPECIES_PRIORITY)
 	was_silverscale.remove_filter("silver_glint")
+	// EffigyEdit Add - Character Preferences
+	was_silverscale.dna.features["tail_color_1"] = old_mutcolor
+	was_silverscale.dna.features["frills_color_1"] = old_mutcolor
+	was_silverscale.dna.features["snout_color_1"] = old_mutcolor
+	was_silverscale.dna.features["snout_color_2"] = old_mutcolor
+	was_silverscale.dna.features["tail_color_1"] = old_mutcolor
+	was_silverscale.dna.features["horns_color_1"] = old_mutcolor
+	was_silverscale.dna.features["frills_color_1"] = old_mutcolor
+	was_silverscale.dna.features["frills_color_2"] = old_mutcolor
+	// EffigyEdit Add End
 	return ..()

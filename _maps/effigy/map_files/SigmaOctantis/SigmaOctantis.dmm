@@ -70207,7 +70207,7 @@
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/chamber)
 "pTv" = (
-/mob/living/simple_animal/bot/secbot/beepsky/armsky,
+/mob/living/basic/bot/secbot/beepsky/armsky,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 6
@@ -71659,7 +71659,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
-/mob/living/simple_animal/bot/secbot/pingsky,
+/mob/living/basic/bot/secbot/pingsky,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer1,
 /turf/open/floor/iron/white,
 /area/station/ai/satellite/equipment)
@@ -88987,7 +88987,7 @@
 	codes_txt = "patrol;next_patrol=42-Morgue";
 	location = "41-Security"
 	},
-/mob/living/simple_animal/bot/secbot/beepsky/officer,
+/mob/living/basic/bot/secbot/beepsky/officer,
 /turf/open/floor/iron,
 /area/station/hallway/floor1/aft)
 "ulk" = (
@@ -96083,7 +96083,7 @@
 	codes_txt = "patrol;next_patrol=22-Dorms";
 	location = "21-Dorms"
 	},
-/mob/living/simple_animal/bot/secbot/beepsky,
+/mob/living/basic/bot/secbot/beepsky,
 /turf/open/floor/iron/diagonal,
 /area/station/hallway/floor2/aft)
 "vPm" = (

@@ -154,3 +154,9 @@
 					night_light.nightshift_enabled = nightshift_lights
 					night_light.update(FALSE)
 				CHECK_TICK
+			// EffigyEdit Add - Solar Lights
+			for(var/obj/machinery/solarlight/solar_light in area_turf)
+				solar_light.nightshift_enabled = nightshift_lights
+				solar_light.update_light_state()
+				CHECK_TICK
+			// EffigyEdit Add End

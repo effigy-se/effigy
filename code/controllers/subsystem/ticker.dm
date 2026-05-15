@@ -38,9 +38,6 @@ SUBSYSTEM_DEF(ticker)
 	var/timeLeft //pregame timer
 	var/start_at
 
-	var/gametime_offset = 432000 //Deciseconds to add to world.time for station time.
-	var/station_time_rate_multiplier = 3 //factor of station time progressal vs real time. // EffigyEdit Change - Original: 12 - Prevent station time rollover during rounds
-
 	/// Num of players, used for pregame stats on statpanel
 	var/totalPlayers = 0
 	/// Num of ready players, used for pregame stats on statpanel (only viewable by admins)
@@ -135,21 +132,13 @@ SUBSYSTEM_DEF(ticker)
 		GLOB.syndicate_code_response_regex = codeword_match
 
 	start_at = COUNTDOWN_GAME_INIT // EffigyEdit Change - Custom Lobby - Original: world.time + (CONFIG_GET(number/lobby_countdown) * (1 SECONDS))
-	round_start_time = start_at // May be changed later, but prevents the time from jumping back when the round actually starts
-	if(CONFIG_GET(flag/randomize_shift_time))
-		gametime_offset = rand(0, 23) * (1 HOURS)
-	else if(CONFIG_GET(flag/shift_time_realtime))
-		gametime_offset = world.timeofday + GLOB.timezoneOffset
-		station_time_rate_multiplier = 1
-	else
-		gametime_offset = (CONFIG_GET(number/shift_time_start_hour) * (1 HOURS))
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/ticker/fire()
 	switch(current_state)
 		if(GAME_STATE_STARTUP)
 			//if(Master.initializations_finished_with_no_players_logged_in) // EffigyEdit Remove - Custom Lobby
-			//	start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 10) // EffigyEdit Remove - Custom Lobby
+			//	start_at = world.time + (CONFIG_GET(number/lobby_countdown) * (1 SECONDS)) // EffigyEdit Remove - Custom Lobby
 			for(var/client/C in GLOB.clients)
 				window_flash(C, ignorepref = TRUE) //let them know lobby has opened up.
 			to_chat(world, span_notice("<b>Welcome to [station_name()]!</b>"))
@@ -172,9 +161,9 @@ SUBSYSTEM_DEF(ticker)
 
 			fire()
 		if(GAME_STATE_PREGAME)
-				//lobby stats for statpanels
+			//lobby stats for statpanels
 			if(isnull(timeLeft))
-				timeLeft = COUNTDOWN_GAME_INIT // EffigyEdit Change - Custom Lobby - Original:  max(0,start_at - world.time)
+				timeLeft = COUNTDOWN_GAME_INIT // EffigyEdit Change - Custom Lobby - Original:  max(0, start_at - world.time)
 			totalPlayers = LAZYLEN(GLOB.new_player_list)
 			totalPlayersReady = 0
 			total_admins_ready = 0
@@ -237,7 +226,7 @@ SUBSYSTEM_DEF(ticker)
 			if(!setup())
 				//setup failed
 				current_state = GAME_STATE_STARTUP
-				start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 10)
+				start_at = world.time + (CONFIG_GET(number/lobby_countdown) * (1 SECONDS))
 				timeLeft = null
 				Master.SetRunLevel(RUNLEVEL_LOBBY)
 				SEND_SIGNAL(src, COMSIG_TICKER_ERROR_SETTING_UP)
@@ -319,7 +308,6 @@ SUBSYSTEM_DEF(ticker)
 	if(!CONFIG_GET(flag/ooc_during_round))
 		toggle_ooc(FALSE) // Turn it off
 
-	SSnightshift.check_nightshift() // EffigyEdit Add - Variable Start Time
 	CHECK_TICK
 	GLOB.start_landmarks_list = shuffle(GLOB.start_landmarks_list) //Shuffle the order of spawn points so they dont always predictably spawn bottom-up and right-to-left
 	create_characters() //Create player characters
