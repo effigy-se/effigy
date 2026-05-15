@@ -13,12 +13,16 @@ export const COLORS = {
     BUTTON: '#3a4050', // EffigyEdit Change - TGUI - Original: #404040
     TEXT: '#e7e9ee', // EffigyEdit Change - TGUI - Original: #A6A6A6
     TEXT_DARK: '#22252f', // EffigyEdit Add - TGUI
+    TEXT_IMPORTANT: '#A6A6A6',
+    BG_IMPORTANT: '#492020',
   },
   LIGHT: {
     BG_BASE: '#EEEEEE',
     BG_SECOND: '#FFFFFF',
     BUTTON: '#FFFFFF',
     TEXT: '#000000',
+    TEXT_IMPORTANT: '#A6A6A6',
+    BG_IMPORTANT: '#910707',
     TEXT_DARK: '#000000', // EffigyEdit Add - TGUI
   },
 } as const;
