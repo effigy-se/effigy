@@ -8,21 +8,21 @@ export const THEMES = ['light', 'dark'] as const;
 
 export const COLORS = {
   DARK: {
-    BG_BASE: '#1a1c23', // EffigyEdit Change - TGUI - Original: #202020
-    BG_SECOND: '#22252f', // EffigyEdit Change - TGUI - Original: #151515
-    BUTTON: '#3a4050', // EffigyEdit Change - TGUI - Original: #404040
-    TEXT: '#e7e9ee', // EffigyEdit Change - TGUI - Original: #A6A6A6
-    TEXT_DARK: '#22252f', // EffigyEdit Add - TGUI
-    TEXT_IMPORTANT: '#A6A6A6',
-    BG_IMPORTANT: '#492020',
+    BG_BASE: '#1A1C23', // EffigyEdit Change - TGUI - Original: #202020
+    BG_SECOND: '#22252F', // EffigyEdit Change - TGUI - Original: #151515
+    BUTTON: '#3A4050', // EffigyEdit Change - TGUI - Original: #404040
+    TEXT: '#E7E9EE', // EffigyEdit Change - TGUI - Original: #A6A6A6
+    TEXT_DARK: '#22252F', // EffigyEdit Add - TGUI
+    TEXT_IMPORTANT: '#F4F5F7', // EffigyEdit Change - TGUI - Original: #A6A6A6
+    BG_IMPORTANT: '#860943', // EffigyEdit Change - TGUI - Original: #492020
   },
   LIGHT: {
     BG_BASE: '#EEEEEE',
     BG_SECOND: '#FFFFFF',
     BUTTON: '#FFFFFF',
     TEXT: '#000000',
-    TEXT_IMPORTANT: '#A6A6A6',
-    BG_IMPORTANT: '#910707',
+    TEXT_IMPORTANT: '#F4F5F7', // EffigyEdit Change - TGUI - Original: #A6A6A6
+    BG_IMPORTANT: '#F0197D', // EffigyEdit Change - TGUI - Original: #910707
     TEXT_DARK: '#000000', // EffigyEdit Add - TGUI
   },
 } as const;

@@ -72,10 +72,10 @@ export function setClientTheme(name): void | Promise<void> {
     'saybutton.text-color': themeColor.TEXT_DARK, // EffigyEdit Change - TGUI - Original: TEXT
     'oocbutton.background-color': '#cca300', // EffigyEdit Change - TGUI - Original: BG_BASE
     'oocbutton.text-color': themeColor.TEXT_DARK, // EffigyEdit Change - TGUI - Original: TEXT
-    'whisperbutton.background-color': themeColor.BG_BASE,
+    'whisperbutton.background-color': '#4746aa', // EffigyEdit Change - TGUI - Original: BG_BASE
     'whisperbutton.text-color': themeColor.TEXT,
     'mebutton.background-color': '#5975da', // EffigyEdit Change - TGUI - Original: BG_BASE
-    'mebutton.text-color': themeColor.TEXT_DARK, // EffigyEdit Change - TGUI - Original: TEXT
+    'mebutton.text-color': themeColor.TEXT,
     'asset_cache_browser.background-color': themeColor.BG_BASE,
     'asset_cache_browser.text-color': themeColor.TEXT,
     'tooltip.background-color': themeColor.BG_BASE,
