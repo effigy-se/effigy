@@ -8,38 +8,6 @@ macro "default"
 		name = "SHIFT+UP"
 		command = ".winset :map.right-click=true"
 
-
-menu "menu"
-	elem
-		name = "&File"
-		command = ""
-		saved-params = "is-checked"
-	elem "reconnectbutton"
-		name = "&Reconnect"
-		command = ".reconnect"
-		category = "&File"
-		saved-params = "is-checked"
-	elem
-		name = "&Quit\tAlt-F4"
-		command = ".quit"
-		category = "&File"
-		saved-params = "is-checked"
-	elem "help-menu"
-		name = "&Help"
-		command = ""
-		saved-params = "is-checked"
-	elem
-		name = "&Admin Help\tF1"
-		command = "adminhelp"
-		category = "&Help"
-		saved-params = "is-checked"
-	elem
-		name = "&Hotkeys"
-		command = "Hotkeys-Help"
-		category = "&Help"
-		saved-params = "is-checked"
-
-
 window "mainwindow"
 	elem "mainwindow"
 		type = MAIN
@@ -52,7 +20,6 @@ window "mainwindow"
 		statusbar = false
 		icon = 'local\\icons\\ui\\common\\effigy_32.png'
 		macro = "default"
-		menu = "menu"
 	elem "split"
 		type = CHILD
 		pos = 0,0
@@ -140,12 +107,89 @@ window "info_and_buttons"
 		size = 640x477
 		anchor1 = 0,0
 		anchor2 = 100,100
+		background-color = #ffc41f
 		saved-params = "splitter"
 		left = "infobuttons"
 		right = "infowindow"
 		is-vert = false
 		splitter = 2
 		show-splitter = false
+
+window "infobuttons"
+	elem "infobuttons"
+		type = MAIN
+		pos = 291,0
+		size = 676x30
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = none
+		saved-params = "pos;size;is-minimized;is-maximized"
+		is-pane = true
+		outer-size = 692x88
+		outer-pos = 291,0
+		inner-size = 676x30
+		inner-pos = 8,31
+		screen-size = 1920x1040
+	elem "options"
+		type = BUTTON
+		pos = 0,5
+		size = 88x27
+		anchor1 = 0,0
+		anchor2 = 15,100
+		background-color = none
+        font-family = "Chakra Petch"
+        is-flat = true
+		saved-params = "is-checked"
+		text = "Menu"
+		command = "open-escape-menu"
+	elem "hotkeys"
+		type = BUTTON
+		pos = 92,5
+		size = 88x27
+		anchor1 = 15,0
+		anchor2 = 29,100
+		background-color = none
+        font-family = "Chakra Petch"
+        is-flat = true
+		saved-params = "is-checked"
+		text = "Hotkeys"
+		command = "Hotkeys-Help"
+	elem "emotes"
+		type = BUTTON
+		pos = 185,5
+		size = 88x27
+		anchor1 = 29,0
+		anchor2 = 43,100
+		background-color = none
+        font-family = "Chakra Petch"
+        is-flat = true
+		saved-params = "is-checked"
+		text = "Emotes"
+		command = "Emote-Panel"
+	elem "fullscreen-toggle"
+		type = BUTTON
+		pos = 277,5
+		size = 88x27
+		anchor1 = 43,0
+		anchor2 = 57,100
+		background-color = none
+        font-family = "Chakra Petch"
+        is-flat = true
+		saved-params = "is-checked"
+		text = "Fullscreen"
+		command = "fullscreen"
+	elem "reconnect"
+		type = BUTTON
+		pos = 369,5
+		size = 88x27
+		anchor1 = 57,0
+		anchor2 = 71,100
+		background-color = none
+        font-family = "Chakra Petch"
+        is-flat = true
+		saved-params = "is-checked"
+		text = "Reconnect"
+		command = ".reconnect"
 
 window "infowindow"
 	elem "infowindow"
@@ -164,7 +208,7 @@ window "infowindow"
 		size = 640x475
 		is-vert = false
 		splitter = 97.5
-        background-color = #ffc41f
+		background-color = #ffc41f
 		show-splitter = false
 		saved-params = "splitter"
 		left = "info"
@@ -292,7 +336,7 @@ window "inputbuttons"
 		pos = 0,0
 		size = 35x20
 		anchor1 = 0,0
-		anchor2 = 33,100
+		anchor2 = 25,100
 		border = none
 		saved-params = "is-checked"
 		font-family = "Chakra Petch"
@@ -300,25 +344,12 @@ window "inputbuttons"
 		command = ".winset \"saybutton.is-checked=true ? input.command=\"!say \\\"\" : input.command=\"\"saybutton.is-checked=true ? mebutton.is-checked=false\"\"saybutton.is-checked=true ? oocbutton.is-checked=false\"\"saybutton.is-checked=true ? whisperbutton.is-checked=false\""
 		is-flat = true
 		button-type = pushbox
-	elem "whisperbutton"
-		type = BUTTON
-		pos = 40,0
-		size = 40x20
-		anchor1 = 25,0
-		anchor2 = 50,100
-		font-size = 4
-		border = line
-		saved-params = "is-checked"
-		text = "Whisper"
-		command = ".winset \"whisperbutton.is-checked=true ? input.command=\"!say \\\"#\" : input.command=\"\"whisperbutton.is-checked=false ? saybutton.is-checked=false\"\"whisperbutton.is-checked=true ? mebutton.is-checked=false\"\"whisperbutton.is-checked=true ? oocbutton.is-checked=false\""
-		is-flat = true
-		button-type = pushbox
 	elem "mebutton"
 		type = BUTTON
 		pos = 40,0
 		size = 35x20
-		anchor1 = 33,0
-		anchor2 = 66,100
+		anchor1 = 25,0
+		anchor2 = 50,100
 		border = none
 		saved-params = "is-checked"
 		font-family = "Chakra Petch"
@@ -326,11 +357,24 @@ window "inputbuttons"
 		command = ".winset \"mebutton.is-checked=true ? input.command=\"!me \\\"\" : input.command=\"\"mebutton.is-checked=true ? saybutton.is-checked=false\"\"mebutton.is-checked=true ? oocbutton.is-checked=false\"\"mebutton.is-checked=true ? whisperbutton.is-checked=false\""
 		is-flat = true
 		button-type = pushbox
+    elem "whisperbutton"
+		type = BUTTON
+        pos = 80,0
+		size = 35x20
+		anchor1 = 50,0
+		anchor2 = 75,100
+		border = none
+		saved-params = "is-checked"
+        font-family = "Chakra Petch"
+		text = "Whis"
+		command = ".winset \"whisperbutton.is-checked=true ? input.command=\"!say \\\"#\" : input.command=\"\"whisperbutton.is-checked=false ? saybutton.is-checked=false\"\"whisperbutton.is-checked=true ? mebutton.is-checked=false\"\"whisperbutton.is-checked=true ? oocbutton.is-checked=false\""
+		is-flat = true
+		button-type = pushbox
 	elem "oocbutton"
 		type = BUTTON
-		pos = 80,0
+		pos = 120,0
 		size = 35x20
-		anchor1 = 66,0
+		anchor1 = 75,0
 		anchor2 = 100,100
 		border = none
 		saved-params = "is-checked"

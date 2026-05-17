@@ -46,20 +46,18 @@ export function setClientTheme(name): void | Promise<void> {
     'mainwindow.background-color': themeColor.BG_BASE,
     'split.background-color': themeColor.BG_BASE,
     // Buttons
-    'changelog.background-color': themeColor.BUTTON,
-    'changelog.text-color': themeColor.TEXT,
-    'rules.background-color': themeColor.BUTTON,
-    'rules.text-color': themeColor.TEXT,
-    'wiki.background-color': themeColor.BUTTON,
-    'wiki.text-color': themeColor.TEXT,
-    'forum.background-color': themeColor.BUTTON,
-    'forum.text-color': themeColor.TEXT,
-    'github.background-color': themeColor.BUTTON,
-    'github.text-color': themeColor.TEXT,
-    'report-issue.background-color': themeColor.BUTTON,
-    'report-issue.text-color': themeColor.TEXT,
+    'options.background-color': themeColor.BUTTON,
+    'options.text-color': themeColor.TEXT,
+    'hotkeys.background-color': themeColor.BUTTON,
+    'hotkeys.text-color': themeColor.TEXT,
+    'emotes.background-color': themeColor.BUTTON,
+    'emotes.text-color': themeColor.TEXT,
     'fullscreen-toggle.background-color': themeColor.BUTTON,
     'fullscreen-toggle.text-color': themeColor.TEXT,
+    'reconnect.background-color': themeColor.BG_IMPORTANT,
+    'reconnect.text-color': themeColor.TEXT_IMPORTANT,
+    'chat.background-color': themeColor.BUTTON,
+    'chat.text-color': themeColor.TEXT,
     // EffigyEdit Add Start
     'adminhelp.background-color': themeColor.BUTTON,
     'adminhelp.text-color': themeColor.TEXT,
@@ -74,10 +72,10 @@ export function setClientTheme(name): void | Promise<void> {
     'saybutton.text-color': themeColor.TEXT_DARK, // EffigyEdit Change - TGUI - Original: TEXT
     'oocbutton.background-color': '#cca300', // EffigyEdit Change - TGUI - Original: BG_BASE
     'oocbutton.text-color': themeColor.TEXT_DARK, // EffigyEdit Change - TGUI - Original: TEXT
-    'whisperbutton.background-color': themeColor.BG_BASE,
+    'whisperbutton.background-color': '#4746aa', // EffigyEdit Change - TGUI - Original: BG_BASE
     'whisperbutton.text-color': themeColor.TEXT,
     'mebutton.background-color': '#5975da', // EffigyEdit Change - TGUI - Original: BG_BASE
-    'mebutton.text-color': themeColor.TEXT_DARK, // EffigyEdit Change - TGUI - Original: TEXT
+    'mebutton.text-color': themeColor.TEXT,
     'asset_cache_browser.background-color': themeColor.BG_BASE,
     'asset_cache_browser.text-color': themeColor.TEXT,
     'tooltip.background-color': themeColor.BG_BASE,
