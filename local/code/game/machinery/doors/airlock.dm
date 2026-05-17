@@ -197,6 +197,7 @@
 			new_light_power = AIRLOCK_LIGHT_POWER_HIGH
 			new_light_range = AIRLOCK_LIGHT_RANGE_LOW
 
+	. += get_airlock_overlay(frame_state, icon, src, em_block = TRUE)
 	if(airlock_material)
 		. += get_airlock_overlay("[airlock_material]_[frame_state]", overlays_file, src, em_block = TRUE)
 	else
