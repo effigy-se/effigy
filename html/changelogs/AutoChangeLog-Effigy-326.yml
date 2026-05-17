@@ -1,4 +1,0 @@
-author: "TealSeer"
-delete-after: True
-changes:
-  - bugfix: "fixed airlocks going invisible for a split second when playing the access denied animation"

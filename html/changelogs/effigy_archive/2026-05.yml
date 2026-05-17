@@ -1,3 +1,7 @@
 2026-05-10:
   TealSeer:
   - bugfix: fixed mutant body parts sometimes turning white
+2026-05-17:
+  TealSeer:
+  - bugfix: fixed airlocks going invisible for a split second when playing the access
+      denied animation
