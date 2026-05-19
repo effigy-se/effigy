@@ -49,7 +49,7 @@
 
 /datum/preference/choiced/species_feature/felinid_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
-	return generate_ears_icon(chosen_ears)
+	return generate_front_icon(chosen_ears, FEATURE_EARS)
 
 /datum/preference/choiced/species_feature/felinid_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -78,7 +78,7 @@
 
 /datum/preference/choiced/species_feature/lizard_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
-	return generate_ears_icon(chosen_ears)
+	return generate_front_icon(chosen_ears, FEATURE_EARS)
 
 /datum/preference/choiced/species_feature/lizard_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -107,7 +107,7 @@
 
 /datum/preference/choiced/species_feature/fox_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
-	return generate_ears_icon(chosen_ears)
+	return generate_front_icon(chosen_ears, FEATURE_EARS)
 
 /datum/preference/choiced/species_feature/fox_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -148,7 +148,7 @@
 
 /datum/preference/choiced/species_feature/dog_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
-	return generate_ears_icon(chosen_ears)
+	return generate_front_icon(chosen_ears, FEATURE_EARS)
 
 ///	Flying ears type
 /datum/preference/choiced/species_feature/flying_ears
@@ -165,7 +165,7 @@
 
 /datum/preference/choiced/species_feature/flying_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
-	return generate_ears_icon(chosen_ears)
+	return generate_front_icon(chosen_ears, FEATURE_EARS)
 
 /datum/preference/choiced/species_feature/flying_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -194,7 +194,7 @@
 
 /datum/preference/choiced/species_feature/monkey_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
-	return generate_ears_icon(chosen_ears)
+	return generate_front_icon(chosen_ears, FEATURE_EARS)
 
 /datum/preference/choiced/species_feature/monkey_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -223,7 +223,7 @@
 
 /datum/preference/choiced/species_feature/mammal_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
-	return generate_ears_icon(chosen_ears)
+	return generate_front_icon(chosen_ears, FEATURE_EARS)
 
 /datum/preference/choiced/species_feature/mammal_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -252,7 +252,7 @@
 
 /datum/preference/choiced/species_feature/fish_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
-	return generate_ears_icon(chosen_ears)
+	return generate_front_icon(chosen_ears, FEATURE_EARS)
 
 /datum/preference/choiced/species_feature/fish_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -281,7 +281,7 @@
 
 /datum/preference/choiced/species_feature/humanoid_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
-	return generate_ears_icon(chosen_ears)
+	return generate_front_icon(chosen_ears, FEATURE_EARS)
 
 /datum/preference/choiced/species_feature/humanoid_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -311,7 +311,7 @@
 
 /datum/preference/choiced/species_feature/synthetic_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = get_accessory_for_value(value)
-	return generate_ears_icon(chosen_ears)
+	return generate_front_icon(chosen_ears, FEATURE_EARS)
 
 /datum/preference/choiced/species_feature/synthetic_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -332,51 +332,50 @@
 */
 
 /// Generate selection preview
-/datum/preference/choiced/proc/generate_ears_icon(chosen_ears)
-	var/datum/sprite_accessory/sprite_accessory = chosen_ears
+/datum/preference/choiced/proc/generate_front_icon(datum/sprite_accessory/sprite_accessory, key)
 	var/static/datum/universal_icon/final_icon
 	final_icon = uni_icon('local/icons/mob/mutant/sprite_accessories/fallback.dmi', null)
 
 	if (LOWER_TEXT(sprite_accessory.icon_state) != "none")
 		var/list/sprite_accessory_layers = SSaccessories.get_sprite_accessory_layers("[sprite_accessory.icon]")
-		if(sprite_accessory_layers.Find("m_ears_[sprite_accessory.icon_state]_BEHIND"))
-			var/datum/universal_icon/markings_icon_1 = uni_icon(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_BEHIND", SOUTH)
+		if(sprite_accessory_layers.Find("m_[key]_[sprite_accessory.icon_state]_BEHIND"))
+			var/datum/universal_icon/markings_icon_1 = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_BEHIND", SOUTH)
 			markings_icon_1.blend_color(COLOR_EFFIGY_SKY_BLUE, ICON_MULTIPLY)
 			final_icon.blend_icon(markings_icon_1, ICON_OVERLAY)
-		if(sprite_accessory_layers.Find("m_ears_[sprite_accessory.icon_state]_BEHIND_2"))
-			var/datum/universal_icon/markings_icon_2 = uni_icon(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_BEHIND_2", SOUTH)
+		if(sprite_accessory_layers.Find("m_[key]_[sprite_accessory.icon_state]_BEHIND_2"))
+			var/datum/universal_icon/markings_icon_2 = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_BEHIND_2", SOUTH)
 			markings_icon_2.blend_color(COLOR_EFFIGY_PLATINUM, ICON_MULTIPLY)
 			final_icon.blend_icon(markings_icon_2, ICON_OVERLAY)
-		if(sprite_accessory_layers.Find("m_ears_[sprite_accessory.icon_state]_BEHIND_3"))
-			var/datum/universal_icon/markings_icon_3 = uni_icon(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_BEHIND_3", SOUTH)
+		if(sprite_accessory_layers.Find("m_[key]_[sprite_accessory.icon_state]_BEHIND_3"))
+			var/datum/universal_icon/markings_icon_3 = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_BEHIND_3", SOUTH)
 			markings_icon_3.blend_color(COLOR_EFFIGY_ELECTRIC_BLUE, ICON_MULTIPLY)
 			final_icon.blend_icon(markings_icon_3, ICON_OVERLAY)
 
 		// adj breaker
-		if(sprite_accessory_layers.Find("m_ears_[sprite_accessory.icon_state]_ADJ"))
-			var/datum/universal_icon/markings_icon_1_a = uni_icon(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_ADJ", SOUTH)
+		if(sprite_accessory_layers.Find("m_[key]_[sprite_accessory.icon_state]_ADJ"))
+			var/datum/universal_icon/markings_icon_1_a = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ", SOUTH)
 			markings_icon_1_a.blend_color(COLOR_EFFIGY_SKY_BLUE, ICON_MULTIPLY)
 			final_icon.blend_icon(markings_icon_1_a, ICON_OVERLAY)
-		if(sprite_accessory_layers.Find("m_ears_[sprite_accessory.icon_state]_ADJ_2"))
-			var/datum/universal_icon/markings_icon_2_a = uni_icon(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_ADJ_2", SOUTH)
+		if(sprite_accessory_layers.Find("m_[key]_[sprite_accessory.icon_state]_ADJ_2"))
+			var/datum/universal_icon/markings_icon_2_a = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ_2", SOUTH)
 			markings_icon_2_a.blend_color(COLOR_EFFIGY_PLATINUM, ICON_MULTIPLY)
 			final_icon.blend_icon(markings_icon_2_a, ICON_OVERLAY)
-		if(sprite_accessory_layers.Find("m_ears_[sprite_accessory.icon_state]_ADJ_3"))
-			var/datum/universal_icon/markings_icon_3_a = uni_icon(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_ADJ_3", SOUTH)
+		if(sprite_accessory_layers.Find("m_[key]_[sprite_accessory.icon_state]_ADJ_3"))
+			var/datum/universal_icon/markings_icon_3_a = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ_3", SOUTH)
 			markings_icon_3_a.blend_color(COLOR_EFFIGY_ELECTRIC_BLUE, ICON_MULTIPLY)
 			final_icon.blend_icon(markings_icon_3_a, ICON_OVERLAY)
 
 		// front breaker
-		if(sprite_accessory_layers.Find("m_ears_[sprite_accessory.icon_state]_FRONT"))
-			var/datum/universal_icon/markings_icon_1_f = uni_icon(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_FRONT", SOUTH)
+		if(sprite_accessory_layers.Find("m_[key]_[sprite_accessory.icon_state]_FRONT"))
+			var/datum/universal_icon/markings_icon_1_f = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_FRONT", SOUTH)
 			markings_icon_1_f.blend_color(COLOR_EFFIGY_SKY_BLUE, ICON_MULTIPLY)
 			final_icon.blend_icon(markings_icon_1_f, ICON_OVERLAY)
-		if(sprite_accessory_layers.Find("m_ears_[sprite_accessory.icon_state]_FRONT_2"))
-			var/datum/universal_icon/markings_icon_2_f = uni_icon(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_FRONT_2", SOUTH)
+		if(sprite_accessory_layers.Find("m_[key]_[sprite_accessory.icon_state]_FRONT_2"))
+			var/datum/universal_icon/markings_icon_2_f = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_FRONT_2", SOUTH)
 			markings_icon_2_f.blend_color(COLOR_EFFIGY_PLATINUM, ICON_MULTIPLY)
 			final_icon.blend_icon(markings_icon_2_f, ICON_OVERLAY)
-		if(sprite_accessory_layers.Find("m_ears_[sprite_accessory.icon_state]_FRONT_3"))
-			var/datum/universal_icon/markings_icon_3_f = uni_icon(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_FRONT_3", SOUTH)
+		if(sprite_accessory_layers.Find("m_[key]_[sprite_accessory.icon_state]_FRONT_3"))
+			var/datum/universal_icon/markings_icon_3_f = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_FRONT_3", SOUTH)
 			markings_icon_3_f.blend_color(COLOR_EFFIGY_ELECTRIC_BLUE, ICON_MULTIPLY)
 			final_icon.blend_icon(markings_icon_3_f, ICON_OVERLAY)
 
