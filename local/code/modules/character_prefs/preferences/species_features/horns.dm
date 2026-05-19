@@ -119,7 +119,7 @@
 
 /datum/preference/choiced/species_feature/lizard_horns/icon_for(value)
 	var/datum/sprite_accessory/chosen_horns = get_accessory_for_value(value)
-	return generate_side_icon(chosen_horns, FEATURE_HORNS)
+	return generate_front_icon(chosen_horns, FEATURE_HORNS)
 
 /datum/preference/choiced/species_feature/lizard_horns/is_accessible(datum/preferences/preferences)
 	. = ..()
