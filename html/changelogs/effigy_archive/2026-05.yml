@@ -5,3 +5,6 @@
   TealSeer:
   - bugfix: fixed airlocks going invisible for a split second when playing the access
       denied animation
+2026-05-20:
+  TealSeer:
+  - bugfix: fixed horns having no previews in character setup
