@@ -396,7 +396,7 @@ There are several things that need to be remembered:
 				icon_file = worn_item.bodyshape_icon_files["[shape]"]
 		// EffigyEdit Add End
 
-		var/mutable_appearance/s_store_overlay = worn_item.build_worn_icon(default_layer = SUIT_STORE_LAYER, default_icon_file = icon_file, humie = src) // EffigyEdit Change - Character Preferences - Original: worn_item.build_worn_icon(default_layer = SUIT_STORE_LAYER, default_icon_file = 'icons/mob/clothing/belt_mirror.dmi')
+		var/mutable_appearance/s_store_overlay = worn_item.build_worn_icon(default_layer = SUIT_STORE_LAYER, default_icon_file = icon_file, bodyshape = bodyshape)
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
 		my_chest?.worn_suit_storage_offset?.apply_offset(s_store_overlay)
 		overlays_standing[SUIT_STORE_LAYER] = s_store_overlay
@@ -842,10 +842,9 @@ generate/load female uniform sprites matching all previously decided variables
 	var/t_state = override_state || (isinhands ? inhand_icon_state : worn_icon_state) || icon_state
 	// EffigyEdit Add - Character Preferences
 	var/chosen_worn_icon = worn_icon
-	if(ishuman(humie))
-		for(var/shape in supported_bodyshapes)
-			if(humie.bodyshape & shape)
-				chosen_worn_icon = bodyshape_icon_files["[shape]"]
+	for(var/shape in supported_bodyshapes)
+		if(bodyshape & shape)
+			chosen_worn_icon = bodyshape_icon_files["[shape]"]
 	// EffigyEdit Add End
 	//Find a valid icon file from variables+arguments
 	var/file2use = override_file || (isinhands ? null : chosen_worn_icon) || default_icon_file // EffigyEdit Change - Character Preferences - Original: override_file || (isinhands ? null : worn_icon) || default_icon_file
@@ -982,7 +981,7 @@ generate/load female uniform sprites matching all previously decided variables
 	// EffigyEdit Add - Character Preferences
 	if(bra && !(underwear_visibility & UNDERWEAR_HIDE_BRA))
 		var/datum/sprite_accessory/clothing/bra/bra_accessory = SSaccessories.bra_list[bra]
-		var/mutable_appearance/bra_overlay = bra_accessory?.make_appearance(bra_color, physique, active_bodyshapes)
+		var/mutable_appearance/bra_overlay = bra_accessory?.make_appearance(bra_color, physique, bodyshape)
 		if(bra_overlay)
 			. += bra_overlay
 	// EffigyEdit Add End
