@@ -28,7 +28,7 @@ endmap
 
 map icebox
 	votable
-	webmap_url https://webmap.affectedarc07.co.uk/maps/effigy/foxholestation
+	webmap_url https://webmap.affectedarc07.co.uk/maps/effigy/icebox
 endmap
 
 map runtimestation
