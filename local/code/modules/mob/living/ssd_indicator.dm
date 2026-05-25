@@ -23,6 +23,6 @@
 	. = ..()
 
 //Temporary, look below for the reason
-/mob/living/ghostize(can_reenter_corpse = TRUE)
+/mob/living/ghostize(can_reenter_corpse = TRUE, forced = FALSE)
 	. = ..()
 	set_ssd_indicator(FALSE)
