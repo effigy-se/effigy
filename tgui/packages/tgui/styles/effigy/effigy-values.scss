@@ -10,7 +10,6 @@
  */
 :root {
   /* Font */
-  --font-size: 14px;
   --font-family: 'Chakra Petch', Geneva, sans-serif;
   --font-family-mono: 'Ubunto Mono', Consolas, monospace;
 
@@ -36,4 +35,9 @@
   --cursor-s-resize: s-resize;
   --cursor-se-resize: se-resize;
   --cursor-e-resize: e-resize;
+}
+
+body {
+  /* Defined on body not :root because of rem calculations */
+  --font-size: 14px;
 }

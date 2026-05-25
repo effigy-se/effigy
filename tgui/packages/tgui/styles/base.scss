@@ -9,7 +9,7 @@
 
 @use 'sass:math';
 
-$unit: 14px; // EffigyEdit Change - TGUI - Original: 12px
+$unit: 12px;
 $font-size: 1 * $unit !default;
 
 @function em($px) {
