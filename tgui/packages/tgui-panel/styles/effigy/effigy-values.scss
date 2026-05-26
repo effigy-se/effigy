@@ -12,7 +12,11 @@
   /* Font */
   --font-size: 14px;
   --font-family: 'Chakra Petch', Geneva, sans-serif;
-  --font-family-mono: 'Ubunto Mono', Consolas, monospace;
+  --font-family-mono: 'Ubuntu Mono', Consolas, monospace;
+
+  .robot {
+    font-family: 'Ubuntu Mono';
+  }
 
   /* Border */
   /* 0px | 0.rem */
