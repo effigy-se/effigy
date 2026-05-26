@@ -88,6 +88,7 @@
 @include meta.load-css('./effigy/themes/ntOS95.scss');
 @include meta.load-css('./effigy/themes/ntos_terminal.scss');
 @include meta.load-css('./effigy/themes/neutral.scss');
+@include meta.load-css('./effigy/themes/retro.scss');
 
 // NT Theme
 .Layout__content {
