@@ -76,6 +76,9 @@
 @include meta.load-css('./effigy/components/NoticeBox.scss');
 @include meta.load-css('./effigy/components/Tabs.scss');
 
+// Effigy Layout Specific Overrides
+@include meta.load-css('./effigy/layouts/NtosWindow.scss');
+
 // Effigy Interface Specific Overrides
 @include meta.load-css('./effigy/interfaces/NtosMessenger.scss');
 
