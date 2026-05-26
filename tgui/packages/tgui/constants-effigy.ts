@@ -136,6 +136,7 @@ export const EFFIGY_WINDOW_SIZES = {
   Supermatter: [700, 345],
   Tank: [295, 145],
   Teleporter: [360, 150],
+  ThermoMachine: [300, 260],
   Timer: [345, 130],
   TrainingMachine: [270, 170],
   TramController: [850, 390],
