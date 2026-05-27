@@ -8,3 +8,6 @@
 2026-05-20:
   TealSeer:
   - bugfix: fixed horns having no previews in character setup
+2026-05-27:
+  TealSeer:
+  - bugfix: fixed certain sprites in TGUI being misaligned
