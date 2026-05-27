@@ -1,0 +1,15 @@
+.Button--selected {
+  color: var(--color-text-fixed-black);
+}
+
+.Button--selected.Button--color--transparent {
+  color: var(--color-primary);
+}
+
+.Button.Button--fluid.Button--hasIcon.Button--color--good {
+  color: var(--color-text-fixed-black);
+}
+
+.Button--color--blue {
+  color: var(--color-text-fixed-black);
+}

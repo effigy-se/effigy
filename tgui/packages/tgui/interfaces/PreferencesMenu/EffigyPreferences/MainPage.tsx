@@ -424,6 +424,7 @@ export function PreferenceList(props: PreferenceListProps) {
       overflowX="hidden"
       overflowY="auto"
       maxHeight={maxHeight}
+      minHeight="590px"
     >
       <LabeledList>
         {sortPreferences(Object.entries(preferences)).map(
@@ -676,9 +677,9 @@ export function MainPage(props: MainPageProps) {
         />
       )}
 
-      <Stack height="485px" ml="-3px">
+      <Stack height="590px" ml="-3px">
         <Stack.Item>
-          <Stack vertical height="512px">
+          <Stack vertical height="580px">
             <Stack.Item>
               <CharacterControls
                 gender={data.character_preferences.misc.gender}
@@ -714,7 +715,7 @@ export function MainPage(props: MainPageProps) {
               />
             </Stack.Item>
 
-            <Stack.Item grow mt="2px" mr="-5px">
+            <Stack.Item grow mt="2px" mr="-5px" minHeight="515px">
               <CharacterPreview
                 height="100%"
                 id={data.character_preview_view}
@@ -733,7 +734,7 @@ export function MainPage(props: MainPageProps) {
           </Stack>
         </Stack.Item>
 
-        <Stack.Item width="490px" ml="8px">
+        <Stack.Item width="572px" ml="8px">
           <Stack>
             <Stack.Item grow>
               <PageButton
@@ -789,7 +790,7 @@ export function MainPage(props: MainPageProps) {
         </Stack.Item>
 
         <Stack.Item width="235px" ml="3px">
-          <Stack height="520px" width="0px" vertical wrap>
+          <Stack height="630px" width="0px" vertical wrap>
             {mainFeatures.map(([clothingKey, clothing]) => {
               const catalog = serverData?.[
                 clothingKey

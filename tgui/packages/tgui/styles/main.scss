@@ -76,6 +76,9 @@
 @include meta.load-css('./effigy/components/NoticeBox.scss');
 @include meta.load-css('./effigy/components/Tabs.scss');
 
+// Effigy Layout Specific Overrides
+@include meta.load-css('./effigy/layouts/NtosWindow.scss');
+
 // Effigy Interface Specific Overrides
 @include meta.load-css('./effigy/interfaces/NtosMessenger.scss');
 
@@ -85,6 +88,7 @@
 @include meta.load-css('./effigy/themes/ntOS95.scss');
 @include meta.load-css('./effigy/themes/ntos_terminal.scss');
 @include meta.load-css('./effigy/themes/neutral.scss');
+@include meta.load-css('./effigy/themes/retro.scss');
 
 // NT Theme
 .Layout__content {

@@ -1,0 +1,16 @@
+/**
+ * Copyright (c) 2020 Aleksej Komarov
+ * SPDX-License-Identifier: MIT
+ */
+
+@use '../../base';
+
+.NtosWindow__header {
+  font-family: var(--font-family);
+  font-size: base.em(12px);
+}
+
+.NtosWindow__content .Layout__content {
+  font-family: var(--font-family);
+  font-size: base.em(12px);
+}

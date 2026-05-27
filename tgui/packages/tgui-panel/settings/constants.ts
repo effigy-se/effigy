@@ -4,27 +4,32 @@
  * @license MIT
  */
 
+import { EFFIGY_COLORS, EFFIGY_FONTS } from './constants-effigy';
+
 export const THEMES = ['light', 'dark'] as const;
 
-export const COLORS = {
+const BASE_COLORS = {
   DARK: {
-    BG_BASE: '#1A1C23', // EffigyEdit Change - TGUI - Original: #202020
-    BG_SECOND: '#22252F', // EffigyEdit Change - TGUI - Original: #151515
-    BUTTON: '#3A4050', // EffigyEdit Change - TGUI - Original: #404040
-    TEXT: '#E7E9EE', // EffigyEdit Change - TGUI - Original: #A6A6A6
-    TEXT_DARK: '#22252F', // EffigyEdit Add - TGUI
-    TEXT_IMPORTANT: '#F4F5F7', // EffigyEdit Change - TGUI - Original: #A6A6A6
-    BG_IMPORTANT: '#860943', // EffigyEdit Change - TGUI - Original: #492020
+    BG_BASE: '#202020',
+    BG_SECOND: '#151515',
+    BUTTON: '#404040',
+    TEXT: '#A6A6A6',
+    TEXT_IMPORTANT: '#A6A6A6',
+    BG_IMPORTANT: '#492020',
   },
   LIGHT: {
     BG_BASE: '#EEEEEE',
     BG_SECOND: '#FFFFFF',
     BUTTON: '#FFFFFF',
     TEXT: '#000000',
-    TEXT_IMPORTANT: '#F4F5F7', // EffigyEdit Change - TGUI - Original: #A6A6A6
-    BG_IMPORTANT: '#F0197D', // EffigyEdit Change - TGUI - Original: #910707
-    TEXT_DARK: '#000000', // EffigyEdit Add - TGUI
+    TEXT_IMPORTANT: '#A6A6A6',
+    BG_IMPORTANT: '#910707',
   },
+} as const;
+
+export const COLORS = {
+  DARK: { ...BASE_COLORS.DARK, ...EFFIGY_COLORS.DARK },
+  LIGHT: { ...BASE_COLORS.LIGHT, ...EFFIGY_COLORS.LIGHT },
 } as const;
 
 export const SETTINGS_TABS = [
@@ -49,33 +54,6 @@ export const SETTINGS_TABS = [
 
 export const FONTS_DISABLED = 'Default';
 
-/* EffigyEdit Change - TGUI - Original:
-export const FONTS = [
-  FONTS_DISABLED,
-  'Verdana',
-  'Arial',
-  'Arial Black',
-  'Comic Sans MS',
-  'Impact',
-  'Lucida Sans Unicode',
-  'Tahoma',
-  'Trebuchet MS',
-  'Courier New',
-  'Lucida Console',
-] as const;
-*/
-export const FONTS = [
-  FONTS_DISABLED,
-  'IBM Plex Sans',
-  'Titillium Web',
-  'Arial',
-  'Comic Sans MS',
-  'Impact',
-  'Tahoma',
-  'Ubuntu Mono',
-  'Courier New',
-  'Lucida Console',
-] as const;
-// EffigyEdit Change End
+export const FONTS = EFFIGY_FONTS;
 
 export const WARN_AFTER_HIGHLIGHT_AMT = 10;

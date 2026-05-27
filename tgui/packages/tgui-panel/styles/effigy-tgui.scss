@@ -13,6 +13,7 @@
 @include meta.load-css('./effigy/effigy-variables.scss');
 
 // Component Specific Overrides
+@include meta.load-css('./effigy/components/Button.scss');
 @include meta.load-css('./effigy/components/Tabs.scss');
 
 .theme-dark:root {
