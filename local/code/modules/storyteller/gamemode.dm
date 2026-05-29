@@ -756,12 +756,17 @@ SUBSYSTEM_DEF(gamemode)
 /// Checks the current round time and allows the crew to vote on an extension depending on the config
 /datum/controller/subsystem/gamemode/proc/shift_extension_check()
 	if(world.realtime - auto_shuttle_start_time > auto_shuttle_fire_time && auto_shuttle_call && !auto_shuttle_dispatched)
-		if(extensions_voted < CONFIG_GET(number/allowed_shift_extensions))
+		if(CONFIG_GET(flag/shift_extensions_enabled) && (extensions_voted < CONFIG_GET(number/shift_extensions_limit)))
 			auto_shuttle_fire_time += (CONFIG_GET(number/shift_extension_duration) MINUTES)
 			SSvote.initiate_vote(/datum/vote/shift_extension, "shift timer", forced = TRUE)
 			extensions_voted++
-			message_admins("Auto-shuttle threshold triggered. Next extension vote is [DisplayTimeText(SSgamemode.auto_shuttle_fire_time)].")
-			log_game("Auto-shuttle threshold triggered. Next extension vote is [DisplayTimeText(SSgamemode.auto_shuttle_fire_time)].")
+			var/votes_remaining = CONFIG_GET(number/shift_extensions_limit) - extensions_voted
+			if(!votes_remaining)
+				message_admins("Auto-shuttle extension vote triggered. No further extension votes remaining.")
+				log_game("Auto-shuttle threshold triggered. No further extension votes remaining.")
+			else
+				message_admins("Auto-shuttle extension vote triggered. [votes_remaining] extension votes remaining. Next vote is at [DisplayTimeText(SSgamemode.auto_shuttle_fire_time)].")
+				log_game("Auto-shuttle extension vote triggered. [votes_remaining] extension votes remaining. Next vote is at [DisplayTimeText(SSgamemode.auto_shuttle_fire_time)].")
 		else
 			call_auto_shuttle(reason = "game mode setting")
 
