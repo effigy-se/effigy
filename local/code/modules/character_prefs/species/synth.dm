@@ -52,12 +52,12 @@
 	/// Set to TRUE if the species was emagged before
 	var/emag_effect = FALSE
 
-/datum/species/synth/spec_life(mob/living/carbon/human/human)
-	. = ..()
+/datum/species/synth/proc/on_life(mob/living/carbon/human/human, seconds_per_tick)
+	SIGNAL_HANDLER
 
 	if(human.stat == SOFT_CRIT || human.stat == HARD_CRIT)
-		human.adjust_fire_loss(1) //Still deal some damage in case a cold environment would be preventing us from the sweet release to robot heaven
-		human.adjust_bodytemperature(13) //We're overheating!!
+		human.adjust_fire_loss(1 * seconds_per_tick) //Still deal some damage in case a cold environment would be preventing us from the sweet release to robot heaven
+		human.adjust_bodytemperature(13 * seconds_per_tick) //We're overheating!!
 		if(prob(10))
 			to_chat(human, span_warning("Alert: Critical damage taken! Cooling systems failing!"))
 			do_sparks(3, TRUE, human)
@@ -70,13 +70,17 @@
 	. = ..()
 
 	RegisterSignal(transformer, COMSIG_ATOM_EMAG_ACT, PROC_REF(on_emag_act))
+	RegisterSignal(transformer, COMSIG_LIVING_LIFE, PROC_REF(on_life))
 	var/datum/action/sing_tones/sing_action = new
 	sing_action.Grant(transformer)
 
 /datum/species/synth/on_species_loss(mob/living/carbon/human/human)
 	. = ..()
 
-	UnregisterSignal(human, COMSIG_ATOM_EMAG_ACT)
+	UnregisterSignal(human, list(
+		COMSIG_ATOM_EMAG_ACT,
+		COMSIG_LIVING_LIFE,
+	))
 
 	var/obj/item/organ/eyes/eyes = human.get_organ_slot(ORGAN_SLOT_EYES)
 
