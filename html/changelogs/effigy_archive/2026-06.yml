@@ -1,3 +1,6 @@
 2026-06-02:
   TealSeer:
   - bugfix: fixed view variables color picker not opening
+2026-06-04:
+  TealSeer:
+  - bugfix: synths can choose facial hair as intended
