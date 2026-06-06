@@ -1,0 +1,5 @@
+author: "TealSeer"
+delete-after: True
+changes:
+  - bugfix: "fixed some lizard tails having tail spines when they shouldn't"
+  - bugfix: "the rattlesnake tail is now selectable"
