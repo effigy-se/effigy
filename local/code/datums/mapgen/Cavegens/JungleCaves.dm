@@ -21,4 +21,3 @@
 	) // We don't want orevents on-station to prevent cheesy bullshit. Geysers are fine though; gives more than tiders a reason to run out into the jungle
 
 	mob_spawn_chance = 1
-	smoothing_iterations = 50

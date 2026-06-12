@@ -189,7 +189,7 @@
 "adE" = (
 /obj/effect/spawner/structure/window/reinforced/plasma,
 /turf/open/floor/plating,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "adM" = (
 /obj/machinery/door/airlock/public/glass,
 /obj/effect/mapping_helpers/airlock/autoname,
@@ -2952,7 +2952,7 @@
 	dir = 5
 	},
 /turf/open/floor/plating,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "aZC" = (
 /obj/machinery/navbeacon{
 	codes_txt = "patrol;next_patrol=med1";
@@ -4032,7 +4032,7 @@
 	dir = 5
 	},
 /turf/closed/wall/r_wall,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "bqD" = (
 /obj/effect/turf_decal/tile/blue/diagonal_edge,
 /obj/effect/turf_decal/siding/wideplating_new/light,
@@ -6304,7 +6304,7 @@
 	name = "Gas to Chamber"
 	},
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "chn" = (
 /obj/structure/flora/bush/jungle,
 /turf/open/misc/dirt/jungle,
@@ -7452,7 +7452,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "cBt" = (
 /obj/structure/table/glass,
 /obj/machinery/fax{
@@ -8420,7 +8420,7 @@
 	dir = 9
 	},
 /turf/closed/wall/r_wall,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "cUy" = (
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 1
@@ -11449,7 +11449,7 @@
 	dir = 8
 	},
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "dRI" = (
 /obj/structure/railing{
 	dir = 5
@@ -11630,7 +11630,7 @@
 /area/taeloth/nearstation/engsci_crossway)
 "dWm" = (
 /turf/closed/wall/r_wall,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "dWD" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
@@ -18110,7 +18110,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "gbq" = (
 /obj/effect/spawner/random/structure/closet_maintenance,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -25703,7 +25703,7 @@
 	c_tag = "Engineering - Supermatter"
 	},
 /turf/open/floor/plating,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "iEc" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -26904,7 +26904,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "iWD" = (
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 5
@@ -27333,7 +27333,7 @@
 "jhC" = (
 /obj/structure/cable/multilayer/connected,
 /turf/open/floor/plating,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "jhI" = (
 /obj/effect/spawner/random/structure/tank_holder,
 /obj/structure/railing,
@@ -27530,7 +27530,7 @@
 	dir = 1
 	},
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "jkT" = (
 /obj/machinery/vending/wardrobe/engi_wardrobe,
 /obj/effect/turf_decal/bot/right,
@@ -27857,7 +27857,7 @@
 	dir = 6
 	},
 /turf/closed/wall/r_wall,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "jpF" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
@@ -28027,7 +28027,7 @@
 "jsk" = (
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible,
 /turf/closed/wall/r_wall,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "jsB" = (
 /obj/structure/tank_dispenser/oxygen,
 /obj/machinery/airalarm/directional/north,
@@ -31678,7 +31678,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "kHB" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /turf/open/misc/dirt/jungle,
@@ -32275,7 +32275,7 @@
 	dir = 10
 	},
 /turf/closed/wall/r_wall,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "kUo" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -32403,7 +32403,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "kWD" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/eighties,
@@ -33250,7 +33250,7 @@
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "lkS" = (
 /obj/machinery/recharge_station,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -33405,7 +33405,7 @@
 "lnD" = (
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /turf/closed/wall/r_wall,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "lnQ" = (
 /turf/closed/wall/r_wall,
 /area/station/medical/virology)
@@ -37975,7 +37975,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "mOJ" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -42335,7 +42335,7 @@
 /area/station/service/kitchen)
 "oqO" = (
 /turf/open/floor/plating,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "oqR" = (
 /obj/effect/light_emitter/podbay,
 /turf/open/water/deep_beach,
@@ -50604,7 +50604,7 @@
 "rcm" = (
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
 /turf/closed/wall/r_wall,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "rcF" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -51290,7 +51290,7 @@
 	},
 /obj/effect/mapping_helpers/airalarm/tlv_no_checks,
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "roa" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/corner{
@@ -51714,7 +51714,7 @@
 	},
 /obj/structure/cable/layer3,
 /turf/open/floor/plating,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "rwR" = (
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible,
 /obj/machinery/computer/atmos_control/nitrous_tank{
@@ -54151,7 +54151,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "shj" = (
 /turf/closed/wall,
 /area/station/command/heads_quarters/cmo)
@@ -65676,7 +65676,7 @@
 	dir = 9
 	},
 /turf/open/floor/plating,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "vXo" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -69015,7 +69015,7 @@
 "wZS" = (
 /obj/machinery/power/supermatter_crystal/engine,
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "wZY" = (
 /obj/structure/railing{
 	dir = 10
@@ -69218,7 +69218,7 @@
 "xdr" = (
 /obj/machinery/air_sensor/engine_chamber,
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "xdx" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/structure/table/wood,
@@ -69257,7 +69257,7 @@
 /area/station/science/ordnance)
 "xdX" = (
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "xee" = (
 /obj/effect/landmark/firealarm_sanity,
 /turf/open/openspace,
@@ -70571,7 +70571,7 @@
 	},
 /obj/structure/cable/layer3,
 /turf/open/floor/plating,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "xzW" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/siding/wideplating_new/dark/end{

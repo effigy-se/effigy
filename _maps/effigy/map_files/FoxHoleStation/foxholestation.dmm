@@ -1046,7 +1046,7 @@
 	dir = 1
 	},
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "aEm" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -3280,7 +3280,7 @@
 /turf/open/floor/circuit/green{
 	luminosity = 2
 	},
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "bLI" = (
 /obj/structure/closet/secure_closet/security/sec,
 /obj/structure/window/spawner/directional/east,
@@ -4075,7 +4075,7 @@
 /turf/open/floor/circuit/green{
 	luminosity = 2
 	},
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "chl" = (
 /obj/effect/turf_decal/tile/bar/diagonal_edge,
 /obj/structure/chair{
@@ -9894,7 +9894,7 @@
 	},
 /obj/machinery/light/floor,
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "fmI" = (
 /obj/effect/mapping_helpers/airlock/abandoned,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
@@ -11490,7 +11490,7 @@
 /turf/open/floor/circuit/green{
 	luminosity = 2
 	},
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "ggE" = (
 /turf/closed/wall/r_wall,
 /area/station/science/robotics)
@@ -11557,7 +11557,7 @@
 "ghX" = (
 /obj/machinery/incident_display/delam,
 /turf/closed/wall/r_wall,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "gja" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -20483,7 +20483,7 @@
 	dir = 8
 	},
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "kVm" = (
 /turf/closed/wall/r_wall,
 /area/station/command/heads_quarters/captain/private)
@@ -22340,7 +22340,7 @@
 /turf/open/floor/circuit/green{
 	luminosity = 2
 	},
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "lYp" = (
 /obj/structure/bookcase/random/reference,
 /obj/effect/turf_decal/siding/wood{
@@ -24151,7 +24151,7 @@
 /turf/open/floor/circuit/green{
 	luminosity = 2
 	},
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "mXW" = (
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 4
@@ -24445,7 +24445,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "nhd" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -24647,7 +24647,7 @@
 	dir = 1
 	},
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "npS" = (
 /turf/closed/wall,
 /area/station/tcommsat/computer)
@@ -24672,7 +24672,7 @@
 	cycle_id = "supermatter"
 	},
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "nqC" = (
 /obj/effect/turf_decal/siding/blue/corner,
 /obj/structure/cable,
@@ -24997,7 +24997,7 @@
 "nCA" = (
 /obj/item/radio/intercom/directional/north,
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "nCQ" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/turf_decal/siding/wideplating_new/end{
@@ -25946,7 +25946,7 @@
 "oev" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /turf/closed/wall/r_wall,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "oeY" = (
 /obj/effect/spawner/structure/window/hollow/directional,
 /obj/structure/disposalpipe/segment,
@@ -26154,7 +26154,7 @@
 "okF" = (
 /obj/machinery/power/supermatter_crystal/shard/engine,
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "okG" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer{
 	dir = 4
@@ -28343,7 +28343,7 @@
 "prS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/closed/wall/r_wall,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "psp" = (
 /obj/effect/turf_decal/trimline/blue/warning{
 	dir = 1
@@ -36878,7 +36878,7 @@
 /area/station/commons/storage/art)
 "tKY" = (
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "tLa" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 6
@@ -38118,7 +38118,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
 /turf/closed/wall/r_wall,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "utK" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -38975,7 +38975,7 @@
 "uMF" = (
 /obj/effect/spawner/structure/window/reinforced/plasma,
 /turf/open/floor/plating,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "uMJ" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/turf_decal/bot,
@@ -40081,7 +40081,7 @@
 "vmx" = (
 /obj/machinery/air_sensor/engine_chamber,
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "vmD" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -43627,7 +43627,7 @@
 /area/space)
 "xcJ" = (
 /turf/closed/wall/r_wall,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "xcV" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -44242,7 +44242,7 @@
 /turf/open/floor/circuit/green{
 	luminosity = 2
 	},
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "xuD" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
@@ -45034,7 +45034,7 @@
 	},
 /obj/effect/mapping_helpers/airalarm/tlv_no_checks,
 /turf/open/floor/engine,
-/area/station/engineering/supermatter)
+/area/station/engineering/supermatter/engine)
 "xNE" = (
 /obj/structure/hedge,
 /turf/open/floor/iron/dark,

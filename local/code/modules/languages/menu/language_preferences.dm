@@ -27,3 +27,5 @@
 	var/datum/language_holder/language_holder = get_adjusted_language_holder()
 	var/language = language_holder.spoken_languages[1]
 	return language
+
+#undef MAX_MUTANT_ROWS
