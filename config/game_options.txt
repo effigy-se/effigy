@@ -590,6 +590,21 @@ SPY_HARD_REWARD_TC_THRESHOLD 15
 
 ## EFFIGY ADDITIONAL GAME OPTIONS ##
 
+## Disable auto-calling of the emergency shuttle.
+#DISABLE_AUTO_SHUTTLE
+
+Number (in minutes) for the automatic escape shuttle call. (default: 90 min: 30)
+#AUTO_SHUTTLE_TIME 90
+
+## Allow votes on extending the round.
+SHIFT_EXTENSIONS_ENABLED
+
+## If SHIFT_EXTENSIONS_ENABLED, number of times that the crew can vote to extend the round (default: 1 range: 1-4)
+#SHIFT_EXTENSIONS_LIMIT 1
+
+## Number (in minutes) that a round is extended on a successful vote. (default: 30 range: 15-120)
+#SHIFT_EXTENSION_DURATION 30
+
 ## EFFIGY GAMEMODE CONFIGS
 
 ## Default Storyteller. Pick a default storyteller program or comment out to enable voting.

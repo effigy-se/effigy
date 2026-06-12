@@ -7170,6 +7170,7 @@
 #include "local\code\datums\status_effects\neuroware.dm"
 #include "local\code\datums\status_effects\wound_effects.dm"
 #include "local\code\datums\votes\_vote_datum.dm"
+#include "local\code\datums\votes\shift_extension.dm"
 #include "local\code\datums\weather\weather.dm"
 #include "local\code\datums\weather\weather_types\rain_storm.dm"
 #include "local\code\datums\wounds\_wound_static_data.dm"

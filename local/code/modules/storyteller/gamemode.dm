@@ -111,6 +111,8 @@ SUBSYSTEM_DEF(gamemode)
 	var/auto_shuttle_fire_time = 90 MINUTES
 	/// Have we sent the auto shuttle
 	var/auto_shuttle_dispatched = FALSE
+	/// Amount of initiated extension votes
+	var/extensions_voted = 0
 
 	/// Event frequency multiplier, it exists because wizard, eugh.
 	var/event_frequency_multiplier = 1
@@ -199,12 +201,7 @@ SUBSYSTEM_DEF(gamemode)
 	if(!resumed)
 		src.currentrun = running.Copy()
 
-	// Handle shuttle call
-	if(world.realtime - auto_shuttle_start_time > auto_shuttle_fire_time && auto_shuttle_call && !auto_shuttle_dispatched)
-		log_game("Escape shuttle automatically called by game mode setting.")
-		message_admins("Escape shuttle automatically called by game mode setting.")
-		SSshuttle.auto_end()
-		auto_shuttle_dispatched = TRUE
+	shift_extension_check()
 
 	// Handle scheduled events
 	for(var/datum/scheduled_event/sch_event in scheduled_events)
@@ -755,3 +752,30 @@ SUBSYSTEM_DEF(gamemode)
 	for(var/datum/round_event_control/event as anything in track_events)
 		if(event.type == text2path(type))
 			return event
+
+/// Checks the current round time and allows the crew to vote on an extension depending on the config
+/datum/controller/subsystem/gamemode/proc/shift_extension_check()
+	if(world.realtime - auto_shuttle_start_time > auto_shuttle_fire_time && auto_shuttle_call && !auto_shuttle_dispatched)
+		if(CONFIG_GET(flag/shift_extensions_enabled) && (extensions_voted < CONFIG_GET(number/shift_extensions_limit)))
+			auto_shuttle_fire_time += (CONFIG_GET(number/shift_extension_duration) MINUTES)
+			SSvote.initiate_vote(/datum/vote/shift_extension, "shift timer", forced = TRUE)
+			extensions_voted++
+			var/votes_remaining = CONFIG_GET(number/shift_extensions_limit) - extensions_voted
+			if(!votes_remaining)
+				message_admins("Auto-shuttle extension vote triggered. No further extension votes remaining.")
+				log_game("Auto-shuttle threshold triggered. No further extension votes remaining.")
+			else
+				message_admins("Auto-shuttle extension vote triggered. [votes_remaining] extension votes remaining. Next vote is at [DisplayTimeText(SSgamemode.auto_shuttle_fire_time)].")
+				log_game("Auto-shuttle extension vote triggered. [votes_remaining] extension votes remaining. Next vote is at [DisplayTimeText(SSgamemode.auto_shuttle_fire_time)].")
+		else
+			call_auto_shuttle(reason = "game mode setting")
+
+/// Calls the automatic shuttle and updates the station status displays with the ETA timer
+/datum/controller/subsystem/gamemode/proc/call_auto_shuttle(reason)
+	log_game("Auto-shuttle dispatch called by [reason].")
+	message_admins("Auto-shuttle dispatch called by [reason].")
+	SSshuttle.auto_end()
+	auto_shuttle_dispatched = TRUE
+	var/obj/machinery/computer/communications/comms_console = locate() in GLOB.shuttle_caller_list
+	if(comms_console)
+		comms_console.post_status("shuttle")

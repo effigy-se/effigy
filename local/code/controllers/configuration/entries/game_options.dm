@@ -2,12 +2,25 @@
 /// Number (in minutes) for the automatic escape shuttle call
 /datum/config_entry/number/auto_shuttle_time
 	default = 90
-	integer = TRUE
-	min_val = 20
+	min_val = 30
 
 /// Disable auto-calling of the emergency shuttle
 /datum/config_entry/flag/disable_auto_shuttle
-	default = FALSE
+
+/// Allow votes on extending the round
+/datum/config_entry/flag/shift_extensions_enabled
+
+/// If enabled, number of times that the crew can vote to extend the round
+/datum/config_entry/number/shift_extensions_limit
+	default = 1
+	max_val = 4
+	min_val = 1
+
+/// Amount of time added to the round on a successful extension
+/datum/config_entry/number/shift_extension_duration
+	default = 30
+	max_val = 120
+	min_val = 15
 
 // Security Levels
 /datum/config_entry/string/alert_green
