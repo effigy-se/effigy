@@ -1,4 +1,0 @@
-author: "LT3"
-delete-after: True
-changes:
-  - rscadd: "Players can now vote to extend the shift"

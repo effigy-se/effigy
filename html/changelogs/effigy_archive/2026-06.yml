@@ -8,3 +8,6 @@
   TealSeer:
   - bugfix: fixed some lizard tails having tail spines when they shouldn't
   - bugfix: the rattlesnake tail is now selectable
+2026-06-12:
+  LT3:
+  - rscadd: Players can now vote to extend the shift
