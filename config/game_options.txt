@@ -596,7 +596,7 @@ SPY_HARD_REWARD_TC_THRESHOLD 15
 Number (in minutes) for the automatic escape shuttle call. (default: 90 min: 30)
 #AUTO_SHUTTLE_TIME 90
 
-## Allow votes on extending the round.6
+## Allow votes on extending the round.
 SHIFT_EXTENSIONS_ENABLED
 
 ## If SHIFT_EXTENSIONS_ENABLED, number of times that the crew can vote to extend the round (default: 1 range: 1-4)

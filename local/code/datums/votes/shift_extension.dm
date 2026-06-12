@@ -10,20 +10,26 @@
 	default_message = "Vote to extend the length of the ongoing shift."
 
 /datum/vote/shift_extension/is_config_enabled()
-	return -CONFIG_GET(flag/disable_auto_shuttle)
+	return CONFIG_GET(flag/shift_extensions_enabled)
+
+/datum/vote/shift_extension/toggle_votable()
+	CONFIG_SET(flag/shift_extensions_enabled, !CONFIG_GET(flag/shift_extensions_enabled))
 
 /datum/vote/shift_extension/can_be_initiated(forced)
 	. = ..()
 	if(. != VOTE_AVAILABLE)
 		return .
 
-	if(forced)
-		return VOTE_AVAILABLE
+	if(!forced)
+		return "Only admins can create extension votes."
 
 	if(CONFIG_GET(flag/disable_auto_shuttle))
-		return "Extension voting is disabled."
+		return "Auto-shuttle is disabled in config!"
 
-	return "Only admins can create extension votes."
+	if(!CONFIG_GET(flag/shift_extensions_enabled))
+		return "Shift extensions are disabled! Press \[Active] button to toggle."
+
+	return VOTE_AVAILABLE
 
 /datum/vote/shift_extension/finalize_vote(winning_option)
 	if(winning_option == CHOICE_EXTENSION)
