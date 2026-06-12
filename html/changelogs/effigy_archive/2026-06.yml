@@ -1,0 +1,10 @@
+2026-06-02:
+  TealSeer:
+  - bugfix: fixed view variables color picker not opening
+2026-06-04:
+  TealSeer:
+  - bugfix: synths can choose facial hair as intended
+2026-06-06:
+  TealSeer:
+  - bugfix: fixed some lizard tails having tail spines when they shouldn't
+  - bugfix: the rattlesnake tail is now selectable

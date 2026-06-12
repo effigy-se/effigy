@@ -169,3 +169,6 @@
 		qdel(species)
 		qdel(language)
 	return languages_edited
+
+#undef MAX_LANGUAGES_NORMAL
+#undef MAX_LANGUAGES_LINGUIST

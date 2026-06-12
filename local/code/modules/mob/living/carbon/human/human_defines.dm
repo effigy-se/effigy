@@ -11,3 +11,13 @@
 	var/datum/scream_type/selected_scream
 	/// Selected laugh type
 	var/datum/laugh_type/selected_laugh
+	/// Color of the undershirt
+	var/undershirt_color = "#FFFFFF"
+	/// Color of the socks
+	var/socks_color = "#FFFFFF"
+	/// The selected bra.
+	var/bra = "Nude"
+	/// Color of the bra.
+	var/bra_color = "#FFFFFF"
+	/// Flags for showing/hiding underwear
+	var/underwear_visibility = NONE
