@@ -33,6 +33,14 @@
 	if(wear_neck && body_position == STANDING_UP && loc == NewLoc && has_gravity(loc))
 		SEND_SIGNAL(wear_neck, COMSIG_NECK_STEP_ACTION)
 
+///copies over clothing preferences like underwear to another human
+/mob/living/carbon/human/copy_clothing_prefs(mob/living/carbon/human/destination)
+	. = ..()
+	destination.undershirt_color = undershirt_color
+	destination.socks_color = socks_color
+	destination.bra = bra
+	destination.bra_color = bra_color
+
 /// From oldbase; the suit portion was flagged as being needed for the "latex straight jacket to behave". In practice commit history tells the story that it's, uh.
 /// Closer to a load-bearing coconut?? Someone else can look at this later; right?
 /mob/living/carbon/human/resist_restraints()
