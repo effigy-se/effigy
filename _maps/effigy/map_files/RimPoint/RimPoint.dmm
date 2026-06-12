@@ -19928,7 +19928,7 @@
 /area/taeloth/nearstation/medical_roof)
 "gGV" = (
 /obj/effect/turf_decal/delivery,
-/mob/living/simple_animal/bot/mulebot,
+/mob/living/basic/bot/mulebot,
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=2";
 	location = "QM #2"
@@ -35792,7 +35792,7 @@
 /area/station/security/brig)
 "mch" = (
 /obj/effect/turf_decal/delivery,
-/mob/living/simple_animal/bot/mulebot,
+/mob/living/basic/bot/mulebot,
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=2";
 	location = "QM #1"
