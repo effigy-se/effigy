@@ -14,6 +14,8 @@
 
 /datum/vote/shift_extension/toggle_votable()
 	CONFIG_SET(flag/shift_extensions_enabled, !CONFIG_GET(flag/shift_extensions_enabled))
+	message_admins("Shift extensions config changed to [CONFIG_GET(flag/shift_extensions_enabled) ? "ENABLED," : "DISABLED,"] set by [ADMIN_LOOKUP(usr)].")
+	log_admin("Shift extensions config changed to [CONFIG_GET(flag/shift_extensions_enabled) ? "ENABLED," : "DISABLED,"] set by [key_name_admin(usr)].")
 
 /datum/vote/shift_extension/can_be_initiated(forced)
 	. = ..()
