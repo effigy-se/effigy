@@ -42,3 +42,6 @@
 		return
 
 	CRASH("[type] wasn't passed a valid winning choice. (Got: [winning_option || "null"])")
+
+#undef CHOICE_EXTENSION
+#undef CHOICE_SHUTTLE
