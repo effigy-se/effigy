@@ -11,3 +11,7 @@
 2026-06-12:
   LT3:
   - rscadd: Players can now vote to extend the shift
+2026-06-13:
+  LT3:
+  - qol: Character preferences, game settings, and webmap added to the stat panel
+      menu bar
