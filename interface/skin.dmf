@@ -119,7 +119,7 @@ window "infobuttons"
 	elem "infobuttons"
 		type = MAIN
 		pos = 291,0
-		size = 676x30
+		size = 640x30
 		anchor1 = 0,0
 		anchor2 = 100,100
 		background-color = none
@@ -129,61 +129,85 @@ window "infobuttons"
 		outer-pos = 291,0
 		inner-size = 676x30
 		inner-pos = 8,31
-		screen-size = 1920x1040
+		screen-size = 1920x1080
 	elem "options"
 		type = BUTTON
-		pos = 0,5
+		pos = 1,4
 		size = 88x27
 		anchor1 = 0,0
-		anchor2 = 15,100
+		anchor2 = 14,100
 		background-color = none
         font-family = "Chakra Petch"
         is-flat = true
 		saved-params = "is-checked"
 		text = "Menu"
 		command = "open-escape-menu"
-	elem "hotkeys"
+    elem "character"
 		type = BUTTON
-		pos = 92,5
+        pos = 93,4
 		size = 88x27
-		anchor1 = 15,0
-		anchor2 = 29,100
+		anchor1 = 14,0
+		anchor2 = 28,100
 		background-color = none
         font-family = "Chakra Petch"
         is-flat = true
 		saved-params = "is-checked"
-		text = "Hotkeys"
-		command = "Hotkeys-Help"
-	elem "emotes"
+		text = "Character"
+		command = "Character-Preferences"
+	elem "settings"
 		type = BUTTON
-		pos = 185,5
+		pos = 185,4
 		size = 88x27
-		anchor1 = 29,0
-		anchor2 = 43,100
+		anchor1 = 28,0
+		anchor2 = 42,100
+		background-color = none
+        font-family = "Chakra Petch"
+        is-flat = true
+		saved-params = "is-checked"
+		text = "Settings"
+		command = "Game-Preferences"
+    elem "emotes"
+		type = BUTTON
+        pos = 277,4
+		size = 88x27
+		anchor1 = 42,0
+		anchor2 = 56,100
 		background-color = none
         font-family = "Chakra Petch"
         is-flat = true
 		saved-params = "is-checked"
 		text = "Emotes"
-		command = "Emote-Panel"
+        command = "Emote-Panel"
 	elem "fullscreen-toggle"
 		type = BUTTON
-		pos = 277,5
+		pos = 369,4
 		size = 88x27
-		anchor1 = 43,0
-		anchor2 = 57,100
+		anchor1 = 56,0
+		anchor2 = 70,100
 		background-color = none
         font-family = "Chakra Petch"
         is-flat = true
 		saved-params = "is-checked"
 		text = "Fullscreen"
 		command = "fullscreen"
-	elem "reconnect"
+    elem "webmap"
 		type = BUTTON
-		pos = 369,5
+		pos = 461,4
 		size = 88x27
-		anchor1 = 57,0
-		anchor2 = 71,100
+		anchor1 = 70,0
+		anchor2 = 84,100
+		background-color = none
+        font-family = "Chakra Petch"
+        is-flat = true
+		saved-params = "is-checked"
+		text = "Webmap"
+		command = ".openWebMap"
+    elem "reconnect"
+		type = BUTTON
+        pos = 553,4
+		size = 90x27
+		anchor1 = 84,0
+		anchor2 = 100,100
 		background-color = none
         font-family = "Chakra Petch"
         is-flat = true

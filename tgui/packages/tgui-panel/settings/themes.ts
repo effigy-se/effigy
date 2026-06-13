@@ -59,10 +59,12 @@ export function setClientTheme(name): void | Promise<void> {
     'chat.background-color': themeColor.BUTTON,
     'chat.text-color': themeColor.TEXT,
     // EffigyEdit Add Start
-    'adminhelp.background-color': themeColor.BUTTON,
-    'adminhelp.text-color': themeColor.TEXT,
-    'discord.background-color': themeColor.BUTTON,
-    'discord.text-color': themeColor.TEXT,
+    'character.background-color': themeColor.BUTTON,
+    'character.text-color': themeColor.TEXT,
+    'settings.background-color': themeColor.BUTTON,
+    'settings.text-color': themeColor.TEXT,
+    'webmap.background-color': themeColor.BUTTON,
+    'webmap.text-color': themeColor.TEXT,
     // EffigyEdit Add End
     // Status and verb tabs
     'output.background-color': themeColor.BG_BASE,
