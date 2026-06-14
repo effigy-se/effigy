@@ -15,3 +15,6 @@
   LT3:
   - qol: Character preferences, game settings, and webmap added to the stat panel
       menu bar
+2026-06-14:
+  TealSeer:
+  - balance: overclocked volume pumps work inside walls again
