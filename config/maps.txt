@@ -15,6 +15,8 @@ Format:
 	webmap_url (link to the a webmap to see the map in the user's browser)
 endmap
 
+# When adding or removing maps be sure to also add/remove from ci_config_maps.txt
+
 map tramstation
 	votable
 	webmap_url https://webmap.affectedarc07.co.uk/maps/effigy/tramstation
@@ -35,6 +37,9 @@ map runtimestation
 endmap
 
 map multiz_debug
+endmap
+
+map runtimestation_minimal
 endmap
 
 ## Effigy Maps ##

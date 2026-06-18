@@ -115,22 +115,6 @@ SUBSYSTEM_DEF(ticker)
 	else
 		load_lobby_tracks() // EffigyEdit Add - Custom Lobby
 
-	if(!GLOB.syndicate_code_phrase)
-		GLOB.syndicate_code_phrase = generate_code_phrase(return_list=TRUE)
-
-		var/codewords = jointext(GLOB.syndicate_code_phrase, "|")
-		var/regex/codeword_match = new("([codewords])", "ig")
-
-		GLOB.syndicate_code_phrase_regex = codeword_match
-
-	if(!GLOB.syndicate_code_response)
-		GLOB.syndicate_code_response = generate_code_phrase(return_list=TRUE)
-
-		var/codewords = jointext(GLOB.syndicate_code_response, "|")
-		var/regex/codeword_match = new("([codewords])", "ig")
-
-		GLOB.syndicate_code_response_regex = codeword_match
-
 	start_at = COUNTDOWN_GAME_INIT // EffigyEdit Change - Custom Lobby - Original: world.time + (CONFIG_GET(number/lobby_countdown) * (1 SECONDS))
 	return SS_INIT_SUCCESS
 
@@ -158,7 +142,6 @@ SUBSYSTEM_DEF(ticker)
 				SSvote.initiate_vote(/datum/vote/storyteller, "Game Mode Vote", forced = TRUE)
 			// EffigyEdit Add End
 			SEND_SIGNAL(src, COMSIG_TICKER_ENTER_PREGAME)
-
 			fire()
 		if(GAME_STATE_PREGAME)
 			//lobby stats for statpanels
