@@ -2,6 +2,7 @@
 	icon = 'icons/mob/human/cat_features.dmi'
 	em_block = TRUE
 
+/* EffigyEdit Remove - Character Preferences - Moved to local/code/modules/character_prefs/sprite_accessories/ears/ears_cat.dm
 /datum/sprite_accessory/ears/cat
 	name = "Cat"
 	icon_state = "cat"
@@ -26,6 +27,7 @@
 /datum/sprite_accessory/ears/cat/round
 	name = "Round"
 	icon_state = "round"
+*/// EffigyEdit Remove End
 
 /datum/sprite_accessory/ears/cat/cybernetic
 	name = "Cybernetic"

@@ -148,6 +148,7 @@
 	digi_icon_state = "boxers_stripe_threecolor"
 	greyscale_colors = "#D62626#EEEEEE#2E26D6"
 
+/* EffigyEdit Remove - Character Preferences
 //FEMALE UNDERWEAR
 /datum/sprite_accessory/clothing/underwear/female_bikini
 	name = "Bikini"
@@ -253,6 +254,7 @@
 	icon_state = "female_kinky"
 	gender = FEMALE
 	use_static = TRUE
+*/// EffigyEdit Remove End
 
 ////////////////////////////
 // Undershirt Definitions //
@@ -453,6 +455,7 @@
 	icon_state = "whiteshortsleeve"
 	gender = NEUTER
 
+/* EffigyEdit Remove - Character Preferences
 /datum/sprite_accessory/clothing/undershirt/sports_bra
 	name = "Sports Bra"
 	icon_state = "sports_bra"
@@ -462,6 +465,7 @@
 	name = "Sports Bra (Alt)"
 	icon_state = "sports_bra_alt"
 	gender = NEUTER
+*/// EffigyEdit Remove End
 
 /datum/sprite_accessory/clothing/undershirt/blueshirtsport
 	name = "Sports Shirt (Blue)"

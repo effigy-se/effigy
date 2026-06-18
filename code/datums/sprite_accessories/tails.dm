@@ -2,7 +2,10 @@
 	em_block = TRUE
 	/// Describes which tail spine sprites to use, if any.
 	var/spine_key = NONE
+	/// Does this sprite have wagging animations?
+	var/can_wag = FALSE // EffigyEdit Add - Character Preferences
 
+/* EffigyEdit Remove - Character Preferences - Moved to local/code/modules/character_prefs/sprite_accessories/tails/tails_aquatic.dm
 ///Used for fish-infused tails, which come in different flavors.
 /datum/sprite_accessory/tails/fish
 	icon = 'icons/mob/human/fish_features.dmi'
@@ -31,11 +34,13 @@
 	icon_state = "chonky"
 	center = TRUE
 	dimension_x = 36
+*/// EffigyEdit Remove End
 
 /datum/sprite_accessory/tails/lizard
 	icon = 'icons/mob/human/species/lizard/lizard_tails.dmi'
 	spine_key = SPINE_KEY_LIZARD
 
+/* EffigyEdit Remove - Character Preferences
 /datum/sprite_accessory/tails/lizard/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
@@ -61,6 +66,7 @@
 	name = "Short"
 	icon_state = "short"
 	spine_key = NONE
+*/// EffigyEdit Remove End
 
 /datum/sprite_accessory/tails/felinid/cat
 	name = "Cat"
@@ -70,10 +76,12 @@
 
 /datum/sprite_accessory/tails/monkey
 
+/* EffigyEdit Remove - Character Preferences
 /datum/sprite_accessory/tails/monkey/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 	natural_spawn = FALSE
+*/// EffigyEdit Remove End
 
 /datum/sprite_accessory/tails/monkey/default
 	name = "Monkey"
