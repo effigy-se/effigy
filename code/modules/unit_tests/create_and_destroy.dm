@@ -17,6 +17,8 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	uncreatables += typesof(/turf/open/openspace/ocean)
 	// Baseturf editors can only go up to ten, stop this.
 	uncreatables += typesof(/obj/effect/baseturf_helper)
+	// This is what we call a cop out because cameras consistently hard delete on upstream
+	uncreatables += typesof(/obj/machinery/camera)
 	// EffigyEdit Add End
 
 	var/list/cached_contents = spawn_at.contents.Copy()
