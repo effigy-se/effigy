@@ -17,8 +17,6 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	uncreatables += typesof(/turf/open/openspace/ocean)
 	// Baseturf editors can only go up to ten, stop this.
 	uncreatables += typesof(/obj/effect/baseturf_helper)
-	// God's mistake
-	uncreatables += typesof(/obj/machinery/solarlight)
 	// EffigyEdit Add End
 
 	var/list/cached_contents = spawn_at.contents.Copy()
