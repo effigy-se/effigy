@@ -617,7 +617,7 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 
 	GLOB.clients -= src
 	GLOB.directory -= ckey
-	LAZYREMOVE(GLOB.init_message_clients, src) // EffigyEdit Add - Custom Lobby
+	GLOB.init_message_clients -= src // EffigyEdit Add - Custom Lobby
 	if(persistent_client)
 		persistent_client.set_client(null)
 	else
