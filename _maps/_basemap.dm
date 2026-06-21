@@ -20,7 +20,6 @@
 		#include "map_files\MetaStation\MetaStation.dmm"
 		#include "map_files\Mining\Lavaland.dmm"
 		#include "map_files\tramstation\tramstation.dmm"
-		#include "map_files\NebulaStation\NebulaStation.dmm"
 		// Effigy Maps
 		#include "effigy\map_files\FoxHoleStation\foxholestation.dmm"
 		#include "effigy\map_files\RimPoint\RimPoint.dmm"

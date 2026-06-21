@@ -699,7 +699,7 @@
 	codes_txt = "delivery;dir=2";
 	location = "QM #2"
 	},
-/mob/living/simple_animal/bot/mulebot,
+/mob/living/basic/bot/mulebot,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/starboard/greater)
@@ -3127,7 +3127,7 @@
 	codes_txt = "delivery;dir=2";
 	location = "QM #1"
 	},
-/mob/living/simple_animal/bot/mulebot,
+/mob/living/basic/bot/mulebot,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/starboard/greater)
