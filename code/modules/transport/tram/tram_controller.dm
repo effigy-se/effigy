@@ -368,6 +368,8 @@
 		paired_cabinet.say("Controller reset.")
 		log_transport("TC: [specific_transport_id] position data successfully reset.")
 	idle_platform = destination_platform
+	// EffigyEdit Remove - Tram Jingle
+	/*
 	var/our_channel = SSsounds.random_available_channel()
 	var/sound/jingle = sound(
 		idle_platform.arrival_sound,
@@ -391,6 +393,8 @@
 		falloff_exponent = SOUND_FALLOFF_EXPONENT,
 		falloff_distance = 5
 	)
+	*/
+	// EffigyEdit Remove End
 
 	cycle_doors(CYCLE_OPEN) // EffigyEdit Change
 	tram_registration.distance_travelled += (travel_trip_length - travel_remaining)
