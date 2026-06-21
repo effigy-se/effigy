@@ -42383,7 +42383,9 @@
 /obj/machinery/conveyor{
 	id = "mining"
 	},
-/obj/machinery/brm,
+/obj/machinery/brm{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/miningoffice)
 "orX" = (
