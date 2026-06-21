@@ -2,7 +2,7 @@
 	. = ..()
 	if(!istype(user, /mob/living/carbon))
 		return
-	var/mob/living/carbon/carbon_user
+	var/mob/living/carbon/carbon_user = user
 	if(carbon_user.get_organ_slot(ORGAN_SLOT_TONGUE) == /obj/item/organ/tongue/aquatic)
 		var/mob/living/hungry_shark = user
 		if(hungry_shark.combat_mode && time2text(world.timeofday, "DDD", TIMEZONE_PST) == FRIDAY)
