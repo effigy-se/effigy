@@ -90,15 +90,15 @@
 			return "BEHIND_2"
 		if(-BODY_BEHIND_LAYER_3)
 			return "BEHIND_3"
-		if(-BODY_ADJ_LAYER_2)
+		if(-EFFIGY_LAYER_ADJ_2)
 			return "ADJ_2"
-		if(-BODY_ADJ_LAYER_3)
+		if(-EFFIGY_LAYER_ADJ_3)
 			return "ADJ_3"
-		if(-BODY_FRONT_LAYER_2)
+		if(-EFFIGY_LAYER_FRONT_2)
 			return "FRONT_2"
-		if(-BODY_FRONT_LAYER_3)
+		if(-EFFIGY_LAYER_FRONT_3)
 			return "FRONT_3"
-		if(-BODY_HAND_LAYER)
+		if(-EFFIGY_LAYER_HAND)
 			return "HAND"
 		// EffigyEdit Add End
 
@@ -117,15 +117,15 @@
 		if(EXTERNAL_BEHIND_3)
 			return -BODY_BEHIND_LAYER_3
 		if(EXTERNAL_ADJACENT_2)
-			return -BODY_ADJ_LAYER_2
+			return -EFFIGY_LAYER_ADJ_2
 		if(EXTERNAL_ADJACENT_3)
-			return -BODY_ADJ_LAYER_3
+			return -EFFIGY_LAYER_ADJ_3
 		if(EXTERNAL_FRONT_2)
-			return -BODY_FRONT_LAYER_2
+			return -EFFIGY_LAYER_FRONT_2
 		if(EXTERNAL_FRONT_3)
-			return -BODY_FRONT_LAYER_3
+			return -EFFIGY_LAYER_FRONT_3
 		if(EXTERNAL_HAND)
-			return -BODY_HAND_LAYER
+			return -EFFIGY_LAYER_HAND
 		// EffigyEdit Add End
 
 ///Check whether we can draw the overlays. You generally don't want lizard snouts to draw over an EVA suit

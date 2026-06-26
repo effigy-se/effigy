@@ -14,7 +14,7 @@
 	em_block = TRUE
 
 /datum/sprite_accessory/clothing/bra/make_appearance(color, physique, bodyshape)
-	var/mutable_appearance/bra_overlay = mutable_appearance(icon, icon_state, -BRA_SOCKS_LAYER)
+	var/mutable_appearance/bra_overlay = mutable_appearance(icon, icon_state, -EFFIGY_BRA_SOCKS_LAYER)
 	bra_overlay.color = use_static ? null : color
 	return bra_overlay
 

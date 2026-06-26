@@ -12,7 +12,7 @@
 
 /datum/sprite_accessory/clothing/socks/make_appearance(color, physique, bodyshape)
 	var/socks_icon_state = (bodyshape & BODYSHAPE_DIGITIGRADE) ? "[icon_state]_d" : icon_state
-	var/mutable_appearance/socks_overlay = mutable_appearance(icon, socks_icon_state, -BRA_SOCKS_LAYER)
+	var/mutable_appearance/socks_overlay = mutable_appearance(icon, socks_icon_state, -EFFIGY_BRA_SOCKS_LAYER)
 	socks_overlay.color = use_static ? null : color
 	return socks_overlay
 
