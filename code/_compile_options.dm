@@ -130,11 +130,14 @@
 #define DISABLE_DREAMLUAU
 #endif
 
+// EffigyEdit TODO: Disabled in https://github.com/effigy-se/effigy/pull/351 re-enable when th
+/*
 // Since 0.2.0, dreamluau depends on breaking changes made to byondapi in 1674.
 // Get rid of this when BYOND_MINOR is >= 1674 AND we don't have any alternate tests on <1674.
 #if DM_BUILD < 1674
 #define DISABLE_DREAMLUAU
 #endif
+*/
 
 /// If this is uncommented, force our verb processing into just the 2% of a tick
 /// We normally reserve for it
