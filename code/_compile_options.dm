@@ -121,7 +121,7 @@
 // #define PROFILE_MAPLOAD_INIT_ATOM
 
 /// If uncommented, Dreamluau will be fully disabled.
-// #define DISABLE_DREAMLUAU
+#define DISABLE_DREAMLUAU // EffigyEdit TODO: Disabled in https://github.com/effigy-se/effigy/pull/351 re-enable when the dreamluau version issue is resolved.
 
 // OpenDream currently doesn't support byondapi, so automatically disable it on OD,
 // unless CIBUILDING is defined - we still want to lint dreamluau-related code.
