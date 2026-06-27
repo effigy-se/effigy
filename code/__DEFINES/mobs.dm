@@ -802,11 +802,11 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 	/// The layer above mutant body parts
 	#define ABOVE_BODY_FRONT_LAYER 2.4
 	// EffigyEdit Add - Character Preferences
-	#define EFFIGY_LAYER_FRONT_2 2.6
+	#define EFFIGY_LAYER_FRONT_2 2.5
 	#define EFFIGY_LAYER_FRONT_3 2.7
 	// EffigyEdit Add End
 	/// Body front layer. Usually used for mutant bodyparts that need to be in front of stuff (e.g. cat ears)
-	#define BODY_FRONT_LAYER 2.8 // EffigyEdit Change - Original: 2.5
+	#define BODY_FRONT_LAYER 2.9 // EffigyEdit Change - Original: 2.5
 /// Hands layer (for the actual hand, not the arm... I think?)
 #define HANDS_LAYER 3
 /// Legcuff layer (when your feet are cuffed)
@@ -853,7 +853,7 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 #define GLOVES_LAYER 17
 	// EffigyEdit Add - Character Preferences
 	/// Layer for hands
-	#define EFFIGY_LAYER_HAND 17.1
+	#define EFFIGY_LAYER_HAND 17.3
 	// EffigyEdit Add End
 	/// Layer for bodyparts that should appear above every other bodypart - Currently only used for hands
 	#define BODYPARTS_HIGH_LAYER 17.5
@@ -865,9 +865,9 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 	#define UNDER_UNIFORM_LAYER 19.1
 	/// EffigyEdit Add - Character Preferences
 	/// Bra and socks layer
-	#define EFFIGY_BRA_SOCKS_LAYER 19.2
+	#define EFFIGY_BRA_SOCKS_LAYER 19.3
 	/// Underwear and undershirt layer
-	#define EFFIGY_UNDERWEAR_SHIRT_LAYER 19.3
+	#define EFFIGY_UNDERWEAR_SHIRT_LAYER 19.5
 	/// EffigyEdit Add End - Character Preferences
 /// Damage indicators (cuts and burns)
 #define DAMAGE_LAYER 20
@@ -878,8 +878,8 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Underwear, undershirts, socks
 #define BODY_LAYER 22
 	// EffigyEdit Add - Character Preferences
-	#define EFFIGY_LAYER_ADJ_2 22.7
-	#define EFFIGY_LAYER_ADJ_3 22.8
+	#define EFFIGY_LAYER_ADJ_2 22.5
+	#define EFFIGY_LAYER_ADJ_3 22.7
 	// EffigyEdit Add End
 	/// Mutantrace features (snout, body markings) that must appear above the body parts
 	#define BODY_ADJ_LAYER 22.9
@@ -887,8 +887,12 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 #define BODYPARTS_LAYER 23
 	/// Layer for bodyparts that should appear behind every other bodypart - Mostly, legs when facing WEST or EAST
 	#define BODYPARTS_LOW_LAYER 23.1
+	// EffigyEdit Add - Character Preferences
+	#define EFFIGY_LAYER_BEHIND_2 23.3
+	#define EFFIGY_LAYER_BEHIND_3 23.5
+	// EffigyEdit Add End
 	/// Mutantrace features (tail when looking south) that must appear behind the body parts
-	#define BODY_BEHIND_LAYER 23.2
+	#define BODY_BEHIND_LAYER 23.7 // EffigyEdit Change - Original: 23.2
 	/// Mutations layer - Tk headglows, cold resistance glow, etc. Very bottom of the mob
 	#define MUTATIONS_LAYER 23.9
 /// Total number of standing overlays.

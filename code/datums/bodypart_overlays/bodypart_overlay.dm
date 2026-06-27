@@ -86,9 +86,9 @@
 		if(-BODY_FRONT_LAYER)
 			return "FRONT"
 		// EffigyEdit Add - Character Preferences
-		if(-BODY_BEHIND_LAYER_2)
+		if(-EFFIGY_LAYER_BEHIND_2)
 			return "BEHIND_2"
-		if(-BODY_BEHIND_LAYER_3)
+		if(-EFFIGY_LAYER_BEHIND_3)
 			return "BEHIND_3"
 		if(-EFFIGY_LAYER_ADJ_2)
 			return "ADJ_2"
@@ -113,9 +113,9 @@
 			return -BODY_FRONT_LAYER
 		// EffigyEdit Add - Character Preferences
 		if(EXTERNAL_BEHIND_2)
-			return -BODY_BEHIND_LAYER_2
+			return -EFFIGY_LAYER_BEHIND_2
 		if(EXTERNAL_BEHIND_3)
-			return -BODY_BEHIND_LAYER_3
+			return -EFFIGY_LAYER_BEHIND_3
 		if(EXTERNAL_ADJACENT_2)
 			return -EFFIGY_LAYER_ADJ_2
 		if(EXTERNAL_ADJACENT_3)
