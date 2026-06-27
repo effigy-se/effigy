@@ -4551,10 +4551,7 @@
 /area/station/maintenance/floor2/port)
 "aWX" = (
 /obj/structure/table/wood,
-/obj/machinery/fax{
-	fax_name = "Quartermaster's Office";
-	name = "Quartermaster's Fax Machine"
-	},
+/obj/machinery/fax/heads/qm,
 /turf/open/floor/carpet/orange,
 /area/station/command/heads_quarters/qm)
 "aWY" = (
@@ -22240,10 +22237,7 @@
 /obj/effect/turf_decal/siding{
 	dir = 9
 	},
-/obj/machinery/fax{
-	fax_name = "Research Director's Office";
-	name = "Research Director's Fax Machine"
-	},
+/obj/machinery/fax/heads/rd,
 /turf/open/floor/iron/white/diagonal,
 /area/station/command/heads_quarters/rd)
 "eYp" = (
@@ -33917,10 +33911,7 @@
 /area/station/command/heads_quarters/hop)
 "hBF" = (
 /obj/structure/table/wood,
-/obj/machinery/fax{
-	fax_name = "Head of Security's Office";
-	name = "Head of Security's Fax Machine"
-	},
+/obj/machinery/fax/heads/hos,
 /obj/effect/turf_decal/tile/dark_red,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hos)
@@ -34588,10 +34579,7 @@
 /area/station/maintenance/floor2/port/fore)
 "hKn" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/machinery/fax{
-	fax_name = "Chief Engineer's Office";
-	name = "Chief Engineer's Fax Machine"
-	},
+/obj/machinery/fax/heads/ce,
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/trimline/yellow/warning{
 	dir = 9
@@ -41902,10 +41890,7 @@
 /area/station/engineering/atmos/upper)
 "jvl" = (
 /obj/structure/table/wood,
-/obj/machinery/fax{
-	fax_name = "Head of Personnel's Office";
-	name = "Head of Personnel's Fax Machine"
-	},
+/obj/machinery/fax/heads/hop,
 /obj/effect/turf_decal/trimline/dark_blue/warning,
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1
@@ -50272,10 +50257,7 @@
 /area/station/ai/satellite/hallway)
 "lqZ" = (
 /obj/structure/table/reinforced,
-/obj/machinery/fax{
-	fax_name = "Chief Medical Officer's Office";
-	name = "Chief Medical Officer's Fax Machine"
-	},
+/obj/machinery/fax/heads/cmo,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
 	},
@@ -99236,10 +99218,7 @@
 /area/station/construction/mining/aux_base)
 "wxY" = (
 /obj/structure/table/wood,
-/obj/machinery/fax{
-	fax_name = "Captain's Office";
-	name = "Captain's Fax Machine"
-	},
+/obj/machinery/fax/heads/captain,
 /obj/structure/sign/poster/reference/ministation/directional/north,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/captain)

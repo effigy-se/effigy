@@ -7182,10 +7182,7 @@
 /area/station/cargo/office)
 "cvU" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/machinery/fax{
-	fax_name = "Head of Security's Office";
-	name = "Head of Security's Fax Machine"
-	},
+/obj/machinery/fax/heads/hos,
 /obj/effect/turf_decal/tile/dark_red/diagonal_centre,
 /obj/effect/turf_decal/siding/dark_red,
 /turf/open/floor/iron/dark/diagonal,
@@ -7455,10 +7452,7 @@
 /area/station/engineering/supermatter/engine)
 "cBt" = (
 /obj/structure/table/glass,
-/obj/machinery/fax{
-	fax_name = "Chief Medical Officer's Office";
-	name = "Chief Medical Officer's Fax Machine"
-	},
+/obj/machinery/fax/heads/cmo,
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/effect/turf_decal/trimline/blue/filled/mid_joiner,
 /obj/machinery/button/door/directional/south{
@@ -34263,10 +34257,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "lDu" = (
-/obj/machinery/fax{
-	fax_name = "Research Director's Office";
-	name = "Research Director's Fax Machine"
-	},
+/obj/machinery/fax/heads/rd,
 /obj/structure/table,
 /turf/open/floor/iron/white/herringbone,
 /area/station/command/heads_quarters/rd)
@@ -36725,10 +36716,7 @@
 /area/station/commons)
 "mtg" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/machinery/fax{
-	fax_name = "Quartermaster's Office";
-	name = "Quartermaster's Fax Machine"
-	},
+/obj/machinery/fax/heads/qm,
 /obj/effect/turf_decal/trimline/dark/warning,
 /obj/machinery/camera/directional/east{
 	c_tag = "Cargo - Quartermaster's Office"
@@ -60025,10 +60013,7 @@
 /area/station/security/brig)
 "ugr" = (
 /obj/structure/table/wood,
-/obj/machinery/fax{
-	fax_name = "Captain's Office";
-	name = "Captain's Fax Machine"
-	},
+/obj/machinery/fax/heads/captain,
 /turf/open/floor/wood/tile,
 /area/station/command/heads_quarters/captain)
 "ugz" = (
@@ -63583,10 +63568,7 @@
 /area/station/medical/coldroom)
 "vnY" = (
 /obj/structure/table/wood,
-/obj/machinery/fax{
-	fax_name = "Head of Personnel's Office";
-	name = "Head of Personnel's Fax Machine"
-	},
+/obj/machinery/fax/heads/hop,
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
 	dir = 1
 	},
@@ -70015,10 +69997,7 @@
 /area/station/maintenance/starboard/aft)
 "xrn" = (
 /obj/structure/table,
-/obj/machinery/fax{
-	fax_name = "Chief Engineer's Office";
-	name = "Chief Engineer's Fax Machine"
-	},
+/obj/machinery/fax/heads/ce,
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{

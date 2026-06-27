@@ -2455,10 +2455,7 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
-/obj/machinery/fax{
-	fax_name = "Quartermaster's Office";
-	name = "Quartermaster's Fax Machine"
-	},
+/obj/machinery/fax/heads/qm,
 /obj/structure/table/wood,
 /turf/open/floor/iron/dark/textured,
 /area/station/command/heads_quarters/qm)
@@ -15576,10 +15573,7 @@
 	dir = 9
 	},
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/machinery/fax{
-	fax_name = "Research Director's Office";
-	name = "Research Director's Fax Machine"
-	},
+/obj/machinery/fax/heads/rd,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/rd)
 "ioE" = (
@@ -17803,10 +17797,7 @@
 /area/station/hallway/secondary/command)
 "jyi" = (
 /obj/structure/table/wood,
-/obj/machinery/fax{
-	fax_name = "Head of Security's Office";
-	name = "Head of Security's Fax Machine"
-	},
+/obj/machinery/fax/heads/hos,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hos)
@@ -24035,10 +24026,7 @@
 /area/station/science/salvage)
 "mTM" = (
 /obj/structure/table,
-/obj/machinery/fax{
-	fax_name = "Chief Engineer's Office";
-	name = "Chief Engineer's Fax Machine"
-	},
+/obj/machinery/fax/heads/ce,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/iron/smooth_half,
@@ -34378,10 +34366,7 @@
 /area/station/security/detectives_office)
 "sAi" = (
 /obj/structure/table,
-/obj/machinery/fax{
-	fax_name = "Chief Medical Officer's Office";
-	name = "Chief Medical Officer's Fax Machine"
-	},
+/obj/machinery/fax/heads/cmo,
 /obj/effect/turf_decal/siding/dark_blue{
 	dir = 4
 	},
@@ -38463,10 +38448,7 @@
 /area/station/hallway/secondary/exit/escape_pod)
 "uBB" = (
 /obj/structure/table,
-/obj/machinery/fax{
-	fax_name = "Head of Personnel's Office";
-	name = "Head of Personnel's Fax Machine"
-	},
+/obj/machinery/fax/heads/hop,
 /obj/effect/turf_decal/tile/dark_blue/full,
 /obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/dark/textured_large,
@@ -40143,10 +40125,7 @@
 /turf/open/floor/pod/dark,
 /area/station/maintenance/solars/port/aft)
 "voS" = (
-/obj/machinery/fax{
-	fax_name = "Captain's Office";
-	name = "Captain's Fax Machine"
-	},
+/obj/machinery/fax/heads/captain,
 /obj/structure/table/wood,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
