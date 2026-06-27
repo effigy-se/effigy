@@ -18,31 +18,19 @@ endmap
 # When adding or removing maps be sure to also add/remove from ci_config_maps.txt
 # Production-level maps.
 
-map deltastation
-	minplayers 50
-	votable
-endmap
-
 map icebox
-	minplayers 25
 	votable
-endmap
-
-map catwalkstation
-	minplayers 25
-	votable
-	webmap_url https://webmap.affectedarc07.co.uk/maps/effigy/tramstation
+	webmap_url https://webmap.affectedarc07.co.uk/maps/effigy/icebox
 endmap
 
 map metastation
 	votable
-	#feedbacklink https://www.youtube.com/watch?v=XG8b7WhANNA
 	webmap_url https://webmap.affectedarc07.co.uk/maps/effigy/metastation
 endmap
 
-map icebox
+map tramstation
 	votable
-	webmap_url https://webmap.affectedarc07.co.uk/maps/effigy/icebox
+	webmap_url https://webmap.affectedarc07.co.uk/maps/effigy/tramstation
 endmap
 
 map runtimestation
