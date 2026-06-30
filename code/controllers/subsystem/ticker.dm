@@ -134,7 +134,7 @@ SUBSYSTEM_DEF(ticker)
 			// EffigyEdit Add - Storyteller and TGS
 			utc_init_time = REALTIMEOFDAY
 			announce_new_round_to_discord()
-			GLOB.init_message_clients = null
+			GLOB.init_message_clients.Cut()
 			var/storyteller = CONFIG_GET(string/default_storyteller)
 			if(storyteller)
 				SSgamemode.set_storyteller(text2path(storyteller), forced = FALSE)
