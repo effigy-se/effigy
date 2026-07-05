@@ -60,7 +60,11 @@
 	return FALSE
 
 /datum/bodypart_overlay/mutant/snout
-	layers = EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3
+	layers = list(
+		EXTERNAL_ADJACENT = BODY_ADJ_LAYER,
+		EXTERNAL_ADJACENT_2 = EFFIGY_LAYER_ADJ_2,
+		EXTERNAL_ADJACENT_3 = EFFIGY_LAYER_ADJ_3,
+	)
 	color_source = ORGAN_COLOR_OVERRIDE
 
 /datum/bodypart_overlay/mutant/snout/override_color(obj/item/bodypart/bodypart_owner)
@@ -71,20 +75,21 @@
 	draw_color_2 = bodypart_owner.owner.dna.features["snout_color_2"]
 	draw_color_3 = bodypart_owner.owner.dna.features["snout_color_3"]
 
-/datum/bodypart_overlay/mutant/snout/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
+/datum/bodypart_overlay/mutant/snout/color_image(image/overlay, obj/item/bodypart/limb, layer_index)
 	if(limb == null)
 		return ..()
 	if(limb.owner == null)
 		return ..()
-	if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT))
-		overlay.color = draw_color
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_2))
-		overlay.color = draw_color_2
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_3))
-		overlay.color = draw_color_3
-		return overlay
+	switch(layer_index)
+		if(EXTERNAL_ADJACENT)
+			overlay.color = draw_color
+			return overlay
+		if(EXTERNAL_ADJACENT_2)
+			overlay.color = draw_color_2
+			return overlay
+		if(EXTERNAL_ADJACENT_3)
+			overlay.color = draw_color_3
+			return overlay
 	return ..()
 
 /// Snout colors

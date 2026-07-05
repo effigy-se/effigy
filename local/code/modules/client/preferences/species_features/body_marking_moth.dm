@@ -25,7 +25,7 @@
 		return FALSE
 	return TRUE
 
-/datum/bodypart_overlay/simple/body_marking/moth/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
+/datum/bodypart_overlay/simple/body_marking/moth/color_image(image/overlay, obj/item/bodypart/limb, layer_index)
 	if(limb == null)
 		return ..()
 	if(limb.owner == null)

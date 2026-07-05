@@ -87,7 +87,7 @@
 	return TRUE
 
 ///	Moth antennae have their own bespoke RGB code
-/datum/bodypart_overlay/mutant/antennae/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
+/datum/bodypart_overlay/mutant/antennae/color_image(image/overlay, obj/item/bodypart/limb, layer_index)
 	if(limb == null)
 		return ..()
 	if(limb.owner == null)

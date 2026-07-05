@@ -5,7 +5,7 @@
 /datum/bodypart_overlay/simple/monitor_head
 	icon = 'local/icons/mob/mutant/synth/synth_screens.dmi'
 	icon_state = "none"
-	layers = EXTERNAL_ADJACENT
+	layers = list(EXTERNAL_ADJACENT = BODY_ADJ_LAYER)
 	blocks_emissive = EMISSIVE_BLOCK_NONE
 
 /// IPC monitor head component

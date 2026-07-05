@@ -105,32 +105,37 @@
 	return TRUE
 
 /datum/bodypart_overlay/simple/body_marking/lizard
-	layers = EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3
+	layers = list(
+		EXTERNAL_ADJACENT = BODY_ADJ_LAYER,
+		EXTERNAL_ADJACENT_2 = EFFIGY_LAYER_ADJ_2,
+		EXTERNAL_ADJACENT_3 = EFFIGY_LAYER_ADJ_3,
+	)
 
-/datum/bodypart_overlay/simple/body_marking/lizard/get_image(layer, obj/item/bodypart/limb)
+/datum/bodypart_overlay/simple/body_marking/lizard/get_image(obj/item/bodypart/limb, layer_index, layer_real)
 	if(limb == null)
 		return ..()
 	if(limb.owner == null)
 		return ..()
 	var/gender_string = (use_gender && limb.is_dimorphic) ? (limb.gender == MALE ? MALE : FEMALE + "_") : "" //we only got male and female sprites
-	if(layer == bitflag_to_layer(EXTERNAL_ADJACENT_2))
-		return image(icon, gender_string + icon_state + "_" + limb.body_zone + "_2", layer = layer)
-	if(layer == bitflag_to_layer(EXTERNAL_ADJACENT_3))
-		return image(icon, gender_string + icon_state + "_" + limb.body_zone + "_3", layer = layer)
-	return image(icon, gender_string + icon_state + "_" + limb.body_zone, layer = layer)
+	if(layer_index == EXTERNAL_ADJACENT_2)
+		return image(icon, gender_string + icon_state + "_" + limb.body_zone + "_2", layer = layer_real)
+	if(layer_index == EXTERNAL_ADJACENT_3)
+		return image(icon, gender_string + icon_state + "_" + limb.body_zone + "_3", layer = layer_real)
+	return image(icon, gender_string + icon_state + "_" + limb.body_zone, layer = layer_real)
 
-/datum/bodypart_overlay/simple/body_marking/lizard/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
+/datum/bodypart_overlay/simple/body_marking/lizard/color_image(image/overlay, obj/item/bodypart/limb, layer_index)
 	if(limb == null)
 		return ..()
 	if(limb.owner == null)
 		return ..()
-	if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT))
-		overlay.color = limb.owner.dna.features["body_markings_color_1"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_2))
-		overlay.color = limb.owner.dna.features["body_markings_color_2"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_3))
-		overlay.color = limb.owner.dna.features["body_markings_color_3"]
-		return overlay
+	switch(layer_index)
+		if(EXTERNAL_ADJACENT)
+			overlay.color = limb.owner.dna.features["body_markings_color_1"]
+			return overlay
+		if(EXTERNAL_ADJACENT_2)
+			overlay.color = limb.owner.dna.features["body_markings_color_2"]
+			return overlay
+		if(EXTERNAL_ADJACENT_3)
+			overlay.color = limb.owner.dna.features["body_markings_color_3"]
+			return overlay
 	return ..()

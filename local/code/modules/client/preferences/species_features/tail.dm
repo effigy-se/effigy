@@ -555,7 +555,14 @@
 	return TRUE
 
 /datum/bodypart_overlay/mutant/tail
-	layers = EXTERNAL_FRONT | EXTERNAL_FRONT_2 | EXTERNAL_FRONT_3 | EXTERNAL_BEHIND | EXTERNAL_BEHIND_2 | EXTERNAL_BEHIND_3
+	layers = list(
+		EXTERNAL_FRONT = BODY_FRONT_LAYER,
+		EXTERNAL_FRONT_2 = EFFIGY_LAYER_FRONT_2,
+		EXTERNAL_FRONT_3 = EFFIGY_LAYER_FRONT_3,
+		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
+		EXTERNAL_BEHIND_2 = EFFIGY_LAYER_BEHIND_2,
+		EXTERNAL_BEHIND_3 = EFFIGY_LAYER_BEHIND_3,
+	)
 	feature_key_sprite = "tail"
 	color_source = ORGAN_COLOR_OVERRIDE
 
@@ -567,27 +574,19 @@
 	draw_color_2 = bodypart_owner.owner.dna.features["tail_color_2"]
 	draw_color_3 = bodypart_owner.owner.dna.features["tail_color_3"]
 
-/datum/bodypart_overlay/mutant/tail/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
+/datum/bodypart_overlay/mutant/tail/color_image(image/overlay, obj/item/bodypart/limb, layer_index)
 	if(limb == null)
 		return ..()
 	if(limb.owner == null)
 		return ..()
-	if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT))
-		overlay.color = draw_color
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND))
-		overlay.color = draw_color
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_2))
-		overlay.color = draw_color_2
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND_2))
-		overlay.color = draw_color_2
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_3))
-		overlay.color = draw_color_3
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND_3))
-		overlay.color = draw_color_3
-		return overlay
+	switch(layer_index)
+		if(EXTERNAL_FRONT, EXTERNAL_BEHIND)
+			overlay.color = draw_color
+			return overlay
+		if(EXTERNAL_FRONT_2, EXTERNAL_BEHIND_2)
+			overlay.color = draw_color_2
+			return overlay
+		if(EXTERNAL_FRONT_3, EXTERNAL_BEHIND_3)
+			overlay.color = draw_color_3
+			return overlay
 	return ..()

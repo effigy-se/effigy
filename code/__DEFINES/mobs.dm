@@ -928,6 +928,15 @@ GLOBAL_ALIST_INIT(human_heights_to_offsets, alist(
 #define EXTERNAL_FRONT "FRONT"
 #define EXTERNAL_ADJACENT "ADJ"
 #define EXTERNAL_BEHIND "BEHIND"
+// EffigyEdit Add
+#define EXTERNAL_FRONT_2 "FRONT_2"
+#define EXTERNAL_FRONT_3 "FRONT_3"
+#define EXTERNAL_ADJACENT_2 "ADJ_2"
+#define EXTERNAL_ADJACENT_3 "ADJ_3"
+#define EXTERNAL_BEHIND_2 "BEHIND_2"
+#define EXTERNAL_BEHIND_3 "BEHIND_3"
+#define EXTERNAL_HAND "HAND"
+// EffigyEdit Add End
 
 // Bitflags for external organs restylability
 #define EXTERNAL_RESTYLE_ALL ALL

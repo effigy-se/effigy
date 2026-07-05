@@ -71,7 +71,7 @@
 		overlay.icon_state = accessory.icon_state
 		if(handlayer)
 			overlay.ishand = TRUE
-			overlay.layers = handlayer
+			overlay.set_layers(handlayer)
 		if(bodypart == BODY_ZONE_HEAD)
 			overlay.use_gender = FALSE
 		else
@@ -97,7 +97,7 @@
 /datum/bodypart_overlay/simple/body_marking/body_markings/get_accessory(name)
 	return SSaccessories.body_markings[name]
 
-/datum/bodypart_overlay/simple/body_marking/body_markings/get_image(layer, obj/item/bodypart/limb)
+/datum/bodypart_overlay/simple/body_marking/body_markings/get_image(obj/item/bodypart/limb, layer_index, layer_real)
 	var/gender_string = ""
 	if(use_gender && !(limb.body_zone in GLOB.limb_zones))
 		gender_string = (limb.is_dimorphic) ? (limb.limb_gender == "m" ? MALE + "_" : FEMALE + "_") : "male_" // defaults to male so that andros dont get tiddies
@@ -106,7 +106,7 @@
 		zonestring = "digitigrade_1_" + limb.body_zone
 	if(ishand)
 		zonestring = limb.aux_zone
-	return image(icon, gender_string + icon_state + "_" + zonestring, layer = layer)
+	return image(icon, gender_string + icon_state + "_" + zonestring, layer = layer_real)
 
 /datum/preference/color/markings/markings_r_leg3/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))
