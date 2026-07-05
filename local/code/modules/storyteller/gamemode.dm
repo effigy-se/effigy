@@ -445,13 +445,8 @@ SUBSYSTEM_DEF(gamemode)
 /datum/controller/subsystem/gamemode/proc/resetFrequency()
 	event_frequency_multiplier = 1
 
-/* /client/proc/forceEvent()
-	set name = "Trigger Event"
-	set category = "Admin.Events"
-
-	if(!holder ||!check_rights(R_FUN))
-		return
-
+/*
+ADMIN_VERB(forceEvent, R_FUN, "Trigger Event", "Trigger event", ADMIN_CATEGORY_EVENTS)
 	holder.forceEvent(usr) */
 
 /* /datum/admins/forceEvent(mob/user)

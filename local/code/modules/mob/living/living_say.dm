@@ -6,27 +6,19 @@
 		return M.get_top_level_mob()
 	return src
 
-/mob/living/verb/emote_whisper()
-	set name = "Emote Whisper"
-	set category = "IC"
+GAME_VERB(/mob/living, emote_whisper, "Emote Whisper", "IC")
 	if(GLOB.say_disabled)
 		to_chat(usr, span_danger("Speech is currently admin-disabled."))
 		return
 	usr.emote("emotew")
 
-/mob/living/verb/emote_quick()
-	set name = "Emote Quick"
-	set category = "IC"
+GAME_VERB(/mob/living, emote_quick, "Emote Quick", "IC")
 	if(GLOB.say_disabled)
 		to_chat(usr, span_danger("Speech is currently admin-disabled."))
 		return
 	winset(client, null, "command=[client.tgui_say_create_open_command(ME_CHANNEL)]")
 
-/client/verb/looc(msg as text)
-	set name = "LOOC"
-	set desc = "Local OOC, seen only by those in view."
-	set category = "OOC"
-
+GAME_VERB_DESC(/client, looc, "LOOC", "Local OOC, seen only by those in view.", "OOC", msg as text)
 	looc_message(msg)
 
 /client/proc/looc_message(msg)

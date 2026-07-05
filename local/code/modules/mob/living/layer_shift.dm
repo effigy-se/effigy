@@ -1,7 +1,4 @@
-/mob/living/verb/layershift_up()
-	set name = "Layer Shift Up"
-	set category = "IC"
-
+GAME_VERB(/mob/living, layershift_up, "Layer Shift Up", "IC")
 	if(incapacitated)
 		to_chat(src, span_warning("You can't do that right now!"))
 		return
@@ -14,10 +11,7 @@
 	var/layer_priority = (layer - MOB_LAYER) * 100 // Just for text feedback
 	to_chat(src, span_notice("Your layer priority is now [layer_priority]."))
 
-/mob/living/verb/layershift_down()
-	set name = "Layer Shift Down"
-	set category = "IC"
-
+GAME_VERB(/mob/living, layershift_down, "Layer Shift Down", "IC")
 	if(incapacitated)
 		to_chat(src, span_warning("You can't do that right now!"))
 		return

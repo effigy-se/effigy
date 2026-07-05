@@ -120,10 +120,7 @@ GAME_VERB_HIDDEN(/client, emote_panel, "Emote Panel")
 	GLOB.emote_panel.ui_interact(mob)
 
 // EffigyEdit Add - Discord
-/client/verb/discord()
-	set name = "discord"
-	set desc = "Visit the Discord."
-	set hidden = TRUE
+GAME_VERB_HIDDEN(/client, discord, "Discord")
 	var/forumurl = CONFIG_GET(string/discordlink)
 	if(forumurl)
 		if(tgui_alert(src, "This will open the server's associated Discord in your browser. Are you sure?",, list("Yes","No"))!="Yes")

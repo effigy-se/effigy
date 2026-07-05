@@ -157,7 +157,7 @@
 //These are the names of the commands, what you'd need to type to do the command (also used in winset)
 #define VERB_SAY "Say"
 #define VERB_WHISPER "Whisper"
-#define VERB_ME "Me"
+#define VERB_ME "Emote Standard" // EffigyEdit Change - Emote
 //Gave this shit a shorter name so you only have to time out "ooc" rather than "ooc message" to use it --NeoFite
 #define VERB_OOC "OOC"
 #define VERB_PRAY "Pray"
