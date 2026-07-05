@@ -93,7 +93,8 @@ There are several things that need to be remembered:
 		//"override_file = handled_by_bodyshape ? icon_file : null" MUST be added to the arguments of build_worn_icon()
 		//Friendly reminder that icon_exists_or_scream(file, state) is your friend when debugging this code.
 		var/handled_by_bodyshape = TRUE
-		var/digi = (bodyshape & BODYSHAPE_DIGITIGRADE)
+		// EffigyEdit Remove - Suppress unused var warning
+		//var/digi = (bodyshape & BODYSHAPE_DIGITIGRADE)
 		var/icon_file
 		var/woman
 		var/female_sprite_flags = uniform.female_sprite_flags
