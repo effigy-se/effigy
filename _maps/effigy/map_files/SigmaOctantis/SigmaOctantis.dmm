@@ -32522,7 +32522,7 @@
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hop)
 "hlQ" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/effect/spawner/random/food_or_drink/keg,
 /turf/open/floor/iron/dark/corner{
 	dir = 4
 	},

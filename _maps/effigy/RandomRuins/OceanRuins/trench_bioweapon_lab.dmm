@@ -2196,7 +2196,7 @@
 /area/ruin/ocean/bioweapon_research)
 "Gz" = (
 /obj/effect/turf_decal/siding/wideplating_new,
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/effect/spawner/random/food_or_drink/keg,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/kitchen,
 /area/ruin/ocean/bioweapon_research)
