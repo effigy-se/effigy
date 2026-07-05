@@ -485,9 +485,9 @@ There are several things that need to be remembered:
 		var/icon_file = 'icons/mob/clothing/back.dmi'
 
 		// EffigyEdit Add - Character Preferences
-		for(var/shape in worn_item.supported_bodyshapes)
+		for(var/shape in back.supported_bodyshapes)
 			if(bodyshape & shape)
-				icon_file = worn_item.bodyshape_icon_files["[shape]"]
+				icon_file = back.bodyshape_icon_files["[shape]"]
 		// EffigyEdit Add End
 
 		var/mutable_appearance/back_overlay = back.build_worn_icon(default_layer = BACK_LAYER, default_icon_file = icon_file, bodyshape = bodyshape)
