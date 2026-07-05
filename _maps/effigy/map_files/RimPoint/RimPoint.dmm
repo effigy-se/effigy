@@ -11682,7 +11682,7 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 9
 	},
-/obj/structure/closet/crate/goldcrate,
+/obj/structure/closet/crate/goldcrate/stocked,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/vault)
 "dXr" = (

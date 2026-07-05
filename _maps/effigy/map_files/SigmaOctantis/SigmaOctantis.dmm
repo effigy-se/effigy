@@ -60584,7 +60584,7 @@
 /obj/effect/turf_decal/trimline/dark_blue/filled/mid_joiner{
 	dir = 8
 	},
-/obj/structure/closet/crate/goldcrate,
+/obj/structure/closet/crate/goldcrate/stocked,
 /turf/open/floor/iron/large,
 /area/station/command/vault)
 "nJy" = (
