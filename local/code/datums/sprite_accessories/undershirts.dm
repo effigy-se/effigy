@@ -16,7 +16,7 @@
 /datum/sprite_accessory/clothing/undershirt/make_appearance(color, physique, bodyshape)
 	var/mutable_appearance/undershirt_overlay
 	if(physique == FEMALE)
-		undershirt_overlay = mutable_appearance(wear_female_version(icon_state, icon), layer = -EFFIGY_UNDERWEAR_SHIRT_LAYER)
+		undershirt_overlay = mutable_appearance(wear_female_version(icon_state, icon, icon), layer = -EFFIGY_UNDERWEAR_SHIRT_LAYER)
 	else
 		undershirt_overlay = mutable_appearance(icon, icon_state, -EFFIGY_UNDERWEAR_SHIRT_LAYER)
 	undershirt_overlay.color = use_static ? null : color

@@ -22,7 +22,7 @@
 		female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY // for digi gender shaping
 	var/mutable_appearance/underwear_overlay
 	if(physique == FEMALE && gender == MALE)
-		underwear_overlay = mutable_appearance(wear_female_version(underwear_icon_state, icon, female_sprite_flags), layer = -EFFIGY_UNDERWEAR_SHIRT_LAYER)
+		underwear_overlay = mutable_appearance(wear_female_version(underwear_icon_state, icon, icon, female_sprite_flags), layer = -EFFIGY_UNDERWEAR_SHIRT_LAYER)
 	else
 		underwear_overlay = mutable_appearance(icon, underwear_icon_state, -EFFIGY_UNDERWEAR_SHIRT_LAYER)
 	underwear_overlay.color = use_static ? null : color
