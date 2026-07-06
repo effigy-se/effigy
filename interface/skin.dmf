@@ -166,7 +166,7 @@ window "infobuttons"
 		text = "Settings"
 		command = "Game-Preferences"
 		is-flat = true
-	elem "emotes"
+    elem "fullscreen-toggle"
 		type = BUTTON
 		pos = 277,4
 		size = 88x27
@@ -175,22 +175,22 @@ window "infobuttons"
 		font-family = "Chakra Petch"
 		background-color = none
 		saved-params = "is-checked"
-		text = "Emotes"
-		command = "Emote-Panel"
+		text = "Fullscreen"
+		command = "fullscreen"
 		is-flat = true
-	elem "fullscreen-toggle"
+	elem "wiki"
 		type = BUTTON
-		pos = 369,4
+        pos = 369,4
 		size = 88x27
 		anchor1 = 56,0
 		anchor2 = 70,100
 		font-family = "Chakra Petch"
 		background-color = none
 		saved-params = "is-checked"
-		text = "Fullscreen"
-		command = "fullscreen"
+		text = "Wiki"
+		command = "wiki"
 		is-flat = true
-	elem "webmap"
+	elem "discord"
 		type = BUTTON
 		pos = 461,4
 		size = 88x27
@@ -199,8 +199,8 @@ window "infobuttons"
 		font-family = "Chakra Petch"
 		background-color = none
 		saved-params = "is-checked"
-		text = "Webmap"
-		command = ".openWebMap"
+		text = "Discord"
+		command = "discord"
 		is-flat = true
 	elem "reconnect"
 		type = BUTTON
