@@ -61,10 +61,12 @@ export function setClientTheme(name): void | Promise<void> {
     // EffigyEdit Add Start
     'character.background-color': themeColor.BUTTON,
     'character.text-color': themeColor.TEXT,
+    'discord.background-color': '#5865f2',
+    'discord.text-color': themeColor.TEXT,
     'settings.background-color': themeColor.BUTTON,
     'settings.text-color': themeColor.TEXT,
-    'webmap.background-color': themeColor.BUTTON,
-    'webmap.text-color': themeColor.TEXT,
+    'wiki.background-color': '#5865f2',
+    'wiki.text-color': themeColor.TEXT,
     // EffigyEdit Add End
     // Status and verb tabs
     'output.background-color': themeColor.BG_BASE,

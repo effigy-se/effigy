@@ -9,6 +9,8 @@
 		to_chat(src, span_danger("The wiki URL is not set in the server configuration."))
 		return
 
+	// EffigyEdit Change - Wiki Config
+	/*
 	var/query = tgui_input_text(src,
 		"Type what you want to know about. This will open the wiki in your web browser. Type nothing to go to the main page.",
 		"Wiki",
@@ -20,6 +22,9 @@
 	if(query != "")
 		output += "?title=Special%3ASearch&profile=default&search=[query]"
 	DIRECT_OUTPUT(src, link(output))
+	*/
+	DIRECT_OUTPUT(src, link(wikiurl))
+	// EffigyEdit Change End
 
 /client/verb/forum()
 	set name = "forum"
