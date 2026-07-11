@@ -2,7 +2,7 @@
 	name = "Siik'maas"
 	desc = "A melodic language comprised of short-form speech mixed with purrs and growls, native to the Tajara."
 	key = "3"
-	flags = TONGUELESS_SPEECH
+	flags = LANGUAGE_TONGUELESS_SPEECH
 	sentence_chance = 9
 	space_chance = 60
 	syllables = list(
