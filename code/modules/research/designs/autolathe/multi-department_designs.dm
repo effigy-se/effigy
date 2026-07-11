@@ -574,7 +574,7 @@
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 	transfered_materials = list(
 		/obj/item/modular_computer/laptop/buildable = /obj/item/modular_computer/laptop::custom_materials,
-		/obj/item/stock_parts/power_store/cell = /obj/item/stock_parts/power_store/cell::custom_materials,
+		/obj/item/stock_parts/power_store/cell/upgraded = /obj/item/stock_parts/power_store/cell/upgraded::custom_materials, // EffigyEdit Change - Modular computers start with upgraded cells
 	)
 	build_path = /obj/item/modular_computer/laptop/buildable
 	category = list(

@@ -28,6 +28,11 @@
 	greyscale_config = /datum/greyscale_config/hypospray_mkii
 	desc = "A new development from DeForest Medical, this hypospray takes 50-unit vials as the drug supply for easy swapping."
 	w_class = WEIGHT_CLASS_TINY
+	custom_materials = list(
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT
+	)
 	var/list/allowed_containers = list(/obj/item/reagent_containers/cup/hypovial/small)
 	/// The presently-inserted vial.
 	var/obj/item/reagent_containers/cup/hypovial/vial
@@ -307,6 +312,11 @@
 /obj/item/device/custom_kit/deluxe_hypo2
 	name = "hypospray Mk.II deluxe bodykit"
 	desc = "Upgrades the DeForest Hypospray Mk. II to support larger vials."
+	custom_materials = list(
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 8,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2
+	)
 	// don't tinker with a loaded (medi)gun. fool
 	from_obj = /obj/item/hypospray/mkii
 	to_obj = /obj/item/hypospray/mkii/deluxe
@@ -433,6 +443,10 @@
 	desc = "A small, 50u capacity vial compatible with most hyposprays."
 	volume = 60
 	possible_transfer_amounts = list(1,2,5,10,15,20,30,60)
+	custom_materials = list(
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT
+	)
 
 /obj/item/reagent_containers/cup/hypovial/small/style
 	icon_state = "hypovial"
@@ -462,6 +476,10 @@
 	desc = "A large, 120u capacity vial that fits only in the most deluxe hyposprays."
 	volume = 100
 	possible_transfer_amounts = list(1,2,5,10,15,20,30,40,60,120)
+	custom_materials = list(
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT
+	)
 	type_suffix = "-l"
 	large = TRUE
 

@@ -3,6 +3,11 @@
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 	head_flags = HEAD_EYESPRITES | HEAD_FACIAL_HAIR | HEAD_HAIR | HEAD_EYECOLOR
 	change_exempt_flags = parent_type::change_exempt_flags & ~BP_BLOCK_CHANGE_SPECIES
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 1.25,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT
+	)
 	/// var for monitor heads and their emissive states
 	var/monitor_state
 	/// what state the player has selected (to revert after being forced into another screen)
@@ -37,6 +42,11 @@
 /obj/item/bodypart/chest/robot/effigy
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 	change_exempt_flags = parent_type::change_exempt_flags & ~BP_BLOCK_CHANGE_SPECIES
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT
+	)
 
 /obj/item/bodypart/chest/robot/effigy/Initialize(mapload)
 	. = ..()
@@ -60,6 +70,11 @@
 	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 	change_exempt_flags = parent_type::change_exempt_flags & ~BP_BLOCK_CHANGE_SPECIES
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 0.75,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2.5
+	)
 
 /obj/item/bodypart/arm/right/robot/effigy/Initialize(mapload)
 	. = ..()
@@ -80,6 +95,11 @@
 	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 	change_exempt_flags = parent_type::change_exempt_flags & ~BP_BLOCK_CHANGE_SPECIES
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 0.75,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2.5
+	)
 
 /obj/item/bodypart/arm/left/robot/effigy/Initialize(mapload)
 	. = ..()
@@ -100,6 +120,11 @@
 	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 	change_exempt_flags = parent_type::change_exempt_flags & ~BP_BLOCK_CHANGE_SPECIES
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 0.75,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2.5
+	)
 
 /obj/item/bodypart/leg/right/robot/effigy/Initialize(mapload)
 	. = ..()
@@ -120,6 +145,11 @@
 	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 	change_exempt_flags = parent_type::change_exempt_flags & ~BP_BLOCK_CHANGE_SPECIES
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 0.75,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2.5
+	)
 
 /obj/item/bodypart/leg/left/robot/effigy/Initialize(mapload)
 	. = ..()

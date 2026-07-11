@@ -5,6 +5,10 @@
 	icon_state = "charging_implant"
 	items_to_create = list(/obj/item/power_cord)
 	zone = "l_arm"
+	custom_materials = list(
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT
+	)
 
 /obj/item/power_cord
 	name = "power cord"
