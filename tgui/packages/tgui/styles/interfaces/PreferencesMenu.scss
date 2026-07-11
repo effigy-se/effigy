@@ -128,19 +128,25 @@
       }
 
       background: colors.fg(var(--department-color));
-      border: var(--border-thickness-small) outset
-        colors.fg(var(--department-color));
+      // EffigyEdit Remove - TGUI
+      //border: var(--border-thickness-small) outset
+      //  colors.fg(var(--department-color));
       color: black;
 
       > * {
+        /* EffigyEdit Change - TGUI
         height: calc(100% + 0.2em);
         padding-bottom: 0.2em;
+        */
+        height: calc(100%);
+        padding-bottom: 0;
       }
 
       .options {
-        margin-right: var(--space-xxs);
+        margin-right: 0; // EffigyEdit Change - TGUI - Orig: var(--space-xxs);
         background: hsla(0, 0%, 0%, 0.2);
         height: 100%;
+        padding: 3px; // EffigyEdit Add - TGUI
       }
 
       &--Captain {
