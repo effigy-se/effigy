@@ -199,6 +199,10 @@
 
 /client/proc/playtitlemusic(volume_multiplier = 1)
 	set waitfor = FALSE
+	// EffigyEdit Add - Custom Lobby
+	if(CONFIG_GET(flag/use_scheduled_lobby_track))
+		return
+	// EffigyEdit Add End
 	UNTIL(SSticker.login_music) //wait for SSticker init to set the login music
 
 	var/music_volume = prefs.read_preference(/datum/preference/numeric/volume/sound_lobby_volume) * volume_multiplier
