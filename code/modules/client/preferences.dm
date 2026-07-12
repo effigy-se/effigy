@@ -146,6 +146,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
+		tainted_character_profiles = TRUE
 		character_preview_view = create_character_preview_view(user)
 		ui = new(user, src, "PreferencesMenu")
 		ui.set_autoupdate(FALSE)
@@ -182,8 +183,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 /datum/preferences/ui_static_data(mob/user)
 	var/list/data = list()
-
-	data["character_profiles"] = create_character_profiles()
 
 	// EffigyEdit Add - Character Preferences
 	data["character_preview_styles"] = list(PREVIEW_STYLE_JOB, PREVIEW_STYLE_LOADOUT, PREVIEW_STYLE_UNDERWEAR, PREVIEW_STYLE_NAKED)
