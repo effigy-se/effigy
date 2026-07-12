@@ -284,12 +284,13 @@ function Department(props: DepartmentProps) {
   );
 
   return (
-    <Box>
+    <Box style={{'--department-color': department.color} as React.CSSProperties}>
       <Stack vertical fill>
         {jobsForDepartment.map(([name, job]) => {
           return (
             <JobRow
               className={classes([
+                "PreferencesMenu__Jobs__departments",
                 className,
                 name === department.head && 'head',
               ])}

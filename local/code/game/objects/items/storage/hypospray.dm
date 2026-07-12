@@ -8,6 +8,10 @@
 	greyscale_config = /datum/greyscale_config/hypokit
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	custom_materials = list(
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT
+	)
 	// Small hypokits can be pocketed, but don't have much storage.
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_BELT
@@ -185,6 +189,11 @@
 	is_xl = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
 	storage_type = /datum/storage/hypospray_kit/cmo
+	custom_materials = list(
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 6,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT
+	)
 
 /obj/item/storage/hypospraykit/cmo/PopulateContents()
 	if(empty)

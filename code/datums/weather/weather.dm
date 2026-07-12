@@ -70,7 +70,7 @@
 	/// Areas that are protected and excluded from the affected areas.
 	var/list/protected_areas = list()
 	/// The list of z-levels that this weather is actively affecting
-	VAR_FINAL/impacted_z_levels
+	VAR_FINAL/list/impacted_z_levels
 	/// A weighted list of z-levels impacted by weather, where weights reflect the total turf count on each level
 	VAR_FINAL/list/impacted_z_levels_weighted = list()
 
@@ -143,10 +143,9 @@
 	var/maint_access_active = FALSE
 	// EffigyEdit Add End
 
-/datum/weather/New(z_levels, list/weather_data)
+/datum/weather/New(list/z_levels, list/weather_data)
 	..()
-
-	impacted_z_levels = z_levels
+	impacted_z_levels = z_levels.Copy()
 	weather_flags = isnull(weather_data?[WEATHER_FORCED_FLAGS]) ? weather_flags : weather_data?[WEATHER_FORCED_FLAGS]
 	turf_thunder_chance = isnull(weather_data?[WEATHER_FORCED_THUNDER]) ? turf_thunder_chance : weather_data?[WEATHER_FORCED_THUNDER]
 	telegraph_duration = isnull(weather_data?[WEATHER_FORCED_TELEGRAPH]) ? telegraph_duration : weather_data?[WEATHER_FORCED_TELEGRAPH]
