@@ -297,7 +297,7 @@
 	var/pressure = environment.return_pressure() // EffigyEdit Add - Customized Airlocks
 	if(environment.temperature >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 		return FIRELOCK_ALARM_TYPE_HOT
-	if(environment.gases[/datum/gas/antinoblium] && environment.gases[/datum/gas/antinoblium][MOLES] > MINIMUM_MOLE_COUNT)
+	if(environment.moles[/datum/gas/antinoblium] > MINIMUM_MOLE_COUNT)
 		return FIRELOCK_ALARM_TYPE_HOT
 	//if(environment.temperature <= BODYTEMP_COLD_DAMAGE_LIMIT) // EffigyEdit Change - Customized Airlocks
 	if(environment.temperature <= BODYTEMP_COLD_WARNING_2 || pressure > HAZARD_HIGH_PRESSURE || pressure < HAZARD_LOW_PRESSURE)

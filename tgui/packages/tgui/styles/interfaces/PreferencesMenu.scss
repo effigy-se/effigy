@@ -117,6 +117,19 @@
       gap: 0.2em;
     }
     // EffigyEdit Add End
+    
+    &__characterMenu {
+      box-shadow: var(--dropdown-menu-blur);
+      background-color: var(--dropdown-menu-background);
+      border: var(--dropdown-menu-border);
+      border-radius: var(--dropdown-menu-border-radius);
+      transition: opacity 0.35s ease-out;
+
+      &--hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
 
     &__departments {
       &.head {
@@ -124,6 +137,9 @@
 
         .job-name {
           font-weight: bold;
+          &.hovered {
+            background: colors.hover(colors.bg(var(--department-color)));
+          }
         }
       }
 
@@ -143,10 +159,15 @@
       }
 
       .options {
-        margin-right: 0; // EffigyEdit Change - TGUI - Orig: var(--space-xxs);
+        padding-right: 0; // EffigyEdit Change - TGUI - Orig: var(--space-xxs);
+        padding-bottom: 0.2em;
         background: hsla(0, 0%, 0%, 0.2);
-        height: 100%;
         padding: 3px; // EffigyEdit Add - TGUI
+      }
+      .job-name {
+        &.hovered {
+          background: colors.hover(colors.fg(var(--department-color)));
+        }
       }
 
       &--Captain {
@@ -159,6 +180,9 @@
 
         .job-name {
           font-size: 17px;
+          &.hovered {
+            background: colors.hover(colors.fg(var(--department-color)));
+          }
         }
       }
 
@@ -182,7 +206,7 @@
 
     &__PriorityHeader {
       font-weight: bold;
-      transform: translateX(-4px) translateY(-8px) rotate(315deg);
+      transform: translateX(-8px) translateY(-8px) rotate(315deg);
       white-space: nowrap;
       width: 19px;
     }
