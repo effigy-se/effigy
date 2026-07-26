@@ -1,3 +1,4 @@
+/* EffigyEdit TODO: Eggbug needs a JSON AI behaviour tree #364 https://github.com/effigy-se/effigy/issues/364
 /// to the dopefish of the modern era
 /mob/living/basic/eggbug
 	name = "eggbug"
@@ -33,3 +34,4 @@
 	ai_traits = STOP_MOVING_WHEN_PULLED
 	ai_movement = /datum/ai_movement/basic_avoidance
 	idle_behavior = /datum/idle_behavior/idle_random_walk
+*/

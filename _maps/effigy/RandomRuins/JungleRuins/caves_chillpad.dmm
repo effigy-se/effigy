@@ -12,7 +12,6 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
 	},
-/mob/living/basic/eggbug,
 /obj/effect/mapping_helpers/mob_buckler,
 /obj/structure/chair/sofa/corp/right,
 /turf/open/floor/iron/white,
