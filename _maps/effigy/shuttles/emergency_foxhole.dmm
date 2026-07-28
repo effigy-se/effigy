@@ -12,7 +12,7 @@
 "bf" = (
 /obj/structure/table,
 /obj/item/screwdriver,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "bE" = (
 /obj/structure/table,
@@ -28,7 +28,7 @@
 	pixel_x = -3;
 	pixel_y = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "bU" = (
 /obj/structure/table,
@@ -36,14 +36,14 @@
 	pixel_y = 5
 	},
 /obj/item/pen,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "cd" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
 /obj/machinery/camera/autoname/directional/west,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "cM" = (
 /obj/effect/turf_decal/bot,
@@ -52,7 +52,7 @@
 /area/shuttle/escape)
 "db" = (
 /obj/effect/spawner/random/vending/snackvend,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "dL" = (
 /turf/closed/wall/mineral/titanium/survival/nodiagonal,
@@ -102,7 +102,7 @@
 	dir = 8
 	},
 /obj/structure/extinguisher_cabinet/directional/east,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/escape)
 "gE" = (
 /obj/machinery/computer/communications{
@@ -115,7 +115,7 @@
 /area/shuttle/escape)
 "gY" = (
 /obj/machinery/door/airlock/research,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "hp" = (
 /obj/machinery/power/shuttle_engine/propulsion,
@@ -134,7 +134,7 @@
 /area/shuttle/escape)
 "hT" = (
 /obj/structure/reagent_dispensers/water_cooler,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "jh" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -143,7 +143,7 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "ji" = (
 /obj/machinery/status_display/evac/directional/south,
@@ -152,7 +152,7 @@
 /area/shuttle/escape)
 "jv" = (
 /obj/item/kirbyplants/random,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "ky" = (
 /obj/structure/table,
@@ -178,11 +178,11 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wood,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "mc" = (
 /obj/effect/spawner/random/vending/colavend,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "mG" = (
 /obj/structure/table,
@@ -200,7 +200,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "of" = (
 /obj/machinery/power/shuttle_engine/heater,
@@ -219,7 +219,7 @@
 /area/shuttle/escape)
 "or" = (
 /obj/machinery/computer/security/wooden_tv,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "oA" = (
 /obj/machinery/button/flasher{
@@ -241,11 +241,11 @@
 /obj/structure/chair/sofa/bench/left{
 	dir = 4
 	},
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/escape)
 "pE" = (
 /obj/structure/extinguisher_cabinet/directional/east,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/escape)
 "pF" = (
 /obj/effect/turf_decal/bot,
@@ -258,7 +258,7 @@
 	dir = 8
 	},
 /obj/machinery/light/small/directional/east,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/escape)
 "qN" = (
 /obj/structure/extinguisher_cabinet/directional/east,
@@ -269,7 +269,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/autoname/directional/east,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "sd" = (
 /obj/effect/turf_decal/siding/wood{
@@ -277,11 +277,11 @@
 	},
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/light/small/directional/west,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "sN" = (
 /obj/machinery/status_display/evac/directional/south,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/escape)
 "tL" = (
 /obj/effect/turf_decal/siding/dark{
@@ -293,14 +293,14 @@
 /turf/open/floor/grass,
 /area/shuttle/escape)
 "ue" = (
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "uf" = (
 /turf/closed/wall/mineral/titanium/survival,
 /area/shuttle/escape)
 "uh" = (
 /obj/machinery/camera/autoname/directional/north,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/escape)
 "vX" = (
 /obj/effect/spawner/structure/window/survival_pod,
@@ -314,7 +314,7 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "xf" = (
 /obj/machinery/door/airlock/command,
@@ -420,7 +420,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "FU" = (
 /obj/effect/turf_decal/siding/dark{
@@ -443,7 +443,7 @@
 /area/shuttle/escape/brig)
 "GP" = (
 /obj/machinery/door/airlock/engineering,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "Jk" = (
 /obj/effect/turf_decal/stripes/line{
@@ -463,14 +463,14 @@
 /obj/structure/chair/sofa/bench/right{
 	dir = 4
 	},
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/escape)
 "Lt" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/neutral,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "LC" = (
 /turf/open/floor/wood,
@@ -507,7 +507,7 @@
 /obj/machinery/flasher/directional/north{
 	id = "cockpit_flasher"
 	},
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/escape)
 "PF" = (
 /obj/effect/turf_decal/siding/dark{
@@ -536,7 +536,7 @@
 /area/shuttle/escape)
 "SA" = (
 /obj/machinery/light/directional/west,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/escape)
 "SX" = (
 /obj/machinery/status_display/evac/directional/east,
@@ -567,16 +567,16 @@
 /area/shuttle/escape)
 "Wf" = (
 /obj/machinery/light/directional/east,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/escape)
 "WT" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "XK" = (
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/escape)
 "Yi" = (
 /obj/effect/turf_decal/stripes/line{

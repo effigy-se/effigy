@@ -3899,7 +3899,7 @@
 /obj/effect/turf_decal/trimline/dark_blue/corner{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "boQ" = (
 /obj/effect/turf_decal/trimline/blue/line{
@@ -8298,7 +8298,7 @@
 /obj/effect/turf_decal/trimline/purple/warning{
 	dir = 5
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "cRh" = (
 /obj/structure/flora/tree/jungle/small/style_random,
@@ -12250,7 +12250,7 @@
 	},
 /obj/effect/turf_decal/trimline/purple/corner,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "efU" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
@@ -16330,7 +16330,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "fwf" = (
 /obj/structure/table/glass,
@@ -19723,7 +19723,7 @@
 /obj/effect/turf_decal/trimline/purple/warning{
 	dir = 1
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "gEz" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -21537,7 +21537,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "hjz" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners,
@@ -26836,7 +26836,7 @@
 	},
 /obj/effect/turf_decal/trimline/purple/warning,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "iVL" = (
 /obj/effect/turf_decal/stripes/line{
@@ -27462,7 +27462,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "jjI" = (
 /obj/effect/spawner/random/engineering/tank,
@@ -28342,7 +28342,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/generic_maintenance_landmark,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "jxi" = (
 /obj/effect/turf_decal/stripes/line{
@@ -28830,7 +28830,7 @@
 /area/taeloth/nearstation/gateway)
 "jGy" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/department/science)
 "jGz" = (
 /obj/effect/turf_decal/siding/wood{
@@ -31038,7 +31038,7 @@
 /obj/effect/turf_decal/trimline/purple/warning{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "kty" = (
 /obj/effect/turf_decal/tile/blue/diagonal_edge,
@@ -35685,7 +35685,7 @@
 /obj/effect/turf_decal/trimline/purple/warning{
 	dir = 1
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "mbb" = (
 /obj/structure/chair/office{
@@ -37494,7 +37494,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "mHs" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -43723,7 +43723,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/spawner/random/structure/crate,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "oQH" = (
 /obj/structure/cable,
@@ -46457,7 +46457,7 @@
 /obj/effect/turf_decal/trimline/dark_blue/warning{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "pMr" = (
 /obj/effect/turf_decal/siding/dark{
@@ -50344,7 +50344,7 @@
 /obj/effect/turf_decal/trimline/purple/warning{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "qYT" = (
 /obj/structure/sign/directions/evac{
@@ -50603,7 +50603,7 @@
 /obj/effect/turf_decal/trimline/purple/warning{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "rcJ" = (
 /obj/structure/table/glass,
@@ -53638,7 +53638,7 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/landmark/generic_maintenance_landmark,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "rZA" = (
 /obj/effect/turf_decal/siding/wideplating_new{
@@ -54174,7 +54174,7 @@
 "shS" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/spawner/random/structure/closet_maintenance,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/department/science)
 "shV" = (
 /turf/open/floor/asphalt,
@@ -57990,7 +57990,7 @@
 /obj/effect/turf_decal/trimline/purple/warning{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "tuN" = (
 /obj/effect/turf_decal/tile/blue/diagonal_edge,
@@ -61874,7 +61874,7 @@
 "uNb" = (
 /obj/effect/spawner/random/engineering/tank,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/department/science)
 "uNf" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer2{
@@ -62116,7 +62116,7 @@
 /area/taeloth/nearstation/science_roof)
 "uQH" = (
 /obj/effect/spawner/random/engineering/canister,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/department/science)
 "uQJ" = (
 /obj/effect/turf_decal/stripes/line{
@@ -63729,7 +63729,7 @@
 /obj/effect/turf_decal/trimline/purple/warning{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "vqH" = (
 /obj/machinery/door/firedoor,
@@ -66106,7 +66106,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "weS" = (
 /obj/structure/table/wood,
@@ -67254,7 +67254,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "wyZ" = (
 /obj/item/stack/tile/iron/base,
@@ -69431,7 +69431,7 @@
 "xgW" = (
 /obj/effect/spawner/random/engineering/tank,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/science)
 "xgX" = (
 /obj/machinery/telecomms/message_server/preset,

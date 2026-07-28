@@ -1143,7 +1143,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/starboard/greater)
 "amw" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -25102,7 +25102,7 @@
 /obj/effect/turf_decal/trimline/blue/warning{
 	dir = 1
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/starboard/greater)
 "fEM" = (
 /obj/structure/chair/comfy/brown,
@@ -47221,7 +47221,7 @@
 	dir = 4
 	},
 /obj/effect/spawner/random/structure/tank_holder,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/engine)
 "kHH" = (
 /obj/effect/spawner/random/structure/grille,
@@ -50460,7 +50460,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/rack,
 /obj/item/crowbar,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/starboard/greater)
 "ltp" = (
 /obj/effect/turf_decal/tile/purple/diagonal_centre,
@@ -64115,7 +64115,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/starboard/greater)
 "oAU" = (
 /obj/machinery/light/floor,
@@ -68528,7 +68528,7 @@
 /obj/effect/turf_decal/trimline/blue/warning{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/engine)
 "pyp" = (
 /obj/effect/turf_decal/siding/wideplating_new{
@@ -87595,7 +87595,7 @@
 	dir = 4
 	},
 /obj/effect/spawner/random/structure/closet_maintenance,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/engine)
 "tSt" = (
 /obj/machinery/iv_drip,
@@ -89448,7 +89448,7 @@
 /obj/effect/turf_decal/trimline/blue/warning,
 /obj/effect/spawner/random/structure/crate,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/engine)
 "uqB" = (
 /obj/effect/turf_decal/stripes/line{
@@ -96277,7 +96277,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/starboard/greater)
 "vRL" = (
 /obj/machinery/door/firedoor/water_sensor,
@@ -102859,7 +102859,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/firealarm/directional/north,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/starboard/greater)
 "xnu" = (
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted,

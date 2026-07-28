@@ -2,7 +2,7 @@
 "a" = (
 /obj/structure/closet/emcloset/anchored,
 /obj/effect/turf_decal/bot_blue,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/arrival)
 "c" = (
 /obj/machinery/light/cold/directional/north,
@@ -29,7 +29,7 @@
 /area/shuttle/arrival)
 "f" = (
 /obj/structure/chair/sofa/bench/right,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/arrival)
 "g" = (
 /obj/effect/turf_decal/siding/wideplating_new{
@@ -42,17 +42,17 @@
 /area/shuttle/arrival)
 "i" = (
 /obj/structure/chair/sofa/bench,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/arrival)
 "j" = (
 /obj/effect/turf_decal/arrows/red,
-/turf/open/floor/pod/light,
+/turf/open/floor/mineral/plastitanium/pod/light,
 /area/shuttle/arrival)
 "l" = (
 /turf/closed/wall/mineral/titanium/survival,
 /area/shuttle/arrival)
 "n" = (
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/arrival)
 "o" = (
 /obj/structure/chair/sofa/bench/right{
@@ -70,7 +70,7 @@
 /turf/template_noop,
 /area/template_noop)
 "s" = (
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/arrival)
 "t" = (
 /obj/machinery/light/cold/directional/north,
@@ -91,7 +91,7 @@
 /obj/structure/chair/sofa/bench{
 	dir = 1
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/arrival)
 "w" = (
 /obj/effect/turf_decal/siding/wideplating_new{
@@ -111,7 +111,7 @@
 /area/shuttle/arrival)
 "B" = (
 /obj/effect/turf_decal/box/white,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/arrival)
 "C" = (
 /obj/effect/turf_decal/siding/wideplating_new,
@@ -145,7 +145,7 @@
 /area/shuttle/arrival)
 "H" = (
 /obj/effect/turf_decal/arrows/blue,
-/turf/open/floor/pod/light,
+/turf/open/floor/mineral/plastitanium/pod/light,
 /area/shuttle/arrival)
 "I" = (
 /obj/structure/railing/corner/end,
@@ -159,19 +159,19 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/arrival)
 "M" = (
 /obj/structure/closet/firecloset,
 /obj/effect/turf_decal/bot_red,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/arrival)
 "O" = (
 /obj/structure/chair/sofa/bench/left,
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/arrival)
 "S" = (
 /obj/machinery/power/shuttle_engine/propulsion{
@@ -211,7 +211,7 @@
 /obj/structure/chair/sofa/bench/right{
 	dir = 1
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/arrival)
 "Z" = (
 /obj/machinery/power/shuttle_engine/propulsion{
