@@ -118,7 +118,7 @@
 						return FALSE
 					breath = null // uh oh where'd the air go
 					check_breath(breath)
-					if(oxyloss <= OXYGEN_DAMAGE_CHOKING_THRESHOLD && stat == CONSCIOUS)
+					if(oxyloss <= OXYGEN_DAMAGE_CHOKING_THRESHOLD && stat == STABLE)
 						to_chat(src, "<span class='userdanger'>You hold in your breath!</span>")
 					else
 						//Try and drink water
