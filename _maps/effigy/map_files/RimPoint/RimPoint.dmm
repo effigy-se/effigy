@@ -45974,7 +45974,7 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/heads_quarters/hos)
 "pCU" = (
-/obj/machinery/computer/upload/ai{
+/obj/machinery/ai_law_rack/base/core{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
@@ -57676,7 +57676,6 @@
 /area/station/engineering/atmos)
 "tnT" = (
 /obj/structure/table/wood/fancy/red,
-/obj/item/ai_module/law/reset/purge,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 8
 	},
@@ -64708,10 +64707,6 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2,
 /obj/structure/rack,
-/obj/item/ai_module/law/reset{
-	pixel_x = 2;
-	pixel_y = 8
-	},
 /obj/item/ai_module/law/supplied/freeform,
 /obj/effect/turf_decal/siding/wideplating_new,
 /turf/open/floor/iron/diagonal,

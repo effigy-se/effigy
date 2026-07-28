@@ -5208,7 +5208,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/aft/greater)
 "cLh" = (
-/obj/item/ai_module/law/reset,
 /obj/structure/rack,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north,
@@ -30458,7 +30457,6 @@
 	dir = 1
 	},
 /obj/item/aicard,
-/obj/item/ai_module/law/reset,
 /obj/effect/spawner/random/techstorage/ai_all,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/rd)
@@ -35696,7 +35694,6 @@
 /turf/open/floor/wood/parquet,
 /area/station/command/meeting_room)
 "tgb" = (
-/obj/item/ai_module/law/reset/purge,
 /obj/structure/rack,
 /obj/machinery/camera/directional/north{
 	c_tag = "AI Upload Chamber - Fore";
@@ -43974,7 +43971,7 @@
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
 "xkX" = (
-/obj/machinery/computer/upload/ai{
+/obj/machinery/ai_law_rack/base/core{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/textured_large,
