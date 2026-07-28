@@ -278,7 +278,7 @@
 /turf/open/floor/iron/smooth,
 /area/ruin/ocean/bioweapon_research)
 "dv" = (
-/obj/item/stack/tile/pod,
+/obj/item/stack/tile/mineral/plastitanium/pod,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer4{
 	dir = 4
@@ -1452,7 +1452,7 @@
 /turf/open/floor/plating,
 /area/ruin/ocean/bioweapon_research)
 "vS" = (
-/obj/item/stack/tile/pod,
+/obj/item/stack/tile/mineral/plastitanium/pod,
 /obj/machinery/firealarm/directional/east,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
