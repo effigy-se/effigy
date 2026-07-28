@@ -3813,6 +3813,7 @@
 /area/station/commons)
 "cal" = (
 /obj/structure/table/wood,
+/obj/item/storage/photo_album/library,
 /turf/open/floor/carpet/purple,
 /area/station/service/library/private)
 "car" = (
@@ -6982,6 +6983,7 @@
 "dHQ" = (
 /obj/structure/table/wood,
 /obj/machinery/newscaster/directional/west,
+/obj/item/storage/photo_album/bar,
 /turf/open/floor/iron/checker,
 /area/station/service/bar)
 "dIn" = (
@@ -28264,6 +28266,8 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 8
 	},
+/obj/item/storage/photo_album/prison,
+/obj/item/camera,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/security/prison/mess)
 "pre" = (
