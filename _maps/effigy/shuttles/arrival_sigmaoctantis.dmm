@@ -49,7 +49,7 @@
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/shuttle/arrival)
 "l" = (
-/turf/closed/wall/mineral/titanium/survival,
+/turf/closed/wall/mineral/plastitanium/survival,
 /area/shuttle/arrival)
 "n" = (
 /turf/open/floor/mineral/plastitanium/pod,
@@ -141,7 +141,7 @@
 /turf/open/floor/plating,
 /area/shuttle/arrival)
 "G" = (
-/turf/closed/wall/mineral/titanium/survival/nodiagonal,
+/turf/closed/wall/mineral/plastitanium/survival/nodiagonal,
 /area/shuttle/arrival)
 "H" = (
 /obj/effect/turf_decal/arrows/blue,

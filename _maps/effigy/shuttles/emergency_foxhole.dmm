@@ -55,7 +55,7 @@
 /turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "dL" = (
-/turf/closed/wall/mineral/titanium/survival/nodiagonal,
+/turf/closed/wall/mineral/plastitanium/survival/nodiagonal,
 /area/shuttle/escape)
 "eK" = (
 /obj/structure/chair/comfy/shuttle{
@@ -296,7 +296,7 @@
 /turf/open/floor/mineral/plastitanium/pod,
 /area/shuttle/escape)
 "uf" = (
-/turf/closed/wall/mineral/titanium/survival,
+/turf/closed/wall/mineral/plastitanium/survival,
 /area/shuttle/escape)
 "uh" = (
 /obj/machinery/camera/autoname/directional/north,
