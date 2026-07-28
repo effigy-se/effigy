@@ -417,7 +417,8 @@
 					if(!AM.anchored && !AM.pulledby && !isobserver(AM) && (AM.move_resist < INFINITY))
 						if(ishuman(AM))
 							var/mob/living/carbon/human/C = AM
-							if(!(C.shoes && C.shoes.clothing_flags))
+							var/obj/item/clothing/shoes = C.shoes
+							if(!(shoes?.clothing_flags))
 								step(C, dir)
 								if(prob(60) && C.body_position != LYING_DOWN)
 									to_chat(C, span_userdanger("The current knocks you down!"))
