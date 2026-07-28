@@ -164,6 +164,9 @@ export const DmMapsIncludeTarget = new Juke.Target({
       ...Juke.glob('_maps/RandomZLevels/**/*.dmm'),
       ...Juke.glob('_maps/shuttles/**/*.dmm'),
       ...Juke.glob('_maps/templates/**/*.dmm'),
+      ...Juke.glob('_maps/effigy/RandomRuins/**/*.dmm'), // EffigyEdit Add
+      ...Juke.glob('_maps/effigy/shuttles/**/*.dmm'), // EffigyEdit Add
+      ...Juke.glob('_maps/effigy/templates/**/*.dmm'), // EffigyEdit Add
     ];
     const content = `${folders
       .map((file) => file.replace('_maps/', ''))
