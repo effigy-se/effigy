@@ -10198,7 +10198,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/obj/item/food/grown/poppy/geranium,
+/obj/item/food/grown/flower/poppy/geranium,
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
 "cmn" = (
@@ -49938,15 +49938,15 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/poppy,
+/obj/item/food/grown/flower/poppy,
 /turf/open/floor/wood/large,
 /area/station/service/chapel)
 "lmX" = (
@@ -66170,7 +66170,7 @@
 	pixel_y = 13;
 	pixel_x = -6
 	},
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/harebell,
 /turf/open/floor/iron/textured,
 /area/station/service/chapel/funeral)
 "oXn" = (
@@ -66759,11 +66759,11 @@
 /area/station/security/processing)
 "pfA" = (
 /obj/structure/table/wood/fancy/royalblack,
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/poppy,
+/obj/item/food/grown/flower/poppy,
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/textured,
 /area/station/service/chapel/funeral)
@@ -86424,15 +86424,15 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/item/food/grown/harebell{
+/obj/item/food/grown/flower/harebell{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/harebell{
+/obj/item/food/grown/flower/harebell{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/harebell,
 /turf/open/floor/wood/large,
 /area/station/service/chapel)
 "tEz" = (

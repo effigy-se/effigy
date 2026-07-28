@@ -1775,10 +1775,10 @@
 	dir = 8
 	},
 /obj/structure/table/wood/fancy/black,
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_y = 2
 	},
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_y = 2
 	},
 /obj/machinery/light/directional/east,
@@ -15675,8 +15675,8 @@
 	dir = 8
 	},
 /obj/structure/table/wood/fancy/black,
-/obj/item/food/grown/harebell,
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/harebell,
+/obj/item/food/grown/flower/harebell,
 /obj/machinery/firealarm/directional/east,
 /turf/open/floor/wood/large,
 /area/station/service/chapel)
