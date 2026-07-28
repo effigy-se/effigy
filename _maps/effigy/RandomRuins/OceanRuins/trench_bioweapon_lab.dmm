@@ -47,7 +47,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 9
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/ruin/ocean/bioweapon_research)
 "aA" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -55,7 +55,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/ruin/ocean/bioweapon_research)
 "aF" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -232,7 +232,7 @@
 "cX" = (
 /obj/effect/spawner/random/structure/crate,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/ruin/ocean/bioweapon_research)
 "df" = (
 /obj/effect/turf_decal/tile/dark_red{
@@ -418,7 +418,7 @@
 /obj/effect/spawner/random/structure/table_or_rack,
 /obj/effect/spawner/random/maintenance,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/ruin/ocean/bioweapon_research)
 "eP" = (
 /obj/item/stack/sheet/mineral/plastitanium,
@@ -448,7 +448,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/ruin/ocean/bioweapon_research)
 "fw" = (
 /obj/machinery/syndicatebomb/empty,
@@ -497,7 +497,7 @@
 "gh" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/ruin/ocean/bioweapon_research)
 "gG" = (
 /obj/effect/turf_decal/siding/wood{
@@ -592,7 +592,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/ruin/ocean/bioweapon_research)
 "hP" = (
 /obj/effect/turf_decal/siding/wideplating_new/light{
@@ -643,14 +643,14 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/ruin/ocean/bioweapon_research)
 "io" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/airalarm/directional/east,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/ruin/ocean/bioweapon_research)
 "iv" = (
 /obj/effect/turf_decal/tile/dark_green{
@@ -722,7 +722,7 @@
 /area/ruin/ocean/bioweapon_research)
 "iT" = (
 /obj/effect/spawner/random/structure/tank_holder,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/ruin/ocean/bioweapon_research)
 "je" = (
 /obj/structure/chair/office/light{
@@ -916,7 +916,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/ruin/ocean/bioweapon_research)
 "mD" = (
 /obj/structure/chair{
@@ -939,7 +939,7 @@
 "nh" = (
 /obj/effect/spawner/random/structure/closet_maintenance,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/ruin/ocean/bioweapon_research)
 "no" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
@@ -959,7 +959,7 @@
 /obj/effect/spawner/random/structure/crate,
 /obj/machinery/airalarm/directional/west,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/ruin/ocean/bioweapon_research)
 "nz" = (
 /obj/effect/turf_decal/siding/wideplating_new{
@@ -1078,7 +1078,7 @@
 /obj/structure/closet/l3closet/janitor,
 /obj/item/reagent_containers/spray/cleaner,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/ruin/ocean/bioweapon_research)
 "pk" = (
 /obj/item/stack/tile/iron/smooth,
@@ -1106,7 +1106,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/ruin/ocean/bioweapon_research)
 "pR" = (
 /obj/structure/cable,
@@ -1518,7 +1518,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 5
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/ruin/ocean/bioweapon_research)
 "wE" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -1673,7 +1673,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/ruin/ocean/bioweapon_research)
 "yU" = (
 /obj/effect/turf_decal/stripes/red/line{
@@ -1811,7 +1811,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/ruin/ocean/bioweapon_research)
 "AB" = (
 /obj/machinery/door/airlock/external,
@@ -1872,7 +1872,7 @@
 /obj/item/mop,
 /obj/item/reagent_containers/cup/bucket,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/ruin/ocean/bioweapon_research)
 "Bk" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
@@ -1886,7 +1886,7 @@
 "BA" = (
 /obj/effect/spawner/random/engineering/tank,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/ruin/ocean/bioweapon_research)
 "BB" = (
 /obj/effect/turf_decal/tile/dark_red,
@@ -1925,7 +1925,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/ruin/ocean/bioweapon_research)
 "CL" = (
 /obj/effect/spawner/liquids_spawner/fulltile,
@@ -1951,7 +1951,7 @@
 "CY" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/ruin/ocean/bioweapon_research)
 "Dk" = (
 /obj/structure/filingcabinet,
@@ -2070,7 +2070,7 @@
 	reagent_id = /datum/reagent/water
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/ruin/ocean/bioweapon_research)
 "Fk" = (
 /obj/effect/turf_decal/siding/wideplating_new{
@@ -2550,7 +2550,7 @@
 /area/ruin/ocean/bioweapon_research)
 "Nq" = (
 /obj/effect/spawner/random/structure/closet_maintenance,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/ruin/ocean/bioweapon_research)
 "Nv" = (
 /obj/structure/table,
@@ -2646,7 +2646,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/ruin/ocean/bioweapon_research)
 "OS" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2944,7 +2944,7 @@
 "SS" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/spawner/random/engineering/canister,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/ruin/ocean/bioweapon_research)
 "SU" = (
 /obj/effect/turf_decal/tile/bar/diagonal_edge,
@@ -3176,7 +3176,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 10
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/ruin/ocean/bioweapon_research)
 "WQ" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3186,7 +3186,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/ruin/ocean/bioweapon_research)
 "WY" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3204,7 +3204,7 @@
 /area/ruin/ocean/bioweapon_research)
 "Xu" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/ruin/ocean/bioweapon_research)
 "Xw" = (
 /obj/structure/table/wood,
@@ -3244,7 +3244,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2{
 	dir = 1
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/ruin/ocean/bioweapon_research)
 "Yh" = (
 /obj/effect/turf_decal/tile/bar/diagonal_edge,
@@ -3295,7 +3295,7 @@
 /obj/effect/spawner/random/engineering/atmospherics_portable,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/firealarm/directional/east,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/ruin/ocean/bioweapon_research)
 "YK" = (
 /obj/structure/dresser,
@@ -3327,7 +3327,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/ruin/ocean/bioweapon_research)
 "Zl" = (
 /obj/effect/turf_decal/tile/dark_red,

@@ -1,6 +1,5 @@
 import svgtofont, { type SvgToFontOptions } from 'svgtofont';
 
-/** @type {import('svgtofont').SvgToFontOptions} */
 const config: SvgToFontOptions = {
   classNamePrefix: 'tg',
   css: {

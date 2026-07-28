@@ -1143,7 +1143,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/starboard/greater)
 "amw" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -4829,7 +4829,7 @@
 /turf/closed/wall/r_wall,
 /area/station/medical/virology)
 "baE" = (
-/obj/machinery/computer/upload/ai,
+/obj/machinery/ai_law_rack/base/core,
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/machinery/door/window/right/directional/south{
 	name = "Upload Console Window";
@@ -8285,9 +8285,6 @@
 /area/station/security/office)
 "bOw" = (
 /obj/structure/table/wood/fancy/red,
-/obj/item/ai_module/reset/purge{
-	pixel_y = 11
-	},
 /obj/effect/spawner/random/aimodule/harmful,
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/machinery/door/window/brigdoor/left/directional/west{
@@ -10198,7 +10195,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/obj/item/food/grown/poppy/geranium,
+/obj/item/food/grown/flower/poppy/geranium,
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
 "cmn" = (
@@ -25102,7 +25099,7 @@
 /obj/effect/turf_decal/trimline/blue/warning{
 	dir = 1
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/starboard/greater)
 "fEM" = (
 /obj/structure/chair/comfy/brown,
@@ -47221,7 +47218,7 @@
 	dir = 4
 	},
 /obj/effect/spawner/random/structure/tank_holder,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/engine)
 "kHH" = (
 /obj/effect/spawner/random/structure/grille,
@@ -49938,15 +49935,15 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/poppy,
+/obj/item/food/grown/flower/poppy,
 /turf/open/floor/wood/large,
 /area/station/service/chapel)
 "lmX" = (
@@ -50460,7 +50457,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/rack,
 /obj/item/crowbar,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/starboard/greater)
 "ltp" = (
 /obj/effect/turf_decal/tile/purple/diagonal_centre,
@@ -64115,7 +64112,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/starboard/greater)
 "oAU" = (
 /obj/machinery/light/floor,
@@ -66170,7 +66167,7 @@
 	pixel_y = 13;
 	pixel_x = -6
 	},
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/harebell,
 /turf/open/floor/iron/textured,
 /area/station/service/chapel/funeral)
 "oXn" = (
@@ -66759,11 +66756,11 @@
 /area/station/security/processing)
 "pfA" = (
 /obj/structure/table/wood/fancy/royalblack,
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/poppy,
+/obj/item/food/grown/flower/poppy,
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/textured,
 /area/station/service/chapel/funeral)
@@ -68528,7 +68525,7 @@
 /obj/effect/turf_decal/trimline/blue/warning{
 	dir = 4
 	},
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/engine)
 "pyp" = (
 /obj/effect/turf_decal/siding/wideplating_new{
@@ -69562,7 +69559,6 @@
 /area/station/maintenance/floor2/port/aft)
 "pLI" = (
 /obj/structure/table/reinforced,
-/obj/item/ai_module/reset,
 /obj/item/assembly/flash/handheld,
 /obj/item/assembly/flash/handheld,
 /obj/effect/turf_decal/siding/wideplating_new{
@@ -78394,11 +78390,7 @@
 /area/station/security/processing)
 "rMw" = (
 /obj/structure/table,
-/obj/item/ai_module/reset{
-	pixel_x = 2;
-	pixel_y = 8
-	},
-/obj/item/ai_module/supplied/freeform,
+/obj/item/ai_module/law/supplied/freeform,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 8
 	},
@@ -86424,15 +86416,15 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/item/food/grown/harebell{
+/obj/item/food/grown/flower/harebell{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/harebell{
+/obj/item/food/grown/flower/harebell{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/harebell,
 /turf/open/floor/wood/large,
 /area/station/service/chapel)
 "tEz" = (
@@ -87595,7 +87587,7 @@
 	dir = 4
 	},
 /obj/effect/spawner/random/structure/closet_maintenance,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/engine)
 "tSt" = (
 /obj/machinery/iv_drip,
@@ -89448,7 +89440,7 @@
 /obj/effect/turf_decal/trimline/blue/warning,
 /obj/effect/spawner/random/structure/crate,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/department/engine)
 "uqB" = (
 /obj/effect/turf_decal/stripes/line{
@@ -89931,7 +89923,6 @@
 /turf/open/floor/catwalk_floor,
 /area/station/hallway/secondary/entry)
 "uvS" = (
-/obj/machinery/computer/upload/borg,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/door/window/left/directional/south{
 	name = "Cyborg Upload Console Window";
@@ -96277,7 +96268,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/starboard/greater)
 "vRL" = (
 /obj/machinery/door/firedoor/water_sensor,
@@ -102859,7 +102850,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/firealarm/directional/north,
-/turf/open/floor/pod,
+/turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/starboard/greater)
 "xnu" = (
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted,

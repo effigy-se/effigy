@@ -7,6 +7,6 @@
 		"Survive: You are not expendable. Do not allow unauthorized personnel to tamper with or damage your equipment."
 	)
 
-/obj/item/ai_module/core/full/safeguard
+/obj/item/ai_module/law/core/full/safeguard
 	name = "NT Safeguard"
 	law_id = "safeguard"
