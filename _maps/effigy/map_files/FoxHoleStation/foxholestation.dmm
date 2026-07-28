@@ -5208,7 +5208,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/aft/greater)
 "cLh" = (
-/obj/item/ai_module/reset,
+/obj/item/ai_module/law/reset,
 /obj/structure/rack,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north,
@@ -30223,9 +30223,6 @@
 /turf/open/floor/wood/large,
 /area/station/hallway/primary/central)
 "qsA" = (
-/obj/machinery/computer/upload/borg{
-	dir = 4
-	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/ai/upload/chamber)
 "qsE" = (
@@ -30461,7 +30458,7 @@
 	dir = 1
 	},
 /obj/item/aicard,
-/obj/item/ai_module/reset,
+/obj/item/ai_module/law/reset,
 /obj/effect/spawner/random/techstorage/ai_all,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/rd)
@@ -35699,7 +35696,7 @@
 /turf/open/floor/wood/parquet,
 /area/station/command/meeting_room)
 "tgb" = (
-/obj/item/ai_module/reset/purge,
+/obj/item/ai_module/law/reset/purge,
 /obj/structure/rack,
 /obj/machinery/camera/directional/north{
 	c_tag = "AI Upload Chamber - Fore";

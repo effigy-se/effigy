@@ -32186,7 +32186,7 @@
 /turf/open/floor/iron/white/small,
 /area/station/medical/medbay/central)
 "kSx" = (
-/obj/item/ai_module/toy_ai,
+/obj/item/ai_module/law/toy_ai,
 /turf/open/misc/asteroid/basalt,
 /area/taeloth/underground)
 "kSy" = (
@@ -46878,9 +46878,6 @@
 /turf/open/floor/plating,
 /area/station/ai/satellite/chamber)
 "pUE" = (
-/obj/machinery/computer/upload/borg{
-	dir = 1
-	},
 /obj/effect/turf_decal/siding/wideplating_new,
 /turf/open/floor/circuit,
 /area/station/ai/upload/chamber)
@@ -57679,7 +57676,7 @@
 /area/station/engineering/atmos)
 "tnT" = (
 /obj/structure/table/wood/fancy/red,
-/obj/item/ai_module/reset/purge,
+/obj/item/ai_module/law/reset/purge,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 8
 	},
@@ -64711,11 +64708,11 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2,
 /obj/structure/rack,
-/obj/item/ai_module/reset{
+/obj/item/ai_module/law/reset{
 	pixel_x = 2;
 	pixel_y = 8
 	},
-/obj/item/ai_module/supplied/freeform,
+/obj/item/ai_module/law/supplied/freeform,
 /obj/effect/turf_decal/siding/wideplating_new,
 /turf/open/floor/iron/diagonal,
 /area/station/ai/upload/chamber)
