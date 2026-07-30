@@ -181,6 +181,7 @@ export const BehaviorTreeCompilerTarget = new Juke.Target({
     'code/**/*.bt.json',
     'code/__DEFINES/**/*.dm',
     'tools/build_bt.py',
+    'local/**/*.bt.json', // EffigyEdit Add
   ],
   outputs: () => {
     return Juke.glob('code/**/*.bt.json').map((file) => {

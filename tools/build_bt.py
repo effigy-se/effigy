@@ -265,6 +265,7 @@ def main() -> int:
 
     code_dirs = [
         repo_root / 'code',
+        repo_root / 'local', # EffigyEdit Add
     ]
 
     for code_dir in code_dirs:
