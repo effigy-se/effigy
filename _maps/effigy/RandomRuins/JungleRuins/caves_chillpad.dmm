@@ -14,6 +14,7 @@
 	},
 /obj/effect/mapping_helpers/mob_buckler,
 /obj/structure/chair/sofa/corp/right,
+/mob/living/basic/eggbug,
 /turf/open/floor/iron/white,
 /area/taeloth/underground)
 "g" = (
