@@ -152,8 +152,12 @@
       .options {
         padding-right: 0; // EffigyEdit Change - TGUI - Orig: var(--space-xxs);
         background: hsla(0, 0%, 0%, 0.2);
-        height: 100%;
         padding: 3px; // EffigyEdit Add - TGUI
+      }
+      .job-name {
+        &.hovered {
+          background: colors.hover(colors.fg(var(--department-color)));
+        }
       }
 
       &--Captain {
