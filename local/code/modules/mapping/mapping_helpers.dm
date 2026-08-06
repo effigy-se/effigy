@@ -22,5 +22,6 @@
 
 /obj/effect/mapping_helpers/airlock/access/all/supply/general/payload(obj/machinery/door/airlock/airlock)
 	. = ..()
-	if(airlock.door_area?.type == /area/shuttle/supply)
+	var/area/door_area = get_area(src)
+	if(door_area.type == /area/shuttle/supply)
 		airlock.rapid_open = TRUE
