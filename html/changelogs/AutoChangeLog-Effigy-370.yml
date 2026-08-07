@@ -1,0 +1,4 @@
+author: "LT3"
+delete-after: True
+changes:
+  - qol: "Cycle linked airlocks and the cargo shuttle now have rapid-open airlocks"
