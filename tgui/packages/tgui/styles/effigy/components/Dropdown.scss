@@ -1,3 +1,13 @@
+@use '~tgui-core/styles/functions.scss' as fn;
+
+.Dropdown {
+  &__input,
+  &__control {
+    height: fn.em(28px);
+    font-size: var(--font-size);
+  }
+}
+
 .Dropdown__menu--entry.selected {
   color: var(--color-black) !important;
 }
