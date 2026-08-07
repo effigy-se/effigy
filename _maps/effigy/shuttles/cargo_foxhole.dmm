@@ -36,6 +36,7 @@
 	id = "QMLoaddoor2";
 	name = "Supply Dock Loading Door"
 	},
+/obj/effect/landmark/flaps_install,
 /turf/open/floor/plating,
 /area/shuttle/supply)
 "v" = (
@@ -47,6 +48,7 @@
 	id = "QMLoaddoor";
 	name = "Supply Dock Loading Door"
 	},
+/obj/effect/landmark/flaps_install,
 /turf/open/floor/plating,
 /area/shuttle/supply)
 "w" = (

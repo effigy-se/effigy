@@ -76,12 +76,10 @@
 	var/engineering_override = FALSE
 	/// If there is an active fire alarm in the door's area
 	var/fire_active = FALSE
-	/// Area the door is located in
-	var/area/door_area
 
 /obj/machinery/door/airlock/Initialize(mapload)
 	. = ..()
-	door_area = get_area(src)
+	var/area/door_area = get_area(src)
 	RegisterSignal(door_area, COMSIG_AREA_FIRE_CHANGED, PROC_REF(update_fire_status))
 	RegisterSignal(SSdcs, COMSIG_GLOB_FORCE_ENG_OVERRIDE, PROC_REF(force_eng_override))
 
@@ -109,6 +107,7 @@
 ///When the signal is received of a changed security level, check if it's orange.
 /obj/machinery/door/airlock/check_security_level(datum/source, level)
 	. = ..()
+	var/area/door_area = get_area(src)
 	if(!door_area.engineering_override_eligible)
 		return
 
@@ -151,6 +150,7 @@ GLOBAL_VAR_INIT(force_eng_override, FALSE)
 /obj/machinery/door/airlock/proc/force_eng_override(datum/source, status)
 	SIGNAL_HANDLER
 
+	var/area/door_area = get_area(src)
 	if(!door_area.engineering_override_eligible)
 		return
 
@@ -169,6 +169,7 @@ GLOBAL_VAR_INIT(force_eng_override, FALSE)
 /obj/machinery/door/airlock/proc/update_fire_status(datum/source, fire)
 	SIGNAL_HANDLER
 
+	var/area/door_area = source
 	if(!door_area.engineering_override_eligible)
 		return
 
