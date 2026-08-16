@@ -18,7 +18,8 @@ GAME_VERB(/mob/living, emote_quick, "Emote Quick", "IC")
 		return
 	winset(client, null, "command=[client.tgui_say_create_open_command(ME_CHANNEL)]")
 
-GAME_VERB_DESC(/client, looc, "LOOC", "Local OOC, seen only by those in view.", "OOC", msg as text)
+GAME_VERB_DESC(/client, looc, "LOOC", "Local OOC, seen only by those in view.", "OOC")
+	VERB_ARG(msg, VERB_ARG_TYPE_TEXT, VERB_ARG_SOURCE_INPUT)
 	looc_message(msg)
 
 /client/proc/looc_message(msg)
