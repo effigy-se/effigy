@@ -869,11 +869,11 @@
 ///Abstract type for emotes that can be run by cats and those with a felinid tongue
 /datum/emote/living/cat
 	abstract_type = /datum/emote/living/cat
-	trait_required = TRAIT_CAT_EMOTES_ALLOWED
+	trait_required = null // EffigyEdit Change - Remove emote restriction
 
 /datum/emote/living/cat/meow
-	key = "meow"
-	key_third_person = "meows"
+	key = "petmeow" // EffigyEdit Change - 'meow' used by /datum/emote/living/meow
+	key_third_person = null // EffigyEdit Change - 'meows' used by /datum/emote/living/meow
 	vary = TRUE
 	message = "meows!"
 	message_mime = "meows silently."
@@ -881,8 +881,8 @@
 	sound = SFX_CAT_MEOW
 
 /datum/emote/living/cat/purr
-	key = "purr"
-	key_third_person = "purrs"
+	key = "petpurr" // EffigyEdit Change - 'purr' used by /datum/emote/living/purr
+	key_third_person = null // EffigyEdit Change - 'purrs' used by /datum/emote/living/purr
 	vary = TRUE
 	message = "purrs."
 	emote_type = EMOTE_AUDIBLE
@@ -891,7 +891,7 @@
 ///Abstract type for emotes that can be run by mothroaches and those with a moth tongue
 /datum/emote/living/moth
 	abstract_type = /datum/emote/living/moth
-	trait_required = TRAIT_MOTH_EMOTES_ALLOWED
+	trait_required = null // EffigyEdit Change - Remove emote restriction
 
 /datum/emote/living/moth/mchitter
 	key = "chitter"

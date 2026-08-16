@@ -18,6 +18,9 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT
 	)
+	emote_sounds = list(
+		/datum/emote/living/deathgasp::key = 'local/sound/mobs/humanoids/synth/hacked.ogg',
+	)
 
 /obj/item/organ/tongue/synth/can_speak_language(language)
 	return TRUE
