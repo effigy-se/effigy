@@ -34,7 +34,7 @@
 	mutantheart = /obj/item/organ/heart/synth
 	mutantliver = /obj/item/organ/liver/synth
 	mutantappendix = null
-	exotic_bloodtype =  BLOOD_TYPE_OIL
+	exotic_bloodtype =  /datum/blood_type/oil
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/robot/effigy/bare,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/robot/effigy/bare,
