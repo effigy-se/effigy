@@ -480,7 +480,6 @@
 #include "code\__DEFINES\~effigy\dcs\signals\signals_subsystem.dm"
 #include "code\__DEFINES\~effigy\dcs\signals\signals_mob\signals_mob_human.dm"
 #include "code\__DEFINES\~effigy\research\research_categories.dm"
-#include "code\__DEFINES\~effigy\research\techweb_nodes.dm"
 #include "code\__DEFINES\~effigy\traits\declarations.dm"
 #include "code\__HELPERS\_auxtools_api.dm"
 #include "code\__HELPERS\_dreamluau.dm"

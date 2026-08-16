@@ -1,7 +1,6 @@
 // Hyposprays
 /datum/design/hypomkii
 	name = "Hypospray Mk. II"
-	id = "hypomkii"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 5,
@@ -17,7 +16,6 @@
 // Hypospray cases
 /datum/design/hypokit
 	name = "Hypospray Case"
-	id = "hypokit"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 3,
@@ -31,7 +29,6 @@
 
 /datum/design/hypokit/deluxe
 	name = "Hypospray Case Deluxe"
-	id = "hypokit_deluxe"
 	materials = list(
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 6,
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
@@ -42,7 +39,6 @@
 // Hypovials
 /datum/design/hypovial
 	name = "Hypovial"
-	id = "hypovial"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.5,
@@ -56,7 +52,6 @@
 
 /datum/design/hypovial/large
 	name = "Large Hypovial"
-	id = "large_hypovial"
 	materials = list(
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.5,

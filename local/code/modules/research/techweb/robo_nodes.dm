@@ -1,32 +1,30 @@
 /datum/techweb_node/customizable_limbs
-	id = TECHWEB_NODE_CUSTOMIZABLE_LIMBS
 	display_name = "Customizable Cybernetics"
 	description = "Be all you can't be. Be a new you!"
-	prereq_ids = list(TECHWEB_NODE_AUGMENTATION)
-	design_ids = list(
-		"customizable_head",
-		"customizable_chest",
-		"customizable_l_arm",
-		"customizable_r_arm",
-		"customizable_l_leg",
-		"customizable_r_leg",
+	prerequisite_nodes = list(/datum/techweb_node/augmentation)
+	unlocked_designs = list(
+		/datum/design/customizable_head,
+		/datum/design/customizable_chest,
+		/datum/design/customizable_l_arm,
+		/datum/design/customizable_r_arm,
+		/datum/design/customizable_l_leg,
+		/datum/design/customizable_r_leg,
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
 /datum/techweb_node/synth_organs
-	id = TECHWEB_NODE_SYNTH_ORGANS
-	starting_node = TRUE
+	node_flags = parent_type::node_flags | TECHWEB_NODE_STARTER
 	display_name = "Synth Internal Components"
 	description = "Internal Mechanisms for Synthetics."
-	prereq_ids = list(TECHWEB_NODE_ROBOTICS)
-	design_ids = list(
-		"synth_eyes",
-		"synth_tongue",
-		"synth_liver",
-		"synth_lungs",
-		"synth_stomach",
-		"synth_charger",
-		"synth_ears",
-		"synth_heart",
+	prerequisite_nodes = list(/datum/techweb_node/robotics)
+	unlocked_designs = list(
+		/datum/design/synth_eyes,
+		/datum/design/synth_tongue,
+		/datum/design/synth_liver,
+		/datum/design/synth_heatsink,
+		/datum/design/synth_stomach,
+		/datum/design/synth_charger,
+		/datum/design/synth_ears,
+		/datum/design/synth_heart,
 	)
