@@ -21,6 +21,7 @@ PROCESSING_SUBSYSTEM_DEF(transport)
 		TRAMSTATION_LINE_1,
 		HERETIC_LINE_1,
 		HILBERT_LINE_1,
+		SIGMA_OCTANTIS_LINE_1, // EffigyEdit Add
 	)
 	///how much time a tram can take per movement before we notify admins and slow down the tram. in milliseconds
 	var/max_time = 15
