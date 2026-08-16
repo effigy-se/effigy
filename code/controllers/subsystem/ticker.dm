@@ -650,7 +650,7 @@ SUBSYSTEM_DEF(ticker)
 				var/atom/movable/screen/splash/fade_out = new(null, null, living.client, TRUE)
 				fade_out.fade(TRUE)
 				living.client.init_verbs()
-				living.client.show_spawn_text_overlay()
+				// living.client.show_spawn_text_overlay() // EffigyEdit Remove - We already have location blurbs
 
 			livings += living
 	if(livings.len)
