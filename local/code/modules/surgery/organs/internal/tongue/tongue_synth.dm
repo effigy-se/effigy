@@ -18,6 +18,9 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT
 	)
+	emote_sounds = list(
+		/datum/emote/living/deathgasp::key = 'local/sound/mobs/humanoids/synth/hacked.ogg',
+	)
 
 /obj/item/organ/tongue/synth/can_speak_language(language)
 	return TRUE
@@ -28,7 +31,6 @@
 /datum/design/synth_tongue
 	name = "Synthetic Tongue"
 	desc = "A fully-functional synthetic tongue, encased in soft silicone. Features include high-resolution vocals and taste receptors."
-	id = "synth_tongue"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS
 	materials = list(
