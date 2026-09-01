@@ -193,7 +193,7 @@
 			stun_chance *= carbon_user.dna.species.siemens_coeff
 			if(ishuman(user))
 				var/mob/living/carbon/human/human_user = user
-				stun_chance *= human_user.physiology.siemens_coeff
+				stun_chance *= GET_PHYSIOLOGY(human_user, PHYS_COEFF_ELEC_CONDUCTIVITY)
 				if(human_user.gloves)
 					stun_chance *= human_user.gloves.siemens_coefficient
 

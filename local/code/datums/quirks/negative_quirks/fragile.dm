@@ -7,12 +7,10 @@
 
 /datum/quirk/fragile/post_add()
 	. = ..()
-	var/mob/living/carbon/human/user = quirk_holder
-	user.physiology.brute_mod *= 1.15
-	user.physiology.burn_mod *= 1.15
+	MODIFY_PHYSIOLOGY(quirk_holder, BRUTE, 1.15)
+	MODIFY_PHYSIOLOGY(quirk_holder, BURN, 1.15)
 
 /datum/quirk/fragile/remove()
 	. = ..()
-	var/mob/living/carbon/human/user = quirk_holder
-	user.physiology.brute_mod /= 1.15
-	user.physiology.burn_mod /= 1.15
+	MODIFY_PHYSIOLOGY(quirk_holder, BRUTE, 1 / 1.15)
+	MODIFY_PHYSIOLOGY(quirk_holder, BURN, 1 / 1.15)
