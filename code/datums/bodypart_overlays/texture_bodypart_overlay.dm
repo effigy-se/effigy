@@ -92,7 +92,21 @@
 /datum/bodypart_texture/mesh/proc/should_modify(image/appearance)
 	// only apply to other mutant bodyparts. we filter by layer which is *absolutely* not ideal, but hey, work with what you got
 	var/appearance_layer = abs(appearance.layer)
-	return appearance_layer == BODY_ADJ_LAYER || appearance_layer == BODY_FRONT_LAYER || appearance_layer == BODY_BEHIND_LAYER
+	// EffigyEdit Change - Add our layers
+	// return appearance_layer == BODY_ADJ_LAYER || appearance_layer == BODY_FRONT_LAYER || appearance_layer == BODY_BEHIND_LAYER
+	var/list/mutant_layers = list(
+		BODY_ADJ_LAYER,
+		EFFIGY_LAYER_ADJ_2,
+		EFFIGY_LAYER_ADJ_3,
+		BODY_FRONT_LAYER,
+		EFFIGY_LAYER_FRONT_2,
+		EFFIGY_LAYER_FRONT_3,
+		BODY_BEHIND_LAYER,
+		EFFIGY_LAYER_BEHIND_2,
+		EFFIGY_LAYER_BEHIND_3,
+	)
+	return appearance_layer in mutant_layers
+	// EffigyEdit Change End
 
 /datum/bodypart_texture/mesh/black
 	texture_icon_state = "mesh_mask"
