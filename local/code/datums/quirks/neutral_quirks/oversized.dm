@@ -25,7 +25,7 @@
 	for(var/obj/item/bodypart/bodypart as anything in human_holder.bodyparts)
 		on_gain_limb(src, bodypart, special = FALSE)
 
-	human_holder.physiology.hunger_mod *= OVERSIZED_HUNGER_MOD //50% hungrier
+	MODIFY_PHYSIOLOGY(human_holder, PHYS_COEFF_HUNGER_MOD, OVERSIZED_HUNGER_MOD) //50% hungrier
 	human_holder.add_movespeed_modifier(/datum/movespeed_modifier/oversized)
 
 /datum/quirk/oversized/remove()
@@ -56,7 +56,7 @@
 
 	UnregisterSignal(human_holder, COMSIG_CARBON_POST_ATTACH_LIMB)
 
-	human_holder.physiology.hunger_mod /= OVERSIZED_HUNGER_MOD
+	MODIFY_PHYSIOLOGY(human_holder, PHYS_COEFF_HUNGER_MOD, 1 / OVERSIZED_HUNGER_MOD)
 	human_holder.remove_movespeed_modifier(/datum/movespeed_modifier/oversized)
 
 /datum/quirk/oversized/proc/on_gain_limb(datum/source, obj/item/bodypart/gained, special)
