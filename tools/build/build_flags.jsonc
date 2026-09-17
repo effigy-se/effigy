@@ -37,13 +37,18 @@
 				// value is the map's identifier from maps.txt, label is what
 				// appears in the build flags force map dropdown.
 				{ "value": "", "label": "default (cached next map or default map)" },
-				{ "value": "deltastation", "label": "Delta Station" },
+				// { "value": "deltastation", "label": "Delta Station" }, // EffigyEdit Remove
 				{ "value": "icebox", "label": "Ice Box Station" },
 				{ "value": "metastation", "label": "MetaStation" },
 				{ "value": "tramstation", "label": "Tramstation" },
-				{ "value": "nebulastation", "label": "NebulaStation" },
-				{ "value": "kilostation", "label": "Kilostation" },
-				{ "value": "catwalkstation", "label": "Catwalk Station" },
+				// { "value": "nebulastation", "label": "NebulaStation" }, // EffigyEdit Remove
+				// { "value": "kilostation", "label": "Kilostation" }, // EffigyEdit Remove
+				// { "value": "catwalkstation", "label": "Catwalk Station" }, // EffigyEdit Remove
+				// EffigyEdit Add
+				{ "value": "foxholestation", "label": "FoxHoleStation" },
+				{ "value": "rimpoint", "label": "RimPoint" },
+				{ "value": "sigma_octantis", "label": "Sigma Octantis" },
+				// EffigyEdit Add End
 				{ "value": "gateway_test", "label": "Gateway Test (test)" },
 				{ "value": "multiz_debug", "label": "MultiZ Debug (test)" },
 				{ "value": "runtimestation", "label": "Runtime Station (low memory)" },
