@@ -81,7 +81,8 @@
 	return ..()
 
 /datum/weather/rad_storm/end()
-	if(..())
+	. = ..()
+	if(!.)
 		return
 	// priority_announce("The radiation threat has passed. Please return to your workplaces.", "Anomaly Alert") // EffigyEdit Change - Maintenance opens for radstorms
 	priority_announce("The radiation threat has passed, please return to your workplaces. Maintenance corridor emergency access will be revoked shortly.", "Radiation Alert Cleared")
