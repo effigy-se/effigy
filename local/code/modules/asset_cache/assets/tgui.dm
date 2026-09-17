@@ -40,6 +40,6 @@
 
 /datum/asset/simple/server_logos
 	assets = list(
-		"tg_16.png" = 'icons/ui/common/tg_16.png',
+		"tg_16.png" = 'local/icons/ui/common/tg_16.png',
 		"effigy_16.png" = 'local/icons/ui/common/effigy_16.png',
 	)
