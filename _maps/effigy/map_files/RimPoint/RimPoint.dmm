@@ -65229,9 +65229,9 @@
 "vQg" = (
 /obj/effect/turf_decal/tile/dark_blue/diagonal_edge,
 /obj/structure/table/reinforced,
-/obj/item/mmi,
-/obj/item/mmi,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
 /obj/machinery/newscaster/directional/north,
 /turf/open/floor/iron/diagonal,
 /area/station/science/robotics/augments)
@@ -66348,8 +66348,8 @@
 	pixel_y = 11;
 	pixel_x = 4
 	},
-/obj/item/mmi,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
 /obj/item/bodypart/chest/robot,
 /turf/open/floor/iron/large,
 /area/station/engineering/storage/tech)
