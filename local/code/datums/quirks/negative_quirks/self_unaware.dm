@@ -4,5 +4,5 @@
 	value = -4
 	mob_trait = TRAIT_SELF_UNAWARE
 	medical_record_text = "Patient is incapable of communicating their emotions."
-	quirk_flags = QUIRK_HUMAN_ONLY | QUIRK_MOODLET_BASED
+	quirk_flags = QUIRK_HUMAN_ONLY
 	icon = FA_ICON_QUESTION_CIRCLE
