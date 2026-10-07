@@ -7756,6 +7756,7 @@
 #include "local\code\modules\mob\living\carbon\human\human_defines.dm"
 #include "local\code\modules\mob\living\carbon\human\species_types\android.dm"
 #include "local\code\modules\mob\living\carbon\human\species_types\animalid.dm"
+#include "local\code\modules\mob\living\carbon\human\species_types\cerulean.dm"
 #include "local\code\modules\mob\living\carbon\human\species_types\insectoid.dm"
 #include "local\code\modules\mob\living\carbon\human\species_types\lizardpeople.dm"
 #include "local\code\modules\mob\living\carbon\human\species_types\monkey.dm"
