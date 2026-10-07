@@ -28,6 +28,15 @@
 	test_screenshot("[/datum/species/lizard]", get_flat_icon_for_all_directions(lizard))
 	testable_species -= /datum/species/lizard
 
+	// EffigyEdit Add - Needs special handling
+	var/mob/living/carbon/human/cerulean = allocate(/mob/living/carbon/human/dummy/consistent)
+	cerulean.dna.features[FEATURE_TAIL_FISH] = "Cerulean"
+	cerulean.dna.tail_type = AQUATIC_TYPE
+	cerulean.set_species(/datum/species/human/cerulean)
+	test_screenshot("[/datum/species/human/cerulean]", get_flat_icon_for_all_directions(cerulean))
+	testable_species -= /datum/species/human/cerulean
+	// EffigyEdit Add End
+
 	// Test humans as naked so we can catch issues with bodypart layering
 	var/mob/living/carbon/human/human = allocate(/mob/living/carbon/human/dummy/consistent)
 	test_screenshot("[/datum/species/human]", get_flat_icon_for_all_directions(human))
