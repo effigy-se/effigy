@@ -7614,6 +7614,7 @@
 #include "local\code\modules\client\preferences\species_features\spines.dm"
 #include "local\code\modules\client\preferences\species_features\tail.dm"
 #include "local\code\modules\client\preferences\species_features\wings.dm"
+#include "local\code\modules\clothing\clothing.dm"
 #include "local\code\modules\clothing\head\bows.dm"
 #include "local\code\modules\clothing\head\hardhat.dm"
 #include "local\code\modules\clothing\head\hat.dm"
