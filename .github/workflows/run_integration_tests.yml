@@ -40,7 +40,9 @@ jobs:
             .github
             build/behavior_trees
             code/datums/greyscale/json_configs
+            local/code/datums/greyscale/json_configs
             icons
+            local/icons
             sound/runtime
             strings
             tgui/public
