@@ -1,7 +1,7 @@
 /// Helper to see if surgeon is eligible to receive exact numbers on tend wounds results
 /datum/surgery_operation/basic/tend_wounds/proc/has_detailed_feedback(mob/living/patient, mob/living/surgeon)
 	PRIVATE_PROC(TRUE)
-	return HAS_TRAIT(surgeon, TRAIT_MEDICAL_HUD) || (locate(/obj/item/healthanalyzer) in surgeon.held_items) || locate_operating_computer(patient)
+	return HAS_TRAIT(surgeon, TRAIT_MEDICAL_HUD) || (locate(/obj/item/healthanalyzer) in surgeon.get_held_items()) || locate_operating_computer(patient)
 
 /datum/surgery_operation/basic/tend_wounds/get_feedback_message(mob/living/patient, mob/living/surgeon, list/operation_args)
 	. = ..()

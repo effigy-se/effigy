@@ -55,3 +55,17 @@
 	name = "Tentacle"
 	icon_state = "tentacle"
 	can_wag = TRUE
+
+//cerulean species fish tails
+/datum/sprite_accessory/tails/fish/cerulean
+	name = "Cerulean"
+	icon = 'local/icons/mob/mutant/sprite_accessories/tails/tails_cerulean.dmi'
+	icon_state = "default"
+	gender_specific = TRUE
+	locked = TRUE
+	color_src = MUTANT_COLOR
+
+/datum/sprite_accessory/tails/fish/cerulean/skeleton
+	name = "Cerulean Skeleton"
+	icon_state = "skeleton"
+	color_src = NONE

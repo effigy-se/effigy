@@ -385,7 +385,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	for(var/obj/item/item_content as anything in mob_occupant)
 		if(!istype(item_content) || HAS_TRAIT(item_content, TRAIT_NODROP))
 			continue
-		if (issilicon(mob_occupant) && istype(item_content, /obj/item/mmi))
+		if (issilicon(mob_occupant) && istype(item_content, /obj/item/brain_processor))
 			continue
 		if(control_computer)
 			if(istype(item_content, /obj/item/modular_computer))
