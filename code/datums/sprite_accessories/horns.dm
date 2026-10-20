@@ -22,4 +22,5 @@
 /datum/sprite_accessory/horns/angler
 	name = "Angeler"
 	icon_state = "angler"
+	emissive_layers = list(EXTERNAL_FRONT)
 */// EffigyEdit Remove End

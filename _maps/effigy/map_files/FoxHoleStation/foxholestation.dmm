@@ -36090,7 +36090,7 @@
 	pixel_y = 10;
 	pixel_x = 3
 	},
-/obj/item/mmi{
+/obj/item/brain_processor/organic{
 	pixel_y = 5
 	},
 /obj/item/multitool{
@@ -42685,15 +42685,15 @@
 "wFp" = (
 /obj/structure/table,
 /obj/effect/turf_decal/tile/dark_red,
-/obj/item/mmi{
+/obj/item/brain_processor/organic{
 	pixel_y = 13;
 	pixel_x = 4
 	},
-/obj/item/mmi{
+/obj/item/brain_processor/organic{
 	pixel_y = 13;
 	pixel_x = 4
 	},
-/obj/item/mmi{
+/obj/item/brain_processor/organic{
 	pixel_y = 13;
 	pixel_x = 4
 	},

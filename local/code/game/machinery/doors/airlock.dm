@@ -248,7 +248,7 @@
 	if(. == FALSE && engineering_override)
 		return "Engineering"
 
-/obj/machinery/door/airlock/open(forced = DEFAULT_DOOR_CHECKS)
+/obj/machinery/door/airlock/open(forced = DEFAULT_DOOR_CHECKS, mob/living/opener)
 	if(!(airlock_features & LEGACY_ANIMATIONS) && !(airlock_features & ACCESS_RESTRICTED))
 		rapid_open()
 

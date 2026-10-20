@@ -34,6 +34,19 @@
 	icon_state = "chonky"
 	center = TRUE
 	dimension_x = 36
+
+//cerulean species fish tails
+/datum/sprite_accessory/tails/fish/cerulean
+	name = "Cerulean"
+	icon = 'icons/mob/human/species/cerulean/cerulean_tails.dmi'
+	icon_state = "default"
+	gender_specific = TRUE
+	locked = TRUE
+
+/datum/sprite_accessory/tails/fish/cerulean/skeleton
+	name = "Cerulean Skeleton"
+	icon_state = "skeleton"
+	color_src = NONE
 */// EffigyEdit Remove End
 
 /datum/sprite_accessory/tails/lizard

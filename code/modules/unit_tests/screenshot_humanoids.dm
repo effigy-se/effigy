@@ -28,6 +28,15 @@
 	test_screenshot("[/datum/species/lizard]", get_flat_icon_for_all_directions(lizard))
 	testable_species -= /datum/species/lizard
 
+	// EffigyEdit Add - Needs special handling
+	var/mob/living/carbon/human/cerulean = allocate(/mob/living/carbon/human/dummy/consistent)
+	cerulean.dna.features[FEATURE_TAIL_FISH] = "Cerulean"
+	cerulean.dna.tail_type = AQUATIC_TYPE
+	cerulean.set_species(/datum/species/human/cerulean)
+	test_screenshot("[/datum/species/human/cerulean]", get_flat_icon_for_all_directions(cerulean))
+	testable_species -= /datum/species/human/cerulean
+	// EffigyEdit Add End
+
 	// Test humans as naked so we can catch issues with bodypart layering
 	var/mob/living/carbon/human/human = allocate(/mob/living/carbon/human/dummy/consistent)
 	test_screenshot("[/datum/species/human]", get_flat_icon_for_all_directions(human))
@@ -58,6 +67,15 @@
 		slime.equipOutfit(/datum/outfit/job/scientist/consistent)
 		test_screenshot("[slime_type]", get_flat_icon_for_all_directions(slime))
 		testable_species -= slime_type
+
+	for (var/datum/status_effect/golem/effect_type as anything in subtypesof(/datum/status_effect/golem))
+		if (!effect_type::overlay_state_prefix)
+			continue
+		var/mob/living/carbon/human/golem = allocate(/mob/living/carbon/human/dummy/consistent)
+		golem.set_species(/datum/species/golem)
+		golem.apply_status_effect(effect_type)
+		test_screenshot("[/datum/species/golem]-[effect_type]", get_flat_icon_for_all_directions(golem))
+	// We don't remove it from the list because we still want a normal screenshot
 
 	// The rest of the species
 	for (var/datum/species/species_type as anything in testable_species)

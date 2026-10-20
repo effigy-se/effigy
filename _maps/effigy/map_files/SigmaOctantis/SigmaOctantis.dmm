@@ -34665,7 +34665,7 @@
 /obj/structure/table/reinforced,
 /obj/item/wrench,
 /obj/item/crowbar,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/effect/turf_decal/tile/dark_blue{
 	dir = 4
 	},
@@ -57645,9 +57645,9 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/mmi,
-/obj/item/mmi,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
@@ -74770,7 +74770,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white,
 /area/station/science/research/abandoned)
@@ -95761,7 +95761,7 @@
 	dir = 10
 	},
 /obj/structure/table/reinforced/titaniumglass,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /turf/open/floor/iron/diagonal,
 /area/station/science/research)
 "vMk" = (
@@ -104216,9 +104216,9 @@
 "xDa" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/mmi,
-/obj/item/mmi,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
 "xDb" = (

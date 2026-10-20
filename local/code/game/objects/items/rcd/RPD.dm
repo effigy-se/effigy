@@ -7,6 +7,7 @@
 	desc = "State of the art technology being tested by Nakamura Engineering; the second in the Bluespace Advanced Tools line."
 	icon = 'local/icons/obj/tools.dmi'
 	icon_state = "bsrpd"
+	inhand_icon_state = "bsrpd"
 	lefthand_file = 'local/icons/mob/inhands/engineering/tools_lefthand.dmi'
 	righthand_file = 'local/icons/mob/inhands/engineering/tools_righthand.dmi'
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF

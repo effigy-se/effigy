@@ -140,6 +140,7 @@ GLOBAL_LIST_INIT(bodypart_allowed_species, list(
 		/datum/species/insectoid,
 		/datum/species/lizard,
 		/datum/species/synth,
+		/datum/species/human/cerulean,
 	)),
 	FEATURE_WINGS = typecacheof(list(
 		/datum/species/animalid,
