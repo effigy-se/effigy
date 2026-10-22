@@ -10627,7 +10627,7 @@
 	},
 /obj/machinery/door/firedoor/water_sensor,
 /obj/structure/table/reinforced,
-/obj/structure/displaycase/forsale/kitchen{
+/obj/structure/tipjar/prefilled{
 	pixel_y = 6
 	},
 /turf/open/floor/iron/smooth_large,
@@ -88071,7 +88071,7 @@
 	},
 /obj/machinery/door/firedoor/water_sensor,
 /obj/structure/table/reinforced,
-/obj/structure/displaycase/forsale/kitchen{
+/obj/structure/tipjar/prefilled{
 	pixel_y = 6
 	},
 /turf/open/floor/iron/smooth_large,
