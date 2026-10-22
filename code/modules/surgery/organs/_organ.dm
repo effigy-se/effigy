@@ -229,7 +229,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 ///Used as callbacks by object pooling
 /obj/item/organ/proc/exit_wardrobe()
 	START_PROCESSING(SSobj, src)
-	if(!sprite_accessory_override) // EffigyEdit Change - Respect sprite accessory override
+	if(!sprite_accessory_override)
 		bodypart_overlay?.imprint_on_next_insertion = TRUE
 
 //See above

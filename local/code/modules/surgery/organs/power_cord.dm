@@ -3,12 +3,14 @@
 	desc = "An internal power cord. Useful if you run on elecricity. Not so much otherwise."
 	icon = 'local/icons/obj/medical/organs/organs.dmi'
 	icon_state = "charging_implant"
-	items_to_create = list(/obj/item/power_cord)
 	zone = "l_arm"
 	custom_materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT
 	)
+
+/obj/item/organ/cyberimp/arm/toolkit/power_cord/get_init_items()
+	return list(/obj/item/power_cord)
 
 /obj/item/power_cord
 	name = "power cord"
