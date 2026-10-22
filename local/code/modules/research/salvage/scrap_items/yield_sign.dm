@@ -1,5 +1,6 @@
 /obj/item/scrap/yield
 	icon_state = "yield0"
+	base_icon_state = "yield"
 	name = "yield sign"
 	desc = "For an unyielding beatdown."
 	force = 10
@@ -20,9 +21,5 @@
 	AddComponent(/datum/component/two_handed, \
 		force_unwielded = initial(force), \
 		force_wielded = 20, \
-		icon_wielded = "yield1", \
+		update_icon_state = TRUE, \
 	)
-
-/obj/item/scrap/yield/update_icon_state()
-	icon_state = "yield0"
-	return ..()
